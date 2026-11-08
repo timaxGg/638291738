@@ -183,7 +183,7 @@ async function vorlage(slot){const z=zeit(),prev=KI,d=depot(),watch=[...new Set(
     model:prev.model||{trendDamping:.5,bandFactor:1,newsWeight:1},updates:(prev.updates||[]).filter(u=>!u.example).slice(-10),catalog:prev.catalog||[],
     _lernen:sonntag?Object.assign({},lern,{aktuelleParameter:params(),aufgabe:"Wenn die Trefferquote deutlich (mehr als 10 Punkte) vom Soll abweicht und mindestens 20 Prognosen ausgewertet sind: füge in updates EINEN Vorschlag hinzu {id:\"u-DATUM\",date,title,what,why,how,change:{bandFactor oder trendDamping oder newsWeight}}. Kleine Schritte (±10 %). Sonst nichts hinzufügen."}):undefined};
   writeJSON(P("data/ki-vorlage.json"),v);changed.add("data/ki-vorlage.json");B.slots[slot]=z.date;log("Vorlage",slot,stocks.length,"Aktien",roh.length,"Meldungen")}
-function slotJetzt(){const z=zeit();for(const [s,h] of [["morgen",7],["mittag",12],["abend",22]])if(z.h===h&&z.m<35&&B.slots[s]!==z.date)return s;return null}
+function slotJetzt(){const z=zeit();for(const [s,h] of [["morgen",6],["mittag",12],["abend",20]])if(z.h===h&&z.m<35&&B.slots[s]!==z.date)return s;return null}
 
 /* ---------- Speichern ---------- */
 async function sichern(){if(changed.has("inbox")&&PASS){const keep=B.inbox.filter(e=>Date.now()-e.t<30*864e5);B.inbox=keep;fs.mkdirSync(P("data"),{recursive:true});fs.writeFileSync(P("data/inbox.enc"),await verschluesseln({events:keep},PASS));changed.delete("inbox");changed.add("data/inbox.enc")}
