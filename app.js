@@ -65,7 +65,7 @@ async function gh(path,opt={}){const r=await fetch(`https://api.github.com/repos
 function payload(){const [rec]=recommend();return {depot:S.depot.filter(d=>!d.demo),fin:S.fin,kh:S.kh,updates:S.updates,watch:S.watch,notify:S.settings.notify,investor:S.settings.investor,
  model:S.fin.model||"",modelName:S.fin.model?MODELS[S.fin.model].n:"",rec,recName:MODELS[rec].n,inboxDone:S.inboxDone.slice(-200)}}
 let syncT=null,syncBusy=false;
-function syncPlan(){if(!syncOn()||!KI)return;const h=JSON.stringify(payload());if(h===S.syncHash)return;clearTimeout(syncT);syncT=setTimeout(syncPush,2500)}
+function syncPlan(){if(!syncOn()||!KI)return;const h=JSON.stringify(payload());if(h===S.syncHash)return;clearTimeout(syncT);syncT=setTimeout(syncPush,20000)}
 async function syncPush(){if(!syncOn()||syncBusy)return;syncBusy=true;try{const p=payload(),h=JSON.stringify(p);p.updatedAt=Date.now();const cur=await gh("data/state.enc");
  await gh("data/state.enc",{method:"PUT",body:JSON.stringify({message:"App: Daten aktualisiert",content:btoa(await encJ(p,S.settings.syncPass)),sha:cur?cur.sha:undefined})});
  S.syncAt=p.updatedAt;S.syncHash=h;S.syncInfo="";try{localStorage.setItem("kah",JSON.stringify(S))}catch(e){}}catch(e){S.syncInfo=e.message;toast("Abgleich: "+e.message)}syncBusy=false}

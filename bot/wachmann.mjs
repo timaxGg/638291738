@@ -121,8 +121,8 @@ async function befehl(text){const [c0,...a]=text.trim().split(/\s+/),c=c0.toLowe
 async function knopf(cb){const [t,id]=String(cb.data||"").split(":"),x=khListe().find(i=>String(i.id)===id);await tg("answerCallbackQuery",{callback_query_id:cb.id,text:x?"Gespeichert":"Schon erledigt"});if(!x)return;
   B.khDone.push(String(x.id));inbox(t==="kb"?"kh-buy":"kh-skip",x);
   await tg("editMessageText",{chat_id:CHAT,message_id:cb.message.message_id,parse_mode:"HTML",text:t==="kb"?`✅ <b>${esc(x.n)}</b>: gekauft. Viel Freude damit!`:`💚 <b>${esc(x.n)}</b>: nicht gekauft. ${fmt(x.p,0)} € gespart!`})}
-async function telegramEingang(){if(!TG)return;const r=await tg("getUpdates",{offset:B.offset,timeout:0,allowed_updates:["message","callback_query"]});if(!r||!r.ok){B.err.telegram=(r&&r.description)||"Telegram nicht erreichbar";log("Telegram-Fehler:",B.err.telegram);return}
-  delete B.err.telegram;log("Telegram:",(r.result||[]).length,"neue Nachricht(en)",CHAT?"":"(Chat-ID noch nicht eingetragen)");
+async function telegramEingang(warte=0){if(!TG)return;const r=await tg("getUpdates",{offset:B.offset,timeout:warte,allowed_updates:["message","callback_query"]});if(!r||!r.ok){B.err.telegram=(r&&r.description)||"Telegram nicht erreichbar";log("Telegram-Fehler:",B.err.telegram);return}
+  delete B.err.telegram;if(warte&&!(r.result||[]).length)return;log("Telegram:",(r.result||[]).length,"neue Nachricht(en)",CHAT?"":"(Chat-ID noch nicht eingetragen)");
   for(const u of r.result||[]){B.offset=u.update_id+1;const msg=u.message,cb=u.callback_query,chat=String((msg&&msg.chat.id)||(cb&&cb.message.chat.id)||"");
     if(!CHAT){if(msg)await tg("sendMessage",{chat_id:chat,parse_mode:"HTML",text:`👋 Hallo! Deine Chat-ID ist:\n\n<code>${chat}</code>\n\nTrag sie bei GitHub als Secret <b>TELEGRAM_CHAT</b> ein (Schritt 6 der Anleitung). Danach kann ich dir schreiben.`});continue}
     if(chat!==CHAT)continue;try{if(msg&&msg.text)await befehl(msg.text);if(cb)await knopf(cb)}catch(e){log("Befehl",e)}}}
@@ -210,5 +210,7 @@ export async function main(){
   if(!FH)B.err.finnhub="FINNHUB_KEY fehlt";if(!TG)B.err.telegram="TELEGRAM_TOKEN fehlt";
   await telegramEingang();
   const slot=E.FORCE_SLOT||slotJetzt();if(slot)try{await vorlage(slot)}catch(e){log("Vorlage",e);B.err.vorlage=e.message}
-  await alarme();await abendRueckblick();await warteschlange();await sichern();log("fertig",{slot,depot:depot().length,fehler:B.err})}
+  await alarme();await abendRueckblick();await warteschlange();
+  // Danach noch eine Weile auf Telegram-Befehle lauschen, damit Antworten sofort kommen
+  const ende=Date.now()+(E.POLL_SEK!==undefined?+E.POLL_SEK:110)*1000;while(TG&&CHAT&&Date.now()<ende-26000){await telegramEingang(25);await warteschlange()}await sichern();log("fertig",{slot,depot:depot().length,fehler:B.err})}
 if(import.meta.url===`file://${process.argv[1]}`)main().catch(e=>{console.error(e);process.exit(1)});
