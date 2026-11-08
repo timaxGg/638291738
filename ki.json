@@ -1,0 +1,981 @@
+{
+ "version": 1,
+ "generated": "2026-11-08T15:00:00+01:00",
+ "dataAsOf": "2026-11-06",
+ "indices": [
+  {
+   "n": "S&P 500",
+   "v": 7376.86,
+   "c": 0.31,
+   "s": "USA, 500 große Firmen"
+  },
+  {
+   "n": "Nasdaq Composite",
+   "v": 24579.42,
+   "c": 1.09,
+   "s": "USA, technologielastig"
+  },
+  {
+   "n": "Dow Jones",
+   "v": 51285.73,
+   "c": -0.46,
+   "s": "USA, 30 Großkonzerne"
+  }
+ ],
+ "sectors": [
+  {
+   "n": "Gesundheit",
+   "c": -0.06,
+   "p": "Freitag"
+  },
+  {
+   "n": "Finanzen",
+   "c": -0.59,
+   "p": "Freitag"
+  },
+  {
+   "n": "Technologie",
+   "c": -7,
+   "p": "Woche"
+  },
+  {
+   "n": "Energie",
+   "c": -11,
+   "p": "Woche"
+  }
+ ],
+ "calendar": [
+  {
+   "day": "Mo 9.11",
+   "items": [
+    "Quartalszahlen: Rocket Lab, Take-Two"
+   ]
+  },
+  {
+   "day": "Di 10.11",
+   "items": [
+    "<b>US-Inflation (CPI)</b>, 14:30 Uhr",
+    "Quartalszahlen: CoreWeave"
+   ]
+  },
+  {
+   "day": "Mi 11.11",
+   "items": [
+    "US-Feiertag: Börse offen, Anleihemarkt zu"
+   ]
+  },
+  {
+   "day": "Do 12.11",
+   "items": [
+    "Quartalszahlen: Cisco, Applied Materials, Nebius"
+   ]
+  },
+  {
+   "day": "Fr 13.11",
+   "items": [
+    "US-Erzeugerpreise (PPI)"
+   ]
+  }
+ ],
+ "stocks": [
+  {
+   "s": "NVDA",
+   "n": "Nvidia",
+   "h": "kurz",
+   "bias": -2,
+   "cat": "Chips / KI",
+   "why": "Nvidia hängt stark an der Stimmung rund um KI-Rechenzentren. Nach dem Einbruch am Donnerstag kam am Freitag eine Erholung. Diese Woche liefern CoreWeave (Di) und Applied Materials (Do) neue Hinweise auf die KI-Nachfrage.",
+   "pro": [
+    "Erholung am Freitag nach dem Einbruch",
+    "Einige Analysten sehen den Rückgang als Kaufgelegenheit"
+   ],
+   "con": [
+    "Politischer Gegenwind für neue Rechenzentren",
+    "Sehr hohe Schwankung"
+   ],
+   "news": [
+    "ki",
+    "wahl",
+    "cpi"
+   ],
+   "closes": [
+    186.64,
+    181.6,
+    200.13,
+    206.69,
+    202.06,
+    204.64,
+    213.66,
+    215.38,
+    217.94,
+    216,
+    210.96,
+    212.21,
+    221.97,
+    216.47,
+    217.09,
+    214.13,
+    217.23,
+    221.3,
+    228.52,
+    226.32,
+    229.28,
+    230.48,
+    237.47,
+    239.24,
+    238.9,
+    233.95,
+    230.86,
+    228.38,
+    227.21,
+    228.86,
+    225.07,
+    224.58,
+    225.51,
+    228.87,
+    227.38,
+    222.27,
+    219.34,
+    213.9,
+    212.17,
+    210.96,
+    218.29,
+    218.36,
+    223.67,
+    225.73,
+    230.36,
+    228.45,
+    224.41,
+    217.44,
+    220.78,
+    217.55,
+    227.98,
+    209.66,
+    213.05,
+    208.48,
+    214.72,
+    216.85,
+    217.56,
+    219.74,
+    225.01,
+    225.16,
+    225.3,
+    224.09,
+    217.5,
+    217.55,
+    223.96
+   ]
+  },
+  {
+   "s": "MSFT",
+   "n": "Microsoft",
+   "h": "lang",
+   "bias": 0,
+   "cat": "Software / Cloud",
+   "why": "Breit aufgestellt mit Cloud (Azure), Office und KI-Angeboten. Hielt sich in den letzten drei Monaten über dem Ausgangsniveau, schwankt aber deutlich mit dem KI-Thema.",
+   "pro": [
+    "Mehrere starke Geschäftsbereiche",
+    "Langfristig steigender Kursverlauf seit August"
+   ],
+   "con": [
+    "Ebenfalls vom Thema Rechenzentren betroffen",
+    "Höhere Zinsen belasten Tech-Bewertungen"
+   ],
+   "news": [
+    "ki",
+    "cpi"
+   ],
+   "closes": [
+    530.61,
+    535.93,
+    555.8,
+    520.99,
+    507.12,
+    521.91,
+    530.14,
+    531.01,
+    531.33,
+    532.6,
+    524.51,
+    521.08,
+    532.95,
+    531.87,
+    533.52,
+    529.05,
+    539.44,
+    533.69,
+    543.45,
+    541.15,
+    535.07,
+    522.61,
+    529.76,
+    529.3,
+    525.18,
+    517.53,
+    512.8,
+    512.9,
+    508.96,
+    509.22,
+    516.17,
+    497.93,
+    500.59,
+    498,
+    501.61,
+    493.78,
+    497.75,
+    490.3,
+    497.12,
+    505.41,
+    495.63,
+    492.44,
+    491.65,
+    493.95,
+    499.7,
+    510.12,
+    496.82,
+    501.02,
+    507.29,
+    513.53,
+    505.06,
+    496.37,
+    491.71,
+    487.31,
+    483.24,
+    481.15,
+    484.31,
+    481.63,
+    480.35,
+    495.4,
+    496.88,
+    492.43,
+    503.81,
+    506.06,
+    499.99
+   ]
+  },
+  {
+   "s": "AAPL",
+   "n": "Apple",
+   "h": "lang",
+   "bias": 0,
+   "cat": "Geräte / Dienste",
+   "why": "Weniger direkt vom Rechenzentrum-Thema betroffen als Chip-Hersteller. Bewegte sich in der Ausverkaufswoche vergleichsweise ruhig.",
+   "pro": [
+    "Geringere Schwankung als Chipwerte",
+    "Breites Geschäft mit Geräten und Diensten"
+   ],
+   "con": [
+    "Höhere Zinsen belasten Tech-Bewertungen"
+   ],
+   "news": [
+    "jobs",
+    "cpi"
+   ],
+   "closes": [
+    342.37,
+    344.17,
+    349.51,
+    331.9,
+    338.32,
+    344.63,
+    348.91,
+    343.83,
+    347.1,
+    343.91,
+    347.73,
+    348.22,
+    343.99,
+    339.5,
+    342.94,
+    343.46,
+    342,
+    342.96,
+    341.27,
+    340.97,
+    336.64,
+    340.42,
+    336.67,
+    333.63,
+    332.89,
+    333.69,
+    330.32,
+    333.02,
+    329.4,
+    338.4,
+    341.07,
+    335.92,
+    337.02,
+    339.75,
+    338.98,
+    336.13,
+    337,
+    332.41,
+    331.34,
+    333.08,
+    332.27,
+    326.57,
+    315.34,
+    316.22,
+    319.97,
+    328.21,
+    324.96,
+    325.13,
+    316.85,
+    319.7,
+    314.58,
+    313.45,
+    309.9,
+    310.34,
+    309.35,
+    311.3,
+    316.83,
+    310.03,
+    305.59,
+    305.93,
+    305.26,
+    302.25,
+    304.91,
+    308.26,
+    313.33
+   ]
+  },
+  {
+   "s": "SAP",
+   "n": "SAP",
+   "h": "lang",
+   "bias": -1,
+   "cat": "Software",
+   "why": "Europas größter Softwarekonzern. Kurzfristig belastet ein schwächerer Cloud-Ausblick. Langfristig zählt, ob KI-Angebote spürbar Umsatz bringen. Kurs in US-Dollar (US-Notierung).",
+   "pro": [
+    "Starke Marktstellung bei Unternehmenssoftware",
+    "Seit August klar gestiegen"
+   ],
+   "con": [
+    "Cloud-Wachstum verlangsamt sich",
+    "Ermittlungen zu öffentlichen Aufträgen"
+   ],
+   "news": [
+    "sap"
+   ],
+   "closes": [
+    233.45,
+    243.53,
+    240.04,
+    230.31,
+    233.62,
+    235.02,
+    234.07,
+    236.93,
+    235.8,
+    238.55,
+    238.14,
+    240.59,
+    232.73,
+    228.98,
+    226.03,
+    224.29,
+    225,
+    220.49,
+    219.75,
+    217.85,
+    214.78,
+    212.4,
+    210.13,
+    210.46,
+    207.74,
+    208.57,
+    210.79,
+    208.48,
+    210.85,
+    209.31,
+    210.68,
+    209.11,
+    210.62,
+    210.68,
+    209.22,
+    209.45,
+    213.66,
+    213.2,
+    215.67,
+    218.28,
+    206.36,
+    205.95,
+    209.14,
+    211.49,
+    215.11,
+    217.03,
+    209.69,
+    212.04,
+    220.89,
+    221.54,
+    221.17,
+    211.68,
+    216.93,
+    218.66,
+    218.68,
+    217.09,
+    215.6,
+    210.47,
+    207.84,
+    207.97,
+    209.28,
+    204.15,
+    209.68,
+    208.55,
+    206.16
+   ]
+  },
+  {
+   "s": "AMZN",
+   "n": "Amazon",
+   "h": "kurz",
+   "bias": 0,
+   "cat": "Handel / Cloud",
+   "why": "Online-Handel plus Cloud-Geschäft (AWS). Der Kurs schwankte zuletzt stark und erholte sich Anfang November vom Oktober-Tief.",
+   "pro": [
+    "Erholung seit dem Tief Ende Oktober",
+    "Cloud profitiert von KI-Nachfrage"
+   ],
+   "con": [
+    "Hohe Ausgaben für Rechenzentren",
+    "Starke Kurssprünge in beide Richtungen"
+   ],
+   "news": [
+    "ki",
+    "wahl"
+   ],
+   "closes": [
+    259.3,
+    260.21,
+    266.03,
+    250.69,
+    245.63,
+    240.35,
+    243.79,
+    254.6,
+    253.1,
+    249.09,
+    248,
+    250.38,
+    262.37,
+    262.63,
+    262.45,
+    250,
+    254.76,
+    254.08,
+    258.58,
+    259.53,
+    262.43,
+    254.06,
+    259.92,
+    256.29,
+    251.4,
+    251.52,
+    248.23,
+    249.15,
+    246.67,
+    246.15,
+    249.67,
+    249.38,
+    249.27,
+    254.98,
+    258.45,
+    253.71,
+    251.19,
+    245.96,
+    248.42,
+    253.54,
+    256.78,
+    251.89,
+    252.4,
+    256.97,
+    258.51,
+    258.9,
+    254.98,
+    254.92,
+    259.77,
+    266.43,
+    256.26,
+    260.28,
+    261.06,
+    262.07,
+    258.63,
+    260.11,
+    265.84,
+    259.45,
+    261.31,
+    262.65,
+    265.13,
+    267.28,
+    272.27,
+    278.09,
+    274.48
+   ]
+  },
+  {
+   "s": "XLV",
+   "n": "Gesundheit (Branchen-ETF)",
+   "h": "lang",
+   "bias": 0.5,
+   "cat": "ETF / Gesundheit",
+   "why": "Ein ETF auf große US-Gesundheitsfirmen, also viele Firmen in einem Kauf. Stieg in drei Monaten deutlich und hielt sich in der Ausverkaufswoche stabil.",
+   "pro": [
+    "Breit gestreut",
+    "Wenig abhängig vom KI-Thema"
+   ],
+   "con": [
+    "Steigt in starken Tech-Phasen meist langsamer"
+   ],
+   "news": [
+    "jobs"
+   ],
+   "closes": [
+    184.8,
+    184.91,
+    189.66,
+    184.02,
+    184.6,
+    184.87,
+    184.04,
+    179.72,
+    179.18,
+    179.28,
+    179.28,
+    181.3,
+    178.94,
+    179.82,
+    175.65,
+    176.71,
+    177.19,
+    173.96,
+    169.66,
+    171.99,
+    170.81,
+    168.16,
+    168.81,
+    167.09,
+    167.37,
+    166.18,
+    166.2,
+    168.42,
+    170.73,
+    171.26,
+    170.7,
+    169.87,
+    168.8,
+    169.89,
+    169.01,
+    168.39,
+    168.81,
+    167.77,
+    167.66,
+    167.75,
+    165.36,
+    165.66,
+    166.58,
+    167.13,
+    171.45,
+    173.26,
+    172.95,
+    171.67,
+    170.54,
+    171.16,
+    171.58,
+    173.54,
+    175.29,
+    174.7,
+    174.62,
+    172.39,
+    175.68,
+    169.73,
+    167.05,
+    167.37,
+    168.38,
+    168.44,
+    168.01,
+    168.44,
+    165.68
+   ]
+  }
+ ],
+ "news": [
+  {
+   "id": "ki",
+   "imp": 3,
+   "kind": [
+    "wirkt jetzt",
+    "down"
+   ],
+   "cat": "Tech",
+   "t": "KI-Ausverkauf: Chipwerte mit schlechtestem Tag seit 2020",
+   "sum": "Rund 3 Billionen Dollar Börsenwert verschwanden an einem Tag, Chipwerte fielen um 12 %.",
+   "body": [
+    "Am Donnerstag fiel der S&P 500 um mehr als 4 %, so stark wie seit dem Zoll-Crash im April 2025 nicht mehr. Der Halbleiter-Index verlor 12 % an einem Tag.",
+    "Auslöser sind Sorgen, dass der Bau von KI-Rechenzentren langsamer wird und Firmen weniger für KI ausgeben. Am Freitag erholten sich Chipwerte um rund 4 %, blieben auf Wochensicht aber im Minus."
+   ],
+   "back": "Rückblick: Nach dem letzten vergleichbaren Einbruch im April 2025 erholte sich der Markt in den folgenden Monaten. Eine Garantie dafür ist das nicht.",
+   "stocks": [
+    "NVDA",
+    "MSFT",
+    "AMZN"
+   ],
+   "u": "https://finance.yahoo.com/markets/live/stock-market-today-friday-november-6-dow-sp-500-nasdaq-jobs-report-earnings-135953863.html",
+   "q": "Yahoo Finance"
+  },
+  {
+   "id": "wahl",
+   "imp": 3,
+   "kind": [
+    "wirkt bald",
+    "warn"
+   ],
+   "cat": "Politik",
+   "t": "Nach den US-Wahlen: Gegenwind für neue Rechenzentren",
+   "sum": "Neue Mehrheiten könnten den Bau von KI-Rechenzentren in mehreren US-Staaten bremsen.",
+   "body": [
+    "Die Demokraten haben die Mehrheit im Kongress gewonnen. Kandidaten beider Parteien hatten gegen KI-Rechenzentren Wahlkampf gemacht.",
+    "Goldman Sachs schätzt, dass rund 45 % der geplanten US-Rechenzentrumskapazität durch neu gewählte Gouverneure eingeschränkt werden könnte. Bereits genehmigte Projekte dürfen laut Texas weitergebaut werden."
+   ],
+   "back": "Wirkt bald: Neue Regeln brauchen Monate bis zum Inkrafttreten. Die Wirkung auf Chip-Hersteller zeigt sich eher in den kommenden Quartalen als sofort.",
+   "stocks": [
+    "NVDA",
+    "AMZN"
+   ],
+   "u": "https://finance.yahoo.com/markets/live/stock-market-today-friday-november-6-dow-sp-500-nasdaq-jobs-report-earnings-135953863.html",
+   "q": "Yahoo Finance"
+  },
+  {
+   "id": "cpi",
+   "imp": 3,
+   "kind": [
+    "Termin Di 10.11.",
+    "warn"
+   ],
+   "cat": "Zinsen",
+   "t": "US-Inflationsdaten am Dienstag",
+   "sum": "Die Inflationszahl für Oktober entscheidet mit darüber, ob die US-Notenbank im Dezember die Zinsen anhebt.",
+   "body": [
+    "Am Dienstag um 14:30 Uhr deutscher Zeit erscheinen die US-Verbraucherpreise für Oktober.",
+    "Fällt die Kerninflation höher aus als erwartet, dürften Anleiherenditen und Dollar steigen. Das würde vor allem hoch bewertete Technologie-Aktien belasten. Am Freitag folgen die Erzeugerpreise."
+   ],
+   "back": "Hintergrund: Im Oktober hielt die Notenbank den Zins bei 3,75 bis 4,00 %, zwei Mitglieder stimmten bereits für eine Erhöhung.",
+   "stocks": [
+    "NVDA",
+    "MSFT",
+    "AAPL"
+   ],
+   "u": "https://www.tradingkey.com/analysis/stocks/us-stocks/262294759-week-ahead-october-cpi-ppi-coreweave-cisco-applied-materials-tradingkey",
+   "q": "TradingKey"
+  },
+  {
+   "id": "jobs",
+   "imp": 2,
+   "kind": [
+    "wirkt jetzt",
+    ""
+   ],
+   "cat": "Konjunktur",
+   "t": "US-Arbeitsmarkt deutlich stärker als erwartet",
+   "sum": "165.000 neue Stellen statt der erwarteten rund 70.000. Eine Zinserhöhung im Dezember wird möglicher.",
+   "body": [
+    "Im Oktober kamen 165.000 neue Stellen hinzu. Die Arbeitslosenquote sank auf 4,1 %, die Löhne halten mit der Inflation von 3,1 % Schritt.",
+    "Ein starker Arbeitsmarkt ist gut für die Wirtschaft, erhöht aber den Druck auf die Notenbank, die Zinsen anzuheben."
+   ],
+   "back": "Warum wichtig: Höhere Zinsen machen Anleihen attraktiver und drücken auf die Bewertung von Wachstumsaktien.",
+   "stocks": [
+    "AAPL",
+    "XLV"
+   ],
+   "u": "https://finance.yahoo.com/markets/live/stock-market-today-friday-november-6-dow-sp-500-nasdaq-jobs-report-earnings-135953863.html",
+   "q": "Yahoo Finance"
+  },
+  {
+   "id": "sap",
+   "imp": 2,
+   "kind": [
+    "Einzelaktie",
+    "down"
+   ],
+   "cat": "Software",
+   "t": "SAP verliert rund 4 %: Cloud-Wachstum lässt nach",
+   "sum": "SAP erwartet, dass das Cloud-Wachstum im vierten Quartal langsamer wird.",
+   "body": [
+    "Das Management rechnet damit, dass der Cloud-Auftragsbestand im vierten Quartal langsamer wächst. Dazu kommen Zweifel, wann KI-Angebote spürbar Umsatz bringen.",
+    "Außerdem nahmen Anleger nach dem Anstieg auf die Quartalszahlen Gewinne mit. Ermittlungen zu Vergabepraktiken bei öffentlichen Aufträgen belasten zusätzlich."
+   ],
+   "back": "Wirkt jetzt: Unternehmen verschieben Budgets gerade von Software zu Hardware und Infrastruktur.",
+   "stocks": [
+    "SAP"
+   ],
+   "u": "https://www.tradingkey.com/news/market-movers/262292655-market-movers-sap-20261106",
+   "q": "TradingKey"
+  },
+  {
+   "id": "oel",
+   "imp": 2,
+   "kind": [
+    "wirkt jetzt",
+    ""
+   ],
+   "cat": "Energie",
+   "t": "Ölpreis fällt unter 100 Dollar",
+   "sum": "Brent-Öl kostet weniger als 100 Dollar je Barrel, Energiewerte verlieren auf Wochensicht 11 %.",
+   "body": [
+    "Der Preis für Brent-Öl rutschte unter 100 Dollar je Barrel. Hintergrund sind veränderte Erwartungen zur Lage im Nahen Osten.",
+    "Der Energie-Sektor war mit rund 11 % Minus der schwächste Bereich der Woche."
+   ],
+   "back": "Wirkt jetzt: Ein niedrigerer Ölpreis entlastet Verbraucher und Firmen mit hohen Energiekosten, belastet aber Ölkonzerne.",
+   "stocks": [],
+   "u": "https://finance.yahoo.com/markets/live/stock-market-today-friday-november-6-dow-sp-500-nasdaq-jobs-report-earnings-135953863.html",
+   "q": "Yahoo Finance"
+  },
+  {
+   "id": "airbnb",
+   "imp": 1,
+   "kind": [
+    "Einzelaktie",
+    "up"
+   ],
+   "cat": "Reise",
+   "t": "Airbnb übertrifft Erwartungen",
+   "sum": "Airbnb meldete bessere Zahlen als erwartet und hob die Prognose an.",
+   "body": [
+    "Die Aktie stieg nachbörslich, nachdem Airbnb die Erwartungen übertroffen und den Ausblick angehoben hatte."
+   ],
+   "back": "Einordnung: Ein Einzelwert, ohne große Wirkung auf den Gesamtmarkt.",
+   "stocks": [],
+   "u": "https://finance.yahoo.com/markets/live/stock-market-today-friday-november-6-dow-sp-500-nasdaq-jobs-report-earnings-135953863.html",
+   "q": "Yahoo Finance"
+  },
+  {
+   "id": "tesla",
+   "imp": 1,
+   "kind": [
+    "wirkt bald",
+    ""
+   ],
+   "cat": "Auto",
+   "t": "Tesla stellt den Cybertruck ein",
+   "sum": "Tesla will die Cybertruck-Produktion etwa Mitte nächsten Jahres auslaufen lassen.",
+   "body": [
+    "Tesla kündigte an, die Produktion des Cybertruck um die Mitte des nächsten Jahres zu beenden."
+   ],
+   "back": "Wirkt bald: Die Entscheidung betrifft vor allem die Produktplanung der nächsten Monate.",
+   "stocks": [],
+   "u": "https://finance.yahoo.com/markets/live/stock-market-today-friday-november-6-dow-sp-500-nasdaq-jobs-report-earnings-135953863.html",
+   "q": "Yahoo Finance"
+  }
+ ],
+ "catalog": [
+  {
+   "s": "NVDA",
+   "n": "Nvidia",
+   "a": ""
+  },
+  {
+   "s": "MSFT",
+   "n": "Microsoft",
+   "a": ""
+  },
+  {
+   "s": "AAPL",
+   "n": "Apple",
+   "a": ""
+  },
+  {
+   "s": "SAP",
+   "n": "SAP",
+   "a": ""
+  },
+  {
+   "s": "AMZN",
+   "n": "Amazon",
+   "a": ""
+  },
+  {
+   "s": "XLV",
+   "n": "Gesundheit-ETF (Health Care Select)",
+   "a": ""
+  },
+  {
+   "s": "GOOGL",
+   "n": "Alphabet",
+   "a": "google"
+  },
+  {
+   "s": "META",
+   "n": "Meta Platforms",
+   "a": "facebook"
+  },
+  {
+   "s": "TSLA",
+   "n": "Tesla",
+   "a": ""
+  },
+  {
+   "s": "NFLX",
+   "n": "Netflix",
+   "a": ""
+  },
+  {
+   "s": "AMD",
+   "n": "AMD",
+   "a": ""
+  },
+  {
+   "s": "INTC",
+   "n": "Intel",
+   "a": ""
+  },
+  {
+   "s": "ASML",
+   "n": "ASML",
+   "a": ""
+  },
+  {
+   "s": "NVO",
+   "n": "Novo Nordisk",
+   "a": ""
+  },
+  {
+   "s": "KO",
+   "n": "Coca-Cola",
+   "a": ""
+  },
+  {
+   "s": "JPM",
+   "n": "JPMorgan Chase",
+   "a": ""
+  },
+  {
+   "s": "V",
+   "n": "Visa",
+   "a": ""
+  },
+  {
+   "s": "BRK.B",
+   "n": "Berkshire Hathaway",
+   "a": ""
+  },
+  {
+   "s": "SIE",
+   "n": "Siemens",
+   "a": ""
+  },
+  {
+   "s": "ALV",
+   "n": "Allianz",
+   "a": ""
+  },
+  {
+   "s": "DTE",
+   "n": "Deutsche Telekom",
+   "a": "telekom"
+  },
+  {
+   "s": "MBG",
+   "n": "Mercedes-Benz",
+   "a": "mercedes daimler"
+  },
+  {
+   "s": "BMW",
+   "n": "BMW",
+   "a": ""
+  },
+  {
+   "s": "VOW3",
+   "n": "Volkswagen",
+   "a": "vw"
+  },
+  {
+   "s": "BAS",
+   "n": "BASF",
+   "a": ""
+  },
+  {
+   "s": "BAYN",
+   "n": "Bayer",
+   "a": ""
+  },
+  {
+   "s": "ADS",
+   "n": "Adidas",
+   "a": ""
+  },
+  {
+   "s": "IFX",
+   "n": "Infineon",
+   "a": ""
+  },
+  {
+   "s": "RHM",
+   "n": "Rheinmetall",
+   "a": ""
+  },
+  {
+   "s": "MUV2",
+   "n": "Münchener Rück",
+   "a": "munich re"
+  },
+  {
+   "s": "DBK",
+   "n": "Deutsche Bank",
+   "a": ""
+  },
+  {
+   "s": "DHL",
+   "n": "DHL Group",
+   "a": "post"
+  },
+  {
+   "s": "AIR",
+   "n": "Airbus",
+   "a": ""
+  },
+  {
+   "s": "URTH",
+   "n": "MSCI World ETF",
+   "a": "msci world welt"
+  },
+  {
+   "s": "SPY",
+   "n": "S&P 500 ETF",
+   "a": "sp500 s&p"
+  },
+  {
+   "s": "BTC",
+   "n": "Bitcoin",
+   "a": "krypto"
+  },
+  {
+   "s": "ETH",
+   "n": "Ethereum",
+   "a": "krypto"
+  },
+  {
+   "s": "GOLD",
+   "n": "Gold",
+   "a": "xau"
+  }
+ ],
+ "model": {
+  "trendDamping": 0.5,
+  "bandFactor": 1,
+  "newsWeight": 1
+ },
+ "updates": [
+  {
+   "id": "u-2026-11-08",
+   "date": "2026-11-08",
+   "example": true,
+   "title": "Prognose-Korridor bei Chipwerten etwas breiter",
+   "what": "Der wahrscheinliche Bereich der Prognose wird um 10 % breiter.",
+   "why": "In der Woche vom 2. bis 6. November lagen mehrere Chipwerte an einem Tag außerhalb des bisherigen Korridors (Halbleiter-Index −12 % an einem Tag). Ursache war eine nachvollziehbare Nachricht (Sorge um weniger KI-Rechenzentren), kein Datenfehler.",
+   "how": "Faktor für die Korridorbreite von 1,0 auf 1,1.",
+   "change": {
+    "bandFactor": 1.1
+   }
+  }
+ ],
+ "tracking": []
+}
