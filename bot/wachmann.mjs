@@ -167,7 +167,7 @@ async function vorlage(slot){const z=zeit(),prev=KI,d=depot(),watch=[...new Set(
   try{(await fh("news?category=general")).slice(0,12).forEach(n=>add(n))}catch(e){}
   if(B.earn.date!==z.date){try{const r=await fh(`calendar/earnings?from=${z.date}&to=${addDays(z.date,14)}`);B.earn={date:z.date,list:(r.earningsCalendar||[]).filter(e=>watch.includes(e.symbol))}}catch(e){}}
   const cal={};B.earn.list.forEach(e=>{const k=new Date(e.date+"T12:00:00Z").toLocaleDateString("de-DE",{weekday:"short",day:"numeric",month:"numeric"});(cal[k]=cal[k]||[]).push(`Quartalszahlen: ${catOf(e.symbol).n||e.symbol}`)});
-  const sonntag=z.wd==="Sun"&&slot==="abend",lern=slot==="morgen"||sonntag?prognoseCheck():null;
+  const sonntag=z.wd==="Sun"&&slot==="mittag",lern=slot==="morgen"||sonntag?prognoseCheck():null;
   const v={version:2,generated:F("aktuelle Uhrzeit als ISO-Zeitstempel mit +01:00 bzw. +02:00"),dataAsOf:z.date,_slot:slot,
     _anleitung:"Ersetze jeden §FILL…§-Platzhalter durch passenden Inhalt im richtigen JSON-Typ (Text, Zahl oder Liste). Alles andere unverändert lassen. Felder mit _ am Anfang danach löschen. Deutsch, kurz, sachlich, in eigenen Worten, keine Kauf- oder Verkaufsempfehlungen.",
     indices:INDEX_ETF.filter(([s])=>B.q[s]).map(([s,n])=>({n,v:B.q[s].c,c:+B.q[s].dp.toFixed(2),s:`über ${s}`})),
