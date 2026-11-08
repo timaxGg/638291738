@@ -145,6 +145,17 @@ async function alarme(){const n=Object.assign({loss:true,target:true,move:5,news
     for(const u of (KI.updates||[]))if(!u.example&&!B.sent[`upd:${u.id}`]){B.sent[`upd:${u.id}`]=1;await send(`📬 <b>Neuer Update-Brief:</b> ${esc(u.title)}\nIn der App unter Aktien → Lern-Updates kannst du ihn übernehmen oder ablehnen.`)}}
   for(const k of Object.keys(B.sent))if(/^(move|earn):/.test(k)&&!k.includes(z.date)&&!k.includes(addDays(z.date,1)))delete B.sent[k]}
 
+/* ---------- Abend-Rückblick um 21 Uhr (ohne KI) ---------- */
+async function abendRueckblick(){const z=zeit(),n=U.notify||{};if((!E.FORCE_ABEND&&(z.h<21||z.h>=22))||B.sent.abend===z.date||n.briefing===false||!CHAT)return;B.sent.abend=z.date;
+  const d=depot();for(const x of d)if(isUS(x.s))await quote(x.s);for(const [s] of INDEX_ETF)await quote(s);
+  const zeilen=[],mit=d.filter(x=>priceOf(x.s));let tot=0,cost=0,heute=0;
+  for(const x of mit){const p=priceOf(x.s),mv=moveOf(x.s);tot+=p*x.q;cost+=x.k*x.q;heute+=p*x.q*(1-1/(1+mv/100));zeilen.push(`${mv>=0?"🟢":"🔴"} ${esc(x.n)}: heute ${sgn(mv)} · seit Kauf ${sgn((p/x.k-1)*100)}`)}
+  const morgen=addDays(z.date,1),termine=B.earn.list.filter(e=>e.date===morgen).map(e=>`Quartalszahlen ${esc(catOf(e.symbol).n||e.symbol)}`);
+  for(const x of d)if(x.tag&&+morgen.slice(8)===+x.tag)termine.push(`Nachkauf-Tag ${esc(x.n)}`);
+  const kh=khListe(),faellig=kh.filter(x=>x.due<=Date.now()+864e5);
+  const markt=INDEX_ETF.filter(([s])=>B.q[s]).map(([s,n])=>`${n} ${sgn(B.q[s].dp)}`).join(" · ");
+  await send(`🌙 <b>Dein Abend-Rückblick</b>${markt?`\n${markt}`:""}\n\n${mit.length?`<b>Depot heute: ${heute>=0?"+":""}${fmt(heute)} $</b> (gesamt ${fmt(tot)} $, ${sgn((tot/cost-1)*100)} seit Kauf)\n${zeilen.join("\n")}`:"Noch keine Aktien im Depot übertragen."}${mit.length>1?`\n\nBester: ${esc(mit.slice().sort((a,b)=>moveOf(b.s)-moveOf(a.s))[0].n)} · Schwächster: ${esc(mit.slice().sort((a,b)=>moveOf(a.s)-moveOf(b.s))[0].n)}`:""}\n\n<b>Morgen:</b> ${termine.length?termine.join(", "):"keine besonderen Termine bei deinen Aktien"}${kh.length?`\n\n🧺 Warenkorb: ${kh.length} Ding${kh.length>1?"e":""}${faellig.length?`, davon ${faellig.length} bald fällig (${faellig.map(x=>esc(x.n)).join(", ")})`:""}`:""}\n\nDie US-Börse schließt um 22 Uhr. Gute Nacht! 😴`)}
+
 /* ---------- Vorlage für Claude (3x täglich) ---------- */
 const F=s=>`§FILL: ${s}§`;
 function prognoseCheck(){const pf=P("data/prognosen.json"),log0=readJSON(pf,[]),heute=zeit().date;
@@ -183,7 +194,7 @@ async function vorlage(slot){const z=zeit(),prev=KI,d=depot(),watch=[...new Set(
     model:prev.model||{trendDamping:.5,bandFactor:1,newsWeight:1},updates:(prev.updates||[]).filter(u=>!u.example).slice(-10),catalog:prev.catalog||[],
     _lernen:sonntag?Object.assign({},lern,{aktuelleParameter:params(),aufgabe:"Wenn die Trefferquote deutlich (mehr als 10 Punkte) vom Soll abweicht und mindestens 20 Prognosen ausgewertet sind: füge in updates EINEN Vorschlag hinzu {id:\"u-DATUM\",date,title,what,why,how,change:{bandFactor oder trendDamping oder newsWeight}}. Kleine Schritte (±10 %). Sonst nichts hinzufügen."}):undefined};
   writeJSON(P("data/ki-vorlage.json"),v);changed.add("data/ki-vorlage.json");B.slots[slot]=z.date;log("Vorlage",slot,stocks.length,"Aktien",roh.length,"Meldungen")}
-function slotJetzt(){const z=zeit();for(const [s,h] of [["morgen",6],["mittag",12],["abend",20]])if(z.h===h&&z.m<35&&B.slots[s]!==z.date)return s;return null}
+function slotJetzt(){const z=zeit();for(const [s,h] of [["morgen",6],["mittag",12]])if(z.h===h&&z.m<35&&B.slots[s]!==z.date)return s;return null}
 
 /* ---------- Speichern ---------- */
 async function sichern(){if(changed.has("inbox")&&PASS){const keep=B.inbox.filter(e=>Date.now()-e.t<30*864e5);B.inbox=keep;fs.mkdirSync(P("data"),{recursive:true});fs.writeFileSync(P("data/inbox.enc"),await verschluesseln({events:keep},PASS));changed.delete("inbox");changed.add("data/inbox.enc")}
@@ -199,5 +210,5 @@ export async function main(){
   if(!FH)B.err.finnhub="FINNHUB_KEY fehlt";if(!TG)B.err.telegram="TELEGRAM_TOKEN fehlt";
   await telegramEingang();
   const slot=E.FORCE_SLOT||slotJetzt();if(slot)try{await vorlage(slot)}catch(e){log("Vorlage",e);B.err.vorlage=e.message}
-  await alarme();await warteschlange();await sichern();log("fertig",{slot,depot:depot().length,fehler:B.err})}
+  await alarme();await abendRueckblick();await warteschlange();await sichern();log("fertig",{slot,depot:depot().length,fehler:B.err})}
 if(import.meta.url===`file://${process.argv[1]}`)main().catch(e=>{console.error(e);process.exit(1)});
