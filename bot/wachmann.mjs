@@ -116,8 +116,8 @@ async function befehl(text){const [c0,...a]=text.trim().split(/\s+/),c=c0.toLowe
   case "/kurs":{const s=finde(arg);if(!s)return send("Welche Aktie? Beispiel: /kurs AAPL oder /kurs Siemens",{direkt:true});await frisch(s);const p=priceOf(s),an=analyse(st(s));
     return send(p?`<b>${esc(catOf(s).n||s)}</b> (${s})\n${fmt(p)} ${CS(s)} · heute ${sgn(moveOf(s))}${isEU(s)?" (ca. 15 Min. verzögert)":""}${an?`\nTrend ${PFEIL[an.dir]} · 4 Wochen ${sgn(an.ch20)}`:""}`:`Keinen Kurs für ${esc(s)} gefunden. Tipp: deutsche Aktien mit .DE, z. B. /kurs SIE.DE`,{direkt:true})}
   case "/depot":{const d=depot();if(!d.length)return send("Dein Depot ist leer oder noch nicht übertragen. Trag Aktien in der App ein, sie kommen automatisch hier an.",{direkt:true});
-    if(!B.q["EURUSD=X"])await yq("EURUSD=X");for(const x of d)if(isUS(x.s)?(boerseOffen()||!B.q[x.s]):!B.q[x.s]||Date.now()-B.q[x.s].t>9e5)await frisch(x.s);let tot=0,cost=0;const z=d.map(x=>{const p=priceOf(x.s);if(!p)return `• ${esc(x.n)}: kein Kurs`;tot+=toEUR(p*x.q,x.s);cost+=toEUR(x.k*x.q,x.s);return `• <b>${esc(x.n)}</b>: ${fmt(p*x.q)} ${CS(x.s)} (${sgn((p/x.k-1)*100)})`});
-    return send(`💼 <b>Dein Depot</b>\n${z.join("\n")}${cost?`\n\n<b>Gesamt: ${fmt(tot)} € (${sgn((tot/cost-1)*100)})</b>${d.some(x=>curOf(x.s)==="USD")?`\n<i>Dollar umgerechnet: 1 € = ${fmt(fx(),4)} $</i>`:""}`:""}`,{direkt:true})}
+    if(!B.q["EURUSD=X"])await yq("EURUSD=X");for(const x of d)if(isUS(x.s)?(boerseOffen()||!B.q[x.s]):!B.q[x.s]||Date.now()-B.q[x.s].t>9e5)await frisch(x.s);let tot=0,cost=0;const z=d.map(x=>{const p=priceOf(x.s);if(!p)return `• ${esc(x.n)}: kein Kurs`;if(!x.test){tot+=toEUR(p*x.q,x.s);cost+=toEUR(x.k*x.q,x.s)}return `• <b>${esc(x.n)}</b>${x.test?" (Test)":""}: ${fmt(p*x.q)} ${CS(x.s)} (${sgn((p/x.k-1)*100)})`});
+    return send(`💼 <b>Dein Depot</b>\n${z.join("\n")}${cost?`\n\n<b>Gesamt: ${fmt(tot)} € (${sgn((tot/cost-1)*100)})</b>${(()=>{const t=(U.trades||[]).filter(t=>!t.test);if(!t.length)return"";const r=t.reduce((x,t)=>x+toEUR((t.p-t.k)*t.q,t.s),0);return `\nRealisiert durch Verkäufe: ${r>=0?"+":""}${fmt(r)} €`})()}${d.some(x=>curOf(x.s)==="USD")?`\n<i>Dollar umgerechnet: 1 € = ${fmt(fx(),4)} $</i>`:""}`:""}`,{direkt:true})}
   case "/top":{const d=depot().filter(x=>priceOf(x.s));if(!d.length)return send("Noch keine Kurse für dein Depot.",{direkt:true});d.sort((x,y)=>moveOf(y.s)-moveOf(x.s));
     return send(`📈 <b>Heute</b>\nBester: ${esc(d[0].n)} ${sgn(moveOf(d[0].s))}\nSchwächster: ${esc(d[d.length-1].n)} ${sgn(moveOf(d[d.length-1].s))}`,{direkt:true})}
   case "/markt":{for(const [s] of [...INDEX_ETF,...SECTOR_ETF])if(boerseOffen()||!B.q[s])await quote(s);for(const [s] of [...EU_INDEX,...EU_SECTOR])if(!B.q[s]||Date.now()-B.q[s].t>9e5)await yq(s);
@@ -233,7 +233,7 @@ async function fruehwarnungen(){const n=Object.assign({warn:true},U.notify||{});
 /* ---------- Abend-Rückblick um 21 Uhr (ohne KI) ---------- */
 async function abendRueckblick(){const z=zeit(),n=U.notify||{};if((!E.FORCE_ABEND&&(z.h<21||z.h>=22))||B.sent.abend===z.date||n.briefing===false||!CHAT)return;B.sent.abend=z.date;
   const d=depot();for(const x of d)await frisch(x.s);for(const [s] of INDEX_ETF)await quote(s);for(const [s] of EU_INDEX.slice(0,2))await yq(s);await yq("EURUSD=X");
-  const zeilen=[],mit=d.filter(x=>priceOf(x.s));let tot=0,cost=0,heute=0;
+  const zeilen=[],mit=d.filter(x=>priceOf(x.s)&&!x.test);let tot=0,cost=0,heute=0;
   for(const x of mit){const p=priceOf(x.s),mv=moveOf(x.s);tot+=toEUR(p*x.q,x.s);cost+=toEUR(x.k*x.q,x.s);heute+=toEUR(p*x.q*(1-1/(1+mv/100)),x.s);zeilen.push(`${mv>=0?"🟢":"🔴"} ${esc(x.n)}: heute ${sgn(mv)} · seit Kauf ${sgn((p/x.k-1)*100)}`)}
   const morgen=addDays(z.date,1),termine=B.earn.list.filter(e=>e.date===morgen).map(e=>`Quartalszahlen ${esc(catOf(e.symbol).n||e.symbol)}`);
   for(const x of d)if(x.tag&&+morgen.slice(8)===+x.tag)termine.push(`Nachkauf-Tag ${esc(x.n)}`);

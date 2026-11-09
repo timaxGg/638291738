@@ -12,7 +12,7 @@ const PREVIEW=!!window.KAH_PREVIEW;
 const EU_SUF=/\.(DE|F|AS|PA|MI|L|SW|VI|MC|BR|CO|ST|HE|OL|LS|IR)$/;
 const LEGACY={BTC:"BTC-EUR",ETH:"ETH-EUR",GOLD:"4GLD.DE",SIE:"SIE.DE",ALV:"ALV.DE",DTE:"DTE.DE",MBG:"MBG.DE",BMW:"BMW.DE",VOW3:"VOW3.DE",BAS:"BAS.DE",BAYN:"BAYN.DE",ADS:"ADS.DE",IFX:"IFX.DE",RHM:"RHM.DE",MUV2:"MUV2.DE",DBK:"DBK.DE",DHL:"DHL.DE",AIR:"AIR.DE"};
 const isEU=s=>EU_SUF.test(s||"");
-const curOf=s=>{const q=S.quotes[s];if(q&&q.cur)return q.cur;const st=KI&&(KI.stocks||[]).find(x=>x.s===s);if(st&&st.cur)return st.cur;return isEU(s)?"EUR":"USD"};
+const curOf=s=>{const q=S.quotes[s];if(q&&q.cur)return q.cur;const st=KI&&(KI.stocks||[]).find(x=>x.s===s);if(st&&st.cur)return st.cur;return isEU(s)||/-EUR$/.test(s||"")?"EUR":"USD"};
 const kindOf=s=>{const m=(S.markt||[]).find(x=>x.s===s);return m?m.k.split(":")[0]:(s||"").startsWith("^")?"idx":/-EUR$/.test(s||"")?"krypto":""};
 const cs=s=>kindOf(s)==="idx"?"Pkt.":({EUR:"€",USD:"$",GBp:"p",GBP:"£",CHF:"CHF"}[curOf(s)]||curOf(s));
 const enc=s=>encodeURIComponent(s);
@@ -37,7 +37,7 @@ const DEF={v:1,
  fin:{demo:true,model:"",dismissRec:"",goal:{n:"Notgroschen",z:5000,g:1800},items:[
   {n:"Gehalt",b:2600,t:"ein"},{n:"Miete",b:850,t:"fix"},{n:"Versicherungen",b:120,t:"fix"},{n:"Handy und Internet",b:55,t:"fix"},{n:"Streaming-Abos",b:25,t:"fix"},
   {n:"Lebensmittel",b:350,t:"var"},{n:"Freizeit",b:200,t:"var"},{n:"ETF-Sparplan",b:200,t:"spar"},{n:"Rücklage",b:150,t:"spar"}]},
- kh:{list:[],saved:0,bought:0},updates:{},quotes:{},lastLive:0,kiCache:null,watch:[],inboxDone:[],syncAt:0,syncHash:"",syncInfo:""};
+ kh:{list:[],saved:0,bought:0},updates:{},quotes:{},lastLive:0,kiCache:null,watch:[],trades:[],inboxDone:[],syncAt:0,syncHash:"",syncInfo:""};
 let S;
 function load(){try{S=JSON.parse(localStorage.getItem("kah")||"null")}catch(e){S=null}
  S=Object.assign(structuredClone(DEF),S||{});S.settings=Object.assign(structuredClone(DEF.settings),S.settings||{});S.settings.start=Object.assign({},DEF.settings.start,S.settings.start||{});S.settings.notify=Object.assign({},DEF.settings.notify,S.settings.notify||{})}
@@ -87,7 +87,7 @@ async function decJ(t,pass){const o=JSON.parse(t);return JSON.parse(td.decode(aw
 const syncOn=()=>!PREVIEW&&S.settings.ghRepo&&S.settings.ghToken&&S.settings.syncPass;
 async function gh(path,opt={}){const r=await fetch(`https://api.github.com/repos/${S.settings.ghRepo}/contents/${path}`,Object.assign({headers:{Authorization:`Bearer ${S.settings.ghToken}`,Accept:"application/vnd.github+json"}},opt));
  if(r.status===404)return null;if(r.status===401||r.status===403)throw new Error("GitHub-Schlüssel ungültig oder ohne Schreibrecht");if(!r.ok)throw new Error("GitHub "+r.status);return r.json()}
-function payload(){const [rec]=recommend();return {depot:S.depot.filter(d=>!d.demo),fin:S.fin,kh:S.kh,updates:S.updates,watch:S.watch,notify:S.settings.notify,investor:S.settings.investor,
+function payload(){const [rec]=recommend();return {depot:S.depot.filter(d=>!d.demo),trades:S.trades||[],fin:S.fin,kh:S.kh,updates:S.updates,watch:S.watch,notify:S.settings.notify,investor:S.settings.investor,
  model:S.fin.model||"",modelName:S.fin.model?MODELS[S.fin.model].n:"",rec,recName:MODELS[rec].n,inboxDone:S.inboxDone.slice(-200)}}
 let syncT=null,syncBusy=false;
 let wecken=false;
@@ -99,7 +99,7 @@ async function syncPush(){if(!syncOn()||syncBusy)return;syncBusy=true;try{const 
  await gh("data/state.enc",{method:"PUT",body:JSON.stringify({message:"App: Daten aktualisiert",content:btoa(await encJ(p,S.settings.syncPass)),sha:cur?cur.sha:undefined})});
  S.syncAt=p.updatedAt;S.syncHash=h;S.syncInfo="";if(wecken){wecken=false;weckeWachmann()}try{localStorage.setItem("kah",JSON.stringify(S))}catch(e){}}catch(e){S.syncInfo=e.message;toast("Abgleich: "+e.message)}syncBusy=false}
 async function syncPull(){if(!syncOn())return;try{const r=await gh("data/state.enc");if(r){const o=await decJ(atob(r.content.replace(/\n/g,"")),S.settings.syncPass);
-  if(o.updatedAt>S.syncAt){Object.assign(S,{depot:o.depot.length?o.depot:S.depot.filter(d=>d.demo),fin:o.fin,kh:o.kh,updates:o.updates||{},watch:o.watch||[],inboxDone:o.inboxDone||[]});
+  if(o.updatedAt>S.syncAt){Object.assign(S,{depot:o.depot.length?o.depot:S.depot.filter(d=>d.demo),trades:o.trades||S.trades||[],fin:o.fin,kh:o.kh,updates:o.updates||{},watch:o.watch||[],inboxDone:o.inboxDone||[]});
    Object.assign(S.settings.notify,o.notify||{});if(o.investor)S.settings.investor=o.investor;S.syncAt=o.updatedAt;S.syncHash=JSON.stringify(payload())}}
  const ib=await gh("data/inbox.enc");if(ib){const {events}=await decJ(atob(ib.content.replace(/\n/g,"")),S.settings.syncPass);let n=0;
   for(const e of events||[]){if(S.inboxDone.includes(e.id))continue;S.inboxDone.push(e.id);n++;const it=e.item,i=S.kh.list.findIndex(x=>String(x.id)===String(it.id));
@@ -220,13 +220,18 @@ const V={
   ${S.watch.length?`<p class="note">Beobachtet: ${S.watch.map(w=>`${esc(w)} <button class="x" data-unwatch="${esc(w)}" aria-label="${esc(w)} nicht mehr beobachten">×</button>`).join(" ")}. Neue Werte erscheinen nach dem nächsten Morgen-Update mit Einschätzung.</p>`:""}</div>
   <p class="note">Sortiert für deinen Anleger-Typ „${S.settings.investor}“. Einschätzungen zeigen Gründe und Risiken, keine Kauf- oder Verkaufsempfehlung.</p>
   <h2>Lern-Updates</h2>${ups.length?`<div class="list">${ups.map(u=>`<button class="item" data-go="update-${u.id}"><div class="l"><div class="t">${u.title} ${u.example?'<span class="demo">Beispiel</span>':""}</div><div class="s">${new Date(u.date).toLocaleDateString("de-DE")} · ${S.updates[u.id]==="ok"?'<span class="up">übernommen</span>':S.updates[u.id]==="no"?"abgelehnt":'<b>wartet auf dich</b>'}</div></div><span class="go">›</span></button>`).join("")}</div>`:'<div class="empty">Noch keine Lern-Updates.</div>'}`},
- depot(){const own=(KI.news||[]).filter(n=>n.stocks.some(s=>S.depot.some(d=>d.s===s)));let tot=0,cost=0;S.depot.forEach(d=>{const p=priceOf(d.s);if(p){tot+=toEUR(p*d.q,d.s);cost+=toEUR(d.k*d.q,d.s)}});
-  return `<h1>Mein Depot</h1>${cost?`<div class="price"><span class="big">${fmt(tot)} €</span>${pct((tot/cost-1)*100)}</div><p class="note" style="margin-top:0">Wert der Positionen mit Kurs${S.depot.some(d=>curOf(d.s)==="USD")?`, Dollar-Werte umgerechnet (1 € = ${fmt(S.fx||1.1,4)} $)`:""}</p>`:""}${depotRows(true)}
+ depot(){const own=(KI.news||[]).filter(n=>n.stocks.some(s=>S.depot.some(d=>d.s===s)));let tot=0,cost=0;S.depot.filter(d=>!d.test).forEach(d=>{const p=priceOf(d.s);if(p){tot+=toEUR(p*d.q,d.s);cost+=toEUR(d.k*d.q,d.s)}});
+  const tr=(S.trades||[]).filter(t=>!t.test),real=tr.reduce((x,t)=>x+toEUR((t.p-t.k)*t.q,t.s),0),offen=tot-cost,tests=S.depot.filter(d=>d.test);
+  return `<h1>Mein Depot</h1>${cost||tr.length?`<div class="panel"><div class="price"><span class="big">${fmt(tot)} €</span>${cost?pct((tot/cost-1)*100):""}</div>
+   <div class="facts" style="margin-top:10px"><div><b>Offen (Buchgewinn)</b><span class="num ${offen>=0?"up":"down"}">${offen>=0?"+":""}${fmt(offen)} €</span></div><div><b>Realisiert (verkauft)</b><span class="num ${real>=0?"up":"down"}">${real>=0?"+":""}${fmt(real)} €</span></div>
+   <div><b>Eingesetzt</b><span class="num">${fmt(cost)} €</span></div><div><b>Gesamt-Ergebnis</b><span class="num ${offen+real>=0?"up":"down"}">${offen+real>=0?"+":""}${fmt(offen+real)} €</span></div></div>
+   <p class="note">${S.depot.some(d=>curOf(d.s)==="USD")||tr.some(t=>curOf(t.s)==="USD")?`Dollar umgerechnet (1 € = ${fmt(S.fx||1.1,4)} $). `:""}${tests.length?`${tests.length} Test-Eintr${tests.length>1?"äge zählen":"ag zählt"} nicht mit.`:""}</p></div>`:""}${depotRows(true)}
   <h3>Aktie eintragen</h3><div class="panel"><form id="f">
   <label class="f full">Aktie (Name oder Kürzel)<input id="fs" autocomplete="off" placeholder="z. B. Siemens oder NVDA" value="${pick?esc(pick.n):""}"><div id="sg"></div></label>
   <label class="f">Stück<input id="fq" type="number" inputmode="decimal" step="any" min="0" required></label><label class="f">Kaufpreis (<span id="fk-cur">${pick?cs(pick.s):"Kurswährung"}</span>)<input id="fk" type="number" inputmode="decimal" step="any" min="0" required value="${pick&&priceOf(pick.s)?priceOf(pick.s):""}"></label>
   <label class="f">Melden bei Verlust ab (%)<input id="fa" type="number" value="${S.settings.alertDefault}" max="0"></label><label class="f">Kursziel (optional)<input id="fz" type="number" inputmode="decimal" step="any" min="0"></label>
-  <label class="f full">Nachkauf-Tag im Monat (optional)<input id="ft" type="number" min="1" max="28" placeholder="z. B. 1 für Monatsanfang"></label><button class="btn full">Eintragen</button></form></div>
+  <label class="f full">Nachkauf-Tag im Monat (optional)<input id="ft" type="number" min="1" max="28" placeholder="z. B. 1 für Monatsanfang"></label><label class="check full"><input type="checkbox" id="ftest"> Nur zum Ausprobieren (zählt nicht in Gewinn und Verlust)</label><button class="btn full">Eintragen</button></form></div>
+  ${(S.trades||[]).length?`<h2>Verkäufe</h2><div class="list">${S.trades.map((t,i)=>[t,i]).reverse().map(([t,i])=>{const g=(t.p-t.k)*t.q;return `<div class="row"><div class="l"><b>${esc(t.n)}</b> ${t.test?'<span class="demo">Test</span>':""}<div class="sub">${new Date(t.d).toLocaleDateString("de-DE")} · ${fmt(t.q,t.q%1?4:0)} Stk. zu ${fmt(t.p)} ${cs(t.s)} (Kauf ${fmt(t.k)})</div></div><div class="r"><span class="num ${g>=0?"up":"down"}">${g>=0?"+":""}${fmt(g)} ${cs(t.s)}</span><br><button class="x" data-tdel="${i}">Löschen</button></div></div>`}).join("")}</div><p class="note">Ein falscher Verkauf lässt sich löschen. Die Stücke kommen dann nicht automatisch zurück ins Depot.</p>`:""}
   <h2>Meine News</h2>${own.length?`<div class="list">${own.map(newsItem).join("")}</div>`:'<div class="empty">Noch keine Nachrichten zu deinen Werten.</div>'}`},
  finanzen(){return `<h1>Finanzen</h1><div class="filters">${[["uebersicht","Übersicht"],["modell","Sparmodell"],["tipps","Tipps"],["kaufhilfe","Kaufhilfe"],["import","Kontoauszug"]].map(([k,l])=>`<button class="chip" data-fs="${k}" aria-pressed="${finSub===k}">${l}</button>`).join("")}</div>`+FIN[finSub]()}
 };
@@ -240,8 +245,8 @@ function marktRows(){const row=(n,sub,c,dp,cur)=>`<div class="row"><div class="l
  return h+`<p class="note">${t?`EU-Kurse von ${t} Uhr (ca. 15 Min. verzögert)`:`Stand ${KI.dataAsOf?new Date(KI.dataAsOf).toLocaleDateString("de-DE"):"?"}`}${S.settings.fhKey?" · US live":" · Für US-Live-Kurse Finnhub-Schlüssel eintragen"}</p>`}
 function depotRows(full){if(!S.depot.length)return `<div class="empty">Noch nichts eingetragen. Unter „Depot“ fügst du deine erste Aktie hinzu.</div>`;
  return `<div class="list">${S.depot.map((d,i)=>{const a=A[d.s],p=priceOf(d.s),ch=p?(p/d.k-1)*100:null,al=ch!==null&&ch<=d.a;
-  return `<div class="row"><div class="l"><b>${esc(d.n)}</b> ${d.demo?'<span class="demo">Beispiel</span>':""}<div class="sub">${fmt(d.q,d.q%1?2:0)} Stk. · Kauf ${fmt(d.k)} ${cs(d.s)} · Meldung ab ${d.a} %${d.z?` · Ziel ${fmt(d.z)} ${cs(d.s)}`:""}${d.tag?` · Nachkauf am ${d.tag}.`:""}</div>${al?'<span class="tag down">Meldegrenze erreicht</span>':""}${(S.warn||{})[d.s]&&S.warn[d.s].lv>=2?` <span class="tag ${S.warn[d.s].lv>=3?"down":"warn"}">${AMPEL[S.warn[d.s].lv]} Frühwarnung ${AMPEL_TXT[S.warn[d.s].lv]}</span>`:""}${a?`<div class="sub">${DIR[a.dir][0]} ${DIR[a.dir][1]}</div>`:""}</div>
-  <div class="r">${p?`<div class="num">${fmt(p*d.q)} ${cs(d.s)}</div>${pct(ch)}`:'<span class="sub">Kurs folgt</span>'}${full?`<br><button class="x" data-go="aktie-${enc(d.s)}">Ansehen ›</button> <button class="x" data-del="${i}">Entfernen</button>`:`<br><button class="x" data-go="aktie-${enc(d.s)}">Ansehen ›</button>`}</div></div>`}).join("")}</div>`}
+  return `<div class="row"><div class="l"><b>${esc(d.n)}</b> ${d.demo?'<span class="demo">Beispiel</span>':""}${d.test?' <span class="demo">Test</span>':""}<div class="sub">${fmt(d.q,d.q%1?2:0)} Stk. · Kauf ${fmt(d.k)} ${cs(d.s)} · Meldung ab ${d.a} %${d.z?` · Ziel ${fmt(d.z)} ${cs(d.s)}`:""}${d.tag?` · Nachkauf am ${d.tag}.`:""}</div>${al?'<span class="tag down">Meldegrenze erreicht</span>':""}${(S.warn||{})[d.s]&&S.warn[d.s].lv>=2?` <span class="tag ${S.warn[d.s].lv>=3?"down":"warn"}">${AMPEL[S.warn[d.s].lv]} Frühwarnung ${AMPEL_TXT[S.warn[d.s].lv]}</span>`:""}${a?`<div class="sub">${DIR[a.dir][0]} ${DIR[a.dir][1]}</div>`:""}</div>
+  <div class="r">${p?`<div class="num">${fmt(p*d.q)} ${cs(d.s)}</div>${pct(ch)}`:'<span class="sub">Kurs folgt</span>'}${full?`<br><button class="x" data-go="aktie-${enc(d.s)}">Ansehen ›</button> <button class="x" data-pos="${i}">Ändern ›</button>`:`<br><button class="x" data-go="aktie-${enc(d.s)}">Ansehen ›</button>`}</div></div>`}).join("")}</div>`}
 
 /* ---------- Finanzen ---------- */
 const FIN={
@@ -391,6 +396,31 @@ function cartHTML(){const now=Date.now(),l=S.kh.list.slice().sort((a,b)=>a.due-b
   <div class="r" style="display:flex;flex-direction:column;gap:6px"><button class="btn" style="padding:6px 10px;font-size:13px" data-kb="${x.id}">Kaufen</button><button class="btn ghost" style="padding:6px 10px;font-size:13px" data-kn="${x.id}">Lassen</button></div></div>`).join("")}</div>`:'<div class="empty">Der Warenkorb ist leer.</div>'}
  <div class="btns"><button class="btn ghost" data-fsub="kaufhilfe">Neuen Kauf prüfen</button></div>
  ${h.length?`<h3>Entschieden</h3><div class="list">${h.slice(0,10).map(x=>`<div class="row"><div class="l">${esc(x.n)}<div class="sub">${new Date(x.t).toLocaleDateString("de-DE")}</div></div><div class="r"><span class="num">${fmt(x.p,0)} €</span> · <span class="${x.r==="gelassen"?"up":""}">${x.r}</span></div></div>`).join("")}</div>`:""}</div>`}
+function posHTML(i,mode){const d=S.depot[i];if(!d)return"";const p=priceOf(d.s)||"",c=cs(d.s),m=mode||"menu";
+ const head=`<div class="grab"></div><div class="in"><div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><h1 style="margin:0">${esc(d.n)}</h1><button class="icon-btn" data-close aria-label="Schließen"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <p class="note" style="margin-top:4px">${fmt(d.q,d.q%1?4:0)} Stück · Kaufpreis ${fmt(d.k)} ${c}${p?` · aktuell ${fmt(p)} ${c}`:""}${d.test?" · Test-Eintrag":""}</p>`;
+ if(m==="menu")return head+`<div class="list">
+  <button class="item" data-pm="sell"><div class="l"><div class="t">Verkaufen</div><div class="s">Ganz oder teilweise. Der Gewinn oder Verlust wird gespeichert.</div></div><span class="go">›</span></button>
+  <button class="item" data-pm="buy"><div class="l"><div class="t">Nachkaufen</div><div class="s">Stücke dazu, der Durchschnittspreis wird neu berechnet.</div></div><span class="go">›</span></button>
+  <button class="item" data-pm="edit"><div class="l"><div class="t">Bearbeiten</div><div class="s">Tippfehler bei Stückzahl, Preis oder Grenzen korrigieren.</div></div><span class="go">›</span></button>
+  <button class="item" data-pm="test"><div class="l"><div class="t">${d.test?"Als echten Kauf übernehmen":"Als Test markieren"}</div><div class="s">${d.test?"Zählt dann in Gewinn und Verlust.":"Zählt dann nicht mehr in Gewinn und Verlust."}</div></div><span class="go">›</span></button>
+  <button class="item" data-pm="del"><div class="l"><div class="t" style="color:var(--down)">Löschen</div><div class="s">Für Einträge, die nie gekauft wurden. Es wird kein Verkauf gespeichert.</div></div><span class="go">›</span></button></div></div>`;
+ if(m==="sell")return head+`<form id="psell"><label class="f">Stück verkaufen<input id="ps-q" type="number" inputmode="decimal" step="any" min="0" max="${d.q}" value="${d.q}" required></label><label class="f">Verkaufspreis (${c})<input id="ps-p" type="number" inputmode="decimal" step="any" min="0" value="${p}" required></label>
+  <label class="f full">Datum<input id="ps-d" type="date" value="${new Date().toISOString().slice(0,10)}"></label><div class="note full" id="ps-g"></div><button class="btn full">Verkauf speichern</button></form><button class="back" data-pm="menu">‹ Zurück</button></div>`;
+ if(m==="buy")return head+`<form id="pbuy"><label class="f">Stück dazu<input id="pb-q" type="number" inputmode="decimal" step="any" min="0" required></label><label class="f">Kaufpreis (${c})<input id="pb-p" type="number" inputmode="decimal" step="any" min="0" value="${p}" required></label><button class="btn full">Nachkauf speichern</button></form><button class="back" data-pm="menu">‹ Zurück</button></div>`;
+ if(m==="edit")return head+`<form id="pedit"><label class="f">Stück<input id="pe-q" type="number" inputmode="decimal" step="any" min="0" value="${d.q}" required></label><label class="f">Kaufpreis (${c})<input id="pe-k" type="number" inputmode="decimal" step="any" min="0" value="${d.k}" required></label>
+  <label class="f">Meldegrenze (%)<input id="pe-a" type="number" max="0" value="${d.a}"></label><label class="f">Kursziel (${c})<input id="pe-z" type="number" step="any" min="0" value="${d.z||""}"></label><label class="f full">Nachkauf-Tag im Monat<input id="pe-t" type="number" min="1" max="28" value="${d.tag||""}"></label><button class="btn full">Speichern</button></form><button class="back" data-pm="menu">‹ Zurück</button></div>`;
+ if(m==="del")return head+`<div class="alert"><div style="flex:1"><b>${esc(d.n)} wirklich löschen?</b><br>Die Position verschwindet komplett und zählt nicht in Gewinn und Verlust. Hast du sie tatsächlich verkauft, nimm lieber „Verkaufen“.<div class="btns" style="margin:8px 0 0"><button class="btn danger" data-pdel>Ja, löschen</button><button class="btn ghost" data-pm="menu">Abbrechen</button></div></div></div></div>`;
+ return head}
+let posI=null;
+function openPos(i,mode){posI=i;const sh=$("#sheet");sh.innerHTML=posHTML(i,mode);sh.classList.add("open");$("#sheet-bg").classList.add("open");bindPos()}
+function bindPos(){const d=S.depot[posI];if(!d)return;const done=(msg)=>{save();syncPlan();closeSettings();toast(msg)};
+ const fs=$("#psell");if(fs){const g=()=>{const q=+$("#ps-q").value,p=+$("#ps-p").value,e=(p-d.k)*q;$("#ps-g").innerHTML=q&&p?`Ergebnis: <b class="${e>=0?"up":"down"}">${e>=0?"+":""}${fmt(e)} ${cs(d.s)}</b> (${sgn((p/d.k-1)*100)})${d.test?" · Test, zählt nicht mit":""}`:""};["ps-q","ps-p"].forEach(id=>$("#"+id).addEventListener("input",g));g();
+  fs.addEventListener("submit",e=>{e.preventDefault();const q=Math.min(+$("#ps-q").value,d.q),p=+$("#ps-p").value;if(!q||!p)return;
+   S.trades=(S.trades||[]).concat([{s:d.s,n:d.n,q,k:d.k,p,d:Date.parse($("#ps-d").value)||Date.now(),test:d.test||undefined}]);d.q=+(d.q-q).toFixed(8);
+   if(d.q<=0)S.depot.splice(posI,1);done(d.q>0?`${fmt(q,q%1?4:0)} Stück verkauft`:`${d.n} komplett verkauft`)})}
+ const fb=$("#pbuy");if(fb)fb.addEventListener("submit",e=>{e.preventDefault();const q=+$("#pb-q").value,p=+$("#pb-p").value;if(!q||!p)return;d.k=+((d.k*d.q+p*q)/(d.q+q)).toFixed(4);d.q=+(d.q+q).toFixed(8);done(`Nachkauf gespeichert, neuer Durchschnitt ${fmt(d.k)} ${cs(d.s)}`)});
+ const fe=$("#pedit");if(fe)fe.addEventListener("submit",e=>{e.preventDefault();Object.assign(d,{q:+$("#pe-q").value,k:+$("#pe-k").value,a:+$("#pe-a").value||S.settings.alertDefault,z:+$("#pe-z").value||0,tag:+$("#pe-t").value||0});done("Gespeichert")})}
 function openCart(){const sh=$("#sheet");sh.innerHTML=cartHTML();sh.classList.add("open");$("#sheet-bg").classList.add("open")}
 function cartBadge(){const b=$("#cart-n");if(!b)return;const n=S.kh.list.length,due=S.kh.list.some(x=>x.due<=Date.now());b.textContent=n||"";b.hidden=!n;b.classList.toggle("due",due)}
 function openSettings(anchor){const sh=$("#sheet");sh.innerHTML=settingsHTML();sh.classList.add("open");$("#sheet-bg").classList.add("open");bindSettings();if(anchor){const a=document.getElementById(anchor);if(a)setTimeout(()=>a.scrollIntoView({behavior:"smooth"}),300)}}
@@ -424,7 +454,7 @@ function bindForms(){
   sg.innerHTML=m.length?`<div class="sugg">${m.map(c=>`<button type="button" data-pick="${c.s}">${c.n} <span class="num" style="color:var(--muted)">${c.s}</span></button>`).join("")}</div>`:v?'<div class="found flat">Nicht erkannt. Du kannst sie trotzdem eintragen.</div>':""};
   inp.addEventListener("input",show);if(inp.value)show();
   f.addEventListener("submit",e=>{e.preventDefault();const raw=inp.value.trim();if(!raw)return;const p=pick||findCat(raw)[0],s=p?p.s:raw.toUpperCase(),n=p?p.n:raw;
-   S.depot=S.depot.filter(d=>!d.demo);S.depot.push({s,n,q:+$("#fq").value,k:+$("#fk").value,a:+$("#fa").value||S.settings.alertDefault,z:+$("#fz").value||0,tag:+$("#ft").value||0});pick=null;save();syncPlan(true);toast(A[s]?`${n} eingetragen`:`${n} eingetragen. Verlauf und Prognose kommen in wenigen Minuten.`);render();if(S.settings.fhKey&&!S.quotes[s])refreshLive()})}
+   S.depot=S.depot.filter(d=>!d.demo);S.depot.push({s,n,q:+$("#fq").value,k:+$("#fk").value,a:+$("#fa").value||S.settings.alertDefault,z:+$("#fz").value||0,tag:+$("#ft").value||0,test:$("#ftest").checked||undefined,d:Date.now()});pick=null;save();syncPlan(true);toast(A[s]?`${n} eingetragen`:`${n} eingetragen. Verlauf und Prognose kommen in wenigen Minuten.`);render();if(S.settings.fhKey&&!S.quotes[s])refreshLive()})}
  const fw=$("#fw");if(fw){const wi=$("#ws"),wg=$("#wsg");wi.addEventListener("input",()=>{const m=findCat(wi.value);wg.innerHTML=m.length?`<div class="sugg">${m.map(c=>`<button type="button" data-wpick="${c.s}">${c.n} <span class="num" style="color:var(--muted)">${c.s}</span></button>`).join("")}</div>`:""});
   fw.addEventListener("submit",e=>{e.preventDefault();const c=findCat(wi.value)[0],w=c?c.s:wi.value.trim().toUpperCase();if(w&&!S.watch.includes(w)){S.watch.push(w);save();syncPlan(true);toast(`${c?c.n:w} wird beobachtet`)}render(true)})}
  const fg=$("#fg");if(fg)fg.addEventListener("submit",e=>{e.preventDefault();Object.assign(S.fin.goal,{n:$("#g-n").value.trim()||"Sparziel",z:+$("#g-z").value||0,g:+$("#g-g").value||0});save();toast("Sparziel gespeichert");render(true)});
@@ -461,6 +491,10 @@ document.addEventListener("click",e=>{const T=sel=>e.target.closest(sel);let el;
  if(el=T("[data-upd]")){const id=el.dataset.id,v=el.dataset.upd;if(v==="undo")delete S.updates[id];else S.updates[id]=v;if(v==="undo")S.updates[id]="no";save();A=analyzeAll();toast(v==="ok"?"Update übernommen":v==="undo"?"Rückgängig gemacht":"Abgelehnt");render(true);return}
  if(el=T("[data-pick]")){pick=(KI.catalog||[]).find(c=>c.s===el.dataset.pick);$("#fs").value=pick.n;$("#fs").dispatchEvent(new Event("input"));const k=$("#fk");if(priceOf(pick.s)&&!k.value)k.value=priceOf(pick.s);$("#fq").focus();return}
  if(el=T("[data-add]")){pick=(KI.catalog||[]).find(c=>c.s===el.dataset.add)||{s:el.dataset.add,n:el.dataset.add};go("depot");$("#fq").focus();return}
+ if(el=T("[data-pos]")){openPos(+el.dataset.pos);return}
+ if(el=T("[data-pm]")){const m=el.dataset.pm;if(m==="test"){const d=S.depot[posI];d.test=d.test?undefined:true;save();syncPlan();closeSettings();toast(d.test?"Als Test markiert":"Als echter Kauf übernommen");return}openPos(posI,m);return}
+ if(T("[data-pdel]")){const d=S.depot.splice(posI,1)[0];save();syncPlan();closeSettings();toast(`${d.n} gelöscht`);return}
+ if(el=T("[data-tdel]")){const t=S.trades.splice(+el.dataset.tdel,1)[0];save();syncPlan();toast(`Verkauf von ${t.n} gelöscht`);render(true);return}
  if(el=T("[data-del]")){const d=S.depot.splice(+el.dataset.del,1)[0];save();toast(`${d.n} entfernt`);render(true);return}
  if(el=T("[data-fdel]")){delete S.fin.demo;S.fin.items.splice(+el.dataset.fdel,1);save();render(true);return}
  if(el=T("[data-qa]")){kq.a.push(+el.dataset.qa);render(true);return}

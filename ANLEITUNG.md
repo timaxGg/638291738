@@ -328,6 +328,15 @@ Ampel: 🟩 unauffällig · 🟨 erhöht · 🟥 hoch. Eine Nachricht kommt, wen
 - Bitcoin, Ethereum, Solana, XRP, BNB, Cardano und Dogecoin in Euro, rund um die Uhr aktualisiert.
 - Unter **Aktien → Alternativen zum MSCI World**: Bausteine mit weniger USA, Europa, Schwellenländer, defensivere ETFs, Anleihen, Geldmarkt und Gold, jeweils mit Erklärung.
 
+## Verkaufen, Nachkaufen, Test-Einträge
+Im Depot bei jeder Position auf **Ändern ›** tippen:
+- **Verkaufen:** ganz oder teilweise. Der Gewinn oder Verlust wird unter „Realisiert“ gespeichert, die Liste steht unten unter „Verkäufe“.
+- **Nachkaufen:** Der Durchschnittspreis wird automatisch neu berechnet.
+- **Bearbeiten:** Tippfehler korrigieren.
+- **Als Test markieren:** Der Eintrag bleibt sichtbar, zählt aber nicht in Gewinn und Verlust. Beim Eintragen gibt es dafür auch das Häkchen „Nur zum Ausprobieren“.
+- **Löschen:** für Einträge, die du nie wirklich gekauft hast. Es wird kein Verkauf gespeichert, deine Bilanz bleibt sauber.
+- Ein falsch eingetragener Verkauf lässt sich unter „Verkäufe“ löschen.
+
 ## Hilfe bei Problemen
 
 **A. Der Ordner `.github` fehlt bei GitHub.**
