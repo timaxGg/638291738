@@ -1,0 +1,20 @@
+name: Test EU-Quellen
+on:
+  push:
+    paths: [".github/workflows/test-eu.yml"]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          t(){ echo "=== $1"; curl -s -m 20 -A "Mozilla/5.0" -w "\nHTTP %{http_code}\n" "$2" | head -c 600; echo; }
+          t yahoo-SAP "https://query1.finance.yahoo.com/v8/finance/chart/SAP.DE?range=5d&interval=1d"
+          t yahoo-DAX "https://query1.finance.yahoo.com/v8/finance/chart/%5EGDAXI?range=1d&interval=5m"
+          t yahoo2-SIE "https://query2.finance.yahoo.com/v8/finance/chart/SIE.DE?range=1d&interval=1m"
+          t stooq-SAP "https://stooq.com/q/l/?s=sap.de&f=sd2t2ohlcv&h&e=csv"
+          t stooq-DAX "https://stooq.com/q/l/?s=%5Edax&f=sd2t2ohlcv&h&e=csv"
+          t finnhub-SAP "https://finnhub.io/api/v1/quote?symbol=SAP.DE&token=${{ secrets.FINNHUB_KEY }}"
+          t av-SAP "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=SAP.DEX&apikey=${{ secrets.AV_KEY }}"
+          t yahoo-cors "https://query1.finance.yahoo.com/v8/finance/chart/SAP.DE?range=1d" 
+          curl -s -I -m 20 -H "Origin: https://timaxgg.github.io" "https://query1.finance.yahoo.com/v8/finance/chart/SAP.DE?range=1d" | grep -i "access-control" || echo "kein CORS yahoo"
+          curl -s -I -m 20 -H "Origin: https://timaxgg.github.io" "https://raw.githubusercontent.com/timaxGg/638291738/main/ki.json" | grep -i "access-control\|cache-control" || echo "kein CORS raw"
