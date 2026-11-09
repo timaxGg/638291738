@@ -4,7 +4,8 @@
   --accent:#0f6b5c; --accent-soft:color-mix(in srgb,var(--accent) 14%,#ffffff);
   --up:#1a7f4b; --down:#c0392b; --warn:#b7791f;
   --up-soft:#e2f3ea; --down-soft:#fbe7e4; --warn-soft:#fbf0dc;
-  --t-start:var(--accent); --t-news:#2f5fb3; --t-markt:#6a4bb5; --t-aktien:#1a7f4b; --t-depot:#b7791f; --t-finanzen:#b5476a;
+  --t-start:var(--accent);
+  --p1:#0f6b5c; --p2:#2f5fb3; --p3:#c2621a; --p4:#6a4bb5; --p5:#b5476a; --p6:#3d8f6a; --p7:#8a7a1f; --p8:#5d6b66; --t-news:#2f5fb3; --t-markt:#6a4bb5; --t-aktien:#1a7f4b; --t-depot:#b7791f; --t-finanzen:#b5476a;
   --f-display:"Bricolage Grotesque",ui-sans-serif,system-ui,sans-serif;
   --f-body:"Figtree",ui-sans-serif,system-ui,sans-serif;
   --f-mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
@@ -14,12 +15,12 @@
   --bg:#0e1513; --surface:#16201d; --fg:#e6eeeb; --muted:#93a39d; --line:#26332f;
   --accent-soft:color-mix(in srgb,var(--accent) 22%,#16201d);
   --up:#4cc584; --down:#f07a6b; --warn:#e3b45a; --up-soft:#173527; --down-soft:#3a1f1b; --warn-soft:#3a2f17;
-  --t-start:var(--accent); --t-news:#7aa6f0; --t-markt:#a58cf0; --t-aktien:#4cc584; --t-depot:#e3b45a; --t-finanzen:#ec8aa9; color-scheme:dark}}
+  --p1:#4fc2a8; --p2:#7aa6f0; --p3:#f0a060; --p4:#a58cf0; --p5:#ec8aa9; --p6:#7fd0a4; --p7:#d8c25c; --p8:#93a39d; --t-start:var(--accent); --t-news:#7aa6f0; --t-markt:#a58cf0; --t-aktien:#4cc584; --t-depot:#e3b45a; --t-finanzen:#ec8aa9; color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#0e1513; --surface:#16201d; --fg:#e6eeeb; --muted:#93a39d; --line:#26332f;
   --accent-soft:color-mix(in srgb,var(--accent) 22%,#16201d);
   --up:#4cc584; --down:#f07a6b; --warn:#e3b45a; --up-soft:#173527; --down-soft:#3a1f1b; --warn-soft:#3a2f17;
-  --t-start:var(--accent); --t-news:#7aa6f0; --t-markt:#a58cf0; --t-aktien:#4cc584; --t-depot:#e3b45a; --t-finanzen:#ec8aa9; color-scheme:dark}
+  --p1:#4fc2a8; --p2:#7aa6f0; --p3:#f0a060; --p4:#a58cf0; --p5:#ec8aa9; --p6:#7fd0a4; --p7:#d8c25c; --p8:#93a39d; --t-start:var(--accent); --t-news:#7aa6f0; --t-markt:#a58cf0; --t-aktien:#4cc584; --t-depot:#e3b45a; --t-finanzen:#ec8aa9; color-scheme:dark}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html,body{margin:0}
 body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:15px;line-height:1.5;

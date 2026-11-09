@@ -337,6 +337,14 @@ Im Depot bei jeder Position auf **Ändern ›** tippen:
 - **Löschen:** für Einträge, die du nie wirklich gekauft hast. Es wird kein Verkauf gespeichert, deine Bilanz bleibt sauber.
 - Ein falsch eingetragener Verkauf lässt sich unter „Verkäufe“ löschen.
 
+## Zusammensetzung des Depots
+Im Depot oben: Kuchendiagramm nach **Positionen**, **Art** (ETF, Einzelaktie, Krypto, Gold, Anleihen) oder **Region** (USA, Europa, Schwellenländer …). Tippe auf ein Stück für Details. Darunter:
+- Anteil ETFs zu Einzelaktien, USA-Anteil (bei ETFs ungefähr gerechnet), größte Position
+- **Gewichtungs-Check** gegen Faustregeln für deinen Anleger-Typ (vorsichtig, ausgewogen, mutig; änderbar unter ⚙️)
+- **Kritisch:** Werte mit Frühwarnung oder zu großem Anteil einer einzelnen Firma
+- **Könnte ergänzen:** passende Bausteine für Lücken, z. B. Schwellenländer, Europa oder Anleihen
+Test-Einträge zählen nicht mit. Alles sind Faustregeln, keine Anlageberatung.
+
 ## Hilfe bei Problemen
 
 **A. Der Ordner `.github` fehlt bei GitHub.**

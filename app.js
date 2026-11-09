@@ -225,7 +225,8 @@ const V={
   return `<h1>Mein Depot</h1>${cost||tr.length?`<div class="panel"><div class="price"><span class="big">${fmt(tot)} €</span>${cost?pct((tot/cost-1)*100):""}</div>
    <div class="facts" style="margin-top:10px"><div><b>Offen (Buchgewinn)</b><span class="num ${offen>=0?"up":"down"}">${offen>=0?"+":""}${fmt(offen)} €</span></div><div><b>Realisiert (verkauft)</b><span class="num ${real>=0?"up":"down"}">${real>=0?"+":""}${fmt(real)} €</span></div>
    <div><b>Eingesetzt</b><span class="num">${fmt(cost)} €</span></div><div><b>Gesamt-Ergebnis</b><span class="num ${offen+real>=0?"up":"down"}">${offen+real>=0?"+":""}${fmt(offen+real)} €</span></div></div>
-   <p class="note">${S.depot.some(d=>curOf(d.s)==="USD")||tr.some(t=>curOf(t.s)==="USD")?`Dollar umgerechnet (1 € = ${fmt(S.fx||1.1,4)} $). `:""}${tests.length?`${tests.length} Test-Eintr${tests.length>1?"äge zählen":"ag zählt"} nicht mit.`:""}</p></div>`:""}${depotRows(true)}
+   <p class="note">${S.depot.some(d=>curOf(d.s)==="USD")||tr.some(t=>curOf(t.s)==="USD")?`Dollar umgerechnet (1 € = ${fmt(S.fx||1.1,4)} $). `:""}${tests.length?`${tests.length} Test-Eintr${tests.length>1?"äge zählen":"ag zählt"} nicht mit.`:""}</p></div>`:""}${portfolioHTML()}
+  ${S.depot.length?"<h2>Positionen</h2>":""}${depotRows(true)}
   <h3>Aktie eintragen</h3><div class="panel"><form id="f">
   <label class="f full">Aktie (Name oder Kürzel)<input id="fs" autocomplete="off" placeholder="z. B. Siemens oder NVDA" value="${pick?esc(pick.n):""}"><div id="sg"></div></label>
   <label class="f">Stück<input id="fq" type="number" inputmode="decimal" step="any" min="0" required></label><label class="f">Kaufpreis (<span id="fk-cur">${pick?cs(pick.s):"Kurswährung"}</span>)<input id="fk" type="number" inputmode="decimal" step="any" min="0" required value="${pick&&priceOf(pick.s)?priceOf(pick.s):""}"></label>
@@ -247,6 +248,59 @@ function depotRows(full){if(!S.depot.length)return `<div class="empty">Noch nich
  return `<div class="list">${S.depot.map((d,i)=>{const a=A[d.s],p=priceOf(d.s),ch=p?(p/d.k-1)*100:null,al=ch!==null&&ch<=d.a;
   return `<div class="row"><div class="l"><b>${esc(d.n)}</b> ${d.demo?'<span class="demo">Beispiel</span>':""}${d.test?' <span class="demo">Test</span>':""}<div class="sub">${fmt(d.q,d.q%1?2:0)} Stk. · Kauf ${fmt(d.k)} ${cs(d.s)} · Meldung ab ${d.a} %${d.z?` · Ziel ${fmt(d.z)} ${cs(d.s)}`:""}${d.tag?` · Nachkauf am ${d.tag}.`:""}</div>${al?'<span class="tag down">Meldegrenze erreicht</span>':""}${(S.warn||{})[d.s]&&S.warn[d.s].lv>=2?` <span class="tag ${S.warn[d.s].lv>=3?"down":"warn"}">${AMPEL[S.warn[d.s].lv]} Frühwarnung ${AMPEL_TXT[S.warn[d.s].lv]}</span>`:""}${a?`<div class="sub">${DIR[a.dir][0]} ${DIR[a.dir][1]}</div>`:""}</div>
   <div class="r">${p?`<div class="num">${fmt(p*d.q)} ${cs(d.s)}</div>${pct(ch)}`:'<span class="sub">Kurs folgt</span>'}${full?`<br><button class="x" data-go="aktie-${enc(d.s)}">Ansehen ›</button> <button class="x" data-pos="${i}">Ändern ›</button>`:`<br><button class="x" data-go="aktie-${enc(d.s)}">Ansehen ›</button>`}</div></div>`}).join("")}</div>`}
+
+
+/* ---------- Portfolio-Zusammensetzung ---------- */
+const DEFENSIV=/^(EUNH|IBCI|XEON|XGLE|EUNA)\.DE$/,GOLD=/^(4GLD\.DE|GC=F|EWG2\.DE)$/;
+// Ungefähre Länderaufteilung bekannter ETFs (in %)
+const LOOK={W:{USA:72,Europa:15,"Andere Industrieländer":13},ALL:{USA:63,Europa:13,"Andere Industrieländer":13,"Schwellenländer":11},US:{USA:100},EU:{Europa:100},EM:{"Schwellenländer":100},
+ XUS:{Europa:55,"Andere Industrieländer":45},Q:{USA:75,Europa:15,"Andere Industrieländer":10},DIV:{USA:35,Europa:40,"Andere Industrieländer":25},HDIV:{USA:40,Europa:25,"Andere Industrieländer":20,"Schwellenländer":15}};
+const LOOK_ETF={"EUNL.DE":"W","XDWL.DE":"W","XWEU.DE":"W","URTH":"W","VWCE.DE":"ALL","IUSQ.DE":"ALL","SXR8.DE":"US","SPY":"US","XDEW.DE":"US","SXRV.DE":"US","XLV":"US","XMUS.DE":"US","EXX5.DE":"US",
+ "EUNK.DE":"EU","EXSA.DE":"EU","EXW1.DE":"EU","EXS1.DE":"EU","LYP6.DE":"EU","XMME.DE":"EM","VFEM.DE":"EM","EUNM.DE":"EM","EXUS.DE":"XUS","WEXU.DE":"XUS","IS3Q.DE":"Q","ISPA.DE":"DIV","VGWD.DE":"HDIV"};
+function artOf(s){if(/-EUR$|-USD$/.test(s))return "Krypto";if(GOLD.test(s))return "Gold";if(DEFENSIV.test(s))return "Anleihen und Geldmarkt";const k=kindOf(s);if(k==="etf"||k==="alt"||LOOK_ETF[s])return "ETF";
+ const c=(KI.catalog||[]).find(x=>x.s===s);if(c&&/etf/i.test(c.n+" "+(c.a||"")))return "ETF";return "Einzelaktie"}
+function regionOf(s){const a=artOf(s);if(a==="Krypto"||a==="Gold")return {"Ohne Land":100};if(LOOK_ETF[s])return LOOK[LOOK_ETF[s]];if(DEFENSIV.test(s))return {Europa:100};
+ if(/\.(DE|F|AS|PA|MI|L|SW|VI|MC|BR|CO|ST|HE|OL|LS|IR)$/.test(s))return {Europa:100};return {USA:100}}
+const ZIEL={vorsichtig:{etf:[60,100],einzel:[0,15],single:5,krypto:[0,2],defensiv:[30,40]},ausgewogen:{etf:[60,100],einzel:[0,30],single:10,krypto:[0,5],defensiv:[10,25]},mutig:{etf:[40,100],einzel:[0,50],single:15,krypto:[0,10],defensiv:[0,10]}};
+let pfMode="pos",pfSel=null;
+function portfolio(){const pos=S.depot.filter(d=>!d.test&&!d.demo).map(d=>{const p=priceOf(d.s)||d.k;return {d,s:d.s,n:d.n,v:toEUR(p*d.q,d.s),g:(p/d.k-1)*100}}).filter(x=>x.v>0);
+ const tot=pos.reduce((x,p)=>x+p.v,0);pos.forEach(p=>p.w=tot?p.v/tot*100:0);pos.sort((a,b)=>b.v-a.v);
+ const by=f=>{const m={};pos.forEach(p=>{const parts=f(p.s);Object.entries(parts).forEach(([k,share])=>{m[k]=m[k]||{n:k,v:0,mem:[]};m[k].v+=p.v*share/100;m[k].mem.push(p)})});return Object.values(m).map(g=>Object.assign(g,{w:tot?g.v/tot*100:0})).sort((a,b)=>b.v-a.v)};
+ return {pos,tot,art:by(s=>({[artOf(s)]:100})),reg:by(regionOf)}}
+const PAL=["--p1","--p2","--p3","--p4","--p5","--p6","--p7","--p8"];
+function donut(items,sel){const R=70,r=44,cx=90,cy=90;let a0=-Math.PI/2;const segs=items.map((it,i)=>{const a1=a0+it.w/100*2*Math.PI,big=a1-a0>Math.PI?1:0,p=(rr,a)=>[cx+rr*Math.cos(a),cy+rr*Math.sin(a)];
+  const [x0,y0]=p(R,a0),[x1,y1]=p(R,a1-0.0001),[x2,y2]=p(r,a1-0.0001),[x3,y3]=p(r,a0);const off=sel===i?6:0,mid=(a0+a1)/2,dx=off*Math.cos(mid),dy=off*Math.sin(mid);a0=a1;
+  return `<path d="M${x0} ${y0}A${R} ${R} 0 ${big} 1 ${x1} ${y1}L${x2} ${y2}A${r} ${r} 0 ${big} 0 ${x3} ${y3}Z" transform="translate(${dx} ${dy})" fill="var(${PAL[i%PAL.length]})" stroke="var(--bg)" stroke-width="2" data-seg="${i}" style="cursor:pointer;opacity:${sel===null||sel===i?1:.45};transition:opacity .2s"><title>${esc(it.n)} ${fmt(it.w,1)} %</title></path>`}).join("");
+ const c=sel!==null&&items[sel]?items[sel]:null;
+ return `<svg viewBox="0 0 180 180" width="180" height="180" role="img" aria-label="Zusammensetzung">${segs}<text x="90" y="86" text-anchor="middle" style="font-family:var(--f-mono);font-size:17px;fill:var(--fg)">${c?fmt(c.w,1)+" %":fmt(items.length,0)}</text><text x="90" y="104" text-anchor="middle" style="font-size:10px">${c?esc(c.n.length>18?c.n.slice(0,17)+"…":c.n):items.length===1?"Position":"Teile"}</text></svg>`}
+function portfolioHTML(){const P=portfolio();if(!P.pos.length)return "";const items=pfMode==="pos"?P.pos:pfMode==="art"?P.art:P.reg;const sel=pfSel!==null&&pfSel<items.length?pfSel:null;
+ const Z=ZIEL[S.settings.investor]||ZIEL.ausgewogen,share=n=>(P.art.find(g=>g.n===n)||{w:0}).w,etf=share("ETF"),einzel=share("Einzelaktie"),krypto=share("Krypto"),def=share("Anleihen und Geldmarkt")+share("Gold");
+ const us=(P.reg.find(g=>g.n==="USA")||{w:0}).w,em=(P.reg.find(g=>g.n==="Schwellenländer")||{w:0}).w,eu=(P.reg.find(g=>g.n==="Europa")||{w:0}).w,top=P.pos[0];
+ // Detail zum angetippten Stück
+ let det="";if(sel!==null){const it=items[sel];if(pfMode==="pos"){const w=(S.warn||{})[it.s];det=`<div class="panel" style="margin-top:10px"><div style="display:flex;justify-content:space-between;gap:8px"><b>${esc(it.n)}</b><span class="num">${fmt(it.w,1)} %</span></div>
+  <p class="note" style="margin:4px 0">${fmt(it.v)} € · ${it.g>=0?"+":""}${fmt(it.g,1)} % seit Kauf · ${artOf(it.s)}${w?` · Frühwarnung ${AMPEL[w.lv]} ${AMPEL_TXT[w.lv]}`:""}</p>
+  ${artOf(it.s)==="Einzelaktie"&&it.w>Z.single?`<p class="note down" style="margin:4px 0">Mehr als ${Z.single} % in einer Einzelaktie. Für „${S.settings.investor}“ ist das viel Abhängigkeit von einer Firma.</p>`:""}
+  <div class="btns" style="margin:8px 0 0"><button class="btn ghost" data-go="aktie-${enc(it.s)}">Ansehen</button><button class="btn ghost" data-pos="${S.depot.indexOf(it.d)}">Ändern</button></div></div>`}
+  else det=`<div class="panel" style="margin-top:10px"><div style="display:flex;justify-content:space-between"><b>${esc(it.n)}</b><span class="num">${fmt(it.w,1)} %</span></div><div class="list" style="margin-top:6px">${it.mem.map(p=>`<button class="item" data-go="aktie-${enc(p.s)}" style="padding:8px 2px"><div class="l">${esc(p.n)}</div><div class="r num">${fmt(p.w,1)} %</div></button>`).join("")}</div>${pfMode==="reg"?'<p class="note">Bei ETFs mit ungefährer Länderaufteilung gerechnet.</p>':""}</div>`}
+ // Gewichtungs-Check
+ const bar=(l,ist,lo,hi)=>{const ok=ist>=lo&&ist<=hi;return `<div class="bar" style="grid-template-columns:110px 1fr 70px;margin-bottom:8px"><div style="font-size:13px">${l}<div class="note" style="margin:0">Ziel ${lo}–${hi} %</div></div><div class="track" style="height:12px"><span style="left:${lo}%;width:${hi-lo}%;background:var(--accent-soft);border-radius:5px"></span><span style="left:0;width:${Math.min(ist,100)}%;height:4px;top:4px;background:var(${ok?"--up":"--warn"})"></span></div><div class="num" style="font-size:12px;text-align:right">${fmt(ist,0)} % ${ok?"✓":"!"}</div></div>`};
+ const krit=P.pos.filter(p=>{const w=(S.warn||{})[p.s];return (w&&w.lv>=2)||(artOf(p.s)==="Einzelaktie"&&p.w>Z.single)});
+ const vor=[];const alt=k=>(S.markt||[]).filter(m=>m.k==="alt:"+k&&!S.depot.some(d=>d.s===m.s)&&!(((S.warn||{})[m.s]||{}).lv>=3));
+ if(us>60)vor.push(["Weniger Abhängigkeit von den USA",`Dein Depot steckt zu etwa ${fmt(us,0)} % in den USA.`,[...alt("Europa").slice(0,1),...alt("Weniger USA").slice(0,1)]]);
+ if(em<5&&P.tot>0)vor.push(["Schwellenländer fehlen","China, Indien, Taiwan & Co. sind kaum vertreten.",alt("Schwellenländer").slice(0,1)]);
+ if(def<Z.defensiv[0])vor.push(["Stoßdämpfer für Krisen",`Nur ${fmt(def,0)} % in Anleihen, Geldmarkt oder Gold (Ziel ${Z.defensiv[0]}–${Z.defensiv[1]} %).`,[...alt("Anleihen und Geldmarkt").slice(0,2),...alt("Gold")]]);
+ if(einzel>Z.einzel[1])vor.push(["Breiter streuen",`${fmt(einzel,0)} % Einzelaktien. Ein breiter ETF verteilt das Risiko auf viele Firmen.`,(S.markt||[]).filter(m=>["IUSQ.DE","VWCE.DE"].includes(m.s)&&!S.depot.some(d=>d.s===m.s))]);
+ if(eu<10&&P.tot>0&&us<=60)vor.push(["Europa ergänzen",`Nur ${fmt(eu,0)} % in Europa.`,alt("Europa").slice(0,1)]);
+ const mI=m=>`<button class="item" data-go="aktie-${enc(m.s)}" style="padding:8px 2px"><div class="l"><div class="t" style="font-size:14px">${esc(m.n)}</div><div class="s">${(A[m.s]?DIR[A[m.s].dir][0]+" "+DIR[A[m.s].dir][1]:"")}</div></div><span class="go">›</span></button>`;
+ return `<h2>Zusammensetzung</h2><div class="filters">${[["pos","Positionen"],["art","Art"],["reg","Region"]].map(([k,l])=>`<button class="chip" data-pf="${k}" aria-pressed="${pfMode===k}">${l}</button>`).join("")}</div>
+ <div class="panel"><div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap;justify-content:center"><div style="flex:none">${donut(items,sel)}</div>
+  <div style="flex:1;min-width:150px;display:flex;flex-direction:column;gap:4px">${items.map((it,i)=>`<button class="item" data-seg="${i}" style="padding:5px 4px;gap:8px;${sel===i?"background:var(--accent-soft)":""}"><span style="width:10px;height:10px;border-radius:3px;background:var(${PAL[i%PAL.length]});flex:none"></span><span class="l" style="font-size:13px">${esc(it.n)}</span><span class="num" style="font-size:12px">${fmt(it.w,1)} %</span></button>`).join("")}</div></div>
+  <p class="note" style="text-align:center;margin-top:4px">Tippe auf ein Stück für Details.</p></div>${det}
+ <div class="facts" style="margin-top:12px"><div><b>ETFs</b><span class="num">${fmt(etf,0)} %</span></div><div><b>Einzelaktien</b><span class="num">${fmt(einzel,0)} %</span></div><div><b>USA (ungefähr)</b><span class="num">${fmt(us,0)} %</span></div><div><b>Größte Position</b><span class="num">${top?esc(top.n.split(" ")[0])+" "+fmt(top.w,0)+" %":"–"}</span></div></div>
+ <h3>Gewichtung für „${S.settings.investor}“</h3><div class="panel">${bar("ETFs",etf,...Z.etf)}${bar("Einzelaktien",einzel,...Z.einzel)}${bar("Anleihen, Geld, Gold",def,...Z.defensiv)}${bar("Krypto",krypto,...Z.krypto)}
+  <p class="note" style="margin:4px 0 0">Faustregeln für deinen Anleger-Typ (änderbar unter ⚙️). Keine Anlageberatung.</p></div>
+ ${krit.length?`<h3>Kritisch</h3><div class="list">${krit.map(p=>{const w=(S.warn||{})[p.s];return `<button class="item" data-go="aktie-${enc(p.s)}"><div class="l"><div class="t">${w&&w.lv>=2?AMPEL[w.lv]+" ":""}${esc(p.n)}</div><div class="s">${[w&&w.lv>=2?esc(w.gr[0]||"Frühwarnung"):"",artOf(p.s)==="Einzelaktie"&&p.w>Z.single?`${fmt(p.w,0)} % des Depots in einer Firma`:""].filter(Boolean).join(" · ")}</div></div><span class="go">›</span></button>`}).join("")}</div>`:""}
+ ${vor.filter(v=>v[2].length).length?`<h3>Könnte dein Depot ergänzen</h3>${vor.filter(v=>v[2].length).map(([t,g,l])=>`<div class="panel" style="margin-bottom:8px"><b>${t}</b><p class="note" style="margin:2px 0 4px">${g}</p><div class="list">${l.map(mI).join("")}</div></div>`).join("")}`:""}`}
 
 /* ---------- Finanzen ---------- */
 const FIN={
@@ -491,6 +545,8 @@ document.addEventListener("click",e=>{const T=sel=>e.target.closest(sel);let el;
  if(el=T("[data-upd]")){const id=el.dataset.id,v=el.dataset.upd;if(v==="undo")delete S.updates[id];else S.updates[id]=v;if(v==="undo")S.updates[id]="no";save();A=analyzeAll();toast(v==="ok"?"Update übernommen":v==="undo"?"Rückgängig gemacht":"Abgelehnt");render(true);return}
  if(el=T("[data-pick]")){pick=(KI.catalog||[]).find(c=>c.s===el.dataset.pick);$("#fs").value=pick.n;$("#fs").dispatchEvent(new Event("input"));const k=$("#fk");if(priceOf(pick.s)&&!k.value)k.value=priceOf(pick.s);$("#fq").focus();return}
  if(el=T("[data-add]")){pick=(KI.catalog||[]).find(c=>c.s===el.dataset.add)||{s:el.dataset.add,n:el.dataset.add};go("depot");$("#fq").focus();return}
+ if(el=T("[data-pf]")){pfMode=el.dataset.pf;pfSel=null;render(true);return}
+ if(el=T("[data-seg]")){const i=+el.dataset.seg;pfSel=pfSel===i?null:i;render(true);return}
  if(el=T("[data-pos]")){openPos(+el.dataset.pos);return}
  if(el=T("[data-pm]")){const m=el.dataset.pm;if(m==="test"){const d=S.depot[posI];d.test=d.test?undefined:true;save();syncPlan();closeSettings();toast(d.test?"Als Test markiert":"Als echter Kauf übernommen");return}openPos(posI,m);return}
  if(T("[data-pdel]")){const d=S.depot.splice(posI,1)[0];save();syncPlan();closeSettings();toast(`${d.n} gelöscht`);return}
