@@ -168,16 +168,30 @@ async function alarme(){const n=Object.assign({loss:true,target:true,move:5,news
   for(const k of Object.keys(B.sent))if(/^(move|earn):/.test(k)&&!k.includes(z.date)&&!k.includes(addDays(z.date,1)))delete B.sent[k]}
 
 /* ---------- EU-Kurse für die App (Branch "kurse", ohne Seiten-Neubau) ---------- */
-async function euKurse(){const z=zeit();if(!xetraOffen()&&Date.now()-(B.euT||0)<36e5)return;
-  const syms=[...new Set([...depot().map(x=>x.s),...(U.watch||[]).map(w=>LEGACY[w]||w),...(KI.stocks||[]).map(x=>x.s),...DEFAULT_EU])].filter(isEU);
-  for(const [s] of [...EU_INDEX,...EU_SECTOR])await yq(s);for(const s of syms)await yq(s);await yq("EURUSD=X");B.euT=Date.now();
+// Wichtige Marktwerte: eigene Seiten in der App
+const MARKT=[["^GDAXI","DAX","idx"],["^MDAXI","MDAX","idx"],["^STOXX50E","Euro Stoxx 50","idx"],["^GSPC","S&P 500","idx"],["^NDX","Nasdaq 100","idx"],["^DJI","Dow Jones","idx"],
+  ["EUNL.DE","MSCI World (ETF)","etf"],["VWCE.DE","FTSE All-World (ETF)","etf"],["GC=F","Gold","roh"],["BZ=F","Öl (Brent)","roh"],["BTC-EUR","Bitcoin","krypto"],["EURUSD=X","Euro in Dollar","fx"]];
+async function euKurse(){const z=zeit(),heute=z.date;B.hist=B.hist||{};
+  const meine=[...new Set([...depot().map(x=>x.s),...(U.watch||[]).map(w=>LEGACY[w]||w),...(KI.stocks||[]).map(x=>x.s),...DEFAULT_EU])].filter(s=>s&&!["BTC","ETH","GOLD"].includes(s));
+  const alle=[...new Set([...MARKT.map(m=>m[0]),...EU_INDEX.map(m=>m[0]),...meine])];
+  const neu=alle.filter(s=>!B.hist[s]||B.hist[s].d!==heute);
+  const offen=xetraOffen()||boerseOffen(),faellig=offen||Date.now()-(B.euT||0)>=36e5;
+  if(!faellig&&!neu.length)return;
+  // Verlauf (3 Monate) einmal am Tag, neue Werte sofort
+  for(const s of neu.slice(0,40)){const c=await yq(s,true);if(c&&c.length)B.hist[s]={d:heute,c}}
+  if(faellig){for(const s of alle)if(!neu.includes(s))await yq(s);for(const [s] of EU_SECTOR)await yq(s);B.euT=Date.now()}
+  if(!B.q["EURUSD=X"])await yq("EURUSD=X");
+  for(const s of Object.keys(B.hist))if(!alle.includes(s))delete B.hist[s];
   const pick=l=>l.filter(([s])=>B.q[s]).map(([s,n])=>({s,n,c:B.q[s].c,dp:+(+B.q[s].dp).toFixed(2)}));
-  const alle=[...new Set([...syms,...depot().map(x=>x.s),...(KI.stocks||[]).map(x=>x.s),...(U.watch||[])])].filter(s=>B.q[s]);
-  writeJSON(P(".state/kurse.json"),{t:Date.now(),fx:{EURUSD:fx()},idx:pick(EU_INDEX),sec:pick(EU_SECTOR),q:Object.fromEntries(alle.map(s=>[s,{c:B.q[s].c,dp:+(+B.q[s].dp).toFixed(2),cur:curOf(s),t:B.q[s].mt||B.q[s].t}]))});B.kursePush=true}
+  const mit=alle.filter(s=>B.q[s]);
+  writeJSON(P(".state/kurse.json"),{t:Date.now(),fx:{EURUSD:fx()},idx:pick(EU_INDEX),sec:pick(EU_SECTOR),
+    markt:MARKT.filter(([s])=>B.q[s]).map(([s,n,k])=>({s,n,k})),
+    q:Object.fromEntries(mit.map(s=>[s,{c:B.q[s].c,dp:+(+B.q[s].dp).toFixed(2),cur:curOf(s),t:B.q[s].mt||B.q[s].t}])),
+    h:Object.fromEntries(Object.entries(B.hist).map(([s,v])=>[s,v.c.map(x=>+(+x).toFixed(4))]))});B.kursePush=true;if(neu.length)log("Neue Verläufe:",neu.join(","))}
 function kurseHochladen(){if(!B.kursePush||DRY)return;B.kursePush=false;try{const o={cwd:ROOT};const blob=execSync("git hash-object -w .state/kurse.json",o).toString().trim();
   const tree=execSync("git mktree",Object.assign({input:`100644 blob ${blob}\tkurse.json\n`},o)).toString().trim();
   const c=execSync(`git -c user.name=Wachmann -c user.email=wachmann@users.noreply.github.com commit-tree ${tree} -m "Kurse"`,o).toString().trim();
-  execSync(`git push -f -q origin ${c}:refs/heads/kurse`,o);log("EU-Kurse hochgeladen")}catch(e){log("Kurse",e.message);B.err.kurse=e.message.slice(0,120)}}
+  execSync(`git push -f -q origin ${c}:refs/heads/kurse`,o);log("Kurse hochgeladen")}catch(e){log("Kurse",e.message);B.err.kurse=e.message.slice(0,120)}}
 
 /* ---------- Abend-Rückblick um 21 Uhr (ohne KI) ---------- */
 async function abendRueckblick(){const z=zeit(),n=U.notify||{};if((!E.FORCE_ABEND&&(z.h<21||z.h>=22))||B.sent.abend===z.date||n.briefing===false||!CHAT)return;B.sent.abend=z.date;

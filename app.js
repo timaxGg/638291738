@@ -11,9 +11,13 @@ const PREVIEW=!!window.KAH_PREVIEW;
 /* Europa: Kürzel mit Börsen-Endung, alte Kurz-Kürzel werden umgestellt */
 const EU_SUF=/\.(DE|F|AS|PA|MI|L|SW|VI|MC|BR|CO|ST|HE|OL|LS|IR)$/;
 const LEGACY={SIE:"SIE.DE",ALV:"ALV.DE",DTE:"DTE.DE",MBG:"MBG.DE",BMW:"BMW.DE",VOW3:"VOW3.DE",BAS:"BAS.DE",BAYN:"BAYN.DE",ADS:"ADS.DE",IFX:"IFX.DE",RHM:"RHM.DE",MUV2:"MUV2.DE",DBK:"DBK.DE",DHL:"DHL.DE",AIR:"AIR.DE"};
-const isEU=s=>EU_SUF.test(s||"")||(s||"").startsWith("^");
+const isEU=s=>EU_SUF.test(s||"");
 const curOf=s=>{const q=S.quotes[s];if(q&&q.cur)return q.cur;const st=KI&&(KI.stocks||[]).find(x=>x.s===s);if(st&&st.cur)return st.cur;return isEU(s)?"EUR":"USD"};
-const cs=s=>({EUR:"€",USD:"$",GBp:"p",GBP:"£",CHF:"CHF"}[curOf(s)]||curOf(s));
+const kindOf=s=>{const m=(S.markt||[]).find(x=>x.s===s);return m?m.k:(s||"").startsWith("^")?"idx":""};
+const cs=s=>kindOf(s)==="idx"?"Pkt.":({EUR:"€",USD:"$",GBp:"p",GBP:"£",CHF:"CHF"}[curOf(s)]||curOf(s));
+const enc=s=>encodeURIComponent(s);
+const nameOf=s=>{const k=KI&&(KI.stocks||[]).find(x=>x.s===s);if(k)return k.n;const m=(S.markt||[]).find(x=>x.s===s);if(m)return m.n;const c=KI&&(KI.catalog||[]).find(x=>x.s===s);if(c)return c.n;const d=S.depot.find(x=>x.s===s);return d?d.n:s};
+const KIND_TXT={idx:"Index",etf:"ETF",roh:"Rohstoff",krypto:"Kryptowährung",fx:"Währung"};
 const toEUR=(v,s)=>{const c=curOf(s);return c==="EUR"?v:c==="USD"?v/(S.fx||1.1):v};
 const xetraOffen=()=>{const p=new Intl.DateTimeFormat("en-US",{timeZone:"Europe/Berlin",weekday:"short",hour:"numeric",minute:"numeric",hour12:false}).formatToParts(new Date()),g=k=>p.find(x=>x.type===k).value,m=+g("hour")*60+ +g("minute");return !["Sat","Sun"].includes(g("weekday"))&&m>=540&&m<1050};
 
@@ -50,7 +54,7 @@ async function fh(path){const r=await fetch(`https://finnhub.io/api/v1/${path}&t
 function kurseUrl(){let r=S.settings.ghRepo;if(!r&&/github\.io$/.test(location.hostname))r=location.hostname.split(".")[0]+"/"+location.pathname.split("/")[1];return r?`https://raw.githubusercontent.com/${r}/kurse/kurse.json?t=${Math.floor(Date.now()/12e4)}`:null}
 async function euLaden(){const u=kurseUrl();if(!u)return;try{const r=await fetch(u,{cache:"no-store"});if(!r.ok)return;const k=await r.json();
  Object.entries(k.q||{}).forEach(([s,q])=>{const old=S.quotes[s];if(!old||isEU(s)||!S.settings.fhKey||(q.t||0)>(old.t||0))S.quotes[s]={c:q.c,dp:q.dp,t:q.t||k.t,cur:q.cur}});
- S.euIdx=k.idx||[];S.euSec=k.sec||[];if(k.fx&&k.fx.EURUSD)S.fx=k.fx.EURUSD;S.euT=k.t;delete S.euErr}catch(e){S.euErr="EU-Kurse nicht erreichbar"}}
+ S.euIdx=k.idx||[];S.euSec=k.sec||[];if(k.h)S.hist=k.h;if(k.markt)S.markt=k.markt;if(k.fx&&k.fx.EURUSD)S.fx=k.fx.EURUSD;S.euT=k.t;delete S.euErr;A=analyzeAll()}catch(e){S.euErr="EU-Kurse nicht erreichbar"}}
 async function refreshLive(manual){
  if(PREVIEW){if(manual)toast("In der Vorschau gibt es keine Live-Kurse. In der installierten App schon.");return}
  if(busy)return;busy=true;spin(true);liveErr="";
@@ -79,10 +83,14 @@ async function gh(path,opt={}){const r=await fetch(`https://api.github.com/repos
 function payload(){const [rec]=recommend();return {depot:S.depot.filter(d=>!d.demo),fin:S.fin,kh:S.kh,updates:S.updates,watch:S.watch,notify:S.settings.notify,investor:S.settings.investor,
  model:S.fin.model||"",modelName:S.fin.model?MODELS[S.fin.model].n:"",rec,recName:MODELS[rec].n,inboxDone:S.inboxDone.slice(-200)}}
 let syncT=null,syncBusy=false;
-function syncPlan(){if(!syncOn()||!KI)return;const h=JSON.stringify(payload());if(h===S.syncHash)return;clearTimeout(syncT);syncT=setTimeout(syncPush,20000)}
+let wecken=false;
+function syncPlan(schnell){if(!syncOn()||!KI)return;if(schnell)wecken=true;const h=JSON.stringify(payload());if(h===S.syncHash&&!schnell)return;clearTimeout(syncT);syncT=setTimeout(syncPush,schnell?1500:20000)}
+async function weckeWachmann(){try{const r=await fetch(`https://api.github.com/repos/${S.settings.ghRepo}/actions/workflows/wachmann.yml/dispatches`,{method:"POST",headers:{Authorization:`Bearer ${S.settings.ghToken}`,Accept:"application/vnd.github+json"},body:JSON.stringify({ref:"main"})});
+ S.weckOk=r.status===204;try{localStorage.setItem("kah",JSON.stringify(S))}catch(e){}}catch(e){S.weckOk=false}
+ [90,240,420].forEach(sec=>setTimeout(()=>refreshLive(),sec*1000))}
 async function syncPush(){if(!syncOn()||syncBusy)return;syncBusy=true;try{const p=payload(),h=JSON.stringify(p);p.updatedAt=Date.now();const cur=await gh("data/state.enc");
  await gh("data/state.enc",{method:"PUT",body:JSON.stringify({message:"App: Daten aktualisiert",content:btoa(await encJ(p,S.settings.syncPass)),sha:cur?cur.sha:undefined})});
- S.syncAt=p.updatedAt;S.syncHash=h;S.syncInfo="";try{localStorage.setItem("kah",JSON.stringify(S))}catch(e){}}catch(e){S.syncInfo=e.message;toast("Abgleich: "+e.message)}syncBusy=false}
+ S.syncAt=p.updatedAt;S.syncHash=h;S.syncInfo="";if(wecken){wecken=false;weckeWachmann()}try{localStorage.setItem("kah",JSON.stringify(S))}catch(e){}}catch(e){S.syncInfo=e.message;toast("Abgleich: "+e.message)}syncBusy=false}
 async function syncPull(){if(!syncOn())return;try{const r=await gh("data/state.enc");if(r){const o=await decJ(atob(r.content.replace(/\n/g,"")),S.settings.syncPass);
   if(o.updatedAt>S.syncAt){Object.assign(S,{depot:o.depot.length?o.depot:S.depot.filter(d=>d.demo),fin:o.fin,kh:o.kh,updates:o.updates||{},watch:o.watch||[],inboxDone:o.inboxDone||[]});
    Object.assign(S.settings.notify,o.notify||{});if(o.investor)S.settings.investor=o.investor;S.syncAt=o.updatedAt;S.syncHash=JSON.stringify(payload())}}
@@ -97,7 +105,7 @@ function params(){const p=Object.assign({trendDamping:.5,bandFactor:1,newsWeight
 function analyze(st){
  const P=params();const old=st.closes.slice().reverse();const q=S.quotes[st.s];
  let last=old[old.length-1],chg=(last/old[old.length-2]-1)*100,live=false;
- if(q&&q.t>Date.parse(KI.dataAsOf||0)+864e5*0.5){last=q.c;chg=q.dp;live=true;old.push(q.c)}
+ if(q&&(st.pseudo||q.t>Date.parse(KI.dataAsOf||0)+864e5*0.5)){live=true;chg=q.dp;if(Math.abs(q.c-last)/last>1e-6&&!(st.pseudo&&Date.now()-q.t<864e5&&old.length&&st.heute)){old.push(q.c)}else old[old.length-1]=q.c;last=q.c}
  const r=[];for(let i=1;i<old.length;i++)r.push(Math.log(old[i]/old[i-1]));
  const mu=mean(r),sd=Math.sqrt(mean(r.map(x=>(x-mu)**2)));
  const sma=n=>mean(old.slice(-n)),s10=sma(10),s30=sma(30);
@@ -108,7 +116,8 @@ function analyze(st){
  const mid=last*Math.exp(drift),lo=last*Math.exp(drift-band),hi=last*Math.exp(drift+band),vol=sd*Math.sqrt(252)*100;
  return {st,old,last,chg,live,dir,ch20,ch3m,dd,H,mid,lo,hi,vol,band,drift,min:Math.min(...old),max:Math.max(...old),
   pm:(mid/last-1)*100,pl:(lo/last-1)*100,ph:(hi/last-1)*100,risk:vol<20?1:vol<35?2:3}}
-let A={};const analyzeAll=()=>{const o={};(KI.stocks||[]).forEach(s=>o[s.s]=analyze(s));return o};
+let A={};const analyzeAll=()=>{const o={};(KI.stocks||[]).forEach(s=>{try{o[s.s]=analyze(s)}catch(e){}});
+ Object.entries(S.hist||{}).forEach(([s,c])=>{if(o[s]||!c||c.length<25)return;const k=kindOf(s);try{o[s]=analyze({s,n:nameOf(s),h:"lang",bias:0,closes:c,cat:KIND_TXT[k]||"Ohne KI-Einschätzung",pseudo:true,kind:k,heute:true})}catch(e){}});return o};
 const priceOf=s=>A[s]?A[s].last:S.quotes[s]?S.quotes[s].c:null;
 
 /* ---------- Bausteine ---------- */
@@ -141,7 +150,7 @@ function potMeter(a){const Sx=30,pos=v=>Math.max(0,Math.min(100,50+v/Sx*50)),c=a
 const fitsInvestor=a=>S.settings.investor==="vorsichtig"?a.risk<=2:S.settings.investor==="mutig"?true:a.risk<=2||a.st.h==="lang";
 function sortedStocks(list){const t=S.settings.investor;return list.slice().sort((x,y)=>{const a=A[x.s],b=A[y.s];return t==="vorsichtig"?a.vol-b.vol:t==="mutig"?b.ph-a.ph:(b.pm-b.vol/20)-(a.pm-a.vol/20)})}
 const newsItem=n=>`<button class="item" data-go="news-${n.id}"><div class="l"><div class="t">${n.t}</div><div class="s">${n.sum}</div><div class="meta">${imp(n.imp)}<span class="tag ${n.kind[1]}">${n.kind[0]}</span><span class="tag" style="background:none;color:var(--muted);padding:0">${n.cat}</span></div></div><span class="go">›</span></button>`;
-const stockItem=s=>{const a=A[s.s];if(!a)return"";return `<button class="item" data-go="aktie-${s.s}"><div class="l"><div class="t">${s.n}</div><div class="s"><span class="num">${s.s}</span> · ${s.h==="lang"?"Langfristig":"Kurzfristig"} · <span class="${a.dir}">${DIR[a.dir][0]} ${DIR[a.dir][1].replace("Trend ","")}</span></div></div>${spark(a)}<div class="r"><div class="num" data-px="${s.s}">${fmt(a.last)} ${cs(s.s)}</div>${pct(a.chg)}</div></button>`};
+const stockItem=s=>{const a=A[s.s];if(!a)return"";return `<button class="item" data-go="aktie-${enc(s.s)}"><div class="l"><div class="t">${s.n}</div><div class="s"><span class="num">${esc(s.s)}</span> · ${s.pseudo?(KIND_TXT[s.kind]||"ohne Einschätzung"):s.h==="lang"?"Langfristig":"Kurzfristig"} · <span class="${a.dir}">${DIR[a.dir][0]} ${DIR[a.dir][1].replace("Trend ","")}</span></div></div>${spark(a)}<div class="r"><div class="num" data-px="${s.s}">${fmt(a.last)} ${cs(s.s)}</div>${pct(a.chg)}</div></button>`};
 const findCat=q=>{q=q.trim().toLowerCase();if(!q)return[];return (KI.catalog||[]).filter(c=>c.s.toLowerCase().startsWith(q)||c.n.toLowerCase().includes(q)||(c.a||"").includes(q)).slice(0,5)};
 
 /* ---------- Sparmodelle ---------- */
@@ -188,7 +197,11 @@ const V={
   <h2>Branchen</h2><div class="bars">${secs.map(s=>{const w=Math.min(Math.abs(s.c)/mx*50,50);return `<div class="bar"><div>${s.n}<div class="note" style="margin:0">${s.p}</div></div><div class="track"><span style="${s.c<0?"right":"left"}:50%;width:${Math.max(w,1)}%;background:var(${s.c<0?"--down":"--up"})"></span><i class="mid" style="width:1px;opacity:1;background:var(--muted)"></i></div><div style="text-align:right">${pct(s.c)}</div></div>`}).join("")}</div>
   <p class="note">Gemessen an Branchen-ETFs. Europa: iShares STOXX Europe 600 Branchen-ETFs auf Xetra.</p><h2>Trends der beobachteten Werte</h2><div class="list">${sortedStocks(KI.stocks||[]).map(stockItem).join("")}</div>`},
  aktien(){const list=sortedStocks((KI.stocks||[]).filter(s=>(filter==="alle"||s.h===filter)&&(region==="alle"||(region==="eu")===isEU(s.s))));const ups=(KI.updates||[]);
-  return `<h1>Aktien</h1><div class="filters">${[["alle","Alle"],["lang","Langfristig"],["kurz","Kurzfristig"]].map(([k,l])=>`<button class="chip" data-f="${k}" aria-pressed="${filter===k}">${l}</button>`).join("")}</div>
+  const mk=(S.markt||[]),eigene=[...new Set([...S.depot.filter(d=>!d.demo).map(d=>d.s),...S.watch])].filter(x=>!(KI.stocks||[]).some(k=>k.s===x));
+  const mItem=m=>{const a=A[m.s],q=S.quotes[m.s];return a?stockItem(a.st):`<button class="item" data-go="aktie-${enc(m.s)}"><div class="l"><div class="t">${esc(m.n)}</div><div class="s">${KIND_TXT[m.k]||""}</div></div><div class="r">${q?`<div class="num">${fmt(q.c)} ${cs(m.s)}</div>${pct(q.dp)}`:""}</div></button>`};
+  return `<h1>Aktien</h1>${mk.length?`<h2 style="margin-top:8px">Wichtige Marktwerte</h2><div class="list">${mk.map(mItem).join("")}</div>`:""}
+  ${eigene.length?`<h2>Deine weiteren Werte</h2><div class="list">${eigene.map(x=>A[x]?stockItem(A[x].st):`<button class="item" data-go="aktie-${enc(x)}"><div class="l"><div class="t">${esc(nameOf(x))}</div><div class="s">Daten werden geladen …</div></div><span class="go">›</span></button>`).join("")}</div>`:""}
+  <h2>Mit KI-Einschätzung</h2><div class="filters">${[["alle","Alle"],["lang","Langfristig"],["kurz","Kurzfristig"]].map(([k,l])=>`<button class="chip" data-f="${k}" aria-pressed="${filter===k}">${l}</button>`).join("")}</div>
   <div class="filters">${[["alle","Alle Regionen"],["eu","Europa"],["us","USA"]].map(([k,l])=>`<button class="chip" data-rg="${k}" aria-pressed="${region===k}">${l}</button>`).join("")}</div>
   ${list.length?`<div class="list">${list.map(stockItem).join("")}</div>`:'<div class="empty">Noch keine Werte in dieser Auswahl. Neue Werte bekommen beim nächsten KI-Update eine Einschätzung.</div>'}
   <h3>Weitere Aktie beobachten</h3><div class="panel"><form id="fw"><label class="f full">Name oder Kürzel<input id="ws" autocomplete="off" placeholder="z. B. Tesla oder SIE"><div id="wsg"></div></label><button class="btn full">Beobachten</button></form>
@@ -207,15 +220,16 @@ const V={
 };
 function marktRows(){const row=(n,sub,c,dp,cur)=>`<div class="row"><div class="l">${n}<div class="sub">${sub}</div></div><div class="r"><div class="num">${fmt(c)}${cur?" "+cur:""}</div>${pct(dp)}</div></div>`;
  const eu=(S.euIdx||[]),us=INDEX_ETF.filter(([s])=>S.quotes[s]&&S.quotes[s].cur!=="EUR");let h="";
- if(eu.length)h+=`<h3>Europa · Xetra ${xetraOffen()?'<b class="up">offen</b>':"geschlossen"}</h3><div class="list">${eu.map(i=>row(i.n,"Punkte",i.c,i.dp,"")).join("")}</div>`;
- if(us.length)h+=`<h3>USA · ${marketOpen()?'<b class="up">offen</b>':"geschlossen"}</h3><div class="list">${us.map(([s,n])=>row(n,`über ${s}`,S.quotes[s].c,S.quotes[s].dp,"$")).join("")}</div>`;
+ const link=(s,html)=>A[s]||S.markt?`<button class="item" style="padding:0 4px" data-go="aktie-${enc(s)}">${html.replace('class="row"','class="row" style="flex:1;border:0"')}</button>`:html;
+ if(eu.length)h+=`<h3>Europa · Xetra ${xetraOffen()?'<b class="up">offen</b>':"geschlossen"}</h3><div class="list">${eu.map(i=>link(i.s,row(i.n,"Punkte",i.c,i.dp,""))).join("")}</div>`;
+ if(us.length)h+=`<h3>USA · ${marketOpen()?'<b class="up">offen</b>':"geschlossen"}</h3><div class="list">${us.map(([s,n])=>link(s,row(n,`über ${s}`,S.quotes[s].c,S.quotes[s].dp,"$"))).join("")}</div>`;
  if(!h)h=`<div class="list">${(KI.indices||[]).map(i=>row(i.n,i.s,i.v,i.c,"")).join("")}</div>`;
  const t=S.euT?new Date(S.euT).toLocaleTimeString("de-DE",{hour:"2-digit",minute:"2-digit"}):null;
  return h+`<p class="note">${t?`EU-Kurse von ${t} Uhr (ca. 15 Min. verzögert)`:`Stand ${KI.dataAsOf?new Date(KI.dataAsOf).toLocaleDateString("de-DE"):"?"}`}${S.settings.fhKey?" · US live":" · Für US-Live-Kurse Finnhub-Schlüssel eintragen"}</p>`}
 function depotRows(full){if(!S.depot.length)return `<div class="empty">Noch nichts eingetragen. Unter „Depot“ fügst du deine erste Aktie hinzu.</div>`;
  return `<div class="list">${S.depot.map((d,i)=>{const a=A[d.s],p=priceOf(d.s),ch=p?(p/d.k-1)*100:null,al=ch!==null&&ch<=d.a;
   return `<div class="row"><div class="l"><b>${esc(d.n)}</b> ${d.demo?'<span class="demo">Beispiel</span>':""}<div class="sub">${fmt(d.q,d.q%1?2:0)} Stk. · Kauf ${fmt(d.k)} ${cs(d.s)} · Meldung ab ${d.a} %${d.z?` · Ziel ${fmt(d.z)} ${cs(d.s)}`:""}${d.tag?` · Nachkauf am ${d.tag}.`:""}</div>${al?'<span class="tag down">Meldegrenze erreicht</span>':""}${a?`<div class="sub">${DIR[a.dir][0]} ${DIR[a.dir][1]}</div>`:""}</div>
-  <div class="r">${p?`<div class="num">${fmt(p*d.q)} ${cs(d.s)}</div>${pct(ch)}`:'<span class="sub">Kurs folgt</span>'}${full?`<br><button class="x" data-del="${i}">Entfernen</button>`:a?`<br><button class="x" data-go="aktie-${d.s}">Ansehen ›</button>`:""}</div></div>`}).join("")}</div>`}
+  <div class="r">${p?`<div class="num">${fmt(p*d.q)} ${cs(d.s)}</div>${pct(ch)}`:'<span class="sub">Kurs folgt</span>'}${full?`<br><button class="x" data-go="aktie-${enc(d.s)}">Ansehen ›</button> <button class="x" data-del="${i}">Entfernen</button>`:`<br><button class="x" data-go="aktie-${enc(d.s)}">Ansehen ›</button>`}</div></div>`}).join("")}</div>`}
 
 /* ---------- Finanzen ---------- */
 const FIN={
@@ -299,9 +313,14 @@ function parseCSV(text){const lines=text.replace(/\r/g,"").split("\n").filter(l=
  r.months=f?Math.max(1,Math.round((t-f)/2.63e9)):1;r.from=f?f.toLocaleDateString("de-DE"):"?";r.to=t?t.toLocaleDateString("de-DE"):"?";return r}
 
 /* ---------- Detailseiten ---------- */
-function stockView(s){const a=A[s];if(!a)return V.aktien();const st=a.st,inDepot=S.depot.some(d=>d.s===s);
+function stockView(s){const a=A[s],inDepot=S.depot.some(d=>d.s===s),k=kindOf(s);
+ if(!a){const q=S.quotes[s];return `<button class="back" data-back>‹ Zurück</button><div class="note" style="margin:0"><span class="num">${esc(s)}</span></div><h1>${esc(nameOf(s))}</h1>
+  ${q?`<div class="price"><span class="big">${fmt(q.c)} ${cs(s)}</span>${pct(q.dp)}</div>`:""}
+  <div class="panel" style="margin:14px 0"><b>Verlauf und Prognose werden geladen</b><p style="margin:4px 0 0">Der Wachmann holt die Daten beim nächsten Lauf, meist innerhalb von 5 Minuten. ${inDepot||S.watch.includes(s)?"":"Tipp: Beobachte den Wert, dann wird er dauerhaft mitgeladen."}</p></div>
+  <div class="btns">${inDepot||S.watch.includes(s)?"":`<button class="btn ghost" data-watch="${esc(s)}">Beobachten</button>`}<button class="btn ghost" data-refresh>Neu laden</button></div>`}
+ const st=a.st;
  setTimeout(async()=>{const n=await liveNews(s),el=$("#ln");if(el&&n)el.innerHTML=n.length?`<div class="list">${n.map(x=>`<a class="item" href="${esc(x.url)}" target="_blank" rel="noopener"><div class="l"><div class="t">${esc(x.headline)}</div><div class="s">${esc(x.source)} · ${new Date(x.datetime*1000).toLocaleDateString("de-DE")}</div></div><span class="go">↗</span></a>`).join("")}</div>`:'<div class="empty">Keine neuen Schlagzeilen.</div>'},0);
- return `<button class="back" data-back>‹ Zurück</button><div class="note" style="margin:0">${st.cat} · <span class="num">${s}</span></div><h1>${st.n}</h1>
+ return `<button class="back" data-back>‹ Zurück</button><div class="note" style="margin:0">${st.cat} · <span class="num">${esc(s)}</span></div><h1>${esc(st.n)}</h1>
  <div class="price"><span class="big">${fmt(a.last)} ${cs(s)}</span>${pct(a.chg)}<span class="note" style="margin:0">${a.live?`<span class="dot live" style="display:inline-block"></span> ${isEU(s)?"ca. 15 Min. verzögert":"live"}`:"Schlusskurs"}</span></div>
  ${fitsInvestor(a)?"":`<div class="alert"><span class="ic">!</span><div>Diese Aktie schwankt stark und passt eher nicht zu deinem Anleger-Typ „${S.settings.investor}“.</div></div>`}
  <div class="trend ${a.dir}"><span class="arrow">${DIR[a.dir][0]}</span><div>${DIR[a.dir][1]}<small>${a.dir==="up"?"Kurs liegt über seinem Durchschnitt der letzten Wochen.":a.dir==="down"?"Kurs liegt unter seinem Durchschnitt der letzten Wochen.":"Kein klarer Trend in den letzten Wochen."} Letzte 4 Wochen ${sgn(a.ch20)}.</small></div></div>
@@ -309,11 +328,12 @@ function stockView(s){const a=A[s];if(!a)return V.aktien();const st=a.st,inDepot
  <h2>Risiko und Chance</h2><div class="panel">${riskMeter(a)}<div style="height:12px"></div>${potMeter(a)}</div>
  <p class="note">Bereich, in dem der Kurs nach der Schwankung der letzten 3 Monate in etwa 2 von 3 Fällen landen würde. Die Mitte folgt abgeschwächt dem Trend plus der Nachrichtenlage. Eine Schätzung, keine Garantie.</p>
  <h2>Vergangenheit (3 Monate)</h2><div class="facts"><div><b>Veränderung</b>${pct(a.ch3m)}</div><div><b>Größter Rückgang</b><span class="num down">${sgn(a.dd)}</span></div><div><b>Tiefster Kurs</b><span class="num">${fmt(a.min)} ${cs(s)}</span></div><div><b>Höchster Kurs</b><span class="num">${fmt(a.max)} ${cs(s)}</span></div></div>
- <h2>Einschätzung · ${st.h==="lang"?"Langfristig (3 Monate+)":"Kurzfristig (ca. 4 Wochen)"}</h2><p>${st.why}</p>
- <div class="pc"><div><b class="up">Dafür</b><ul>${st.pro.map(x=>`<li>${x}</li>`).join("")}</ul></div><div><b class="down">Dagegen</b><ul>${st.con.map(x=>`<li>${x}</li>`).join("")}</ul></div></div>
- <div class="btns"><button class="btn" data-add="${s}">${inDepot?"Weitere Stücke eintragen":"Ins Depot übernehmen"}</button>${inDepot?"":`<button class="btn ghost" data-watch="${s}">${S.watch.includes(s)?"Nicht mehr beobachten":"Beobachten"}</button>`}</div>
+ ${st.pseudo?`<h2>Einschätzung</h2><div class="panel">${k==="idx"?"<b>Index</b><p style=\"margin:4px 0 0\">Ein Index ist nicht direkt kaufbar. Investieren kannst du z. B. über einen ETF, der ihn abbildet.</p>":k==="fx"?"<b>Wechselkurs</b><p style=\"margin:4px 0 0\">Zeigt, wie viele Dollar ein Euro kostet. Wichtig für den Wert deiner US-Aktien in Euro.</p>":inDepot||S.watch.includes(s)?"<b>KI-Einschätzung folgt</b><p style=\"margin:4px 0 0\">Beim nächsten KI-Update (7:00 oder 12:40 Uhr) bekommt dieser Wert Pro, Contra und Begründung. Verlauf, Trend und Prognose oben sind schon berechnet.</p>":"<b>Ohne KI-Einschätzung</b><p style=\"margin:4px 0 0\">Trend und Prognose sind aus dem Kursverlauf berechnet. Beobachte den Wert, dann bekommt er beim nächsten KI-Update eine Einschätzung.</p>"}</div>`
+ :`<h2>Einschätzung · ${st.h==="lang"?"Langfristig (3 Monate+)":"Kurzfristig (ca. 4 Wochen)"}</h2><p>${st.why}</p>
+ <div class="pc"><div><b class="up">Dafür</b><ul>${st.pro.map(x=>`<li>${x}</li>`).join("")}</ul></div><div><b class="down">Dagegen</b><ul>${st.con.map(x=>`<li>${x}</li>`).join("")}</ul></div></div>`}
+ <div class="btns">${["idx","fx"].includes(k)?"":`<button class="btn" data-add="${esc(s)}">${inDepot?"Weitere Stücke eintragen":"Ins Depot übernehmen"}</button>`}${inDepot||(S.markt||[]).some(m=>m.s===s)&&!st.pseudo?"":`<button class="btn ghost" data-watch="${esc(s)}">${S.watch.includes(s)?"Nicht mehr beobachten":"Beobachten"}</button>`}</div>
  ${st.news&&st.news.length?`<h2>Nachrichten (KI)</h2><div class="list">${KI.news.filter(n=>st.news.includes(n.id)).map(newsItem).join("")}</div>`:""}
- <h2>Live-Schlagzeilen</h2><div id="ln">${PREVIEW||!S.settings.fhKey?'<div class="empty">Erscheinen in der installierten App mit Finnhub-Schlüssel (meist englisch).</div>':'<div class="empty">Lade …</div>'}</div>
+ ${isEU(s)||st.pseudo&&k?"":`<h2>Live-Schlagzeilen</h2><div id="ln">${PREVIEW||!S.settings.fhKey?'<div class="empty">Erscheinen in der installierten App mit Finnhub-Schlüssel (meist englisch).</div>':'<div class="empty">Lade …</div>'}</div>`}
  <p class="note">Keine Anlageberatung.</p>`}
 function newsView(id){const n=(KI.news||[]).find(x=>x.id===id);if(!n)return V.news();const i=n.back.indexOf(":");
  return `<button class="back" data-back>‹ Zurück</button><div class="meta">${imp(n.imp)}<span class="tag ${n.kind[1]}">${n.kind[0]}</span><span class="note" style="margin:0">${n.cat}</span></div><h1>${n.t}</h1>
@@ -346,7 +366,7 @@ function settingsHTML(sec){const s=S.settings;const seg=(k,opts)=>`<div class="s
  <h3 id="sync">Abgleich mit GitHub</h3><form onsubmit="return false"><label class="f full">Projekt (Benutzername/Projektname)<input id="s-repo" value="${esc(s.ghRepo)}" placeholder="z. B. tim123/aktien-helfer" autocomplete="off"></label>
  <label class="f full">GitHub-Schlüssel (Token)<input id="s-tok" type="password" value="${esc(s.ghToken)}" autocomplete="off"></label><label class="f full">Sync-Passwort (gleich wie bei GitHub)<input id="s-pw" type="password" value="${esc(s.syncPass)}" autocomplete="off"></label></form>
  <p class="note">${syncOn()?(S.syncInfo?`<b class="down">⚠️ ${esc(S.syncInfo)}</b>`:`✓ Verbunden${S.syncAt?" · zuletzt "+new Date(S.syncAt).toLocaleString("de-DE",{dateStyle:"short",timeStyle:"short"}):""}`):"Noch nicht eingerichtet. Ohne Abgleich kennt der Telegram-Bot dein Depot nicht."}</p>
- ${syncOn()?'<div class="btns"><button class="btn ghost" data-sync>Jetzt abgleichen</button></div>':""}
+ ${syncOn()?`<p class="note">${S.weckOk?"✓ Die App weckt den Wachmann sofort, wenn du etwas einträgst.":"Tipp: Gib dem GitHub-Schlüssel zusätzlich das Recht <b>Actions: Read and write</b>. Dann weckt die App den Wachmann sofort, wenn du etwas einträgst, und neue Werte sind in 1–2 Minuten da."}</p><div class="btns"><button class="btn ghost" data-sync>Jetzt abgleichen</button></div>`:""}
  <h3>Sicherung</h3><p class="note" style="margin-top:0">Deine Daten liegen auf diesem Gerät. Mit einer Sicherungsdatei bringst du sie auf ein anderes Gerät.</p>
  <div class="btns"><button class="btn ghost" data-export>Sicherung speichern</button><label class="btn ghost" for="imp-file">Sicherung laden</label><input id="imp-file" type="file" accept=".json,application/json" hidden></div>
  <div id="reset-zone"><button class="x" data-reset>Alle Daten auf diesem Gerät löschen</button></div>
@@ -374,7 +394,7 @@ const TABS=["start","news","markt","aktien","depot","finanzen"];let route="start
 function go(r,push=true){if(push&&r!==route)hist.push(route);route=r;try{if(location.hash.slice(1)!==r)history.replaceState(null,"","#"+r)}catch(e){}render();scrollTo({top:0})}
 function render(soft){const v=$("#view"),detail=/^(aktie|news|update)-/.test(route),y=scrollY;
  v.className="";if(!soft){void v.offsetWidth;v.className=detail?"detail":""}
- v.innerHTML=route.startsWith("aktie-")?stockView(route.slice(6)):route.startsWith("news-")?newsView(route.slice(5)):route.startsWith("update-")?updateView(route.slice(7)):(V[route]||V.start)();
+ v.innerHTML=route.startsWith("aktie-")?stockView(decodeURIComponent(route.slice(6))):route.startsWith("news-")?newsView(route.slice(5)):route.startsWith("update-")?updateView(route.slice(7)):(V[route]||V.start)();
  const tab=route.startsWith("aktie-")||route.startsWith("update-")?"aktien":route.startsWith("news-")?"news":TABS.includes(route)?route:"start";
  document.documentElement.style.setProperty("--tc",`var(--t-${tab})`);
  document.querySelectorAll("nav.tabs button").forEach(b=>b.dataset.tab===tab?b.setAttribute("aria-current","page"):b.removeAttribute("aria-current"));
@@ -391,9 +411,9 @@ function bindForms(){
   sg.innerHTML=m.length?`<div class="sugg">${m.map(c=>`<button type="button" data-pick="${c.s}">${c.n} <span class="num" style="color:var(--muted)">${c.s}</span></button>`).join("")}</div>`:v?'<div class="found flat">Nicht erkannt. Du kannst sie trotzdem eintragen.</div>':""};
   inp.addEventListener("input",show);if(inp.value)show();
   f.addEventListener("submit",e=>{e.preventDefault();const raw=inp.value.trim();if(!raw)return;const p=pick||findCat(raw)[0],s=p?p.s:raw.toUpperCase(),n=p?p.n:raw;
-   S.depot=S.depot.filter(d=>!d.demo);S.depot.push({s,n,q:+$("#fq").value,k:+$("#fk").value,a:+$("#fa").value||S.settings.alertDefault,z:+$("#fz").value||0,tag:+$("#ft").value||0});pick=null;save();toast(`${n} eingetragen`);render();if(S.settings.fhKey&&!S.quotes[s])refreshLive()})}
+   S.depot=S.depot.filter(d=>!d.demo);S.depot.push({s,n,q:+$("#fq").value,k:+$("#fk").value,a:+$("#fa").value||S.settings.alertDefault,z:+$("#fz").value||0,tag:+$("#ft").value||0});pick=null;save();syncPlan(true);toast(A[s]?`${n} eingetragen`:`${n} eingetragen. Verlauf und Prognose kommen in wenigen Minuten.`);render();if(S.settings.fhKey&&!S.quotes[s])refreshLive()})}
  const fw=$("#fw");if(fw){const wi=$("#ws"),wg=$("#wsg");wi.addEventListener("input",()=>{const m=findCat(wi.value);wg.innerHTML=m.length?`<div class="sugg">${m.map(c=>`<button type="button" data-wpick="${c.s}">${c.n} <span class="num" style="color:var(--muted)">${c.s}</span></button>`).join("")}</div>`:""});
-  fw.addEventListener("submit",e=>{e.preventDefault();const c=findCat(wi.value)[0],w=c?c.s:wi.value.trim().toUpperCase();if(w&&!S.watch.includes(w)){S.watch.push(w);save();toast(`${c?c.n:w} wird beobachtet`)}render(true)})}
+  fw.addEventListener("submit",e=>{e.preventDefault();const c=findCat(wi.value)[0],w=c?c.s:wi.value.trim().toUpperCase();if(w&&!S.watch.includes(w)){S.watch.push(w);save();syncPlan(true);toast(`${c?c.n:w} wird beobachtet`)}render(true)})}
  const fg=$("#fg");if(fg)fg.addEventListener("submit",e=>{e.preventDefault();Object.assign(S.fin.goal,{n:$("#g-n").value.trim()||"Sparziel",z:+$("#g-z").value||0,g:+$("#g-g").value||0});save();toast("Sparziel gespeichert");render(true)});
  const ff=$("#ff");if(ff)ff.addEventListener("submit",e=>{e.preventDefault();if(S.fin.demo){S.fin.items=[];delete S.fin.demo}S.fin.items.push({n:$("#fin-n").value.trim(),b:+$("#fin-b").value,t:$("#fin-t").value});save();toast("Hinzugefügt");render(true)});
  const k2=$("#fk2");if(k2)k2.addEventListener("submit",e=>{e.preventDefault();kq={n:$("#k-n").value.trim(),p:+$("#k-p").value,d:$("#k-d").value.trim(),u:$("#k-u").value.trim(),a:[]};render(true)});
@@ -406,10 +426,10 @@ document.addEventListener("click",e=>{const T=sel=>e.target.closest(sel);let el;
  if(T("#cart")){openCart();return}
  if(el=T("[data-notify]")){S.settings.notify[el.dataset.notify]=el.checked;save();return}
  if(T("[data-sync]")){syncPull().then(()=>syncPush()).then(()=>{toast(S.syncInfo||"Abgeglichen");openSettings("sync")});return}
- if(el=T("[data-watch]")){const w=el.dataset.watch;S.watch=S.watch.includes(w)?S.watch.filter(x=>x!==w):[...S.watch,w];save();toast(S.watch.includes(w)?"Wird beobachtet":"Nicht mehr beobachtet");render(true);return}
+ if(el=T("[data-watch]")){const w=el.dataset.watch;S.watch=S.watch.includes(w)?S.watch.filter(x=>x!==w):[...S.watch,w];save();if(S.watch.includes(w))syncPlan(true);toast(S.watch.includes(w)?"Wird beobachtet":"Nicht mehr beobachtet");render(true);return}
  if(el=T("[data-unwatch]")){S.watch=S.watch.filter(x=>x!==el.dataset.unwatch);save();render(true);return}
- if(el=T("[data-wpick]")){const c=(KI.catalog||[]).find(x=>x.s===el.dataset.wpick);if(c&&!S.watch.includes(c.s)){S.watch.push(c.s);save();toast(`${c.n} wird beobachtet`)}render(true);return}
- if(T("#refresh")){refreshLive(true);return}
+ if(el=T("[data-wpick]")){const c=(KI.catalog||[]).find(x=>x.s===el.dataset.wpick);if(c&&!S.watch.includes(c.s)){S.watch.push(c.s);save();syncPlan(true);toast(`${c.n} wird beobachtet`)}render(true);return}
+ if(T("#refresh")||T("[data-refresh]")){refreshLive(true);return}
  if(T("[data-close]")||T("#sheet-bg")){closeSettings();return}
  if(el=T("[data-color]")){S.settings.accent=el.dataset.color;save();applyLook();document.querySelectorAll("[data-color]").forEach(b=>b.setAttribute("aria-pressed",b===el));return}
  if(el=T("[data-set]")){S.settings[el.dataset.set]=el.dataset.val;save();applyLook();el.parentElement.querySelectorAll("button").forEach(b=>b.setAttribute("aria-pressed",b===el));if(el.dataset.set==="investor")A=analyzeAll();return}

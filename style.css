@@ -173,3 +173,5 @@ nav.tabs svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1
 /* Warenkorb-Zähler */
 .badge{position:absolute;top:-3px;right:-3px;min-width:17px;height:17px;padding:0 4px;border-radius:9px;background:var(--muted);color:var(--bg);font-size:10px;font-weight:700;display:grid;place-items:center}
 .badge.due{background:var(--down);color:#fff}
+
+[hidden]{display:none!important}
