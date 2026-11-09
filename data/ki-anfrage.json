@@ -1,0 +1,25 @@
+{
+ "id": "amw93ic2y",
+ "erstellt": "2026-11-09T10:05:34.987Z",
+ "_anleitung": "Nur die §FILL…§-Platzhalter in items ersetzen, Quellen sind nur _fakten und _meldungen. Danach Felder mit _ löschen und als data/ki-antwort.json speichern.",
+ "items": [
+  {
+   "s": "BZ=F",
+   "n": "Öl (Brent)",
+   "_fakten": {
+    "waehrung": "USD",
+    "kurs": 97.46,
+    "trend": "down",
+    "vierWochenProzent": -7.8,
+    "dreiMonateProzent": 11.1,
+    "schwankungProJahr": 45,
+    "heuteProzent": -0.88
+   },
+   "_meldungen": [],
+   "text": "§FILL: 2 kurze Sätze zur Lage und worauf es ankommt (bei Indizes/VIX/Wechselkurs: was die Bewegung bedeutet). Sachlich, keine Kaufempfehlung§",
+   "h": "§FILL: \"kurz\", \"lang\", \"spekulativ\" oder \"nicht kaufbar\"§",
+   "warn": "§FILL: Zahl 0–3: 0 ruhig, 3 deutliche Warnzeichen§",
+   "quellen": "§FILL: Liste {t,u} der genutzten Meldungen aus _meldungen oder leere Liste§"
+  }
+ ]
+}
