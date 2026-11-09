@@ -197,7 +197,7 @@ function prognoseCheck(){const pf=P("data/prognosen.json"),log0=readJSON(pf,[]),
   for(const st of (KI.stocks||[])){const a=analyse(st);if(a&&!log0.some(e=>e.s===st.s&&e.d===heute))log0.push({d:heute,s:st.s,lo:+a.lo.toFixed(2),hi:+a.hi.toFixed(2),bis:addDays(heute,Math.round(a.H*1.4))})}
   const fertig=log0.filter(e=>e.ok).slice(-120);writeJSON(pf,log0.filter(e=>!e.ok||fertig.includes(e)).slice(-600));changed.add("data/prognosen.json");
   return {ausgewertet:fertig.length,treffer:fertig.filter(e=>e.ok===1).length,quote:fertig.length?Math.round(fertig.filter(e=>e.ok===1).length/fertig.length*100):null,soll:68}}
-async function vorlage(slot){const z=zeit(),prev=KI,d=depot(),watch=[...new Set([...(prev.stocks||[]).map(s=>s.s),...d.map(x=>x.s),...(U.watch||[]).map(w=>LEGACY[w]||w),...DEFAULT_EU])].slice(0,18);
+async function vorlage(slot){delete B.err.alphavantage;const z=zeit(),prev=KI,d=depot(),watch=[...new Set([...(prev.stocks||[]).map(s=>s.s),...d.map(x=>x.s),...(U.watch||[]).map(w=>LEGACY[w]||w),...DEFAULT_EU])].slice(0,18);
   for(const s of watch)if(isUS(s))await quote(s);for(const [s] of [...INDEX_ETF,...SECTOR_ETF])await quote(s);for(const [s] of [...EU_INDEX,...EU_SECTOR])await yq(s);
   const stocks=[];for(const s of watch){const alt=(prev.stocks||[]).find(x=>x.s===s);let closes=alt&&alt.closes;
     if(slot==="morgen"||!closes){let c=await yq(s,true);if(!c||c.length<25){c=await avDaily(avSym(s));await sleep(E.DRY==="1"?0:1500)}if(c&&c.length>=25)closes=c}
@@ -238,7 +238,7 @@ async function sichern(){if(changed.has("inbox")&&PASS){const keep=B.inbox.filte
 
 /* ---------- Ablauf ---------- */
 export async function main(){
-  KI=readJSON(P("ki.json"),{});
+  KI=readJSON(P("ki.json"),{});if(B.err.alphavantage&&!B.avFix){delete B.err.alphavantage;B.avFix=1}
   if(PASS&&fs.existsSync(P("data/state.enc"))){try{U=await entschluesseln(fs.readFileSync(P("data/state.enc"),"utf8"),PASS);delete B.err.sync}catch(e){B.err.sync="Depot-Daten nicht lesbar. Stimmt das Sync-Passwort in App und GitHub überein?"}}
   if(U.inboxDone)B.inbox=B.inbox.filter(e=>!U.inboxDone.includes(e.id)||Date.now()-e.t<864e5);
   if(U.kh&&U.kh.list)B.khNew=B.khNew.filter(n=>!U.kh.list.some(x=>x.id===n.id)&&!B.khDone.includes(String(n.id)));
