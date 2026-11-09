@@ -345,6 +345,10 @@ Im Depot oben: Kuchendiagramm nach **Positionen**, **Art** (ETF, Einzelaktie, Kr
 - **Könnte ergänzen:** passende Bausteine für Lücken, z. B. Schwellenländer, Europa oder Anleihen
 Test-Einträge zählen nicht mit. Alles sind Faustregeln, keine Anlageberatung.
 
+## Risiko, Anlagedauer und „Was steckt drin?“
+- Jede Seite zeigt oben auf einen Blick: **Risiko** (niedrig, mittel, hoch), **Anlagedauer** (kurzfristig, langfristig, spekulativ oder nicht kaufbar), **Trend** und **Frühwarnung**. Im Depot steht das auch bei jeder Position, dazu das Gesamtrisiko deines Depots.
+- Bei Indizes, Angst-Barometer, Gold- und Ölpreis sowie Euro/Dollar erklärt **„Was steckt drin?“** den Wert, zeigt große enthaltene Firmen und **womit du investieren kannst** (z. B. DAX → iShares Core DAX ETF). Beim VIX gibt es stattdessen Stoßdämpfer für unruhige Zeiten.
+
 ## Hilfe bei Problemen
 
 **A. Der Ordner `.github` fehlt bei GitHub.**

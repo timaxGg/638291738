@@ -185,16 +185,19 @@ const MARKT=[["^GDAXI","DAX","idx"],["^MDAXI","MDAX","idx"],["^STOXX50E","Euro S
   ["IS3Q.DE","MSCI World Qualität","alt:Defensiver"],["ISPA.DE","Global Select Dividend 100","alt:Defensiver"],["VGWD.DE","FTSE All-World hohe Dividende","alt:Defensiver"],
   ["EUNH.DE","Euro-Staatsanleihen","alt:Anleihen und Geldmarkt"],["IBCI.DE","Euro-Anleihen inflationsgeschützt","alt:Anleihen und Geldmarkt"],["XEON.DE","Geldmarkt (Tageszins in €)","alt:Anleihen und Geldmarkt"],
   ["4GLD.DE","Xetra-Gold","alt:Gold"]];
+// Zusätzliche Werte für „Was steckt drin / So investierst du“ (Verlauf täglich, Kurs stündlich)
+const EXTRA=["EXS1.DE","EXS3.DE","EXW1.DE","SXRT.DE","SXR8.DE","XDEW.DE","SXRV.DE","EXI3.DE","4GLD.DE","BRNT.L","XEON.DE","EUNH.DE","IUSQ.DE",
+  "NVDA","AAPL","MSFT","AMZN","GOOGL","META","SAP.DE","SIE.DE","ALV.DE","DTE.DE","AIR.DE","MUV2.DE","RHM.DE","MBG.DE","ASML.AS","MC.PA","TTE.PA"];
 async function euKurse(){const z=zeit(),heute=z.date;B.hist=B.hist||{};
   const meine=[...new Set([...depot().map(x=>x.s),...(U.watch||[]).map(w=>LEGACY[w]||w),...(KI.stocks||[]).map(x=>x.s),...DEFAULT_EU])].filter(Boolean);
-  const alle=[...new Set([...MARKT.map(m=>m[0]),...EU_INDEX.map(m=>m[0]),...meine])];
-  const neu=alle.filter(s=>!B.hist[s]||B.hist[s].d!==heute);
+  const kern=[...new Set([...MARKT.map(m=>m[0]),...EU_INDEX.map(m=>m[0]),...meine])],alle=[...new Set([...kern,...EXTRA])];
+  const neu=alle.filter(s=>!B.hist[s]||B.hist[s].d!==heute),extraFaellig=Date.now()-(B.extraT||0)>=36e5;
   const offen=xetraOffen()||boerseOffen(),faellig=offen||Date.now()-(B.euT||0)>=36e5;
   const krypto=alle.filter(isKrypto);if(!faellig&&!neu.length){for(const s of krypto)await yq(s);await yq("^VIX")}
   if(!faellig&&!neu.length&&!krypto.length)return;
   // Verlauf (3 Monate) einmal am Tag, neue Werte sofort
   for(const s of neu.slice(0,40)){const c=await yq(s,true);if(c&&c.length)B.hist[s]={d:heute,c}}
-  if(faellig){for(const s of alle)if(!neu.includes(s))await yq(s);for(const [s] of EU_SECTOR)await yq(s);B.euT=Date.now()}
+  if(faellig){for(const s of kern)if(!neu.includes(s))await yq(s);if(extraFaellig){for(const s of EXTRA)if(!kern.includes(s)&&!neu.includes(s))await yq(s);B.extraT=Date.now()}for(const [s] of EU_SECTOR)await yq(s);B.euT=Date.now()}
   if(!B.q["EURUSD=X"])await yq("EURUSD=X");
   for(const s of Object.keys(B.hist))if(!alle.includes(s))delete B.hist[s];
   const pick=l=>l.filter(([s])=>B.q[s]).map(([s,n])=>({s,n,c:B.q[s].c,dp:+(+B.q[s].dp).toFixed(2)}));

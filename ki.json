@@ -1497,6 +1497,31 @@
    "s": "SXRV.DE",
    "n": "iShares Nasdaq 100 ETF",
    "a": "nasdaq etf"
+  },
+  {
+   "s": "EXS3.DE",
+   "n": "iShares MDAX ETF",
+   "a": "mdax etf"
+  },
+  {
+   "s": "EXI3.DE",
+   "n": "iShares Dow Jones Industrial Average ETF",
+   "a": "dow jones etf"
+  },
+  {
+   "s": "SXRT.DE",
+   "n": "iShares Core Euro Stoxx 50 ETF (Acc)",
+   "a": "euro stoxx etf"
+  },
+  {
+   "s": "BRNT.L",
+   "n": "WisdomTree Brent Crude Oil (ETC)",
+   "a": "öl oil brent"
+  },
+  {
+   "s": "XDJP.DE",
+   "n": "Xtrackers Nikkei 225 ETF",
+   "a": "japan etf"
   }
  ]
 }
