@@ -350,9 +350,17 @@ Test-Einträge zählen nicht mit. Alles sind Faustregeln, keine Anlageberatung.
 - Bei Indizes, Angst-Barometer, Gold- und Ölpreis sowie Euro/Dollar erklärt **„Was steckt drin?“** den Wert, zeigt große enthaltene Firmen und **womit du investieren kannst** (z. B. DAX → iShares Core DAX ETF). Beim VIX gibt es stattdessen Stoßdämpfer für unruhige Zeiten.
 
 ## Einschätzungen und Quellen
-- **Alle Werte** bekommen eine KI-Einschätzung: Aktien aus Depot und Beobachtung ausführlich (Begründung, Pro/Contra, Anlagedauer, Warnstufe), alle Marktwerte, Alternativen und ETFs kurz (2 Sätze, Anlagedauer, Warnstufe).
-- Jede Seite hat unten den Bereich **Quellen**: die Meldungen, auf die sich die KI stützt (antippbar), und die Kursdaten-Quelle. Die KI nutzt dabei nur diese Meldungen und die Kursdaten, nichts Ausgedachtes.
-- Aktualisiert wird morgens um 7 Uhr (alles) und mittags um 12:40 Uhr (Änderungen).
+- **Ausführlich** (Begründung, Pro/Contra, Anlagedauer, Warnstufe): alles in deinem Depot und was du aktiv beobachtest.
+- **Kurz** (2 Sätze, Anlagedauer, Warnstufe): bis zu 20 Werte insgesamt, ausgewählt nach deinen Interessen. Was du oft ansiehst, steigt auf. Was du lange nicht ansiehst, fällt raus. Am Anfang: DAX, S&P 500, MSCI World, VIX, Gold, Bitcoin, Euro/Dollar, FTSE All-World.
+- **Auf Anfrage:** Auf jeder Seite ohne Einschätzung gibt es den Knopf „KI-Einschätzung anfordern“. Ohne API-Schlüssel kommt sie beim nächsten KI-Update (7:00 oder 12:40 Uhr), mit API-Schlüssel nach ca. 2 Minuten (siehe unten).
+- **Ruhen:** Beobachtete Werte, die du 30 Tage nicht angesehen hast, werden nicht mehr bewertet, bleiben aber in der Liste. Einmal ansehen weckt sie wieder.
+- Jede Seite hat unten **Quellen**: die genutzten Meldungen (antippbar) und die Kursdaten-Quelle.
+- Unter ⚙️ → „KI-Einschätzungen“ siehst du, welche Werte gerade bewertet werden.
+
+### Optional: Einschätzung in 2 Minuten (eigener API-Schlüssel)
+1. Auf **console.anthropic.com** registrieren, Guthaben aufladen (z. B. 5 €) und unter **API Keys** einen Schlüssel erstellen.
+2. Bei GitHub als Secret **ANTHROPIC_API_KEY** eintragen (wie in Schritt 6).
+Kosten: wenige Cent pro Anfrage, getrennt von deinem Claude-Abo. Der Bot meldet sich in Telegram, sobald die Einschätzung da ist.
 
 ## Hilfe bei Problemen
 

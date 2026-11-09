@@ -33,6 +33,7 @@ jobs:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           TELEGRAM_CHAT: ${{ secrets.TELEGRAM_CHAT }}
           SYNC_PASSWORD: ${{ secrets.SYNC_PASSWORD }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: node bot/wachmann.mjs
       - name: Gedächtnis speichern
         if: always()

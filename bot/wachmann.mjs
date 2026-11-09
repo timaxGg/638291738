@@ -4,7 +4,7 @@ import fs from "node:fs";
 import {execSync} from "node:child_process";
 import {verschluesseln,entschluesseln} from "./krypto.mjs";
 
-const E=process.env,FH=E.FINNHUB_KEY||"",AV=E.AV_KEY||"",TG=E.TELEGRAM_TOKEN||"",CHAT=String(E.TELEGRAM_CHAT||""),PASS=E.SYNC_PASSWORD||"";
+const E=process.env,API=E.ANTHROPIC_API_KEY||"",FH=E.FINNHUB_KEY||"",AV=E.AV_KEY||"",TG=E.TELEGRAM_TOKEN||"",CHAT=String(E.TELEGRAM_CHAT||""),PASS=E.SYNC_PASSWORD||"";
 const DRY=E.DRY==="1",ROOT=E.ROOT||".",P=f=>`${ROOT}/${f}`;
 const SF=P(".state/bot.json");
 const INDEX_ETF=[["SPY","S&P 500"],["QQQ","Nasdaq 100"],["DIA","Dow Jones"]];
@@ -103,6 +103,7 @@ const HILFE=`<b>Was ich kann</b>
 /status – läuft alles?
 
 Ich antworte beim nächsten Lauf, also meist innerhalb von 5 bis 15 Minuten.`;
+const kiWahl=()=>{const k=U.ki||{};return {voll:(k.voll||[]).map(w=>LEGACY[w]||w),kurz:(k.kurz||[]).map(w=>LEGACY[w]||w),wunsch:(k.wunsch||[]).map(w=>LEGACY[w]||w),da:!!U.ki}};
 const depot=()=>(U.depot||[]).filter(d=>!d.demo).map(d=>LEGACY[d.s]?Object.assign({},d,{s:LEGACY[d.s]}):d);
 const finde=q=>{q=(q||"").trim();const u=q.toUpperCase();if(!q)return "";if(LEGACY[u])return LEGACY[u];const c=(KI.catalog||[]);const t=c.find(x=>x.s.toUpperCase()===u)||c.find(x=>x.s.toUpperCase()===u+".DE")||c.find(x=>x.n.toLowerCase().includes(q.toLowerCase())||(x.a||"").includes(q.toLowerCase()));return t?t.s:u};
 const khListe=()=>{const all=[...((U.kh&&U.kh.list)||[]),...B.khNew.filter(n=>!((U.kh&&U.kh.list)||[]).some(x=>x.id===n.id))];return all.filter(x=>!B.khDone.includes(String(x.id)))};
@@ -188,13 +189,13 @@ const MARKT=[["^GDAXI","DAX","idx"],["^MDAXI","MDAX","idx"],["^STOXX50E","Euro S
 // Zusätzliche Werte für „Was steckt drin / So investierst du“ (Verlauf täglich, Kurs stündlich)
 const EXTRA=["EXS1.DE","EXS3.DE","EXW1.DE","SXRT.DE","SXR8.DE","XDEW.DE","SXRV.DE","EXI3.DE","4GLD.DE","BRNT.L","XEON.DE","EUNH.DE","IUSQ.DE",
   "NVDA","AAPL","MSFT","AMZN","GOOGL","META","SAP.DE","SIE.DE","ALV.DE","DTE.DE","AIR.DE","MUV2.DE","RHM.DE","MBG.DE","ASML.AS","MC.PA","TTE.PA"];
-async function euKurse(){const z=zeit(),heute=z.date;B.hist=B.hist||{};
-  const meine=[...new Set([...depot().map(x=>x.s),...(U.watch||[]).map(w=>LEGACY[w]||w),...(KI.stocks||[]).map(x=>x.s),...DEFAULT_EU])].filter(Boolean);
+async function euKurse(zwang){const z=zeit(),heute=z.date;B.hist=B.hist||{};
+  const W=kiWahl(),meine=[...new Set([...depot().map(x=>x.s),...(U.watch||[]).map(w=>LEGACY[w]||w),...(KI.stocks||[]).map(x=>x.s),...(W.da?[]:DEFAULT_EU),...W.kurz,...W.wunsch])].filter(Boolean);
   const kern=[...new Set([...MARKT.map(m=>m[0]),...EU_INDEX.map(m=>m[0]),...meine])],alle=[...new Set([...kern,...EXTRA])];
   const neu=alle.filter(s=>!B.hist[s]||B.hist[s].d!==heute),extraFaellig=Date.now()-(B.extraT||0)>=36e5;
   const offen=xetraOffen()||boerseOffen(),faellig=offen||Date.now()-(B.euT||0)>=36e5;
   const krypto=alle.filter(isKrypto);if(!faellig&&!neu.length){for(const s of krypto)await yq(s);await yq("^VIX")}
-  if(!faellig&&!neu.length&&!krypto.length)return;
+  if(!faellig&&!neu.length&&!krypto.length&&!zwang)return;
   // Verlauf (3 Monate) einmal am Tag, neue Werte sofort
   for(const s of neu.slice(0,40)){const c=await yq(s,true);if(c&&c.length)B.hist[s]={d:heute,c}}
   if(faellig){for(const s of kern)if(!neu.includes(s))await yq(s);if(extraFaellig){for(const s of EXTRA)if(!kern.includes(s)&&!neu.includes(s))await yq(s);B.extraT=Date.now()}for(const [s] of EU_SECTOR)await yq(s);B.euT=Date.now()}
@@ -203,7 +204,7 @@ async function euKurse(){const z=zeit(),heute=z.date;B.hist=B.hist||{};
   const pick=l=>l.filter(([s])=>B.q[s]).map(([s,n])=>({s,n,c:B.q[s].c,dp:+(+B.q[s].dp).toFixed(2)}));
   const mit=alle.filter(s=>B.q[s]);
   writeJSON(P(".state/kurse.json"),{t:Date.now(),fx:{EURUSD:fx()},idx:pick(EU_INDEX),sec:pick(EU_SECTOR),
-    markt:MARKT.filter(([s])=>B.q[s]).map(([s,n,k])=>({s,n,k})),
+    markt:MARKT.filter(([s])=>B.q[s]).map(([s,n,k])=>({s,n,k})),ki:B.kiExtra||{},kiApi:!!API,
     q:Object.fromEntries(mit.map(s=>[s,{c:B.q[s].c,dp:+(+B.q[s].dp).toFixed(2),cur:curOf(s),t:B.q[s].mt||B.q[s].t}])),
     h:Object.fromEntries(Object.entries(B.hist).map(([s,v])=>[s,v.c.map(x=>+(+x).toFixed(4))])),w:Object.fromEntries(meine.map(s=>[s,fruehwarnung(s)]).filter(([,w])=>w))});B.kursePush=true;if(neu.length)log("Neue Verläufe:",neu.join(","))}
 function kurseHochladen(){if(!B.kursePush||DRY)return;B.kursePush=false;try{const o={cwd:ROOT};const blob=execSync("git hash-object -w .state/kurse.json",o).toString().trim();
@@ -233,6 +234,22 @@ async function fruehwarnungen(){const n=Object.assign({warn:true},U.notify||{});
   const vix=B.q["^VIX"]&&B.q["^VIX"].c,vk=vix>=30?2:vix>=25?1:0;if(vk>(B.sent.vix&&B.sent.vix.d===z.date?B.sent.vix.lv:0)){B.sent.vix={lv:vk,d:z.date};
     await send(`🌡️ <b>Der Markt wird nervös</b>\nDas Angst-Barometer VIX steht bei ${fmt(vix,1)} (normal: unter 20).\nIn solchen Phasen schwanken Aktien stärker. Prüfe, ob dein Depot zu deiner Risikobereitschaft passt.`)}}
 
+/* ---------- Einschätzung auf Anfrage (sofort, nur mit eigenem API-Schlüssel) ---------- */
+async function aufAnfrage(){if(!API)return;B.kiExtra=B.kiExtra||{};B.wunschDone=B.wunschDone||{};
+  for(const s of Object.keys(B.kiExtra))if(Date.now()-B.kiExtra[s].t>3*864e5)delete B.kiExtra[s];
+  const offen=kiWahl().wunsch.filter(s=>!B.wunschDone[s]||Date.now()-B.wunschDone[s]>864e5).slice(0,3);
+  for(const s of offen){B.wunschDone[s]=Date.now();if(!B.hist||!B.hist[s]){const c=await yq(s,true);if(c&&c.length)(B.hist=B.hist||{})[s]={d:zeit().date,c}}
+    const an=B.hist&&B.hist[s]?analyse({s,h:"lang",closes:B.hist[s].c}):null;let news=[];
+    if(isUS(s)){try{const t=zeit().date;news=(await fh(`company-news?symbol=${s}&from=${addDays(t,-4)}&to=${t}`)).slice(0,6).map(n=>({t:n.headline,u:n.url,q:n.source,z:(n.summary||"").slice(0,200)}))}catch(e){}}
+    else news=(await yNews(s)).slice(0,5).map(n=>({t:n.headline,u:n.url,q:n.source,z:n.summary}));
+    const name=(MARKT.find(m=>m[0]===s)||[])[1]||catOf(s).n||s;
+    const prompt=`Du schreibst für eine private Finanz-App eine kurze Einschätzung auf Deutsch. Wert: ${name} (${s}).\nKursfakten: ${JSON.stringify(an?{waehrung:curOf(s),kurs:+an.last.toFixed(2),trend:an.dir,vierWochenProzent:+an.ch20.toFixed(1),dreiMonateProzent:+an.ch3m.toFixed(1),schwankungProJahr:+an.vol.toFixed(0),heuteProzent:+moveOf(s).toFixed(2)}:{})}\nMeldungen: ${JSON.stringify(news)}\nNutze NUR diese Fakten und Meldungen. Keine Kauf- oder Verkaufsempfehlung. Antworte nur mit JSON: {"text":"2 kurze Sätze zur Lage und worauf es ankommt","h":"kurz"|"lang"|"spekulativ"|"nicht kaufbar","warn":0-3,"quellen":[{"t":"Titel","u":"Link"} der genutzten Meldungen]}`;
+    try{const r=await fetch("https://api.anthropic.com/v1/messages",{method:"POST",headers:{"x-api-key":API,"anthropic-version":"2023-06-01","content-type":"application/json"},body:JSON.stringify({model:E.KI_MODELL||"claude-haiku-5-5",max_tokens:500,messages:[{role:"user",content:prompt}]})});
+      const j=await r.json();if(!r.ok)throw new Error((j.error&&j.error.message)||("API "+r.status));const txt=(j.content||[]).map(c=>c.text||"").join("");const o=JSON.parse(txt.slice(txt.indexOf("{"),txt.lastIndexOf("}")+1));
+      B.kiExtra[s]={text:String(o.text||""),h:o.h||"lang",warn:+o.warn||0,quellen:Array.isArray(o.quellen)?o.quellen.filter(q=>q&&q.u).slice(0,6):[],t:Date.now()};B.kursePush=true;delete B.err.ki;
+      await send(`🧠 <b>Einschätzung da: ${esc(name)}</b>\n${esc(B.kiExtra[s].text)}\n\nIn der App mit Quellen.`,{direkt:true})}catch(e){B.err.ki=e.message.slice(0,120);log("KI",e.message)}}
+  if(offen.length)await euKurse(true)}
+
 /* ---------- Abend-Rückblick um 21 Uhr (ohne KI) ---------- */
 async function abendRueckblick(){const z=zeit(),n=U.notify||{};if((!E.FORCE_ABEND&&(z.h<21||z.h>=22))||B.sent.abend===z.date||n.briefing===false||!CHAT)return;B.sent.abend=z.date;
   const d=depot();for(const x of d)await frisch(x.s);for(const [s] of INDEX_ETF)await quote(s);for(const [s] of EU_INDEX.slice(0,2))await yq(s);await yq("EURUSD=X");
@@ -251,7 +268,7 @@ function prognoseCheck(){const pf=P("data/prognosen.json"),log0=readJSON(pf,[]),
   for(const st of (KI.stocks||[])){const a=analyse(st);if(a&&!log0.some(e=>e.s===st.s&&e.d===heute))log0.push({d:heute,s:st.s,lo:+a.lo.toFixed(2),hi:+a.hi.toFixed(2),bis:addDays(heute,Math.round(a.H*1.4))})}
   const fertig=log0.filter(e=>e.ok).slice(-120);writeJSON(pf,log0.filter(e=>!e.ok||fertig.includes(e)).slice(-600));changed.add("data/prognosen.json");
   return {ausgewertet:fertig.length,treffer:fertig.filter(e=>e.ok===1).length,quote:fertig.length?Math.round(fertig.filter(e=>e.ok===1).length/fertig.length*100):null,soll:68}}
-async function vorlage(slot){delete B.err.alphavantage;const z=zeit(),prev=KI,d=depot(),watch=[...new Set([...(prev.stocks||[]).map(s=>s.s),...d.map(x=>x.s),...(U.watch||[]).map(w=>LEGACY[w]||w),...DEFAULT_EU])].slice(0,18);
+async function vorlage(slot){delete B.err.alphavantage;const z=zeit(),prev=KI,d=depot(),W=kiWahl(),watch=W.da?[...new Set([...d.map(x=>x.s),...W.voll])].slice(0,20):[...new Set([...(prev.stocks||[]).map(s=>s.s),...d.map(x=>x.s),...(U.watch||[]).map(w=>LEGACY[w]||w),...DEFAULT_EU])].slice(0,18);
   for(const s of watch)if(isUS(s))await quote(s);for(const [s] of [...INDEX_ETF,...SECTOR_ETF])await quote(s);for(const [s] of [...EU_INDEX,...EU_SECTOR])await yq(s);
   const stocks=[];for(const s of watch){const alt=(prev.stocks||[]).find(x=>x.s===s);let closes=alt&&alt.closes;
     if(slot==="morgen"||!closes){let c=await yq(s,true);if(!c||c.length<25){c=await avDaily(avSym(s));await sleep(E.DRY==="1"?0:1500)}if(c&&c.length>=25)closes=c}
@@ -260,6 +277,7 @@ async function vorlage(slot){delete B.err.alphavantage;const z=zeit(),prev=KI,d=
     stocks.push(neu?Object.assign(base,{cat:alt&&alt.cat||F("Branche in 1–3 Wörtern"),h:F('"kurz" oder "lang"'),bias:F("Zahl −3 bis +3: Wirkung der heutigen Nachrichten auf den Kurs in %"),
       why:F("2–3 Sätze Einschätzung, sachlich, keine Kaufempfehlung"),pro:F("Liste mit 1–3 kurzen Punkten dafür"),con:F("Liste mit 1–3 kurzen Punkten dagegen"),news:F("Liste der news-ids, die diese Aktie betreffen"),warn:F("Zahl 0–3: Gefahr aus der Nachrichtenlage (0 = nichts Besonderes, 1 = leicht negativ, 2 = deutlich negativ, 3 = ernst, z. B. Gewinnwarnung, Klage, angekündigte Kürzungen)"),warnGrund:F("1 kurzer Satz zum Warn-Grund oder leerer Text"),quellen:F("Liste {t,u} der Meldungen aus _rohnews, auf die sich why/pro/con/warn stützen (Titel und Link übernehmen). Leere Liste, wenn nur Kursdaten genutzt wurden"),
       _fakten:an?{waehrung:curOf(s),region:isEU(s)?"Europa":"USA",trend:an.dir,vierWochen:+an.ch20.toFixed(1),dreiMonate:+an.ch3m.toFixed(1),schwankung:+an.vol.toFixed(0),heute:+moveOf(s).toFixed(2)}:{}}):Object.assign({},alt,{closes}))}
+  B.hist=B.hist||{};for(const x of (W.da?[...W.kurz,...W.wunsch]:MARKT.map(m=>m[0])))if(!B.hist[x]){const c=await yq(x,true);if(c&&c.length)B.hist[x]={d:z.date,c}}
   const bis=z.date,von=addDays(bis,slot==="morgen"?-1:0),roh=[],seen=new Set();
   const add=(n,sym)=>{const k=(n.headline||"").toLowerCase().slice(0,60);if(!n.headline||seen.has(k))return;seen.add(k);roh.push({id:`n${n.id||roh.length}`,t:n.headline,q:n.source,u:n.url,sym:sym?[sym]:(n.related||"").split(",").filter(Boolean).slice(0,3),z:(n.summary||"").slice(0,220)})};
   for(const s of watch.filter(isEU))(await yNews(s)).forEach(n=>add(n,s));
@@ -281,11 +299,15 @@ async function vorlage(slot){delete B.err.alphavantage;const z=zeit(),prev=KI,d=
     telegram:F(slot==="morgen"?"Morgen-Briefing für Telegram, höchstens 8 kurze Zeilen: Lage, wichtigste 2–3 Meldungen, was heute ansteht, auffällige Bewegungen bei den beobachteten Aktien. **fett** erlaubt."
       :slot==="mittag"?"Kurzes Mittags-Update, höchstens 4 Zeilen: nur was sich seit dem Morgen geändert hat."
       :"Abend-Rückblick, höchstens 6 Zeilen: wie lief der Tag, wie die Depot-Aktien, was morgen ansteht."+(sonntag?" Danach 3 Zeilen Wochenfazit.":"")),
-    kurz:slot==="morgen"||!(prev.kurz||[]).length?MARKT.concat(EXTRA.filter(x=>!MARKT.some(m=>m[0]===x)).map(x=>[x,catOf(x).n||x,"etf"])).filter(([x])=>!stocks.some(st=>st.s===x)&&B.hist&&B.hist[x]).map(([x,n,k])=>{const h=B.hist[x],an=analyse({s:x,h:"lang",closes:h.c});
-      return {s:x,n,_fakten:an?{art:k.split(":")[0],gruppe:k.includes(":")?k.split(":")[1]:"",waehrung:curOf(x),trend:an.dir,vierWochen:+an.ch20.toFixed(1),dreiMonate:+an.ch3m.toFixed(1),schwankung:+an.vol.toFixed(0),heute:+moveOf(x).toFixed(2)}:{},
-        text:F("2 kurze Sätze: aktuelle Lage und worauf es ankommt (bei Indizes/VIX/Wechselkurs: was die Bewegung bedeutet). Sachlich, keine Kaufempfehlung"),
-        h:F('"kurz", "lang", "spekulativ" oder "nicht kaufbar"'),warn:F("Zahl 0–3 wie bei stocks"),quellen:F("Liste {t,u} genutzter Meldungen aus _rohnews oder leere Liste")}})
-      :(prev.kurz||[]),
+    kurz:(()=>{const name=x=>(MARKT.find(m=>m[0]===x)||[])[1]||catOf(x).n||x,art=x=>(MARKT.find(m=>m[0]===x)||[,,"etf"])[2];
+      const alt=(prev.kurz||[]).filter(k=>!stocks.some(st=>st.s===k.s));
+      let ziel=W.da?[...new Set([...W.kurz,...W.wunsch])]:MARKT.map(m=>m[0]);ziel=ziel.filter(x=>!stocks.some(st=>st.s===x)&&B.hist&&B.hist[x]);
+      const neu=slot==="morgen"?ziel:ziel.filter(x=>!alt.some(k=>k.s===x)||(W.wunsch.includes(x)&&!(B.kiExtra||{})[x]));
+      const behalten=alt.filter(k=>ziel.includes(k.s)&&!neu.includes(k.s));
+      return [...behalten,...neu.map(x=>{const k=art(x),an=analyse({s:x,h:"lang",closes:B.hist[x].c});
+        return {s:x,n:name(x),_fakten:an?{art:k.split(":")[0],gruppe:k.includes(":")?k.split(":")[1]:"",waehrung:curOf(x),trend:an.dir,vierWochen:+an.ch20.toFixed(1),dreiMonate:+an.ch3m.toFixed(1),schwankung:+an.vol.toFixed(0),heute:+moveOf(x).toFixed(2)}:{},
+          text:F("2 kurze Sätze: aktuelle Lage und worauf es ankommt (bei Indizes/VIX/Wechselkurs: was die Bewegung bedeutet). Sachlich, keine Kaufempfehlung"),
+          h:F('"kurz", "lang", "spekulativ" oder "nicht kaufbar"'),warn:F("Zahl 0–3 wie bei stocks"),quellen:F("Liste {t,u} genutzter Meldungen aus _rohnews oder leere Liste")}})]})(),
     model:prev.model||{trendDamping:.5,bandFactor:1,newsWeight:1},updates:(prev.updates||[]).filter(u=>!u.example).slice(-10),catalog:prev.catalog||[],
     _lernen:sonntag?Object.assign({},lern,{aktuelleParameter:params(),aufgabe:"Wenn die Trefferquote deutlich (mehr als 10 Punkte) vom Soll abweicht und mindestens 20 Prognosen ausgewertet sind: füge in updates EINEN Vorschlag hinzu {id:\"u-DATUM\",date,title,what,why,how,change:{bandFactor oder trendDamping oder newsWeight}}. Kleine Schritte (±10 %). Sonst nichts hinzufügen."}):undefined};
   writeJSON(P("data/ki-vorlage.json"),v);changed.add("data/ki-vorlage.json");B.slots[slot]=z.date;log("Vorlage",slot,stocks.length,"Aktien",roh.length,"Meldungen")}
@@ -305,7 +327,7 @@ export async function main(){
   if(!FH)B.err.finnhub="FINNHUB_KEY fehlt";if(!TG)B.err.telegram="TELEGRAM_TOKEN fehlt";
   await telegramEingang();
   const slot=E.FORCE_SLOT||slotJetzt();if(slot)try{await vorlage(slot)}catch(e){log("Vorlage",e);B.err.vorlage=e.message}
-  await euKurse();await alarme();await fruehwarnungen();await abendRueckblick();await warteschlange();
+  await euKurse();await aufAnfrage();await alarme();await fruehwarnungen();await abendRueckblick();await warteschlange();
   // Danach noch eine Weile auf Telegram-Befehle lauschen, damit Antworten sofort kommen
   const ende=Date.now()+(E.POLL_SEK!==undefined?+E.POLL_SEK:110)*1000;while(TG&&CHAT&&Date.now()<ende-26000){await telegramEingang(25);await warteschlange()}await sichern();log("fertig",{slot,depot:depot().length,fehler:B.err})}
 if(import.meta.url===`file://${process.argv[1]}`)main().catch(e=>{console.error(e);process.exit(1)});
