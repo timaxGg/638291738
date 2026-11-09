@@ -259,7 +259,8 @@ async function anfrageRoutine(){B.kiExtra=B.kiExtra||{};B.wunschDone=B.wunschDon
   for(const s of Object.keys(B.kiExtra))if(Date.now()-B.kiExtra[s].t>3*864e5)delete B.kiExtra[s];
   if(B.anfrage&&Date.now()-B.anfrage.t>25*6e4){(B.anfrage.syms||[]).forEach(s=>delete B.wunschDone[s]);B.err.ki="Claude-Aufgabe hat nicht geantwortet, neuer Versuch";B.anfrage=null}
   if(await antwortHolen())await euKurse(true);if(B.anfrage)return;
-  const offen=kiWahl().wunsch.filter(s=>!B.wunschDone[s]||Date.now()-B.wunschDone[s]>864e5).slice(0,5);if(!offen.length)return;
+  const neuAngefragt=s=>((U.wunschT||{})[s]||0)>(B.wunschDone[s]||0);
+  const offen=kiWahl().wunsch.filter(s=>!B.wunschDone[s]||neuAngefragt(s)||Date.now()-B.wunschDone[s]>864e5).slice(0,5);if(!offen.length)return;
   const id="a"+Date.now().toString(36),items=[];
   for(const s of offen){const d=await anfrageDaten(s);items.push({s,n:d.name,_fakten:d.fakten,_meldungen:d.news,
     text:F("2 kurze Sätze zur aktuellen Lage (bei Indizes/VIX/Wechselkurs: was die Bewegung bedeutet). Sachlich"),

@@ -98,7 +98,7 @@ function auswahl(){const depot=[...new Set(S.depot.filter(d=>!d.demo).map(d=>d.s
  const kurz=[...new Set([...ranked,...STANDARD.filter(s=>!voll.includes(s))])].slice(0,Math.max(0,20-voll.length));
  const wunsch=Object.entries(S.wunsch||{}).filter(([,t])=>Date.now()-t<2*TAG).map(([s])=>s);return {voll,kurz,wunsch}}
 function payload(){const [rec]=recommend();return {depot:S.depot.filter(d=>!d.demo),trades:S.trades||[],fin:S.fin,kh:S.kh,updates:S.updates,watch:S.watch,notify:S.settings.notify,investor:S.settings.investor,
- model:S.fin.model||"",modelName:S.fin.model?MODELS[S.fin.model].n:"",rec,recName:MODELS[rec].n,inboxDone:S.inboxDone.slice(-200),ki:auswahl()}}
+ model:S.fin.model||"",modelName:S.fin.model?MODELS[S.fin.model].n:"",rec,recName:MODELS[rec].n,inboxDone:S.inboxDone.slice(-200),ki:auswahl(),wunschT:S.wunsch||{}}}
 let syncT=null,syncBusy=false;
 let wecken=false;
 function syncPlan(schnell){if(!syncOn()||!KI)return;if(schnell)wecken=true;const h=JSON.stringify(payload());if(h===S.syncHash&&!schnell)return;clearTimeout(syncT);syncT=setTimeout(syncPush,schnell?1500:20000)}
