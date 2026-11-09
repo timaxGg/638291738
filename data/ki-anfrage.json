@@ -1,24 +1,37 @@
 {
- "id": "amw94hjbx",
- "erstellt": "2026-11-09T10:32:57.417Z",
- "_anleitung": "Nur die §FILL…§-Platzhalter in items ersetzen, Quellen sind nur _fakten und _meldungen. Danach Felder mit _ löschen und als data/ki-antwort.json speichern.",
+ "id": "amw95hwhq",
+ "erstellt": "2026-11-09T11:01:14.277Z",
+ "_anleitung": "Nur die §FILL…§-Platzhalter in items ersetzen, Quellen sind nur _fakten und _meldungen. Danach Felder mit _ löschen und alle übrigen Felder als data/ki-antwort.json speichern.",
  "items": [
   {
    "s": "BZ=F",
    "n": "Öl (Brent)",
    "_fakten": {
     "waehrung": "USD",
-    "kurs": 97.18,
+    "kurs": 96.62,
     "trend": "down",
-    "vierWochenProzent": -8.1,
-    "dreiMonateProzent": 10.8,
+    "vierWochenProzent": -8.6,
+    "dreiMonateProzent": 10.1,
     "schwankungProJahr": 45,
-    "heuteProzent": -1.16
+    "heuteProzent": -1.73,
+    "prognose": {
+     "tage": 63,
+     "von": 81.03,
+     "mitte": 101.25,
+     "bis": 126.52
+    },
+    "anlegerTyp": "ausgewogen"
    },
    "_meldungen": [],
-   "text": "§FILL: 2 kurze Sätze zur Lage und worauf es ankommt (bei Indizes/VIX/Wechselkurs: was die Bewegung bedeutet). Sachlich, keine Kaufempfehlung§",
+   "text": "§FILL: 2 kurze Sätze zur aktuellen Lage (bei Indizes/VIX/Wechselkurs: was die Bewegung bedeutet). Sachlich§",
    "h": "§FILL: \"kurz\", \"lang\", \"spekulativ\" oder \"nicht kaufbar\"§",
    "warn": "§FILL: Zahl 0–3: 0 ruhig, 3 deutliche Warnzeichen§",
+   "ausblick": "§FILL: 2–3 Sätze: wie es in den nächsten Wochen bis Monaten am wahrscheinlichsten weitergeht und warum (Treiber, anstehende Termine, was _fakten.prognose sagt). Ehrlich mit der Unsicherheit§",
+   "richtung": "§FILL: \"steigend\", \"seitwärts\" oder \"fallend\": die wahrscheinlichste Richtung im Zeitraum horizont§",
+   "zuversicht": "§FILL: \"niedrig\", \"mittel\" oder \"hoch\": wie sicher diese Richtung ist (bei starken Schwankungen oder widersprüchlichen Meldungen eher niedrig)§",
+   "horizont": "§FILL: Zeitraum, für den der Ausblick gilt, z. B. \"4–8 Wochen\" oder \"6–12 Monate\"§",
+   "halten": "§FILL: 1–2 Sätze Abwägung: Was spricht dafür, investiert zu bleiben, und für welchen Zeitraum passt dieser Wert eher (kurz, mittel, lang), was dagegen. Wenn _fakten.depot vorhanden ist, darauf eingehen. Keine Anweisung zum Kaufen oder Verkaufen, sondern Gründe zum Abwägen§",
+   "signale": "§FILL: Liste mit 2–3 kurzen Punkten: woran man merkt, dass sich das Bild ändert (z. B. Kurs unter einer Marke aus _fakten.prognose, ein Termin, eine Meldungslage)§",
    "quellen": "§FILL: Liste {t,u} der genutzten Meldungen aus _meldungen oder leere Liste§"
   }
  ]
