@@ -490,7 +490,9 @@ function parseCSV(text){const lines=text.replace(/\r/g,"").split("\n").filter(l=
 function posKurzHTML(s){const l=S.depot.map((d,i)=>[d,i]).filter(([d])=>d.s===s&&!d.demo);if(!l.length)return "";const p=(S.quotes[s]||{}).c||(A[s]&&A[s].last);
  return l.map(([d,i])=>{const ch=p?(p/d.k-1)*100:null,al=ch!=null&&ch<=d.a;
   return `<div class="panel" style="margin:12px 0;${al?"border-color:var(--down)":""}"><div style="display:flex;justify-content:space-between;gap:8px;align-items:baseline"><b>Deine Position${d.test?' <span class="demo">Test</span>':""}</b>${ch!=null?`<span class="num ${ch>=0?"up":"down"}">${sgn(ch)} seit Kauf</span>`:""}</div>
-  <div class="sub note" style="margin:4px 0 0">${fmt(d.q,d.q%1?2:0)} Stk. · Kauf ${fmt(d.k)} ${cs(s)}${p?` · Wert ${fmt(p*d.q)} ${cs(s)}`:""} · Meldung ab ${d.a} %${d.z?` · Ziel ${fmt(d.z)} ${cs(s)}`:""}</div>
+  <div class="sub note" style="margin:4px 0 0">${fmt(d.q,d.q%1?2:0)} Stk. · Kauf ${fmt(d.k)} ${cs(s)}${p?` · Wert ${fmt(p*d.q)} ${cs(s)}`:""} ${d.z?` · Ziel ${fmt(d.z)} ${cs(s)}`:""}</div>
+  <div style="display:flex;align-items:center;gap:8px;margin:10px 0 0;flex-wrap:wrap"><span class="note" style="margin:0;flex:1;min-width:120px">Meldegrenze: Bot meldet sich ab</span><button class="icon-btn" data-alstep="${i}:-1" aria-label="Meldegrenze 1 Prozentpunkt tiefer">−</button><b class="num" style="min-width:56px;text-align:center">${d.a} %</b><button class="icon-btn" data-alstep="${i}:1" aria-label="Meldegrenze 1 Prozentpunkt näher an 0">+</button></div>
+  ${p&&d.a<0?`<p class="note" style="margin:4px 0 0">Das entspricht einem Kurs von ${fmt(d.k*(1+d.a/100))} ${cs(s)}.</p>`:""}
   ${al?'<p class="note down" style="margin:6px 0 0">Deine Meldegrenze ist erreicht.</p>':""}
   <div class="btns" style="margin:10px 0 0"><button class="btn ${al?"danger":"ghost"}" data-posm="${i}:sell">Verkaufen</button><button class="btn ghost" data-posm="${i}:buy">Nachkaufen</button><button class="btn ghost" data-posm="${i}:menu">Mehr …</button></div></div>`}).join("")}
 function stockView(s){merke(s);const a=A[s],inDepot=S.depot.some(d=>d.s===s),k=kindOf(s);
@@ -559,7 +561,7 @@ function settingsHTML(sec){const s=S.settings;const seg=(k,opts)=>`<div class="s
  <h3>Sicherung</h3><p class="note" style="margin-top:0">Deine Daten liegen auf diesem Gerät. Mit einer Sicherungsdatei bringst du sie auf ein anderes Gerät.</p>
  <div class="btns"><button class="btn ghost" data-export>Sicherung speichern</button><label class="btn ghost" for="imp-file">Sicherung laden</label><input id="imp-file" type="file" accept=".json,application/json" hidden></div>
  <div id="reset-zone"><button class="x" data-reset>Alle Daten auf diesem Gerät löschen</button></div>
- <p class="note">Ki Aktien Helfer · Version 22 · Keine Anlageberatung.</p></div>`}
+ <p class="note">Ki Aktien Helfer · Version 23 · Keine Anlageberatung.</p></div>`}
 function cartHTML(){const now=Date.now(),l=S.kh.list.slice().sort((a,b)=>a.due-b.due),h=(S.kh.hist||[]).slice().reverse();
  return `<div class="grab"></div><div class="in"><div style="display:flex;justify-content:space-between;align-items:center"><h1 style="margin:0">Warenkorb</h1><button class="icon-btn" data-close aria-label="Schließen"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
  <p class="note" style="margin-top:4px">Dinge in Bedenkzeit aus der Kaufhilfe. ${S.kh.saved?`Bisher nicht ausgegeben: <b class="up">${fmt(S.kh.saved,0)} €</b>`:""}</p>
@@ -673,6 +675,7 @@ document.addEventListener("click",e=>{const T=sel=>e.target.closest(sel);let el;
  if(el=T("[data-wunsch]")){const w=el.dataset.wunsch;S.wunsch=S.wunsch||{};S.wunsch[w]=Date.now();merke(w);save();syncPlan(true);toast(S.kiWeg==="abo"?"Angefordert, kommt in ca. 5 bis 10 Minuten":S.kiApi?"Angefordert, kommt in ca. 2 Minuten":"Angefordert, kommt beim nächsten KI-Update");render(true);if(S.kiApi)(S.kiWeg==="abo"?[300,420,600,780]:[100,160,240]).forEach(x=>setTimeout(()=>refreshLive(),x*1000));return}
  if(el=T("[data-pf]")){pfMode=el.dataset.pf;pfSel=null;render(true);return}
  if(el=T("[data-seg]")){const i=+el.dataset.seg;pfSel=pfSel===i?null:i;render(true);return}
+ if(el=T("[data-alstep]")){const [i,st]=el.dataset.alstep.split(":"),d=S.depot[+i];if(d){d.a=Math.min(-1,Math.max(-90,Math.round(d.a)+ +st));save();syncPlan();render(true)}return}
  if(el=T("[data-posm]")){const [i,m]=el.dataset.posm.split(":");openPos(+i,m);return}
  if(el=T("[data-pos]")){openPos(+el.dataset.pos);return}
  if(el=T("[data-pm]")){const m=el.dataset.pm;if(m==="test"){const d=S.depot[posI];d.test=d.test?undefined:true;save();syncPlan();closeSettings();toast(d.test?"Als Test markiert":"Als echter Kauf übernommen");return}openPos(posI,m);return}
