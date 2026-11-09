@@ -376,6 +376,8 @@ Im Depot unter **Kaufrückblick** und per Telegram (täglich um 21 Uhr kurz, son
 ## Gewinnschutz
 Zusätzlich zur Meldegrenze im Minus: Der Bot meldet sich, wenn der Kurs um **x %** unter seinen **Höchststand seit Kauf** fällt, solange du noch im Plus bist. So merkst du, wenn ein Gewinn schrumpft. Einstellbar beim Eintragen, unter Ändern › Bearbeiten, mit − / + direkt auf der Aktienseite und als Standard unter ⚙️ (0 = aus).
 
+**Oder in Euro:** Auf der Aktienseite (und unter Ändern › Bearbeiten) kannst du stattdessen einen Betrag eintragen, z. B. 20 €. Dann meldet sich der Bot, sobald dein Gewinn um 20 € kleiner ist als sein bisher höchster Stand seit Kauf.
+
 ## Hilfe bei Problemen
 
 **A. Der Ordner `.github` fehlt bei GitHub.**

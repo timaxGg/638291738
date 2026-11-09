@@ -147,7 +147,7 @@ async function befehl(text){const [c0,...a]=text.trim().split(/\s+/),c=c0.toLowe
   case "/gespart":{const k=U.kh||{saved:0,bought:0};return send(`💚 Durch die Kaufhilfe nicht ausgegeben: <b>${fmt(k.saved||0,0)} €</b>\nBewusst gekauft: ${fmt(k.bought||0,0)} €`,{direkt:true})}
   case "/ziel":{const g=U.fin&&U.fin.goal;return send(g?`🎯 <b>${esc(g.n)}</b>: ${fmt(g.g,0)} von ${fmt(g.z,0)} € (${fmt(g.g/(g.z||1)*100,0)} %)`:"Noch kein Sparziel übertragen.",{direkt:true})}
   case "/sparmodell":return send(U.model?`💶 Dein Sparmodell: <b>${esc(U.modelName||U.model)}</b>${U.rec&&U.rec!==U.model?`\nEmpfohlen wäre gerade: <b>${esc(U.recName||U.rec)}</b>. Ansehen in der App unter Finanzen → Sparmodell.`:"\nPasst weiterhin zu deinen Zahlen."}`:"Du hast noch kein Sparmodell gewählt (App → Finanzen → Sparmodell).",{direkt:true});
-  case "/alarme":{const n=U.notify||{},d=depot();return send(`⚙️ <b>Deine Alarme</b>\n${d.map(x=>`• ${esc(x.n)}: Meldung ab ${x.a} %${x.z?`, Kursziel ${fmt(x.z)} ${CS(x.s)}`:""}${x.gs?`, Gewinnschutz ${x.gs} % vom Höchststand`:""}${x.tag?`, Nachkauf am ${x.tag}.`:""}`).join("\n")||"Keine Aktien im Depot."}\n\nStarke Bewegung ab ±${n.move||5} % · Nachtruhe ${n.night===false?"aus":"22–7 Uhr"}\nÄndern kannst du das in der App.`,{direkt:true})}
+  case "/alarme":{const n=U.notify||{},d=depot();return send(`⚙️ <b>Deine Alarme</b>\n${d.map(x=>`• ${esc(x.n)}: Meldung ab ${x.a} %${x.z?`, Kursziel ${fmt(x.z)} ${CS(x.s)}`:""}${x.gs?`, Gewinnschutz ${x.gs} % vom Höchststand`:""}${x.gse?`, Gewinnschutz ${x.gse} € weniger Gewinn`:""}${x.tag?`, Nachkauf am ${x.tag}.`:""}`).join("\n")||"Keine Aktien im Depot."}\n\nStarke Bewegung ab ±${n.move||5} % · Nachtruhe ${n.night===false?"aus":"22–7 Uhr"}\nÄndern kannst du das in der App.`,{direkt:true})}
   case "/ruhe":{const m=(a[0]||"2h").match(/^(\d+)(m|h)$/);const bis=a[0]==="morgen"?Date.parse(addDays(zeit().date,1)+"T06:00:00Z"):Date.now()+(m?(+m[1])*(m[2]==="h"?36e5:6e4):72e5);
     B.mute=bis;return send(`🔕 Pause bis ${new Date(bis).toLocaleString("de-DE",{timeZone:"Europe/Berlin",weekday:"short",hour:"2-digit",minute:"2-digit"})} Uhr. Wichtiges sammle ich und schicke es danach. /laut beendet die Pause.`,{direkt:true})}
   case "/laut":B.mute=0;await send("🔔 Pause beendet.",{direkt:true});return warteschlange();
@@ -172,10 +172,13 @@ async function alarme(){const n=Object.assign({loss:true,target:true,move:5,news
   for(const x of d)if(isUS(x.s)&&(boerseOffen()||!B.q[x.s]||Date.now()-B.q[x.s].t>6*36e5))await quote(x.s);else if(isEU(x.s)&&!B.q[x.s])await yq(x.s);
   for(const x of d){const p=priceOf(x.s);if(!p)continue;const ch=(p/x.k-1)*100,mv=moveOf(x.s),kL=`loss:${x.s}`,kZ=`ziel:${x.s}`,kM=`move:${x.s}:${z.date}`;
     if(n.loss&&ch<=x.a){if(!B.sent[kL]||ch<=B.sent[kL]-5){B.sent[kL]=ch;await send(`🔴 <b>${esc(x.n)}</b> liegt ${sgn(ch)} unter deinem Kaufpreis.\nKurs ${fmt(p)} ${CS(x.s)} · deine Meldegrenze: ${x.a} %${LA(x.s)}`,{dringend:mv<=-10})}}else if(B.sent[kL]&&ch>x.a+2)delete B.sent[kL];
-    if(n.gewinn!==false&&x.gs>0){B.peak=B.peak||{};const kp=`${x.s}:${x.k}`,rbH=(B.rb&&B.rb.pos[x.s]&&B.rb.pos[x.s].hoch)||0,hoch=Math.max(B.peak[kp]||0,rbH,p);B.peak[kp]=hoch;
-      const kG=`gs:${kp}`,grenze=hoch*(1-x.gs/100);
-      if(hoch>x.k&&p<=grenze&&p>x.k*0.98){if(!B.sent[kG]||hoch>B.sent[kG]*1.01){B.sent[kG]=hoch;const gv=(hoch/x.k-1)*100;
-        await send(`🟠 <b>Gewinnschutz: ${esc(x.n)}</b>\nDer Kurs ist ${fmt((1-p/hoch)*100,1)} % unter seinen Höchststand seit Kauf (${fmt(hoch)} ${CS(x.s)}) gefallen.\nDein Plus: jetzt ${sgn(ch)}, vorher ${sgn(gv)}.\nKurs ${fmt(p)} ${CS(x.s)} · deine Grenze: ${x.gs} % vom Höchststand`)}}}
+    if(n.gewinn!==false&&(x.gs>0||x.gse>0)){B.peak=B.peak||{};const kp=`${x.s}:${x.k}`,rbH=(B.rb&&B.rb.pos[x.s]&&B.rb.pos[x.s].hoch)||0,hoch=Math.max(B.peak[kp]||0,rbH,p);B.peak[kp]=hoch;
+      // Gewinn in Euro: höchster Gewinn seit Kauf gegen jetzt
+      const gNow=toEUR((p-x.k)*x.q,x.s),gMax=toEUR((hoch-x.k)*x.q,x.s),weg=gMax-gNow;
+      const proz=x.gs>0&&p<=hoch*(1-x.gs/100),euro=x.gse>0&&weg>=x.gse;
+      const kG=`gs:${kp}`;
+      if(hoch>x.k&&gMax>0&&(proz||euro)&&p>x.k*0.98){if(!B.sent[kG]||hoch>B.sent[kG]*1.002){B.sent[kG]=hoch;const gv=(hoch/x.k-1)*100;
+        await send(`🟠 <b>Gewinnschutz: ${esc(x.n)}</b>\nDein Gewinn ist um <b>${fmt(weg)} €</b> geschrumpft: von ${fmt(gMax)} € auf ${fmt(gNow)} €.\nDas sind ${fmt((1-p/hoch)*100,1)} % unter dem Höchststand seit Kauf (${fmt(hoch)} ${CS(x.s)}).\nPlus seit Kauf: jetzt ${sgn(ch)}, vorher ${sgn(gv)}.\nDeine Grenze: ${euro?`${fmt(x.gse,0)} € weniger Gewinn`:`${x.gs} % unter dem Hoch`}`)}}}
     if(n.target&&x.z&&p>=x.z){if(!B.sent[kZ]){B.sent[kZ]=1;await send(`🟢 <b>${esc(x.n)}</b> hat dein Kursziel erreicht!\nKurs ${fmt(p)} ${CS(x.s)} · Ziel ${fmt(x.z)} ${CS(x.s)} · ${sgn(ch)} seit Kauf${LA(x.s)}`)}}else if(B.sent[kZ]&&p<x.z*.98)delete B.sent[kZ];
     if(n.move&&Math.abs(mv)>=n.move&&!B.sent[kM]){B.sent[kM]=1;await send(`⚡ <b>${esc(x.n)}</b> bewegt sich heute stark: ${sgn(mv)}\nKurs ${fmt(p)} ${CS(x.s)}${LA(x.s)}`,{dringend:mv<=-10})}
     if(n.sparplan&&x.tag&&z.day===+x.tag&&z.h>=9&&!B.sent[`spar:${x.s}:${z.ym}`]){B.sent[`spar:${x.s}:${z.ym}`]=1;await send(`💶 Heute ist dein Nachkauf-Tag für <b>${esc(x.n)}</b>.\nAktuell ${fmt(p)} ${CS(x.s)} (${sgn(ch)} seit Kauf).${LA(x.s)}`)}}
