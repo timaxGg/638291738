@@ -71,5 +71,24 @@
   // Welche Werte hängen an einem Treiber? (z. B. „Wirkt auf“ bei Öl)
   function wirktAuf(t,syms,hist){const th=hist(t);if(!th||ist7(t))return [];return syms.filter(x=>x!==t&&!ist7(x)).map(x=>{const b=bezug(hist(x),th);return b&&Math.abs(b.korr)>=.3?{s:x,korr:+b.korr.toFixed(2),beta:+b.beta.toFixed(2)}:null}).filter(Boolean).sort((a,b)=>Math.abs(b.korr)-Math.abs(a.korr)).slice(0,5)}
 
-  G.Modell={zerlege,bezug,wirktAuf,basisJahr,TREIBER,DEFAULTS,istTreiber};
+  // Bekannte Firmen ohne Aktie an der Börse (Name → Hinweis, ähnliche börsennotierte Werte)
+  const PRIVAT=[
+    [/\bbosch\b/,"Bosch","gehört größtenteils der Robert Bosch Stiftung und hat keine Aktien an der Börse. Die indische Tochter Bosch Ltd. ist nur in Indien handelbar.","Continental, Schaeffler, Siemens"],
+    [/\baldi\b/,"Aldi","gehört den Familien Albrecht (Stiftungen) und ist nicht börsennotiert.","Ahold Delhaize, Carrefour"],
+    [/\blidl\b|schwarz.?gruppe|kaufland/,"Lidl / Schwarz-Gruppe","gehört der Schwarz-Gruppe (Stiftung) und ist nicht börsennotiert.","Ahold Delhaize, Carrefour"],
+    [/\bdm\b|dm.?drogerie/,"dm","ist ein Familienunternehmen ohne Börsennotierung.","Beiersdorf, Henkel"],
+    [/rossmann/,"Rossmann","ist ein Familienunternehmen ohne Börsennotierung.","Beiersdorf, Henkel"],
+    [/\bedeka\b/,"Edeka","ist eine Genossenschaft und nicht börsennotiert.","Ahold Delhaize, Carrefour"],
+    [/\brewe\b/,"Rewe","ist eine Genossenschaft und nicht börsennotiert.","Ahold Delhaize, Carrefour"],
+    [/\bikea\b/,"Ikea","gehört Stiftungen und ist nicht börsennotiert.","Inditex"],
+    [/\bdeutsche bahn\b|\bdb\b/,"Deutsche Bahn","gehört dem Staat und hat keine Aktien an der Börse.","Deutsche Post (DHL)"],
+    [/\bspacex\b/,"SpaceX","ist nicht börsennotiert (privat, Stand 2026 kein Börsengang).","Rocket Lab"],
+    [/\bopenai\b/,"OpenAI","ist nicht börsennotiert.","Microsoft, Nvidia"],
+    [/\banthropic\b/,"Anthropic","ist nicht börsennotiert.","Amazon, Alphabet"],
+    [/\bstripe\b/,"Stripe","ist nicht börsennotiert.","Adyen, PayPal"],
+    [/\bmars\b/,"Mars","ist ein Familienunternehmen ohne Börsennotierung.","Mondelez, Nestlé"],
+    [/\bheraeus\b|\bstihl\b|\bvoith\b|\bwürth\b|\bwuerth\b|\bboehringer\b|\bc&a\b|\boetker\b/,"","ist ein Familien- oder Stiftungsunternehmen ohne Aktien an der Börse.",""]];
+  function privat(q){q=String(q||"").toLowerCase().trim();if(q.length<2)return null;for(const [re,n,info,alt] of PRIVAT){const m=q.match(re);if(m){const name=n||m[0].replace(/^./,c=>c.toUpperCase());return {n:name,text:`${name} ${info}`,alt}}}return null}
+
+  G.Modell={privat,zerlege,bezug,wirktAuf,basisJahr,TREIBER,DEFAULTS,istTreiber};
 })(typeof globalThis!=="undefined"?globalThis:self);

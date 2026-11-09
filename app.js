@@ -495,6 +495,7 @@ function posKurzHTML(s){const l=S.depot.map((d,i)=>[d,i]).filter(([d])=>d.s===s&
   ${p&&d.a<0?`<p class="note" style="margin:4px 0 0">Das entspricht einem Kurs von ${fmt(d.k*(1+d.a/100))} ${cs(s)}.</p>`:""}
   ${al?'<p class="note down" style="margin:6px 0 0">Deine Meldegrenze ist erreicht.</p>':""}
   <div class="btns" style="margin:10px 0 0"><button class="btn ${al?"danger":"ghost"}" data-posm="${i}:sell">Verkaufen</button><button class="btn ghost" data-posm="${i}:buy">Nachkaufen</button><button class="btn ghost" data-posm="${i}:menu">Mehr …</button></div></div>`}).join("")}
+const privHTML=q=>{const p=Modell.privat(q);return p?`<div class="alert info" style="margin-top:6px"><span class="ic">i</span><div><b>Keine Aktie:</b> ${esc(p.text)}${p.alt?`<br><span class="note" style="margin:0">Börsennotiert aus der gleichen Branche: ${esc(p.alt)}</span>`:""}</div></div>`:""};
 function stockView(s){merke(s);const a=A[s],inDepot=S.depot.some(d=>d.s===s),k=kindOf(s);
  if(!a){const q=S.quotes[s];return `<button class="back" data-back>‹ Zurück</button><div class="note" style="margin:0"><span class="num">${esc(s)}</span></div><h1>${esc(nameOf(s))}</h1>
   ${q?`<div class="price"><span class="big">${fmt(q.c)} ${cs(s)}</span>${pct(q.dp)}</div>`:""}
@@ -561,7 +562,7 @@ function settingsHTML(sec){const s=S.settings;const seg=(k,opts)=>`<div class="s
  <h3>Sicherung</h3><p class="note" style="margin-top:0">Deine Daten liegen auf diesem Gerät. Mit einer Sicherungsdatei bringst du sie auf ein anderes Gerät.</p>
  <div class="btns"><button class="btn ghost" data-export>Sicherung speichern</button><label class="btn ghost" for="imp-file">Sicherung laden</label><input id="imp-file" type="file" accept=".json,application/json" hidden></div>
  <div id="reset-zone"><button class="x" data-reset>Alle Daten auf diesem Gerät löschen</button></div>
- <p class="note">Ki Aktien Helfer · Version 23 · Keine Anlageberatung.</p></div>`}
+ <p class="note">Ki Aktien Helfer · Version 24 · Keine Anlageberatung.</p></div>`}
 function cartHTML(){const now=Date.now(),l=S.kh.list.slice().sort((a,b)=>a.due-b.due),h=(S.kh.hist||[]).slice().reverse();
  return `<div class="grab"></div><div class="in"><div style="display:flex;justify-content:space-between;align-items:center"><h1 style="margin:0">Warenkorb</h1><button class="icon-btn" data-close aria-label="Schließen"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
  <p class="note" style="margin-top:4px">Dinge in Bedenkzeit aus der Kaufhilfe. ${S.kh.saved?`Bisher nicht ausgegeben: <b class="up">${fmt(S.kh.saved,0)} €</b>`:""}</p>
@@ -630,11 +631,11 @@ function bindForms(){
  const f=$("#f");if(f){const inp=$("#fs"),sg=$("#sg");const show=()=>{const v=inp.value.trim().toLowerCase(),m=findCat(v),ex=m.find(c=>c.n.toLowerCase()===v||c.s.toLowerCase()===v);
   const fc=$("#fk-cur");if(fc)fc.textContent=ex?cs(ex.s):"Kurswährung";
   if(ex){pick=ex;sg.innerHTML=`<div class="found up">✓ Erkannt: ${ex.n} (${ex.s})${priceOf(ex.s)?"":" · Kurs folgt mit Live-Daten"}</div>`;return}pick=null;
-  sg.innerHTML=m.length?`<div class="sugg">${m.map(c=>`<button type="button" data-pick="${c.s}">${c.n} <span class="num" style="color:var(--muted)">${c.s}</span></button>`).join("")}</div>`:v?'<div class="found flat">Nicht erkannt. Du kannst sie trotzdem eintragen.</div>':""};
+  sg.innerHTML=m.length?`<div class="sugg">${m.map(c=>`<button type="button" data-pick="${c.s}">${c.n} <span class="num" style="color:var(--muted)">${c.s}</span></button>`).join("")}</div>`:v?(Modell.privat(v)?privHTML(v):'<div class="found flat">Nicht erkannt. Du kannst sie trotzdem eintragen.</div>'):""};
   inp.addEventListener("input",show);if(inp.value)show();
   f.addEventListener("submit",e=>{e.preventDefault();const raw=inp.value.trim();if(!raw)return;const p=pick||findCat(raw)[0],s=p?p.s:raw.toUpperCase(),n=p?p.n:raw;
    S.depot=S.depot.filter(d=>!d.demo);S.depot.push({s,n,q:+$("#fq").value,k:+$("#fk").value,a:-Math.abs(+$("#fa").value||S.settings.alertDefault),z:+$("#fz").value||0,tag:+$("#ft").value||0,test:$("#ftest").checked||undefined,d:Date.now()});pick=null;save();syncPlan(true);toast(A[s]?`${n} eingetragen`:`${n} eingetragen. Verlauf und Prognose kommen in wenigen Minuten.`);render();if(S.settings.fhKey&&!S.quotes[s])refreshLive()})}
- const fw=$("#fw");if(fw){const wi=$("#ws"),wg=$("#wsg");wi.addEventListener("input",()=>{const m=findCat(wi.value);wg.innerHTML=m.length?`<div class="sugg">${m.map(c=>`<button type="button" data-wpick="${c.s}">${c.n} <span class="num" style="color:var(--muted)">${c.s}</span></button>`).join("")}</div>`:""});
+ const fw=$("#fw");if(fw){const wi=$("#ws"),wg=$("#wsg");wi.addEventListener("input",()=>{const m=findCat(wi.value);wg.innerHTML=m.length?`<div class="sugg">${m.map(c=>`<button type="button" data-wpick="${c.s}">${c.n} <span class="num" style="color:var(--muted)">${c.s}</span></button>`).join("")}</div>`:privHTML(wi.value)});
   fw.addEventListener("submit",e=>{e.preventDefault();const c=findCat(wi.value)[0],w=c?c.s:wi.value.trim().toUpperCase();if(w&&!S.watch.includes(w)){S.watch.push(w);(S.watchT=S.watchT||{})[w]=Date.now();save();syncPlan(true);toast(`${c?c.n:w} wird beobachtet`)}render(true)})}
  const fg=$("#fg");if(fg)fg.addEventListener("submit",e=>{e.preventDefault();Object.assign(S.fin.goal,{n:$("#g-n").value.trim()||"Sparziel",z:+$("#g-z").value||0,g:+$("#g-g").value||0});save();toast("Sparziel gespeichert");render(true)});
  const ff=$("#ff");if(ff)ff.addEventListener("submit",e=>{e.preventDefault();if(S.fin.demo){S.fin.items=[];delete S.fin.demo}S.fin.items.push({n:$("#fin-n").value.trim(),b:+$("#fin-b").value,t:$("#fin-t").value});save();toast("Hinzugefügt");render(true)});

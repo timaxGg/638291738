@@ -122,7 +122,7 @@ async function befehl(text){const [c0,...a]=text.trim().split(/\s+/),c=c0.toLowe
   const st=s=>(KI.stocks||[]).find(x=>x.s===s);
   switch(c){
   case "/start":case "/hilfe":case "/help":return send(HILFE,{direkt:true});
-  case "/kurs":{const s=finde(arg);if(!s)return send("Welche Aktie? Beispiel: /kurs AAPL oder /kurs Siemens",{direkt:true});await frisch(s);const p=priceOf(s),an=analyse(st(s));
+  case "/kurs":{const s=finde(arg);if(!s)return send("Welche Aktie? Beispiel: /kurs AAPL oder /kurs Siemens",{direkt:true});{const pv=Modell.privat(arg);if(pv&&!(KI.catalog||[]).some(x=>x.n.toLowerCase().includes(String(arg).toLowerCase().trim())))return send(`ℹ️ <b>Keine Aktie:</b> ${esc(pv.text)}${pv.alt?`\nBörsennotiert aus der gleichen Branche: ${esc(pv.alt)}`:""}`,{direkt:true})}await frisch(s);const p=priceOf(s),an=analyse(st(s));
     return send(p?`<b>${esc(catOf(s).n||s)}</b> (${s})\n${fmt(p)} ${CS(s)} · heute ${sgn(moveOf(s))}${isEU(s)?" (ca. 15 Min. verzögert)":""}${an?`\nTrend ${PFEIL[an.dir]} · 4 Wochen ${sgn(an.ch20)}`:""}${LA(s)}`:`Keinen Kurs für ${esc(s)} gefunden. Tipp: deutsche Aktien mit .DE, z. B. /kurs SIE.DE`,{direkt:true})}
   case "/depot":{const d=depot();if(!d.length)return send("Dein Depot ist leer oder noch nicht übertragen. Trag Aktien in der App ein, sie kommen automatisch hier an.",{direkt:true});
     if(!B.q["EURUSD=X"])await yq("EURUSD=X");for(const x of d)if(isUS(x.s)?(boerseOffen()||!B.q[x.s]):!B.q[x.s]||Date.now()-B.q[x.s].t>9e5)await frisch(x.s);let tot=0,cost=0;const z=d.map(x=>{const p=priceOf(x.s);if(!p)return `• ${esc(x.n)}: kein Kurs`;if(!x.test){tot+=toEUR(p*x.q,x.s);cost+=toEUR(x.k*x.q,x.s)}return `• <b>${esc(x.n)}</b>${x.test?" (Test)":""}: ${fmt(p*x.q)} ${CS(x.s)} (${sgn((p/x.k-1)*100)})`});
