@@ -243,8 +243,13 @@ async function anfrageDaten(s){if(!B.hist||!B.hist[s]){const c=await yq(s,true);
   return {name,news,fakten:an?{waehrung:curOf(s),kurs:+an.last.toFixed(2),trend:an.dir,vierWochenProzent:+an.ch20.toFixed(1),dreiMonateProzent:+an.ch3m.toFixed(1),schwankungProJahr:+an.vol.toFixed(0),heuteProzent:+moveOf(s).toFixed(2)}:{}}}
 /* Ohne eigenen API-Schlüssel: kleine Vorlage ins Repo, dann die Claude-Aufgabe „KI-Anfrage“ direkt anstoßen (läuft über das Claude-Abo). */
 async function antwortHolen(){if(!B.anfrage)return false;let a=null;
-  try{execSync(`git -C ${ROOT} fetch -q origin main`);a=JSON.parse(execSync(`git -C ${ROOT} show origin/main:data/ki-antwort.json`,{stdio:["ignore","pipe","ignore"]}).toString())}catch(e){return false}
-  if(!a||a.id!==B.anfrage.id)return false;B.kiExtra=B.kiExtra||{};const neu=[];
+  // Die Claude-Aufgabe darf evtl. nur auf einen eigenen Zweig (claude/…) schreiben, daher dort auch suchen.
+  const sh=c=>execSync(`git -C ${ROOT} ${c}`,{stdio:["ignore","pipe","ignore"]}).toString();let zweig="";
+  try{sh(`fetch -q --depth 1 origin main "+refs/heads/claude/*:refs/remotes/origin/claude/*"`)}catch(e){try{sh("fetch -q origin main")}catch(e2){return false}}
+  const refs=["origin/main",...sh("for-each-ref --format=%(refname:short) refs/remotes/origin/claude").split("\n").filter(Boolean)];
+  for(const r of refs){try{const o=JSON.parse(sh(`show ${r}:data/ki-antwort.json`));if(o&&o.id===B.anfrage.id){a=o;if(r!=="origin/main")zweig=r.replace("origin/","");break}}catch(e){}}
+  if(!a)return false;
+  if(zweig&&!DRY)try{sh(`push -q origin --delete ${zweig}`)}catch(e){log("Zweig",e.message)}B.kiExtra=B.kiExtra||{};const neu=[];
   for(const x of (a.items||[]))if(x&&x.s&&x.text){B.kiExtra[x.s]={text:String(x.text),h:x.h||"lang",warn:+x.warn||0,quellen:Array.isArray(x.quellen)?x.quellen.filter(q=>q&&q.u).slice(0,6):[],t:Date.now()};neu.push(x.s)}
   B.anfrage=null;B.kursePush=true;delete B.err.ki;log("KI-Anfrage beantwortet",neu.join(","));
   for(const s of neu){const name=(MARKT.find(m=>m[0]===s)||[])[1]||catOf(s).n||s;await send(`🧠 <b>Einschätzung da: ${esc(name)}</b>\n${esc(B.kiExtra[s].text)}\n\nIn der App mit Quellen.`,{direkt:true})}
