@@ -486,15 +486,24 @@ function parseCSV(text){const lines=text.replace(/\r/g,"").split("\n").filter(l=
  r.months=f?Math.max(1,Math.round((t-f)/2.63e9)):1;r.from=f?f.toLocaleDateString("de-DE"):"?";r.to=t?t.toLocaleDateString("de-DE"):"?";return r}
 
 /* ---------- Detailseiten ---------- */
+// Deine Position direkt auf der Aktienseite (z. B. nach einem Link aus dem Bot): verkaufen, nachkaufen, ändern
+function posKurzHTML(s){const l=S.depot.map((d,i)=>[d,i]).filter(([d])=>d.s===s&&!d.demo);if(!l.length)return "";const p=(S.quotes[s]||{}).c||(A[s]&&A[s].last);
+ return l.map(([d,i])=>{const ch=p?(p/d.k-1)*100:null,al=ch!=null&&ch<=d.a;
+  return `<div class="panel" style="margin:12px 0;${al?"border-color:var(--down)":""}"><div style="display:flex;justify-content:space-between;gap:8px;align-items:baseline"><b>Deine Position${d.test?' <span class="demo">Test</span>':""}</b>${ch!=null?`<span class="num ${ch>=0?"up":"down"}">${sgn(ch)} seit Kauf</span>`:""}</div>
+  <div class="sub note" style="margin:4px 0 0">${fmt(d.q,d.q%1?2:0)} Stk. · Kauf ${fmt(d.k)} ${cs(s)}${p?` · Wert ${fmt(p*d.q)} ${cs(s)}`:""} · Meldung ab ${d.a} %${d.z?` · Ziel ${fmt(d.z)} ${cs(s)}`:""}</div>
+  ${al?'<p class="note down" style="margin:6px 0 0">Deine Meldegrenze ist erreicht.</p>':""}
+  <div class="btns" style="margin:10px 0 0"><button class="btn ${al?"danger":"ghost"}" data-posm="${i}:sell">Verkaufen</button><button class="btn ghost" data-posm="${i}:buy">Nachkaufen</button><button class="btn ghost" data-posm="${i}:menu">Mehr …</button></div></div>`}).join("")}
 function stockView(s){merke(s);const a=A[s],inDepot=S.depot.some(d=>d.s===s),k=kindOf(s);
  if(!a){const q=S.quotes[s];return `<button class="back" data-back>‹ Zurück</button><div class="note" style="margin:0"><span class="num">${esc(s)}</span></div><h1>${esc(nameOf(s))}</h1>
   ${q?`<div class="price"><span class="big">${fmt(q.c)} ${cs(s)}</span>${pct(q.dp)}</div>`:""}
+  ${posKurzHTML(s)}
   <div class="panel" style="margin:14px 0"><b>Verlauf und Prognose werden geladen</b><p style="margin:4px 0 0">Der Wachmann holt die Daten beim nächsten Lauf, meist innerhalb von 5 Minuten. ${inDepot||S.watch.includes(s)?"":"Tipp: Beobachte den Wert, dann wird er dauerhaft mitgeladen."}</p></div>
   ${investHTML(s)}<div class="btns">${inDepot||S.watch.includes(s)?"":`<button class="btn ghost" data-watch="${esc(s)}">Beobachten</button>`}<button class="btn ghost" data-refresh>Neu laden</button></div>`}
  const st=a.st;
  setTimeout(async()=>{const n=await liveNews(s),el=$("#ln");if(el&&n)el.innerHTML=n.length?`<div class="list">${n.map(x=>`<a class="item" href="${esc(x.url)}" target="_blank" rel="noopener"><div class="l"><div class="t">${esc(x.headline)}</div><div class="s">${esc(x.source)} · ${new Date(x.datetime*1000).toLocaleDateString("de-DE")}</div></div><span class="go">↗</span></a>`).join("")}</div>`:'<div class="empty">Keine neuen Schlagzeilen.</div>'},0);
  return `<button class="back" data-back>‹ Zurück</button><div class="note" style="margin:0">${st.cat} · <span class="num">${esc(s)}</span></div><h1>${esc(st.n)}</h1>
  <div class="price"><span class="big">${fmt(a.last)} ${cs(s)}</span>${pct(a.chg)}<span class="note" style="margin:0">${a.live?`<span class="dot live" style="display:inline-block"></span> ${isEU(s)?"ca. 15 Min. verzögert":"live"}`:"Schlusskurs"}</span></div>
+ ${posKurzHTML(s)}
  ${fitsInvestor(a)?"":`<div class="alert"><span class="ic">!</span><div>Diese Aktie schwankt stark und passt eher nicht zu deinem Anleger-Typ „${S.settings.investor}“.</div></div>`}
  ${profilHTML(s,a)}${s==="^VIX"?`<div class="alert"><span class="ic">!</span><div>Beim VIX ist es umgekehrt: <b>Steigt er, wächst die Angst</b> im Markt. Aktuell ${fmt(a.last,1)}: ${a.last>=30?"Angst":a.last>=25?"nervös":a.last>=20?"leicht angespannt":"ruhig"}.</div></div>`:""}
  <div class="trend ${a.dir}"><span class="arrow">${DIR[a.dir][0]}</span><div>${DIR[a.dir][1]}<small>${a.dir==="up"?"Kurs liegt über seinem Durchschnitt der letzten Wochen.":a.dir==="down"?"Kurs liegt unter seinem Durchschnitt der letzten Wochen.":"Kein klarer Trend in den letzten Wochen."} Letzte 4 Wochen ${sgn(a.ch20)}.</small></div></div>
@@ -550,7 +559,7 @@ function settingsHTML(sec){const s=S.settings;const seg=(k,opts)=>`<div class="s
  <h3>Sicherung</h3><p class="note" style="margin-top:0">Deine Daten liegen auf diesem Gerät. Mit einer Sicherungsdatei bringst du sie auf ein anderes Gerät.</p>
  <div class="btns"><button class="btn ghost" data-export>Sicherung speichern</button><label class="btn ghost" for="imp-file">Sicherung laden</label><input id="imp-file" type="file" accept=".json,application/json" hidden></div>
  <div id="reset-zone"><button class="x" data-reset>Alle Daten auf diesem Gerät löschen</button></div>
- <p class="note">Ki Aktien Helfer · Version 21 · Keine Anlageberatung.</p></div>`}
+ <p class="note">Ki Aktien Helfer · Version 22 · Keine Anlageberatung.</p></div>`}
 function cartHTML(){const now=Date.now(),l=S.kh.list.slice().sort((a,b)=>a.due-b.due),h=(S.kh.hist||[]).slice().reverse();
  return `<div class="grab"></div><div class="in"><div style="display:flex;justify-content:space-between;align-items:center"><h1 style="margin:0">Warenkorb</h1><button class="icon-btn" data-close aria-label="Schließen"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
  <p class="note" style="margin-top:4px">Dinge in Bedenkzeit aus der Kaufhilfe. ${S.kh.saved?`Bisher nicht ausgegeben: <b class="up">${fmt(S.kh.saved,0)} €</b>`:""}</p>
@@ -664,6 +673,7 @@ document.addEventListener("click",e=>{const T=sel=>e.target.closest(sel);let el;
  if(el=T("[data-wunsch]")){const w=el.dataset.wunsch;S.wunsch=S.wunsch||{};S.wunsch[w]=Date.now();merke(w);save();syncPlan(true);toast(S.kiWeg==="abo"?"Angefordert, kommt in ca. 5 bis 10 Minuten":S.kiApi?"Angefordert, kommt in ca. 2 Minuten":"Angefordert, kommt beim nächsten KI-Update");render(true);if(S.kiApi)(S.kiWeg==="abo"?[300,420,600,780]:[100,160,240]).forEach(x=>setTimeout(()=>refreshLive(),x*1000));return}
  if(el=T("[data-pf]")){pfMode=el.dataset.pf;pfSel=null;render(true);return}
  if(el=T("[data-seg]")){const i=+el.dataset.seg;pfSel=pfSel===i?null:i;render(true);return}
+ if(el=T("[data-posm]")){const [i,m]=el.dataset.posm.split(":");openPos(+i,m);return}
  if(el=T("[data-pos]")){openPos(+el.dataset.pos);return}
  if(el=T("[data-pm]")){const m=el.dataset.pm;if(m==="test"){const d=S.depot[posI];d.test=d.test?undefined:true;save();syncPlan();closeSettings();toast(d.test?"Als Test markiert":"Als echter Kauf übernommen");return}openPos(posI,m);return}
  if(T("[data-pdel]")){const d=S.depot.splice(posI,1)[0];save();syncPlan();closeSettings();toast(`${d.n} gelöscht`);return}
