@@ -206,7 +206,7 @@ const V={
   <p class="note">Gemessen an Branchen-ETFs. Europa: iShares STOXX Europe 600 Branchen-ETFs auf Xetra.</p><h2>Trends der beobachteten Werte</h2><div class="list">${sortedStocks(KI.stocks||[]).map(stockItem).join("")}</div>`},
  aktien(){const list=sortedStocks((KI.stocks||[]).filter(s=>(filter==="alle"||s.h===filter)&&(region==="alle"||(region==="eu")===isEU(s.s))));const ups=(KI.updates||[]);
   const mk=(S.markt||[]),eigene=[...new Set([...S.depot.filter(d=>!d.demo).map(d=>d.s),...S.watch])].filter(x=>!(KI.stocks||[]).some(k=>k.s===x));
-  const mItem=m=>{const a=A[m.s],q=S.quotes[m.s];return a?stockItem(a.st):`<button class="item" data-go="aktie-${enc(m.s)}"><div class="l"><div class="t">${esc(m.n)}</div><div class="s">${KIND_TXT[m.k]||""}</div></div><div class="r">${q?`<div class="num">${fmt(q.c)} ${cs(m.s)}</div>${pct(q.dp)}`:""}</div></button>`};
+  const mItem=m=>{const a=A[m.s],q=S.quotes[m.s];return a?stockItem(a.st).replace(/(<div class="s">)/,kurzOf(m.s)?`$1${esc(kurzOf(m.s).text.split(". ")[0].slice(0,90))}<br>`:"$1"):`<button class="item" data-go="aktie-${enc(m.s)}"><div class="l"><div class="t">${esc(m.n)}</div><div class="s">${KIND_TXT[m.k]||""}</div></div><div class="r">${q?`<div class="num">${fmt(q.c)} ${cs(m.s)}</div>${pct(q.dp)}`:""}</div></button>`};
   const grp=[["idx","Indizes"],["etf","Welt-ETFs"],["krypto","Krypto"],["roh","Rohstoffe"],["fx","Währung"]];
   const alts=mk.filter(m=>m.k.startsWith("alt:")),altG=[...new Set(alts.map(m=>m.k.slice(4)))];
   return `<h1>Aktien</h1>${mk.length?`<h2 style="margin-top:8px">Wichtige Marktwerte</h2>${grp.map(([k,l])=>{const g=mk.filter(m=>m.k===k);return g.length?`<h3>${l}</h3><div class="list">${g.map(mItem).join("")}</div>`:""}).join("")}`:""}
@@ -271,9 +271,18 @@ const INVEST={
 function investHTML(s){const I=INVEST[s];if(!I)return "";const row=x=>{const a=A[x],q=S.quotes[x];return `<button class="item" data-go="aktie-${enc(x)}" style="padding:8px 2px"><div class="l"><div class="t" style="font-size:14px">${esc(nameOf(x))}</div><div class="s">${a?DIR[a.dir][0]+" "+DIR[a.dir][1].replace("Trend ",""):esc(x)}</div></div><div class="r">${q?`<div class="num" style="font-size:13px">${fmt(q.c)} ${cs(x)}</div>${pct(q.dp)}`:'<span class="go">›</span>'}</div></button>`};
  return `<h2>Was steckt drin?</h2><p>${I.t}</p>${I.in?`<h3>Große Werte darin (Auswahl)</h3><div class="list">${I.in.map(row).join("")}</div>`:""}
  ${I.buy?`<h3>${I.buyTitle||"So kannst du investieren"}</h3><div class="list">${I.buy.map(([x,why])=>row(x).replace(/<div class="s">[^<]*<\/div>/,`<div class="s">${esc(why)}</div>`)).join("")}</div>`:""}`}
+const kurzOf=s=>(KI.kurz||[]).find(x=>x.s===s);
+const HZ={kurz:["Kurzfristig (ca. 4 Wochen)","warn"],lang:["Langfristig (3 Monate+)","up"],spekulativ:["Spekulativ: nur kleiner Anteil","down"],"nicht kaufbar":["Nicht direkt kaufbar","flat"]};
+function quellenHTML(s,st){const arr=x=>Array.isArray(x)?x:[];const q=[...arr(st&&st.quellen),...arr((kurzOf(s)||{}).quellen)].filter(x=>x&&x.u);const seen=new Set(),uq=q.filter(x=>!seen.has(x.u)&&seen.add(x.u));
+ const kn=(KI.news||[]).filter(n=>((st&&st.news)||[]).includes(n.id)&&!seen.has(n.u));
+ const data=isEU(s)||/[\^=-]/.test(s)?["Yahoo Finance",`https://finance.yahoo.com/quote/${enc(s)}`]:["Finnhub / Yahoo Finance",`https://finance.yahoo.com/quote/${enc(s)}`];
+ return `<h2>Quellen</h2><div class="list">${[...uq.map(x=>[x.t,x.u,"Meldung"]),...kn.map(n=>[n.t,n.u,n.q])].map(([t,u,q])=>`<a class="item" href="${esc(u)}" target="_blank" rel="noopener" style="padding:9px 2px"><div class="l"><div class="t" style="font-size:14px;font-weight:500">${esc(t)}</div><div class="s">${esc(q)}</div></div><span class="go">↗</span></a>`).join("")}
+  <a class="item" href="${data[1]}" target="_blank" rel="noopener" style="padding:9px 2px"><div class="l"><div class="t" style="font-size:14px;font-weight:500">Kursdaten und Verlauf</div><div class="s">${data[0]}${isEU(s)?", ca. 15 Min. verzögert":""}</div></div><span class="go">↗</span></a></div>
+ <p class="note">Trend, Prognose, Risiko und Frühwarnung sind aus den Kursen der letzten 3 Monate berechnet. Die Texte schreibt die KI ${KI.generated?"(Stand "+new Date(KI.generated).toLocaleString("de-DE",{dateStyle:"short",timeStyle:"short"})+")":""} ausschließlich aus den hier genannten Meldungen und Kursdaten.</p>`}
 /* ---------- Risiko und Anlagedauer auf einen Blick ---------- */
 function profil(s,a){const k=kindOf(s),art=artOf(s),vol=a?a.vol:null;const risk=vol==null?null:vol<20?["niedrig","up"]:vol<35?["mittel","warn"]:["hoch","down"];let hz;
- if(k==="idx"||k==="fx")hz=["Nicht direkt kaufbar","flat"];
+ const kz=kurzOf(s);if(kz&&HZ[kz.h]&&!(a&&!a.st.pseudo))hz=HZ[kz.h];
+ else if(k==="idx"||k==="fx")hz=["Nicht direkt kaufbar","flat"];
  else if(art==="Krypto")hz=["Spekulativ: nur kleiner Anteil","down"];
  else if(art==="Anleihen und Geldmarkt")hz=[/XEON/.test(s)?"Kurzfristig: Geld parken":"Mittel- bis langfristig","up"];
  else if(art==="ETF"||art==="Gold")hz=["Langfristig (5+ Jahre)","up"];
@@ -437,12 +446,13 @@ function stockView(s){const a=A[s],inDepot=S.depot.some(d=>d.s===s),k=kindOf(s);
  <h2>Risiko und Chance</h2><div class="panel">${riskMeter(a)}<div style="height:12px"></div>${potMeter(a)}</div>
  <p class="note">Bereich, in dem der Kurs nach der Schwankung der letzten 3 Monate in etwa 2 von 3 Fällen landen würde. Die Mitte folgt abgeschwächt dem Trend plus der Nachrichtenlage. Eine Schätzung, keine Garantie.</p>
  <h2>Vergangenheit (3 Monate)</h2><div class="facts"><div><b>Veränderung</b>${pct(a.ch3m)}</div><div><b>Größter Rückgang</b><span class="num down">${sgn(a.dd)}</span></div><div><b>Tiefster Kurs</b><span class="num">${fmt(a.min)} ${cs(s)}</span></div><div><b>Höchster Kurs</b><span class="num">${fmt(a.max)} ${cs(s)}</span></div></div>
- ${st.pseudo&&INVEST[s]&&["idx","fx","roh"].includes(k)?"":st.pseudo?`<h2>Einschätzung</h2><div class="panel">${k==="idx"?"<b>Index</b><p style=\"margin:4px 0 0\">Ein Index ist nicht direkt kaufbar. Investieren kannst du z. B. über einen ETF, der ihn abbildet.</p>":k==="fx"?"<b>Wechselkurs</b><p style=\"margin:4px 0 0\">Zeigt, wie viele Dollar ein Euro kostet. Wichtig für den Wert deiner US-Aktien in Euro.</p>":inDepot||S.watch.includes(s)?"<b>KI-Einschätzung folgt</b><p style=\"margin:4px 0 0\">Beim nächsten KI-Update (7:00 oder 12:40 Uhr) bekommt dieser Wert Pro, Contra und Begründung. Verlauf, Trend und Prognose oben sind schon berechnet.</p>":"<b>Ohne KI-Einschätzung</b><p style=\"margin:4px 0 0\">Trend und Prognose sind aus dem Kursverlauf berechnet. Beobachte den Wert, dann bekommt er beim nächsten KI-Update eine Einschätzung.</p>"}</div>`
+ ${st.pseudo&&kurzOf(s)?`<h2>Einschätzung</h2><div class="panel"><p style="margin:0">${esc(kurzOf(s).text)}</p>${+kurzOf(s).warn>=2?`<p class="note down" style="margin:6px 0 0">Die Nachrichtenlage ist ${+kurzOf(s).warn>=3?"ernst":"deutlich negativ"}.</p>`:""}</div>`:st.pseudo&&INVEST[s]&&["idx","fx","roh"].includes(k)?"":st.pseudo?`<h2>Einschätzung</h2><div class="panel">${k==="idx"?"<b>Index</b><p style=\"margin:4px 0 0\">Ein Index ist nicht direkt kaufbar. Investieren kannst du z. B. über einen ETF, der ihn abbildet.</p>":k==="fx"?"<b>Wechselkurs</b><p style=\"margin:4px 0 0\">Zeigt, wie viele Dollar ein Euro kostet. Wichtig für den Wert deiner US-Aktien in Euro.</p>":inDepot||S.watch.includes(s)?"<b>KI-Einschätzung folgt</b><p style=\"margin:4px 0 0\">Beim nächsten KI-Update (7:00 oder 12:40 Uhr) bekommt dieser Wert Pro, Contra und Begründung. Verlauf, Trend und Prognose oben sind schon berechnet.</p>":"<b>Ohne KI-Einschätzung</b><p style=\"margin:4px 0 0\">Trend und Prognose sind aus dem Kursverlauf berechnet. Beobachte den Wert, dann bekommt er beim nächsten KI-Update eine Einschätzung.</p>"}</div>`
  :`<h2>Einschätzung · ${st.h==="lang"?"Langfristig (3 Monate+)":"Kurzfristig (ca. 4 Wochen)"}</h2><p>${st.why}</p>
  <div class="pc"><div><b class="up">Dafür</b><ul>${st.pro.map(x=>`<li>${x}</li>`).join("")}</ul></div><div><b class="down">Dagegen</b><ul>${st.con.map(x=>`<li>${x}</li>`).join("")}</ul></div></div>`}
  ${investHTML(s)}
  <div class="btns">${["idx","fx"].includes(k)?"":`<button class="btn" data-add="${esc(s)}">${inDepot?"Weitere Stücke eintragen":"Ins Depot übernehmen"}</button>`}${inDepot||(S.markt||[]).some(m=>m.s===s)&&!st.pseudo?"":`<button class="btn ghost" data-watch="${esc(s)}">${S.watch.includes(s)?"Nicht mehr beobachten":"Beobachten"}</button>`}</div>
  ${st.news&&st.news.length?`<h2>Nachrichten (KI)</h2><div class="list">${KI.news.filter(n=>st.news.includes(n.id)).map(newsItem).join("")}</div>`:""}
+ ${quellenHTML(s,st.pseudo?null:st)}
  ${isEU(s)||st.pseudo&&k?"":`<h2>Live-Schlagzeilen</h2><div id="ln">${PREVIEW||!S.settings.fhKey?'<div class="empty">Erscheinen in der installierten App mit Finnhub-Schlüssel (meist englisch).</div>':'<div class="empty">Lade …</div>'}</div>`}
  <p class="note">Keine Anlageberatung.</p>`}
 function newsView(id){const n=(KI.news||[]).find(x=>x.id===id);if(!n)return V.news();const i=n.back.indexOf(":");
@@ -480,7 +490,7 @@ function settingsHTML(sec){const s=S.settings;const seg=(k,opts)=>`<div class="s
  <h3>Sicherung</h3><p class="note" style="margin-top:0">Deine Daten liegen auf diesem Gerät. Mit einer Sicherungsdatei bringst du sie auf ein anderes Gerät.</p>
  <div class="btns"><button class="btn ghost" data-export>Sicherung speichern</button><label class="btn ghost" for="imp-file">Sicherung laden</label><input id="imp-file" type="file" accept=".json,application/json" hidden></div>
  <div id="reset-zone"><button class="x" data-reset>Alle Daten auf diesem Gerät löschen</button></div>
- <p class="note">Ki Aktien Helfer · Version 11 · Keine Anlageberatung.</p></div>`}
+ <p class="note">Ki Aktien Helfer · Version 12 · Keine Anlageberatung.</p></div>`}
 function cartHTML(){const now=Date.now(),l=S.kh.list.slice().sort((a,b)=>a.due-b.due),h=(S.kh.hist||[]).slice().reverse();
  return `<div class="grab"></div><div class="in"><div style="display:flex;justify-content:space-between;align-items:center"><h1 style="margin:0">Warenkorb</h1><button class="icon-btn" data-close aria-label="Schließen"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
  <p class="note" style="margin-top:4px">Dinge in Bedenkzeit aus der Kaufhilfe. ${S.kh.saved?`Bisher nicht ausgegeben: <b class="up">${fmt(S.kh.saved,0)} €</b>`:""}</p>

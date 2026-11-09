@@ -222,7 +222,7 @@ function fruehwarnung(s){const h=(B.hist||{})[s];if(!h||h.c.length<30)return nul
   const hoch=Math.max(...c),dd=(last/hoch-1)*100;if(dd<=-15){p+=2;gr.push(`${fmt(-dd,0)} % unter dem 3-Monats-Hoch`)}else if(dd<=-8){p+=1;gr.push(`${fmt(-dd,0)} % unter dem 3-Monats-Hoch`)}
   const t3=(c[n-1]/c[n-4]-1)*100;if(c[n-1]<c[n-2]&&c[n-2]<c[n-3]&&c[n-3]<c[n-4]&&t3<=-4){p+=1;gr.push(`3 Verlusttage in Folge (${sgn(t3)})`)}
   const z=zeit(),bald=(B.earn.list||[]).find(e=>e.symbol===s&&e.date>=z.date&&e.date<=addDays(z.date,2));if(bald){p+=1;gr.push("Quartalszahlen in den nächsten 2 Tagen")}
-  const ki=(KI.stocks||[]).find(x=>x.s===s);if(ki&&+ki.warn>0){p+=+ki.warn;gr.push("KI-Nachrichtenlage: "+(ki.warnGrund||"negative Meldungen"))}
+  const ki=(KI.stocks||[]).find(x=>x.s===s)||(KI.kurz||[]).find(x=>x.s===s);if(ki&&+ki.warn>0){p+=+ki.warn;gr.push("KI-Nachrichtenlage: "+(ki.warnGrund||"negative Meldungen"))}
   const vix=B.q["^VIX"]&&B.q["^VIX"].c;if(vix>=30){p+=1;gr.push(`Gesamtmarkt sehr nervös (VIX ${fmt(vix,0)})`)}else if(vix>=25&&p>0){gr.push(`Gesamtmarkt nervös (VIX ${fmt(vix,0)})`)}
   return {lv:p>=4?3:p>=2?2:1,p,gr}}
 async function fruehwarnungen(){const n=Object.assign({warn:true},U.notify||{});if(!n.warn)return;const z=zeit(),ziele=[...new Set([...depot().map(x=>x.s),...(U.watch||[]).map(w=>LEGACY[w]||w)])];
@@ -258,11 +258,12 @@ async function vorlage(slot){delete B.err.alphavantage;const z=zeit(),prev=KI,d=
     if(!closes)continue;const neu=slot==="morgen"||!alt,base={s,n:catOf(s).n||(alt&&alt.n)||s,closes,cur:curOf(s)};
     const an=analyse(Object.assign({},alt||{},base));
     stocks.push(neu?Object.assign(base,{cat:alt&&alt.cat||F("Branche in 1–3 Wörtern"),h:F('"kurz" oder "lang"'),bias:F("Zahl −3 bis +3: Wirkung der heutigen Nachrichten auf den Kurs in %"),
-      why:F("2–3 Sätze Einschätzung, sachlich, keine Kaufempfehlung"),pro:F("Liste mit 1–3 kurzen Punkten dafür"),con:F("Liste mit 1–3 kurzen Punkten dagegen"),news:F("Liste der news-ids, die diese Aktie betreffen"),warn:F("Zahl 0–3: Gefahr aus der Nachrichtenlage (0 = nichts Besonderes, 1 = leicht negativ, 2 = deutlich negativ, 3 = ernst, z. B. Gewinnwarnung, Klage, angekündigte Kürzungen)"),warnGrund:F("1 kurzer Satz zum Warn-Grund oder leerer Text"),
+      why:F("2–3 Sätze Einschätzung, sachlich, keine Kaufempfehlung"),pro:F("Liste mit 1–3 kurzen Punkten dafür"),con:F("Liste mit 1–3 kurzen Punkten dagegen"),news:F("Liste der news-ids, die diese Aktie betreffen"),warn:F("Zahl 0–3: Gefahr aus der Nachrichtenlage (0 = nichts Besonderes, 1 = leicht negativ, 2 = deutlich negativ, 3 = ernst, z. B. Gewinnwarnung, Klage, angekündigte Kürzungen)"),warnGrund:F("1 kurzer Satz zum Warn-Grund oder leerer Text"),quellen:F("Liste {t,u} der Meldungen aus _rohnews, auf die sich why/pro/con/warn stützen (Titel und Link übernehmen). Leere Liste, wenn nur Kursdaten genutzt wurden"),
       _fakten:an?{waehrung:curOf(s),region:isEU(s)?"Europa":"USA",trend:an.dir,vierWochen:+an.ch20.toFixed(1),dreiMonate:+an.ch3m.toFixed(1),schwankung:+an.vol.toFixed(0),heute:+moveOf(s).toFixed(2)}:{}}):Object.assign({},alt,{closes}))}
   const bis=z.date,von=addDays(bis,slot==="morgen"?-1:0),roh=[],seen=new Set();
   const add=(n,sym)=>{const k=(n.headline||"").toLowerCase().slice(0,60);if(!n.headline||seen.has(k))return;seen.add(k);roh.push({id:`n${n.id||roh.length}`,t:n.headline,q:n.source,u:n.url,sym:sym?[sym]:(n.related||"").split(",").filter(Boolean).slice(0,3),z:(n.summary||"").slice(0,220)})};
   for(const s of watch.filter(isEU))(await yNews(s)).forEach(n=>add(n,s));
+  if(slot==="morgen")for(const s of ["^GDAXI","^GSPC","^STOXX50E","GC=F","BZ=F","BTC-EUR","EURUSD=X"])(await yNews(s)).slice(0,2).forEach(n=>add(n,s));
   for(const s of watch.filter(isUS)){try{(await fh(`company-news?symbol=${s}&from=${von}&to=${bis}`)).slice(0,2).forEach(n=>add(n,s))}catch(e){}}
   try{(await fh("news?category=general")).slice(0,8).forEach(n=>add(n))}catch(e){}
   if(B.earn.date!==z.date){try{const r=await fh(`calendar/earnings?from=${z.date}&to=${addDays(z.date,14)}`);B.earn={date:z.date,list:(r.earningsCalendar||[]).filter(e=>watch.includes(e.symbol))}}catch(e){}}
@@ -276,10 +277,15 @@ async function vorlage(slot){delete B.err.alphavantage;const z=zeit(),prev=KI,d=
     news:slot==="morgen"?F("Liste der 4–8 wichtigsten Meldungen aus _rohnews im Format {id,imp(1-3),kind:[Text,\"down\"|\"up\"|\"warn\"|\"\"],cat,t,sum(1 Satz),body:[1-3 Absätze],back(\"Rückblick: …\" oder \"Wirkt jetzt: …\" oder \"Wirkt bald: …\"),stocks:[Kürzel],u,q}")
       :Object.assign([],prev.news||[]),
     _news_hinweis:slot==="morgen"?undefined:"Behalte die news-Liste. Ergänze nur wirklich neue wichtige Meldungen aus _rohnews im selben Format, höchstens 10 insgesamt (älteste raus).",
-    _rohnews:roh.slice(0,32),
+    _rohnews:roh.slice(0,42),
     telegram:F(slot==="morgen"?"Morgen-Briefing für Telegram, höchstens 8 kurze Zeilen: Lage, wichtigste 2–3 Meldungen, was heute ansteht, auffällige Bewegungen bei den beobachteten Aktien. **fett** erlaubt."
       :slot==="mittag"?"Kurzes Mittags-Update, höchstens 4 Zeilen: nur was sich seit dem Morgen geändert hat."
       :"Abend-Rückblick, höchstens 6 Zeilen: wie lief der Tag, wie die Depot-Aktien, was morgen ansteht."+(sonntag?" Danach 3 Zeilen Wochenfazit.":"")),
+    kurz:slot==="morgen"||!(prev.kurz||[]).length?MARKT.concat(EXTRA.filter(x=>!MARKT.some(m=>m[0]===x)).map(x=>[x,catOf(x).n||x,"etf"])).filter(([x])=>!stocks.some(st=>st.s===x)&&B.hist&&B.hist[x]).map(([x,n,k])=>{const h=B.hist[x],an=analyse({s:x,h:"lang",closes:h.c});
+      return {s:x,n,_fakten:an?{art:k.split(":")[0],gruppe:k.includes(":")?k.split(":")[1]:"",waehrung:curOf(x),trend:an.dir,vierWochen:+an.ch20.toFixed(1),dreiMonate:+an.ch3m.toFixed(1),schwankung:+an.vol.toFixed(0),heute:+moveOf(x).toFixed(2)}:{},
+        text:F("2 kurze Sätze: aktuelle Lage und worauf es ankommt (bei Indizes/VIX/Wechselkurs: was die Bewegung bedeutet). Sachlich, keine Kaufempfehlung"),
+        h:F('"kurz", "lang", "spekulativ" oder "nicht kaufbar"'),warn:F("Zahl 0–3 wie bei stocks"),quellen:F("Liste {t,u} genutzter Meldungen aus _rohnews oder leere Liste")}})
+      :(prev.kurz||[]),
     model:prev.model||{trendDamping:.5,bandFactor:1,newsWeight:1},updates:(prev.updates||[]).filter(u=>!u.example).slice(-10),catalog:prev.catalog||[],
     _lernen:sonntag?Object.assign({},lern,{aktuelleParameter:params(),aufgabe:"Wenn die Trefferquote deutlich (mehr als 10 Punkte) vom Soll abweicht und mindestens 20 Prognosen ausgewertet sind: füge in updates EINEN Vorschlag hinzu {id:\"u-DATUM\",date,title,what,why,how,change:{bandFactor oder trendDamping oder newsWeight}}. Kleine Schritte (±10 %). Sonst nichts hinzufügen."}):undefined};
   writeJSON(P("data/ki-vorlage.json"),v);changed.add("data/ki-vorlage.json");B.slots[slot]=z.date;log("Vorlage",slot,stocks.length,"Aktien",roh.length,"Meldungen")}

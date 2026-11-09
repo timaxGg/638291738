@@ -349,6 +349,11 @@ Test-Einträge zählen nicht mit. Alles sind Faustregeln, keine Anlageberatung.
 - Jede Seite zeigt oben auf einen Blick: **Risiko** (niedrig, mittel, hoch), **Anlagedauer** (kurzfristig, langfristig, spekulativ oder nicht kaufbar), **Trend** und **Frühwarnung**. Im Depot steht das auch bei jeder Position, dazu das Gesamtrisiko deines Depots.
 - Bei Indizes, Angst-Barometer, Gold- und Ölpreis sowie Euro/Dollar erklärt **„Was steckt drin?“** den Wert, zeigt große enthaltene Firmen und **womit du investieren kannst** (z. B. DAX → iShares Core DAX ETF). Beim VIX gibt es stattdessen Stoßdämpfer für unruhige Zeiten.
 
+## Einschätzungen und Quellen
+- **Alle Werte** bekommen eine KI-Einschätzung: Aktien aus Depot und Beobachtung ausführlich (Begründung, Pro/Contra, Anlagedauer, Warnstufe), alle Marktwerte, Alternativen und ETFs kurz (2 Sätze, Anlagedauer, Warnstufe).
+- Jede Seite hat unten den Bereich **Quellen**: die Meldungen, auf die sich die KI stützt (antippbar), und die Kursdaten-Quelle. Die KI nutzt dabei nur diese Meldungen und die Kursdaten, nichts Ausgedachtes.
+- Aktualisiert wird morgens um 7 Uhr (alles) und mittags um 12:40 Uhr (Änderungen).
+
 ## Hilfe bei Problemen
 
 **A. Der Ordner `.github` fehlt bei GitHub.**
