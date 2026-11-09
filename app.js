@@ -550,7 +550,7 @@ function settingsHTML(sec){const s=S.settings;const seg=(k,opts)=>`<div class="s
  <h3>Sicherung</h3><p class="note" style="margin-top:0">Deine Daten liegen auf diesem Gerät. Mit einer Sicherungsdatei bringst du sie auf ein anderes Gerät.</p>
  <div class="btns"><button class="btn ghost" data-export>Sicherung speichern</button><label class="btn ghost" for="imp-file">Sicherung laden</label><input id="imp-file" type="file" accept=".json,application/json" hidden></div>
  <div id="reset-zone"><button class="x" data-reset>Alle Daten auf diesem Gerät löschen</button></div>
- <p class="note">Ki Aktien Helfer · Version 20 · Keine Anlageberatung.</p></div>`}
+ <p class="note">Ki Aktien Helfer · Version 21 · Keine Anlageberatung.</p></div>`}
 function cartHTML(){const now=Date.now(),l=S.kh.list.slice().sort((a,b)=>a.due-b.due),h=(S.kh.hist||[]).slice().reverse();
  return `<div class="grab"></div><div class="in"><div style="display:flex;justify-content:space-between;align-items:center"><h1 style="margin:0">Warenkorb</h1><button class="icon-btn" data-close aria-label="Schließen"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
  <p class="note" style="margin-top:4px">Dinge in Bedenkzeit aus der Kaufhilfe. ${S.kh.saved?`Bisher nicht ausgegeben: <b class="up">${fmt(S.kh.saved,0)} €</b>`:""}</p>
@@ -596,6 +596,12 @@ function applyLook(){const r=document.documentElement,s=S.settings;r.style.setPr
 
 /* ---------- Navigation ---------- */
 const TABS=["start","news","markt","aktien","depot","finanzen"];let route="start",hist=[];
+// Links aus dem Telegram-Bot: #aktie-SYM, #news-ID, #update-ID, #depot, #finanzen-modell, #kaufhilfe, #warenkorb …
+function oeffneLink(h,start){let r=null;try{h=decodeURIComponent(h)}catch(e){}
+ if(/^(aktie|news|update)-/.test(h)){r=h.startsWith("aktie-")?"aktie-"+enc(h.slice(6)):h}else if(TABS.includes(h))r=h;
+ else if(/^finanzen-(uebersicht|modell|tipps|kaufhilfe|import)$/.test(h)){finSub=h.slice(9);r="finanzen"}else if(h==="kaufhilfe"){finSub="kaufhilfe";r="finanzen"}
+ else if(h==="warenkorb"){r=route;if(start){route="finanzen";finSub="kaufhilfe";render()}openCart();return}
+ if(!r){if(start)render();return}if(start){route=r;render()}else go(r)}
 function go(r,push=true){if(push&&r!==route)hist.push(route);route=r;try{if(location.hash.slice(1)!==r)history.replaceState(null,"","#"+r)}catch(e){}render();scrollTo({top:0})}
 function render(soft){const v=$("#view"),detail=/^(aktie|news|update)-/.test(route),y=scrollY;
  v.className="";if(!soft){void v.offsetWidth;v.className=detail?"detail":""}
@@ -684,6 +690,7 @@ setInterval(status,30000);
 
 /* ---------- Start ---------- */
 (async()=>{applyLook();await loadKI();await syncPull();A=analyzeAll();
- const h0=location.hash.slice(1);if(h0&&(TABS.includes(h0)||/^(aktie|news|update)-/.test(h0)))route=h0;render();
+ oeffneLink(location.hash.slice(1),true);
+ addEventListener("hashchange",()=>{const k=location.hash.slice(1);if(k&&k!==route)oeffneLink(k)});
  if(!PREVIEW&&"serviceWorker" in navigator){try{navigator.serviceWorker.register("sw.js")}catch(e){}}
  if(Date.now()-S.lastLive>6e4)refreshLive();startTimer()})();
