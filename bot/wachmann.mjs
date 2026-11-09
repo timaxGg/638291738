@@ -72,13 +72,15 @@ async function send(text,o={}){if(!CHAT)return;if(!o.direkt&&!o.dringend&&leise(
 async function warteschlange(){if(!B.queue.length||leise())return;const q=B.queue.splice(0,15);await send(`🔔 <b>Während der Ruhezeit:</b>\n\n${q.join("\n\n———\n\n")}`,{direkt:true})}
 
 /* ---------- Prognose (gleiches Modell wie die App) ---------- */
-function params(){const p=Object.assign({trendDamping:.5,bandFactor:1,newsWeight:1},KI.model||{});(KI.updates||[]).forEach(u=>{if((U.updates||{})[u.id]==="ok")Object.assign(p,u.change||{})});return p}
+// Langfrist-Durchschnitt pro Jahr (in %), grob nach Anlageart. Aktien/Aktien-ETFs ca. 7 %, Anleihen/Geldmarkt 2–2,5 %, Rohstoffe/Krypto/Wechselkurse/VIX 0 (kein verlässlicher Langfrist-Zuwachs)
+const basisJahr=s=>/-EUR$|-USD$|=X$|=F$|^\^VIX$|^(4GLD\.DE|EWG2\.DE|BRNT\.L)$/.test(s)?0:/^(XEON|XGLE)\.DE$/.test(s)?2:/^(EUNH|IBCI|EUNA)\.DE$/.test(s)?2.5:7;
+function params(){const p=Object.assign({trendDamping:.5,bandFactor:1,newsWeight:1,baseWeight:1},KI.model||{});(KI.updates||[]).forEach(u=>{if((U.updates||{})[u.id]==="ok")Object.assign(p,u.change||{})});return p}
 function analyse(st){if(!st||!st.closes||st.closes.length<25)return null;const Pm=params(),old=st.closes.slice().reverse(),live=priceOf(st.s);if(live)old.push(live);
   const r=[];for(let i=1;i<old.length;i++)r.push(Math.log(old[i]/old[i-1]));const mean=a=>a.reduce((x,y)=>x+y,0)/a.length;
   const mu=mean(r),sd=Math.sqrt(mean(r.map(x=>(x-mu)**2))),last=old[old.length-1],sma=n=>mean(old.slice(-n));
   const ch20=(last/old[Math.max(0,old.length-21)]-1)*100,ch3m=(last/old[0]-1)*100,score=(sma(10)/sma(30)-1)*100+ch20/4,dir=score>1?"up":score<-1?"down":"flat";
-  const H=st.h==="kurz"?20:63,drift=Pm.trendDamping*mu*H+(+st.bias||0)*Pm.newsWeight/100,band=sd*Math.sqrt(H)*Pm.bandFactor;
-  return {last,dir,ch20,ch3m,H,vol:sd*Math.sqrt(252)*100,mid:last*Math.exp(drift),lo:last*Math.exp(drift-band),hi:last*Math.exp(drift+band)}}
+  const H=st.h==="kurz"?20:63,dT=Pm.trendDamping*mu*H,dB=(Pm.baseWeight??1)*Math.log(1+basisJahr(st.s)/100)*H/252,drift=dT+dB+(+st.bias||0)*Pm.newsWeight/100,band=sd*Math.sqrt(H)*Pm.bandFactor;
+  return {last,dir,ch20,ch3m,H,trendAnteil:(Math.exp(dT)-1)*100,basisAnteil:(Math.exp(dB)-1)*100,vol:sd*Math.sqrt(252)*100,mid:last*Math.exp(drift),lo:last*Math.exp(drift-band),hi:last*Math.exp(drift+band)}}
 const PFEIL={up:"↗ aufwärts",down:"↘ abwärts",flat:"→ seitwärts"};
 
 /* ---------- Befehle ---------- */
@@ -204,7 +206,7 @@ async function euKurse(zwang){const z=zeit(),heute=z.date;B.hist=B.hist||{};
   const pick=l=>l.filter(([s])=>B.q[s]).map(([s,n])=>({s,n,c:B.q[s].c,dp:+(+B.q[s].dp).toFixed(2)}));
   const mit=alle.filter(s=>B.q[s]);
   writeJSON(P(".state/kurse.json"),{t:Date.now(),fx:{EURUSD:fx()},idx:pick(EU_INDEX),sec:pick(EU_SECTOR),
-    markt:MARKT.filter(([s])=>B.q[s]).map(([s,n,k])=>({s,n,k})),ki:B.kiExtra||{},kiApi:!!API||!!(RURL&&RTOK),kiWeg:API?"api":RURL&&RTOK?"abo":"",
+    markt:MARKT.filter(([s])=>B.q[s]).map(([s,n,k])=>({s,n,k})),ki:B.kiExtra||{},fa:B.kiFragen||{},kiApi:!!API||!!(RURL&&RTOK),kiWeg:API?"api":RURL&&RTOK?"abo":"",
     q:Object.fromEntries(mit.map(s=>[s,{c:B.q[s].c,dp:+(+B.q[s].dp).toFixed(2),cur:curOf(s),t:B.q[s].mt||B.q[s].t}])),
     h:Object.fromEntries(Object.entries(B.hist).map(([s,v])=>[s,v.c.map(x=>+(+x).toFixed(4))])),w:Object.fromEntries(meine.map(s=>[s,fruehwarnung(s)]).filter(([,w])=>w))});B.kursePush=true;if(neu.length)log("Neue Verläufe:",neu.join(","))}
 function kurseHochladen(){if(!B.kursePush||DRY)return;B.kursePush=false;try{const o={cwd:ROOT};const blob=execSync("git hash-object -w .state/kurse.json",o).toString().trim();
@@ -251,27 +253,39 @@ async function antwortHolen(){if(!B.anfrage)return false;let a=null;
   for(const r of refs){try{const o=JSON.parse(sh(`show ${r}:data/ki-antwort.json`));if(o&&o.id===B.anfrage.id){a=o;if(r!=="origin/main")zweig=r.replace("origin/","");break}}catch(e){}}
   if(!a)return false;
   if(zweig&&!DRY)try{sh(`push -q origin --delete ${zweig}`)}catch(e){log("Zweig",e.message)}B.kiExtra=B.kiExtra||{};const neu=[];
-  for(const x of (a.items||[]))if(x&&x.s&&x.text){B.kiExtra[x.s]=Object.assign(zukunftAus(x),{text:String(x.text),h:x.h||"lang",warn:+x.warn||0,quellen:Array.isArray(x.quellen)?x.quellen.filter(q=>q&&q.u).slice(0,6):[],t:Date.now()});neu.push(x.s)}
+  B.kiFragen=B.kiFragen||{};const fr=[];
+  for(const x of (a.items||[]))if(x&&x.qid&&x.antwort){const f=B.anfrage.fragen&&B.anfrage.fragen[x.qid]||{};B.kiFragen[x.qid]={s:x.s||f.s,q:f.q||x.frage||"",art:f.art||"",antwort:String(x.antwort),
+    tendenz:["eher halten","eher nicht halten","unentschieden"].includes(x.tendenz)?x.tendenz:undefined,zuversicht:typeof x.zuversicht==="string"?x.zuversicht:undefined,gruende:Array.isArray(x.gruende)?x.gruende.map(String).slice(0,5):undefined,t:Date.now()};fr.push(x.qid)}
+  for(const x of (a.items||[]))if(x&&x.s&&x.text&&!x.qid){B.kiExtra[x.s]=Object.assign(zukunftAus(x),{text:String(x.text),h:x.h||"lang",warn:+x.warn||0,quellen:Array.isArray(x.quellen)?x.quellen.filter(q=>q&&q.u).slice(0,6):[],t:Date.now()});neu.push(x.s)}
   B.anfrage=null;B.kursePush=true;delete B.err.ki;log("KI-Anfrage beantwortet",neu.join(","));
+  for(const id of fr){const f=B.kiFragen[id],name=(MARKT.find(m=>m[0]===f.s)||[])[1]||catOf(f.s).n||f.s;await send(`💬 <b>${esc(name)}: ${esc(f.q)}</b>${f.tendenz?`\nTendenz: <b>${esc(f.tendenz)}</b>`:""}\n${esc(f.antwort)}\n\nIn der App mit Begründung.`,{direkt:true})}
   for(const s of neu){const name=(MARKT.find(m=>m[0]===s)||[])[1]||catOf(s).n||s;await send(`🧠 <b>Einschätzung da: ${esc(name)}</b>\n${esc(B.kiExtra[s].text)}\n\nIn der App mit Quellen.`,{direkt:true})}
   return true}
 async function anfrageRoutine(){B.kiExtra=B.kiExtra||{};B.wunschDone=B.wunschDone||{};
   for(const s of Object.keys(B.kiExtra))if(Date.now()-B.kiExtra[s].t>3*864e5)delete B.kiExtra[s];
-  if(B.anfrage&&Date.now()-B.anfrage.t>25*6e4){(B.anfrage.syms||[]).forEach(s=>delete B.wunschDone[s]);B.err.ki="Claude-Aufgabe hat nicht geantwortet, neuer Versuch";B.anfrage=null}
+  B.fragenDone=B.fragenDone||{};B.kiFragen=B.kiFragen||{};for(const id of Object.keys(B.kiFragen))if(Date.now()-B.kiFragen[id].t>14*864e5)delete B.kiFragen[id];
+  if(B.anfrage&&Date.now()-B.anfrage.t>25*6e4){(B.anfrage.syms||[]).forEach(s=>delete B.wunschDone[s]);Object.keys(B.anfrage.fragen||{}).forEach(id=>delete B.fragenDone[id]);B.err.ki="Claude-Aufgabe hat nicht geantwortet, neuer Versuch";B.anfrage=null}
   if(await antwortHolen())await euKurse(true);if(B.anfrage)return;
   const neuAngefragt=s=>((U.wunschT||{})[s]||0)>(B.wunschDone[s]||0);
-  const offen=kiWahl().wunsch.filter(s=>!B.wunschDone[s]||neuAngefragt(s)||Date.now()-B.wunschDone[s]>864e5).slice(0,5);if(!offen.length)return;
+  const offen=kiWahl().wunsch.filter(s=>!B.wunschDone[s]||neuAngefragt(s)||Date.now()-B.wunschDone[s]>864e5).slice(0,5);
+  const fragen=Object.entries(U.fragen||{}).filter(([q,f])=>f&&f.s&&f.q&&!B.fragenDone[q]&&!B.kiFragen[q]&&Date.now()-f.t<2*864e5).slice(0,5);
+  if(!offen.length&&!fragen.length)return;
   const id="a"+Date.now().toString(36),items=[];
   for(const s of offen){const d=await anfrageDaten(s);items.push({s,n:d.name,_fakten:d.fakten,_meldungen:d.news,
     text:F("2 kurze Sätze zur aktuellen Lage (bei Indizes/VIX/Wechselkurs: was die Bewegung bedeutet). Sachlich"),
     h:F('"kurz", "lang", "spekulativ" oder "nicht kaufbar"'),warn:F("Zahl 0–3: 0 ruhig, 3 deutliche Warnzeichen"),...ZUKUNFT(),quellen:F("Liste {t,u} der genutzten Meldungen aus _meldungen oder leere Liste")})}
+  for(const [qid,f] of fragen){const d=await anfrageDaten(f.s),st=(KI.stocks||[]).find(x=>x.s===f.s),ex=B.kiExtra[f.s]||(KI.kurz||[]).find(x=>x.s===f.s)||{};
+    const it={qid,s:f.s,n:d.name,frage:f.q,_fakten:d.fakten,_meldungen:d.news,_bisherigeEinschaetzung:st?{why:st.why,ausblick:st.ausblick,richtung:st.richtung,halten:st.halten,pro:st.pro,con:st.con}:{text:ex.text,ausblick:ex.ausblick,richtung:ex.richtung,halten:ex.halten},
+      antwort:F(f.art==="halten"?"3–5 Sätze: Begründung der Tendenz. Bezieht Ausblick, Risiko (Schwankung), Prognose-Korridor, Meldungen und, falls vorhanden, _fakten.depot (Kaufkurs, Gewinn/Verlust) und _fakten.anlegerTyp ein. Ehrlich mit Unsicherheit; sag, für welchen Zeitraum die Tendenz gilt":"3–5 Sätze: direkte, verständliche Antwort auf frage, nur aus _fakten, _meldungen und _bisherigeEinschaetzung. Wenn die Daten es nicht hergeben, das offen sagen")};
+    if(f.art==="halten")Object.assign(it,{tendenz:F('"eher halten", "eher nicht halten" oder "unentschieden": deine begründete Tendenz, ob es sich lohnt, investiert zu bleiben (bzw. bei nicht gehaltenen Werten: ob ein Einstieg zum Zeitraum passt)'),zuversicht:F('"niedrig", "mittel" oder "hoch"'),gruende:F("Liste mit 2–4 kurzen Gründen, gern dafür und dagegen")});
+    items.push(it)}
   writeJSON(P("data/ki-anfrage.json"),{id,erstellt:new Date().toISOString(),_anleitung:"Nur die §FILL…§-Platzhalter in items ersetzen, Quellen sind nur _fakten und _meldungen. Danach Felder mit _ löschen und alle übrigen Felder als data/ki-antwort.json speichern.",items});
   if(DRY){log("DRY KI-Anfrage",offen.join(","));return}
   try{execSync(`git -C ${ROOT} add data/ki-anfrage.json && git -C ${ROOT} -c user.name="Wachmann" -c user.email="wachmann@users.noreply.github.com" commit -q -m "KI-Anfrage ${id}" -- data/ki-anfrage.json && git -C ${ROOT} pull -q --rebase -X theirs --autostash && git -C ${ROOT} push -q`,{stdio:"inherit"})}
   catch(e){B.err.ki="KI-Anfrage nicht hochgeladen: "+e.message.slice(0,80);return}
-  try{const r=await fetch(RURL,{method:"POST",headers:{Authorization:`Bearer ${RTOK}`,"anthropic-version":"2023-06-01","content-type":"application/json"},body:JSON.stringify({text:`KI-Anfrage ${id}: ${offen.join(", ")}\n\nWichtig, ergänzt zur Anleitung: In data/ki-antwort.json pro Eintrag ALLE ausgefüllten Felder übernehmen (s, text, ausblick, richtung, zuversicht, horizont, halten, signale, h, warn, quellen), nicht nur s, text, h, warn, quellen. Der Blick nach vorn ist der wichtigste Teil: ehrlich mit Unsicherheit, als Abwägung, keine Anweisung zum Kaufen oder Verkaufen.`})});
+  try{const r=await fetch(RURL,{method:"POST",headers:{Authorization:`Bearer ${RTOK}`,"anthropic-version":"2023-06-01","content-type":"application/json"},body:JSON.stringify({text:`KI-Anfrage ${id}: ${[...offen,...fragen.map(([,f])=>f.s+" (Frage)")].join(", ")}\n\nWichtig, ergänzt zur Anleitung: In data/ki-antwort.json pro Eintrag ALLE ausgefüllten Felder übernehmen (z. B. qid, s, text, antwort, tendenz, gruende, ausblick, richtung, zuversicht, horizont, halten, signale, h, warn, quellen), nicht nur s, text, h, warn, quellen. Einträge mit qid sind Rückfragen des Nutzers: frage direkt beantworten; bei tendenz ist eine begründete Tendenz ausdrücklich gewünscht. Der Blick nach vorn ist der wichtigste Teil: ehrlich mit Unsicherheit, als Abwägung, keine Anweisung zum Kaufen oder Verkaufen.`})});
     if(!r.ok)throw new Error("Claude-Aufgabe "+r.status+" "+(await r.text()).slice(0,80));
-    B.anfrage={id,t:Date.now(),syms:offen};offen.forEach(s=>B.wunschDone[s]=Date.now());delete B.err.ki;log("KI-Anfrage gestartet",id,offen.join(","))}
+    B.anfrage={id,t:Date.now(),syms:offen,fragen:Object.fromEntries(fragen.map(([q,f])=>[q,{s:f.s,q:f.q,art:f.art}]))};offen.forEach(s=>B.wunschDone[s]=Date.now());fragen.forEach(([q])=>B.fragenDone[q]=Date.now());delete B.err.ki;log("KI-Anfrage gestartet",id,offen.join(","))}
   catch(e){B.err.ki=e.message.slice(0,120);log("KI-Anfrage",e.message)}}
 async function aufAnfrage(){if(!API){if(RURL&&RTOK)await anfrageRoutine();return}B.kiExtra=B.kiExtra||{};B.wunschDone=B.wunschDone||{};
   for(const s of Object.keys(B.kiExtra))if(Date.now()-B.kiExtra[s].t>3*864e5)delete B.kiExtra[s];
@@ -308,7 +322,7 @@ const ZUKUNFT=()=>({ausblick:F("2–3 Sätze: wie es in den nächsten Wochen bis
   horizont:F('Zeitraum, für den der Ausblick gilt, z. B. "4–8 Wochen" oder "6–12 Monate"'),
   halten:F("1–2 Sätze Abwägung: Was spricht dafür, investiert zu bleiben, und für welchen Zeitraum passt dieser Wert eher (kurz, mittel, lang), was dagegen. Wenn _fakten.depot vorhanden ist, darauf eingehen. Keine Anweisung zum Kaufen oder Verkaufen, sondern Gründe zum Abwägen"),
   signale:F("Liste mit 2–3 kurzen Punkten: woran man merkt, dass sich das Bild ändert (z. B. Kurs unter einer Marke aus _fakten.prognose, ein Termin, eine Meldungslage)")});
-const prognoseFakten=(s,an)=>{if(!an)return {};const d=depot().find(x=>x.s===s),o={prognose:{tage:an.H,von:+an.lo.toFixed(2),mitte:+an.mid.toFixed(2),bis:+an.hi.toFixed(2)},anlegerTyp:U.investor||""};
+const prognoseFakten=(s,an)=>{if(!an)return {};const d=depot().find(x=>x.s===s),o={prognose:{tage:an.H,von:+an.lo.toFixed(2),mitte:+an.mid.toFixed(2),bis:+an.hi.toFixed(2),davonTrendProzent:+an.trendAnteil.toFixed(1),davonLangfristSchnittProzent:+an.basisAnteil.toFixed(1),hinweis:"mitte = abgeschwächter 3-Monats-Trend + Langfrist-Durchschnitt der Anlageart; rein rechnerisch"},anlegerTyp:U.investor||""};
   if(d&&priceOf(s))o.depot={kaufkurs:d.k,seitKaufProzent:+((priceOf(s)/d.k-1)*100).toFixed(1),seit:d.d?new Date(d.d).toISOString().slice(0,10):""};return o};
 function prognoseCheck(){const pf=P("data/prognosen.json"),log0=readJSON(pf,[]),heute=zeit().date;
   for(const e of log0)if(!e.ok&&e.bis<=heute){const p=priceOf(e.s)||((KI.stocks||[]).find(x=>x.s===e.s)||{closes:[]}).closes[0];if(p){e.ist=p;e.ok=p>=e.lo&&p<=e.hi?1:-1}}
@@ -356,7 +370,7 @@ async function vorlage(slot){delete B.err.alphavantage;const z=zeit(),prev=KI,d=
           text:F("2 kurze Sätze zur aktuellen Lage (bei Indizes/VIX/Wechselkurs: was die Bewegung bedeutet). Sachlich"),
           h:F('"kurz", "lang", "spekulativ" oder "nicht kaufbar"'),warn:F("Zahl 0–3 wie bei stocks"),...ZUKUNFT(),quellen:F("Liste {t,u} genutzter Meldungen aus _rohnews oder leere Liste")}})]})(),
     model:prev.model||{trendDamping:.5,bandFactor:1,newsWeight:1},updates:(prev.updates||[]).filter(u=>!u.example).slice(-10),catalog:prev.catalog||[],
-    _lernen:sonntag?Object.assign({},lern,{aktuelleParameter:params(),aufgabe:"Wenn die Trefferquote deutlich (mehr als 10 Punkte) vom Soll abweicht und mindestens 20 Prognosen ausgewertet sind: füge in updates EINEN Vorschlag hinzu {id:\"u-DATUM\",date,title,what,why,how,change:{bandFactor oder trendDamping oder newsWeight}}. Kleine Schritte (±10 %). Sonst nichts hinzufügen."}):undefined};
+    _lernen:sonntag?Object.assign({},lern,{aktuelleParameter:params(),aufgabe:"Wenn die Trefferquote deutlich (mehr als 10 Punkte) vom Soll abweicht und mindestens 20 Prognosen ausgewertet sind: füge in updates EINEN Vorschlag hinzu {id:\"u-DATUM\",date,title,what,why,how,change:{bandFactor oder trendDamping oder newsWeight oder baseWeight (Gewicht des Langfrist-Durchschnitts)}}. Kleine Schritte (±10 %). Sonst nichts hinzufügen."}):undefined};
   writeJSON(P("data/ki-vorlage.json"),v);changed.add("data/ki-vorlage.json");B.slots[slot]=z.date;log("Vorlage",slot,stocks.length,"Aktien",roh.length,"Meldungen")}
 function slotJetzt(){const z=zeit();for(const [s,h] of [["morgen",6],["mittag",12]])if(z.h===h&&z.m<35&&B.slots[s]!==z.date)return s;return null}
 

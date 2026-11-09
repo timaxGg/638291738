@@ -61,7 +61,7 @@ async function fh(path){const r=await fetch(`https://finnhub.io/api/v1/${path}&t
 function kurseUrl(){let r=S.settings.ghRepo;if(!r&&/github\.io$/.test(location.hostname))r=location.hostname.split(".")[0]+"/"+location.pathname.split("/")[1];return r?`https://raw.githubusercontent.com/${r}/kurse/kurse.json?t=${Math.floor(Date.now()/12e4)}`:null}
 async function euLaden(){const u=kurseUrl();if(!u)return;try{const r=await fetch(u,{cache:"no-store"});if(!r.ok)return;const k=await r.json();
  Object.entries(k.q||{}).forEach(([s,q])=>{const old=S.quotes[s];if(!old||isEU(s)||!S.settings.fhKey||(q.t||0)>(old.t||0))S.quotes[s]={c:q.c,dp:q.dp,t:q.t||k.t,cur:q.cur}});
- S.euIdx=k.idx||[];S.euSec=k.sec||[];if(k.h)S.hist=k.h;if(k.markt)S.markt=k.markt;S.kiExtra=k.ki||{};S.kiApi=!!k.kiApi;S.kiWeg=k.kiWeg||(k.kiApi?"api":"");S.warn=k.w||{};if(k.fx&&k.fx.EURUSD)S.fx=k.fx.EURUSD;S.euT=k.t;delete S.euErr;A=analyzeAll()}catch(e){S.euErr="EU-Kurse nicht erreichbar"}}
+ S.euIdx=k.idx||[];S.euSec=k.sec||[];if(k.h)S.hist=k.h;if(k.markt)S.markt=k.markt;S.kiExtra=k.ki||{};S.fa=k.fa||{};S.kiApi=!!k.kiApi;S.kiWeg=k.kiWeg||(k.kiApi?"api":"");S.warn=k.w||{};if(k.fx&&k.fx.EURUSD)S.fx=k.fx.EURUSD;S.euT=k.t;delete S.euErr;A=analyzeAll()}catch(e){S.euErr="EU-Kurse nicht erreichbar"}}
 async function refreshLive(manual){
  if(PREVIEW){if(manual)toast("In der Vorschau gibt es keine Live-Kurse. In der installierten App schon.");return}
  if(busy)return;busy=true;spin(true);liveErr="";
@@ -98,7 +98,7 @@ function auswahl(){const depot=[...new Set(S.depot.filter(d=>!d.demo).map(d=>d.s
  const kurz=[...new Set([...ranked,...STANDARD.filter(s=>!voll.includes(s))])].slice(0,Math.max(0,20-voll.length));
  const wunsch=Object.entries(S.wunsch||{}).filter(([,t])=>Date.now()-t<2*TAG).map(([s])=>s);return {voll,kurz,wunsch}}
 function payload(){const [rec]=recommend();return {depot:S.depot.filter(d=>!d.demo),trades:S.trades||[],fin:S.fin,kh:S.kh,updates:S.updates,watch:S.watch,notify:S.settings.notify,investor:S.settings.investor,
- model:S.fin.model||"",modelName:S.fin.model?MODELS[S.fin.model].n:"",rec,recName:MODELS[rec].n,inboxDone:S.inboxDone.slice(-200),ki:auswahl(),wunschT:S.wunsch||{}}}
+ model:S.fin.model||"",modelName:S.fin.model?MODELS[S.fin.model].n:"",rec,recName:MODELS[rec].n,inboxDone:S.inboxDone.slice(-200),ki:auswahl(),wunschT:S.wunsch||{},fragen:Object.fromEntries(Object.entries(S.fragen||{}).filter(([id,f])=>Date.now()-f.t<2*TAG&&!(S.fa||{})[id]))}}
 let syncT=null,syncBusy=false;
 let wecken=false;
 function syncPlan(schnell){if(!syncOn()||!KI)return;if(schnell)wecken=true;const h=JSON.stringify(payload());if(h===S.syncHash&&!schnell)return;clearTimeout(syncT);syncT=setTimeout(syncPush,schnell?1500:20000)}
@@ -118,7 +118,9 @@ async function syncPull(){if(!syncOn())return;try{const r=await gh("data/state.e
  S.syncInfo="";save()}catch(e){S.syncInfo=e.message.includes("decrypt")||e.name==="OperationError"?"Sync-Passwort passt nicht zu den Daten auf GitHub.":e.message}}
 
 /* ---------- Rechenmodell (mit freigegebenen Lern-Updates) ---------- */
-function params(){const p=Object.assign({trendDamping:.5,bandFactor:1,newsWeight:1},KI.model||{});(KI.updates||[]).forEach(u=>{if(S.updates[u.id]==="ok")Object.assign(p,u.change||{})});return p}
+// Langfrist-Durchschnitt pro Jahr (in %), grob nach Anlageart. Aktien/Aktien-ETFs ca. 7 %, Anleihen/Geldmarkt 2–2,5 %, Rohstoffe/Krypto/Wechselkurse/VIX 0 (kein verlässlicher Langfrist-Zuwachs)
+const basisJahr=s=>/-EUR$|-USD$|=X$|=F$|^\^VIX$|^(4GLD\.DE|EWG2\.DE|BRNT\.L)$/.test(s)?0:/^(XEON|XGLE)\.DE$/.test(s)?2:/^(EUNH|IBCI|EUNA)\.DE$/.test(s)?2.5:7;
+function params(){const p=Object.assign({trendDamping:.5,bandFactor:1,newsWeight:1,baseWeight:1},KI.model||{});(KI.updates||[]).forEach(u=>{if(S.updates[u.id]==="ok")Object.assign(p,u.change||{})});return p}
 function analyze(st){
  const P=params();const old=st.closes.slice().reverse();const q=S.quotes[st.s];
  let last=old[old.length-1],chg=(last/old[old.length-2]-1)*100,live=false;
@@ -129,9 +131,10 @@ function analyze(st){
  const ch20=(last/old[Math.max(0,old.length-21)]-1)*100,ch3m=(last/old[0]-1)*100;
  let peak=old[0],dd=0;old.forEach(v=>{peak=Math.max(peak,v);dd=Math.min(dd,(v/peak-1)*100)});
  const score=(s10/s30-1)*100+ch20/4,dir=score>1?"up":score<-1?"down":"flat";
- const H=st.h==="kurz"?20:63,drift=P.trendDamping*mu*H+(st.bias||0)*P.newsWeight/100,band=sd*Math.sqrt(H)*P.bandFactor;
+ const H=st.h==="kurz"?20:63,dT=P.trendDamping*mu*H,dB=(P.baseWeight??1)*Math.log(1+basisJahr(st.s)/100)*H/252,dN=(st.bias||0)*P.newsWeight/100,drift=dT+dB+dN,band=sd*Math.sqrt(H)*P.bandFactor;
+ const teile={trend:(Math.exp(dT)-1)*100,basis:(Math.exp(dB)-1)*100,news:(Math.exp(dN)-1)*100,basisJahr:basisJahr(st.s)};
  const mid=last*Math.exp(drift),lo=last*Math.exp(drift-band),hi=last*Math.exp(drift+band),vol=sd*Math.sqrt(252)*100;
- return {st,old,last,chg,live,dir,ch20,ch3m,dd,H,mid,lo,hi,vol,band,drift,min:Math.min(...old),max:Math.max(...old),
+ return {st,old,last,chg,live,dir,ch20,ch3m,dd,H,mid,lo,hi,vol,band,drift,teile,min:Math.min(...old),max:Math.max(...old),
   pm:(mid/last-1)*100,pl:(lo/last-1)*100,ph:(hi/last-1)*100,risk:vol<20?1:vol<35?2:3}}
 let A={};const analyzeAll=()=>{const o={};(KI.stocks||[]).forEach(s=>{try{o[s.s]=analyze(s)}catch(e){}});
  Object.entries(S.hist||{}).forEach(([s,c])=>{if(o[s]||!c||c.length<25)return;const k=kindOf(s);try{o[s]=analyze({s,n:nameOf(s),h:"lang",bias:0,closes:c,cat:KIND_TXT[k]||"Ohne KI-Einschätzung",pseudo:true,kind:k,heute:true})}catch(e){}});return o};
@@ -163,7 +166,7 @@ function potMeter(a){const Sx=30,pos=v=>Math.max(0,Math.min(100,50+v/Sx*50)),c=a
  return `<div class="meter"><div class="lab"><b>Möglicher Gewinn/Verlust</b><span>in ${a.H===20?"4 Wochen":"3 Monaten"}</span></div>
  <div class="scale pot"><span class="band" style="left:${pos(a.pl)}%;width:${pos(a.ph)-pos(a.pl)}%;background:var(${a.pm>=0?"--up-soft":"--down-soft"});outline:1px solid var(${c})"></span><span class="zero" style="left:50%"></span><span class="pin" style="left:${pos(a.pm)}%;background:var(${c})"></span></div>
  <div class="ticks"><span>−30 %</span><span>0</span><span>+30 %</span></div>
- <div class="facts" style="margin-top:10px"><div><b>Schlecht</b><span class="num down">${sgn(a.pl)}</span></div><div><b>Gut</b><span class="num up">${sgn(a.ph)}</span></div><div><b>Erwartung</b><span class="num ${a.pm>=0?"up":"down"}">${sgn(a.pm)}</span></div><div><b>Kursziel-Bereich</b><span class="num">${fmt(a.lo,0)}–${fmt(a.hi,0)} ${cs(a.st.s)}</span></div></div></div>`}
+ <div class="facts" style="margin-top:10px"><div><b>Schlecht</b><span class="num down">${sgn(a.pl)}</span></div><div><b>Gut</b><span class="num up">${sgn(a.ph)}</span></div><div><b>Erwartung</b><span class="num ${a.pm>=0?"up":"down"}">${sgn(a.pm)}</span></div><div><b>Kursziel-Bereich</b><span class="num">${fmt(a.lo,0)}–${fmt(a.hi,0)} ${cs(a.st.s)}</span></div></div>${a.teile?`<p class="note" style="margin:8px 0 0"><b>So setzt sich die Erwartung zusammen:</b> Trend der letzten 3 Monate (abgeschwächt) ${sgn(a.teile.trend)} · Langfrist-Durchschnitt ${a.teile.basisJahr?`dieser Anlageart (${fmt(a.teile.basisJahr,1)} % pro Jahr)`:"(bei dieser Anlageart 0, kein verlässlicher Zuwachs)"} ${sgn(a.teile.basis)}${Math.abs(a.teile.news)>=0.05?` · Nachrichten ${sgn(a.teile.news)}`:""}. Berechnet, keine Garantie.</p>`:""}</div>`}
 const fitsInvestor=a=>S.settings.investor==="vorsichtig"?a.risk<=2:S.settings.investor==="mutig"?true:a.risk<=2||a.st.h==="lang";
 function sortedStocks(list){const t=S.settings.investor;return list.slice().sort((x,y)=>{const a=A[x.s],b=A[y.s];return t==="vorsichtig"?a.vol-b.vol:t==="mutig"?b.ph-a.ph:(b.pm-b.vol/20)-(a.pm-a.vol/20)})}
 const newsItem=n=>`<button class="item" data-go="news-${n.id}"><div class="l"><div class="t">${n.t}</div><div class="s">${n.sum}</div><div class="meta">${imp(n.imp)}<span class="tag ${n.kind[1]}">${n.kind[0]}</span><span class="tag" style="background:none;color:var(--muted);padding:0">${n.cat}</span></div></div><span class="go">›</span></button>`;
@@ -295,6 +298,15 @@ function zukunftHTML(o){if(!o||!o.ausblick)return "";const R={steigend:["↗","u
  <h3 style="margin-top:4px">Ausblick</h3><p>${esc(o.ausblick)}</p>${o.halten?`<h3>Drin bleiben?</h3><p>${esc(o.halten)}</p>`:""}
  ${Array.isArray(o.signale)&&o.signale.length?`<h3>Darauf achten</h3><ul style="margin:0 0 10px;padding-left:18px">${o.signale.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`:""}
  <p class="note" style="margin:0 0 10px">Ein Ausblick ist eine Einschätzung mit Unsicherheit, keine Garantie und keine Anlageberatung.</p>`}
+// Nachhaken: Rückfragen zu einer Einschätzung, auf Wunsch mit Tendenz „halten oder nicht“
+const NACH=[["halten","Halten oder nicht?"],["warum","Warum diese Richtung?"],["wende","Was müsste passieren, damit es dreht?"]];
+function nachHTML(s){const fa=Object.entries(S.fa||{}).filter(([,x])=>x.s===s).sort((a,b)=>b[1].t-a[1].t).slice(0,5),offen=Object.entries(S.fragen||{}).filter(([id,f])=>f.s===s&&!(S.fa||{})[id]&&Date.now()-f.t<2*TAG);
+ const T={"eher halten":["up","Tendenz: eher halten"],"eher nicht halten":["down","Tendenz: eher nicht halten"],"unentschieden":["warn","Tendenz: unentschieden"]};
+ return `<h2>Nachhaken</h2>${fa.map(([,x])=>`<div class="panel" style="margin-bottom:10px"><b>${esc(x.q)}</b>${x.tendenz&&T[x.tendenz]?`<div style="margin:8px 0"><span class="tag ${T[x.tendenz][0]}">${T[x.tendenz][1]}</span>${x.zuversicht?` <span class="note">Zuversicht: ${esc(x.zuversicht)}</span>`:""}</div>`:""}<p style="margin:6px 0 0">${esc(x.antwort||"")}</p>${Array.isArray(x.gruende)&&x.gruende.length?`<ul style="margin:6px 0 0;padding-left:18px">${x.gruende.map(g=>`<li>${esc(g)}</li>`).join("")}</ul>`:""}${x.tendenz?`<p class="note" style="margin:6px 0 0">KI-Tendenz mit Begründung, keine Anlageberatung. Entscheiden musst du selbst.</p>`:""}<p class="note" style="margin:4px 0 0">${new Date(x.t).toLocaleString("de-DE",{dateStyle:"short",timeStyle:"short"})}</p></div>`).join("")}
+ ${offen.map(([,f])=>`<div class="panel" style="margin-bottom:10px"><b>${esc(f.q)}</b><p class="note" style="margin:4px 0 0">⏳ Wird beantwortet, meist in 5 bis 10 Minuten. Tippe dann oben auf ↻.</p></div>`).join("")}
+ <div class="filters">${NACH.map(([a,l])=>`<button class="chip" data-nach="${a}" data-ns="${esc(s)}">${l}</button>`).join("")}</div>
+ <form id="nach-f" data-ns="${esc(s)}" style="grid-template-columns:1fr auto;margin-top:6px"><input id="nach-q" maxlength="300" placeholder="Eigene Frage zu diesem Wert"><button class="btn" style="padding:9px 14px">Fragen</button></form>`}
+function frageStellen(s,q,art){S.fragen=S.fragen||{};const id="q"+Date.now().toString(36);S.fragen[id]={s,q,art,t:Date.now()};save();syncPlan(true);toast(S.kiWeg==="abo"||S.kiApi?"Gefragt, Antwort kommt in ca. 5 bis 10 Minuten":"Gefragt, Antwort kommt beim nächsten KI-Update");render(true);if(S.kiApi)[300,420,600,780].forEach(x=>setTimeout(()=>refreshLive(),x*1000))}
 function wunschHTML(s){const w=(S.wunsch||{})[s];if(w&&Date.now()-w<2*TAG)return `<div class="panel" style="margin:12px 0"><b>⏳ Einschätzung angefordert</b><p class="note" style="margin:4px 0 0">${S.kiWeg==="abo"?"Kommt in ca. 5 bis 10 Minuten, dazu eine Telegram-Nachricht. Tippe dann oben auf ↻.":S.kiApi?"Kommt in ca. 2 Minuten. Tippe dann oben auf ↻.":"Kommt beim nächsten KI-Update (7:00 oder 12:40 Uhr)."}</p></div>`;
  return `<div class="btns"><button class="btn" data-wunsch="${esc(s)}">KI-Einschätzung anfordern</button></div><p class="note" style="margin-top:-6px">${S.kiWeg==="abo"?"Dauert ca. 5 bis 10 Minuten.":S.kiApi?"Dauert ca. 2 Minuten.":"Kommt beim nächsten KI-Update (7:00 oder 12:40 Uhr)."} Danach bleibt der Wert dabei, solange du ihn ansiehst.</p>`}
 /* ---------- Risiko und Anlagedauer auf einen Blick ---------- */
@@ -468,6 +480,7 @@ function stockView(s){merke(s);const a=A[s],inDepot=S.depot.some(d=>d.s===s),k=k
  :`<h2>Einschätzung · ${st.h==="lang"?"Langfristig (3 Monate+)":"Kurzfristig (ca. 4 Wochen)"}</h2>${zukunftHTML(st)}${st.ausblick?'<h3>Lage jetzt</h3>':""}<p>${st.why}</p>
  <div class="pc"><div><b class="up">Dafür</b><ul>${st.pro.map(x=>`<li>${x}</li>`).join("")}</ul></div><div><b class="down">Dagegen</b><ul>${st.con.map(x=>`<li>${x}</li>`).join("")}</ul></div></div>`}
  ${st.pseudo&&!kurzOf(s)?wunschHTML(s):""}
+ ${!st.pseudo||kurzOf(s)?nachHTML(s):""}
  ${investHTML(s)}
  <div class="btns">${["idx","fx"].includes(k)?"":`<button class="btn" data-add="${esc(s)}">${inDepot?"Weitere Stücke eintragen":"Ins Depot übernehmen"}</button>`}${inDepot||(S.markt||[]).some(m=>m.s===s)&&!st.pseudo?"":`<button class="btn ghost" data-watch="${esc(s)}">${S.watch.includes(s)?"Nicht mehr beobachten":"Beobachten"}</button>`}</div>
  ${st.news&&st.news.length?`<h2>Nachrichten (KI)</h2><div class="list">${KI.news.filter(n=>st.news.includes(n.id)).map(newsItem).join("")}</div>`:""}
@@ -510,7 +523,7 @@ function settingsHTML(sec){const s=S.settings;const seg=(k,opts)=>`<div class="s
  <h3>Sicherung</h3><p class="note" style="margin-top:0">Deine Daten liegen auf diesem Gerät. Mit einer Sicherungsdatei bringst du sie auf ein anderes Gerät.</p>
  <div class="btns"><button class="btn ghost" data-export>Sicherung speichern</button><label class="btn ghost" for="imp-file">Sicherung laden</label><input id="imp-file" type="file" accept=".json,application/json" hidden></div>
  <div id="reset-zone"><button class="x" data-reset>Alle Daten auf diesem Gerät löschen</button></div>
- <p class="note">Ki Aktien Helfer · Version 17 · Keine Anlageberatung.</p></div>`}
+ <p class="note">Ki Aktien Helfer · Version 18 · Keine Anlageberatung.</p></div>`}
 function cartHTML(){const now=Date.now(),l=S.kh.list.slice().sort((a,b)=>a.due-b.due),h=(S.kh.hist||[]).slice().reverse();
  return `<div class="grab"></div><div class="in"><div style="display:flex;justify-content:space-between;align-items:center"><h1 style="margin:0">Warenkorb</h1><button class="icon-btn" data-close aria-label="Schließen"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
  <p class="note" style="margin-top:4px">Dinge in Bedenkzeit aus der Kaufhilfe. ${S.kh.saved?`Bisher nicht ausgegeben: <b class="up">${fmt(S.kh.saved,0)} €</b>`:""}</p>
@@ -581,6 +594,7 @@ function bindForms(){
   fw.addEventListener("submit",e=>{e.preventDefault();const c=findCat(wi.value)[0],w=c?c.s:wi.value.trim().toUpperCase();if(w&&!S.watch.includes(w)){S.watch.push(w);(S.watchT=S.watchT||{})[w]=Date.now();save();syncPlan(true);toast(`${c?c.n:w} wird beobachtet`)}render(true)})}
  const fg=$("#fg");if(fg)fg.addEventListener("submit",e=>{e.preventDefault();Object.assign(S.fin.goal,{n:$("#g-n").value.trim()||"Sparziel",z:+$("#g-z").value||0,g:+$("#g-g").value||0});save();toast("Sparziel gespeichert");render(true)});
  const ff=$("#ff");if(ff)ff.addEventListener("submit",e=>{e.preventDefault();if(S.fin.demo){S.fin.items=[];delete S.fin.demo}S.fin.items.push({n:$("#fin-n").value.trim(),b:+$("#fin-b").value,t:$("#fin-t").value});save();toast("Hinzugefügt");render(true)});
+ const nf=$("#nach-f");if(nf)nf.addEventListener("submit",e=>{e.preventDefault();const q=$("#nach-q").value.trim();if(q)frageStellen(nf.dataset.ns,q,"frei")});
  const k2=$("#fk2");if(k2)k2.addEventListener("submit",e=>{e.preventDefault();kq={n:$("#k-n").value.trim(),p:+$("#k-p").value,d:$("#k-d").value.trim(),u:$("#k-u").value.trim(),a:[]};render(true)});
  const cv=$("#csv");if(cv)cv.addEventListener("change",()=>{const fl=cv.files[0];if(!fl)return;const rd=new FileReader();rd.onload=()=>{if(/\uFFFD/.test(rd.result)){const r2=new FileReader();r2.onload=()=>{imp0=parseCSV(r2.result);render(true)};r2.readAsText(fl,"ISO-8859-1");return}imp0=parseCSV(rd.result);render(true)};rd.readAsText(fl,"UTF-8")})}
 document.addEventListener("click",e=>{const T=sel=>e.target.closest(sel);let el;
@@ -625,6 +639,7 @@ document.addEventListener("click",e=>{const T=sel=>e.target.closest(sel);let el;
  if(el=T("[data-qa]")){kq.a.push(+el.dataset.qa);render(true);return}
  if(T("[data-qback]")){kq.a.pop();render(true);return}
  if(el=T("[data-kd]")){const v=el.dataset.kd;S.kh.hist=(S.kh.hist||[]).concat([{n:kq.n,p:kq.p,d:kq.d,u:kq.u,r:v==="buy"?"gekauft":v==="skip"?"gelassen":"",t:Date.now()}].filter(h=>h.r)).slice(-30);if(v==="buy"){S.kh.bought+=kq.p;toast("Viel Freude damit")}else if(v==="skip"){S.kh.saved+=kq.p;toast(`${fmt(kq.p,0)} € gespart`)}else{S.kh.list.push({id:Date.now(),n:kq.n,p:kq.p,d:kq.d||"",u:kq.u||"",due:Date.now()+(+v)*864e5});toast("Ich erinnere dich")}kq=null;save();render(true);return}
+ if(el=T("[data-nach]")){const a=el.dataset.nach;frageStellen(el.dataset.ns,NACH.find(x=>x[0]===a)[1],a);return}
  if(el=T("[data-khdel]")){const d=(S.kh.hist||[]).find(x=>String(x.t)===el.dataset.khdel);if(d){if(d.r==="gelassen")S.kh.saved=Math.max(0,S.kh.saved-d.p);else if(d.r==="gekauft")S.kh.bought=Math.max(0,S.kh.bought-d.p)}S.kh.hist=(S.kh.hist||[]).filter(x=>x!==d);save();render(true);openCart();toast("Eintrag gelöscht");return}
  if(T("[data-khdel-all]")){S.kh.hist=[];S.kh.saved=0;S.kh.bought=0;save();render(true);openCart();toast("Liste geleert");return}
  if(el=T("[data-kb]")){const i=S.kh.list.findIndex(x=>x.id==el.dataset.kb);S.kh.hist=(S.kh.hist||[]).concat([Object.assign({},S.kh.list[i],{r:"gekauft",t:Date.now()})]).slice(-30);S.kh.bought+=S.kh.list[i].p;S.kh.list.splice(i,1);save();render(true);if($("#sheet").classList.contains("open")&&$("#sheet").querySelector("[data-kb],.empty"))openCart();return}
