@@ -118,9 +118,9 @@ async function syncPull(){if(!syncOn())return;try{const r=await gh("data/state.e
  S.syncInfo="";save()}catch(e){S.syncInfo=e.message.includes("decrypt")||e.name==="OperationError"?"Sync-Passwort passt nicht zu den Daten auf GitHub.":e.message}}
 
 /* ---------- Rechenmodell (mit freigegebenen Lern-Updates) ---------- */
-// Langfrist-Durchschnitt pro Jahr (in %), grob nach Anlageart. Aktien/Aktien-ETFs ca. 7 %, Anleihen/Geldmarkt 2–2,5 %, Rohstoffe/Krypto/Wechselkurse/VIX 0 (kein verlässlicher Langfrist-Zuwachs)
-const basisJahr=s=>/-EUR$|-USD$|=X$|=F$|^\^VIX$|^(4GLD\.DE|EWG2\.DE|BRNT\.L)$/.test(s)?0:/^(XEON|XGLE)\.DE$/.test(s)?2:/^(EUNH|IBCI|EUNA)\.DE$/.test(s)?2.5:7;
-function params(){const p=Object.assign({trendDamping:.5,bandFactor:1,newsWeight:1,baseWeight:1},KI.model||{});(KI.updates||[]).forEach(u=>{if(S.updates[u.id]==="ok")Object.assign(p,u.change||{})});return p}
+const basisJahr=Modell.basisJahr;
+function params(){const p=Object.assign({},Modell.DEFAULTS,KI.model||{});(KI.updates||[]).forEach(u=>{if(S.updates[u.id]==="ok")Object.assign(p,u.change||{})});return p}
+const histOf=x=>{const k=KI&&(KI.stocks||[]).find(y=>y.s===x);return (S.hist||{})[x]||(k&&k.closes)||null};
 function analyze(st){
  const P=params();const old=st.closes.slice().reverse();const q=S.quotes[st.s];
  let last=old[old.length-1],chg=(last/old[old.length-2]-1)*100,live=false;
@@ -131,10 +131,9 @@ function analyze(st){
  const ch20=(last/old[Math.max(0,old.length-21)]-1)*100,ch3m=(last/old[0]-1)*100;
  let peak=old[0],dd=0;old.forEach(v=>{peak=Math.max(peak,v);dd=Math.min(dd,(v/peak-1)*100)});
  const score=(s10/s30-1)*100+ch20/4,dir=score>1?"up":score<-1?"down":"flat";
- const H=st.h==="kurz"?20:63,dT=P.trendDamping*mu*H,dB=(P.baseWeight??1)*Math.log(1+basisJahr(st.s)/100)*H/252,dN=(st.bias||0)*P.newsWeight/100,drift=dT+dB+dN,band=sd*Math.sqrt(H)*P.bandFactor;
- const teile={trend:(Math.exp(dT)-1)*100,basis:(Math.exp(dB)-1)*100,news:(Math.exp(dN)-1)*100,basisJahr:basisJahr(st.s)};
+ const H=st.h==="kurz"?20:63,Z=Modell.zerlege({s:st.s,old,H,P,bias:st.bias,hist:histOf,monat:new Date().getMonth()}),drift=Z.drift,band=sd*Math.sqrt(H)*P.bandFactor,teile=Z.teile,muster=Z.muster,zus=Z.zusammenhaenge;
  const mid=last*Math.exp(drift),lo=last*Math.exp(drift-band),hi=last*Math.exp(drift+band),vol=sd*Math.sqrt(252)*100;
- return {st,old,last,chg,live,dir,ch20,ch3m,dd,H,mid,lo,hi,vol,band,drift,teile,min:Math.min(...old),max:Math.max(...old),
+ return {st,old,last,chg,live,dir,ch20,ch3m,dd,H,mid,lo,hi,vol,band,drift,teile,muster,zus,min:Math.min(...old),max:Math.max(...old),
   pm:(mid/last-1)*100,pl:(lo/last-1)*100,ph:(hi/last-1)*100,risk:vol<20?1:vol<35?2:3}}
 let A={};const analyzeAll=()=>{const o={};(KI.stocks||[]).forEach(s=>{try{o[s.s]=analyze(s)}catch(e){}});
  Object.entries(S.hist||{}).forEach(([s,c])=>{if(o[s]||!c||c.length<25)return;const k=kindOf(s);try{o[s]=analyze({s,n:nameOf(s),h:"lang",bias:0,closes:c,cat:KIND_TXT[k]||"Ohne KI-Einschätzung",pseudo:true,kind:k,heute:true})}catch(e){}});return o};
@@ -162,11 +161,23 @@ function bigChart(a){const W=340,H=190,L=40,R=8,T=10,B=24,n=a.old.length,tot=n-1
  <div class="legend"><span style="--c:var(--fg)">Verlauf</span><span style="--c:var(${col})">Erwartung</span><span style="--c:var(${soft})">wahrscheinlicher Bereich</span></div></div>`}
 function riskMeter(a){const p=Math.min(a.vol/70*100,100);return `<div class="meter"><div class="lab"><b>Risiko</b><span>${RISK[a.risk]} · Schwankung ${fmt(a.vol,0)} %/Jahr</span></div>
  <div class="scale risk"><span class="pin" style="left:${p}%"></span></div><div class="ticks"><span>ruhig</span><span>mittel</span><span>stark schwankend</span></div></div>`}
+// Zusammensetzung der Erwartung, Muster und Zusammenhänge – alles gekennzeichnet
+function teileHTML(a){if(!a.teile)return "";return `<h3>So setzt sich die Erwartung zusammen</h3><div class="list">${a.teile.filter(t=>Math.abs(t.pct)>=.05||["trend","basis"].includes(t.key)).map(t=>`<div class="row"><div class="l">${esc(t.name)}${t.vorsicht?' <span class="tag warn">mit Vorsicht</span>':""}<div class="sub">${esc(t.info)}</div></div><div class="r num ${t.pct>0?"up":t.pct<0?"down":""}">${sgn(t.pct)}</div></div>`).join("")}
+ <div class="row"><div class="l"><b>Erwartung gesamt</b></div><div class="r num ${a.pm>=0?"up":"down"}"><b>${sgn(a.pm)}</b></div></div></div>
+ <p class="note">Rein rechnerisch aus den Kursen der letzten 3 Monate, keine Garantie. „Mit Vorsicht“-Teile beruhen auf Mustern und Zusammenhängen, die oft nicht eintreffen. Sie sind deshalb klein gewichtet und gedeckelt.</p>
+ ${a.muster&&a.muster.length?`<h3>Erkannte Muster <span class="tag warn">mit Vorsicht</span></h3><div class="list">${a.muster.map(m=>`<div class="row"><div class="l">${esc(m.name)}<div class="sub">${esc(m.info)}</div></div></div>`).join("")}</div>`:""}
+ ${zusHTML(a.st.s,a.zus)}`}
+function zusHTML(s,zus){const wirkt=Modell.istTreiber(s)?Modell.wirktAuf(s,[...new Set([...S.depot.filter(d=>!d.demo).map(d=>d.s),...S.watch,...(KI.stocks||[]).map(x=>x.s)])],histOf):[];
+ const satz=(n,b,ich)=>`${b.korr<0?"Läuft eher gegenläufig: ":""}Stieg ${ich?"dieser Wert":n} um 10 %, bewegte sich ${ich?n:"dieser Wert"} zuletzt im Schnitt um etwa ${sgn(10*b.beta)}.`;
+ if(!(zus&&zus.length)&&!wirkt.length)return "";
+ return `<h3>Zusammenhänge <span class="tag warn">mit Vorsicht</span></h3><div class="list">${(zus||[]).map(b=>`<div class="row"><div class="l">${esc(b.n)}<div class="sub">${satz(b.n,b,false)}</div></div><div class="r num">${fmt(b.korr,2)}</div></div>`).join("")}
+ ${wirkt.map(b=>`<div class="row"><div class="l">Wirkt auf ${esc(nameOf(b.s))}<div class="sub">${satz(nameOf(b.s),b,true)}</div></div><div class="r num">${fmt(b.korr,2)}</div></div>`).join("")}</div>
+ <p class="note">Gemessen an den Tagesbewegungen der letzten 3 Monate (Zahl rechts: Gleichlauf von −1 bis +1). Zusammenhänge ändern sich oft und sind keine Ursache-Wirkung.</p>`}
 function potMeter(a){const Sx=30,pos=v=>Math.max(0,Math.min(100,50+v/Sx*50)),c=a.pm>=0?"--up":"--down";
  return `<div class="meter"><div class="lab"><b>Möglicher Gewinn/Verlust</b><span>in ${a.H===20?"4 Wochen":"3 Monaten"}</span></div>
  <div class="scale pot"><span class="band" style="left:${pos(a.pl)}%;width:${pos(a.ph)-pos(a.pl)}%;background:var(${a.pm>=0?"--up-soft":"--down-soft"});outline:1px solid var(${c})"></span><span class="zero" style="left:50%"></span><span class="pin" style="left:${pos(a.pm)}%;background:var(${c})"></span></div>
  <div class="ticks"><span>−30 %</span><span>0</span><span>+30 %</span></div>
- <div class="facts" style="margin-top:10px"><div><b>Schlecht</b><span class="num down">${sgn(a.pl)}</span></div><div><b>Gut</b><span class="num up">${sgn(a.ph)}</span></div><div><b>Erwartung</b><span class="num ${a.pm>=0?"up":"down"}">${sgn(a.pm)}</span></div><div><b>Kursziel-Bereich</b><span class="num">${fmt(a.lo,0)}–${fmt(a.hi,0)} ${cs(a.st.s)}</span></div></div>${a.teile?`<p class="note" style="margin:8px 0 0"><b>So setzt sich die Erwartung zusammen:</b> Trend der letzten 3 Monate (abgeschwächt) ${sgn(a.teile.trend)} · Langfrist-Durchschnitt ${a.teile.basisJahr?`dieser Anlageart (${fmt(a.teile.basisJahr,1)} % pro Jahr)`:"(bei dieser Anlageart 0, kein verlässlicher Zuwachs)"} ${sgn(a.teile.basis)}${Math.abs(a.teile.news)>=0.05?` · Nachrichten ${sgn(a.teile.news)}`:""}. Berechnet, keine Garantie.</p>`:""}</div>`}
+ <div class="facts" style="margin-top:10px"><div><b>Schlecht</b><span class="num down">${sgn(a.pl)}</span></div><div><b>Gut</b><span class="num up">${sgn(a.ph)}</span></div><div><b>Erwartung</b><span class="num ${a.pm>=0?"up":"down"}">${sgn(a.pm)}</span></div><div><b>Kursziel-Bereich</b><span class="num">${fmt(a.lo,0)}–${fmt(a.hi,0)} ${cs(a.st.s)}</span></div></div>${teileHTML(a)}</div>`}
 const fitsInvestor=a=>S.settings.investor==="vorsichtig"?a.risk<=2:S.settings.investor==="mutig"?true:a.risk<=2||a.st.h==="lang";
 function sortedStocks(list){const t=S.settings.investor;return list.slice().sort((x,y)=>{const a=A[x.s],b=A[y.s];return t==="vorsichtig"?a.vol-b.vol:t==="mutig"?b.ph-a.ph:(b.pm-b.vol/20)-(a.pm-a.vol/20)})}
 const newsItem=n=>`<button class="item" data-go="news-${n.id}"><div class="l"><div class="t">${n.t}</div><div class="s">${n.sum}</div><div class="meta">${imp(n.imp)}<span class="tag ${n.kind[1]}">${n.kind[0]}</span><span class="tag" style="background:none;color:var(--muted);padding:0">${n.cat}</span></div></div><span class="go">›</span></button>`;
@@ -296,7 +307,7 @@ function quellenHTML(s,st){const arr=x=>Array.isArray(x)?x:[];const q=[...arr(st
 function zukunftHTML(o){if(!o||!o.ausblick)return "";const R={steigend:["↗","up","Eher steigend"],"seitwärts":["→","flat","Eher seitwärts"],fallend:["↘","down","Eher fallend"]}[o.richtung]||["→","flat","Unklar"];
  return `<div class="trend ${R[1]}" style="margin:8px 0 10px"><span class="arrow">${R[0]}</span><div>${R[2]}${o.horizont?` · ${esc(o.horizont)}`:""}<small>Zuversicht: ${esc(o.zuversicht||"–")}</small></div></div>
  <h3 style="margin-top:4px">Ausblick</h3><p>${esc(o.ausblick)}</p>${o.halten?`<h3>Drin bleiben?</h3><p>${esc(o.halten)}</p>`:""}
- ${Array.isArray(o.signale)&&o.signale.length?`<h3>Darauf achten</h3><ul style="margin:0 0 10px;padding-left:18px">${o.signale.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`:""}
+ ${typeof o.muster==="string"&&o.muster?`<h3>Muster und Zusammenhänge <span class="tag warn">mit Vorsicht</span></h3><p>${esc(o.muster)}</p>`:""}${Array.isArray(o.signale)&&o.signale.length?`<h3>Darauf achten</h3><ul style="margin:0 0 10px;padding-left:18px">${o.signale.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`:""}
  <p class="note" style="margin:0 0 10px">Ein Ausblick ist eine Einschätzung mit Unsicherheit, keine Garantie und keine Anlageberatung.</p>`}
 // Nachhaken: Rückfragen zu einer Einschätzung, auf Wunsch mit Tendenz „halten oder nicht“
 const NACH=[["halten","Halten oder nicht?"],["warum","Warum diese Richtung?"],["wende","Was müsste passieren, damit es dreht?"]];
@@ -523,7 +534,7 @@ function settingsHTML(sec){const s=S.settings;const seg=(k,opts)=>`<div class="s
  <h3>Sicherung</h3><p class="note" style="margin-top:0">Deine Daten liegen auf diesem Gerät. Mit einer Sicherungsdatei bringst du sie auf ein anderes Gerät.</p>
  <div class="btns"><button class="btn ghost" data-export>Sicherung speichern</button><label class="btn ghost" for="imp-file">Sicherung laden</label><input id="imp-file" type="file" accept=".json,application/json" hidden></div>
  <div id="reset-zone"><button class="x" data-reset>Alle Daten auf diesem Gerät löschen</button></div>
- <p class="note">Ki Aktien Helfer · Version 18 · Keine Anlageberatung.</p></div>`}
+ <p class="note">Ki Aktien Helfer · Version 19 · Keine Anlageberatung.</p></div>`}
 function cartHTML(){const now=Date.now(),l=S.kh.list.slice().sort((a,b)=>a.due-b.due),h=(S.kh.hist||[]).slice().reverse();
  return `<div class="grab"></div><div class="in"><div style="display:flex;justify-content:space-between;align-items:center"><h1 style="margin:0">Warenkorb</h1><button class="icon-btn" data-close aria-label="Schließen"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
  <p class="note" style="margin-top:4px">Dinge in Bedenkzeit aus der Kaufhilfe. ${S.kh.saved?`Bisher nicht ausgegeben: <b class="up">${fmt(S.kh.saved,0)} €</b>`:""}</p>

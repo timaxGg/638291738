@@ -3,6 +3,8 @@
 import fs from "node:fs";
 import {execSync} from "node:child_process";
 import {verschluesseln,entschluesseln} from "./krypto.mjs";
+import "../modell.js";
+const Modell=globalThis.Modell;
 
 const E=process.env,API=E.ANTHROPIC_API_KEY||"",FH=E.FINNHUB_KEY||"",AV=E.AV_KEY||"",TG=E.TELEGRAM_TOKEN||"",CHAT=String(E.TELEGRAM_CHAT||""),PASS=E.SYNC_PASSWORD||"",RURL=E.KI_ROUTINE_URL||"",RTOK=E.KI_ROUTINE_TOKEN||"";
 const DRY=E.DRY==="1",ROOT=E.ROOT||".",P=f=>`${ROOT}/${f}`;
@@ -72,15 +74,15 @@ async function send(text,o={}){if(!CHAT)return;if(!o.direkt&&!o.dringend&&leise(
 async function warteschlange(){if(!B.queue.length||leise())return;const q=B.queue.splice(0,15);await send(`🔔 <b>Während der Ruhezeit:</b>\n\n${q.join("\n\n———\n\n")}`,{direkt:true})}
 
 /* ---------- Prognose (gleiches Modell wie die App) ---------- */
-// Langfrist-Durchschnitt pro Jahr (in %), grob nach Anlageart. Aktien/Aktien-ETFs ca. 7 %, Anleihen/Geldmarkt 2–2,5 %, Rohstoffe/Krypto/Wechselkurse/VIX 0 (kein verlässlicher Langfrist-Zuwachs)
-const basisJahr=s=>/-EUR$|-USD$|=X$|=F$|^\^VIX$|^(4GLD\.DE|EWG2\.DE|BRNT\.L)$/.test(s)?0:/^(XEON|XGLE)\.DE$/.test(s)?2:/^(EUNH|IBCI|EUNA)\.DE$/.test(s)?2.5:7;
-function params(){const p=Object.assign({trendDamping:.5,bandFactor:1,newsWeight:1,baseWeight:1},KI.model||{});(KI.updates||[]).forEach(u=>{if((U.updates||{})[u.id]==="ok")Object.assign(p,u.change||{})});return p}
+const basisJahr=Modell.basisJahr;
+function params(){const p=Object.assign({},Modell.DEFAULTS,KI.model||{});(KI.updates||[]).forEach(u=>{if((U.updates||{})[u.id]==="ok")Object.assign(p,u.change||{})});return p}
+const histVon=x=>{const k=(KI.stocks||[]).find(y=>y.s===x);return (B.hist&&B.hist[x]&&B.hist[x].c)||(k&&k.closes)||null};
 function analyse(st){if(!st||!st.closes||st.closes.length<25)return null;const Pm=params(),old=st.closes.slice().reverse(),live=priceOf(st.s);if(live)old.push(live);
   const r=[];for(let i=1;i<old.length;i++)r.push(Math.log(old[i]/old[i-1]));const mean=a=>a.reduce((x,y)=>x+y,0)/a.length;
   const mu=mean(r),sd=Math.sqrt(mean(r.map(x=>(x-mu)**2))),last=old[old.length-1],sma=n=>mean(old.slice(-n));
   const ch20=(last/old[Math.max(0,old.length-21)]-1)*100,ch3m=(last/old[0]-1)*100,score=(sma(10)/sma(30)-1)*100+ch20/4,dir=score>1?"up":score<-1?"down":"flat";
-  const H=st.h==="kurz"?20:63,dT=Pm.trendDamping*mu*H,dB=(Pm.baseWeight??1)*Math.log(1+basisJahr(st.s)/100)*H/252,drift=dT+dB+(+st.bias||0)*Pm.newsWeight/100,band=sd*Math.sqrt(H)*Pm.bandFactor;
-  return {last,dir,ch20,ch3m,H,trendAnteil:(Math.exp(dT)-1)*100,basisAnteil:(Math.exp(dB)-1)*100,vol:sd*Math.sqrt(252)*100,mid:last*Math.exp(drift),lo:last*Math.exp(drift-band),hi:last*Math.exp(drift+band)}}
+  const H=st.h==="kurz"?20:63,Z=Modell.zerlege({s:st.s,old,H,P:Pm,bias:st.bias,hist:histVon,monat:+zeit().date.slice(5,7)-1}),drift=Z.drift,band=sd*Math.sqrt(H)*Pm.bandFactor;
+  return {last,dir,ch20,ch3m,H,teile:Z.teile,muster:Z.muster,zus:Z.zusammenhaenge,vol:sd*Math.sqrt(252)*100,mid:last*Math.exp(drift),lo:last*Math.exp(drift-band),hi:last*Math.exp(drift+band)}}
 const PFEIL={up:"↗ aufwärts",down:"↘ abwärts",flat:"→ seitwärts"};
 
 /* ---------- Befehle ---------- */
@@ -244,7 +246,7 @@ async function anfrageDaten(s){if(!B.hist||!B.hist[s]){const c=await yq(s,true);
   const name=(MARKT.find(m=>m[0]===s)||[])[1]||catOf(s).n||s;
   return {name,news,fakten:an?Object.assign({waehrung:curOf(s),kurs:+an.last.toFixed(2),trend:an.dir,vierWochenProzent:+an.ch20.toFixed(1),dreiMonateProzent:+an.ch3m.toFixed(1),schwankungProJahr:+an.vol.toFixed(0),heuteProzent:+moveOf(s).toFixed(2)},prognoseFakten(s,an)):{}}}
 /* Ohne eigenen API-Schlüssel: kleine Vorlage ins Repo, dann die Claude-Aufgabe „KI-Anfrage“ direkt anstoßen (läuft über das Claude-Abo). */
-const zukunftAus=x=>{const o={};for(const k of ["ausblick","richtung","zuversicht","horizont","halten"])if(typeof x[k]==="string"&&x[k])o[k]=x[k];if(Array.isArray(x.signale))o.signale=x.signale.map(String).slice(0,4);return o};
+const zukunftAus=x=>{const o={};for(const k of ["ausblick","richtung","zuversicht","horizont","halten","muster"])if(typeof x[k]==="string"&&x[k])o[k]=x[k];if(Array.isArray(x.signale))o.signale=x.signale.map(String).slice(0,4);return o};
 async function antwortHolen(){if(!B.anfrage)return false;let a=null;
   // Die Claude-Aufgabe darf evtl. nur auf einen eigenen Zweig (claude/…) schreiben, daher dort auch suchen.
   const sh=c=>execSync(`git -C ${ROOT} ${c}`,{stdio:["ignore","pipe","ignore"]}).toString();let zweig="";
@@ -321,8 +323,9 @@ const ZUKUNFT=()=>({ausblick:F("2–3 Sätze: wie es in den nächsten Wochen bis
   zuversicht:F('"niedrig", "mittel" oder "hoch": wie sicher diese Richtung ist (bei starken Schwankungen oder widersprüchlichen Meldungen eher niedrig)'),
   horizont:F('Zeitraum, für den der Ausblick gilt, z. B. "4–8 Wochen" oder "6–12 Monate"'),
   halten:F("1–2 Sätze Abwägung: Was spricht dafür, investiert zu bleiben, und für welchen Zeitraum passt dieser Wert eher (kurz, mittel, lang), was dagegen. Wenn _fakten.depot vorhanden ist, darauf eingehen. Keine Anweisung zum Kaufen oder Verkaufen, sondern Gründe zum Abwägen"),
-  signale:F("Liste mit 2–3 kurzen Punkten: woran man merkt, dass sich das Bild ändert (z. B. Kurs unter einer Marke aus _fakten.prognose, ein Termin, eine Meldungslage)")});
-const prognoseFakten=(s,an)=>{if(!an)return {};const d=depot().find(x=>x.s===s),o={prognose:{tage:an.H,von:+an.lo.toFixed(2),mitte:+an.mid.toFixed(2),bis:+an.hi.toFixed(2),davonTrendProzent:+an.trendAnteil.toFixed(1),davonLangfristSchnittProzent:+an.basisAnteil.toFixed(1),hinweis:"mitte = abgeschwächter 3-Monats-Trend + Langfrist-Durchschnitt der Anlageart; rein rechnerisch"},anlegerTyp:U.investor||""};
+  signale:F("Liste mit 2–3 kurzen Punkten: woran man merkt, dass sich das Bild ändert (z. B. Kurs unter einer Marke aus _fakten.prognose, ein Termin, eine Meldungslage)"),
+  muster:F("1–2 Sätze: was die erkannten Muster (_fakten.muster) und Zusammenhänge (_fakten.zusammenhaenge, z. B. Öl, Dollar, Gesamtmarkt) für diesen Wert bedeuten könnten. Ausdrücklich als unsicher kennzeichnen. Leerer Text, wenn es keine gibt")});
+const prognoseFakten=(s,an)=>{if(!an)return {};const d=depot().find(x=>x.s===s),o={prognose:{tage:an.H,von:+an.lo.toFixed(2),mitte:+an.mid.toFixed(2),bis:+an.hi.toFixed(2),zusammensetzung:an.teile.map(t=>({teil:t.name,prozent:+t.pct.toFixed(1),vorsicht:t.vorsicht||undefined})),hinweis:"mitte ist rein rechnerisch; Teile mit vorsicht (Muster, Marktumfeld) sind unsicher"},muster:an.muster.map(m=>m.name+": "+m.info),zusammenhaenge:an.zus.map(b=>`${b.n}: Gleichlauf ${b.korr}, Beta ${b.beta}`),anlegerTyp:U.investor||""};
   if(d&&priceOf(s))o.depot={kaufkurs:d.k,seitKaufProzent:+((priceOf(s)/d.k-1)*100).toFixed(1),seit:d.d?new Date(d.d).toISOString().slice(0,10):""};return o};
 function prognoseCheck(){const pf=P("data/prognosen.json"),log0=readJSON(pf,[]),heute=zeit().date;
   for(const e of log0)if(!e.ok&&e.bis<=heute){const p=priceOf(e.s)||((KI.stocks||[]).find(x=>x.s===e.s)||{closes:[]}).closes[0];if(p){e.ist=p;e.ok=p>=e.lo&&p<=e.hi?1:-1}}
@@ -370,7 +373,7 @@ async function vorlage(slot){delete B.err.alphavantage;const z=zeit(),prev=KI,d=
           text:F("2 kurze Sätze zur aktuellen Lage (bei Indizes/VIX/Wechselkurs: was die Bewegung bedeutet). Sachlich"),
           h:F('"kurz", "lang", "spekulativ" oder "nicht kaufbar"'),warn:F("Zahl 0–3 wie bei stocks"),...ZUKUNFT(),quellen:F("Liste {t,u} genutzter Meldungen aus _rohnews oder leere Liste")}})]})(),
     model:prev.model||{trendDamping:.5,bandFactor:1,newsWeight:1},updates:(prev.updates||[]).filter(u=>!u.example).slice(-10),catalog:prev.catalog||[],
-    _lernen:sonntag?Object.assign({},lern,{aktuelleParameter:params(),aufgabe:"Wenn die Trefferquote deutlich (mehr als 10 Punkte) vom Soll abweicht und mindestens 20 Prognosen ausgewertet sind: füge in updates EINEN Vorschlag hinzu {id:\"u-DATUM\",date,title,what,why,how,change:{bandFactor oder trendDamping oder newsWeight oder baseWeight (Gewicht des Langfrist-Durchschnitts)}}. Kleine Schritte (±10 %). Sonst nichts hinzufügen."}):undefined};
+    _lernen:sonntag?Object.assign({},lern,{aktuelleParameter:params(),aufgabe:"Wenn die Trefferquote deutlich (mehr als 10 Punkte) vom Soll abweicht und mindestens 20 Prognosen ausgewertet sind: füge in updates EINEN Vorschlag hinzu {id:\"u-DATUM\",date,title,what,why,how,change:{bandFactor oder trendDamping oder newsWeight oder baseWeight (Langfrist-Durchschnitt) oder reversion (Gegenbewegung) oder musterWeight (Muster) oder marktWeight (Marktumfeld)}}. Kleine Schritte (±10 %). Sonst nichts hinzufügen."}):undefined};
   writeJSON(P("data/ki-vorlage.json"),v);changed.add("data/ki-vorlage.json");B.slots[slot]=z.date;log("Vorlage",slot,stocks.length,"Aktien",roh.length,"Meldungen")}
 function slotJetzt(){const z=zeit();for(const [s,h] of [["morgen",6],["mittag",12]])if(z.h===h&&z.m<35&&B.slots[s]!==z.date)return s;return null}
 
