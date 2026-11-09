@@ -82,7 +82,7 @@ function analyse(st){if(!st||!st.closes||st.closes.length<25)return null;const P
   const mu=mean(r),sd=Math.sqrt(mean(r.map(x=>(x-mu)**2))),last=old[old.length-1],sma=n=>mean(old.slice(-n));
   const ch20=(last/old[Math.max(0,old.length-21)]-1)*100,ch3m=(last/old[0]-1)*100,score=(sma(10)/sma(30)-1)*100+ch20/4,dir=score>1?"up":score<-1?"down":"flat";
   const H=st.h==="kurz"?20:63,Z=Modell.zerlege({s:st.s,old,H,P:Pm,bias:st.bias,hist:histVon,monat:+zeit().date.slice(5,7)-1}),drift=Z.drift,band=sd*Math.sqrt(H)*Pm.bandFactor;
-  return {last,dir,ch20,ch3m,H,teile:Z.teile,muster:Z.muster,zus:Z.zusammenhaenge,vol:sd*Math.sqrt(252)*100,mid:last*Math.exp(drift),lo:last*Math.exp(drift-band),hi:last*Math.exp(drift+band)}}
+  return {last,dir,ch20,ch3m,H,teile:Z.teile,muster:Z.muster,zus:Z.zusammenhaenge,roh:Z.roh,vol:sd*Math.sqrt(252)*100,mid:last*Math.exp(drift),lo:last*Math.exp(drift-band),hi:last*Math.exp(drift+band)}}
 const PFEIL={up:"↗ aufwärts",down:"↘ abwärts",flat:"→ seitwärts"};
 
 /* ---------- Befehle ---------- */
@@ -329,9 +329,10 @@ const prognoseFakten=(s,an)=>{if(!an)return {};const d=depot().find(x=>x.s===s),
   if(d&&priceOf(s))o.depot={kaufkurs:d.k,seitKaufProzent:+((priceOf(s)/d.k-1)*100).toFixed(1),seit:d.d?new Date(d.d).toISOString().slice(0,10):""};return o};
 function prognoseCheck(){const pf=P("data/prognosen.json"),log0=readJSON(pf,[]),heute=zeit().date;
   for(const e of log0)if(!e.ok&&e.bis<=heute){const p=priceOf(e.s)||((KI.stocks||[]).find(x=>x.s===e.s)||{closes:[]}).closes[0];if(p){e.ist=p;e.ok=p>=e.lo&&p<=e.hi?1:-1}}
-  for(const st of (KI.stocks||[])){const a=analyse(st);if(a&&!log0.some(e=>e.s===st.s&&e.d===heute))log0.push({d:heute,s:st.s,lo:+a.lo.toFixed(2),hi:+a.hi.toFixed(2),bis:addDays(heute,Math.round(a.H*1.4))})}
+  for(const st of (KI.stocks||[])){const a=analyse(st);if(a&&!log0.some(e=>e.s===st.s&&e.d===heute))log0.push({d:heute,s:st.s,lo:+a.lo.toFixed(2),hi:+a.hi.toFixed(2),start:+a.last.toFixed(4),roh:a.roh,bis:addDays(heute,Math.round(a.H*1.4))})}
   const fertig=log0.filter(e=>e.ok).slice(-120);writeJSON(pf,log0.filter(e=>!e.ok||fertig.includes(e)).slice(-600));changed.add("data/prognosen.json");
-  return {ausgewertet:fertig.length,treffer:fertig.filter(e=>e.ok===1).length,quote:fertig.length?Math.round(fertig.filter(e=>e.ok===1).length/fertig.length*100):null,soll:68}}
+  const sig=k=>{const l=fertig.filter(e=>e.roh&&e.start&&e.ist&&Math.abs(e.roh[k]||0)>0);return {anzahl:l.length,richtungRichtigProzent:l.length?Math.round(l.filter(e=>Math.sign(e.roh[k])===Math.sign(e.ist-e.start)).length/l.length*100):null}};
+  return {nurInfoTeile:{gegenbewegung:sig("rueck"),muster:sig("muster"),marktumfeld:sig("markt"),regel:"Erst ab 20 Fällen und über 55 % richtiger Richtung einen Vorschlag machen"},ausgewertet:fertig.length,treffer:fertig.filter(e=>e.ok===1).length,quote:fertig.length?Math.round(fertig.filter(e=>e.ok===1).length/fertig.length*100):null,soll:68}}
 async function vorlage(slot){delete B.err.alphavantage;const z=zeit(),prev=KI,d=depot(),W=kiWahl(),watch=W.da?[...new Set([...d.map(x=>x.s),...W.voll])].slice(0,20):[...new Set([...(prev.stocks||[]).map(s=>s.s),...d.map(x=>x.s),...(U.watch||[]).map(w=>LEGACY[w]||w),...DEFAULT_EU])].slice(0,18);
   for(const s of watch)if(isUS(s))await quote(s);for(const [s] of [...INDEX_ETF,...SECTOR_ETF])await quote(s);for(const [s] of [...EU_INDEX,...EU_SECTOR])await yq(s);
   const stocks=[];for(const s of watch){const alt=(prev.stocks||[]).find(x=>x.s===s);let closes=alt&&alt.closes;
@@ -373,7 +374,7 @@ async function vorlage(slot){delete B.err.alphavantage;const z=zeit(),prev=KI,d=
           text:F("2 kurze Sätze zur aktuellen Lage (bei Indizes/VIX/Wechselkurs: was die Bewegung bedeutet). Sachlich"),
           h:F('"kurz", "lang", "spekulativ" oder "nicht kaufbar"'),warn:F("Zahl 0–3 wie bei stocks"),...ZUKUNFT(),quellen:F("Liste {t,u} genutzter Meldungen aus _rohnews oder leere Liste")}})]})(),
     model:prev.model||{trendDamping:.5,bandFactor:1,newsWeight:1},updates:(prev.updates||[]).filter(u=>!u.example).slice(-10),catalog:prev.catalog||[],
-    _lernen:sonntag?Object.assign({},lern,{aktuelleParameter:params(),aufgabe:"Wenn die Trefferquote deutlich (mehr als 10 Punkte) vom Soll abweicht und mindestens 20 Prognosen ausgewertet sind: füge in updates EINEN Vorschlag hinzu {id:\"u-DATUM\",date,title,what,why,how,change:{bandFactor oder trendDamping oder newsWeight oder baseWeight (Langfrist-Durchschnitt) oder reversion (Gegenbewegung) oder musterWeight (Muster) oder marktWeight (Marktumfeld)}}. Kleine Schritte (±10 %). Sonst nichts hinzufügen."}):undefined};
+    _lernen:sonntag?Object.assign({},lern,{aktuelleParameter:params(),aufgabe:"Wenn die Trefferquote deutlich (mehr als 10 Punkte) vom Soll abweicht und mindestens 20 Prognosen ausgewertet sind: füge in updates EINEN Vorschlag hinzu {id:\"u-DATUM\",date,title,what,why,how,change:{bandFactor oder trendDamping oder newsWeight oder baseWeight (Langfrist-Durchschnitt) oder reversion (Gegenbewegung, sinnvoller Startwert 0.15) oder musterWeight (Muster, Startwert 1) oder marktWeight (Marktumfeld, Startwert 0.3)}}. Kleine Schritte (±10 %); reversion, musterWeight und marktWeight stehen anfangs auf 0 (nur Info) und dürfen nur vorgeschlagen werden, wenn die ausgewerteten Prognosen zeigen, dass ihre Richtung öfter stimmte als nicht. Sonst nichts hinzufügen."}):undefined};
   writeJSON(P("data/ki-vorlage.json"),v);changed.add("data/ki-vorlage.json");B.slots[slot]=z.date;log("Vorlage",slot,stocks.length,"Aktien",roh.length,"Meldungen")}
 function slotJetzt(){const z=zeit();for(const [s,h] of [["morgen",6],["mittag",12]])if(z.h===h&&z.m<35&&B.slots[s]!==z.date)return s;return null}
 

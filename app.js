@@ -162,10 +162,13 @@ function bigChart(a){const W=340,H=190,L=40,R=8,T=10,B=24,n=a.old.length,tot=n-1
 function riskMeter(a){const p=Math.min(a.vol/70*100,100);return `<div class="meter"><div class="lab"><b>Risiko</b><span>${RISK[a.risk]} · Schwankung ${fmt(a.vol,0)} %/Jahr</span></div>
  <div class="scale risk"><span class="pin" style="left:${p}%"></span></div><div class="ticks"><span>ruhig</span><span>mittel</span><span>stark schwankend</span></div></div>`}
 // Zusammensetzung der Erwartung, Muster und Zusammenhänge – alles gekennzeichnet
-function teileHTML(a){if(!a.teile)return "";return `<h3>So setzt sich die Erwartung zusammen</h3><div class="list">${a.teile.filter(t=>Math.abs(t.pct)>=.05||["trend","basis"].includes(t.key)).map(t=>`<div class="row"><div class="l">${esc(t.name)}${t.vorsicht?' <span class="tag warn">mit Vorsicht</span>':""}<div class="sub">${esc(t.info)}</div></div><div class="r num ${t.pct>0?"up":t.pct<0?"down":""}">${sgn(t.pct)}</div></div>`).join("")}
+function teileHTML(a){if(!a.teile)return "";const ein=a.teile.filter(t=>!t.nurInfo&&(Math.abs(t.pct)>=.05||["trend","basis"].includes(t.key))),info=a.teile.filter(t=>t.nurInfo&&(t.key!=="muster"||(a.muster||[]).length)&&!/^(Keine|Kein |Gerade kein)/.test(t.info));
+ const row=t=>`<div class="row"><div class="l">${esc(t.name)}<div class="sub">${esc(t.info)}</div></div><div class="r num ${t.pct>0?"up":t.pct<0?"down":""}">${sgn(t.pct)}</div></div>`;
+ return `<h3>So setzt sich die Erwartung zusammen</h3><div class="list">${ein.map(row).join("")}
  <div class="row"><div class="l"><b>Erwartung gesamt</b></div><div class="r num ${a.pm>=0?"up":"down"}"><b>${sgn(a.pm)}</b></div></div></div>
- <p class="note">Rein rechnerisch aus den Kursen der letzten 3 Monate, keine Garantie. „Mit Vorsicht“-Teile beruhen auf Mustern und Zusammenhängen, die oft nicht eintreffen. Sie sind deshalb klein gewichtet und gedeckelt.</p>
- ${a.muster&&a.muster.length?`<h3>Erkannte Muster <span class="tag warn">mit Vorsicht</span></h3><div class="list">${a.muster.map(m=>`<div class="row"><div class="l">${esc(m.name)}<div class="sub">${esc(m.info)}</div></div></div>`).join("")}</div>`:""}
+ <p class="note">Nur gemessene Kursdaten und der historische Langfrist-Schnitt, keine Garantie.</p>
+ ${info.length||(a.muster||[]).length?`<h3>Nur zur Info, nicht eingerechnet <span class="tag warn">mit Vorsicht</span></h3><div class="list">${info.filter(t=>t.key!=="muster").map(t=>`<div class="row"><div class="l">${esc(t.name)}<div class="sub">${esc(t.info)}</div></div></div>`).join("")}${(a.muster||[]).map(m=>`<div class="row"><div class="l">Muster: ${esc(m.name)}<div class="sub">${esc(m.info)}</div></div></div>`).join("")}</div>
+ <p class="note">Gemessen, aber ob sie die Zukunft vorhersagen, ist unsicher. Die App prüft ihre Trefferquote mit und schlägt erst dann vor, sie einzurechnen (nur mit deiner Freigabe).</p>`:""}
  ${zusHTML(a.st.s,a.zus)}`}
 function zusHTML(s,zus){const wirkt=Modell.istTreiber(s)?Modell.wirktAuf(s,[...new Set([...S.depot.filter(d=>!d.demo).map(d=>d.s),...S.watch,...(KI.stocks||[]).map(x=>x.s)])],histOf):[];
  const satz=(n,b,ich)=>`${b.korr<0?"Läuft eher gegenläufig: ":""}Stieg ${ich?"dieser Wert":n} um 10 %, bewegte sich ${ich?n:"dieser Wert"} zuletzt im Schnitt um etwa ${sgn(10*b.beta)}.`;
@@ -173,6 +176,19 @@ function zusHTML(s,zus){const wirkt=Modell.istTreiber(s)?Modell.wirktAuf(s,[...n
  return `<h3>Zusammenhänge <span class="tag warn">mit Vorsicht</span></h3><div class="list">${(zus||[]).map(b=>`<div class="row"><div class="l">${esc(b.n)}<div class="sub">${satz(b.n,b,false)}</div></div><div class="r num">${fmt(b.korr,2)}</div></div>`).join("")}
  ${wirkt.map(b=>`<div class="row"><div class="l">Wirkt auf ${esc(nameOf(b.s))}<div class="sub">${satz(nameOf(b.s),b,true)}</div></div><div class="r num">${fmt(b.korr,2)}</div></div>`).join("")}</div>
  <p class="note">Gemessen an den Tagesbewegungen der letzten 3 Monate (Zahl rechts: Gleichlauf von −1 bis +1). Zusammenhänge ändern sich oft und sind keine Ursache-Wirkung.</p>`}
+// Bestenliste: 1. Rendite, 2. Risiko, 3. Langfristigkeit – gewichtet nach Anleger-Typ aus den Einstellungen
+let bestH="mittel";
+const BEST_H={kurz:[20,"4 Wochen"],mittel:[63,"3 Monate"],lang:[252,"1 Jahr"]},RISK_L={vorsichtig:.6,ausgewogen:.35,mutig:.15};
+function bewerte(s,H){const c=histOf(s);if(!c||c.length<30)return null;const old=c.slice().reverse(),q=S.quotes[s];if(q&&q.c&&Date.now()-q.t<864e5)old[old.length-1]=q.c;
+ const P=params(),st=(KI.stocks||[]).find(x=>x.s===s),Z=Modell.zerlege({s,old,H,P,bias:st&&st.bias,hist:histOf,monat:new Date().getMonth()}),band=Z.sd*Math.sqrt(H)*P.bandFactor;
+ const pm=(Math.exp(Z.drift)-1)*100,pl=(Math.exp(Z.drift-band)-1)*100,vol=Z.sd*Math.sqrt(252)*100,lam=RISK_L[S.settings.investor]??.35,lang=.1*Modell.basisJahr(s)*(H/63);
+ return {s,pm,pl,vol,score:pm+lam*pl+lang,lam,lang}}
+function bestenHTML(){const [H,lab]=BEST_H[bestH],uni=[...new Set([...Object.keys(S.hist||{}),...(KI.stocks||[]).map(x=>x.s)])].filter(x=>!/^\^|=X$|=F$/.test(x));
+ const t=S.settings.investor,l=uni.map(x=>bewerte(x,H)).filter(Boolean).filter(b=>t!=="vorsichtig"||b.vol<35).sort((a,b)=>b.score-a.score).slice(0,10);if(!l.length)return "";
+ const im=x=>S.depot.some(d=>!d.demo&&d.s===x);
+ return `<h2 style="margin-top:8px">Bestenliste</h2><div class="filters">${Object.entries(BEST_H).map(([k,[,n]])=>`<button class="chip" data-best="${k}" aria-pressed="${bestH===k}">${n}</button>`).join("")}</div>
+ <div class="list">${l.map((b,i)=>`<button class="item" data-go="aktie-${enc(b.s)}"><div class="num" style="width:22px;color:var(--muted)">${i+1}</div><div class="l"><div class="t">${esc(nameOf(b.s))} ${im(b.s)?'<span class="tag">im Depot</span>':""}</div><div class="s">Erwartung ${sgn(b.pm)} · schlechter Fall ${sgn(b.pl)} · Schwankung ${fmt(b.vol,0)} % · ${artOf(b.s)}</div></div><div class="r"><div class="num ${b.pm>=0?"up":"down"}">${sgn(b.pm)}</div></div></button>`).join("")}</div>
+ <p class="note">Rangfolge für ${lab}: zuerst erwartete Rendite, dann Risiko (der schlechte Fall zählt für „${t}“ zu ${Math.round((RISK_L[t]??.35)*100)} % mit${t==="vorsichtig"?", stark schwankende Werte über 35 % sind ausgeblendet":""}), dann ein kleiner Vorteil für langfristig wachsende Anlagearten. Rein rechnerisch aus Kursen der letzten 3 Monate und historischen Durchschnitten, keine Empfehlung. Indizes, Rohstoff-Futures und Wechselkurse fehlen, weil man sie nicht direkt kaufen kann.</p>`}
 function potMeter(a){const Sx=30,pos=v=>Math.max(0,Math.min(100,50+v/Sx*50)),c=a.pm>=0?"--up":"--down";
  return `<div class="meter"><div class="lab"><b>Möglicher Gewinn/Verlust</b><span>in ${a.H===20?"4 Wochen":"3 Monaten"}</span></div>
  <div class="scale pot"><span class="band" style="left:${pos(a.pl)}%;width:${pos(a.ph)-pos(a.pl)}%;background:var(${a.pm>=0?"--up-soft":"--down-soft"});outline:1px solid var(${c})"></span><span class="zero" style="left:50%"></span><span class="pin" style="left:${pos(a.pm)}%;background:var(${c})"></span></div>
@@ -233,7 +249,7 @@ const V={
   const mItem=m=>{const a=A[m.s],q=S.quotes[m.s];return a?stockItem(a.st).replace(/(<div class="s">)/,kurzOf(m.s)?`$1${esc(kurzOf(m.s).text.split(". ")[0].slice(0,90))}<br>`:"$1"):`<button class="item" data-go="aktie-${enc(m.s)}"><div class="l"><div class="t">${esc(m.n)}</div><div class="s">${KIND_TXT[m.k]||""}</div></div><div class="r">${q?`<div class="num">${fmt(q.c)} ${cs(m.s)}</div>${pct(q.dp)}`:""}</div></button>`};
   const grp=[["idx","Indizes"],["etf","Welt-ETFs"],["krypto","Krypto"],["roh","Rohstoffe"],["fx","Währung"]];
   const alts=mk.filter(m=>m.k.startsWith("alt:")),altG=[...new Set(alts.map(m=>m.k.slice(4)))];
-  return `<h1>Aktien</h1>${mk.length?`<h2 style="margin-top:8px">Wichtige Marktwerte</h2>${grp.map(([k,l])=>{const g=mk.filter(m=>m.k===k);return g.length?`<h3>${l}</h3><div class="list">${g.map(mItem).join("")}</div>`:""}).join("")}`:""}
+  return `<h1>Aktien</h1>${bestenHTML()}${mk.length?`<h2 style="margin-top:8px">Wichtige Marktwerte</h2>${grp.map(([k,l])=>{const g=mk.filter(m=>m.k===k);return g.length?`<h3>${l}</h3><div class="list">${g.map(mItem).join("")}</div>`:""}).join("")}`:""}
   ${alts.length?`<h2>Alternativen zum MSCI World</h2><p class="note" style="margin-top:-4px">Der MSCI World besteht zu gut 70 % aus US-Aktien. Diese Bausteine verteilen das Risiko anders. Kein Baustein ist „sicher“, sie schwanken nur unterschiedlich stark.</p>
    ${altG.map(g=>`<h3>${g}</h3><p class="note" style="margin:-4px 0 6px">${ALT_INFO[g]||""}</p><div class="list">${alts.filter(m=>m.k==="alt:"+g).map(mItem).join("")}</div>`).join("")}`:""}
   ${eigene.length?`<h2>Deine weiteren Werte</h2><div class="list">${eigene.map(x=>A[x]?stockItem(A[x].st):`<button class="item" data-go="aktie-${enc(x)}"><div class="l"><div class="t">${esc(nameOf(x))}</div><div class="s">Daten werden geladen …</div></div><span class="go">›</span></button>`).join("")}</div>`:""}
@@ -517,7 +533,7 @@ function settingsHTML(sec){const s=S.settings;const seg=(k,opts)=>`<div class="s
  <h3>Persönlich</h3><label class="f">Dein Name<input id="s-name" value="${esc(s.name)}" placeholder="Wie soll die App dich nennen?"></label>
  <h3>Farbe</h3><div class="swatches">${COLORS.map(c=>`<button class="sw" style="--c:${c}" data-color="${c}" aria-pressed="${s.accent===c}" aria-label="Farbe ${c}"></button>`).join("")}</div>
  <h3>Darstellung</h3>${seg("theme",[["auto","Automatisch"],["light","Hell"],["dark","Dunkel"]])}
- <h3>Anleger-Typ</h3>${seg("investor",[["vorsichtig","Vorsichtig"],["ausgewogen","Ausgewogen"],["mutig","Mutig"]])}<p class="note">Bestimmt die Reihenfolge der Aktien und Warnungen bei stark schwankenden Werten.</p>
+ <h3>Anleger-Typ</h3>${seg("investor",[["vorsichtig","Vorsichtig"],["ausgewogen","Ausgewogen"],["mutig","Mutig"]])}<p class="note">Bestimmt die Reihenfolge der Bestenliste und der Aktien sowie Warnungen bei stark schwankenden Werten.</p>
  <h3>Startseite zeigt</h3>${[["alerts","Hinweise"],["markt","Markt"],["news","Wichtige News"],["depot","Mein Depot"]].map(([k,l])=>`<label class="check"><input type="checkbox" data-start="${k}" ${s.start[k]?"checked":""}> ${l}</label>`).join("")}
  <h3>Standards</h3><form onsubmit="return false"><label class="f">Meldegrenze: Verlust ab (%)<input id="s-al" type="number" inputmode="decimal" min="0" step="any" value="${Math.abs(s.alertDefault)}"></label><label class="f">Bedenkzeit Kaufhilfe<select id="s-th">${[[1,"1 Tag"],[7,"1 Woche"],[30,"30 Tage"]].map(([v,l])=>`<option value="${v}" ${s.thinkDefault==v?"selected":""}>${l}</option>`).join("")}</select></label></form>
  <h3 id="daten">Daten und Aktualisierung</h3><form onsubmit="return false"><label class="f full">Finnhub-Schlüssel (für Live-Kurse)<input id="s-fh" value="${esc(s.fhKey)}" placeholder="kostenlos auf finnhub.io" autocomplete="off"></label>
@@ -534,7 +550,7 @@ function settingsHTML(sec){const s=S.settings;const seg=(k,opts)=>`<div class="s
  <h3>Sicherung</h3><p class="note" style="margin-top:0">Deine Daten liegen auf diesem Gerät. Mit einer Sicherungsdatei bringst du sie auf ein anderes Gerät.</p>
  <div class="btns"><button class="btn ghost" data-export>Sicherung speichern</button><label class="btn ghost" for="imp-file">Sicherung laden</label><input id="imp-file" type="file" accept=".json,application/json" hidden></div>
  <div id="reset-zone"><button class="x" data-reset>Alle Daten auf diesem Gerät löschen</button></div>
- <p class="note">Ki Aktien Helfer · Version 19 · Keine Anlageberatung.</p></div>`}
+ <p class="note">Ki Aktien Helfer · Version 20 · Keine Anlageberatung.</p></div>`}
 function cartHTML(){const now=Date.now(),l=S.kh.list.slice().sort((a,b)=>a.due-b.due),h=(S.kh.hist||[]).slice().reverse();
  return `<div class="grab"></div><div class="in"><div style="display:flex;justify-content:space-between;align-items:center"><h1 style="margin:0">Warenkorb</h1><button class="icon-btn" data-close aria-label="Schließen"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
  <p class="note" style="margin-top:4px">Dinge in Bedenkzeit aus der Kaufhilfe. ${S.kh.saved?`Bisher nicht ausgegeben: <b class="up">${fmt(S.kh.saved,0)} €</b>`:""}</p>
@@ -631,6 +647,7 @@ document.addEventListener("click",e=>{const T=sel=>e.target.closest(sel);let el;
  if(el=T('a[href^="#"]')){const r=el.getAttribute("href").slice(1);if(r){e.preventDefault();go(r)}return}
  if(T("[data-back]")){go(hist.pop()||"start",false);return}
  if(el=T("[data-f]")){filter=el.dataset.f;render(true);return}
+ if(el=T("[data-best]")){bestH=el.dataset.best;render(true);return}
  if(el=T("[data-rg]")){region=el.dataset.rg;render(true);return}
  if(el=T("[data-nf]")){newsFilter=el.dataset.nf;render(true);return}
  if(el=T("[data-fs]")){finSub=el.dataset.fs;render(true);return}

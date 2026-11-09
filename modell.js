@@ -11,7 +11,9 @@
   const istAktienartig=s=>basisJahr(s)===7&&!/^\^/.test(s);
   // Treiber, deren Bewegung auf andere Werte wirken kann
   const TREIBER=[["^GSPC","S&P 500"],["^GDAXI","DAX"],["BZ=F","Öl (Brent)"],["GC=F","Gold"],["EURUSD=X","Euro in Dollar"],["^VIX","Angst-Barometer (VIX)"]];
-  const DEFAULTS={trendDamping:.5,bandFactor:1,newsWeight:1,baseWeight:1,reversion:.15,musterWeight:1,marktWeight:.3};
+  // reversion, musterWeight, marktWeight starten bei 0: Gegenbewegung, Muster und Marktumfeld werden nur angezeigt, nicht eingerechnet,
+  // bis die eigene Trefferquote zeigt, dass sie helfen (Lern-Update mit Freigabe).
+  const DEFAULTS={trendDamping:.5,bandFactor:1,newsWeight:1,baseWeight:1,reversion:0,musterWeight:0,marktWeight:0};
 
   function renditen(c){const o=c.slice().reverse(),r=[];for(let i=1;i<o.length;i++)r.push(Math.log(o[i]/o[i-1]));return r}
   // Zusammenhang zweier Kursreihen (neueste zuerst). beta: wie stark a im Schnitt mitgeht, wenn b sich um 1 % bewegt.
@@ -27,14 +29,15 @@
     P=Object.assign({},DEFAULTS,P||{});
     const r=[];for(let i=1;i<old.length;i++)r.push(Math.log(old[i]/old[i-1]));
     const mu=mean(r),sd=Math.sqrt(mean(r.map(x=>(x-mu)**2)))||1e-9,last=old[old.length-1],teile=[],muster=[];
-    const add=(key,name,log,info,vorsicht)=>teile.push({key,name,pct:(Math.exp(log)-1)*100,log,info,vorsicht:!!vorsicht});
+    const add=(key,name,log,info,vorsicht,nurInfo)=>teile.push({key,name,pct:(Math.exp(log)-1)*100,log,info,vorsicht:!!vorsicht,nurInfo:!!nurInfo});
     // 1. Trend der letzten 3 Monate, abgeschwächt
-    add("trend","Trend 3 Monate (abgeschwächt)",P.trendDamping*mu*H,`Der Trend der letzten ${r.length} Handelstage wird zu ${Math.round(P.trendDamping*100)} % fortgeschrieben.`);
+    add("trend","Trend 3 Monate (abgeschwächt)",P.trendDamping*mu*Math.min(H,63),`Der Trend der letzten ${r.length} Handelstage wird zu ${Math.round(P.trendDamping*100)} % fortgeschrieben, höchstens für 3 Monate.`);
     // 2. Langfrist-Durchschnitt der Anlageart
-    const bj=basisJahr(s);add("basis","Langfrist-Durchschnitt",(P.baseWeight)*Math.log(1+bj/100)*H/252,bj?`Diese Anlageart ist früher im Schnitt um etwa ${String(bj).replace(".",",")} % pro Jahr gestiegen.`:"Bei dieser Anlageart gibt es keinen verlässlichen Langfrist-Zuwachs, daher 0.");
+    const bj=basisJahr(s);add("basis","Langfrist-Durchschnitt",(P.baseWeight)*Math.log(1+bj/100)*H/252,bj?`Historischer Schnitt dieser Anlageart: etwa ${String(bj).replace(".",",")} % pro Jahr (${bj===7?"breite Aktienmärkte, z. B. MSCI World seit 1970 rund 7–8 %":"Anleihen/Geldmarkt im Euroraum, langjähriger Schnitt"}).`:"Bei dieser Anlageart gibt es keinen verlässlichen Langfrist-Zuwachs, daher 0.");
     // 3. Rückkehr nach starken Bewegungen (teilweise Gegenbewegung nach Übertreibungen)
     const r20=r.slice(-20).reduce((x,y)=>x+y,0),z=r20/(sd*Math.sqrt(20));
-    add("rueck","Gegenbewegung nach starker Bewegung",Math.abs(z)>1.5?-P.reversion*r20:0,Math.abs(z)>1.5?`In 4 Wochen ${r20>0?"stark gestiegen":"stark gefallen"} (${(Math.exp(r20)*100-100).toFixed(1).replace(".",",")} %). Nach solchen Ausschlägen gibt es oft eine teilweise Gegenbewegung.`:"Keine auffällig starke Bewegung in den letzten 4 Wochen.");
+    const rohRueck=Math.abs(z)>1.5?-.15*r20:0;
+    add("rueck","Gegenbewegung nach starker Bewegung",Math.abs(z)>1.5?-P.reversion*r20:0,Math.abs(z)>1.5?`In 4 Wochen ${r20>0?"stark gestiegen":"stark gefallen"} (${(Math.exp(r20)*100-100).toFixed(1).replace(".",",")} %). Nach solchen Ausschlägen gibt es oft eine teilweise Gegenbewegung.`:"Keine auffällig starke Bewegung in den letzten 4 Wochen.",true,!P.reversion);
     // 4. Bekannte Muster (mit Vorsicht)
     if(!/=X$/.test(s)){
       const R=rsi(old);if(R!=null){if(R>70)muster.push({name:"Überkauft (RSI "+Math.round(R)+")",log:-.01,info:"Sehr viele Plus-Tage hintereinander. Danach kühlt der Kurs oft etwas ab."});
@@ -48,22 +51,22 @@
       if(istAktienartig(s)&&monat!=null){if(monat>=10)muster.push({name:"Jahresend-Rallye",log:.005*H/63,info:"November und Dezember waren für Aktien in der Vergangenheit oft gute Monate."});
         else if(monat===8)muster.push({name:"Schwacher September",log:-.005*H/63,info:"Der September war für Aktien in der Vergangenheit im Schnitt der schwächste Monat."})}
     }
-    let mLog=muster.reduce((x,m)=>x+m.log,0)*P.musterWeight;mLog=Math.max(-.02,Math.min(.02,mLog));
-    add("muster","Bekannte Muster",mLog,muster.length?muster.map(m=>m.name).join(", "):"Gerade kein bekanntes Muster erkennbar.",true);
+    const rohMuster=Math.max(-.02,Math.min(.02,muster.reduce((x,m)=>x+m.log,0)));let mLog=Math.max(-.02,Math.min(.02,rohMuster*P.musterWeight));
+    add("muster","Bekannte Muster",mLog,muster.length?muster.map(m=>m.name).join(", "):"Gerade kein bekanntes Muster erkennbar.",true,!P.musterWeight);
     // 5. Marktumfeld und Zusammenhänge (mit Vorsicht)
-    const zus=[];let mk=0,mkInfo="Kein verlässlicher Zusammenhang zum Gesamtmarkt messbar.";
+    const zus=[];let mk=0,rohMarkt=0,mkInfo="Kein verlässlicher Zusammenhang zum Gesamtmarkt messbar.";
     if(hist&&!ist7(s)){const eigen=old.slice().reverse();
       for(const [t,n] of TREIBER){if(t===s)continue;const b=bezug(eigen,hist(t));if(b&&Math.abs(b.korr)>=.3)zus.push({s:t,n,korr:+b.korr.toFixed(2),beta:+b.beta.toFixed(2)})}
       zus.sort((a,b)=>Math.abs(b.korr)-Math.abs(a.korr));
       const mSym=/\.(DE|F|AS|PA|MI|SW|VI|MC|BR)$/.test(s)?"^GDAXI":"^GSPC";
       if(!tiefe&&s!==mSym&&!istTreiber(s)){const mh=hist(mSym),b=bezug(eigen,mh);
         if(mh&&b&&Math.abs(b.korr)>=.3){const mz=zerlege({s:mSym,old:mh.slice().reverse(),H,P,hist:null,monat,tiefe:1}),mErw=mz.teile.filter(x=>x.key==="trend"||x.key==="basis").reduce((x,y)=>x+y.log,0);
-          mk=P.marktWeight*b.beta*mErw;mkInfo=`Geht im Schnitt ${b.beta.toFixed(1).replace(".",",")}-fach mit dem ${mSym==="^GDAXI"?"DAX":"S&P 500"} mit. Dessen eigene Erwartung fließt zu ${Math.round(P.marktWeight*100)} % ein.`}}}
-    add("markt","Marktumfeld",mk,mkInfo,true);
+          rohMarkt=.3*b.beta*mErw;mk=P.marktWeight*b.beta*mErw;mkInfo=`Geht im Schnitt ${b.beta.toFixed(1).replace(".",",")}-fach mit dem ${mSym==="^GDAXI"?"DAX":"S&P 500"} mit (Gleichlauf ${b.korr.toFixed(2).replace(".",",")}). ${mErw>=0?"Dessen Trend ist positiv.":"Dessen Trend ist negativ."}`}}}
+    add("markt","Marktumfeld",mk,mkInfo,true,!P.marktWeight);
     // 6. Nachrichten
     if(bias)add("news","Nachrichten des Tages",(+bias||0)*P.newsWeight/100,"Geschätzte Wirkung der heutigen Meldungen.");
     const drift=teile.reduce((x,t)=>x+t.log,0);
-    return {drift,teile,muster,zusammenhaenge:zus.slice(0,3),mu,sd}}
+    return {drift,teile,muster,zusammenhaenge:zus.slice(0,3),mu,sd,roh:{rueck:+rohRueck.toFixed(4),muster:+rohMuster.toFixed(4),markt:+rohMarkt.toFixed(4)}}}
 
   // Welche Werte hängen an einem Treiber? (z. B. „Wirkt auf“ bei Öl)
   function wirktAuf(t,syms,hist){const th=hist(t);if(!th||ist7(t))return [];return syms.filter(x=>x!==t&&!ist7(x)).map(x=>{const b=bezug(hist(x),th);return b&&Math.abs(b.korr)>=.3?{s:x,korr:+b.korr.toFixed(2),beta:+b.beta.toFixed(2)}:null}).filter(Boolean).sort((a,b)=>Math.abs(b.korr)-Math.abs(a.korr)).slice(0,5)}
