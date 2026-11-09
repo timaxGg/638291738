@@ -1,79 +1,64 @@
 {
- "version": 1,
- "generated": "2026-11-08T15:00:00+01:00",
- "dataAsOf": "2026-11-06",
+ "version": 2,
+ "generated": "2026-11-09T07:06:29+01:00",
+ "dataAsOf": "2026-11-09",
  "indices": [
   {
    "n": "S&P 500",
-   "v": 7376.86,
+   "v": 735.29,
    "c": 0.31,
-   "s": "USA, 500 große Firmen"
+   "s": "über SPY"
   },
   {
-   "n": "Nasdaq Composite",
-   "v": 24579.42,
-   "c": 1.09,
-   "s": "USA, technologielastig"
+   "n": "Nasdaq 100",
+   "v": 656.1,
+   "c": 1.4,
+   "s": "über QQQ"
   },
   {
    "n": "Dow Jones",
-   "v": 51285.73,
-   "c": -0.46,
-   "s": "USA, 30 Großkonzerne"
+   "v": 512.22,
+   "c": -0.4,
+   "s": "über DIA"
   }
  ],
  "sectors": [
   {
+   "n": "Technologie",
+   "c": 1.45,
+   "p": "zuletzt"
+  },
+  {
    "n": "Gesundheit",
    "c": -0.06,
-   "p": "Freitag"
+   "p": "zuletzt"
   },
   {
    "n": "Finanzen",
    "c": -0.59,
-   "p": "Freitag"
-  },
-  {
-   "n": "Technologie",
-   "c": -7,
-   "p": "Woche"
+   "p": "zuletzt"
   },
   {
    "n": "Energie",
-   "c": -11,
-   "p": "Woche"
+   "c": -0.02,
+   "p": "zuletzt"
+  },
+  {
+   "n": "Konsum",
+   "c": -0.05,
+   "p": "zuletzt"
+  },
+  {
+   "n": "Industrie",
+   "c": 0.12,
+   "p": "zuletzt"
   }
  ],
  "calendar": [
   {
-   "day": "Mo 9.11",
+   "day": "Di., 17.11.",
    "items": [
-    "Quartalszahlen: Rocket Lab, Take-Two"
-   ]
-  },
-  {
-   "day": "Di 10.11",
-   "items": [
-    "<b>US-Inflation (CPI)</b>, 14:30 Uhr",
-    "Quartalszahlen: CoreWeave"
-   ]
-  },
-  {
-   "day": "Mi 11.11",
-   "items": [
-    "US-Feiertag: Börse offen, Anleihemarkt zu"
-   ]
-  },
-  {
-   "day": "Do 12.11",
-   "items": [
-    "Quartalszahlen: Cisco, Applied Materials, Nebius"
-   ]
-  },
-  {
-   "day": "Fr 13.11",
-   "items": [
-    "US-Erzeugerpreise (PPI)"
+    "Quartalszahlen: Nvidia"
    ]
   }
  ],
@@ -81,23 +66,6 @@
   {
    "s": "NVDA",
    "n": "Nvidia",
-   "h": "kurz",
-   "bias": -2,
-   "cat": "Chips / KI",
-   "why": "Nvidia hängt stark an der Stimmung rund um KI-Rechenzentren. Nach dem Einbruch am Donnerstag kam am Freitag eine Erholung. Diese Woche liefern CoreWeave (Di) und Applied Materials (Do) neue Hinweise auf die KI-Nachfrage.",
-   "pro": [
-    "Erholung am Freitag nach dem Einbruch",
-    "Einige Analysten sehen den Rückgang als Kaufgelegenheit"
-   ],
-   "con": [
-    "Politischer Gegenwind für neue Rechenzentren",
-    "Sehr hohe Schwankung"
-   ],
-   "news": [
-    "ki",
-    "wahl",
-    "cpi"
-   ],
    "closes": [
     186.64,
     181.6,
@@ -164,27 +132,28 @@
     217.5,
     217.55,
     223.96
+   ],
+   "cat": "Chips / KI",
+   "h": "lang",
+   "bias": -1,
+   "why": "Nach einem deutlichen Rückgang in den letzten Wochen erholt sich die Aktie leicht. Die Untersuchung rund um CEO Huang bringt zusätzliche Unsicherheit kurz vor den Quartalszahlen am 17.11.",
+   "pro": [
+    "Erholung der Chipwerte zum Wochenstart",
+    "Quartalszahlen am 17.11. als möglicher Impuls"
+   ],
+   "con": [
+    "Untersuchung zum CEO belastet das Vertrauen",
+    "Politischer Gegenwind für Rechenzentrums-Ausbau",
+    "Hohe Schwankung"
+   ],
+   "news": [
+    "n143646475",
+    "n143646469"
    ]
   },
   {
    "s": "MSFT",
    "n": "Microsoft",
-   "h": "lang",
-   "bias": 0,
-   "cat": "Software / Cloud",
-   "why": "Breit aufgestellt mit Cloud (Azure), Office und KI-Angeboten. Hielt sich in den letzten drei Monaten über dem Ausgangsniveau, schwankt aber deutlich mit dem KI-Thema.",
-   "pro": [
-    "Mehrere starke Geschäftsbereiche",
-    "Langfristig steigender Kursverlauf seit August"
-   ],
-   "con": [
-    "Ebenfalls vom Thema Rechenzentren betroffen",
-    "Höhere Zinsen belasten Tech-Bewertungen"
-   ],
-   "news": [
-    "ki",
-    "cpi"
-   ],
    "closes": [
     530.61,
     535.93,
@@ -251,26 +220,27 @@
     503.81,
     506.06,
     499.99
+   ],
+   "cat": "Software / Cloud",
+   "h": "lang",
+   "bias": 0,
+   "why": "Die Aktie bewegt sich seitwärts und hielt sich im Ausverkauf vergleichsweise gut. Diskussionen um die Cloud-Nachfrage im Zusammenhang mit Oracle sorgen für leichten Druck.",
+   "pro": [
+    "Relativ robust im Marktabschwung",
+    "Breites Software- und Cloudgeschäft"
+   ],
+   "con": [
+    "Unsicherheit über Cloud-Investitionen",
+    "KI-Stimmung insgesamt angeschlagen"
+   ],
+   "news": [
+    "n143646476",
+    "n143643428"
    ]
   },
   {
    "s": "AAPL",
    "n": "Apple",
-   "h": "lang",
-   "bias": 0,
-   "cat": "Geräte / Dienste",
-   "why": "Weniger direkt vom Rechenzentrum-Thema betroffen als Chip-Hersteller. Bewegte sich in der Ausverkaufswoche vergleichsweise ruhig.",
-   "pro": [
-    "Geringere Schwankung als Chipwerte",
-    "Breites Geschäft mit Geräten und Diensten"
-   ],
-   "con": [
-    "Höhere Zinsen belasten Tech-Bewertungen"
-   ],
-   "news": [
-    "jobs",
-    "cpi"
-   ],
    "closes": [
     342.37,
     344.17,
@@ -282,7 +252,7 @@
     343.83,
     347.1,
     343.91,
-    347.73,
+    347.725,
     348.22,
     343.99,
     339.5,
@@ -337,26 +307,26 @@
     304.91,
     308.26,
     313.33
+   ],
+   "cat": "Geräte / Dienste",
+   "h": "lang",
+   "bias": 0,
+   "why": "Apple notiert seitwärts und gehört zu den Werten, die sich im Abverkauf stabil zeigten. Konkrete neue Unternehmensnachrichten gibt es heute nicht.",
+   "pro": [
+    "Stabil im schwachen Gesamtmarkt",
+    "Geringere Schwankung als KI-Werte"
+   ],
+   "con": [
+    "Kurs liegt unter dem Niveau von vor drei Monaten",
+    "Allgemeine Marktunsicherheit"
+   ],
+   "news": [
+    "n143643428"
    ]
   },
   {
    "s": "SAP",
    "n": "SAP",
-   "h": "lang",
-   "bias": -1,
-   "cat": "Software",
-   "why": "Europas größter Softwarekonzern. Kurzfristig belastet ein schwächerer Cloud-Ausblick. Langfristig zählt, ob KI-Angebote spürbar Umsatz bringen. Kurs in US-Dollar (US-Notierung).",
-   "pro": [
-    "Starke Marktstellung bei Unternehmenssoftware",
-    "Seit August klar gestiegen"
-   ],
-   "con": [
-    "Cloud-Wachstum verlangsamt sich",
-    "Ermittlungen zu öffentlichen Aufträgen"
-   ],
-   "news": [
-    "sap"
-   ],
    "closes": [
     233.45,
     243.53,
@@ -423,27 +393,24 @@
     209.68,
     208.55,
     206.16
-   ]
+   ],
+   "cat": "Software",
+   "h": "lang",
+   "bias": 0,
+   "why": "SAP hat im letzten Monat zugelegt, gab zuletzt aber über 4 % nach. Zu SAP selbst liegen heute keine neuen Meldungen vor; die Stimmung bei Software- und Cloudwerten ist gedämpft.",
+   "pro": [
+    "Aufwärtstrend auf Sicht von vier Wochen",
+    "Kein unternehmensspezifischer Negativauslöser bekannt"
+   ],
+   "con": [
+    "Deutlicher Tagesverlust zuletzt",
+    "Schwache Stimmung im Cloud-Sektor"
+   ],
+   "news": []
   },
   {
    "s": "AMZN",
    "n": "Amazon",
-   "h": "kurz",
-   "bias": 0,
-   "cat": "Handel / Cloud",
-   "why": "Online-Handel plus Cloud-Geschäft (AWS). Der Kurs schwankte zuletzt stark und erholte sich Anfang November vom Oktober-Tief.",
-   "pro": [
-    "Erholung seit dem Tief Ende Oktober",
-    "Cloud profitiert von KI-Nachfrage"
-   ],
-   "con": [
-    "Hohe Ausgaben für Rechenzentren",
-    "Starke Kurssprünge in beide Richtungen"
-   ],
-   "news": [
-    "ki",
-    "wahl"
-   ],
    "closes": [
     259.3,
     260.21,
@@ -510,25 +477,26 @@
     272.27,
     278.09,
     274.48
+   ],
+   "cat": "Handel / Cloud",
+   "h": "lang",
+   "bias": 0,
+   "why": "Amazon bewegt sich seitwärts nahe den Hochs der letzten Wochen. Die Aktie hielt sich im Ausverkauf besser als viele Technologiewerte.",
+   "pro": [
+    "Kurs nahe Mehrwochenhoch",
+    "Relativ robust im Marktabschwung"
+   ],
+   "con": [
+    "Fragen zur Cloud-Nachfrage im Sektor",
+    "Politische Unsicherheit nach den Midterms"
+   ],
+   "news": [
+    "n143643428"
    ]
   },
   {
    "s": "XLV",
-   "n": "Gesundheit (Branchen-ETF)",
-   "h": "lang",
-   "bias": 0.5,
-   "cat": "ETF / Gesundheit",
-   "why": "Ein ETF auf große US-Gesundheitsfirmen, also viele Firmen in einem Kauf. Stieg in drei Monaten deutlich und hielt sich in der Ausverkaufswoche stabil.",
-   "pro": [
-    "Breit gestreut",
-    "Wenig abhängig vom KI-Thema"
-   ],
-   "con": [
-    "Steigt in starken Tech-Phasen meist langsamer"
-   ],
-   "news": [
-    "jobs"
-   ],
+   "n": "Gesundheit-ETF (Health Care Select)",
    "closes": [
     184.8,
     184.91,
@@ -595,177 +563,445 @@
     168.01,
     168.44,
     165.68
+   ],
+   "cat": "ETF / Gesundheit",
+   "h": "lang",
+   "bias": 0,
+   "why": "Der Gesundheits-ETF hat sich im letzten Monat besser entwickelt als der Gesamtmarkt und schwankt wenig. Biotech-Werte hielten sich im Abverkauf gut.",
+   "pro": [
+    "Aufwärtstrend und geringe Schwankung",
+    "Defensiver Sektor in unruhigen Phasen"
+   ],
+   "con": [
+    "Mögliche Gesundheitspolitik der neuen Kongressmehrheit",
+    "Zuletzt leicht nachgebend"
+   ],
+   "news": [
+    "n143639496"
+   ]
+  },
+  {
+   "s": "SPY",
+   "n": "S&P 500 ETF",
+   "closes": [
+    735.29,
+    733,
+    766.81,
+    754.35,
+    752.1,
+    755.72,
+    769.36,
+    772.31,
+    769.66,
+    765.37,
+    759.97,
+    763.96,
+    773.09,
+    769.05,
+    766.48,
+    763.25,
+    771.79,
+    769.6,
+    778.01,
+    778.1,
+    778.57,
+    773.93,
+    777.22,
+    779.09,
+    774.83,
+    769.64,
+    763.99,
+    762.63,
+    764.2,
+    765.61,
+    771.35,
+    767.18,
+    767.81,
+    773.38,
+    773.5,
+    761.69,
+    762.6,
+    754.05,
+    757.39,
+    760.88,
+    764.29,
+    757.83,
+    762.4,
+    765.96,
+    770.19,
+    773.17,
+    765.16,
+    761.78,
+    767.05,
+    769.35,
+    771.1,
+    766.08,
+    765.91,
+    763.47,
+    765.72,
+    762.6,
+    769.06,
+    767.45,
+    772.67,
+    776.34,
+    777.88,
+    772.49,
+    770.56,
+    773.03,
+    773.26
+   ],
+   "cat": "Breiter US-Markt",
+   "h": "lang",
+   "bias": 1,
+   "why": "Der S&P 500 fiel nach den Midterms deutlich und erholt sich nun leicht. Sinkende Ölpreise dämpfen Inflationssorgen, die Schwankungen dürften aber vorerst erhöht bleiben.",
+   "pro": [
+    "Futures zeigen Erholung",
+    "Niedrigerer Ölpreis entlastet"
+   ],
+   "con": [
+    "Politische Unsicherheit nach Machtwechsel im Kongress",
+    "Erhöhte Schwankungen erwartet"
+   ],
+   "news": [
+    "n143646469",
+    "n143639496",
+    "n8734234"
+   ]
+  },
+  {
+   "s": "URTH",
+   "n": "MSCI World ETF",
+   "closes": [
+    199.67,
+    199.63,
+    207.87,
+    204.28,
+    204.15,
+    204.64,
+    207.97,
+    208.07,
+    207.59,
+    206.22,
+    205.15,
+    206.17,
+    208.49,
+    207.4,
+    206.65,
+    206.34,
+    208.11,
+    207.26,
+    209.16,
+    208.93,
+    209.14,
+    207.87,
+    208.67,
+    209.73,
+    208.55,
+    207.53,
+    205.84,
+    206.23,
+    206.71,
+    207.18,
+    208.73,
+    207.65,
+    207.84,
+    210.02,
+    209.7,
+    206.77,
+    207.21,
+    204.71,
+    205.63,
+    206.8,
+    207.69,
+    205.87,
+    207.45,
+    208.63,
+    209.82,
+    210.34,
+    208,
+    207.03,
+    208.82,
+    209.43,
+    209.93,
+    208.96,
+    209.33,
+    208.48,
+    209.07,
+    207.83,
+    209.22,
+    208.74,
+    210.43,
+    211.21,
+    211.51,
+    210.38,
+    209.69,
+    210.11,
+    210.47
+   ],
+   "cat": "Weltaktien breit",
+   "h": "lang",
+   "bias": 0,
+   "why": "Der weltweite Aktien-ETF hat mit dem US-Markt nachgegeben, ist aber breit gestreut. Asiatische Börsen zeigen sich zu Wochenbeginn stabil.",
+   "pro": [
+    "Breite Streuung über viele Länder",
+    "Entspannung bei Öl und Nahost"
+   ],
+   "con": [
+    "Hoher US-Anteil, daher von US-Politik abhängig",
+    "Leichter Abwärtstrend"
+   ],
+   "news": [
+    "n143639496",
+    "n8734234"
+   ]
+  },
+  {
+   "s": "TSLA",
+   "n": "Tesla",
+   "closes": [
+    358.22,
+    343.69,
+    385.19,
+    398.5,
+    403.82,
+    399.81,
+    403.3,
+    404.22,
+    407.46,
+    391.62,
+    372.22,
+    374.58,
+    386.47,
+    373.71,
+    368.06,
+    354.72,
+    362.44,
+    367.16,
+    375.23,
+    378.03,
+    382.7,
+    375,
+    377.81,
+    380.68,
+    378.73,
+    370.59,
+    354.11,
+    354.81,
+    352.84,
+    357.45,
+    372.11,
+    377.94,
+    380.12,
+    378.9,
+    375.3,
+    364.27,
+    366.2,
+    358.08,
+    356.58,
+    358.97,
+    365.44,
+    363.56,
+    367.81,
+    368.16,
+    354.08,
+    376.365,
+    357.01,
+    356.09,
+    367.95,
+    348.75,
+    354.81,
+    345.82,
+    350.25,
+    348.95,
+    362.86,
+    345.13,
+    351.12,
+    336.87,
+    339.3,
+    342.27,
+    339.96,
+    327.51,
+    332.81,
+    330.88,
+    328.58
+   ],
+   "cat": "E-Autos",
+   "h": "kurz",
+   "bias": 0,
+   "why": "Tesla legte zuletzt kräftig zu, liegt aber unter dem Niveau von vor vier Wochen. Die Aktie schwankt stark; schwächere E-Auto-Märkte in den USA und China sind ein Gegenwind.",
+   "pro": [
+    "Starker Tagesgewinn zuletzt",
+    "Plus auf Sicht von drei Monaten"
+   ],
+   "con": [
+    "Sehr hohe Schwankung",
+    "Schwacher E-Auto-Absatz in USA und China"
+   ],
+   "news": [
+    "n143646539"
    ]
   }
  ],
  "news": [
   {
-   "id": "ki",
+   "id": "n143646475",
    "imp": 3,
    "kind": [
-    "wirkt jetzt",
-    "down"
-   ],
-   "cat": "Tech",
-   "t": "KI-Ausverkauf: Chipwerte mit schlechtestem Tag seit 2020",
-   "sum": "Rund 3 Billionen Dollar Börsenwert verschwanden an einem Tag, Chipwerte fielen um 12 %.",
-   "body": [
-    "Am Donnerstag fiel der S&P 500 um mehr als 4 %, so stark wie seit dem Zoll-Crash im April 2025 nicht mehr. Der Halbleiter-Index verlor 12 % an einem Tag.",
-    "Auslöser sind Sorgen, dass der Bau von KI-Rechenzentren langsamer wird und Firmen weniger für KI ausgeben. Am Freitag erholten sich Chipwerte um rund 4 %, blieben auf Wochensicht aber im Minus."
-   ],
-   "back": "Rückblick: Nach dem letzten vergleichbaren Einbruch im April 2025 erholte sich der Markt in den folgenden Monaten. Eine Garantie dafür ist das nicht.",
-   "stocks": [
-    "NVDA",
-    "MSFT",
-    "AMZN"
-   ],
-   "u": "https://finance.yahoo.com/markets/live/stock-market-today-friday-november-6-dow-sp-500-nasdaq-jobs-report-earnings-135953863.html",
-   "q": "Yahoo Finance"
-  },
-  {
-   "id": "wahl",
-   "imp": 3,
-   "kind": [
-    "wirkt bald",
+    "Untersuchung",
     "warn"
    ],
-   "cat": "Politik",
-   "t": "Nach den US-Wahlen: Gegenwind für neue Rechenzentren",
-   "sum": "Neue Mehrheiten könnten den Bau von KI-Rechenzentren in mehreren US-Staaten bremsen.",
+   "cat": "Unternehmen",
+   "t": "Nvidia-Aufsichtsrat prüft Fall um CEO Huang",
+   "sum": "Der Nvidia-Verwaltungsrat hat laut Bericht eine Untersuchung zu einer persönlichen Beziehung von CEO Jensen Huang eingeleitet, die mit Spionageverdacht in Verbindung gebracht wird.",
    "body": [
-    "Die Demokraten haben die Mehrheit im Kongress gewonnen. Kandidaten beider Parteien hatten gegen KI-Rechenzentren Wahlkampf gemacht.",
-    "Goldman Sachs schätzt, dass rund 45 % der geplanten US-Rechenzentrumskapazität durch neu gewählte Gouverneure eingeschränkt werden könnte. Bereits genehmigte Projekte dürfen laut Texas weitergebaut werden."
+    "Berichten zufolge hat Huang eine Beziehung zu einer Frau eingeräumt, die unter Verdacht steht, für China zu spionieren. Der Verwaltungsrat lässt den Vorgang nun prüfen.",
+    "Für Anleger geht es vor allem um Führungs- und Reputationsrisiken sowie mögliche Fragen von Behörden. Der Ausgang ist offen."
    ],
-   "back": "Wirkt bald: Neue Regeln brauchen Monate bis zum Inkrafttreten. Die Wirkung auf Chip-Hersteller zeigt sich eher in den kommenden Quartalen als sofort.",
+   "back": "Wirkt jetzt: Unsicherheit um die Unternehmensführung kurz vor den Quartalszahlen am 17.11.",
    "stocks": [
-    "NVDA",
-    "AMZN"
+    "NVDA"
    ],
-   "u": "https://finance.yahoo.com/markets/live/stock-market-today-friday-november-6-dow-sp-500-nasdaq-jobs-report-earnings-135953863.html",
-   "q": "Yahoo Finance"
+   "u": "https://finnhub.io/api/news?id=3168588759ce06747ef989d184c338a8ad1393e8a44055b923c00fda54a5cba8",
+   "q": "Yahoo"
   },
   {
-   "id": "cpi",
-   "imp": 3,
-   "kind": [
-    "Termin Di 10.11.",
-    "warn"
-   ],
-   "cat": "Zinsen",
-   "t": "US-Inflationsdaten am Dienstag",
-   "sum": "Die Inflationszahl für Oktober entscheidet mit darüber, ob die US-Notenbank im Dezember die Zinsen anhebt.",
-   "body": [
-    "Am Dienstag um 14:30 Uhr deutscher Zeit erscheinen die US-Verbraucherpreise für Oktober.",
-    "Fällt die Kerninflation höher aus als erwartet, dürften Anleiherenditen und Dollar steigen. Das würde vor allem hoch bewertete Technologie-Aktien belasten. Am Freitag folgen die Erzeugerpreise."
-   ],
-   "back": "Hintergrund: Im Oktober hielt die Notenbank den Zins bei 3,75 bis 4,00 %, zwei Mitglieder stimmten bereits für eine Erhöhung.",
-   "stocks": [
-    "NVDA",
-    "MSFT",
-    "AAPL"
-   ],
-   "u": "https://www.tradingkey.com/analysis/stocks/us-stocks/262294759-week-ahead-october-cpi-ppi-coreweave-cisco-applied-materials-tradingkey",
-   "q": "TradingKey"
-  },
-  {
-   "id": "jobs",
+   "id": "n143646469",
    "imp": 2,
    "kind": [
-    "wirkt jetzt",
-    ""
-   ],
-   "cat": "Konjunktur",
-   "t": "US-Arbeitsmarkt deutlich stärker als erwartet",
-   "sum": "165.000 neue Stellen statt der erwarteten rund 70.000. Eine Zinserhöhung im Dezember wird möglicher.",
-   "body": [
-    "Im Oktober kamen 165.000 neue Stellen hinzu. Die Arbeitslosenquote sank auf 4,1 %, die Löhne halten mit der Inflation von 3,1 % Schritt.",
-    "Ein starker Arbeitsmarkt ist gut für die Wirtschaft, erhöht aber den Druck auf die Notenbank, die Zinsen anzuheben."
-   ],
-   "back": "Warum wichtig: Höhere Zinsen machen Anleihen attraktiver und drücken auf die Bewertung von Wachstumsaktien.",
-   "stocks": [
-    "AAPL",
-    "XLV"
-   ],
-   "u": "https://finance.yahoo.com/markets/live/stock-market-today-friday-november-6-dow-sp-500-nasdaq-jobs-report-earnings-135953863.html",
-   "q": "Yahoo Finance"
-  },
-  {
-   "id": "sap",
-   "imp": 2,
-   "kind": [
-    "Einzelaktie",
-    "down"
-   ],
-   "cat": "Software",
-   "t": "SAP verliert rund 4 %: Cloud-Wachstum lässt nach",
-   "sum": "SAP erwartet, dass das Cloud-Wachstum im vierten Quartal langsamer wird.",
-   "body": [
-    "Das Management rechnet damit, dass der Cloud-Auftragsbestand im vierten Quartal langsamer wächst. Dazu kommen Zweifel, wann KI-Angebote spürbar Umsatz bringen.",
-    "Außerdem nahmen Anleger nach dem Anstieg auf die Quartalszahlen Gewinne mit. Ermittlungen zu Vergabepraktiken bei öffentlichen Aufträgen belasten zusätzlich."
-   ],
-   "back": "Wirkt jetzt: Unternehmen verschieben Budgets gerade von Software zu Hardware und Infrastruktur.",
-   "stocks": [
-    "SAP"
-   ],
-   "u": "https://www.tradingkey.com/news/market-movers/262292655-market-movers-sap-20261106",
-   "q": "TradingKey"
-  },
-  {
-   "id": "oel",
-   "imp": 2,
-   "kind": [
-    "wirkt jetzt",
-    ""
-   ],
-   "cat": "Energie",
-   "t": "Ölpreis fällt unter 100 Dollar",
-   "sum": "Brent-Öl kostet weniger als 100 Dollar je Barrel, Energiewerte verlieren auf Wochensicht 11 %.",
-   "body": [
-    "Der Preis für Brent-Öl rutschte unter 100 Dollar je Barrel. Hintergrund sind veränderte Erwartungen zur Lage im Nahen Osten.",
-    "Der Energie-Sektor war mit rund 11 % Minus der schwächste Bereich der Woche."
-   ],
-   "back": "Wirkt jetzt: Ein niedrigerer Ölpreis entlastet Verbraucher und Firmen mit hohen Energiekosten, belastet aber Ölkonzerne.",
-   "stocks": [],
-   "u": "https://finance.yahoo.com/markets/live/stock-market-today-friday-november-6-dow-sp-500-nasdaq-jobs-report-earnings-135953863.html",
-   "q": "Yahoo Finance"
-  },
-  {
-   "id": "airbnb",
-   "imp": 1,
-   "kind": [
-    "Einzelaktie",
+    "Erholung",
     "up"
    ],
-   "cat": "Reise",
-   "t": "Airbnb übertrifft Erwartungen",
-   "sum": "Airbnb meldete bessere Zahlen als erwartet und hob die Prognose an.",
+   "cat": "Markt",
+   "t": "Chipwerte erholen sich nach Wahl-Ausverkauf",
+   "sum": "Halbleiteraktien legen leicht zu, nachdem KI-Werte nach dem Wahlsieg der Demokraten im Kongress deutlich gefallen waren.",
    "body": [
-    "Die Aktie stieg nachbörslich, nachdem Airbnb die Erwartungen übertroffen und den Ausblick angehoben hatte."
+    "Die Demokraten gelten als kritisch gegenüber dem schnellen Ausbau von Rechenzentren. Das hatte vergangene Woche KI-nahe Aktien belastet.",
+    "Zum Wochenstart blicken Anleger etwas über diese Sorgen hinweg, die Futures zeigen nach oben."
    ],
-   "back": "Einordnung: Ein Einzelwert, ohne große Wirkung auf den Gesamtmarkt.",
-   "stocks": [],
-   "u": "https://finance.yahoo.com/markets/live/stock-market-today-friday-november-6-dow-sp-500-nasdaq-jobs-report-earnings-135953863.html",
-   "q": "Yahoo Finance"
+   "back": "Rückblick: Starker Rückgang bei KI-Aktien in der Vorwoche nach den Midterms.",
+   "stocks": [
+    "NVDA",
+    "SPY"
+   ],
+   "u": "https://finnhub.io/api/news?id=a06df8c17ed16f4b9d1d68020fdfdea9dd5c446091972803886a4e01d655d6c4",
+   "q": "Yahoo"
   },
   {
-   "id": "tesla",
+   "id": "n143639496",
+   "imp": 2,
+   "kind": [
+    "Politik",
+    "warn"
+   ],
+   "cat": "Markt",
+   "t": "Demokraten gewinnen beide Kammern – Markt unter Druck",
+   "sum": "Nach dem Wahlergebnis fiel der S&P 500 an einem Tag um gut 4 %, Technologiewerte rutschten unter wichtige Marken.",
+   "body": [
+    "Die Midterms brachten den Demokraten Mehrheiten in Senat und Repräsentantenhaus. Der Markt reagierte mit einem deutlichen Kursrückgang, vor allem bei Technologie.",
+    "Analysten rechnen in den kommenden Wochen mit mehr Schwankungen, solange die politischen Folgen unklar sind."
+   ],
+   "back": "Wirkt bald: Politische Weichenstellungen zu KI und Rechenzentren können länger nachwirken.",
+   "stocks": [
+    "SPY",
+    "URTH",
+    "XLV"
+   ],
+   "u": "https://finnhub.io/api/news?id=2c1fc88d040fd196698929c8a0b158f35da9aa19bcc08c132a31174d79549379",
+   "q": "SeekingAlpha"
+  },
+  {
+   "id": "n143646476",
+   "imp": 2,
+   "kind": [
+    "Cloud",
+    "warn"
+   ],
+   "cat": "Unternehmen",
+   "t": "Microsoft-Schritt bei Oracle wirft Fragen auf",
+   "sum": "Eine Entscheidung von Microsoft im Verhältnis zu Oracle sorgt bei Anlegern für Diskussionen über die Cloud-Nachfrage.",
+   "body": [
+    "Laut Bericht setzt der Schritt Oracle unter Druck, das zuletzt auf ein Jahrestief gefallen ist. Im Fokus stehen Kosten und Nachfrage im KI- und Cloudgeschäft.",
+    "Für Microsoft selbst ist der direkte Effekt begrenzt, die Stimmung im Cloudsektor bleibt aber angespannt."
+   ],
+   "back": "Wirkt jetzt: Fragen zu Investitionen und Nachfrage im Cloud-Markt.",
+   "stocks": [
+    "MSFT"
+   ],
+   "u": "https://finnhub.io/api/news?id=afd91d04486bc538be8c8e2cdfb353f360d26c957363829bd42b79f91c173a64",
+   "q": "Yahoo"
+  },
+  {
+   "id": "n143643428",
    "imp": 1,
    "kind": [
-    "wirkt bald",
-    ""
+    "Stabil",
+    "up"
    ],
-   "cat": "Auto",
-   "t": "Tesla stellt den Cybertruck ein",
-   "sum": "Tesla will die Cybertruck-Produktion etwa Mitte nächsten Jahres auslaufen lassen.",
+   "cat": "Markt",
+   "t": "Apple, Amazon und Microsoft halten sich besser",
+   "sum": "Während der Gesamtmarkt angeschlagen ist, zeigen sich die großen Plattformkonzerne vergleichsweise robust.",
    "body": [
-    "Tesla kündigte an, die Produktion des Cybertruck um die Mitte des nächsten Jahres zu beenden."
+    "Nach den Verlusten der Vorwoche halten Apple, Amazon und Microsoft ihr Kursniveau besser als viele KI-Werte."
    ],
-   "back": "Wirkt bald: Die Entscheidung betrifft vor allem die Produktplanung der nächsten Monate.",
-   "stocks": [],
-   "u": "https://finance.yahoo.com/markets/live/stock-market-today-friday-november-6-dow-sp-500-nasdaq-jobs-report-earnings-135953863.html",
-   "q": "Yahoo Finance"
+   "back": "Rückblick: Relative Stärke der großen Plattformwerte im Ausverkauf.",
+   "stocks": [
+    "AAPL",
+    "AMZN",
+    "MSFT"
+   ],
+   "u": "https://finnhub.io/api/news?id=24653445a5a0e34e7dfc21bd125509eb61f0d042362e1adaf459de03fb6b6055",
+   "q": "Yahoo"
+  },
+  {
+   "id": "n8734234",
+   "imp": 2,
+   "kind": [
+    "Öl",
+    "down"
+   ],
+   "cat": "Rohstoffe",
+   "t": "Ölpreis sinkt, Iran-Spannungen lassen nach",
+   "sum": "Öl wird billiger, nachdem Trump neue Angriffe auf den Iran als unwahrscheinlich bezeichnet hat; Gold steigt um über 1 %.",
+   "body": [
+    "Die Aussicht auf Gespräche statt Eskalation drückt den Ölpreis. Niedrigere Energiepreise dämpfen Inflationssorgen.",
+    "Gold legte im Gegenzug zu, der Dollar bleibt wegen Erwartungen an die US-Notenbank fest."
+   ],
+   "back": "Wirkt jetzt: Geringere Inflationssorgen entlasten tendenziell den Gesamtmarkt.",
+   "stocks": [
+    "SPY",
+    "URTH"
+   ],
+   "u": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNWnV4VENDNkFNVllVVEpoVTJLcC13SlhHREstWFZZQ252QTRiU3dKeW5EYWYxVUJjNnQzVzh1M1FsWjNGTmRKMVFEYjhxT3M2VmF4aVpERWwwczh6dV9OTG5NcFJCMFVZZ0toWEEyMnRRTnBZUm9iQVVzblIzcmJMOTR4V29sUDFVME1jcFQ5VVhoMHVUM0YzWHM2bmE1b3VCV0s0R2JmUUQ?oc=5",
+   "q": "Reuters"
+  },
+  {
+   "id": "n143646539",
+   "imp": 1,
+   "kind": [
+    "E-Autos",
+    "warn"
+   ],
+   "cat": "Branche",
+   "t": "E-Auto-Markt: Europa stark, China und USA schwächer",
+   "sum": "Im Oktober wuchs der E-Auto-Absatz in Europa kräftig, während China an Tempo verlor und die USA hinterherhinken.",
+   "body": [
+    "Die regionale Verschiebung betrifft Hersteller unterschiedlich. Für Tesla sind schwächere Märkte in den USA und China ein Gegenwind."
+   ],
+   "back": "Rückblick: Absatzzahlen Oktober 2026.",
+   "stocks": [
+    "TSLA"
+   ],
+   "u": "https://finnhub.io/api/news?id=0df355ef4d97d302f00835da7fe6e66ad22fa0cfa9ce13c597f7d784387ffcef",
+   "q": "SeekingAlpha"
   }
  ],
+ "telegram": "**Morgen-Briefing 09.11.**\nMarkt erholt sich leicht nach dem Ausverkauf nach den Midterms.\n**Nvidia:** Verwaltungsrat prüft Fall um CEO Huang – Unsicherheit vor Zahlen am 17.11.\n**Öl** fällt, Iran-Spannungen lassen nach; Gold +1 %.\nApple, Amazon, Microsoft hielten sich im Abverkauf robust.\nAuffällig: Tesla +4,2 %, Nvidia +2,8 %, SAP −4,1 %.\nHeute: Schwankungen dürften erhöht bleiben.",
+ "model": {
+  "trendDamping": 0.5,
+  "bandFactor": 1,
+  "newsWeight": 1
+ },
+ "updates": [],
  "catalog": [
   {
    "s": "NVDA",
@@ -957,25 +1193,5 @@
    "n": "Gold",
    "a": "xau"
   }
- ],
- "model": {
-  "trendDamping": 0.5,
-  "bandFactor": 1,
-  "newsWeight": 1
- },
- "updates": [
-  {
-   "id": "u-2026-11-08",
-   "date": "2026-11-08",
-   "example": true,
-   "title": "Prognose-Korridor bei Chipwerten etwas breiter",
-   "what": "Der wahrscheinliche Bereich der Prognose wird um 10 % breiter.",
-   "why": "In der Woche vom 2. bis 6. November lagen mehrere Chipwerte an einem Tag außerhalb des bisherigen Korridors (Halbleiter-Index −12 % an einem Tag). Ursache war eine nachvollziehbare Nachricht (Sorge um weniger KI-Rechenzentren), kein Datenfehler.",
-   "how": "Faktor für die Korridorbreite von 1,0 auf 1,1.",
-   "change": {
-    "bandFactor": 1.1
-   }
-  }
- ],
- "tracking": []
+ ]
 }
