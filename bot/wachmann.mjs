@@ -246,7 +246,7 @@ async function antwortHolen(){if(!B.anfrage)return false;let a=null;
   // Die Claude-Aufgabe darf evtl. nur auf einen eigenen Zweig (claude/…) schreiben, daher dort auch suchen.
   const sh=c=>execSync(`git -C ${ROOT} ${c}`,{stdio:["ignore","pipe","ignore"]}).toString();let zweig="";
   try{sh(`fetch -q --depth 1 origin main "+refs/heads/claude/*:refs/remotes/origin/claude/*"`)}catch(e){try{sh("fetch -q origin main")}catch(e2){return false}}
-  const refs=["origin/main",...sh("for-each-ref --format=%(refname:short) refs/remotes/origin/claude").split("\n").filter(Boolean)];
+  let fe="";try{fe=sh("for-each-ref --format='%(refname:short)' refs/remotes/origin/claude")}catch(e){}const refs=["origin/main",...fe.split("\n").filter(Boolean)];
   for(const r of refs){try{const o=JSON.parse(sh(`show ${r}:data/ki-antwort.json`));if(o&&o.id===B.anfrage.id){a=o;if(r!=="origin/main")zweig=r.replace("origin/","");break}}catch(e){}}
   if(!a)return false;
   if(zweig&&!DRY)try{sh(`push -q origin --delete ${zweig}`)}catch(e){log("Zweig",e.message)}B.kiExtra=B.kiExtra||{};const neu=[];
