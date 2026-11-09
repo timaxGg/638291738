@@ -2,58 +2,118 @@
  "version": 2,
  "generated": "§FILL: aktuelle Uhrzeit als ISO-Zeitstempel mit +01:00 bzw. +02:00§",
  "dataAsOf": "2026-11-09",
- "_slot": "morgen",
- "_anleitung": "Ersetze jeden §FILL…§-Platzhalter durch passenden Inhalt im richtigen JSON-Typ (Text, Zahl oder Liste). Alles andere unverändert lassen. Felder mit _ am Anfang danach löschen. Deutsch, kurz, sachlich, in eigenen Worten, keine Kauf- oder Verkaufsempfehlungen.",
+ "_slot": "mittag",
+ "_anleitung": "Ersetze jeden §FILL…§-Platzhalter durch passenden Inhalt im richtigen JSON-Typ (Text, Zahl oder Liste). Alles andere unverändert lassen. Felder mit _ am Anfang danach löschen. Deutsch, kurz, sachlich, in eigenen Worten. Blick nach vorn ehrlich mit Unsicherheit, als Abwägung, keine Anweisungen zum Kaufen oder Verkaufen.",
  "indices": [
+  {
+   "n": "DAX",
+   "v": 26031.34,
+   "c": 0.82,
+   "s": "Europa"
+  },
+  {
+   "n": "MDAX",
+   "v": 30861.41,
+   "c": 0.71,
+   "s": "Europa"
+  },
+  {
+   "n": "Euro Stoxx 50",
+   "v": 6229.64,
+   "c": 0.96,
+   "s": "Europa"
+  },
+  {
+   "n": "FTSE 100",
+   "v": 10745.5,
+   "c": 0.67,
+   "s": "Europa"
+  },
+  {
+   "n": "CAC 40",
+   "v": 8173.94,
+   "c": 0.43,
+   "s": "Europa"
+  },
   {
    "n": "S&P 500",
    "v": 735.29,
    "c": 0.31,
-   "s": "über SPY"
+   "s": "USA, über SPY"
   },
   {
    "n": "Nasdaq 100",
    "v": 656.1,
    "c": 1.4,
-   "s": "über QQQ"
+   "s": "USA, über QQQ"
   },
   {
    "n": "Dow Jones",
    "v": 512.22,
    "c": -0.4,
-   "s": "über DIA"
+   "s": "USA, über DIA"
   }
  ],
  "sectors": [
   {
    "n": "Technologie",
+   "c": 1.35,
+   "p": "Europa"
+  },
+  {
+   "n": "Gesundheit",
+   "c": 1.14,
+   "p": "Europa"
+  },
+  {
+   "n": "Banken",
+   "c": 1.8,
+   "p": "Europa"
+  },
+  {
+   "n": "Energie",
+   "c": 0.04,
+   "p": "Europa"
+  },
+  {
+   "n": "Autos",
+   "c": 0.11,
+   "p": "Europa"
+  },
+  {
+   "n": "Industrie",
+   "c": 0.9,
+   "p": "Europa"
+  },
+  {
+   "n": "Technologie",
    "c": 1.45,
-   "p": "zuletzt"
+   "p": "USA"
   },
   {
    "n": "Gesundheit",
    "c": -0.06,
-   "p": "zuletzt"
+   "p": "USA"
   },
   {
    "n": "Finanzen",
    "c": -0.59,
-   "p": "zuletzt"
+   "p": "USA"
   },
   {
    "n": "Energie",
    "c": -0.02,
-   "p": "zuletzt"
+   "p": "USA"
   },
   {
    "n": "Konsum",
    "c": -0.05,
-   "p": "zuletzt"
+   "p": "USA"
   },
   {
    "n": "Industrie",
    "c": 0.12,
-   "p": "zuletzt"
+   "p": "USA"
   }
  ],
  "calendar": [
@@ -66,259 +126,179 @@
  ],
  "stocks": [
   {
-   "s": "NVDA",
-   "n": "Nvidia",
+   "s": "SPY",
+   "n": "S&P 500 ETF",
    "closes": [
-    186.64,
-    181.6,
-    200.13,
-    206.69,
-    202.06,
+    735.29,
+    733,
+    766.81,
+    754.35,
+    752.1,
+    755.72,
+    769.36,
+    772.31,
+    769.66,
+    765.37,
+    759.97,
+    763.96,
+    773.09,
+    769.05,
+    766.48,
+    763.25,
+    771.79,
+    769.6,
+    778.01,
+    778.1,
+    778.57,
+    773.93,
+    777.22,
+    779.09,
+    774.83,
+    769.64,
+    763.99,
+    762.63,
+    764.2,
+    765.61,
+    771.35,
+    767.18,
+    767.81,
+    773.38,
+    773.5,
+    761.69,
+    762.6,
+    754.05,
+    757.39,
+    760.88,
+    764.29,
+    757.83,
+    762.4,
+    765.96,
+    770.19,
+    773.17,
+    765.16,
+    761.78,
+    767.05,
+    769.35,
+    771.1,
+    766.08,
+    765.91,
+    763.47,
+    765.72,
+    762.6,
+    769.06,
+    767.45,
+    772.67,
+    776.34,
+    777.88,
+    772.49,
+    770.56,
+    773.03,
+    773.26
+   ],
+   "cat": "Breiter US-Markt",
+   "h": "lang",
+   "bias": 1,
+   "why": "Der S&P 500 fiel nach den Midterms deutlich und erholt sich nun leicht. Sinkende Ölpreise dämpfen Inflationssorgen, die Schwankungen dürften aber vorerst erhöht bleiben.",
+   "pro": [
+    "Futures zeigen Erholung",
+    "Niedrigerer Ölpreis entlastet"
+   ],
+   "con": [
+    "Politische Unsicherheit nach Machtwechsel im Kongress",
+    "Erhöhte Schwankungen erwartet"
+   ],
+   "news": [
+    "n143646469",
+    "n143639496",
+    "n8734234"
+   ]
+  },
+  {
+   "s": "URTH",
+   "n": "MSCI World ETF",
+   "closes": [
+    199.67,
+    199.63,
+    207.87,
+    204.28,
+    204.15,
     204.64,
-    213.66,
-    215.38,
-    217.94,
-    216,
-    210.96,
-    212.21,
-    221.97,
-    216.47,
-    217.09,
-    214.13,
-    217.23,
-    221.3,
-    228.52,
-    226.32,
-    229.28,
-    230.48,
-    237.47,
-    239.24,
-    238.9,
-    233.95,
-    230.86,
-    228.38,
-    227.21,
-    228.86,
-    225.07,
-    224.58,
-    225.51,
-    228.87,
-    227.38,
-    222.27,
-    219.34,
-    213.9,
-    212.17,
-    210.96,
-    218.29,
-    218.36,
-    223.67,
-    225.73,
-    230.36,
-    228.45,
-    224.41,
-    217.44,
-    220.78,
-    217.55,
-    227.98,
-    209.66,
-    213.05,
+    207.97,
+    208.07,
+    207.59,
+    206.22,
+    205.15,
+    206.17,
+    208.49,
+    207.4,
+    206.65,
+    206.34,
+    208.11,
+    207.26,
+    209.16,
+    208.93,
+    209.14,
+    207.87,
+    208.67,
+    209.73,
+    208.55,
+    207.53,
+    205.84,
+    206.23,
+    206.71,
+    207.18,
+    208.73,
+    207.65,
+    207.84,
+    210.02,
+    209.7,
+    206.77,
+    207.21,
+    204.71,
+    205.63,
+    206.8,
+    207.69,
+    205.87,
+    207.45,
+    208.63,
+    209.82,
+    210.34,
+    208,
+    207.03,
+    208.82,
+    209.43,
+    209.93,
+    208.96,
+    209.33,
     208.48,
-    214.72,
-    216.85,
-    217.56,
-    219.74,
-    225.01,
-    225.16,
-    225.3,
-    224.09,
-    217.5,
-    217.55,
-    223.96
+    209.07,
+    207.83,
+    209.22,
+    208.74,
+    210.43,
+    211.21,
+    211.51,
+    210.38,
+    209.69,
+    210.11,
+    210.47
    ],
-   "cat": "Chips / KI",
-   "h": "§FILL: \"kurz\" oder \"lang\"§",
-   "bias": "§FILL: Zahl −3 bis +3: Wirkung der heutigen Nachrichten auf den Kurs in %§",
-   "why": "§FILL: 2–3 Sätze Einschätzung, sachlich, keine Kaufempfehlung§",
-   "pro": "§FILL: Liste mit 1–3 kurzen Punkten dafür§",
-   "con": "§FILL: Liste mit 1–3 kurzen Punkten dagegen§",
-   "news": "§FILL: Liste der news-ids, die diese Aktie betreffen§",
-   "_fakten": {
-    "trend": "down",
-    "vierWochen": -17.5,
-    "dreiMonate": -16.7,
-    "schwankung": 39,
-    "heute": 2.78
-   }
-  },
-  {
-   "s": "MSFT",
-   "n": "Microsoft",
-   "closes": [
-    530.61,
-    535.93,
-    555.8,
-    520.99,
-    507.12,
-    521.91,
-    530.14,
-    531.01,
-    531.33,
-    532.6,
-    524.51,
-    521.08,
-    532.95,
-    531.87,
-    533.52,
-    529.05,
-    539.44,
-    533.69,
-    543.45,
-    541.15,
-    535.07,
-    522.61,
-    529.76,
-    529.3,
-    525.18,
-    517.53,
-    512.8,
-    512.9,
-    508.96,
-    509.22,
-    516.17,
-    497.93,
-    500.59,
-    498,
-    501.61,
-    493.78,
-    497.75,
-    490.3,
-    497.12,
-    505.41,
-    495.63,
-    492.44,
-    491.65,
-    493.95,
-    499.7,
-    510.12,
-    496.82,
-    501.02,
-    507.29,
-    513.53,
-    505.06,
-    496.37,
-    491.71,
-    487.31,
-    483.24,
-    481.15,
-    484.31,
-    481.63,
-    480.35,
-    495.4,
-    496.88,
-    492.43,
-    503.81,
-    506.06,
-    499.99
+   "cat": "Weltaktien breit",
+   "h": "lang",
+   "bias": 0,
+   "why": "Der weltweite Aktien-ETF hat mit dem US-Markt nachgegeben, ist aber breit gestreut. Asiatische Börsen zeigen sich zu Wochenbeginn stabil.",
+   "pro": [
+    "Breite Streuung über viele Länder",
+    "Entspannung bei Öl und Nahost"
    ],
-   "cat": "Software / Cloud",
-   "h": "§FILL: \"kurz\" oder \"lang\"§",
-   "bias": "§FILL: Zahl −3 bis +3: Wirkung der heutigen Nachrichten auf den Kurs in %§",
-   "why": "§FILL: 2–3 Sätze Einschätzung, sachlich, keine Kaufempfehlung§",
-   "pro": "§FILL: Liste mit 1–3 kurzen Punkten dafür§",
-   "con": "§FILL: Liste mit 1–3 kurzen Punkten dagegen§",
-   "news": "§FILL: Liste der news-ids, die diese Aktie betreffen§",
-   "_fakten": {
-    "trend": "flat",
-    "vierWochen": -1.9,
-    "dreiMonate": 6.1,
-    "schwankung": 26,
-    "heute": -0.99
-   }
-  },
-  {
-   "s": "AAPL",
-   "n": "Apple",
-   "closes": [
-    342.37,
-    344.17,
-    349.51,
-    331.9,
-    338.32,
-    344.63,
-    348.91,
-    343.83,
-    347.1,
-    343.91,
-    347.725,
-    348.22,
-    343.99,
-    339.5,
-    342.94,
-    343.46,
-    342,
-    342.96,
-    341.27,
-    340.97,
-    336.64,
-    340.42,
-    336.67,
-    333.63,
-    332.89,
-    333.69,
-    330.32,
-    333.02,
-    329.4,
-    338.4,
-    341.07,
-    335.92,
-    337.02,
-    339.75,
-    338.98,
-    336.13,
-    337,
-    332.41,
-    331.34,
-    333.08,
-    332.27,
-    326.57,
-    315.34,
-    316.22,
-    319.97,
-    328.21,
-    324.96,
-    325.13,
-    316.85,
-    319.7,
-    314.58,
-    313.45,
-    309.9,
-    310.34,
-    309.35,
-    311.3,
-    316.83,
-    310.03,
-    305.59,
-    305.93,
-    305.26,
-    302.25,
-    304.91,
-    308.26,
-    313.33
+   "con": [
+    "Hoher US-Anteil, daher von US-Politik abhängig",
+    "Leichter Abwärtstrend"
    ],
-   "cat": "Geräte / Dienste",
-   "h": "§FILL: \"kurz\" oder \"lang\"§",
-   "bias": "§FILL: Zahl −3 bis +3: Wirkung der heutigen Nachrichten auf den Kurs in %§",
-   "why": "§FILL: 2–3 Sätze Einschätzung, sachlich, keine Kaufempfehlung§",
-   "pro": "§FILL: Liste mit 1–3 kurzen Punkten dafür§",
-   "con": "§FILL: Liste mit 1–3 kurzen Punkten dagegen§",
-   "news": "§FILL: Liste der news-ids, die diese Aktie betreffen§",
-   "_fakten": {
-    "trend": "flat",
-    "vierWochen": 0.4,
-    "dreiMonate": 9.3,
-    "schwankung": 22,
-    "heute": -0.52
-   }
+   "news": [
+    "n143639496",
+    "n8734234"
+   ]
   },
   {
    "s": "SAP",
@@ -391,358 +371,671 @@
     206.16
    ],
    "cat": "Software",
-   "h": "§FILL: \"kurz\" oder \"lang\"§",
-   "bias": "§FILL: Zahl −3 bis +3: Wirkung der heutigen Nachrichten auf den Kurs in %§",
-   "why": "§FILL: 2–3 Sätze Einschätzung, sachlich, keine Kaufempfehlung§",
-   "pro": "§FILL: Liste mit 1–3 kurzen Punkten dafür§",
-   "con": "§FILL: Liste mit 1–3 kurzen Punkten dagegen§",
-   "news": "§FILL: Liste der news-ids, die diese Aktie betreffen§",
-   "_fakten": {
-    "trend": "up",
-    "vierWochen": 7.2,
-    "dreiMonate": 13.2,
-    "schwankung": 28,
-    "heute": -4.14
-   }
+   "h": "lang",
+   "bias": 0,
+   "why": "SAP hat im letzten Monat zugelegt, gab zuletzt aber über 4 % nach. Zu SAP selbst liegen heute keine neuen Meldungen vor; die Stimmung bei Software- und Cloudwerten ist gedämpft.",
+   "pro": [
+    "Aufwärtstrend auf Sicht von vier Wochen",
+    "Kein unternehmensspezifischer Negativauslöser bekannt"
+   ],
+   "con": [
+    "Deutlicher Tagesverlust zuletzt",
+    "Schwache Stimmung im Cloud-Sektor"
+   ],
+   "news": []
   },
   {
-   "s": "AMZN",
-   "n": "Amazon",
+   "s": "SIE.DE",
+   "n": "Siemens",
    "closes": [
-    259.3,
-    260.21,
-    266.03,
-    250.69,
-    245.63,
-    240.35,
-    243.79,
-    254.6,
-    253.1,
-    249.09,
-    248,
-    250.38,
-    262.37,
-    262.63,
-    262.45,
-    250,
-    254.76,
-    254.08,
-    258.58,
-    259.53,
-    262.43,
-    254.06,
-    259.92,
-    256.29,
-    251.4,
-    251.52,
-    248.23,
-    249.15,
-    246.67,
-    246.15,
-    249.67,
-    249.38,
-    249.27,
-    254.98,
-    258.45,
-    253.71,
-    251.19,
-    245.96,
-    248.42,
-    253.54,
-    256.78,
-    251.89,
-    252.4,
-    256.97,
-    258.51,
-    258.9,
-    254.98,
-    254.92,
-    259.77,
-    266.43,
-    256.26,
-    260.28,
-    261.06,
-    262.07,
-    258.63,
-    260.11,
-    265.84,
-    259.45,
-    261.31,
-    262.65,
-    265.13,
-    267.28,
-    272.27,
-    278.09,
-    274.48
+    265.6499938964844,
+    263.6499938964844,
+    273.25,
+    275.6499938964844,
+    269.75,
+    270.3500061035156,
+    265.6499938964844,
+    273.75,
+    270.04998779296875,
+    266.20001220703125,
+    261.3999938964844,
+    256.79998779296875,
+    255.6999969482422,
+    266.75,
+    260.25,
+    266.20001220703125,
+    270.6499938964844,
+    270.6499938964844,
+    275.04998779296875,
+    274.5,
+    275.75,
+    272.1000061035156,
+    264.25,
+    271.20001220703125,
+    279,
+    275,
+    276.1000061035156,
+    271.8999938964844,
+    275.5,
+    282,
+    278.45001220703125,
+    278.29998779296875,
+    274.79998779296875,
+    273.95001220703125,
+    273.8500061035156,
+    273.5,
+    264,
+    266.6000061035156,
+    260.5,
+    258.79998779296875,
+    261.79998779296875,
+    264.6499938964844,
+    258.1000061035156,
+    264.3999938964844,
+    272.5,
+    270.3999938964844,
+    272.6499938964844,
+    270.6000061035156,
+    273.79998779296875,
+    277.8500061035156,
+    285.6000061035156,
+    289.8500061035156,
+    286.95001220703125,
+    288.1000061035156,
+    285.54998779296875,
+    280.6000061035156,
+    280.3500061035156,
+    276,
+    276.6499938964844,
+    275.79998779296875,
+    282.29998779296875,
+    284,
+    284.1000061035156,
+    281.95001220703125,
+    280.25
    ],
-   "cat": "Handel / Cloud",
+   "cur": "EUR",
+   "cat": "§FILL: Branche in 1–3 Wörtern§",
    "h": "§FILL: \"kurz\" oder \"lang\"§",
    "bias": "§FILL: Zahl −3 bis +3: Wirkung der heutigen Nachrichten auf den Kurs in %§",
-   "why": "§FILL: 2–3 Sätze Einschätzung, sachlich, keine Kaufempfehlung§",
+   "why": "§FILL: 2–3 Sätze zur aktuellen Lage, sachlich§",
+   "ausblick": "§FILL: 2–3 Sätze: wie es in den nächsten Wochen bis Monaten am wahrscheinlichsten weitergeht und warum (Treiber, anstehende Termine, was _fakten.prognose sagt). Ehrlich mit der Unsicherheit§",
+   "richtung": "§FILL: \"steigend\", \"seitwärts\" oder \"fallend\": die wahrscheinlichste Richtung im Zeitraum horizont§",
+   "zuversicht": "§FILL: \"niedrig\", \"mittel\" oder \"hoch\": wie sicher diese Richtung ist (bei starken Schwankungen oder widersprüchlichen Meldungen eher niedrig)§",
+   "horizont": "§FILL: Zeitraum, für den der Ausblick gilt, z. B. \"4–8 Wochen\" oder \"6–12 Monate\"§",
+   "halten": "§FILL: 1–2 Sätze Abwägung: Was spricht dafür, investiert zu bleiben, und für welchen Zeitraum passt dieser Wert eher (kurz, mittel, lang), was dagegen. Wenn _fakten.depot vorhanden ist, darauf eingehen. Keine Anweisung zum Kaufen oder Verkaufen, sondern Gründe zum Abwägen§",
+   "signale": "§FILL: Liste mit 2–3 kurzen Punkten: woran man merkt, dass sich das Bild ändert (z. B. Kurs unter einer Marke aus _fakten.prognose, ein Termin, eine Meldungslage)§",
    "pro": "§FILL: Liste mit 1–3 kurzen Punkten dafür§",
    "con": "§FILL: Liste mit 1–3 kurzen Punkten dagegen§",
    "news": "§FILL: Liste der news-ids, die diese Aktie betreffen§",
+   "warn": "§FILL: Zahl 0–3: Gefahr aus der Nachrichtenlage (0 = nichts Besonderes, 1 = leicht negativ, 2 = deutlich negativ, 3 = ernst, z. B. Gewinnwarnung, Klage, angekündigte Kürzungen)§",
+   "warnGrund": "§FILL: 1 kurzer Satz zum Warn-Grund oder leerer Text§",
+   "quellen": "§FILL: Liste {t,u} der Meldungen aus _rohnews, auf die sich why/pro/con/warn stützen (Titel und Link übernehmen). Leere Liste, wenn nur Kursdaten genutzt wurden§",
    "_fakten": {
+    "waehrung": "EUR",
+    "region": "Europa",
     "trend": "flat",
-    "vierWochen": -0.1,
-    "dreiMonate": -5.5,
-    "schwankung": 30,
-    "heute": -0.35
+    "vierWochen": -3.2,
+    "dreiMonate": -5.2,
+    "schwankung": 27,
+    "heute": 0.76,
+    "prognose": {
+     "tage": 63,
+     "von": 226.13,
+     "mitte": 258.85,
+     "bis": 296.31
+    },
+    "anlegerTyp": "ausgewogen",
+    "depot": {
+     "kaufkurs": 263.65,
+     "seitKaufProzent": 0.8,
+     "seit": ""
+    }
    }
   },
   {
-   "s": "XLV",
-   "n": "Gesundheit-ETF (Health Care Select)",
+   "s": "EXS1.DE",
+   "n": "iShares Core DAX ETF",
    "closes": [
-    184.8,
-    184.91,
-    189.66,
-    184.02,
-    184.6,
-    184.87,
-    184.04,
-    179.72,
-    179.18,
-    179.28,
-    179.28,
-    181.3,
-    178.94,
-    179.82,
-    175.65,
-    176.71,
-    177.19,
-    173.96,
-    169.66,
-    171.99,
-    170.81,
-    168.16,
-    168.81,
-    167.09,
-    167.37,
-    166.18,
-    166.2,
-    168.42,
-    170.73,
-    171.26,
-    170.7,
-    169.87,
-    168.8,
-    169.89,
-    169.01,
-    168.39,
-    168.81,
-    167.77,
-    167.66,
-    167.75,
-    165.36,
-    165.66,
-    166.58,
-    167.13,
-    171.45,
-    173.26,
-    172.95,
-    171.67,
-    170.54,
-    171.16,
-    171.58,
-    173.54,
-    175.29,
-    174.7,
-    174.62,
-    172.39,
-    175.68,
-    169.73,
-    167.05,
-    167.37,
-    168.38,
-    168.44,
-    168.01,
-    168.44,
-    165.68
+    214.39999389648438,
+    212.60000610351562,
+    217.5,
+    218.0500030517578,
+    213.14999389648438,
+    214.10000610351562,
+    212.6999969482422,
+    214.64999389648438,
+    211.75,
+    210.85000610351562,
+    209.39999389648438,
+    207.4499969482422,
+    209.14999389648438,
+    211.5500030517578,
+    208.60000610351562,
+    208.64999389648438,
+    211.1999969482422,
+    209.14999389648438,
+    208.60000610351562,
+    208.14999389648438,
+    208.39999389648438,
+    206.8000030517578,
+    204.4499969482422,
+    206.9499969482422,
+    209.8000030517578,
+    208.10000610351562,
+    208.0500030517578,
+    205.4499969482422,
+    207.64999389648438,
+    209.25,
+    209.1999969482422,
+    209.5,
+    208.14999389648438,
+    209.5500030517578,
+    210.85000610351562,
+    210.85000610351562,
+    208.5500030517578,
+    212.0500030517578,
+    210.5500030517578,
+    209.39999389648438,
+    209.6999969482422,
+    210.8000030517578,
+    209.10000610351562,
+    210.85000610351562,
+    214.3000030517578,
+    214.35000610351562,
+    214.6999969482422,
+    214.39999389648438,
+    212.9499969482422,
+    214,
+    216.4499969482422,
+    218.9499969482422,
+    217.25,
+    216.6999969482422,
+    216.64999389648438,
+    215.1999969482422,
+    215.5,
+    214.10000610351562,
+    215.10000610351562,
+    215.4499969482422,
+    217.10000610351562,
+    217.8000030517578,
+    216.85000610351562,
+    217.1999969482422,
+    217.5500030517578
    ],
-   "cat": "ETF / Gesundheit",
+   "cur": "EUR",
+   "cat": "§FILL: Branche in 1–3 Wörtern§",
    "h": "§FILL: \"kurz\" oder \"lang\"§",
    "bias": "§FILL: Zahl −3 bis +3: Wirkung der heutigen Nachrichten auf den Kurs in %§",
-   "why": "§FILL: 2–3 Sätze Einschätzung, sachlich, keine Kaufempfehlung§",
+   "why": "§FILL: 2–3 Sätze zur aktuellen Lage, sachlich§",
+   "ausblick": "§FILL: 2–3 Sätze: wie es in den nächsten Wochen bis Monaten am wahrscheinlichsten weitergeht und warum (Treiber, anstehende Termine, was _fakten.prognose sagt). Ehrlich mit der Unsicherheit§",
+   "richtung": "§FILL: \"steigend\", \"seitwärts\" oder \"fallend\": die wahrscheinlichste Richtung im Zeitraum horizont§",
+   "zuversicht": "§FILL: \"niedrig\", \"mittel\" oder \"hoch\": wie sicher diese Richtung ist (bei starken Schwankungen oder widersprüchlichen Meldungen eher niedrig)§",
+   "horizont": "§FILL: Zeitraum, für den der Ausblick gilt, z. B. \"4–8 Wochen\" oder \"6–12 Monate\"§",
+   "halten": "§FILL: 1–2 Sätze Abwägung: Was spricht dafür, investiert zu bleiben, und für welchen Zeitraum passt dieser Wert eher (kurz, mittel, lang), was dagegen. Wenn _fakten.depot vorhanden ist, darauf eingehen. Keine Anweisung zum Kaufen oder Verkaufen, sondern Gründe zum Abwägen§",
+   "signale": "§FILL: Liste mit 2–3 kurzen Punkten: woran man merkt, dass sich das Bild ändert (z. B. Kurs unter einer Marke aus _fakten.prognose, ein Termin, eine Meldungslage)§",
    "pro": "§FILL: Liste mit 1–3 kurzen Punkten dafür§",
    "con": "§FILL: Liste mit 1–3 kurzen Punkten dagegen§",
    "news": "§FILL: Liste der news-ids, die diese Aktie betreffen§",
+   "warn": "§FILL: Zahl 0–3: Gefahr aus der Nachrichtenlage (0 = nichts Besonderes, 1 = leicht negativ, 2 = deutlich negativ, 3 = ernst, z. B. Gewinnwarnung, Klage, angekündigte Kürzungen)§",
+   "warnGrund": "§FILL: 1 kurzer Satz zum Warn-Grund oder leerer Text§",
+   "quellen": "§FILL: Liste {t,u} der Meldungen aus _rohnews, auf die sich why/pro/con/warn stützen (Titel und Link übernehmen). Leere Liste, wenn nur Kursdaten genutzt wurden§",
    "_fakten": {
+    "waehrung": "EUR",
+    "region": "Europa",
     "trend": "up",
-    "vierWochen": 7.4,
-    "dreiMonate": 11.5,
-    "schwankung": 18,
-    "heute": -0.06
+    "vierWochen": 3,
+    "dreiMonate": -1.4,
+    "schwankung": 14,
+    "heute": 0.85,
+    "prognose": {
+     "tage": 63,
+     "von": 198.84,
+     "mitte": 212.89,
+     "bis": 227.93
+    },
+    "anlegerTyp": "ausgewogen",
+    "depot": {
+     "kaufkurs": 212.6,
+     "seitKaufProzent": 0.8,
+     "seit": ""
+    }
    }
   },
   {
-   "s": "SPY",
-   "n": "S&P 500 ETF",
+   "s": "EUNK.DE",
+   "n": "iShares Core MSCI Europe ETF",
    "closes": [
-    735.29,
-    733,
-    766.81,
-    754.35,
-    752.1,
-    755.72,
-    769.36,
-    772.31,
-    769.66,
-    765.37,
-    759.97,
-    763.96,
-    773.09,
-    769.05,
-    766.48,
-    763.25,
-    771.79,
-    769.6,
-    778.01,
-    778.1,
-    778.57,
-    773.93,
-    777.22,
-    779.09,
-    774.83,
-    769.64,
-    763.99,
-    762.63,
-    764.2,
-    765.61,
-    771.35,
-    767.18,
-    767.81,
-    773.38,
-    773.5,
-    761.69,
-    762.6,
-    754.05,
-    757.39,
-    760.88,
-    764.29,
-    757.83,
-    762.4,
-    765.96,
-    770.19,
-    773.17,
-    765.16,
-    761.78,
-    767.05,
-    769.35,
-    771.1,
-    766.08,
-    765.91,
-    763.47,
-    765.72,
-    762.6,
-    769.06,
-    767.45,
-    772.67,
-    776.34,
-    777.88,
-    772.49,
-    770.56,
-    773.03,
-    773.26
+    106.41999816894531,
+    105.5999984741211,
+    106.73999786376953,
+    107.18000030517578,
+    105.0999984741211,
+    105.77999877929688,
+    105.27999877929688,
+    105.68000030517578,
+    104.80000305175781,
+    104.69999694824219,
+    104.16000366210938,
+    103.5,
+    103.80000305175781,
+    104.81999969482422,
+    103.87999725341797,
+    103.95999908447266,
+    104.81999969482422,
+    104.0999984741211,
+    103.68000030517578,
+    103.19999694824219,
+    103.33999633789062,
+    102.66000366210938,
+    101.62000274658203,
+    102.5199966430664,
+    103.41999816894531,
+    102.94000244140625,
+    102.73999786376953,
+    101.94000244140625,
+    103.22000122070312,
+    103.68000030517578,
+    103.80000305175781,
+    103.86000061035156,
+    103.5199966430664,
+    103.95999908447266,
+    104.31999969482422,
+    104.22000122070312,
+    103.16000366210938,
+    104.36000061035156,
+    103.5199966430664,
+    103.0199966430664,
+    103.4800033569336,
+    103.83999633789062,
+    103.33999633789062,
+    104.04000091552734,
+    105.5199966430664,
+    105.62000274658203,
+    105.58000183105469,
+    105.5,
+    104.95999908447266,
+    105.18000030517578,
+    105.55999755859375,
+    106.41999816894531,
+    105.91999816894531,
+    106.5999984741211,
+    106.72000122070312,
+    106.27999877929688,
+    106.31999969482422,
+    105.66000366210938,
+    105.80000305175781,
+    105.94000244140625,
+    106.69999694824219,
+    106.83999633789062,
+    107.08000183105469,
+    107.0199966430664,
+    107.16000366210938
    ],
+   "cur": "EUR",
    "cat": "§FILL: Branche in 1–3 Wörtern§",
    "h": "§FILL: \"kurz\" oder \"lang\"§",
    "bias": "§FILL: Zahl −3 bis +3: Wirkung der heutigen Nachrichten auf den Kurs in %§",
-   "why": "§FILL: 2–3 Sätze Einschätzung, sachlich, keine Kaufempfehlung§",
+   "why": "§FILL: 2–3 Sätze zur aktuellen Lage, sachlich§",
+   "ausblick": "§FILL: 2–3 Sätze: wie es in den nächsten Wochen bis Monaten am wahrscheinlichsten weitergeht und warum (Treiber, anstehende Termine, was _fakten.prognose sagt). Ehrlich mit der Unsicherheit§",
+   "richtung": "§FILL: \"steigend\", \"seitwärts\" oder \"fallend\": die wahrscheinlichste Richtung im Zeitraum horizont§",
+   "zuversicht": "§FILL: \"niedrig\", \"mittel\" oder \"hoch\": wie sicher diese Richtung ist (bei starken Schwankungen oder widersprüchlichen Meldungen eher niedrig)§",
+   "horizont": "§FILL: Zeitraum, für den der Ausblick gilt, z. B. \"4–8 Wochen\" oder \"6–12 Monate\"§",
+   "halten": "§FILL: 1–2 Sätze Abwägung: Was spricht dafür, investiert zu bleiben, und für welchen Zeitraum passt dieser Wert eher (kurz, mittel, lang), was dagegen. Wenn _fakten.depot vorhanden ist, darauf eingehen. Keine Anweisung zum Kaufen oder Verkaufen, sondern Gründe zum Abwägen§",
+   "signale": "§FILL: Liste mit 2–3 kurzen Punkten: woran man merkt, dass sich das Bild ändert (z. B. Kurs unter einer Marke aus _fakten.prognose, ein Termin, eine Meldungslage)§",
    "pro": "§FILL: Liste mit 1–3 kurzen Punkten dafür§",
    "con": "§FILL: Liste mit 1–3 kurzen Punkten dagegen§",
    "news": "§FILL: Liste der news-ids, die diese Aktie betreffen§",
+   "warn": "§FILL: Zahl 0–3: Gefahr aus der Nachrichtenlage (0 = nichts Besonderes, 1 = leicht negativ, 2 = deutlich negativ, 3 = ernst, z. B. Gewinnwarnung, Klage, angekündigte Kürzungen)§",
+   "warnGrund": "§FILL: 1 kurzer Satz zum Warn-Grund oder leerer Text§",
+   "quellen": "§FILL: Liste {t,u} der Meldungen aus _rohnews, auf die sich why/pro/con/warn stützen (Titel und Link übernehmen). Leere Liste, wenn nur Kursdaten genutzt wurden§",
    "_fakten": {
-    "trend": "down",
-    "vierWochen": -5.5,
-    "dreiMonate": -4.9,
-    "schwankung": 13,
-    "heute": 0.31
+    "waehrung": "EUR",
+    "region": "Europa",
+    "trend": "up",
+    "vierWochen": 3.1,
+    "dreiMonate": -0.7,
+    "schwankung": 10,
+    "heute": 0.78,
+    "prognose": {
+     "tage": 63,
+     "von": 100.81,
+     "mitte": 106.06,
+     "bis": 111.59
+    },
+    "anlegerTyp": "ausgewogen",
+    "depot": {
+     "kaufkurs": 106.06,
+     "seitKaufProzent": 0.3,
+     "seit": "2026-11-09"
+    }
    }
   },
   {
-   "s": "URTH",
-   "n": "MSCI World ETF",
+   "s": "EUNH.DE",
+   "n": "iShares Core € Govt Bond ETF",
    "closes": [
-    199.67,
-    199.63,
-    207.87,
-    204.28,
-    204.15,
-    204.64,
-    207.97,
-    208.07,
-    207.59,
-    206.22,
-    205.15,
-    206.17,
-    208.49,
-    207.4,
-    206.65,
-    206.34,
-    208.11,
-    207.26,
-    209.16,
-    208.93,
-    209.14,
-    207.87,
-    208.67,
-    209.73,
-    208.55,
-    207.53,
-    205.84,
-    206.23,
-    206.71,
-    207.18,
-    208.73,
-    207.65,
-    207.84,
-    210.02,
-    209.7,
-    206.77,
-    207.21,
-    204.71,
-    205.63,
-    206.8,
-    207.69,
-    205.87,
-    207.45,
-    208.63,
-    209.82,
-    210.34,
-    208,
-    207.03,
-    208.82,
-    209.43,
-    209.93,
-    208.96,
-    209.33,
-    208.48,
-    209.07,
-    207.83,
-    209.22,
-    208.74,
-    210.43,
-    211.21,
-    211.51,
-    210.38,
-    209.69,
-    210.11,
-    210.47
+    106.12999725341797,
+    106.18000030517578,
+    106.29499816894531,
+    106.02999877929688,
+    105.4800033569336,
+    105.57499694824219,
+    105.34500122070312,
+    105.2750015258789,
+    105.04499816894531,
+    105.1449966430664,
+    105.12000274658203,
+    104.80500030517578,
+    104.65499877929688,
+    104.6050033569336,
+    104.91999816894531,
+    104.65499877929688,
+    105.12999725341797,
+    105.16999816894531,
+    104.625,
+    104.76000213623047,
+    104.54499816894531,
+    104.54000091552734,
+    104.4800033569336,
+    104.51000213623047,
+    104.83499908447266,
+    104.47000122070312,
+    104.59500122070312,
+    103.98500061035156,
+    104.19000244140625,
+    104.09500122070312,
+    104.1050033569336,
+    104.44999694824219,
+    104.43499755859375,
+    104.69000244140625,
+    105.37999725341797,
+    105.45999908447266,
+    104.94499969482422,
+    105.46499633789062,
+    105.19999694824219,
+    104.9749984741211,
+    105.12000274658203,
+    105.26499938964844,
+    105.23500061035156,
+    105.78500366210938,
+    106.33499908447266,
+    106.1449966430664,
+    106.47000122070312,
+    106.42500305175781,
+    106.1050033569336,
+    106.4000015258789,
+    106.44499969482422,
+    106.81500244140625,
+    106.94499969482422,
+    107.0999984741211,
+    107.26499938964844,
+    106.83999633789062,
+    106.81500244140625,
+    106.7750015258789,
+    106.7750015258789,
+    106.7249984741211,
+    107.05500030517578,
+    107.20999908447266,
+    107.7300033569336,
+    107.51499938964844,
+    107.45999908447266
    ],
+   "cur": "EUR",
    "cat": "§FILL: Branche in 1–3 Wörtern§",
    "h": "§FILL: \"kurz\" oder \"lang\"§",
    "bias": "§FILL: Zahl −3 bis +3: Wirkung der heutigen Nachrichten auf den Kurs in %§",
-   "why": "§FILL: 2–3 Sätze Einschätzung, sachlich, keine Kaufempfehlung§",
+   "why": "§FILL: 2–3 Sätze zur aktuellen Lage, sachlich§",
+   "ausblick": "§FILL: 2–3 Sätze: wie es in den nächsten Wochen bis Monaten am wahrscheinlichsten weitergeht und warum (Treiber, anstehende Termine, was _fakten.prognose sagt). Ehrlich mit der Unsicherheit§",
+   "richtung": "§FILL: \"steigend\", \"seitwärts\" oder \"fallend\": die wahrscheinlichste Richtung im Zeitraum horizont§",
+   "zuversicht": "§FILL: \"niedrig\", \"mittel\" oder \"hoch\": wie sicher diese Richtung ist (bei starken Schwankungen oder widersprüchlichen Meldungen eher niedrig)§",
+   "horizont": "§FILL: Zeitraum, für den der Ausblick gilt, z. B. \"4–8 Wochen\" oder \"6–12 Monate\"§",
+   "halten": "§FILL: 1–2 Sätze Abwägung: Was spricht dafür, investiert zu bleiben, und für welchen Zeitraum passt dieser Wert eher (kurz, mittel, lang), was dagegen. Wenn _fakten.depot vorhanden ist, darauf eingehen. Keine Anweisung zum Kaufen oder Verkaufen, sondern Gründe zum Abwägen§",
+   "signale": "§FILL: Liste mit 2–3 kurzen Punkten: woran man merkt, dass sich das Bild ändert (z. B. Kurs unter einer Marke aus _fakten.prognose, ein Termin, eine Meldungslage)§",
    "pro": "§FILL: Liste mit 1–3 kurzen Punkten dafür§",
    "con": "§FILL: Liste mit 1–3 kurzen Punkten dagegen§",
    "news": "§FILL: Liste der news-ids, die diese Aktie betreffen§",
+   "warn": "§FILL: Zahl 0–3: Gefahr aus der Nachrichtenlage (0 = nichts Besonderes, 1 = leicht negativ, 2 = deutlich negativ, 3 = ernst, z. B. Gewinnwarnung, Klage, angekündigte Kürzungen)§",
+   "warnGrund": "§FILL: 1 kurzer Satz zum Warn-Grund oder leerer Text§",
+   "quellen": "§FILL: Liste {t,u} der Meldungen aus _rohnews, auf die sich why/pro/con/warn stützen (Titel und Link übernehmen). Leere Liste, wenn nur Kursdaten genutzt wurden§",
    "_fakten": {
+    "waehrung": "EUR",
+    "region": "Europa",
+    "trend": "up",
+    "vierWochen": 1.3,
+    "dreiMonate": -1.2,
+    "schwankung": 4,
+    "heute": -0.05,
+    "prognose": {
+     "tage": 63,
+     "von": 103.27,
+     "mitte": 105.49,
+     "bis": 107.76
+    },
+    "anlegerTyp": "ausgewogen",
+    "depot": {
+     "kaufkurs": 106.25,
+     "seitKaufProzent": -0.1,
+     "seit": "2026-11-09"
+    }
+   }
+  },
+  {
+   "s": "XDEW.DE",
+   "n": "Xtrackers S&P 500 Equal Weight ETF",
+   "closes": [
+    108.77999877929688,
+    108.66000366210938,
+    109.18000030517578,
+    110.66000366210938,
+    109.76000213623047,
+    110.12000274658203,
+    109.4000015258789,
+    109.73999786376953,
+    108.9000015258789,
+    108.77999877929688,
+    108.45999908447266,
+    108.27999877929688,
+    108.0199966430664,
+    107.63999938964844,
+    107.13999938964844,
+    106.54000091552734,
+    106.86000061035156,
+    106.83999633789062,
+    106.23999786376953,
+    106.0199966430664,
+    106.66000366210938,
+    106.12000274658203,
+    104.73999786376953,
+    105,
+    105.4800033569336,
+    104.83999633789062,
+    104.04000091552734,
+    103.18000030517578,
+    102.95999908447266,
+    102.9000015258789,
+    102.73999786376953,
+    103.13999938964844,
+    103.22000122070312,
+    104,
+    103.73999786376953,
+    103.54000091552734,
+    103.05999755859375,
+    103.5,
+    103.27999877929688,
+    103.18000030517578,
+    103.45999908447266,
+    102.94000244140625,
+    102.41999816894531,
+    102.94000244140625,
+    104.05999755859375,
+    104.45999908447266,
+    104.9800033569336,
+    105.22000122070312,
+    105.04000091552734,
+    104.80000305175781,
+    105.13999938964844,
+    106.22000122070312,
+    106.0999984741211,
+    106.05999755859375,
+    105.76000213623047,
+    105.69999694824219,
+    105.77999877929688,
+    105.66000366210938,
+    106.23999786376953,
+    106.12000274658203,
+    106.30000305175781,
+    107.0999984741211,
+    107.05999755859375,
+    106.4000015258789,
+    106.37999725341797
+   ],
+   "cur": "EUR",
+   "cat": "§FILL: Branche in 1–3 Wörtern§",
+   "h": "§FILL: \"kurz\" oder \"lang\"§",
+   "bias": "§FILL: Zahl −3 bis +3: Wirkung der heutigen Nachrichten auf den Kurs in %§",
+   "why": "§FILL: 2–3 Sätze zur aktuellen Lage, sachlich§",
+   "ausblick": "§FILL: 2–3 Sätze: wie es in den nächsten Wochen bis Monaten am wahrscheinlichsten weitergeht und warum (Treiber, anstehende Termine, was _fakten.prognose sagt). Ehrlich mit der Unsicherheit§",
+   "richtung": "§FILL: \"steigend\", \"seitwärts\" oder \"fallend\": die wahrscheinlichste Richtung im Zeitraum horizont§",
+   "zuversicht": "§FILL: \"niedrig\", \"mittel\" oder \"hoch\": wie sicher diese Richtung ist (bei starken Schwankungen oder widersprüchlichen Meldungen eher niedrig)§",
+   "horizont": "§FILL: Zeitraum, für den der Ausblick gilt, z. B. \"4–8 Wochen\" oder \"6–12 Monate\"§",
+   "halten": "§FILL: 1–2 Sätze Abwägung: Was spricht dafür, investiert zu bleiben, und für welchen Zeitraum passt dieser Wert eher (kurz, mittel, lang), was dagegen. Wenn _fakten.depot vorhanden ist, darauf eingehen. Keine Anweisung zum Kaufen oder Verkaufen, sondern Gründe zum Abwägen§",
+   "signale": "§FILL: Liste mit 2–3 kurzen Punkten: woran man merkt, dass sich das Bild ändert (z. B. Kurs unter einer Marke aus _fakten.prognose, ein Termin, eine Meldungslage)§",
+   "pro": "§FILL: Liste mit 1–3 kurzen Punkten dafür§",
+   "con": "§FILL: Liste mit 1–3 kurzen Punkten dagegen§",
+   "news": "§FILL: Liste der news-ids, die diese Aktie betreffen§",
+   "warn": "§FILL: Zahl 0–3: Gefahr aus der Nachrichtenlage (0 = nichts Besonderes, 1 = leicht negativ, 2 = deutlich negativ, 3 = ernst, z. B. Gewinnwarnung, Klage, angekündigte Kürzungen)§",
+   "warnGrund": "§FILL: 1 kurzer Satz zum Warn-Grund oder leerer Text§",
+   "quellen": "§FILL: Liste {t,u} der Meldungen aus _rohnews, auf die sich why/pro/con/warn stützen (Titel und Link übernehmen). Leere Liste, wenn nur Kursdaten genutzt wurden§",
+   "_fakten": {
+    "waehrung": "EUR",
+    "region": "Europa",
+    "trend": "up",
+    "vierWochen": 2.6,
+    "dreiMonate": 2.3,
+    "schwankung": 8,
+    "heute": 0.11,
+    "prognose": {
+     "tage": 63,
+     "von": 105.74,
+     "mitte": 109.96,
+     "bis": 114.36
+    },
+    "anlegerTyp": "ausgewogen",
+    "depot": {
+     "kaufkurs": 108.78,
+     "seitKaufProzent": 0,
+     "seit": "2026-11-09"
+    }
+   }
+  },
+  {
+   "s": "4GLD.DE",
+   "n": "Xetra-Gold",
+   "closes": [
+    117.69999694824219,
+    117.0999984741211,
+    117.91999816894531,
+    116,
+    112.9000015258789,
+    113.91999816894531,
+    112.37000274658203,
+    115.5999984741211,
+    116.58999633789062,
+    117.19000244140625,
+    115.55000305175781,
+    114.80999755859375,
+    116.37000274658203,
+    118.5999984741211,
+    118.30000305175781,
+    118.8499984741211,
+    119.43000030517578,
+    119.19000244140625,
+    118.20999908447266,
+    119.58000183105469,
+    120.0199966430664,
+    120.31999969482422,
+    118.16000366210938,
+    118.0999984741211,
+    118.9000015258789,
+    118.69000244140625,
+    118.3499984741211,
+    119.05000305175781,
+    117.76000213623047,
+    118,
+    116.62000274658203,
+    120.86000061035156,
+    120.19999694824219,
+    120.95999908447266,
+    121.79000091552734,
+    122.04000091552734,
+    122.16999816894531,
+    122.16000366210938,
+    121.20999908447266,
+    119.37000274658203,
+    119.58000183105469,
+    121.16000366210938,
+    120.87000274658203,
+    121.77999877929688,
+    121.75,
+    122.02999877929688,
+    122.87000274658203,
+    124.55999755859375,
+    121.26000213623047,
+    121.05999755859375,
+    122.68000030517578,
+    126.33000183105469,
+    126.91000366210938,
+    126.9000015258789,
+    128.1999969482422,
+    128.82000732421875,
+    126.87999725341797,
+    124.62000274658203,
+    123.69000244140625,
+    121.06999969482422,
+    122.79000091552734,
+    121.83000183105469,
+    121.66000366210938,
+    123.18000030517578,
+    122.01000213623047
+   ],
+   "cur": "EUR",
+   "cat": "§FILL: Branche in 1–3 Wörtern§",
+   "h": "§FILL: \"kurz\" oder \"lang\"§",
+   "bias": "§FILL: Zahl −3 bis +3: Wirkung der heutigen Nachrichten auf den Kurs in %§",
+   "why": "§FILL: 2–3 Sätze zur aktuellen Lage, sachlich§",
+   "ausblick": "§FILL: 2–3 Sätze: wie es in den nächsten Wochen bis Monaten am wahrscheinlichsten weitergeht und warum (Treiber, anstehende Termine, was _fakten.prognose sagt). Ehrlich mit der Unsicherheit§",
+   "richtung": "§FILL: \"steigend\", \"seitwärts\" oder \"fallend\": die wahrscheinlichste Richtung im Zeitraum horizont§",
+   "zuversicht": "§FILL: \"niedrig\", \"mittel\" oder \"hoch\": wie sicher diese Richtung ist (bei starken Schwankungen oder widersprüchlichen Meldungen eher niedrig)§",
+   "horizont": "§FILL: Zeitraum, für den der Ausblick gilt, z. B. \"4–8 Wochen\" oder \"6–12 Monate\"§",
+   "halten": "§FILL: 1–2 Sätze Abwägung: Was spricht dafür, investiert zu bleiben, und für welchen Zeitraum passt dieser Wert eher (kurz, mittel, lang), was dagegen. Wenn _fakten.depot vorhanden ist, darauf eingehen. Keine Anweisung zum Kaufen oder Verkaufen, sondern Gründe zum Abwägen§",
+   "signale": "§FILL: Liste mit 2–3 kurzen Punkten: woran man merkt, dass sich das Bild ändert (z. B. Kurs unter einer Marke aus _fakten.prognose, ein Termin, eine Meldungslage)§",
+   "pro": "§FILL: Liste mit 1–3 kurzen Punkten dafür§",
+   "con": "§FILL: Liste mit 1–3 kurzen Punkten dagegen§",
+   "news": "§FILL: Liste der news-ids, die diese Aktie betreffen§",
+   "warn": "§FILL: Zahl 0–3: Gefahr aus der Nachrichtenlage (0 = nichts Besonderes, 1 = leicht negativ, 2 = deutlich negativ, 3 = ernst, z. B. Gewinnwarnung, Klage, angekündigte Kürzungen)§",
+   "warnGrund": "§FILL: 1 kurzer Satz zum Warn-Grund oder leerer Text§",
+   "quellen": "§FILL: Liste {t,u} der Meldungen aus _rohnews, auf die sich why/pro/con/warn stützen (Titel und Link übernehmen). Leere Liste, wenn nur Kursdaten genutzt wurden§",
+   "_fakten": {
+    "waehrung": "EUR",
+    "region": "Europa",
     "trend": "down",
-    "vierWochen": -4.4,
-    "dreiMonate": -5.1,
-    "schwankung": 13,
-    "heute": 0.02
+    "vierWochen": -1.6,
+    "dreiMonate": -3.5,
+    "schwankung": 19,
+    "heute": 0.51,
+    "prognose": {
+     "tage": 63,
+     "von": 105.02,
+     "mitte": 115.67,
+     "bis": 127.39
+    },
+    "anlegerTyp": "ausgewogen",
+    "depot": {
+     "kaufkurs": 117.73,
+     "seitKaufProzent": 0,
+     "seit": "2026-11-09"
+    }
    }
   },
   {
@@ -815,181 +1108,519 @@
     330.88,
     328.58
    ],
+   "cat": "E-Autos",
+   "h": "kurz",
+   "bias": 0,
+   "why": "Tesla legte zuletzt kräftig zu, liegt aber unter dem Niveau von vor vier Wochen. Die Aktie schwankt stark; schwächere E-Auto-Märkte in den USA und China sind ein Gegenwind.",
+   "pro": [
+    "Starker Tagesgewinn zuletzt",
+    "Plus auf Sicht von drei Monaten"
+   ],
+   "con": [
+    "Sehr hohe Schwankung",
+    "Schwacher E-Auto-Absatz in USA und China"
+   ],
+   "news": [
+    "n143646539"
+   ]
+  },
+  {
+   "s": "AAPL",
+   "n": "Apple",
+   "closes": [
+    342.37,
+    344.17,
+    349.51,
+    331.9,
+    338.32,
+    344.63,
+    348.91,
+    343.83,
+    347.1,
+    343.91,
+    347.725,
+    348.22,
+    343.99,
+    339.5,
+    342.94,
+    343.46,
+    342,
+    342.96,
+    341.27,
+    340.97,
+    336.64,
+    340.42,
+    336.67,
+    333.63,
+    332.89,
+    333.69,
+    330.32,
+    333.02,
+    329.4,
+    338.4,
+    341.07,
+    335.92,
+    337.02,
+    339.75,
+    338.98,
+    336.13,
+    337,
+    332.41,
+    331.34,
+    333.08,
+    332.27,
+    326.57,
+    315.34,
+    316.22,
+    319.97,
+    328.21,
+    324.96,
+    325.13,
+    316.85,
+    319.7,
+    314.58,
+    313.45,
+    309.9,
+    310.34,
+    309.35,
+    311.3,
+    316.83,
+    310.03,
+    305.59,
+    305.93,
+    305.26,
+    302.25,
+    304.91,
+    308.26,
+    313.33
+   ],
+   "cat": "Geräte / Dienste",
+   "h": "lang",
+   "bias": 0,
+   "why": "Apple notiert seitwärts und gehört zu den Werten, die sich im Abverkauf stabil zeigten. Konkrete neue Unternehmensnachrichten gibt es heute nicht.",
+   "pro": [
+    "Stabil im schwachen Gesamtmarkt",
+    "Geringere Schwankung als KI-Werte"
+   ],
+   "con": [
+    "Kurs liegt unter dem Niveau von vor drei Monaten",
+    "Allgemeine Marktunsicherheit"
+   ],
+   "news": [
+    "n143643428"
+   ]
+  },
+  {
+   "s": "^VIX",
+   "n": "^VIX",
+   "closes": [
+    23.719999313354492,
+    25.639999389648438,
+    28.18000030517578,
+    16.610000610351562,
+    20.829999923706055,
+    21.149999618530273,
+    19.420000076293945,
+    17.200000762939453,
+    16.90999984741211,
+    17.520000457763672,
+    18.389999389648438,
+    19.450000762939453,
+    19.030000686645508,
+    16.68000030517578,
+    17.309999465942383,
+    18.440000534057617,
+    19.989999771118164,
+    16.459999084472656,
+    16.8700008392334,
+    15.270000457763672,
+    15.210000038146973,
+    14.84000015258789,
+    15.40999984741211,
+    15.079999923706055,
+    15.010000228881836,
+    15.520000457763672,
+    15.3100004196167,
+    16.389999389648438,
+    16.34000015258789,
+    16.040000915527344,
+    16.06999969482422,
+    14.869999885559082,
+    15.670000076293945,
+    15.180000305175781,
+    14.210000038146973,
+    14.869999885559082,
+    14.8100004196167,
+    15.4399995803833,
+    17.709999084472656,
+    17.200000762939453,
+    17.100000381469727,
+    15.84000015258789,
+    17.84000015258789,
+    16.459999084472656,
+    15.720000267028809,
+    15.300000190734863,
+    14.529999732971191,
+    14.319999694824219,
+    15.199999809265137,
+    16.34000015258789,
+    14.920000076293945,
+    14.430000305175781,
+    14.510000228881836,
+    15.210000038146973,
+    15.449999809265137,
+    15.850000381469727,
+    15.130000114440918,
+    16.010000228881836,
+    14.890000343322754,
+    15.84000015258789,
+    15.1899995803833,
+    14.25,
+    14.630000114440918,
+    14.550000190734863,
+    15.279999732971191
+   ],
+   "cur": "USD",
    "cat": "§FILL: Branche in 1–3 Wörtern§",
    "h": "§FILL: \"kurz\" oder \"lang\"§",
    "bias": "§FILL: Zahl −3 bis +3: Wirkung der heutigen Nachrichten auf den Kurs in %§",
-   "why": "§FILL: 2–3 Sätze Einschätzung, sachlich, keine Kaufempfehlung§",
+   "why": "§FILL: 2–3 Sätze zur aktuellen Lage, sachlich§",
+   "ausblick": "§FILL: 2–3 Sätze: wie es in den nächsten Wochen bis Monaten am wahrscheinlichsten weitergeht und warum (Treiber, anstehende Termine, was _fakten.prognose sagt). Ehrlich mit der Unsicherheit§",
+   "richtung": "§FILL: \"steigend\", \"seitwärts\" oder \"fallend\": die wahrscheinlichste Richtung im Zeitraum horizont§",
+   "zuversicht": "§FILL: \"niedrig\", \"mittel\" oder \"hoch\": wie sicher diese Richtung ist (bei starken Schwankungen oder widersprüchlichen Meldungen eher niedrig)§",
+   "horizont": "§FILL: Zeitraum, für den der Ausblick gilt, z. B. \"4–8 Wochen\" oder \"6–12 Monate\"§",
+   "halten": "§FILL: 1–2 Sätze Abwägung: Was spricht dafür, investiert zu bleiben, und für welchen Zeitraum passt dieser Wert eher (kurz, mittel, lang), was dagegen. Wenn _fakten.depot vorhanden ist, darauf eingehen. Keine Anweisung zum Kaufen oder Verkaufen, sondern Gründe zum Abwägen§",
+   "signale": "§FILL: Liste mit 2–3 kurzen Punkten: woran man merkt, dass sich das Bild ändert (z. B. Kurs unter einer Marke aus _fakten.prognose, ein Termin, eine Meldungslage)§",
    "pro": "§FILL: Liste mit 1–3 kurzen Punkten dafür§",
    "con": "§FILL: Liste mit 1–3 kurzen Punkten dagegen§",
    "news": "§FILL: Liste der news-ids, die diese Aktie betreffen§",
+   "warn": "§FILL: Zahl 0–3: Gefahr aus der Nachrichtenlage (0 = nichts Besonderes, 1 = leicht negativ, 2 = deutlich negativ, 3 = ernst, z. B. Gewinnwarnung, Klage, angekündigte Kürzungen)§",
+   "warnGrund": "§FILL: 1 kurzer Satz zum Warn-Grund oder leerer Text§",
+   "quellen": "§FILL: Liste {t,u} der Meldungen aus _rohnews, auf die sich why/pro/con/warn stützen (Titel und Link übernehmen). Leere Liste, wenn nur Kursdaten genutzt wurden§",
    "_fakten": {
+    "waehrung": "USD",
+    "region": "USA",
     "trend": "up",
-    "vierWochen": -5.2,
-    "dreiMonate": 9,
-    "schwankung": 46,
-    "heute": 4.23
+    "vierWochen": 55.3,
+    "dreiMonate": 55.2,
+    "schwankung": 149,
+    "heute": -7.49,
+    "prognose": {
+     "tage": 63,
+     "von": 13.93,
+     "mitte": 29.35,
+     "bis": 61.86
+    },
+    "anlegerTyp": "ausgewogen"
    }
   }
  ],
- "news": "§FILL: Liste der 4–8 wichtigsten Meldungen aus _rohnews im Format {id,imp(1-3),kind:[Text,\"down\"|\"up\"|\"warn\"|\"\"],cat,t,sum(1 Satz),body:[1-3 Absätze],back(\"Rückblick: …\" oder \"Wirkt jetzt: …\" oder \"Wirkt bald: …\"),stocks:[Kürzel],u,q}§",
- "_rohnews": [
+ "news": [
   {
-   "id": "n143646468",
-   "t": "Dow, S&P 500, Nasdaq Futures Rebound After Sharp AI Selloff Last Week: NVDA, AMD, VIR, SNDK In Focus",
-   "q": "Yahoo",
-   "u": "https://finnhub.io/api/news?id=e3e3a97d3bac28ab36d53664bdf62dd73cbdc5e9125de67bf6ce9c654de924f2",
-   "sym": [
+   "id": "n143646475",
+   "imp": 3,
+   "kind": [
+    "Untersuchung",
+    "warn"
+   ],
+   "cat": "Unternehmen",
+   "t": "Nvidia-Aufsichtsrat prüft Fall um CEO Huang",
+   "sum": "Der Nvidia-Verwaltungsrat hat laut Bericht eine Untersuchung zu einer persönlichen Beziehung von CEO Jensen Huang eingeleitet, die mit Spionageverdacht in Verbindung gebracht wird.",
+   "body": [
+    "Berichten zufolge hat Huang eine Beziehung zu einer Frau eingeräumt, die unter Verdacht steht, für China zu spionieren. Der Verwaltungsrat lässt den Vorgang nun prüfen.",
+    "Für Anleger geht es vor allem um Führungs- und Reputationsrisiken sowie mögliche Fragen von Behörden. Der Ausgang ist offen."
+   ],
+   "back": "Wirkt jetzt: Unsicherheit um die Unternehmensführung kurz vor den Quartalszahlen am 17.11.",
+   "stocks": [
     "NVDA"
    ],
-   "z": "Last week, markets were dominated by the outcome of the November midterm election results, with the Democrats sweeping both the Senate and the House."
+   "u": "https://finnhub.io/api/news?id=3168588759ce06747ef989d184c338a8ad1393e8a44055b923c00fda54a5cba8",
+   "q": "Yahoo"
   },
   {
    "id": "n143646469",
-   "t": "AMD, AVGO, INTC, MU: Chip Stocks Inch Higher As Investors Look Past Midterms-Led Selloff, Nvidia Controversy",
-   "q": "Yahoo",
+   "imp": 2,
+   "kind": [
+    "Erholung",
+    "up"
+   ],
+   "cat": "Markt",
+   "t": "Chipwerte erholen sich nach Wahl-Ausverkauf",
+   "sum": "Halbleiteraktien legen leicht zu, nachdem KI-Werte nach dem Wahlsieg der Demokraten im Kongress deutlich gefallen waren.",
+   "body": [
+    "Die Demokraten gelten als kritisch gegenüber dem schnellen Ausbau von Rechenzentren. Das hatte vergangene Woche KI-nahe Aktien belastet.",
+    "Zum Wochenstart blicken Anleger etwas über diese Sorgen hinweg, die Futures zeigen nach oben."
+   ],
+   "back": "Rückblick: Starker Rückgang bei KI-Aktien in der Vorwoche nach den Midterms.",
+   "stocks": [
+    "NVDA",
+    "SPY"
+   ],
    "u": "https://finnhub.io/api/news?id=a06df8c17ed16f4b9d1d68020fdfdea9dd5c446091972803886a4e01d655d6c4",
-   "sym": [
-    "NVDA"
-   ],
-   "z": "Last week, AI-linked stocks fell sharply after Democrats, seen to be critical of the rapid data center buildout, won Congress."
-  },
-  {
-   "id": "n143646475",
-   "t": "Nvidia CEO's Affair Engulfs AI Giant in Spying Probe",
-   "q": "Yahoo",
-   "u": "https://finnhub.io/api/news?id=3168588759ce06747ef989d184c338a8ad1393e8a44055b923c00fda54a5cba8",
-   "sym": [
-    "NVDA"
-   ],
-   "z": "Nvidia Chief Executive Officer Jensen Huang admitted to having an affair with a woman suspected of being a Chinese spy, prompting the Nvidia board to launch an investigation. Bloomberg's Minmin Low breaks down the news a"
-  },
-  {
-   "id": "n143646476",
-   "t": "Microsoft's Oracle move raises new question for investors",
-   "q": "Yahoo",
-   "u": "https://finnhub.io/api/news?id=afd91d04486bc538be8c8e2cdfb353f360d26c957363829bd42b79f91c173a64",
-   "sym": [
-    "MSFT"
-   ],
-   "z": "Microsoft just handed Oracle a problem it cannot easily explain away."
-  },
-  {
-   "id": "n143646477",
-   "t": "Why Did DKNG, SOUN, ORCL Stocks Plunge To 52-Week Lows Last Week?",
-   "q": "Yahoo",
-   "u": "https://finnhub.io/api/news?id=d65e81bdc6fdaa852abcd82ca9177a232cad33277ca4c6778079df97101318e4",
-   "sym": [
-    "MSFT"
-   ],
-   "z": "Investors grew concerned about rising costs, business challenges and changing demand in the betting, AI and cloud computing industries."
-  },
-  {
-   "id": "n143645711",
-   "t": "Dow Jones Futures Rise As Nvidia Probes CEO Jensen Huang Spying Case",
-   "q": "Yahoo",
-   "u": "https://finnhub.io/api/news?id=04a7dd33eb3cf13ca260eab0dace655d42439996b88c021315dcb14d7a5c1de4",
-   "sym": [
-    "MSFT"
-   ],
-   "z": "Futures rose after Nvidia's board said it's probing CEO Jensen Huang's foreign espionage case."
-  },
-  {
-   "id": "n143644696",
-   "t": "5 Stocks I am Retiring On",
-   "q": "Yahoo",
-   "u": "https://finnhub.io/api/news?id=c893003f374a85aa3738a001574d0ab22174a508075b21e875ffb832fc0170ad",
-   "sym": [
-    "AAPL"
-   ],
-   "z": "A retirement portfolio needs businesses that can keep rewarding shareholders long after the current market narrative fades. Dividends show how important those quieter sources of return can be: according to S&P Dow Jones "
-  },
-  {
-   "id": "n143643428",
-   "t": "Dow Jones Futures Rise, Techs Slide A Nvidia Probes CEO Jensen Huang Spying Case",
-   "q": "Yahoo",
-   "u": "https://finnhub.io/api/news?id=24653445a5a0e34e7dfc21bd125509eb61f0d042362e1adaf459de03fb6b6055",
-   "sym": [
-    "AAPL"
-   ],
-   "z": "The stock market is damaged but Apple, Amazon and Microsoft are holding up. Nvidia is probing CEO Jensen Huang's spy case."
+   "q": "Yahoo"
   },
   {
    "id": "n143639496",
-   "t": "Midterm Election Goes Blue: What Happens With Markets Now?",
-   "q": "SeekingAlpha",
-   "u": "https://finnhub.io/api/news?id=2c1fc88d040fd196698929c8a0b158f35da9aa19bcc08c132a31174d79549379",
-   "sym": [
+   "imp": 2,
+   "kind": [
+    "Politik",
+    "warn"
+   ],
+   "cat": "Markt",
+   "t": "Demokraten gewinnen beide Kammern – Markt unter Druck",
+   "sum": "Nach dem Wahlergebnis fiel der S&P 500 an einem Tag um gut 4 %, Technologiewerte rutschten unter wichtige Marken.",
+   "body": [
+    "Die Midterms brachten den Demokraten Mehrheiten in Senat und Repräsentantenhaus. Der Markt reagierte mit einem deutlichen Kursrückgang, vor allem bei Technologie.",
+    "Analysten rechnen in den kommenden Wochen mit mehr Schwankungen, solange die politischen Folgen unklar sind."
+   ],
+   "back": "Wirkt bald: Politische Weichenstellungen zu KI und Rechenzentren können länger nachwirken.",
+   "stocks": [
+    "SPY",
+    "URTH",
     "XLV"
    ],
-   "z": "Thursdayâs 4.4% drop took the S&P 500 to 7,354, through the 7,490 line, and tech (XLK) closed at $164.74, under the $169 trigger. New growth buying is on hold. Read more here..."
+   "u": "https://finnhub.io/api/news?id=2c1fc88d040fd196698929c8a0b158f35da9aa19bcc08c132a31174d79549379",
+   "q": "SeekingAlpha"
   },
   {
-   "id": "n143645458",
-   "t": "Biotech Beats SPY And QQQ In Market Rout — Now Hims Earnings And Summit’s FDA Test Take Center Stage ‘",
-   "q": "Yahoo",
-   "u": "https://finnhub.io/api/news?id=3b9368504ca199e7daf547ecf3f9bcfaacf4dd44153c3d1d33467141da8bee66",
-   "sym": [
-    "SPY"
+   "id": "n143646476",
+   "imp": 2,
+   "kind": [
+    "Cloud",
+    "warn"
    ],
-   "z": "Hims & Hers will report results on Monday after its Lilly agreement expanded access to Zepbound and Foundayo."
+   "cat": "Unternehmen",
+   "t": "Microsoft-Schritt bei Oracle wirft Fragen auf",
+   "sum": "Eine Entscheidung von Microsoft im Verhältnis zu Oracle sorgt bei Anlegern für Diskussionen über die Cloud-Nachfrage.",
+   "body": [
+    "Laut Bericht setzt der Schritt Oracle unter Druck, das zuletzt auf ein Jahrestief gefallen ist. Im Fokus stehen Kosten und Nachfrage im KI- und Cloudgeschäft.",
+    "Für Microsoft selbst ist der direkte Effekt begrenzt, die Stimmung im Cloudsektor bleibt aber angespannt."
+   ],
+   "back": "Wirkt jetzt: Fragen zu Investitionen und Nachfrage im Cloud-Markt.",
+   "stocks": [
+    "MSFT"
+   ],
+   "u": "https://finnhub.io/api/news?id=afd91d04486bc538be8c8e2cdfb353f360d26c957363829bd42b79f91c173a64",
+   "q": "Yahoo"
   },
   {
-   "id": "n143646637",
-   "t": "Don't Sell After One Bad Day: Wait For A Rules-Based Timer To Turn Defensive",
-   "q": "SeekingAlpha",
-   "u": "https://finnhub.io/api/news?id=09057480ce006c26728f2dadbf6b3fa75608c1ba4e8b526ce762c6ceee9199d5",
-   "sym": [
-    "SPY"
+   "id": "n143643428",
+   "imp": 1,
+   "kind": [
+    "Stabil",
+    "up"
    ],
-   "z": "The iM-DrawdownShield model for SPY remains in 'Hold' despite the S&P 500's sharp November 5 drop, with the next sell threshold 6.9% below current levels."
+   "cat": "Markt",
+   "t": "Apple, Amazon und Microsoft halten sich besser",
+   "sum": "Während der Gesamtmarkt angeschlagen ist, zeigen sich die großen Plattformkonzerne vergleichsweise robust.",
+   "body": [
+    "Nach den Verlusten der Vorwoche halten Apple, Amazon und Microsoft ihr Kursniveau besser als viele KI-Werte."
+   ],
+   "back": "Rückblick: Relative Stärke der großen Plattformwerte im Ausverkauf.",
+   "stocks": [
+    "AAPL",
+    "AMZN",
+    "MSFT"
+   ],
+   "u": "https://finnhub.io/api/news?id=24653445a5a0e34e7dfc21bd125509eb61f0d042362e1adaf459de03fb6b6055",
+   "q": "Yahoo"
   },
   {
-   "id": "n143646481",
-   "t": "Volatility Wakes Up",
-   "q": "SeekingAlpha",
-   "u": "https://finnhub.io/api/news?id=34d64b246466a89cfe3d80e914596874a046d1c43143553c564e3802ba7ab234",
-   "sym": [
-    "SPY"
+   "id": "n8734234",
+   "imp": 2,
+   "kind": [
+    "Öl",
+    "down"
    ],
-   "z": "In the near term, we expect the market to do what it often does when working its way through a sea of unknown outcomes - and that means more volatility. Read more here."
-  },
-  {
-   "id": "n143646480",
-   "t": "Ross Gerber Says Tesla's 'Good Old Days' Ended When Elon Musk Started Selling Shares to Buy Twitter",
-   "q": "Yahoo",
-   "u": "https://finnhub.io/api/news?id=b9501a70d950ec42db42edbb9d3cda8a1c396297570cb83d3081957473085bb5",
-   "sym": [
-    "TSLA"
+   "cat": "Rohstoffe",
+   "t": "Ölpreis sinkt, Iran-Spannungen lassen nach",
+   "sum": "Öl wird billiger, nachdem Trump neue Angriffe auf den Iran als unwahrscheinlich bezeichnet hat; Gold steigt um über 1 %.",
+   "body": [
+    "Die Aussicht auf Gespräche statt Eskalation drückt den Ölpreis. Niedrigere Energiepreise dämpfen Inflationssorgen.",
+    "Gold legte im Gegenzug zu, der Dollar bleibt wegen Erwartungen an die US-Notenbank fest."
    ],
-   "z": "Investor Ross Gerber said on Thursday that he missed the early 2020s era of Tesla Inc. as the Elon Musk-led EV giant continues to pivot away from traditional automobiles. The Good Old Days Ended in 2022, Gerber Said In a"
-  },
-  {
-   "id": "n143643444",
-   "t": "Here's What a $1,000 Investment in Tesla Stock Could Be Worth in 5 Years",
-   "q": "Yahoo",
-   "u": "https://finnhub.io/api/news?id=1b98bfb21ff6c681e69b848b9d909fc75fb2be02165e4dea39b6fb9183f3cc10",
-   "sym": [
-    "TSLA"
+   "back": "Wirkt jetzt: Geringere Inflationssorgen entlasten tendenziell den Gesamtmarkt.",
+   "stocks": [
+    "SPY",
+    "URTH"
    ],
-   "z": "Recognized as a market-beating portfolio addition over the long term, Tesla shares have actually fallen 16% in the past half decade."
+   "u": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNWnV4VENDNkFNVllVVEpoVTJLcC13SlhHREstWFZZQ252QTRiU3dKeW5EYWYxVUJjNnQzVzh1M1FsWjNGTmRKMVFEYjhxT3M2VmF4aVpERWwwczh6dV9OTG5NcFJCMFVZZ0toWEEyMnRRTnBZUm9iQVVzblIzcmJMOTR4V29sUDFVME1jcFQ5VVhoMHVUM0YzWHM2bmE1b3VCV0s0R2JmUUQ?oc=5",
+   "q": "Reuters"
   },
   {
    "id": "n143646539",
-   "t": "EV Company News For The Month Of October 2026",
-   "q": "SeekingAlpha",
+   "imp": 1,
+   "kind": [
+    "E-Autos",
+    "warn"
+   ],
+   "cat": "Branche",
+   "t": "E-Auto-Markt: Europa stark, China und USA schwächer",
+   "sum": "Im Oktober wuchs der E-Auto-Absatz in Europa kräftig, während China an Tempo verlor und die USA hinterherhinken.",
+   "body": [
+    "Die regionale Verschiebung betrifft Hersteller unterschiedlich. Für Tesla sind schwächere Märkte in den USA und China ein Gegenwind."
+   ],
+   "back": "Rückblick: Absatzzahlen Oktober 2026.",
+   "stocks": [
+    "TSLA"
+   ],
    "u": "https://finnhub.io/api/news?id=0df355ef4d97d302f00835da7fe6e66ad22fa0cfa9ce13c597f7d784387ffcef",
+   "q": "SeekingAlpha"
+  }
+ ],
+ "_news_hinweis": "Behalte die news-Liste. Ergänze nur wirklich neue wichtige Meldungen aus _rohnews im selben Format, höchstens 10 insgesamt (älteste raus).",
+ "_rohnews": [
+  {
+   "id": "ny496951525",
+   "t": "Nach Trennung vom Mutterkonzern: Healthineers streicht Siemens aus seinem Namen",
+   "q": "Yahoo Finanzen",
+   "u": "https://de.finance.yahoo.com/nachrichten/trennung-mutterkonzern-healthineers-streicht-siemens-060519987.html?.tsrc=rss",
+   "sym": [
+    "SIE.DE"
+   ],
+   "z": "Im Zuge der Abspaltung vom Mutterkonzern Siemens  will sich der Medizintechnikkonzern Siemens Healthineers  umbenennen. Künftig werden die Erlangener auf den Traditionsnamen Siemens verzichten und sich nur noch Healthine"
+  },
+  {
+   "id": "ny920112332",
+   "t": "Umbau im Aufsichtsrat von Healthineers - Siemens-Manager gehen",
+   "q": "Yahoo Finanzen",
+   "u": "https://de.finance.yahoo.com/nachrichten/umbau-aufsichtsrat-healthineers-siemens-manager-150512986.html?.tsrc=rss",
+   "sym": [
+    "SIE.DE"
+   ],
+   "z": "Beim Medizintechnikkonzern Siemens Healthineers  kommt es zu einem größeren Stühlerücken im Aufsichtsrat. So werden die beiden Siemens-Manager Roland Busch sowie Veronika Bienert aus dem Gremium ausscheiden, teilte das U"
+  },
+  {
+   "id": "ny910394608",
+   "t": "Rechenzentren-Boom: Bernstein setzt auf Siemens, Siemens Energy und Schneider",
+   "q": "Yahoo Finanzen",
+   "u": "https://de.finance.yahoo.com/nachrichten/rechenzentren-boom-bernstein-setzt-siemens-064108042.html?.tsrc=rss",
+   "sym": [
+    "SIE.DE"
+   ],
+   "z": "Investing.com – Zwei deutsche Konzerne führen die Liste an, mit der das Analysehaus Bernstein auf den Rechenzentren-Boom setzt. Seine Favoriten im europäischen Investitionsgütersektor sollen besonders von den steigenden "
+  },
+  {
+   "id": "ny1050415452",
+   "t": "Novartis: FDA untersucht nach Tumorfällen Risiko bei Zolgensma-Gentherapie",
+   "q": "Yahoo Finanzen",
+   "u": "https://de.finance.yahoo.com/nachrichten/novartis-fda-untersucht-tumorf%C3%A4llen-risiko-161411856.html?.tsrc=rss",
+   "sym": [
+    "EXS1.DE"
+   ],
+   "z": "Die US-Gesundheitsbehörde FDA untersucht das Risiko der Tumorbildung bei der Zolgensma-Gentherapie von Novartis . Der Schweizer Pharmakonzern hatte am Freitag über derartige Fälle informiert."
+  },
+  {
+   "id": "ny682294575",
+   "t": "Novartis legt potenziellen Blockbuster Pelacarsen nach gescheiterter Schlüsselstudie auf Eis",
+   "q": "Yahoo Finanzen",
+   "u": "https://de.finance.yahoo.com/nachrichten/novartis-legt-potenziellen-blockbuster-pelacarsen-154603664.html?.tsrc=rss",
+   "sym": [
+    "EXS1.DE"
+   ],
+   "z": "Investing.com - Die Novartis AG stellt die Entwicklung ihres experimentellen Herz-Kreislauf-Medikaments Pelacarsen, das einst als künftiger Multimilliarden-Dollar-Blockbuster galt, weitgehend ein. Vollständige Studiendat"
+  },
+  {
+   "id": "ny1426071664",
+   "t": "Novartis beendet Forschungskooperation mit BioArctic",
+   "q": "Yahoo Finanzen",
+   "u": "https://de.finance.yahoo.com/nachrichten/novartis-beendet-forschungskooperation-bioarctic-204723730.html?.tsrc=rss",
+   "sym": [
+    "EXS1.DE"
+   ],
+   "z": "Novartis  hat die im August 2025 mit dem schwedischen Biotech-Unternehmen BioArctic  geschlossene Forschungskooperation beendet. Konkret geht es um die BrainTransporter-Technologie von BioArctic. Diese sollte mit einem n"
+  },
+  {
+   "id": "n143651944",
+   "t": "Stock Market Correction Or Crash? 3 Charts For The Week Ahead After The AI Sell-Off",
+   "q": "Yahoo",
+   "u": "https://finnhub.io/api/news?id=a0e72c11e46985c3053446c08d3f51f3958d4389b25f1c1436a028f95032dad4",
+   "sym": [
+    "SPY"
+   ],
+   "z": "The VIX, Treasury yields, and data-center stocks will offer clues about whether last week’s market rout is losing momentum."
+  },
+  {
+   "id": "n143652031",
+   "t": "Q4 Rally Cycle Cracks As Negative Momentum Signals Worsen From October",
+   "q": "SeekingAlpha",
+   "u": "https://finnhub.io/api/news?id=656a3bfb47050bff0a5c4b9290b8699d0d0f99e0955c18e5a69dac1d317a76cd",
+   "sym": [
+    "SPY"
+   ],
+   "z": "S&P 500 faces rare negative signals as AI stocks slide and rate hike odds rise."
+  },
+  {
+   "id": "n143651362",
+   "t": "SpaceX Stock Fell to Its Lowest Level Since August After the Midterms. Is It Time to Buy?",
+   "q": "Yahoo",
+   "u": "https://finnhub.io/api/news?id=636d8af08efda94f42a4abc4f1260b6e37c4737fe7e1b96623b6d486435c9892",
    "sym": [
     "TSLA"
    ],
-   "z": "Global EV sales shift as Europe surges, China slows, and US lags."
+   "z": "The election brought another risk for SpaceX investors to the fore."
+  },
+  {
+   "id": "n143651839",
+   "t": "TSLA Stock Slips Overnight As Cybertruck Makes Way For Cybercab — Terafab Reportedly Eyes 1M Wafers Monthly",
+   "q": "Yahoo",
+   "u": "https://finnhub.io/api/news?id=45a180057cdcefb3d84853d4647fb638d532697cfa7275daafd4e87b684609d4",
+   "sym": [
+    "TSLA"
+   ],
+   "z": "Musk said Tesla would add an extra shift to tackle Cybertruck’s backlog before dismantling the line."
+  },
+  {
+   "id": "n143651807",
+   "t": "He Left His Wife Everything in His Will. She Still Couldn’t Get Into His Phone, His Email, or the Brokerage Account That Only Sent Statements There",
+   "q": "Yahoo",
+   "u": "https://finnhub.io/api/news?id=211975ed75a736e927eda3468810df2308180487244d5efaebd6bba86ea16db7",
+   "sym": [
+    "AAPL"
+   ],
+   "z": "His will gave her everything, but she still could not open his phone, access his email, or find the six-figure brokerage account that only sent statements to an inbox she was locked out of. Four simple settings would hav"
+  },
+  {
+   "id": "n143651365",
+   "t": "China dismisses a spy plot claim involving Nvidia CEO Jensen Huang as smear campaign",
+   "q": "Yahoo",
+   "u": "https://finnhub.io/api/news?id=a818082ed38c00667d7dc49f3c3d50a66877a679ae22f739cea3a5e5d2ca8257",
+   "sym": [
+    "AAPL"
+   ],
+   "z": "BANGKOK (AP) — China denied on Monday there was a spy plot attempt to ensnare Nvidia CEO Jensen Huang, calling the spying allegations unsubstantiated and a smear campaign against Beijing.Huang has acknowledged to the Nvi"
+  },
+  {
+   "id": "n8735658",
+   "t": "UAE's Gargash warns of prolonged regional uncertainty, says US-Iran settlement appears difficult - Reuters",
+   "q": "Reuters",
+   "u": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQMlI2UXNzNl84Z1ByMV9Ybm5YNjMtZkdPcDhsZ2plZk9udWViZDZ4eTRVQVNXN2x6U2hENlkxbXJ2SXVvVU0tVWFkZGlSLXBDcnBZM1pzLVBNMzA5bjdZOHlFSXd6ZzhsWWZvV3JWWXlTME1tMnJ5Q0RoWHk1ZmJzbzk5cjZFaDI4NXpTOGRaVDBTNGNxcnRZYjF0X2NzY3EwaEJZcVhMaHRRMXREdXBkeXh6OGRCdU9aaWRJdS1zNzBQSUJCZEE?oc=5",
+   "sym": [],
+   "z": "UAE's Gargash warns of prolonged regional uncertainty, says US-Iran settlement appears difficult  Reuters"
+  },
+  {
+   "id": "n8735351",
+   "t": "Iran says no unauthorised vessels transited Strait of Hormuz overnight after navigation aids destroyed - Reuters",
+   "q": "Reuters",
+   "u": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPNFkyaVpFU2VKQUVYc0xKQ1NmMFhuUmhEZXpCRFF5Ym5HaVpwSENiYk9QaWJhd1BtcU9sSEVyeGVoZ1RxUS1UamJHbEJOTUJwQjhzWUhrYko5RmZCMXJZQ04wZ2tyeFJZTGNFdUotNURHOXpDQTdGdXlMMEpaU3pWT0lvVzNPVkV1aHRIdjVYTE5yM2dwdVpDM0pQdV9TTDhTLXRQTlgxRkVlVFZtU0haT29fdEpyZw?oc=5",
+   "sym": [],
+   "z": "Iran says no unauthorised vessels transited Strait of Hormuz overnight after navigation aids destroyed  Reuters"
   },
   {
    "id": "n8734943",
-   "t": "Gold gains more than 1% as softer oil prices ease inflation worries - Reuters",
+   "t": "Gold gains as lower oil prices temper inflation fears; US inflation in focus - Reuters",
    "q": "Reuters",
    "u": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNbEdIVXlJc2RaUEw2RmFrR2FZcXYzYlBKUG9Cdl9WUVFfalVxT0hGcGFCdW1DS3JMT2daanhDYktBeXVGNGt5TGlsOGZJVWVSMFpnT3ZVa2RBUjZYakRlVlQ3SXd1ZkpTQVNXVkpoNUZoemdycWY0MG02dVk0cWRuWG4taG5VMm9kbEluSHctTVZVMXJwWXNWSWdVcmxQeWtRSW1EWDQ2dTJ6QVV2TzhoeQ?oc=5",
    "sym": [],
-   "z": "Gold gains more than 1% as softer oil prices ease inflation worries  Reuters"
+   "z": "Gold gains as lower oil prices temper inflation fears; US inflation in focus  Reuters"
+  },
+  {
+   "id": "n8736066",
+   "t": "Indian shares edge lower as market consolidates after last week's surge - Reuters",
+   "q": "Reuters",
+   "u": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxObkM4eVdiUXpCc3Jld1NOSlRzMEFUeHcxb09peUlKS3ZFNTVLS2lwMFE0T0x1NV94RGowQjZEM0luODhHRFNZWWxaX2w2Y0Rqc1d5X2tXYlRwcU5wMVMxNHNjeWVXZEZSNkYtV1JEV29LeDE2bEVRMnNBbUVNNGV5cjNlYVYydGhKT3Awc2VVeEY3WTZSbWJjak43bmpTdmJjR2ZSU01fSXhCeFNVNXlYeGxPODh2UUlHQ1FRb3VNSzc?oc=5",
+   "sym": [],
+   "z": "Indian shares edge lower as market consolidates after last week's surge  Reuters"
   },
   {
    "id": "n8734842",
@@ -1008,63 +1639,242 @@
    "z": "Trump to meet Qatar's prime minister as Iran diplomacy faces hurdles  Reuters"
   },
   {
+   "id": "n8735554",
+   "t": "COP31 to open in Turkey, with climate goals under pressure from war and AI - Reuters",
+   "q": "Reuters",
+   "u": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQNG5EYWpyMmdRNjFiczRIWWJsVDRkN1lHM0tidG9SQ25oallJSEF4dkhZVWVWYU9PaVJ6YVJQNmlWTGVObEZVb3FyUzFKWEtjNE8wWGFuc0g2dTRsa0pDODRXY2JwTmdOLVpTc3ZvejZZa1U3X1dhbV9KakR0SG1ObER0aWpEajBELVphVG1RTW1sSVFGTzMyX3dpa1puV3hNaTRmdmpncDVWa1Z3SVI0VGtTZw?oc=5",
+   "sym": [],
+   "z": "COP31 to open in Turkey, with climate goals under pressure from war and AI  Reuters"
+  },
+  {
    "id": "n8734944",
    "t": "Trump thinks he will meet Xi and Putin at China APEC summit - Reuters",
    "q": "Reuters",
    "u": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNY0h5RWRYOHBsak5MVm5FQy1UV09NSk1odWFia1BUV1VJeVE5Z01CU0NqLVc1ckZ0V1FGSndBMUVMSlRyOVpnNktxVmNoZm13Y1FwTUw3QWxGYk5YR0VHX0k5VFlFZDJXWTJBYi03dWJ6c1MxLXZQdDVCWVBDOUJDOW5rLUdFYkZjaVZzRkNzTVd1YnpvV0tHV0p1YlNQbTRzVUE?oc=5",
    "sym": [],
    "z": "Trump thinks he will meet Xi and Putin at China APEC summit  Reuters"
-  },
-  {
-   "id": "n8734234",
-   "t": "Oil falls as Trump says new Iran attacks 'unlikely' - Reuters",
-   "q": "Reuters",
-   "u": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNWnV4VENDNkFNVllVVEpoVTJLcC13SlhHREstWFZZQ252QTRiU3dKeW5EYWYxVUJjNnQzVzh1M1FsWjNGTmRKMVFEYjhxT3M2VmF4aVpERWwwczh6dV9OTG5NcFJCMFVZZ0toWEEyMnRRTnBZUm9iQVVzblIzcmJMOTR4V29sUDFVME1jcFQ5VVhoMHVUM0YzWHM2bmE1b3VCV0s0R2JmUUQ?oc=5",
-   "sym": [],
-   "z": "Oil falls as Trump says new Iran attacks 'unlikely'  Reuters"
-  },
-  {
-   "id": "n8733726",
-   "t": "Production suspended at Iraq's Khor Mor gas field after drone attack, sources say - Reuters",
-   "q": "Reuters",
-   "u": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOSjc4dFNBUmN3UHp3Uk5FLUhNOElWeTVLRDNzSHZsSTAyUWZ4elN0eHdYUVJ5MDZBb0Y3MDNaNzlWbTRHMnctUFY5dGdNWWtKUnZTdHRPeXl1UUhlUE9mdTU0d2ZWTk9Hak9HaHVXaVBJQ3BoVXdfZnFxelF2aUc1MEV1U0JFQ1lDQ0s3RXhtRnk2dmoxZ2h4a3FRazE4Y3VpbGlDYW1zdE1DcDYxU3R4aE9zOWxkdTNuRVFxMzRlTDEtMDNHRmpr?oc=5",
-   "sym": [],
-   "z": "Production suspended at Iraq's Khor Mor gas field after drone attack, sources say  Reuters"
-  },
-  {
-   "id": "n8734031",
-   "t": "Iraq has reached understandings with US to allow oil exports through Hormuz, minister says - Reuters",
-   "q": "Reuters",
-   "u": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQcVp2dDBwekFJVEtlai1lemtaZVNTb2FaallsZHhyT2FHTlZHdmpwY3B0SU9HRUpQV2JQQ3E0NWo0VEJpS3B4N1JCTGhkTUhJTHFYUUY3ZkttWmc2RUl1V2dicHdLODBaUEFQSmdySXdHcTJ2VGpIeUlOTlZZd05LZ29wYVdWajhrMzVYa1ZJQl9FTnNjZjFQRmNGc1FoV1dmOFZyOWYzTE1pRndvaGxzSTg1S1B1Z1lxSDZNM3hZWEZmZw?oc=5",
-   "sym": [],
-   "z": "Iraq has reached understandings with US to allow oil exports through Hormuz, minister says  Reuters"
-  },
-  {
-   "id": "n8733318",
-   "t": "US asks Iraq to shut most Iran border crossings, Iraqi foreign minister says - Reuters",
-   "q": "Reuters",
-   "u": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOaVVxWlAwOFI0ZGd4TUdTNFozbzE5TXN5UGx3R0NnX0JRdExfcVhSb21iYklFOXJ2QUpncXdoSFB3eE1NS0FFeHljZXQxeWlEVTNKVWd1eFVLWTZmbVpsSUs5Q3NqNUk2b1JYQVNxSFIyTTMxZERFdDBWVUFfUFZ2MkFtOUlIYm5VbE9kQ2kzVmdUTV9pZHFxNWNvUVFhYkI1WHc5LTZSS0JMR1Nka3gwSjgzWWFZZXN6OFFTRHB5Rzk1THIz?oc=5",
-   "sym": [],
-   "z": "US asks Iraq to shut most Iran border crossings, Iraqi foreign minister says  Reuters"
-  },
-  {
-   "id": "n8733014",
-   "t": "Trump says he is unlikely to order Iran attack if talks progress, CNN reports - Reuters",
-   "q": "Reuters",
-   "u": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQbV96cm81eEtLUU91T0xKaWxycHdBV3c4VGNZb2dCbzA0M2M0V2ZPZXp2R1NRcmJ1Wl9TLUxZZWtQRDRtazg2dHVzRWlIdGpmWVRJTUl3cU95cUNheHJtMFJFU2lKM2c2cndGc2ZTbmFqZUpaT0hWRFRyZ1VPYzFFbXlSZUVCR1NuLWFqM0dFaUo2UHI4dWFKZlRoUHEwZ2UwNF95T0NzUGNHME15MFQtMWpMeXZaWDhGQnNkZDNRYnQyTjlQcUE?oc=5",
-   "sym": [],
-   "z": "Trump says he is unlikely to order Iran attack if talks progress, CNN reports  Reuters"
-  },
-  {
-   "id": "n8734641",
-   "t": "Netanyahu rival Eisenkot seeks 'wide' government but path to power uncertain - Reuters",
-   "q": "Reuters",
-   "u": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQejJnOTcwYVNEbnpEdVN4M0cwM3BsNEVBbXBpd21YUEcyM3RfX0FKUWsxaHk2dDVmc2NZZXR5cmNZY1NyY0o2MzlMSzU3SW1oVFpadFRLWjlTWHlWY3UxN2FXbUNQeFB4TlZrNlRyRW5jal9zQ2NaQWE2aGNfbHQxb1Zxb3VHcjRxcnNFaDZpdEw0Vm14eHNPLTVhM2l1ejJiYkMyQU51YzZRWEZSdm51ck5HOUh2NFNaQW5ONnhn?oc=5",
-   "sym": [],
-   "z": "Netanyahu rival Eisenkot seeks 'wide' government but path to power uncertain  Reuters"
   }
  ],
- "telegram": "§FILL: Morgen-Briefing für Telegram, höchstens 8 kurze Zeilen: Lage, wichtigste 2–3 Meldungen, was heute ansteht, auffällige Bewegungen bei den beobachteten Aktien. **fett** erlaubt.§",
+ "telegram": "§FILL: Kurzes Mittags-Update, höchstens 4 Zeilen: nur was sich seit dem Morgen geändert hat.§",
+ "kurz": [
+  {
+   "s": "BZ=F",
+   "n": "Öl (Brent)",
+   "_fakten": {
+    "art": "roh",
+    "gruppe": "",
+    "waehrung": "USD",
+    "trend": "down",
+    "vierWochen": -8.5,
+    "dreiMonate": 10.3,
+    "schwankung": 45,
+    "heute": -1.6,
+    "prognose": {
+     "tage": 63,
+     "von": 81.19,
+     "mitte": 101.45,
+     "bis": 126.78
+    },
+    "anlegerTyp": "ausgewogen"
+   },
+   "text": "§FILL: 2 kurze Sätze zur aktuellen Lage (bei Indizes/VIX/Wechselkurs: was die Bewegung bedeutet). Sachlich§",
+   "h": "§FILL: \"kurz\", \"lang\", \"spekulativ\" oder \"nicht kaufbar\"§",
+   "warn": "§FILL: Zahl 0–3 wie bei stocks§",
+   "ausblick": "§FILL: 2–3 Sätze: wie es in den nächsten Wochen bis Monaten am wahrscheinlichsten weitergeht und warum (Treiber, anstehende Termine, was _fakten.prognose sagt). Ehrlich mit der Unsicherheit§",
+   "richtung": "§FILL: \"steigend\", \"seitwärts\" oder \"fallend\": die wahrscheinlichste Richtung im Zeitraum horizont§",
+   "zuversicht": "§FILL: \"niedrig\", \"mittel\" oder \"hoch\": wie sicher diese Richtung ist (bei starken Schwankungen oder widersprüchlichen Meldungen eher niedrig)§",
+   "horizont": "§FILL: Zeitraum, für den der Ausblick gilt, z. B. \"4–8 Wochen\" oder \"6–12 Monate\"§",
+   "halten": "§FILL: 1–2 Sätze Abwägung: Was spricht dafür, investiert zu bleiben, und für welchen Zeitraum passt dieser Wert eher (kurz, mittel, lang), was dagegen. Wenn _fakten.depot vorhanden ist, darauf eingehen. Keine Anweisung zum Kaufen oder Verkaufen, sondern Gründe zum Abwägen§",
+   "signale": "§FILL: Liste mit 2–3 kurzen Punkten: woran man merkt, dass sich das Bild ändert (z. B. Kurs unter einer Marke aus _fakten.prognose, ein Termin, eine Meldungslage)§",
+   "quellen": "§FILL: Liste {t,u} genutzter Meldungen aus _rohnews oder leere Liste§"
+  },
+  {
+   "s": "^GDAXI",
+   "n": "DAX",
+   "_fakten": {
+    "art": "idx",
+    "gruppe": "",
+    "waehrung": "EUR",
+    "trend": "up",
+    "vierWochen": 3,
+    "dreiMonate": -1.1,
+    "schwankung": 13,
+    "heute": 0.82,
+    "prognose": {
+     "tage": 63,
+     "von": 24239.41,
+     "mitte": 25890.74,
+     "bis": 27654.58
+    },
+    "anlegerTyp": "ausgewogen"
+   },
+   "text": "§FILL: 2 kurze Sätze zur aktuellen Lage (bei Indizes/VIX/Wechselkurs: was die Bewegung bedeutet). Sachlich§",
+   "h": "§FILL: \"kurz\", \"lang\", \"spekulativ\" oder \"nicht kaufbar\"§",
+   "warn": "§FILL: Zahl 0–3 wie bei stocks§",
+   "ausblick": "§FILL: 2–3 Sätze: wie es in den nächsten Wochen bis Monaten am wahrscheinlichsten weitergeht und warum (Treiber, anstehende Termine, was _fakten.prognose sagt). Ehrlich mit der Unsicherheit§",
+   "richtung": "§FILL: \"steigend\", \"seitwärts\" oder \"fallend\": die wahrscheinlichste Richtung im Zeitraum horizont§",
+   "zuversicht": "§FILL: \"niedrig\", \"mittel\" oder \"hoch\": wie sicher diese Richtung ist (bei starken Schwankungen oder widersprüchlichen Meldungen eher niedrig)§",
+   "horizont": "§FILL: Zeitraum, für den der Ausblick gilt, z. B. \"4–8 Wochen\" oder \"6–12 Monate\"§",
+   "halten": "§FILL: 1–2 Sätze Abwägung: Was spricht dafür, investiert zu bleiben, und für welchen Zeitraum passt dieser Wert eher (kurz, mittel, lang), was dagegen. Wenn _fakten.depot vorhanden ist, darauf eingehen. Keine Anweisung zum Kaufen oder Verkaufen, sondern Gründe zum Abwägen§",
+   "signale": "§FILL: Liste mit 2–3 kurzen Punkten: woran man merkt, dass sich das Bild ändert (z. B. Kurs unter einer Marke aus _fakten.prognose, ein Termin, eine Meldungslage)§",
+   "quellen": "§FILL: Liste {t,u} genutzter Meldungen aus _rohnews oder leere Liste§"
+  },
+  {
+   "s": "^GSPC",
+   "n": "S&P 500",
+   "_fakten": {
+    "art": "idx",
+    "gruppe": "",
+    "waehrung": "USD",
+    "trend": "down",
+    "vierWochen": -5.5,
+    "dreiMonate": -4.9,
+    "schwankung": 13,
+    "heute": 0.32,
+    "prognose": {
+     "tage": 63,
+     "von": 6733.4,
+     "mitte": 7199.11,
+     "bis": 7697.02
+    },
+    "anlegerTyp": "ausgewogen"
+   },
+   "text": "§FILL: 2 kurze Sätze zur aktuellen Lage (bei Indizes/VIX/Wechselkurs: was die Bewegung bedeutet). Sachlich§",
+   "h": "§FILL: \"kurz\", \"lang\", \"spekulativ\" oder \"nicht kaufbar\"§",
+   "warn": "§FILL: Zahl 0–3 wie bei stocks§",
+   "ausblick": "§FILL: 2–3 Sätze: wie es in den nächsten Wochen bis Monaten am wahrscheinlichsten weitergeht und warum (Treiber, anstehende Termine, was _fakten.prognose sagt). Ehrlich mit der Unsicherheit§",
+   "richtung": "§FILL: \"steigend\", \"seitwärts\" oder \"fallend\": die wahrscheinlichste Richtung im Zeitraum horizont§",
+   "zuversicht": "§FILL: \"niedrig\", \"mittel\" oder \"hoch\": wie sicher diese Richtung ist (bei starken Schwankungen oder widersprüchlichen Meldungen eher niedrig)§",
+   "horizont": "§FILL: Zeitraum, für den der Ausblick gilt, z. B. \"4–8 Wochen\" oder \"6–12 Monate\"§",
+   "halten": "§FILL: 1–2 Sätze Abwägung: Was spricht dafür, investiert zu bleiben, und für welchen Zeitraum passt dieser Wert eher (kurz, mittel, lang), was dagegen. Wenn _fakten.depot vorhanden ist, darauf eingehen. Keine Anweisung zum Kaufen oder Verkaufen, sondern Gründe zum Abwägen§",
+   "signale": "§FILL: Liste mit 2–3 kurzen Punkten: woran man merkt, dass sich das Bild ändert (z. B. Kurs unter einer Marke aus _fakten.prognose, ein Termin, eine Meldungslage)§",
+   "quellen": "§FILL: Liste {t,u} genutzter Meldungen aus _rohnews oder leere Liste§"
+  },
+  {
+   "s": "EUNL.DE",
+   "n": "MSCI World (ETF)",
+   "_fakten": {
+    "art": "etf",
+    "gruppe": "",
+    "waehrung": "EUR",
+    "trend": "down",
+    "vierWochen": -4,
+    "dreiMonate": -1.4,
+    "schwankung": 10,
+    "heute": -0.26,
+    "prognose": {
+     "tage": 63,
+     "von": 120.09,
+     "mitte": 126.14,
+     "bis": 132.5
+    },
+    "anlegerTyp": "ausgewogen"
+   },
+   "text": "§FILL: 2 kurze Sätze zur aktuellen Lage (bei Indizes/VIX/Wechselkurs: was die Bewegung bedeutet). Sachlich§",
+   "h": "§FILL: \"kurz\", \"lang\", \"spekulativ\" oder \"nicht kaufbar\"§",
+   "warn": "§FILL: Zahl 0–3 wie bei stocks§",
+   "ausblick": "§FILL: 2–3 Sätze: wie es in den nächsten Wochen bis Monaten am wahrscheinlichsten weitergeht und warum (Treiber, anstehende Termine, was _fakten.prognose sagt). Ehrlich mit der Unsicherheit§",
+   "richtung": "§FILL: \"steigend\", \"seitwärts\" oder \"fallend\": die wahrscheinlichste Richtung im Zeitraum horizont§",
+   "zuversicht": "§FILL: \"niedrig\", \"mittel\" oder \"hoch\": wie sicher diese Richtung ist (bei starken Schwankungen oder widersprüchlichen Meldungen eher niedrig)§",
+   "horizont": "§FILL: Zeitraum, für den der Ausblick gilt, z. B. \"4–8 Wochen\" oder \"6–12 Monate\"§",
+   "halten": "§FILL: 1–2 Sätze Abwägung: Was spricht dafür, investiert zu bleiben, und für welchen Zeitraum passt dieser Wert eher (kurz, mittel, lang), was dagegen. Wenn _fakten.depot vorhanden ist, darauf eingehen. Keine Anweisung zum Kaufen oder Verkaufen, sondern Gründe zum Abwägen§",
+   "signale": "§FILL: Liste mit 2–3 kurzen Punkten: woran man merkt, dass sich das Bild ändert (z. B. Kurs unter einer Marke aus _fakten.prognose, ein Termin, eine Meldungslage)§",
+   "quellen": "§FILL: Liste {t,u} genutzter Meldungen aus _rohnews oder leere Liste§"
+  },
+  {
+   "s": "GC=F",
+   "n": "Gold",
+   "_fakten": {
+    "art": "roh",
+    "gruppe": "",
+    "waehrung": "USD",
+    "trend": "down",
+    "vierWochen": -1.7,
+    "dreiMonate": -7.1,
+    "schwankung": 21,
+    "heute": 0.77,
+    "prognose": {
+     "tage": 63,
+     "von": 3571.75,
+     "mitte": 3962.37,
+     "bis": 4395.71
+    },
+    "anlegerTyp": "ausgewogen"
+   },
+   "text": "§FILL: 2 kurze Sätze zur aktuellen Lage (bei Indizes/VIX/Wechselkurs: was die Bewegung bedeutet). Sachlich§",
+   "h": "§FILL: \"kurz\", \"lang\", \"spekulativ\" oder \"nicht kaufbar\"§",
+   "warn": "§FILL: Zahl 0–3 wie bei stocks§",
+   "ausblick": "§FILL: 2–3 Sätze: wie es in den nächsten Wochen bis Monaten am wahrscheinlichsten weitergeht und warum (Treiber, anstehende Termine, was _fakten.prognose sagt). Ehrlich mit der Unsicherheit§",
+   "richtung": "§FILL: \"steigend\", \"seitwärts\" oder \"fallend\": die wahrscheinlichste Richtung im Zeitraum horizont§",
+   "zuversicht": "§FILL: \"niedrig\", \"mittel\" oder \"hoch\": wie sicher diese Richtung ist (bei starken Schwankungen oder widersprüchlichen Meldungen eher niedrig)§",
+   "horizont": "§FILL: Zeitraum, für den der Ausblick gilt, z. B. \"4–8 Wochen\" oder \"6–12 Monate\"§",
+   "halten": "§FILL: 1–2 Sätze Abwägung: Was spricht dafür, investiert zu bleiben, und für welchen Zeitraum passt dieser Wert eher (kurz, mittel, lang), was dagegen. Wenn _fakten.depot vorhanden ist, darauf eingehen. Keine Anweisung zum Kaufen oder Verkaufen, sondern Gründe zum Abwägen§",
+   "signale": "§FILL: Liste mit 2–3 kurzen Punkten: woran man merkt, dass sich das Bild ändert (z. B. Kurs unter einer Marke aus _fakten.prognose, ein Termin, eine Meldungslage)§",
+   "quellen": "§FILL: Liste {t,u} genutzter Meldungen aus _rohnews oder leere Liste§"
+  },
+  {
+   "s": "BTC-EUR",
+   "n": "Bitcoin",
+   "_fakten": {
+    "art": "krypto",
+    "gruppe": "",
+    "waehrung": "EUR",
+    "trend": "down",
+    "vierWochen": -11.4,
+    "dreiMonate": -4.3,
+    "schwankung": 30,
+    "heute": -2.67,
+    "prognose": {
+     "tage": 63,
+     "von": 55798.55,
+     "mitte": 64858.61,
+     "bis": 75389.76
+    },
+    "anlegerTyp": "ausgewogen"
+   },
+   "text": "§FILL: 2 kurze Sätze zur aktuellen Lage (bei Indizes/VIX/Wechselkurs: was die Bewegung bedeutet). Sachlich§",
+   "h": "§FILL: \"kurz\", \"lang\", \"spekulativ\" oder \"nicht kaufbar\"§",
+   "warn": "§FILL: Zahl 0–3 wie bei stocks§",
+   "ausblick": "§FILL: 2–3 Sätze: wie es in den nächsten Wochen bis Monaten am wahrscheinlichsten weitergeht und warum (Treiber, anstehende Termine, was _fakten.prognose sagt). Ehrlich mit der Unsicherheit§",
+   "richtung": "§FILL: \"steigend\", \"seitwärts\" oder \"fallend\": die wahrscheinlichste Richtung im Zeitraum horizont§",
+   "zuversicht": "§FILL: \"niedrig\", \"mittel\" oder \"hoch\": wie sicher diese Richtung ist (bei starken Schwankungen oder widersprüchlichen Meldungen eher niedrig)§",
+   "horizont": "§FILL: Zeitraum, für den der Ausblick gilt, z. B. \"4–8 Wochen\" oder \"6–12 Monate\"§",
+   "halten": "§FILL: 1–2 Sätze Abwägung: Was spricht dafür, investiert zu bleiben, und für welchen Zeitraum passt dieser Wert eher (kurz, mittel, lang), was dagegen. Wenn _fakten.depot vorhanden ist, darauf eingehen. Keine Anweisung zum Kaufen oder Verkaufen, sondern Gründe zum Abwägen§",
+   "signale": "§FILL: Liste mit 2–3 kurzen Punkten: woran man merkt, dass sich das Bild ändert (z. B. Kurs unter einer Marke aus _fakten.prognose, ein Termin, eine Meldungslage)§",
+   "quellen": "§FILL: Liste {t,u} genutzter Meldungen aus _rohnews oder leere Liste§"
+  },
+  {
+   "s": "EURUSD=X",
+   "n": "Euro in Dollar",
+   "_fakten": {
+    "art": "fx",
+    "gruppe": "",
+    "waehrung": "USD",
+    "trend": "flat",
+    "vierWochen": 0.3,
+    "dreiMonate": -3.1,
+    "schwankung": 4,
+    "heute": 0.46,
+    "prognose": {
+     "tage": 63,
+     "von": 1.08,
+     "mitte": 1.1,
+     "bis": 1.13
+    },
+    "anlegerTyp": "ausgewogen"
+   },
+   "text": "§FILL: 2 kurze Sätze zur aktuellen Lage (bei Indizes/VIX/Wechselkurs: was die Bewegung bedeutet). Sachlich§",
+   "h": "§FILL: \"kurz\", \"lang\", \"spekulativ\" oder \"nicht kaufbar\"§",
+   "warn": "§FILL: Zahl 0–3 wie bei stocks§",
+   "ausblick": "§FILL: 2–3 Sätze: wie es in den nächsten Wochen bis Monaten am wahrscheinlichsten weitergeht und warum (Treiber, anstehende Termine, was _fakten.prognose sagt). Ehrlich mit der Unsicherheit§",
+   "richtung": "§FILL: \"steigend\", \"seitwärts\" oder \"fallend\": die wahrscheinlichste Richtung im Zeitraum horizont§",
+   "zuversicht": "§FILL: \"niedrig\", \"mittel\" oder \"hoch\": wie sicher diese Richtung ist (bei starken Schwankungen oder widersprüchlichen Meldungen eher niedrig)§",
+   "horizont": "§FILL: Zeitraum, für den der Ausblick gilt, z. B. \"4–8 Wochen\" oder \"6–12 Monate\"§",
+   "halten": "§FILL: 1–2 Sätze Abwägung: Was spricht dafür, investiert zu bleiben, und für welchen Zeitraum passt dieser Wert eher (kurz, mittel, lang), was dagegen. Wenn _fakten.depot vorhanden ist, darauf eingehen. Keine Anweisung zum Kaufen oder Verkaufen, sondern Gründe zum Abwägen§",
+   "signale": "§FILL: Liste mit 2–3 kurzen Punkten: woran man merkt, dass sich das Bild ändert (z. B. Kurs unter einer Marke aus _fakten.prognose, ein Termin, eine Meldungslage)§",
+   "quellen": "§FILL: Liste {t,u} genutzter Meldungen aus _rohnews oder leere Liste§"
+  }
+ ],
  "model": {
   "trendDamping": 0.5,
   "bandFactor": 1,
@@ -1089,7 +1899,7 @@
   },
   {
    "s": "SAP",
-   "n": "SAP",
+   "n": "SAP (USA, $)",
    "a": ""
   },
   {
@@ -1163,81 +1973,6 @@
    "a": ""
   },
   {
-   "s": "SIE",
-   "n": "Siemens",
-   "a": ""
-  },
-  {
-   "s": "ALV",
-   "n": "Allianz",
-   "a": ""
-  },
-  {
-   "s": "DTE",
-   "n": "Deutsche Telekom",
-   "a": "telekom"
-  },
-  {
-   "s": "MBG",
-   "n": "Mercedes-Benz",
-   "a": "mercedes daimler"
-  },
-  {
-   "s": "BMW",
-   "n": "BMW",
-   "a": ""
-  },
-  {
-   "s": "VOW3",
-   "n": "Volkswagen",
-   "a": "vw"
-  },
-  {
-   "s": "BAS",
-   "n": "BASF",
-   "a": ""
-  },
-  {
-   "s": "BAYN",
-   "n": "Bayer",
-   "a": ""
-  },
-  {
-   "s": "ADS",
-   "n": "Adidas",
-   "a": ""
-  },
-  {
-   "s": "IFX",
-   "n": "Infineon",
-   "a": ""
-  },
-  {
-   "s": "RHM",
-   "n": "Rheinmetall",
-   "a": ""
-  },
-  {
-   "s": "MUV2",
-   "n": "Münchener Rück",
-   "a": "munich re"
-  },
-  {
-   "s": "DBK",
-   "n": "Deutsche Bank",
-   "a": ""
-  },
-  {
-   "s": "DHL",
-   "n": "DHL Group",
-   "a": "post"
-  },
-  {
-   "s": "AIR",
-   "n": "Airbus",
-   "a": ""
-  },
-  {
    "s": "URTH",
    "n": "MSCI World ETF",
    "a": "msci world welt"
@@ -1248,19 +1983,424 @@
    "a": "sp500 s&p"
   },
   {
-   "s": "BTC",
+   "s": "SAP.DE",
+   "n": "SAP (Xetra)",
+   "a": "sap"
+  },
+  {
+   "s": "SIE.DE",
+   "n": "Siemens",
+   "a": ""
+  },
+  {
+   "s": "ALV.DE",
+   "n": "Allianz",
+   "a": ""
+  },
+  {
+   "s": "DTE.DE",
+   "n": "Deutsche Telekom",
+   "a": "telekom"
+  },
+  {
+   "s": "MBG.DE",
+   "n": "Mercedes-Benz",
+   "a": "mercedes daimler"
+  },
+  {
+   "s": "BMW.DE",
+   "n": "BMW",
+   "a": ""
+  },
+  {
+   "s": "VOW3.DE",
+   "n": "Volkswagen",
+   "a": "vw"
+  },
+  {
+   "s": "P911.DE",
+   "n": "Porsche AG",
+   "a": "porsche"
+  },
+  {
+   "s": "BAS.DE",
+   "n": "BASF",
+   "a": ""
+  },
+  {
+   "s": "BAYN.DE",
+   "n": "Bayer",
+   "a": ""
+  },
+  {
+   "s": "ADS.DE",
+   "n": "Adidas",
+   "a": ""
+  },
+  {
+   "s": "PUM.DE",
+   "n": "Puma",
+   "a": ""
+  },
+  {
+   "s": "IFX.DE",
+   "n": "Infineon",
+   "a": ""
+  },
+  {
+   "s": "RHM.DE",
+   "n": "Rheinmetall",
+   "a": ""
+  },
+  {
+   "s": "HAG.DE",
+   "n": "Hensoldt",
+   "a": ""
+  },
+  {
+   "s": "RENK.DE",
+   "n": "Renk",
+   "a": ""
+  },
+  {
+   "s": "MUV2.DE",
+   "n": "Münchener Rück",
+   "a": "munich re"
+  },
+  {
+   "s": "HNR1.DE",
+   "n": "Hannover Rück",
+   "a": ""
+  },
+  {
+   "s": "DBK.DE",
+   "n": "Deutsche Bank",
+   "a": ""
+  },
+  {
+   "s": "CBK.DE",
+   "n": "Commerzbank",
+   "a": ""
+  },
+  {
+   "s": "DB1.DE",
+   "n": "Deutsche Börse",
+   "a": ""
+  },
+  {
+   "s": "DHL.DE",
+   "n": "DHL Group",
+   "a": "post"
+  },
+  {
+   "s": "AIR.DE",
+   "n": "Airbus",
+   "a": ""
+  },
+  {
+   "s": "MTX.DE",
+   "n": "MTU Aero Engines",
+   "a": "mtu"
+  },
+  {
+   "s": "EOAN.DE",
+   "n": "E.ON",
+   "a": "eon"
+  },
+  {
+   "s": "RWE.DE",
+   "n": "RWE",
+   "a": ""
+  },
+  {
+   "s": "SHL.DE",
+   "n": "Siemens Healthineers",
+   "a": "healthineers"
+  },
+  {
+   "s": "ENR.DE",
+   "n": "Siemens Energy",
+   "a": "energy"
+  },
+  {
+   "s": "MRK.DE",
+   "n": "Merck KGaA",
+   "a": "merck"
+  },
+  {
+   "s": "HEI.DE",
+   "n": "Heidelberg Materials",
+   "a": "heidelberg"
+  },
+  {
+   "s": "VNA.DE",
+   "n": "Vonovia",
+   "a": ""
+  },
+  {
+   "s": "ZAL.DE",
+   "n": "Zalando",
+   "a": ""
+  },
+  {
+   "s": "BEI.DE",
+   "n": "Beiersdorf",
+   "a": "nivea"
+  },
+  {
+   "s": "HEN3.DE",
+   "n": "Henkel",
+   "a": ""
+  },
+  {
+   "s": "CON.DE",
+   "n": "Continental",
+   "a": ""
+  },
+  {
+   "s": "QIA.DE",
+   "n": "Qiagen",
+   "a": ""
+  },
+  {
+   "s": "SY1.DE",
+   "n": "Symrise",
+   "a": ""
+  },
+  {
+   "s": "FRE.DE",
+   "n": "Fresenius",
+   "a": ""
+  },
+  {
+   "s": "LHA.DE",
+   "n": "Lufthansa",
+   "a": ""
+  },
+  {
+   "s": "TKA.DE",
+   "n": "Thyssenkrupp",
+   "a": ""
+  },
+  {
+   "s": "ASML.AS",
+   "n": "ASML (Amsterdam)",
+   "a": "asml"
+  },
+  {
+   "s": "MC.PA",
+   "n": "LVMH",
+   "a": "louis vuitton"
+  },
+  {
+   "s": "OR.PA",
+   "n": "L'Oréal",
+   "a": "loreal"
+  },
+  {
+   "s": "TTE.PA",
+   "n": "TotalEnergies",
+   "a": "total"
+  },
+  {
+   "s": "NESN.SW",
+   "n": "Nestlé",
+   "a": "nestle"
+  },
+  {
+   "s": "NOVN.SW",
+   "n": "Novartis",
+   "a": ""
+  },
+  {
+   "s": "ROG.SW",
+   "n": "Roche",
+   "a": ""
+  },
+  {
+   "s": "NOVO-B.CO",
+   "n": "Novo Nordisk (Kopenhagen)",
+   "a": "novo"
+  },
+  {
+   "s": "SHEL.L",
+   "n": "Shell",
+   "a": ""
+  },
+  {
+   "s": "EUNL.DE",
+   "n": "iShares Core MSCI World ETF",
+   "a": "msci world welt etf"
+  },
+  {
+   "s": "VWCE.DE",
+   "n": "Vanguard FTSE All-World ETF",
+   "a": "all world welt etf"
+  },
+  {
+   "s": "XDWD.DE",
+   "n": "Xtrackers MSCI World ETF",
+   "a": "msci world welt etf"
+  },
+  {
+   "s": "SXR8.DE",
+   "n": "iShares Core S&P 500 ETF",
+   "a": "sp500 s&p etf"
+  },
+  {
+   "s": "EXS1.DE",
+   "n": "iShares Core DAX ETF",
+   "a": "dax etf"
+  },
+  {
+   "s": "IS3N.DE",
+   "n": "iShares MSCI Emerging Markets IMI ETF",
+   "a": "schwellenländer emerging etf"
+  },
+  {
+   "s": "EUNK.DE",
+   "n": "iShares Core MSCI Europe ETF",
+   "a": "europa etf"
+  },
+  {
+   "s": "BTC-EUR",
    "n": "Bitcoin",
-   "a": "krypto"
+   "a": "krypto btc"
   },
   {
-   "s": "ETH",
+   "s": "ETH-EUR",
    "n": "Ethereum",
+   "a": "krypto eth etherium"
+  },
+  {
+   "s": "SOL-EUR",
+   "n": "Solana",
    "a": "krypto"
   },
   {
-   "s": "GOLD",
-   "n": "Gold",
-   "a": "xau"
+   "s": "XRP-EUR",
+   "n": "XRP (Ripple)",
+   "a": "krypto ripple"
+  },
+  {
+   "s": "BNB-EUR",
+   "n": "BNB",
+   "a": "krypto binance"
+  },
+  {
+   "s": "ADA-EUR",
+   "n": "Cardano",
+   "a": "krypto ada"
+  },
+  {
+   "s": "DOGE-EUR",
+   "n": "Dogecoin",
+   "a": "krypto doge"
+  },
+  {
+   "s": "4GLD.DE",
+   "n": "Xetra-Gold",
+   "a": "gold"
+  },
+  {
+   "s": "EXUS.DE",
+   "n": "Xtrackers MSCI World ex USA ETF",
+   "a": "welt ohne usa etf"
+  },
+  {
+   "s": "IUSQ.DE",
+   "n": "iShares MSCI ACWI ETF",
+   "a": "acwi welt etf"
+  },
+  {
+   "s": "XDEW.DE",
+   "n": "Xtrackers S&P 500 Equal Weight ETF",
+   "a": "gleichgewichtet sp500 etf"
+  },
+  {
+   "s": "EXSA.DE",
+   "n": "iShares STOXX Europe 600 ETF",
+   "a": "europa etf"
+  },
+  {
+   "s": "EXW1.DE",
+   "n": "iShares Core Euro Stoxx 50 ETF",
+   "a": "euro stoxx etf"
+  },
+  {
+   "s": "XMME.DE",
+   "n": "Xtrackers MSCI Emerging Markets ETF",
+   "a": "schwellenländer emerging etf"
+  },
+  {
+   "s": "VFEM.DE",
+   "n": "Vanguard FTSE Emerging Markets ETF",
+   "a": "schwellenländer emerging etf"
+  },
+  {
+   "s": "IS3Q.DE",
+   "n": "iShares MSCI World Quality Factor ETF",
+   "a": "qualität etf"
+  },
+  {
+   "s": "ISPA.DE",
+   "n": "iShares STOXX Global Select Dividend 100 ETF",
+   "a": "dividende etf"
+  },
+  {
+   "s": "VGWD.DE",
+   "n": "Vanguard FTSE All-World High Dividend Yield ETF",
+   "a": "dividende etf"
+  },
+  {
+   "s": "EUNH.DE",
+   "n": "iShares Core € Govt Bond ETF",
+   "a": "staatsanleihen anleihen etf"
+  },
+  {
+   "s": "IBCI.DE",
+   "n": "iShares € Inflation Linked Govt Bond ETF",
+   "a": "inflation anleihen etf"
+  },
+  {
+   "s": "XEON.DE",
+   "n": "Xtrackers II EUR Overnight Rate Swap ETF",
+   "a": "geldmarkt tagesgeld etf"
+  },
+  {
+   "s": "XGLE.DE",
+   "n": "Xtrackers Eurozone Government Bond ETF",
+   "a": "staatsanleihen anleihen etf"
+  },
+  {
+   "s": "SXRV.DE",
+   "n": "iShares Nasdaq 100 ETF",
+   "a": "nasdaq etf"
+  },
+  {
+   "s": "EXS3.DE",
+   "n": "iShares MDAX ETF",
+   "a": "mdax etf"
+  },
+  {
+   "s": "EXI3.DE",
+   "n": "iShares Dow Jones Industrial Average ETF",
+   "a": "dow jones etf"
+  },
+  {
+   "s": "SXRT.DE",
+   "n": "iShares Core Euro Stoxx 50 ETF (Acc)",
+   "a": "euro stoxx etf"
+  },
+  {
+   "s": "BRNT.L",
+   "n": "WisdomTree Brent Crude Oil (ETC)",
+   "a": "öl oil brent"
+  },
+  {
+   "s": "XDJP.DE",
+   "n": "Xtrackers Nikkei 225 ETF",
+   "a": "japan etf"
   }
  ]
 }
