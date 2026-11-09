@@ -1,0 +1,13 @@
+name: Test ETF-Kürzel 2
+on:
+  push:
+    paths: [".github/workflows/test-etf2.yml"]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          for s in EXS3.DE EXI3.DE OD7F.DE BRNT.L CRUD.L XDJP.DE SXRT.DE EXS1.DE EXW1.DE SXRV.DE SXR8.DE XDEW.DE 4GLD.DE META GOOGL ASML.AS MC.PA TTE.PA; do
+            curl -s -m 15 -A "Mozilla/5.0" "https://query1.finance.yahoo.com/v8/finance/chart/$s?range=5d&interval=1d" -o /tmp/r.json
+            python3 -c "import json;exec(\"try:\\n m=json.load(open('/tmp/r.json'))['chart']['result'][0]['meta'];print('OK','$s',m.get('currency'),m.get('regularMarketPrice'),'|',m.get('longName') or m.get('shortName'))\\nexcept Exception: print('FEHLT','$s')\")"
+          done
