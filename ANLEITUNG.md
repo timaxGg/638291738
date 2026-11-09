@@ -303,6 +303,14 @@ Ich verbinde mich dann mit deinem Projekt und lege 3 geplante Aufgaben an (ca. 7
 
 ---
 
+## Europa-Kurse
+- **Woher:** Der Wachmann holt Kurse von Xetra und anderen europäischen Börsen bei Yahoo Finance (kostenlos, ohne Schlüssel, ca. 15 Minuten verzögert). Während Xetra offen ist (9:00–17:30 Uhr) alle 5 Minuten, sonst stündlich.
+- **In der App:** Markt zeigt DAX, MDAX, Euro Stoxx 50, FTSE 100, CAC 40 und europäische Branchen. Unter Aktien gibt es den Filter „Europa / USA“.
+- **Deutsche Aktien eintragen:** Einfach den Namen tippen (z. B. „Siemens“). Kürzel enden auf **.DE** (Xetra), Preise sind in **€**.
+- **Depot-Summe** wird in Euro angezeigt, Dollar-Werte werden umgerechnet.
+- **Bot:** `/kurs Siemens`, `/markt` zeigt Europa und USA.
+- Yahoo Finance ist eine inoffizielle Quelle. Fällt sie aus, meldet `/status` das.
+
 ## Hilfe bei Problemen
 
 **A. Der Ordner `.github` fehlt bei GitHub.**

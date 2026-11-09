@@ -1020,7 +1020,7 @@
   },
   {
    "s": "SAP",
-   "n": "SAP",
+   "n": "SAP (USA, $)",
    "a": ""
   },
   {
@@ -1094,81 +1094,6 @@
    "a": ""
   },
   {
-   "s": "SIE",
-   "n": "Siemens",
-   "a": ""
-  },
-  {
-   "s": "ALV",
-   "n": "Allianz",
-   "a": ""
-  },
-  {
-   "s": "DTE",
-   "n": "Deutsche Telekom",
-   "a": "telekom"
-  },
-  {
-   "s": "MBG",
-   "n": "Mercedes-Benz",
-   "a": "mercedes daimler"
-  },
-  {
-   "s": "BMW",
-   "n": "BMW",
-   "a": ""
-  },
-  {
-   "s": "VOW3",
-   "n": "Volkswagen",
-   "a": "vw"
-  },
-  {
-   "s": "BAS",
-   "n": "BASF",
-   "a": ""
-  },
-  {
-   "s": "BAYN",
-   "n": "Bayer",
-   "a": ""
-  },
-  {
-   "s": "ADS",
-   "n": "Adidas",
-   "a": ""
-  },
-  {
-   "s": "IFX",
-   "n": "Infineon",
-   "a": ""
-  },
-  {
-   "s": "RHM",
-   "n": "Rheinmetall",
-   "a": ""
-  },
-  {
-   "s": "MUV2",
-   "n": "Münchener Rück",
-   "a": "munich re"
-  },
-  {
-   "s": "DBK",
-   "n": "Deutsche Bank",
-   "a": ""
-  },
-  {
-   "s": "DHL",
-   "n": "DHL Group",
-   "a": "post"
-  },
-  {
-   "s": "AIR",
-   "n": "Airbus",
-   "a": ""
-  },
-  {
    "s": "URTH",
    "n": "MSCI World ETF",
    "a": "msci world welt"
@@ -1192,6 +1117,286 @@
    "s": "GOLD",
    "n": "Gold",
    "a": "xau"
+  },
+  {
+   "s": "SAP.DE",
+   "n": "SAP (Xetra)",
+   "a": "sap"
+  },
+  {
+   "s": "SIE.DE",
+   "n": "Siemens",
+   "a": ""
+  },
+  {
+   "s": "ALV.DE",
+   "n": "Allianz",
+   "a": ""
+  },
+  {
+   "s": "DTE.DE",
+   "n": "Deutsche Telekom",
+   "a": "telekom"
+  },
+  {
+   "s": "MBG.DE",
+   "n": "Mercedes-Benz",
+   "a": "mercedes daimler"
+  },
+  {
+   "s": "BMW.DE",
+   "n": "BMW",
+   "a": ""
+  },
+  {
+   "s": "VOW3.DE",
+   "n": "Volkswagen",
+   "a": "vw"
+  },
+  {
+   "s": "P911.DE",
+   "n": "Porsche AG",
+   "a": "porsche"
+  },
+  {
+   "s": "BAS.DE",
+   "n": "BASF",
+   "a": ""
+  },
+  {
+   "s": "BAYN.DE",
+   "n": "Bayer",
+   "a": ""
+  },
+  {
+   "s": "ADS.DE",
+   "n": "Adidas",
+   "a": ""
+  },
+  {
+   "s": "PUM.DE",
+   "n": "Puma",
+   "a": ""
+  },
+  {
+   "s": "IFX.DE",
+   "n": "Infineon",
+   "a": ""
+  },
+  {
+   "s": "RHM.DE",
+   "n": "Rheinmetall",
+   "a": ""
+  },
+  {
+   "s": "HAG.DE",
+   "n": "Hensoldt",
+   "a": ""
+  },
+  {
+   "s": "RENK.DE",
+   "n": "Renk",
+   "a": ""
+  },
+  {
+   "s": "MUV2.DE",
+   "n": "Münchener Rück",
+   "a": "munich re"
+  },
+  {
+   "s": "HNR1.DE",
+   "n": "Hannover Rück",
+   "a": ""
+  },
+  {
+   "s": "DBK.DE",
+   "n": "Deutsche Bank",
+   "a": ""
+  },
+  {
+   "s": "CBK.DE",
+   "n": "Commerzbank",
+   "a": ""
+  },
+  {
+   "s": "DB1.DE",
+   "n": "Deutsche Börse",
+   "a": ""
+  },
+  {
+   "s": "DHL.DE",
+   "n": "DHL Group",
+   "a": "post"
+  },
+  {
+   "s": "AIR.DE",
+   "n": "Airbus",
+   "a": ""
+  },
+  {
+   "s": "MTX.DE",
+   "n": "MTU Aero Engines",
+   "a": "mtu"
+  },
+  {
+   "s": "EOAN.DE",
+   "n": "E.ON",
+   "a": "eon"
+  },
+  {
+   "s": "RWE.DE",
+   "n": "RWE",
+   "a": ""
+  },
+  {
+   "s": "SHL.DE",
+   "n": "Siemens Healthineers",
+   "a": "healthineers"
+  },
+  {
+   "s": "ENR.DE",
+   "n": "Siemens Energy",
+   "a": "energy"
+  },
+  {
+   "s": "MRK.DE",
+   "n": "Merck KGaA",
+   "a": "merck"
+  },
+  {
+   "s": "HEI.DE",
+   "n": "Heidelberg Materials",
+   "a": "heidelberg"
+  },
+  {
+   "s": "VNA.DE",
+   "n": "Vonovia",
+   "a": ""
+  },
+  {
+   "s": "ZAL.DE",
+   "n": "Zalando",
+   "a": ""
+  },
+  {
+   "s": "BEI.DE",
+   "n": "Beiersdorf",
+   "a": "nivea"
+  },
+  {
+   "s": "HEN3.DE",
+   "n": "Henkel",
+   "a": ""
+  },
+  {
+   "s": "CON.DE",
+   "n": "Continental",
+   "a": ""
+  },
+  {
+   "s": "QIA.DE",
+   "n": "Qiagen",
+   "a": ""
+  },
+  {
+   "s": "SY1.DE",
+   "n": "Symrise",
+   "a": ""
+  },
+  {
+   "s": "FRE.DE",
+   "n": "Fresenius",
+   "a": ""
+  },
+  {
+   "s": "LHA.DE",
+   "n": "Lufthansa",
+   "a": ""
+  },
+  {
+   "s": "TKA.DE",
+   "n": "Thyssenkrupp",
+   "a": ""
+  },
+  {
+   "s": "ASML.AS",
+   "n": "ASML (Amsterdam)",
+   "a": "asml"
+  },
+  {
+   "s": "MC.PA",
+   "n": "LVMH",
+   "a": "louis vuitton"
+  },
+  {
+   "s": "OR.PA",
+   "n": "L'Oréal",
+   "a": "loreal"
+  },
+  {
+   "s": "TTE.PA",
+   "n": "TotalEnergies",
+   "a": "total"
+  },
+  {
+   "s": "NESN.SW",
+   "n": "Nestlé",
+   "a": "nestle"
+  },
+  {
+   "s": "NOVN.SW",
+   "n": "Novartis",
+   "a": ""
+  },
+  {
+   "s": "ROG.SW",
+   "n": "Roche",
+   "a": ""
+  },
+  {
+   "s": "NOVO-B.CO",
+   "n": "Novo Nordisk (Kopenhagen)",
+   "a": "novo"
+  },
+  {
+   "s": "SHEL.L",
+   "n": "Shell",
+   "a": ""
+  },
+  {
+   "s": "EUNL.DE",
+   "n": "iShares Core MSCI World ETF",
+   "a": "msci world welt etf"
+  },
+  {
+   "s": "VWCE.DE",
+   "n": "Vanguard FTSE All-World ETF",
+   "a": "all world welt etf"
+  },
+  {
+   "s": "XDWD.DE",
+   "n": "Xtrackers MSCI World ETF",
+   "a": "msci world welt etf"
+  },
+  {
+   "s": "SXR8.DE",
+   "n": "iShares Core S&P 500 ETF",
+   "a": "sp500 s&p etf"
+  },
+  {
+   "s": "EXS1.DE",
+   "n": "iShares Core DAX ETF",
+   "a": "dax etf"
+  },
+  {
+   "s": "IS3N.DE",
+   "n": "iShares MSCI Emerging Markets IMI ETF",
+   "a": "schwellenländer emerging etf"
+  },
+  {
+   "s": "EUNK.DE",
+   "n": "iShares Core MSCI Europe ETF",
+   "a": "europa etf"
   }
  ]
 }

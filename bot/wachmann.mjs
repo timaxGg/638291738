@@ -34,9 +34,29 @@ async function quote(s){try{const q=await fh(`quote?symbol=${encodeURIComponent(
 async function avDaily(sym){if(!AV)return null;try{const r=await fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&outputsize=compact&symbol=${encodeURIComponent(sym)}&apikey=${AV}`);const j=await r.json();
   const ts=j["Time Series (Daily)"];if(!ts){B.err.alphavantage=(j.Note||j.Information||j["Error Message"]||"keine Daten").slice(0,120);return null}delete B.err.alphavantage;
   return Object.keys(ts).sort().reverse().slice(0,65).map(k=>+ts[k]["4. close"])}catch(e){B.err.alphavantage=e.message;return null}}
-const isUS=s=>/^[A-Z.]{1,6}$/.test(s)&&!/\.(DEX|DE|F)$/.test(s);
+const EU_SUF=/\.(DE|F|AS|PA|MI|L|SW|VI|MC|BR|CO|ST|HE|OL|LS|IR)$/;
+const LEGACY={SIE:"SIE.DE",ALV:"ALV.DE",DTE:"DTE.DE",MBG:"MBG.DE",BMW:"BMW.DE",VOW3:"VOW3.DE",BAS:"BAS.DE",BAYN:"BAYN.DE",ADS:"ADS.DE",IFX:"IFX.DE",RHM:"RHM.DE",MUV2:"MUV2.DE",DBK:"DBK.DE",DHL:"DHL.DE",AIR:"AIR.DE"};
+const isEU=s=>EU_SUF.test(s||"");
+const isUS=s=>/^[A-Z][A-Z.]{0,5}$/.test(s)&&!isEU(s)&&!["BTC","ETH","GOLD"].includes(s);
+const EU_INDEX=[["^GDAXI","DAX"],["^MDAXI","MDAX"],["^STOXX50E","Euro Stoxx 50"],["^FTSE","FTSE 100"],["^FCHI","CAC 40"]];
+const EU_SECTOR=[["EXV3.DE","Technologie"],["EXV4.DE","Gesundheit"],["EXV1.DE","Banken"],["EXH1.DE","Energie"],["EXV5.DE","Autos"],["EXH4.DE","Industrie"]];
+const DEFAULT_EU=["SAP.DE","SIE.DE","ALV.DE"];
+const curOf=s=>(B.q[s]&&B.q[s].cur)||(isEU(s)?"EUR":"USD");
+const CS=s=>({EUR:"€",USD:"$",GBp:"p",GBP:"£",CHF:"CHF"}[curOf(s)]||curOf(s));
+const fx=()=>(B.q["EURUSD=X"]&&B.q["EURUSD=X"].c)||1.1;
+const toEUR=(v,s)=>curOf(s)==="USD"?v/fx():v;
+const xetraOffen=()=>{const z=zeit(),m=z.h*60+z.m;return !["Sat","Sun"].includes(z.wd)&&m>=540&&m<1050};
+// Yahoo Finance (inoffiziell, ohne Schlüssel): Kurse aus Europa, ca. 15 Min. verzögert
+async function yq(s,hist){try{const r=await fetch(`https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(s)}?range=${hist?"3mo":"5d"}&interval=1d`,{headers:{"user-agent":"Mozilla/5.0 (compatible; AktienHelfer/1.0)"}});
+  if(!r.ok)throw new Error("Yahoo "+r.status);const j=await r.json(),res=j&&j.chart&&j.chart.result&&j.chart.result[0];if(!res)throw new Error("Yahoo: keine Daten für "+s);
+  const m=res.meta,cl=((res.indicators.quote[0]||{}).close||[]).filter(v=>v!=null),pc=cl.length>1?cl[cl.length-2]:m.chartPreviousClose;
+  const dp=m.regularMarketChangePercent??(pc?(m.regularMarketPrice/pc-1)*100:0);
+  B.q[s]={c:m.regularMarketPrice,dp,t:Date.now(),cur:m.currency,mt:(m.regularMarketTime||0)*1000};delete B.err.yahoo;return hist?cl.reverse().slice(0,65):B.q[s]}catch(e){B.err.yahoo=e.message;return null}}
+async function frisch(s){return isUS(s)?quote(s):yq(s)}
+async function yNews(s){try{const r=await fetch(`https://feeds.finance.yahoo.com/rss/2.0/headline?s=${encodeURIComponent(s)}&region=DE&lang=de-DE`,{headers:{"user-agent":"Mozilla/5.0"}});if(!r.ok)return [];const x=await r.text();
+  return [...x.matchAll(/<item>([\s\S]*?)<\/item>/g)].slice(0,3).map(m=>{const g=t=>((m[1].match(new RegExp(`<${t}>(?:<!\\[CDATA\\[)?([\\s\\S]*?)(?:\\]\\]>)?<\/${t}>`))||[])[1]||"").trim();return {headline:g("title"),url:g("link"),summary:g("description"),source:"Yahoo Finanzen",id:"y"+Math.abs([...g("link")].reduce((a,c)=>a*31+c.charCodeAt(0)|0,7))}}).filter(n=>n.headline)}catch(e){return []}}
 const catOf=s=>(KI.catalog||[]).find(c=>c.s===s)||{};
-const avSym=s=>catOf(s).av||s;
+const avSym=s=>catOf(s).av||s.replace(/\.DE$/,".DEX");
 const priceOf=s=>(B.q[s]&&B.q[s].c)||(B.eod[s]&&B.eod[s].c)||null;
 const moveOf=s=>B.q[s]&&Date.now()-B.q[s].t<36e5?B.q[s].dp:(B.eod[s]?B.eod[s].dp:0);
 
@@ -62,10 +82,10 @@ const PFEIL={up:"↗ aufwärts",down:"↘ abwärts",flat:"→ seitwärts"};
 
 /* ---------- Befehle ---------- */
 const HILFE=`<b>Was ich kann</b>
-/kurs AAPL – aktueller Kurs und Trend
+/kurs AAPL – aktueller Kurs und Trend (auch /kurs Siemens oder /kurs SIE.DE)
 /depot – dein Depot mit Gewinn/Verlust
 /top – Gewinner und Verlierer heute in deinem Depot
-/markt – Indizes und Branchen heute
+/markt – Europa und USA: Indizes und Branchen
 /news – wichtigste Nachrichten
 /briefing – letztes Briefing nochmal
 /prognose NVDA – Trend und erwarteter Bereich
@@ -81,7 +101,8 @@ const HILFE=`<b>Was ich kann</b>
 /status – läuft alles?
 
 Ich antworte beim nächsten Lauf, also meist innerhalb von 5 bis 15 Minuten.`;
-const depot=()=>(U.depot||[]).filter(d=>!d.demo);
+const depot=()=>(U.depot||[]).filter(d=>!d.demo).map(d=>LEGACY[d.s]?Object.assign({},d,{s:LEGACY[d.s]}):d);
+const finde=q=>{q=(q||"").trim();const u=q.toUpperCase();if(!q)return "";if(LEGACY[u])return LEGACY[u];const c=(KI.catalog||[]);const t=c.find(x=>x.s.toUpperCase()===u)||c.find(x=>x.s.toUpperCase()===u+".DE")||c.find(x=>x.n.toLowerCase().includes(q.toLowerCase())||(x.a||"").includes(q.toLowerCase()));return t?t.s:u};
 const khListe=()=>{const all=[...((U.kh&&U.kh.list)||[]),...B.khNew.filter(n=>!((U.kh&&U.kh.list)||[]).some(x=>x.id===n.id))];return all.filter(x=>!B.khDone.includes(String(x.id)))};
 const khText=x=>`🛒 <b>${esc(x.n)}</b> · ${fmt(x.p,0)} €${x.d?`\n${esc(x.d)}`:""}${x.u?`\n<a href="${esc(x.u)}">Zum Produkt</a>`:""}`;
 const khKnopf=x=>[[{text:"✅ Kaufen",callback_data:`kb:${x.id}`},{text:"❌ Will ich nicht mehr",callback_data:`kn:${x.id}`}]];
@@ -90,19 +111,20 @@ async function befehl(text){const [c0,...a]=text.trim().split(/\s+/),c=c0.toLowe
   const st=s=>(KI.stocks||[]).find(x=>x.s===s);
   switch(c){
   case "/start":case "/hilfe":case "/help":return send(HILFE,{direkt:true});
-  case "/kurs":{const s=(a[0]||"").toUpperCase();if(!s)return send("Welche Aktie? Beispiel: /kurs AAPL",{direkt:true});if(isUS(s))await quote(s);const p=priceOf(s),an=analyse(st(s));
-    return send(p?`<b>${esc(catOf(s).n||s)}</b> (${s})\n${fmt(p)} $ · heute ${sgn(moveOf(s))}${an?`\nTrend ${PFEIL[an.dir]} · 4 Wochen ${sgn(an.ch20)}`:""}`:`Keinen Kurs für ${esc(s)} gefunden. Live gibt es nur US-Aktien.`,{direkt:true})}
+  case "/kurs":{const s=finde(arg);if(!s)return send("Welche Aktie? Beispiel: /kurs AAPL oder /kurs Siemens",{direkt:true});await frisch(s);const p=priceOf(s),an=analyse(st(s));
+    return send(p?`<b>${esc(catOf(s).n||s)}</b> (${s})\n${fmt(p)} ${CS(s)} · heute ${sgn(moveOf(s))}${isEU(s)?" (ca. 15 Min. verzögert)":""}${an?`\nTrend ${PFEIL[an.dir]} · 4 Wochen ${sgn(an.ch20)}`:""}`:`Keinen Kurs für ${esc(s)} gefunden. Tipp: deutsche Aktien mit .DE, z. B. /kurs SIE.DE`,{direkt:true})}
   case "/depot":{const d=depot();if(!d.length)return send("Dein Depot ist leer oder noch nicht übertragen. Trag Aktien in der App ein, sie kommen automatisch hier an.",{direkt:true});
-    for(const x of d)if(isUS(x.s)&&(boerseOffen()||!B.q[x.s]))await quote(x.s);let tot=0,cost=0;const z=d.map(x=>{const p=priceOf(x.s);if(!p)return `• ${esc(x.n)}: kein Kurs`;tot+=p*x.q;cost+=x.k*x.q;return `• <b>${esc(x.n)}</b>: ${fmt(p*x.q)} $ (${sgn((p/x.k-1)*100)})`});
-    return send(`💼 <b>Dein Depot</b>\n${z.join("\n")}${cost?`\n\n<b>Gesamt: ${fmt(tot)} $ (${sgn((tot/cost-1)*100)})</b>`:""}`,{direkt:true})}
+    if(!B.q["EURUSD=X"])await yq("EURUSD=X");for(const x of d)if(isUS(x.s)?(boerseOffen()||!B.q[x.s]):!B.q[x.s]||Date.now()-B.q[x.s].t>9e5)await frisch(x.s);let tot=0,cost=0;const z=d.map(x=>{const p=priceOf(x.s);if(!p)return `• ${esc(x.n)}: kein Kurs`;tot+=toEUR(p*x.q,x.s);cost+=toEUR(x.k*x.q,x.s);return `• <b>${esc(x.n)}</b>: ${fmt(p*x.q)} ${CS(x.s)} (${sgn((p/x.k-1)*100)})`});
+    return send(`💼 <b>Dein Depot</b>\n${z.join("\n")}${cost?`\n\n<b>Gesamt: ${fmt(tot)} € (${sgn((tot/cost-1)*100)})</b>${d.some(x=>curOf(x.s)==="USD")?`\n<i>Dollar umgerechnet: 1 € = ${fmt(fx(),4)} $</i>`:""}`:""}`,{direkt:true})}
   case "/top":{const d=depot().filter(x=>priceOf(x.s));if(!d.length)return send("Noch keine Kurse für dein Depot.",{direkt:true});d.sort((x,y)=>moveOf(y.s)-moveOf(x.s));
     return send(`📈 <b>Heute</b>\nBester: ${esc(d[0].n)} ${sgn(moveOf(d[0].s))}\nSchwächster: ${esc(d[d.length-1].n)} ${sgn(moveOf(d[d.length-1].s))}`,{direkt:true})}
-  case "/markt":{for(const [s] of [...INDEX_ETF,...SECTOR_ETF])if(boerseOffen()||!B.q[s])await quote(s);
-    return send(`📊 <b>Markt</b> (${boerseOffen()?"US-Börse offen":"US-Börse geschlossen"})\n${INDEX_ETF.map(([s,n])=>B.q[s]?`• ${n}: ${sgn(B.q[s].dp)}`:"").filter(Boolean).join("\n")}\n\n<b>Branchen</b>\n${SECTOR_ETF.map(([s,n])=>B.q[s]?`• ${n}: ${sgn(B.q[s].dp)}`:"").filter(Boolean).join("\n")}`,{direkt:true})}
+  case "/markt":{for(const [s] of [...INDEX_ETF,...SECTOR_ETF])if(boerseOffen()||!B.q[s])await quote(s);for(const [s] of [...EU_INDEX,...EU_SECTOR])if(!B.q[s]||Date.now()-B.q[s].t>9e5)await yq(s);
+    const l=(arr)=>arr.map(([s,n])=>B.q[s]?`• ${n}: ${sgn(B.q[s].dp)}`:"").filter(Boolean).join("\n");
+    return send(`📊 <b>Europa</b> (Xetra ${xetraOffen()?"offen":"geschlossen"})\n${l(EU_INDEX)}\n<b>Branchen</b>\n${l(EU_SECTOR)}\n\n📊 <b>USA</b> (${boerseOffen()?"offen":"geschlossen"})\n${l(INDEX_ETF)}\n<b>Branchen</b>\n${l(SECTOR_ETF)}`,{direkt:true})}
   case "/news":{const n=(KI.news||[]).slice().sort((x,y)=>y.imp-x.imp).slice(0,5);return send(n.length?`📰 <b>Wichtig gerade</b>\n\n${n.map(x=>`${"●".repeat(x.imp)} <b>${esc(x.t)}</b>\n${esc(x.sum)}\n<a href="${x.u}">Quelle: ${esc(x.q)}</a>`).join("\n\n")}`:"Noch keine Nachrichten.",{direkt:true})}
   case "/briefing":return send(KI.telegram?esc(KI.telegram).replace(/\*\*(.+?)\*\*/g,"<b>$1</b>"):"Noch kein Briefing vorhanden.",{direkt:true});
-  case "/prognose":{const s=(a[0]||"").toUpperCase(),an=analyse(st(s));if(!an)return send(`Für ${esc(s||"?")} habe ich noch keine Prognose. Verfügbar: ${(KI.stocks||[]).map(x=>x.s).join(", ")}`,{direkt:true});
-    return send(`🔮 <b>${esc(st(s).n)}</b>\nTrend ${PFEIL[an.dir]}\nIn ${an.H===20?"4 Wochen":"3 Monaten"} erwartet: ${fmt(an.mid,0)} $ (Bereich ${fmt(an.lo,0)}–${fmt(an.hi,0)} $)\nRisiko: Schwankung ${fmt(an.vol,0)} %/Jahr\n<i>Schätzung, keine Garantie.</i>`,{direkt:true})}
+  case "/prognose":{const s=finde(arg),an=analyse(st(s));if(!an)return send(`Für ${esc(s||"?")} habe ich noch keine Prognose. Verfügbar: ${(KI.stocks||[]).map(x=>x.s).join(", ")}`,{direkt:true});
+    return send(`🔮 <b>${esc(st(s).n)}</b>\nTrend ${PFEIL[an.dir]}\nIn ${an.H===20?"4 Wochen":"3 Monaten"} erwartet: ${fmt(an.mid,0)} ${CS(s)} (Bereich ${fmt(an.lo,0)}–${fmt(an.hi,0)} ${CS(s)})\nRisiko: Schwankung ${fmt(an.vol,0)} %/Jahr\n<i>Schätzung, keine Garantie.</i>`,{direkt:true})}
   case "/termine":{const c=(KI.calendar||[]);return send(c.length?`📅 <b>Termine</b>\n${c.map(x=>`<b>${esc(x.day)}</b>: ${x.items.map(i=>esc(i.replace(/<[^>]+>/g,""))).join(", ")}`).join("\n")}`:"Keine Termine bekannt.",{direkt:true})}
   case "/kaufhilfe":{const l=khListe();if(!l.length)return send("Keine offenen Kaufentscheidungen. Neue mit /merken Name Preis Tage",{direkt:true});
     for(const x of l)await send(`${khText(x)}\n${x.due<=Date.now()?"Bedenkzeit vorbei. Willst du es noch?":`Bedenkzeit bis ${new Date(x.due).toLocaleDateString("de-DE")}`}`,{direkt:true,knoepfe:khKnopf(x)});return}
@@ -112,11 +134,11 @@ async function befehl(text){const [c0,...a]=text.trim().split(/\s+/),c=c0.toLowe
   case "/gespart":{const k=U.kh||{saved:0,bought:0};return send(`💚 Durch die Kaufhilfe nicht ausgegeben: <b>${fmt(k.saved||0,0)} €</b>\nBewusst gekauft: ${fmt(k.bought||0,0)} €`,{direkt:true})}
   case "/ziel":{const g=U.fin&&U.fin.goal;return send(g?`🎯 <b>${esc(g.n)}</b>: ${fmt(g.g,0)} von ${fmt(g.z,0)} € (${fmt(g.g/(g.z||1)*100,0)} %)`:"Noch kein Sparziel übertragen.",{direkt:true})}
   case "/sparmodell":return send(U.model?`💶 Dein Sparmodell: <b>${esc(U.modelName||U.model)}</b>${U.rec&&U.rec!==U.model?`\nEmpfohlen wäre gerade: <b>${esc(U.recName||U.rec)}</b>. Ansehen in der App unter Finanzen → Sparmodell.`:"\nPasst weiterhin zu deinen Zahlen."}`:"Du hast noch kein Sparmodell gewählt (App → Finanzen → Sparmodell).",{direkt:true});
-  case "/alarme":{const n=U.notify||{},d=depot();return send(`⚙️ <b>Deine Alarme</b>\n${d.map(x=>`• ${esc(x.n)}: Meldung ab ${x.a} %${x.z?`, Kursziel ${fmt(x.z)} $`:""}${x.tag?`, Nachkauf am ${x.tag}.`:""}`).join("\n")||"Keine Aktien im Depot."}\n\nStarke Bewegung ab ±${n.move||5} % · Nachtruhe ${n.night===false?"aus":"22–7 Uhr"}\nÄndern kannst du das in der App.`,{direkt:true})}
+  case "/alarme":{const n=U.notify||{},d=depot();return send(`⚙️ <b>Deine Alarme</b>\n${d.map(x=>`• ${esc(x.n)}: Meldung ab ${x.a} %${x.z?`, Kursziel ${fmt(x.z)} ${CS(x.s)}`:""}${x.tag?`, Nachkauf am ${x.tag}.`:""}`).join("\n")||"Keine Aktien im Depot."}\n\nStarke Bewegung ab ±${n.move||5} % · Nachtruhe ${n.night===false?"aus":"22–7 Uhr"}\nÄndern kannst du das in der App.`,{direkt:true})}
   case "/ruhe":{const m=(a[0]||"2h").match(/^(\d+)(m|h)$/);const bis=a[0]==="morgen"?Date.parse(addDays(zeit().date,1)+"T06:00:00Z"):Date.now()+(m?(+m[1])*(m[2]==="h"?36e5:6e4):72e5);
     B.mute=bis;return send(`🔕 Pause bis ${new Date(bis).toLocaleString("de-DE",{timeZone:"Europe/Berlin",weekday:"short",hour:"2-digit",minute:"2-digit"})} Uhr. Wichtiges sammle ich und schicke es danach. /laut beendet die Pause.`,{direkt:true})}
   case "/laut":B.mute=0;await send("🔔 Pause beendet.",{direkt:true});return warteschlange();
-  case "/status":{const e=Object.entries(B.err);return send(`🩺 <b>Status</b>\nLetzter Lauf: ${B.lastRun?new Date(B.lastRun).toLocaleString("de-DE",{timeZone:"Europe/Berlin"}):"–"}\nKI-Stand: ${KI.generated?new Date(KI.generated).toLocaleString("de-DE",{timeZone:"Europe/Berlin"}):"–"}\nDepot übertragen: ${U.updatedAt?new Date(U.updatedAt).toLocaleString("de-DE",{timeZone:"Europe/Berlin"}):"nein"}\nUS-Börse: ${boerseOffen()?"offen":"geschlossen"}\n${e.length?"⚠️ Probleme:\n"+e.map(([k,v])=>`• ${k}: ${esc(v)}`).join("\n"):"✅ Alle Datenquellen erreichbar"}`,{direkt:true})}
+  case "/status":{const e=Object.entries(B.err);return send(`🩺 <b>Status</b>\nLetzter Lauf: ${B.lastRun?new Date(B.lastRun).toLocaleString("de-DE",{timeZone:"Europe/Berlin"}):"–"}\nKI-Stand: ${KI.generated?new Date(KI.generated).toLocaleString("de-DE",{timeZone:"Europe/Berlin"}):"–"}\nDepot übertragen: ${U.updatedAt?new Date(U.updatedAt).toLocaleString("de-DE",{timeZone:"Europe/Berlin"}):"nein"}\nXetra: ${xetraOffen()?"offen":"geschlossen"} · US-Börse: ${boerseOffen()?"offen":"geschlossen"}\nEU-Kurse: ${B.euT?new Date(B.euT).toLocaleTimeString("de-DE",{timeZone:"Europe/Berlin",hour:"2-digit",minute:"2-digit"})+" Uhr":"–"}\n${e.length?"⚠️ Probleme:\n"+e.map(([k,v])=>`• ${k}: ${esc(v)}`).join("\n"):"✅ Alle Datenquellen erreichbar"}`,{direkt:true})}
   default:return send(`Den Befehl „${esc(c0)}“ kenne ich nicht. /hilfe zeigt alle Befehle.`,{direkt:true})}}
 async function knopf(cb){const [t,id]=String(cb.data||"").split(":"),x=khListe().find(i=>String(i.id)===id);await tg("answerCallbackQuery",{callback_query_id:cb.id,text:x?"Gespeichert":"Schon erledigt"});if(!x)return;
   B.khDone.push(String(x.id));inbox(t==="kb"?"kh-buy":"kh-skip",x);
@@ -129,12 +151,12 @@ async function telegramEingang(warte=0){if(!TG)return;const r=await tg("getUpdat
 
 /* ---------- Alarme und Erinnerungen ---------- */
 async function alarme(){const n=Object.assign({loss:true,target:true,move:5,news:true,kh:true,sparplan:true,earnings:true,model:true,briefing:true},U.notify||{}),z=zeit(),d=depot();
-  for(const x of d)if(isUS(x.s)&&(boerseOffen()||!B.q[x.s]||Date.now()-B.q[x.s].t>6*36e5))await quote(x.s);
+  for(const x of d)if(isUS(x.s)&&(boerseOffen()||!B.q[x.s]||Date.now()-B.q[x.s].t>6*36e5))await quote(x.s);else if(isEU(x.s)&&!B.q[x.s])await yq(x.s);
   for(const x of d){const p=priceOf(x.s);if(!p)continue;const ch=(p/x.k-1)*100,mv=moveOf(x.s),kL=`loss:${x.s}`,kZ=`ziel:${x.s}`,kM=`move:${x.s}:${z.date}`;
-    if(n.loss&&ch<=x.a){if(!B.sent[kL]||ch<=B.sent[kL]-5){B.sent[kL]=ch;await send(`🔴 <b>${esc(x.n)}</b> liegt ${sgn(ch)} unter deinem Kaufpreis.\nKurs ${fmt(p)} $ · deine Meldegrenze: ${x.a} %`,{dringend:mv<=-10})}}else if(B.sent[kL]&&ch>x.a+2)delete B.sent[kL];
-    if(n.target&&x.z&&p>=x.z){if(!B.sent[kZ]){B.sent[kZ]=1;await send(`🟢 <b>${esc(x.n)}</b> hat dein Kursziel erreicht!\nKurs ${fmt(p)} $ · Ziel ${fmt(x.z)} $ · ${sgn(ch)} seit Kauf`)}}else if(B.sent[kZ]&&p<x.z*.98)delete B.sent[kZ];
-    if(n.move&&Math.abs(mv)>=n.move&&!B.sent[kM]){B.sent[kM]=1;await send(`⚡ <b>${esc(x.n)}</b> bewegt sich heute stark: ${sgn(mv)}\nKurs ${fmt(p)} $`,{dringend:mv<=-10})}
-    if(n.sparplan&&x.tag&&z.day===+x.tag&&z.h>=9&&!B.sent[`spar:${x.s}:${z.ym}`]){B.sent[`spar:${x.s}:${z.ym}`]=1;await send(`💶 Heute ist dein Nachkauf-Tag für <b>${esc(x.n)}</b>.\nAktuell ${fmt(p)} $ (${sgn(ch)} seit Kauf).`)}}
+    if(n.loss&&ch<=x.a){if(!B.sent[kL]||ch<=B.sent[kL]-5){B.sent[kL]=ch;await send(`🔴 <b>${esc(x.n)}</b> liegt ${sgn(ch)} unter deinem Kaufpreis.\nKurs ${fmt(p)} ${CS(x.s)} · deine Meldegrenze: ${x.a} %`,{dringend:mv<=-10})}}else if(B.sent[kL]&&ch>x.a+2)delete B.sent[kL];
+    if(n.target&&x.z&&p>=x.z){if(!B.sent[kZ]){B.sent[kZ]=1;await send(`🟢 <b>${esc(x.n)}</b> hat dein Kursziel erreicht!\nKurs ${fmt(p)} ${CS(x.s)} · Ziel ${fmt(x.z)} ${CS(x.s)} · ${sgn(ch)} seit Kauf`)}}else if(B.sent[kZ]&&p<x.z*.98)delete B.sent[kZ];
+    if(n.move&&Math.abs(mv)>=n.move&&!B.sent[kM]){B.sent[kM]=1;await send(`⚡ <b>${esc(x.n)}</b> bewegt sich heute stark: ${sgn(mv)}\nKurs ${fmt(p)} ${CS(x.s)}`,{dringend:mv<=-10})}
+    if(n.sparplan&&x.tag&&z.day===+x.tag&&z.h>=9&&!B.sent[`spar:${x.s}:${z.ym}`]){B.sent[`spar:${x.s}:${z.ym}`]=1;await send(`💶 Heute ist dein Nachkauf-Tag für <b>${esc(x.n)}</b>.\nAktuell ${fmt(p)} ${CS(x.s)} (${sgn(ch)} seit Kauf).`)}}
   if(n.kh)for(const x of khListe())if(x.due<=Date.now()&&!B.sent[`kh:${x.id}`]){if(leise())break;B.sent[`kh:${x.id}`]=Date.now();await send(`⏰ Bedenkzeit vorbei!\n${khText(x)}\nWillst du es immer noch?`,{knoepfe:khKnopf(x)})}
   if(n.kh)for(const x of khListe())if(B.sent[`kh:${x.id}`]>1&&Date.now()-B.sent[`kh:${x.id}`]>48*36e5&&!B.sent[`kh2:${x.id}`]&&!leise()){B.sent[`kh2:${x.id}`]=1;await send(`🛒 Noch offen in deinem Warenkorb:\n${khText(x)}\nKaufen oder lassen?`,{knoepfe:khKnopf(x)})}
   {const z2=zeit(),l=khListe();if(n.kh&&z2.wd==="Sun"&&z2.h>=18&&l.length&&B.sent.cartWeek!==z2.date&&!leise()){B.sent.cartWeek=z2.date;await send(`🧺 <b>Dein Warenkorb</b> (${l.length})\n${l.map(x=>`• ${esc(x.n)} · ${fmt(x.p,0)} € · ${x.due<=Date.now()?"Bedenkzeit vorbei":"bis "+new Date(x.due).toLocaleDateString("de-DE")}`).join("\n")}\n\nAlles anzeigen mit /kaufhilfe`)}}
@@ -145,16 +167,28 @@ async function alarme(){const n=Object.assign({loss:true,target:true,move:5,news
     for(const u of (KI.updates||[]))if(!u.example&&!B.sent[`upd:${u.id}`]){B.sent[`upd:${u.id}`]=1;await send(`📬 <b>Neuer Update-Brief:</b> ${esc(u.title)}\nIn der App unter Aktien → Lern-Updates kannst du ihn übernehmen oder ablehnen.`)}}
   for(const k of Object.keys(B.sent))if(/^(move|earn):/.test(k)&&!k.includes(z.date)&&!k.includes(addDays(z.date,1)))delete B.sent[k]}
 
+/* ---------- EU-Kurse für die App (Branch "kurse", ohne Seiten-Neubau) ---------- */
+async function euKurse(){const z=zeit();if(!xetraOffen()&&Date.now()-(B.euT||0)<36e5)return;
+  const syms=[...new Set([...depot().map(x=>x.s),...(U.watch||[]).map(w=>LEGACY[w]||w),...(KI.stocks||[]).map(x=>x.s),...DEFAULT_EU])].filter(isEU);
+  for(const [s] of [...EU_INDEX,...EU_SECTOR])await yq(s);for(const s of syms)await yq(s);await yq("EURUSD=X");B.euT=Date.now();
+  const pick=l=>l.filter(([s])=>B.q[s]).map(([s,n])=>({s,n,c:B.q[s].c,dp:+(+B.q[s].dp).toFixed(2)}));
+  const alle=[...new Set([...syms,...depot().map(x=>x.s),...(KI.stocks||[]).map(x=>x.s),...(U.watch||[])])].filter(s=>B.q[s]);
+  writeJSON(P(".state/kurse.json"),{t:Date.now(),fx:{EURUSD:fx()},idx:pick(EU_INDEX),sec:pick(EU_SECTOR),q:Object.fromEntries(alle.map(s=>[s,{c:B.q[s].c,dp:+(+B.q[s].dp).toFixed(2),cur:curOf(s),t:B.q[s].mt||B.q[s].t}]))});B.kursePush=true}
+function kurseHochladen(){if(!B.kursePush||DRY)return;B.kursePush=false;try{const o={cwd:ROOT};const blob=execSync("git hash-object -w .state/kurse.json",o).toString().trim();
+  const tree=execSync("git mktree",Object.assign({input:`100644 blob ${blob}\tkurse.json\n`},o)).toString().trim();
+  const c=execSync(`git -c user.name=Wachmann -c user.email=wachmann@users.noreply.github.com commit-tree ${tree} -m "Kurse"`,o).toString().trim();
+  execSync(`git push -f -q origin ${c}:refs/heads/kurse`,o);log("EU-Kurse hochgeladen")}catch(e){log("Kurse",e.message);B.err.kurse=e.message.slice(0,120)}}
+
 /* ---------- Abend-Rückblick um 21 Uhr (ohne KI) ---------- */
 async function abendRueckblick(){const z=zeit(),n=U.notify||{};if((!E.FORCE_ABEND&&(z.h<21||z.h>=22))||B.sent.abend===z.date||n.briefing===false||!CHAT)return;B.sent.abend=z.date;
-  const d=depot();for(const x of d)if(isUS(x.s))await quote(x.s);for(const [s] of INDEX_ETF)await quote(s);
+  const d=depot();for(const x of d)await frisch(x.s);for(const [s] of INDEX_ETF)await quote(s);for(const [s] of EU_INDEX.slice(0,2))await yq(s);await yq("EURUSD=X");
   const zeilen=[],mit=d.filter(x=>priceOf(x.s));let tot=0,cost=0,heute=0;
-  for(const x of mit){const p=priceOf(x.s),mv=moveOf(x.s);tot+=p*x.q;cost+=x.k*x.q;heute+=p*x.q*(1-1/(1+mv/100));zeilen.push(`${mv>=0?"🟢":"🔴"} ${esc(x.n)}: heute ${sgn(mv)} · seit Kauf ${sgn((p/x.k-1)*100)}`)}
+  for(const x of mit){const p=priceOf(x.s),mv=moveOf(x.s);tot+=toEUR(p*x.q,x.s);cost+=toEUR(x.k*x.q,x.s);heute+=toEUR(p*x.q*(1-1/(1+mv/100)),x.s);zeilen.push(`${mv>=0?"🟢":"🔴"} ${esc(x.n)}: heute ${sgn(mv)} · seit Kauf ${sgn((p/x.k-1)*100)}`)}
   const morgen=addDays(z.date,1),termine=B.earn.list.filter(e=>e.date===morgen).map(e=>`Quartalszahlen ${esc(catOf(e.symbol).n||e.symbol)}`);
   for(const x of d)if(x.tag&&+morgen.slice(8)===+x.tag)termine.push(`Nachkauf-Tag ${esc(x.n)}`);
   const kh=khListe(),faellig=kh.filter(x=>x.due<=Date.now()+864e5);
-  const markt=INDEX_ETF.filter(([s])=>B.q[s]).map(([s,n])=>`${n} ${sgn(B.q[s].dp)}`).join(" · ");
-  await send(`🌙 <b>Dein Abend-Rückblick</b>${markt?`\n${markt}`:""}\n\n${mit.length?`<b>Depot heute: ${heute>=0?"+":""}${fmt(heute)} $</b> (gesamt ${fmt(tot)} $, ${sgn((tot/cost-1)*100)} seit Kauf)\n${zeilen.join("\n")}`:"Noch keine Aktien im Depot übertragen."}${mit.length>1?`\n\nBester: ${esc(mit.slice().sort((a,b)=>moveOf(b.s)-moveOf(a.s))[0].n)} · Schwächster: ${esc(mit.slice().sort((a,b)=>moveOf(a.s)-moveOf(b.s))[0].n)}`:""}\n\n<b>Morgen:</b> ${termine.length?termine.join(", "):"keine besonderen Termine bei deinen Aktien"}${kh.length?`\n\n🧺 Warenkorb: ${kh.length} Ding${kh.length>1?"e":""}${faellig.length?`, davon ${faellig.length} bald fällig (${faellig.map(x=>esc(x.n)).join(", ")})`:""}`:""}\n\nDie US-Börse schließt um 22 Uhr. Gute Nacht! 😴`)}
+  const markt=[...EU_INDEX.slice(0,2),...INDEX_ETF].filter(([s])=>B.q[s]).map(([s,n])=>`${n} ${sgn(B.q[s].dp)}`).join(" · ");
+  await send(`🌙 <b>Dein Abend-Rückblick</b>${markt?`\n${markt}`:""}\n\n${mit.length?`<b>Depot heute: ${heute>=0?"+":""}${fmt(heute)} €</b> (gesamt ${fmt(tot)} €, ${sgn((tot/cost-1)*100)} seit Kauf)\n${zeilen.join("\n")}`:"Noch keine Aktien im Depot übertragen."}${mit.length>1?`\n\nBester: ${esc(mit.slice().sort((a,b)=>moveOf(b.s)-moveOf(a.s))[0].n)} · Schwächster: ${esc(mit.slice().sort((a,b)=>moveOf(a.s)-moveOf(b.s))[0].n)}`:""}\n\n<b>Morgen:</b> ${termine.length?termine.join(", "):"keine besonderen Termine bei deinen Aktien"}${kh.length?`\n\n🧺 Warenkorb: ${kh.length} Ding${kh.length>1?"e":""}${faellig.length?`, davon ${faellig.length} bald fällig (${faellig.map(x=>esc(x.n)).join(", ")})`:""}`:""}\n\nDie US-Börse schließt um 22 Uhr. Gute Nacht! 😴`)}
 
 /* ---------- Vorlage für Claude (3x täglich) ---------- */
 const F=s=>`§FILL: ${s}§`;
@@ -163,31 +197,32 @@ function prognoseCheck(){const pf=P("data/prognosen.json"),log0=readJSON(pf,[]),
   for(const st of (KI.stocks||[])){const a=analyse(st);if(a&&!log0.some(e=>e.s===st.s&&e.d===heute))log0.push({d:heute,s:st.s,lo:+a.lo.toFixed(2),hi:+a.hi.toFixed(2),bis:addDays(heute,Math.round(a.H*1.4))})}
   const fertig=log0.filter(e=>e.ok).slice(-120);writeJSON(pf,log0.filter(e=>!e.ok||fertig.includes(e)).slice(-600));changed.add("data/prognosen.json");
   return {ausgewertet:fertig.length,treffer:fertig.filter(e=>e.ok===1).length,quote:fertig.length?Math.round(fertig.filter(e=>e.ok===1).length/fertig.length*100):null,soll:68}}
-async function vorlage(slot){const z=zeit(),prev=KI,d=depot(),watch=[...new Set([...(prev.stocks||[]).map(s=>s.s),...d.map(x=>x.s),...(U.watch||[])])].slice(0,16);
-  for(const s of watch)if(isUS(s))await quote(s);for(const [s] of [...INDEX_ETF,...SECTOR_ETF])await quote(s);
+async function vorlage(slot){const z=zeit(),prev=KI,d=depot(),watch=[...new Set([...(prev.stocks||[]).map(s=>s.s),...d.map(x=>x.s),...(U.watch||[]).map(w=>LEGACY[w]||w),...DEFAULT_EU])].slice(0,18);
+  for(const s of watch)if(isUS(s))await quote(s);for(const [s] of [...INDEX_ETF,...SECTOR_ETF])await quote(s);for(const [s] of [...EU_INDEX,...EU_SECTOR])await yq(s);
   const stocks=[];for(const s of watch){const alt=(prev.stocks||[]).find(x=>x.s===s);let closes=alt&&alt.closes;
-    if(slot==="morgen"||!closes){const c=await avDaily(avSym(s));if(c){closes=c;if(!isUS(s))B.eod[s]={c:c[0],dp:(c[0]/c[1]-1)*100,t:Date.now()}}await sleep(E.DRY==="1"?0:1500)}
-    if(!closes)continue;const neu=slot==="morgen"||!alt,base={s,n:catOf(s).n||(alt&&alt.n)||s,closes};
+    if(slot==="morgen"||!closes){let c=await yq(s,true);if(!c||c.length<25){c=await avDaily(avSym(s));await sleep(E.DRY==="1"?0:1500)}if(c&&c.length>=25)closes=c}
+    if(!closes)continue;const neu=slot==="morgen"||!alt,base={s,n:catOf(s).n||(alt&&alt.n)||s,closes,cur:curOf(s)};
     const an=analyse(Object.assign({},alt||{},base));
     stocks.push(neu?Object.assign(base,{cat:alt&&alt.cat||F("Branche in 1–3 Wörtern"),h:F('"kurz" oder "lang"'),bias:F("Zahl −3 bis +3: Wirkung der heutigen Nachrichten auf den Kurs in %"),
       why:F("2–3 Sätze Einschätzung, sachlich, keine Kaufempfehlung"),pro:F("Liste mit 1–3 kurzen Punkten dafür"),con:F("Liste mit 1–3 kurzen Punkten dagegen"),news:F("Liste der news-ids, die diese Aktie betreffen"),
-      _fakten:an?{trend:an.dir,vierWochen:+an.ch20.toFixed(1),dreiMonate:+an.ch3m.toFixed(1),schwankung:+an.vol.toFixed(0),heute:+moveOf(s).toFixed(2)}:{}}):Object.assign({},alt,{closes}))}
+      _fakten:an?{waehrung:curOf(s),region:isEU(s)?"Europa":"USA",trend:an.dir,vierWochen:+an.ch20.toFixed(1),dreiMonate:+an.ch3m.toFixed(1),schwankung:+an.vol.toFixed(0),heute:+moveOf(s).toFixed(2)}:{}}):Object.assign({},alt,{closes}))}
   const bis=z.date,von=addDays(bis,slot==="morgen"?-1:0),roh=[],seen=new Set();
   const add=(n,sym)=>{const k=(n.headline||"").toLowerCase().slice(0,60);if(!n.headline||seen.has(k))return;seen.add(k);roh.push({id:`n${n.id||roh.length}`,t:n.headline,q:n.source,u:n.url,sym:sym?[sym]:(n.related||"").split(",").filter(Boolean).slice(0,3),z:(n.summary||"").slice(0,220)})};
-  for(const s of watch.filter(isUS)){try{(await fh(`company-news?symbol=${s}&from=${von}&to=${bis}`)).slice(0,3).forEach(n=>add(n,s))}catch(e){}}
-  try{(await fh("news?category=general")).slice(0,12).forEach(n=>add(n))}catch(e){}
+  for(const s of watch.filter(isEU))(await yNews(s)).forEach(n=>add(n,s));
+  for(const s of watch.filter(isUS)){try{(await fh(`company-news?symbol=${s}&from=${von}&to=${bis}`)).slice(0,2).forEach(n=>add(n,s))}catch(e){}}
+  try{(await fh("news?category=general")).slice(0,8).forEach(n=>add(n))}catch(e){}
   if(B.earn.date!==z.date){try{const r=await fh(`calendar/earnings?from=${z.date}&to=${addDays(z.date,14)}`);B.earn={date:z.date,list:(r.earningsCalendar||[]).filter(e=>watch.includes(e.symbol))}}catch(e){}}
   const cal={};B.earn.list.forEach(e=>{const k=new Date(e.date+"T12:00:00Z").toLocaleDateString("de-DE",{weekday:"short",day:"numeric",month:"numeric"});(cal[k]=cal[k]||[]).push(`Quartalszahlen: ${catOf(e.symbol).n||e.symbol}`)});
   const sonntag=z.wd==="Sun"&&slot==="mittag",lern=slot==="morgen"||sonntag?prognoseCheck():null;
   const v={version:2,generated:F("aktuelle Uhrzeit als ISO-Zeitstempel mit +01:00 bzw. +02:00"),dataAsOf:z.date,_slot:slot,
     _anleitung:"Ersetze jeden §FILL…§-Platzhalter durch passenden Inhalt im richtigen JSON-Typ (Text, Zahl oder Liste). Alles andere unverändert lassen. Felder mit _ am Anfang danach löschen. Deutsch, kurz, sachlich, in eigenen Worten, keine Kauf- oder Verkaufsempfehlungen.",
-    indices:INDEX_ETF.filter(([s])=>B.q[s]).map(([s,n])=>({n,v:B.q[s].c,c:+B.q[s].dp.toFixed(2),s:`über ${s}`})),
-    sectors:SECTOR_ETF.filter(([s])=>B.q[s]).map(([s,n])=>({n,c:+B.q[s].dp.toFixed(2),p:slot==="abend"?"heute":"zuletzt"})),
+    indices:[...EU_INDEX.filter(([s])=>B.q[s]).map(([s,n])=>({n,v:B.q[s].c,c:+(+B.q[s].dp).toFixed(2),s:"Europa"})),...INDEX_ETF.filter(([s])=>B.q[s]).map(([s,n])=>({n,v:B.q[s].c,c:+B.q[s].dp.toFixed(2),s:`USA, über ${s}`}))],
+    sectors:[...EU_SECTOR.filter(([s])=>B.q[s]).map(([s,n])=>({n,c:+(+B.q[s].dp).toFixed(2),p:"Europa"})),...SECTOR_ETF.filter(([s])=>B.q[s]).map(([s,n])=>({n,c:+B.q[s].dp.toFixed(2),p:"USA"}))],
     calendar:Object.entries(cal).map(([day,items])=>({day,items})),stocks,
     news:slot==="morgen"?F("Liste der 4–8 wichtigsten Meldungen aus _rohnews im Format {id,imp(1-3),kind:[Text,\"down\"|\"up\"|\"warn\"|\"\"],cat,t,sum(1 Satz),body:[1-3 Absätze],back(\"Rückblick: …\" oder \"Wirkt jetzt: …\" oder \"Wirkt bald: …\"),stocks:[Kürzel],u,q}")
       :Object.assign([],prev.news||[]),
     _news_hinweis:slot==="morgen"?undefined:"Behalte die news-Liste. Ergänze nur wirklich neue wichtige Meldungen aus _rohnews im selben Format, höchstens 10 insgesamt (älteste raus).",
-    _rohnews:roh.slice(0,25),
+    _rohnews:roh.slice(0,32),
     telegram:F(slot==="morgen"?"Morgen-Briefing für Telegram, höchstens 8 kurze Zeilen: Lage, wichtigste 2–3 Meldungen, was heute ansteht, auffällige Bewegungen bei den beobachteten Aktien. **fett** erlaubt."
       :slot==="mittag"?"Kurzes Mittags-Update, höchstens 4 Zeilen: nur was sich seit dem Morgen geändert hat."
       :"Abend-Rückblick, höchstens 6 Zeilen: wie lief der Tag, wie die Depot-Aktien, was morgen ansteht."+(sonntag?" Danach 3 Zeilen Wochenfazit.":"")),
@@ -198,7 +233,7 @@ function slotJetzt(){const z=zeit();for(const [s,h] of [["morgen",6],["mittag",1
 
 /* ---------- Speichern ---------- */
 async function sichern(){if(changed.has("inbox")&&PASS){const keep=B.inbox.filter(e=>Date.now()-e.t<30*864e5);B.inbox=keep;fs.mkdirSync(P("data"),{recursive:true});fs.writeFileSync(P("data/inbox.enc"),await verschluesseln({events:keep},PASS));changed.delete("inbox");changed.add("data/inbox.enc")}
-  B.lastRun=Date.now();writeJSON(SF,B);if(!changed.size||DRY)return;
+  kurseHochladen();B.lastRun=Date.now();writeJSON(SF,B);if(!changed.size||DRY)return;
   try{const files=[...changed].join(" ");execSync(`git -C ${ROOT} add ${files} && git -C ${ROOT} -c user.name="Wachmann" -c user.email="wachmann@users.noreply.github.com" commit -m "Wachmann: ${[...changed].map(f=>f.replace(/.*\//,"")).join(", ")}" && git -C ${ROOT} pull --rebase -X theirs && git -C ${ROOT} push`,{stdio:"inherit"})}catch(e){log("git",e.message)}}
 
 /* ---------- Ablauf ---------- */
@@ -210,7 +245,7 @@ export async function main(){
   if(!FH)B.err.finnhub="FINNHUB_KEY fehlt";if(!TG)B.err.telegram="TELEGRAM_TOKEN fehlt";
   await telegramEingang();
   const slot=E.FORCE_SLOT||slotJetzt();if(slot)try{await vorlage(slot)}catch(e){log("Vorlage",e);B.err.vorlage=e.message}
-  await alarme();await abendRueckblick();await warteschlange();
+  await euKurse();await alarme();await abendRueckblick();await warteschlange();
   // Danach noch eine Weile auf Telegram-Befehle lauschen, damit Antworten sofort kommen
   const ende=Date.now()+(E.POLL_SEK!==undefined?+E.POLL_SEK:110)*1000;while(TG&&CHAT&&Date.now()<ende-26000){await telegramEingang(25);await warteschlange()}await sichern();log("fertig",{slot,depot:depot().length,fehler:B.err})}
 if(import.meta.url===`file://${process.argv[1]}`)main().catch(e=>{console.error(e);process.exit(1)});
