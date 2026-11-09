@@ -10,14 +10,21 @@ const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&g
 const PREVIEW=!!window.KAH_PREVIEW;
 /* Europa: Kürzel mit Börsen-Endung, alte Kurz-Kürzel werden umgestellt */
 const EU_SUF=/\.(DE|F|AS|PA|MI|L|SW|VI|MC|BR|CO|ST|HE|OL|LS|IR)$/;
-const LEGACY={SIE:"SIE.DE",ALV:"ALV.DE",DTE:"DTE.DE",MBG:"MBG.DE",BMW:"BMW.DE",VOW3:"VOW3.DE",BAS:"BAS.DE",BAYN:"BAYN.DE",ADS:"ADS.DE",IFX:"IFX.DE",RHM:"RHM.DE",MUV2:"MUV2.DE",DBK:"DBK.DE",DHL:"DHL.DE",AIR:"AIR.DE"};
+const LEGACY={BTC:"BTC-EUR",ETH:"ETH-EUR",GOLD:"4GLD.DE",SIE:"SIE.DE",ALV:"ALV.DE",DTE:"DTE.DE",MBG:"MBG.DE",BMW:"BMW.DE",VOW3:"VOW3.DE",BAS:"BAS.DE",BAYN:"BAYN.DE",ADS:"ADS.DE",IFX:"IFX.DE",RHM:"RHM.DE",MUV2:"MUV2.DE",DBK:"DBK.DE",DHL:"DHL.DE",AIR:"AIR.DE"};
 const isEU=s=>EU_SUF.test(s||"");
 const curOf=s=>{const q=S.quotes[s];if(q&&q.cur)return q.cur;const st=KI&&(KI.stocks||[]).find(x=>x.s===s);if(st&&st.cur)return st.cur;return isEU(s)?"EUR":"USD"};
-const kindOf=s=>{const m=(S.markt||[]).find(x=>x.s===s);return m?m.k:(s||"").startsWith("^")?"idx":""};
+const kindOf=s=>{const m=(S.markt||[]).find(x=>x.s===s);return m?m.k.split(":")[0]:(s||"").startsWith("^")?"idx":/-EUR$/.test(s||"")?"krypto":""};
 const cs=s=>kindOf(s)==="idx"?"Pkt.":({EUR:"€",USD:"$",GBp:"p",GBP:"£",CHF:"CHF"}[curOf(s)]||curOf(s));
 const enc=s=>encodeURIComponent(s);
 const nameOf=s=>{const k=KI&&(KI.stocks||[]).find(x=>x.s===s);if(k)return k.n;const m=(S.markt||[]).find(x=>x.s===s);if(m)return m.n;const c=KI&&(KI.catalog||[]).find(x=>x.s===s);if(c)return c.n;const d=S.depot.find(x=>x.s===s);return d?d.n:s};
-const KIND_TXT={idx:"Index",etf:"ETF",roh:"Rohstoff",krypto:"Kryptowährung",fx:"Währung"};
+const KIND_TXT={idx:"Index",etf:"ETF",roh:"Rohstoff",krypto:"Kryptowährung",fx:"Währung",alt:"ETF"};
+const ALT_INFO={"Weniger USA":"Gleiche Welt, kleinerer US-Anteil. World ex USA lässt die USA ganz weg und lässt sich mit einem S&P-500-ETF in eigener Gewichtung kombinieren. ACWI nimmt Schwellenländer dazu (USA ca. 64 % statt 73 %). Gleichgewichtet heißt: jede Firma gleich viel, weniger Abhängigkeit von den großen Tech-Werten.",
+ "Europa":"Europäische Unternehmen. Unabhängiger vom US-Markt und vom Dollar, dafür stärker an die Wirtschaft in Europa gebunden.",
+ "Schwellenländer":"China, Indien, Taiwan und andere. Mehr Wachstumschancen, aber stärkere Schwankungen und politische Risiken.",
+ "Defensiver":"Firmen mit stabilen Gewinnen oder hohen Dividenden. Fallen in Krisen oft weniger, steigen in Boomphasen aber langsamer. Der US-Anteil bleibt teils hoch.",
+ "Anleihen und Geldmarkt":"Deutlich schwankungsärmer als Aktien. Der Geldmarkt-ETF wirkt ähnlich wie Tagesgeld. Staatsanleihen verlieren an Wert, wenn die Zinsen steigen.",
+ "Gold":"Gilt als Krisenschutz, bringt aber keine Zinsen oder Dividenden. Xetra-Gold ist mit echtem Gold hinterlegt."};
+const AMPEL=["","🟩","🟨","🟥"],AMPEL_TXT=["","unauffällig","erhöht","hoch"];
 const toEUR=(v,s)=>{const c=curOf(s);return c==="EUR"?v:c==="USD"?v/(S.fx||1.1):v};
 const xetraOffen=()=>{const p=new Intl.DateTimeFormat("en-US",{timeZone:"Europe/Berlin",weekday:"short",hour:"numeric",minute:"numeric",hour12:false}).formatToParts(new Date()),g=k=>p.find(x=>x.type===k).value,m=+g("hour")*60+ +g("minute");return !["Sat","Sun"].includes(g("weekday"))&&m>=540&&m<1050};
 
@@ -25,7 +32,7 @@ const xetraOffen=()=>{const p=new Intl.DateTimeFormat("en-US",{timeZone:"Europe/
 const DEF={v:1,
  settings:{name:"",accent:"#0f6b5c",theme:"auto",investor:"ausgewogen",alertDefault:-10,thinkDefault:7,
    start:{alerts:true,markt:true,news:true,depot:true},fhKey:"",kiUrl:"ki.json",refreshMin:15,ghRepo:"",ghToken:"",syncPass:"",
-   notify:{loss:true,target:true,move:5,news:true,kh:true,sparplan:true,earnings:true,model:true,briefing:true,night:true}},
+   notify:{warn:true,loss:true,target:true,move:5,news:true,kh:true,sparplan:true,earnings:true,model:true,briefing:true,night:true}},
  depot:[{s:"AAPL",n:"Apple",q:5,k:300,a:-10,demo:true}],
  fin:{demo:true,model:"",dismissRec:"",goal:{n:"Notgroschen",z:5000,g:1800},items:[
   {n:"Gehalt",b:2600,t:"ein"},{n:"Miete",b:850,t:"fix"},{n:"Versicherungen",b:120,t:"fix"},{n:"Handy und Internet",b:55,t:"fix"},{n:"Streaming-Abos",b:25,t:"fix"},
@@ -54,7 +61,7 @@ async function fh(path){const r=await fetch(`https://finnhub.io/api/v1/${path}&t
 function kurseUrl(){let r=S.settings.ghRepo;if(!r&&/github\.io$/.test(location.hostname))r=location.hostname.split(".")[0]+"/"+location.pathname.split("/")[1];return r?`https://raw.githubusercontent.com/${r}/kurse/kurse.json?t=${Math.floor(Date.now()/12e4)}`:null}
 async function euLaden(){const u=kurseUrl();if(!u)return;try{const r=await fetch(u,{cache:"no-store"});if(!r.ok)return;const k=await r.json();
  Object.entries(k.q||{}).forEach(([s,q])=>{const old=S.quotes[s];if(!old||isEU(s)||!S.settings.fhKey||(q.t||0)>(old.t||0))S.quotes[s]={c:q.c,dp:q.dp,t:q.t||k.t,cur:q.cur}});
- S.euIdx=k.idx||[];S.euSec=k.sec||[];if(k.h)S.hist=k.h;if(k.markt)S.markt=k.markt;if(k.fx&&k.fx.EURUSD)S.fx=k.fx.EURUSD;S.euT=k.t;delete S.euErr;A=analyzeAll()}catch(e){S.euErr="EU-Kurse nicht erreichbar"}}
+ S.euIdx=k.idx||[];S.euSec=k.sec||[];if(k.h)S.hist=k.h;if(k.markt)S.markt=k.markt;S.warn=k.w||{};if(k.fx&&k.fx.EURUSD)S.fx=k.fx.EURUSD;S.euT=k.t;delete S.euErr;A=analyzeAll()}catch(e){S.euErr="EU-Kurse nicht erreichbar"}}
 async function refreshLive(manual){
  if(PREVIEW){if(manual)toast("In der Vorschau gibt es keine Live-Kurse. In der installierten App schon.");return}
  if(busy)return;busy=true;spin(true);liveErr="";
@@ -171,6 +178,7 @@ function recommend(){const f=finNums();if(!f.ein)return ["m503020","Trag deine E
 
 /* ---------- Hinweise ---------- */
 function alerts(){const out=[],now=Date.now();
+ S.depot.forEach(d=>{const w=(S.warn||{})[d.s];if(w&&w.lv>=2)out.push(["",`${AMPEL[w.lv]} <b>Frühwarnung ${esc(d.n)}:</b> ${esc(w.gr[0]||"")}${w.gr.length>1?` (+${w.gr.length-1} weitere)`:""} <a href="#aktie-${enc(d.s)}">Ansehen ›</a>`])});
  (KI.updates||[]).filter(u=>!S.updates[u.id]).forEach(u=>out.push(["info",`<b>Neuer Update-Brief:</b> <a href="#update-${u.id}">${u.title}</a>`]));
  S.kh.list.filter(x=>x.due<=now).forEach(x=>out.push(["",`<b>Kaufhilfe:</b> Bedenkzeit für „${esc(x.n)}“ ist vorbei. <a href="#finanzen" data-fsub="kaufhilfe">Entscheiden ›</a>`]));
  S.depot.forEach(d=>{const p=priceOf(d.s);if(p){const ch=(p/d.k-1)*100;if(ch<=d.a)out.push(["",`<b>${esc(d.n)}:</b> ${sgn(ch)} seit Kauf, deine Meldegrenze (${d.a} %) ist erreicht.`])}
@@ -199,7 +207,11 @@ const V={
  aktien(){const list=sortedStocks((KI.stocks||[]).filter(s=>(filter==="alle"||s.h===filter)&&(region==="alle"||(region==="eu")===isEU(s.s))));const ups=(KI.updates||[]);
   const mk=(S.markt||[]),eigene=[...new Set([...S.depot.filter(d=>!d.demo).map(d=>d.s),...S.watch])].filter(x=>!(KI.stocks||[]).some(k=>k.s===x));
   const mItem=m=>{const a=A[m.s],q=S.quotes[m.s];return a?stockItem(a.st):`<button class="item" data-go="aktie-${enc(m.s)}"><div class="l"><div class="t">${esc(m.n)}</div><div class="s">${KIND_TXT[m.k]||""}</div></div><div class="r">${q?`<div class="num">${fmt(q.c)} ${cs(m.s)}</div>${pct(q.dp)}`:""}</div></button>`};
-  return `<h1>Aktien</h1>${mk.length?`<h2 style="margin-top:8px">Wichtige Marktwerte</h2><div class="list">${mk.map(mItem).join("")}</div>`:""}
+  const grp=[["idx","Indizes"],["etf","Welt-ETFs"],["krypto","Krypto"],["roh","Rohstoffe"],["fx","Währung"]];
+  const alts=mk.filter(m=>m.k.startsWith("alt:")),altG=[...new Set(alts.map(m=>m.k.slice(4)))];
+  return `<h1>Aktien</h1>${mk.length?`<h2 style="margin-top:8px">Wichtige Marktwerte</h2>${grp.map(([k,l])=>{const g=mk.filter(m=>m.k===k);return g.length?`<h3>${l}</h3><div class="list">${g.map(mItem).join("")}</div>`:""}).join("")}`:""}
+  ${alts.length?`<h2>Alternativen zum MSCI World</h2><p class="note" style="margin-top:-4px">Der MSCI World besteht zu gut 70 % aus US-Aktien. Diese Bausteine verteilen das Risiko anders. Kein Baustein ist „sicher“, sie schwanken nur unterschiedlich stark.</p>
+   ${altG.map(g=>`<h3>${g}</h3><p class="note" style="margin:-4px 0 6px">${ALT_INFO[g]||""}</p><div class="list">${alts.filter(m=>m.k==="alt:"+g).map(mItem).join("")}</div>`).join("")}`:""}
   ${eigene.length?`<h2>Deine weiteren Werte</h2><div class="list">${eigene.map(x=>A[x]?stockItem(A[x].st):`<button class="item" data-go="aktie-${enc(x)}"><div class="l"><div class="t">${esc(nameOf(x))}</div><div class="s">Daten werden geladen …</div></div><span class="go">›</span></button>`).join("")}</div>`:""}
   <h2>Mit KI-Einschätzung</h2><div class="filters">${[["alle","Alle"],["lang","Langfristig"],["kurz","Kurzfristig"]].map(([k,l])=>`<button class="chip" data-f="${k}" aria-pressed="${filter===k}">${l}</button>`).join("")}</div>
   <div class="filters">${[["alle","Alle Regionen"],["eu","Europa"],["us","USA"]].map(([k,l])=>`<button class="chip" data-rg="${k}" aria-pressed="${region===k}">${l}</button>`).join("")}</div>
@@ -228,7 +240,7 @@ function marktRows(){const row=(n,sub,c,dp,cur)=>`<div class="row"><div class="l
  return h+`<p class="note">${t?`EU-Kurse von ${t} Uhr (ca. 15 Min. verzögert)`:`Stand ${KI.dataAsOf?new Date(KI.dataAsOf).toLocaleDateString("de-DE"):"?"}`}${S.settings.fhKey?" · US live":" · Für US-Live-Kurse Finnhub-Schlüssel eintragen"}</p>`}
 function depotRows(full){if(!S.depot.length)return `<div class="empty">Noch nichts eingetragen. Unter „Depot“ fügst du deine erste Aktie hinzu.</div>`;
  return `<div class="list">${S.depot.map((d,i)=>{const a=A[d.s],p=priceOf(d.s),ch=p?(p/d.k-1)*100:null,al=ch!==null&&ch<=d.a;
-  return `<div class="row"><div class="l"><b>${esc(d.n)}</b> ${d.demo?'<span class="demo">Beispiel</span>':""}<div class="sub">${fmt(d.q,d.q%1?2:0)} Stk. · Kauf ${fmt(d.k)} ${cs(d.s)} · Meldung ab ${d.a} %${d.z?` · Ziel ${fmt(d.z)} ${cs(d.s)}`:""}${d.tag?` · Nachkauf am ${d.tag}.`:""}</div>${al?'<span class="tag down">Meldegrenze erreicht</span>':""}${a?`<div class="sub">${DIR[a.dir][0]} ${DIR[a.dir][1]}</div>`:""}</div>
+  return `<div class="row"><div class="l"><b>${esc(d.n)}</b> ${d.demo?'<span class="demo">Beispiel</span>':""}<div class="sub">${fmt(d.q,d.q%1?2:0)} Stk. · Kauf ${fmt(d.k)} ${cs(d.s)} · Meldung ab ${d.a} %${d.z?` · Ziel ${fmt(d.z)} ${cs(d.s)}`:""}${d.tag?` · Nachkauf am ${d.tag}.`:""}</div>${al?'<span class="tag down">Meldegrenze erreicht</span>':""}${(S.warn||{})[d.s]&&S.warn[d.s].lv>=2?` <span class="tag ${S.warn[d.s].lv>=3?"down":"warn"}">${AMPEL[S.warn[d.s].lv]} Frühwarnung ${AMPEL_TXT[S.warn[d.s].lv]}</span>`:""}${a?`<div class="sub">${DIR[a.dir][0]} ${DIR[a.dir][1]}</div>`:""}</div>
   <div class="r">${p?`<div class="num">${fmt(p*d.q)} ${cs(d.s)}</div>${pct(ch)}`:'<span class="sub">Kurs folgt</span>'}${full?`<br><button class="x" data-go="aktie-${enc(d.s)}">Ansehen ›</button> <button class="x" data-del="${i}">Entfernen</button>`:`<br><button class="x" data-go="aktie-${enc(d.s)}">Ansehen ›</button>`}</div></div>`}).join("")}</div>`}
 
 /* ---------- Finanzen ---------- */
@@ -324,6 +336,7 @@ function stockView(s){const a=A[s],inDepot=S.depot.some(d=>d.s===s),k=kindOf(s);
  <div class="price"><span class="big">${fmt(a.last)} ${cs(s)}</span>${pct(a.chg)}<span class="note" style="margin:0">${a.live?`<span class="dot live" style="display:inline-block"></span> ${isEU(s)?"ca. 15 Min. verzögert":"live"}`:"Schlusskurs"}</span></div>
  ${fitsInvestor(a)?"":`<div class="alert"><span class="ic">!</span><div>Diese Aktie schwankt stark und passt eher nicht zu deinem Anleger-Typ „${S.settings.investor}“.</div></div>`}
  <div class="trend ${a.dir}"><span class="arrow">${DIR[a.dir][0]}</span><div>${DIR[a.dir][1]}<small>${a.dir==="up"?"Kurs liegt über seinem Durchschnitt der letzten Wochen.":a.dir==="down"?"Kurs liegt unter seinem Durchschnitt der letzten Wochen.":"Kein klarer Trend in den letzten Wochen."} Letzte 4 Wochen ${sgn(a.ch20)}.</small></div></div>
+ ${(S.warn||{})[s]?`<div class="panel" style="margin:12px 0"><b>${AMPEL[S.warn[s].lv]} Frühwarnung: ${AMPEL_TXT[S.warn[s].lv]}</b>${S.warn[s].gr.length?`<ul style="margin:6px 0 0;padding-left:18px;font-size:14px">${S.warn[s].gr.map(g=>`<li>${esc(g)}</li>`).join("")}</ul>`:'<p class="note" style="margin:4px 0 0">Keine Warnzeichen.</p>'}<p class="note" style="margin:6px 0 0">Schaut nach vorn: Trendbruch, steigende Schwankung, Abstand zum Hoch, Termine, Nachrichtenlage und Marktstimmung. Unabhängig von deinem Kaufpreis.</p></div>`:""}
  <h2>Verlauf und Prognose</h2>${bigChart(a)}
  <h2>Risiko und Chance</h2><div class="panel">${riskMeter(a)}<div style="height:12px"></div>${potMeter(a)}</div>
  <p class="note">Bereich, in dem der Kurs nach der Schwankung der letzten 3 Monate in etwa 2 von 3 Fällen landen würde. Die Mitte folgt abgeschwächt dem Trend plus der Nachrichtenlage. Eine Schätzung, keine Garantie.</p>
@@ -361,7 +374,7 @@ function settingsHTML(sec){const s=S.settings;const seg=(k,opts)=>`<div class="s
  <label class="f">Kurse aktualisieren alle<select id="s-rf">${[[1,"1 Minute"],[5,"5 Minuten"],[15,"15 Minuten"],[30,"30 Minuten"],[60,"60 Minuten"]].map(([v,l])=>`<option value="${v}" ${s.refreshMin==v?"selected":""}>${l}</option>`).join("")}</select></label>
  <label class="f">KI-Datei<input id="s-ki" value="${esc(s.kiUrl)}"></label></form>
  <p class="note">KI-Stand: ${KI.generated?new Date(KI.generated).toLocaleString("de-DE",{dateStyle:"short",timeStyle:"short"}):"unbekannt"}${kiErr?" · "+kiErr:""}</p>
- <h3>Telegram-Benachrichtigungen</h3>${[["loss","Meldegrenze erreicht (Verlust)"],["target","Kursziel erreicht"],["news","Wichtige News zu meinen Aktien"],["briefing","Briefings morgens, mittags, abends"],["kh","Kaufhilfe: Bedenkzeit vorbei"],["sparplan","Nachkauf-Tag"],["earnings","Quartalszahlen am Vortag"],["model","Besseres Sparmodell"],["night","Nachtruhe 22–7 Uhr (außer Absturz über 10 %)"]].map(([k,l])=>`<label class="check"><input type="checkbox" data-notify="${k}" ${s.notify[k]?"checked":""}> ${l}</label>`).join("")}
+ <h3>Telegram-Benachrichtigungen</h3>${[["warn","Frühwarnungen (bevor es kritisch wird)"],["loss","Meldegrenze erreicht (Verlust)"],["target","Kursziel erreicht"],["news","Wichtige News zu meinen Aktien"],["briefing","Briefings morgens, mittags, abends"],["kh","Kaufhilfe: Bedenkzeit vorbei"],["sparplan","Nachkauf-Tag"],["earnings","Quartalszahlen am Vortag"],["model","Besseres Sparmodell"],["night","Nachtruhe 22–7 Uhr (außer Absturz über 10 %)"]].map(([k,l])=>`<label class="check"><input type="checkbox" data-notify="${k}" ${s.notify[k]?"checked":""}> ${l}</label>`).join("")}
  <form onsubmit="return false"><label class="f">Starke Tagesbewegung ab (%)<input id="s-mv" type="number" min="0" step="0.5" value="${s.notify.move}"></label></form><p class="note">0 schaltet diesen Alarm aus. Die Einstellungen gehen beim nächsten Abgleich an deinen Bot.</p>
  <h3 id="sync">Abgleich mit GitHub</h3><form onsubmit="return false"><label class="f full">Projekt (Benutzername/Projektname)<input id="s-repo" value="${esc(s.ghRepo)}" placeholder="z. B. tim123/aktien-helfer" autocomplete="off"></label>
  <label class="f full">GitHub-Schlüssel (Token)<input id="s-tok" type="password" value="${esc(s.ghToken)}" autocomplete="off"></label><label class="f full">Sync-Passwort (gleich wie bei GitHub)<input id="s-pw" type="password" value="${esc(s.syncPass)}" autocomplete="off"></label></form>

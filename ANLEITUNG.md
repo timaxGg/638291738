@@ -297,6 +297,7 @@ Ich verbinde mich dann mit deinem Projekt und lege 3 geplante Aufgaben an (ca. 7
 | `/ziel` | Fortschritt deines Sparziels |
 | `/sparmodell` | Dein Modell und die Empfehlung |
 | `/alarme` | Deine Alarm-Regeln |
+| `/warnung` | Frühwarn-Ampel für deine Werte |
 | `/ruhe 2h` | Pause (auch `30m` oder `morgen`) |
 | `/laut` | Pause beenden |
 | `/status` | Läuft alles? |
@@ -310,6 +311,22 @@ Ich verbinde mich dann mit deinem Projekt und lege 3 geplante Aufgaben an (ca. 7
 - **Depot-Summe** wird in Euro angezeigt, Dollar-Werte werden umgerechnet.
 - **Bot:** `/kurs Siemens`, `/markt` zeigt Europa und USA.
 - Yahoo Finance ist eine inoffizielle Quelle. Fällt sie aus, meldet `/status` das.
+
+## Frühwarnungen
+Der Bot warnt, **bevor** ein Wert stark gefallen ist, unabhängig von deinem Kaufpreis. Er achtet auf:
+- Trendbruch (Kurs rutscht unter den 20- und 50-Tage-Durchschnitt)
+- Plötzlich stärkere Schwankungen
+- Wachsender Abstand zum 3-Monats-Hoch
+- Mehrere Verlusttage in Folge
+- Quartalszahlen in den nächsten 2 Tagen
+- Negative Nachrichtenlage (KI-Einschätzung)
+- Nervöser Gesamtmarkt (Angst-Barometer VIX über 25 bzw. 30)
+
+Ampel: 🟩 unauffällig · 🟨 erhöht · 🟥 hoch. Eine Nachricht kommt, wenn ein Wert aus Depot oder Beobachtung auf Gelb oder Rot springt. `/warnung` zeigt die Ampel für alle deine Werte. Frühwarnungen sind Hinweise, keine Verkaufssignale. Fehlalarme kommen vor.
+
+## Krypto und Alternativen
+- Bitcoin, Ethereum, Solana, XRP, BNB, Cardano und Dogecoin in Euro, rund um die Uhr aktualisiert.
+- Unter **Aktien → Alternativen zum MSCI World**: Bausteine mit weniger USA, Europa, Schwellenländer, defensivere ETFs, Anleihen, Geldmarkt und Gold, jeweils mit Erklärung.
 
 ## Hilfe bei Problemen
 

@@ -1104,21 +1104,6 @@
    "a": "sp500 s&p"
   },
   {
-   "s": "BTC",
-   "n": "Bitcoin",
-   "a": "krypto"
-  },
-  {
-   "s": "ETH",
-   "n": "Ethereum",
-   "a": "krypto"
-  },
-  {
-   "s": "GOLD",
-   "n": "Gold",
-   "a": "xau"
-  },
-  {
    "s": "SAP.DE",
    "n": "SAP (Xetra)",
    "a": "sap"
@@ -1397,6 +1382,121 @@
    "s": "EUNK.DE",
    "n": "iShares Core MSCI Europe ETF",
    "a": "europa etf"
+  },
+  {
+   "s": "BTC-EUR",
+   "n": "Bitcoin",
+   "a": "krypto btc"
+  },
+  {
+   "s": "ETH-EUR",
+   "n": "Ethereum",
+   "a": "krypto eth etherium"
+  },
+  {
+   "s": "SOL-EUR",
+   "n": "Solana",
+   "a": "krypto"
+  },
+  {
+   "s": "XRP-EUR",
+   "n": "XRP (Ripple)",
+   "a": "krypto ripple"
+  },
+  {
+   "s": "BNB-EUR",
+   "n": "BNB",
+   "a": "krypto binance"
+  },
+  {
+   "s": "ADA-EUR",
+   "n": "Cardano",
+   "a": "krypto ada"
+  },
+  {
+   "s": "DOGE-EUR",
+   "n": "Dogecoin",
+   "a": "krypto doge"
+  },
+  {
+   "s": "4GLD.DE",
+   "n": "Xetra-Gold",
+   "a": "gold"
+  },
+  {
+   "s": "EXUS.DE",
+   "n": "Xtrackers MSCI World ex USA ETF",
+   "a": "welt ohne usa etf"
+  },
+  {
+   "s": "IUSQ.DE",
+   "n": "iShares MSCI ACWI ETF",
+   "a": "acwi welt etf"
+  },
+  {
+   "s": "XDEW.DE",
+   "n": "Xtrackers S&P 500 Equal Weight ETF",
+   "a": "gleichgewichtet sp500 etf"
+  },
+  {
+   "s": "EXSA.DE",
+   "n": "iShares STOXX Europe 600 ETF",
+   "a": "europa etf"
+  },
+  {
+   "s": "EXW1.DE",
+   "n": "iShares Core Euro Stoxx 50 ETF",
+   "a": "euro stoxx etf"
+  },
+  {
+   "s": "XMME.DE",
+   "n": "Xtrackers MSCI Emerging Markets ETF",
+   "a": "schwellenländer emerging etf"
+  },
+  {
+   "s": "VFEM.DE",
+   "n": "Vanguard FTSE Emerging Markets ETF",
+   "a": "schwellenländer emerging etf"
+  },
+  {
+   "s": "IS3Q.DE",
+   "n": "iShares MSCI World Quality Factor ETF",
+   "a": "qualität etf"
+  },
+  {
+   "s": "ISPA.DE",
+   "n": "iShares STOXX Global Select Dividend 100 ETF",
+   "a": "dividende etf"
+  },
+  {
+   "s": "VGWD.DE",
+   "n": "Vanguard FTSE All-World High Dividend Yield ETF",
+   "a": "dividende etf"
+  },
+  {
+   "s": "EUNH.DE",
+   "n": "iShares Core € Govt Bond ETF",
+   "a": "staatsanleihen anleihen etf"
+  },
+  {
+   "s": "IBCI.DE",
+   "n": "iShares € Inflation Linked Govt Bond ETF",
+   "a": "inflation anleihen etf"
+  },
+  {
+   "s": "XEON.DE",
+   "n": "Xtrackers II EUR Overnight Rate Swap ETF",
+   "a": "geldmarkt tagesgeld etf"
+  },
+  {
+   "s": "XGLE.DE",
+   "n": "Xtrackers Eurozone Government Bond ETF",
+   "a": "staatsanleihen anleihen etf"
+  },
+  {
+   "s": "SXRV.DE",
+   "n": "iShares Nasdaq 100 ETF",
+   "a": "nasdaq etf"
   }
  ]
 }

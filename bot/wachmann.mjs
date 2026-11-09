@@ -35,9 +35,10 @@ async function avDaily(sym){if(!AV)return null;try{const r=await fetch(`https://
   const ts=j["Time Series (Daily)"];if(!ts){B.err.alphavantage=(j.Note||j.Information||j["Error Message"]||"keine Daten").slice(0,120);return null}delete B.err.alphavantage;
   return Object.keys(ts).sort().reverse().slice(0,65).map(k=>+ts[k]["4. close"])}catch(e){B.err.alphavantage=e.message;return null}}
 const EU_SUF=/\.(DE|F|AS|PA|MI|L|SW|VI|MC|BR|CO|ST|HE|OL|LS|IR)$/;
-const LEGACY={SIE:"SIE.DE",ALV:"ALV.DE",DTE:"DTE.DE",MBG:"MBG.DE",BMW:"BMW.DE",VOW3:"VOW3.DE",BAS:"BAS.DE",BAYN:"BAYN.DE",ADS:"ADS.DE",IFX:"IFX.DE",RHM:"RHM.DE",MUV2:"MUV2.DE",DBK:"DBK.DE",DHL:"DHL.DE",AIR:"AIR.DE"};
+const LEGACY={BTC:"BTC-EUR",ETH:"ETH-EUR",GOLD:"4GLD.DE",SIE:"SIE.DE",ALV:"ALV.DE",DTE:"DTE.DE",MBG:"MBG.DE",BMW:"BMW.DE",VOW3:"VOW3.DE",BAS:"BAS.DE",BAYN:"BAYN.DE",ADS:"ADS.DE",IFX:"IFX.DE",RHM:"RHM.DE",MUV2:"MUV2.DE",DBK:"DBK.DE",DHL:"DHL.DE",AIR:"AIR.DE"};
 const isEU=s=>EU_SUF.test(s||"");
-const isUS=s=>/^[A-Z][A-Z.]{0,5}$/.test(s)&&!isEU(s)&&!["BTC","ETH","GOLD"].includes(s);
+const isUS=s=>/^[A-Z][A-Z.]{0,5}$/.test(s)&&!isEU(s)&&!LEGACY[s];
+const isKrypto=s=>/-(EUR|USD)$/.test(s||"");
 const EU_INDEX=[["^GDAXI","DAX"],["^MDAXI","MDAX"],["^STOXX50E","Euro Stoxx 50"],["^FTSE","FTSE 100"],["^FCHI","CAC 40"]];
 const EU_SECTOR=[["EXV3.DE","Technologie"],["EXV4.DE","Gesundheit"],["EXV1.DE","Banken"],["EXH1.DE","Energie"],["EXV5.DE","Autos"],["EXH4.DE","Industrie"]];
 const DEFAULT_EU=["SAP.DE","SIE.DE","ALV.DE"];
@@ -61,7 +62,7 @@ const priceOf=s=>(B.q[s]&&B.q[s].c)||(B.eod[s]&&B.eod[s].c)||null;
 const moveOf=s=>B.q[s]&&Date.now()-B.q[s].t<36e5?B.q[s].dp:(B.eod[s]?B.eod[s].dp:0);
 
 /* ---------- Telegram ---------- */
-const FUSS="\n\n<i>Befehle:</i> /hilfe /kurs /depot /top /markt /news /briefing /prognose /termine /kaufhilfe /merken /gespart /ziel /sparmodell /alarme /ruhe /laut /status";
+const FUSS="\n\n<i>Befehle:</i> /hilfe /kurs /depot /top /markt /warnung /news /briefing /prognose /termine /kaufhilfe /merken /gespart /ziel /sparmodell /alarme /ruhe /laut /status";
 async function tg(method,body){if(!TG)return null;
   try{const r=await fetch(`https://api.telegram.org/bot${TG}/${method}`,{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify(body)});return r.json()}catch(e){B.err.telegram=e.message;return null}}
 const nacht=()=>{if(E.FORCE_DAY)return false;if(U.notify&&U.notify.night===false)return false;const z=zeit();return z.h>=22||z.h<7};
@@ -96,6 +97,7 @@ const HILFE=`<b>Was ich kann</b>
 /ziel – Fortschritt deines Sparziels
 /sparmodell – dein Modell und die Empfehlung
 /alarme – deine Alarm-Regeln
+/warnung – Frühwarn-Ampel für deine Werte
 /ruhe 2h – Nachrichten pausieren (z. B. 30m, 2h, morgen)
 /laut – Pause beenden
 /status – läuft alles?
@@ -138,6 +140,9 @@ async function befehl(text){const [c0,...a]=text.trim().split(/\s+/),c=c0.toLowe
   case "/ruhe":{const m=(a[0]||"2h").match(/^(\d+)(m|h)$/);const bis=a[0]==="morgen"?Date.parse(addDays(zeit().date,1)+"T06:00:00Z"):Date.now()+(m?(+m[1])*(m[2]==="h"?36e5:6e4):72e5);
     B.mute=bis;return send(`🔕 Pause bis ${new Date(bis).toLocaleString("de-DE",{timeZone:"Europe/Berlin",weekday:"short",hour:"2-digit",minute:"2-digit"})} Uhr. Wichtiges sammle ich und schicke es danach. /laut beendet die Pause.`,{direkt:true})}
   case "/laut":B.mute=0;await send("🔔 Pause beendet.",{direkt:true});return warteschlange();
+  case "/warnung":case "/warnungen":{const ziele=[...new Set([...depot().map(x=>x.s),...(U.watch||[]).map(w=>LEGACY[w]||w)])];const l=ziele.map(s=>[s,fruehwarnung(s)]).filter(([,w])=>w);
+    if(!l.length)return send("Noch keine Daten für Frühwarnungen. Trag Aktien ins Depot ein oder beobachte welche.",{direkt:true});
+    return send(`🚦 <b>Frühwarnungen</b>\n${l.sort((a,b)=>b[1].p-a[1].p).map(([s,w])=>`${["","🟩","🟨","🟥"][w.lv]} <b>${esc((depot().find(x=>x.s===s)||{}).n||catOf(s).n||s)}</b>${w.gr.length?"\n   "+w.gr.map(esc).join("\n   "):" – unauffällig"}`).join("\n")}`,{direkt:true})}
   case "/status":{const e=Object.entries(B.err);return send(`🩺 <b>Status</b>\nLetzter Lauf: ${B.lastRun?new Date(B.lastRun).toLocaleString("de-DE",{timeZone:"Europe/Berlin"}):"–"}\nKI-Stand: ${KI.generated?new Date(KI.generated).toLocaleString("de-DE",{timeZone:"Europe/Berlin"}):"–"}\nDepot übertragen: ${U.updatedAt?new Date(U.updatedAt).toLocaleString("de-DE",{timeZone:"Europe/Berlin"}):"nein"}\nXetra: ${xetraOffen()?"offen":"geschlossen"} · US-Börse: ${boerseOffen()?"offen":"geschlossen"}\nEU-Kurse: ${B.euT?new Date(B.euT).toLocaleTimeString("de-DE",{timeZone:"Europe/Berlin",hour:"2-digit",minute:"2-digit"})+" Uhr":"–"}\n${e.length?"⚠️ Probleme:\n"+e.map(([k,v])=>`• ${k}: ${esc(v)}`).join("\n"):"✅ Alle Datenquellen erreichbar"}`,{direkt:true})}
   default:return send(`Den Befehl „${esc(c0)}“ kenne ich nicht. /hilfe zeigt alle Befehle.`,{direkt:true})}}
 async function knopf(cb){const [t,id]=String(cb.data||"").split(":"),x=khListe().find(i=>String(i.id)===id);await tg("answerCallbackQuery",{callback_query_id:cb.id,text:x?"Gespeichert":"Schon erledigt"});if(!x)return;
@@ -169,14 +174,24 @@ async function alarme(){const n=Object.assign({loss:true,target:true,move:5,news
 
 /* ---------- EU-Kurse für die App (Branch "kurse", ohne Seiten-Neubau) ---------- */
 // Wichtige Marktwerte: eigene Seiten in der App
-const MARKT=[["^GDAXI","DAX","idx"],["^MDAXI","MDAX","idx"],["^STOXX50E","Euro Stoxx 50","idx"],["^GSPC","S&P 500","idx"],["^NDX","Nasdaq 100","idx"],["^DJI","Dow Jones","idx"],
-  ["EUNL.DE","MSCI World (ETF)","etf"],["VWCE.DE","FTSE All-World (ETF)","etf"],["GC=F","Gold","roh"],["BZ=F","Öl (Brent)","roh"],["BTC-EUR","Bitcoin","krypto"],["EURUSD=X","Euro in Dollar","fx"]];
+const MARKT=[["^GDAXI","DAX","idx"],["^MDAXI","MDAX","idx"],["^STOXX50E","Euro Stoxx 50","idx"],["^GSPC","S&P 500","idx"],["^NDX","Nasdaq 100","idx"],["^DJI","Dow Jones","idx"],["^VIX","Angst-Barometer (VIX)","idx"],
+  ["EUNL.DE","MSCI World (ETF)","etf"],["VWCE.DE","FTSE All-World (ETF)","etf"],["GC=F","Gold","roh"],["BZ=F","Öl (Brent)","roh"],
+  ["BTC-EUR","Bitcoin","krypto"],["ETH-EUR","Ethereum","krypto"],["SOL-EUR","Solana","krypto"],["XRP-EUR","XRP","krypto"],["BNB-EUR","BNB","krypto"],["ADA-EUR","Cardano","krypto"],["DOGE-EUR","Dogecoin","krypto"],
+  ["EURUSD=X","Euro in Dollar","fx"],
+  // Alternativen und Bausteine zum MSCI World
+  ["EXUS.DE","MSCI World ex USA","alt:Weniger USA"],["IUSQ.DE","MSCI ACWI (Welt inkl. Schwellenländer)","alt:Weniger USA"],["XDEW.DE","S&P 500 gleichgewichtet","alt:Weniger USA"],
+  ["EUNK.DE","MSCI Europe","alt:Europa"],["EXSA.DE","STOXX Europe 600","alt:Europa"],["EXW1.DE","Euro Stoxx 50","alt:Europa"],
+  ["XMME.DE","MSCI Emerging Markets","alt:Schwellenländer"],["VFEM.DE","FTSE Emerging Markets","alt:Schwellenländer"],
+  ["IS3Q.DE","MSCI World Qualität","alt:Defensiver"],["ISPA.DE","Global Select Dividend 100","alt:Defensiver"],["VGWD.DE","FTSE All-World hohe Dividende","alt:Defensiver"],
+  ["EUNH.DE","Euro-Staatsanleihen","alt:Anleihen und Geldmarkt"],["IBCI.DE","Euro-Anleihen inflationsgeschützt","alt:Anleihen und Geldmarkt"],["XEON.DE","Geldmarkt (Tageszins in €)","alt:Anleihen und Geldmarkt"],
+  ["4GLD.DE","Xetra-Gold","alt:Gold"]];
 async function euKurse(){const z=zeit(),heute=z.date;B.hist=B.hist||{};
-  const meine=[...new Set([...depot().map(x=>x.s),...(U.watch||[]).map(w=>LEGACY[w]||w),...(KI.stocks||[]).map(x=>x.s),...DEFAULT_EU])].filter(s=>s&&!["BTC","ETH","GOLD"].includes(s));
+  const meine=[...new Set([...depot().map(x=>x.s),...(U.watch||[]).map(w=>LEGACY[w]||w),...(KI.stocks||[]).map(x=>x.s),...DEFAULT_EU])].filter(Boolean);
   const alle=[...new Set([...MARKT.map(m=>m[0]),...EU_INDEX.map(m=>m[0]),...meine])];
   const neu=alle.filter(s=>!B.hist[s]||B.hist[s].d!==heute);
   const offen=xetraOffen()||boerseOffen(),faellig=offen||Date.now()-(B.euT||0)>=36e5;
-  if(!faellig&&!neu.length)return;
+  const krypto=alle.filter(isKrypto);if(!faellig&&!neu.length){for(const s of krypto)await yq(s);await yq("^VIX")}
+  if(!faellig&&!neu.length&&!krypto.length)return;
   // Verlauf (3 Monate) einmal am Tag, neue Werte sofort
   for(const s of neu.slice(0,40)){const c=await yq(s,true);if(c&&c.length)B.hist[s]={d:heute,c}}
   if(faellig){for(const s of alle)if(!neu.includes(s))await yq(s);for(const [s] of EU_SECTOR)await yq(s);B.euT=Date.now()}
@@ -187,11 +202,33 @@ async function euKurse(){const z=zeit(),heute=z.date;B.hist=B.hist||{};
   writeJSON(P(".state/kurse.json"),{t:Date.now(),fx:{EURUSD:fx()},idx:pick(EU_INDEX),sec:pick(EU_SECTOR),
     markt:MARKT.filter(([s])=>B.q[s]).map(([s,n,k])=>({s,n,k})),
     q:Object.fromEntries(mit.map(s=>[s,{c:B.q[s].c,dp:+(+B.q[s].dp).toFixed(2),cur:curOf(s),t:B.q[s].mt||B.q[s].t}])),
-    h:Object.fromEntries(Object.entries(B.hist).map(([s,v])=>[s,v.c.map(x=>+(+x).toFixed(4))]))});B.kursePush=true;if(neu.length)log("Neue Verläufe:",neu.join(","))}
+    h:Object.fromEntries(Object.entries(B.hist).map(([s,v])=>[s,v.c.map(x=>+(+x).toFixed(4))])),w:Object.fromEntries(meine.map(s=>[s,fruehwarnung(s)]).filter(([,w])=>w))});B.kursePush=true;if(neu.length)log("Neue Verläufe:",neu.join(","))}
 function kurseHochladen(){if(!B.kursePush||DRY)return;B.kursePush=false;try{const o={cwd:ROOT};const blob=execSync("git hash-object -w .state/kurse.json",o).toString().trim();
   const tree=execSync("git mktree",Object.assign({input:`100644 blob ${blob}\tkurse.json\n`},o)).toString().trim();
   const c=execSync(`git -c user.name=Wachmann -c user.email=wachmann@users.noreply.github.com commit-tree ${tree} -m "Kurse"`,o).toString().trim();
   execSync(`git push -f -q origin ${c}:refs/heads/kurse`,o);log("Kurse hochgeladen")}catch(e){log("Kurse",e.message);B.err.kurse=e.message.slice(0,120)}}
+
+/* ---------- Frühwarnung: schlägt an, BEVOR ein Wert stark gefallen ist ---------- */
+function fruehwarnung(s){const h=(B.hist||{})[s];if(!h||h.c.length<30)return null;const live=priceOf(s);const c=h.c.slice().reverse();if(live&&Math.abs(live-c[c.length-1])/c[c.length-1]>1e-6)c.push(live);
+  const n=c.length,last=c[n-1],mean=a=>a.reduce((x,y)=>x+y,0)/a.length,sma=k=>mean(c.slice(-k));
+  const r=[];for(let i=1;i<n;i++)r.push(Math.log(c[i]/c[i-1]));const sd=a=>{const m=mean(a);return Math.sqrt(mean(a.map(x=>(x-m)**2)))};
+  const gr=[];let p=0;
+  const s20=sma(20),s50=sma(Math.min(50,n));if(last<s20&&s20<s50){p+=1;gr.push("Abwärtstrend beginnt: Kurs unter dem 20- und 50-Tage-Schnitt")}
+  if(c[n-2]>=s50&&last<s50){p+=1;gr.push("Kurs ist gerade unter den 50-Tage-Schnitt gerutscht")}
+  const v10=sd(r.slice(-10)),vAll=sd(r);if(vAll>0&&v10>1.7*vAll){p+=1;gr.push("Schwankungen haben deutlich zugenommen")}
+  const hoch=Math.max(...c),dd=(last/hoch-1)*100;if(dd<=-15){p+=2;gr.push(`${fmt(-dd,0)} % unter dem 3-Monats-Hoch`)}else if(dd<=-8){p+=1;gr.push(`${fmt(-dd,0)} % unter dem 3-Monats-Hoch`)}
+  const t3=(c[n-1]/c[n-4]-1)*100;if(c[n-1]<c[n-2]&&c[n-2]<c[n-3]&&c[n-3]<c[n-4]&&t3<=-4){p+=1;gr.push(`3 Verlusttage in Folge (${sgn(t3)})`)}
+  const z=zeit(),bald=(B.earn.list||[]).find(e=>e.symbol===s&&e.date>=z.date&&e.date<=addDays(z.date,2));if(bald){p+=1;gr.push("Quartalszahlen in den nächsten 2 Tagen")}
+  const ki=(KI.stocks||[]).find(x=>x.s===s);if(ki&&+ki.warn>0){p+=+ki.warn;gr.push("KI-Nachrichtenlage: "+(ki.warnGrund||"negative Meldungen"))}
+  const vix=B.q["^VIX"]&&B.q["^VIX"].c;if(vix>=30){p+=1;gr.push(`Gesamtmarkt sehr nervös (VIX ${fmt(vix,0)})`)}else if(vix>=25&&p>0){gr.push(`Gesamtmarkt nervös (VIX ${fmt(vix,0)})`)}
+  return {lv:p>=4?3:p>=2?2:1,p,gr}}
+async function fruehwarnungen(){const n=Object.assign({warn:true},U.notify||{});if(!n.warn)return;const z=zeit(),ziele=[...new Set([...depot().map(x=>x.s),...(U.watch||[]).map(w=>LEGACY[w]||w)])];
+  for(const s of ziele){const w=fruehwarnung(s);if(!w)continue;const k=`fw:${s}`,alt=B.sent[k]||{lv:1,d:""};
+    if(w.lv>=2&&(w.lv>alt.lv||alt.d!==z.date&&w.lv>=3&&alt.lv<3)){B.sent[k]={lv:w.lv,d:z.date};const name=(depot().find(x=>x.s===s)||{}).n||catOf(s).n||s;
+      await send(`${w.lv>=3?"🟥":"🟨"} <b>Frühwarnung: ${esc(name)}</b> (${w.lv>=3?"hoch":"erhöht"})\n${w.gr.map(g=>"• "+esc(g)).join("\n")}\n\nKurs ${fmt(priceOf(s)||0)} ${CS(s)}. <i>Kein Verkaufssignal, sondern ein Hinweis, genauer hinzuschauen.</i>`)}
+    else if(w.lv<alt.lv&&alt.d!==z.date)B.sent[k]={lv:w.lv,d:alt.d}}
+  const vix=B.q["^VIX"]&&B.q["^VIX"].c,vk=vix>=30?2:vix>=25?1:0;if(vk>(B.sent.vix&&B.sent.vix.d===z.date?B.sent.vix.lv:0)){B.sent.vix={lv:vk,d:z.date};
+    await send(`🌡️ <b>Der Markt wird nervös</b>\nDas Angst-Barometer VIX steht bei ${fmt(vix,1)} (normal: unter 20).\nIn solchen Phasen schwanken Aktien stärker. Prüfe, ob dein Depot zu deiner Risikobereitschaft passt.`)}}
 
 /* ---------- Abend-Rückblick um 21 Uhr (ohne KI) ---------- */
 async function abendRueckblick(){const z=zeit(),n=U.notify||{};if((!E.FORCE_ABEND&&(z.h<21||z.h>=22))||B.sent.abend===z.date||n.briefing===false||!CHAT)return;B.sent.abend=z.date;
@@ -218,7 +255,7 @@ async function vorlage(slot){delete B.err.alphavantage;const z=zeit(),prev=KI,d=
     if(!closes)continue;const neu=slot==="morgen"||!alt,base={s,n:catOf(s).n||(alt&&alt.n)||s,closes,cur:curOf(s)};
     const an=analyse(Object.assign({},alt||{},base));
     stocks.push(neu?Object.assign(base,{cat:alt&&alt.cat||F("Branche in 1–3 Wörtern"),h:F('"kurz" oder "lang"'),bias:F("Zahl −3 bis +3: Wirkung der heutigen Nachrichten auf den Kurs in %"),
-      why:F("2–3 Sätze Einschätzung, sachlich, keine Kaufempfehlung"),pro:F("Liste mit 1–3 kurzen Punkten dafür"),con:F("Liste mit 1–3 kurzen Punkten dagegen"),news:F("Liste der news-ids, die diese Aktie betreffen"),
+      why:F("2–3 Sätze Einschätzung, sachlich, keine Kaufempfehlung"),pro:F("Liste mit 1–3 kurzen Punkten dafür"),con:F("Liste mit 1–3 kurzen Punkten dagegen"),news:F("Liste der news-ids, die diese Aktie betreffen"),warn:F("Zahl 0–3: Gefahr aus der Nachrichtenlage (0 = nichts Besonderes, 1 = leicht negativ, 2 = deutlich negativ, 3 = ernst, z. B. Gewinnwarnung, Klage, angekündigte Kürzungen)"),warnGrund:F("1 kurzer Satz zum Warn-Grund oder leerer Text"),
       _fakten:an?{waehrung:curOf(s),region:isEU(s)?"Europa":"USA",trend:an.dir,vierWochen:+an.ch20.toFixed(1),dreiMonate:+an.ch3m.toFixed(1),schwankung:+an.vol.toFixed(0),heute:+moveOf(s).toFixed(2)}:{}}):Object.assign({},alt,{closes}))}
   const bis=z.date,von=addDays(bis,slot==="morgen"?-1:0),roh=[],seen=new Set();
   const add=(n,sym)=>{const k=(n.headline||"").toLowerCase().slice(0,60);if(!n.headline||seen.has(k))return;seen.add(k);roh.push({id:`n${n.id||roh.length}`,t:n.headline,q:n.source,u:n.url,sym:sym?[sym]:(n.related||"").split(",").filter(Boolean).slice(0,3),z:(n.summary||"").slice(0,220)})};
@@ -259,7 +296,7 @@ export async function main(){
   if(!FH)B.err.finnhub="FINNHUB_KEY fehlt";if(!TG)B.err.telegram="TELEGRAM_TOKEN fehlt";
   await telegramEingang();
   const slot=E.FORCE_SLOT||slotJetzt();if(slot)try{await vorlage(slot)}catch(e){log("Vorlage",e);B.err.vorlage=e.message}
-  await euKurse();await alarme();await abendRueckblick();await warteschlange();
+  await euKurse();await alarme();await fruehwarnungen();await abendRueckblick();await warteschlange();
   // Danach noch eine Weile auf Telegram-Befehle lauschen, damit Antworten sofort kommen
   const ende=Date.now()+(E.POLL_SEK!==undefined?+E.POLL_SEK:110)*1000;while(TG&&CHAT&&Date.now()<ende-26000){await telegramEingang(25);await warteschlange()}await sichern();log("fertig",{slot,depot:depot().length,fehler:B.err})}
 if(import.meta.url===`file://${process.argv[1]}`)main().catch(e=>{console.error(e);process.exit(1)});
