@@ -273,7 +273,7 @@ function donut(items,sel){const R=70,r=44,cx=90,cy=90;let a0=-Math.PI/2;const se
   return `<path d="M${x0} ${y0}A${R} ${R} 0 ${big} 1 ${x1} ${y1}L${x2} ${y2}A${r} ${r} 0 ${big} 0 ${x3} ${y3}Z" transform="translate(${dx} ${dy})" fill="var(${PAL[i%PAL.length]})" stroke="var(--bg)" stroke-width="2" data-seg="${i}" style="cursor:pointer;opacity:${sel===null||sel===i?1:.45};transition:opacity .2s"><title>${esc(it.n)} ${fmt(it.w,1)} %</title></path>`}).join("");
  const c=sel!==null&&items[sel]?items[sel]:null;
  return `<svg viewBox="0 0 180 180" width="180" height="180" role="img" aria-label="Zusammensetzung">${segs}<text x="90" y="86" text-anchor="middle" style="font-family:var(--f-mono);font-size:17px;fill:var(--fg)">${c?fmt(c.w,1)+" %":fmt(items.length,0)}</text><text x="90" y="104" text-anchor="middle" style="font-size:10px">${c?esc(c.n.length>18?c.n.slice(0,17)+"…":c.n):items.length===1?"Position":"Teile"}</text></svg>`}
-function portfolioHTML(){const P=portfolio();if(!P.pos.length)return "";const items=pfMode==="pos"?P.pos:pfMode==="art"?P.art:P.reg;const sel=pfSel!==null&&pfSel<items.length?pfSel:null;
+function portfolioHTML(){const P=portfolio();if(!P.pos.length)return `<h2>Zusammensetzung</h2><div class="empty">${S.depot.some(d=>d.test)?"Deine Einträge sind als Test markiert und zählen nicht mit. ":""}Das Kuchendiagramm erscheint, sobald eine echte Position im Depot steht.</div>`;const items=pfMode==="pos"?P.pos:pfMode==="art"?P.art:P.reg;const sel=pfSel!==null&&pfSel<items.length?pfSel:null;
  const Z=ZIEL[S.settings.investor]||ZIEL.ausgewogen,share=n=>(P.art.find(g=>g.n===n)||{w:0}).w,etf=share("ETF"),einzel=share("Einzelaktie"),krypto=share("Krypto"),def=share("Anleihen und Geldmarkt")+share("Gold");
  const us=(P.reg.find(g=>g.n==="USA")||{w:0}).w,em=(P.reg.find(g=>g.n==="Schwellenländer")||{w:0}).w,eu=(P.reg.find(g=>g.n==="Europa")||{w:0}).w,top=P.pos[0];
  // Detail zum angetippten Stück
@@ -442,7 +442,7 @@ function settingsHTML(sec){const s=S.settings;const seg=(k,opts)=>`<div class="s
  <h3>Sicherung</h3><p class="note" style="margin-top:0">Deine Daten liegen auf diesem Gerät. Mit einer Sicherungsdatei bringst du sie auf ein anderes Gerät.</p>
  <div class="btns"><button class="btn ghost" data-export>Sicherung speichern</button><label class="btn ghost" for="imp-file">Sicherung laden</label><input id="imp-file" type="file" accept=".json,application/json" hidden></div>
  <div id="reset-zone"><button class="x" data-reset>Alle Daten auf diesem Gerät löschen</button></div>
- <p class="note">Ki Aktien Helfer · Prototyp · Keine Anlageberatung.</p></div>`}
+ <p class="note">Ki Aktien Helfer · Version 10 · Keine Anlageberatung.</p></div>`}
 function cartHTML(){const now=Date.now(),l=S.kh.list.slice().sort((a,b)=>a.due-b.due),h=(S.kh.hist||[]).slice().reverse();
  return `<div class="grab"></div><div class="in"><div style="display:flex;justify-content:space-between;align-items:center"><h1 style="margin:0">Warenkorb</h1><button class="icon-btn" data-close aria-label="Schließen"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
  <p class="note" style="margin-top:4px">Dinge in Bedenkzeit aus der Kaufhilfe. ${S.kh.saved?`Bisher nicht ausgegeben: <b class="up">${fmt(S.kh.saved,0)} €</b>`:""}</p>
