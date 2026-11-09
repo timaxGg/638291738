@@ -3,6 +3,7 @@
 import fs from "node:fs";
 import {execSync} from "node:child_process";
 import {verschluesseln,entschluesseln} from "./krypto.mjs";
+import * as RB from "./rueckblick.mjs";
 import "../modell.js";
 const Modell=globalThis.Modell;
 
@@ -68,7 +69,7 @@ const priceOf=s=>(B.q[s]&&B.q[s].c)||(B.eod[s]&&B.eod[s].c)||null;
 const moveOf=s=>B.q[s]&&Date.now()-B.q[s].t<36e5?B.q[s].dp:(B.eod[s]?B.eod[s].dp:0);
 
 /* ---------- Telegram ---------- */
-const FUSS="\n\n<i>Befehle:</i> /hilfe /kurs /depot /top /markt /warnung /news /briefing /prognose /termine /kaufhilfe /merken /gespart /ziel /sparmodell /alarme /ruhe /laut /status";
+const FUSS="\n\n<i>Befehle:</i> /hilfe /kurs /depot /top /markt /warnung /rueckblick /news /briefing /prognose /termine /kaufhilfe /merken /gespart /ziel /sparmodell /alarme /ruhe /laut /status";
 async function tg(method,body){if(!TG)return null;
   try{const r=await fetch(`https://api.telegram.org/bot${TG}/${method}`,{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify(body)});return r.json()}catch(e){B.err.telegram=e.message;return null}}
 const nacht=()=>{if(E.FORCE_DAY)return false;if(U.notify&&U.notify.night===false)return false;const z=zeit();return z.h>=22||z.h<7};
@@ -106,6 +107,7 @@ const HILFE=`<b>Was ich kann</b>
 /sparmodell – dein Modell und die Empfehlung
 /alarme – deine Alarm-Regeln
 /warnung – Frühwarn-Ampel für deine Werte
+/rueckblick – Kaufrückblick: wie gut waren deine Entscheidungen?
 /ruhe 2h – Nachrichten pausieren (z. B. 30m, 2h, morgen)
 /laut – Pause beenden
 /status – läuft alles?
@@ -145,13 +147,15 @@ async function befehl(text){const [c0,...a]=text.trim().split(/\s+/),c=c0.toLowe
   case "/gespart":{const k=U.kh||{saved:0,bought:0};return send(`💚 Durch die Kaufhilfe nicht ausgegeben: <b>${fmt(k.saved||0,0)} €</b>\nBewusst gekauft: ${fmt(k.bought||0,0)} €`,{direkt:true})}
   case "/ziel":{const g=U.fin&&U.fin.goal;return send(g?`🎯 <b>${esc(g.n)}</b>: ${fmt(g.g,0)} von ${fmt(g.z,0)} € (${fmt(g.g/(g.z||1)*100,0)} %)`:"Noch kein Sparziel übertragen.",{direkt:true})}
   case "/sparmodell":return send(U.model?`💶 Dein Sparmodell: <b>${esc(U.modelName||U.model)}</b>${U.rec&&U.rec!==U.model?`\nEmpfohlen wäre gerade: <b>${esc(U.recName||U.rec)}</b>. Ansehen in der App unter Finanzen → Sparmodell.`:"\nPasst weiterhin zu deinen Zahlen."}`:"Du hast noch kein Sparmodell gewählt (App → Finanzen → Sparmodell).",{direkt:true});
-  case "/alarme":{const n=U.notify||{},d=depot();return send(`⚙️ <b>Deine Alarme</b>\n${d.map(x=>`• ${esc(x.n)}: Meldung ab ${x.a} %${x.z?`, Kursziel ${fmt(x.z)} ${CS(x.s)}`:""}${x.tag?`, Nachkauf am ${x.tag}.`:""}`).join("\n")||"Keine Aktien im Depot."}\n\nStarke Bewegung ab ±${n.move||5} % · Nachtruhe ${n.night===false?"aus":"22–7 Uhr"}\nÄndern kannst du das in der App.`,{direkt:true})}
+  case "/alarme":{const n=U.notify||{},d=depot();return send(`⚙️ <b>Deine Alarme</b>\n${d.map(x=>`• ${esc(x.n)}: Meldung ab ${x.a} %${x.z?`, Kursziel ${fmt(x.z)} ${CS(x.s)}`:""}${x.gs?`, Gewinnschutz ${x.gs} % vom Höchststand`:""}${x.tag?`, Nachkauf am ${x.tag}.`:""}`).join("\n")||"Keine Aktien im Depot."}\n\nStarke Bewegung ab ±${n.move||5} % · Nachtruhe ${n.night===false?"aus":"22–7 Uhr"}\nÄndern kannst du das in der App.`,{direkt:true})}
   case "/ruhe":{const m=(a[0]||"2h").match(/^(\d+)(m|h)$/);const bis=a[0]==="morgen"?Date.parse(addDays(zeit().date,1)+"T06:00:00Z"):Date.now()+(m?(+m[1])*(m[2]==="h"?36e5:6e4):72e5);
     B.mute=bis;return send(`🔕 Pause bis ${new Date(bis).toLocaleString("de-DE",{timeZone:"Europe/Berlin",weekday:"short",hour:"2-digit",minute:"2-digit"})} Uhr. Wichtiges sammle ich und schicke es danach. /laut beendet die Pause.`,{direkt:true})}
   case "/laut":B.mute=0;await send("🔔 Pause beendet.",{direkt:true});return warteschlange();
   case "/warnung":case "/warnungen":{const ziele=[...new Set([...depot().map(x=>x.s),...(U.watch||[]).map(w=>LEGACY[w]||w)])];const l=ziele.map(s=>[s,fruehwarnung(s)]).filter(([,w])=>w);
     if(!l.length)return send("Noch keine Daten für Frühwarnungen. Trag Aktien ins Depot ein oder beobachte welche.",{direkt:true});
     return send(`🚦 <b>Frühwarnungen</b>\n${l.sort((a,b)=>b[1].p-a[1].p).map(([s,w])=>`${["","🟩","🟨","🟥"][w.lv]} <b>${esc((depot().find(x=>x.s===s)||{}).n||catOf(s).n||s)}</b>${w.gr.length?"\n   "+w.gr.map(esc).join("\n   "):" – unauffällig"}`).join("\n")}${L("depot","Depot öffnen")}`,{direkt:true})}
+  case "/rueckblick":case "/rückblick":{await rueckblick();if(!B.rb||!Object.keys(B.rb.pos).length)return send("Noch kein Kaufrückblick möglich. Trag Käufe mit Kaufdatum in der App ein.",{direkt:true});
+    return send(`🧭 <b>Kaufrückblick</b>\n\n${RB.text(B.rb,rbName,false)}`,{direkt:true})}
   case "/status":{const e=Object.entries(B.err);return send(`🩺 <b>Status</b>\nLetzter Lauf: ${B.lastRun?new Date(B.lastRun).toLocaleString("de-DE",{timeZone:"Europe/Berlin"}):"–"}\nKI-Stand: ${KI.generated?new Date(KI.generated).toLocaleString("de-DE",{timeZone:"Europe/Berlin"}):"–"}\nDepot übertragen: ${U.updatedAt?new Date(U.updatedAt).toLocaleString("de-DE",{timeZone:"Europe/Berlin"}):"nein"}\nXetra: ${xetraOffen()?"offen":"geschlossen"} · US-Börse: ${boerseOffen()?"offen":"geschlossen"}\nEU-Kurse: ${B.euT?new Date(B.euT).toLocaleTimeString("de-DE",{timeZone:"Europe/Berlin",hour:"2-digit",minute:"2-digit"})+" Uhr":"–"}\n${e.length?"⚠️ Probleme:\n"+e.map(([k,v])=>`• ${k}: ${esc(v)}`).join("\n"):"✅ Alle Datenquellen erreichbar"}`,{direkt:true})}
   default:return send(`Den Befehl „${esc(c0)}“ kenne ich nicht. /hilfe zeigt alle Befehle.`,{direkt:true})}}
 async function knopf(cb){const [t,id]=String(cb.data||"").split(":"),x=khListe().find(i=>String(i.id)===id);await tg("answerCallbackQuery",{callback_query_id:cb.id,text:x?"Gespeichert":"Schon erledigt"});if(!x)return;
@@ -168,6 +172,10 @@ async function alarme(){const n=Object.assign({loss:true,target:true,move:5,news
   for(const x of d)if(isUS(x.s)&&(boerseOffen()||!B.q[x.s]||Date.now()-B.q[x.s].t>6*36e5))await quote(x.s);else if(isEU(x.s)&&!B.q[x.s])await yq(x.s);
   for(const x of d){const p=priceOf(x.s);if(!p)continue;const ch=(p/x.k-1)*100,mv=moveOf(x.s),kL=`loss:${x.s}`,kZ=`ziel:${x.s}`,kM=`move:${x.s}:${z.date}`;
     if(n.loss&&ch<=x.a){if(!B.sent[kL]||ch<=B.sent[kL]-5){B.sent[kL]=ch;await send(`🔴 <b>${esc(x.n)}</b> liegt ${sgn(ch)} unter deinem Kaufpreis.\nKurs ${fmt(p)} ${CS(x.s)} · deine Meldegrenze: ${x.a} %${LA(x.s)}`,{dringend:mv<=-10})}}else if(B.sent[kL]&&ch>x.a+2)delete B.sent[kL];
+    if(n.gewinn!==false&&x.gs>0){B.peak=B.peak||{};const kp=`${x.s}:${x.k}`,rbH=(B.rb&&B.rb.pos[x.s]&&B.rb.pos[x.s].hoch)||0,hoch=Math.max(B.peak[kp]||0,rbH,p);B.peak[kp]=hoch;
+      const kG=`gs:${kp}`,grenze=hoch*(1-x.gs/100);
+      if(hoch>x.k&&p<=grenze&&p>x.k*0.98){if(!B.sent[kG]||hoch>B.sent[kG]*1.01){B.sent[kG]=hoch;const gv=(hoch/x.k-1)*100;
+        await send(`🟠 <b>Gewinnschutz: ${esc(x.n)}</b>\nDer Kurs ist ${fmt((1-p/hoch)*100,1)} % unter seinen Höchststand seit Kauf (${fmt(hoch)} ${CS(x.s)}) gefallen.\nDein Plus: jetzt ${sgn(ch)}, vorher ${sgn(gv)}.\nKurs ${fmt(p)} ${CS(x.s)} · deine Grenze: ${x.gs} % vom Höchststand`)}}}
     if(n.target&&x.z&&p>=x.z){if(!B.sent[kZ]){B.sent[kZ]=1;await send(`🟢 <b>${esc(x.n)}</b> hat dein Kursziel erreicht!\nKurs ${fmt(p)} ${CS(x.s)} · Ziel ${fmt(x.z)} ${CS(x.s)} · ${sgn(ch)} seit Kauf${LA(x.s)}`)}}else if(B.sent[kZ]&&p<x.z*.98)delete B.sent[kZ];
     if(n.move&&Math.abs(mv)>=n.move&&!B.sent[kM]){B.sent[kM]=1;await send(`⚡ <b>${esc(x.n)}</b> bewegt sich heute stark: ${sgn(mv)}\nKurs ${fmt(p)} ${CS(x.s)}${LA(x.s)}`,{dringend:mv<=-10})}
     if(n.sparplan&&x.tag&&z.day===+x.tag&&z.h>=9&&!B.sent[`spar:${x.s}:${z.ym}`]){B.sent[`spar:${x.s}:${z.ym}`]=1;await send(`💶 Heute ist dein Nachkauf-Tag für <b>${esc(x.n)}</b>.\nAktuell ${fmt(p)} ${CS(x.s)} (${sgn(ch)} seit Kauf).${LA(x.s)}`)}}
@@ -212,7 +220,7 @@ async function euKurse(zwang){const z=zeit(),heute=z.date;B.hist=B.hist||{};
   const pick=l=>l.filter(([s])=>B.q[s]).map(([s,n])=>({s,n,c:B.q[s].c,dp:+(+B.q[s].dp).toFixed(2)}));
   const mit=alle.filter(s=>B.q[s]);
   writeJSON(P(".state/kurse.json"),{t:Date.now(),fx:{EURUSD:fx()},idx:pick(EU_INDEX),sec:pick(EU_SECTOR),
-    markt:MARKT.filter(([s])=>B.q[s]).map(([s,n,k])=>({s,n,k})),ki:B.kiExtra||{},fa:B.kiFragen||{},kiApi:!!API||!!(RURL&&RTOK),kiWeg:API?"api":RURL&&RTOK?"abo":"",
+    markt:MARKT.filter(([s])=>B.q[s]).map(([s,n,k])=>({s,n,k})),ki:B.kiExtra||{},rb:B.rb||null,fa:B.kiFragen||{},kiApi:!!API||!!(RURL&&RTOK),kiWeg:API?"api":RURL&&RTOK?"abo":"",
     q:Object.fromEntries(mit.map(s=>[s,{c:B.q[s].c,dp:+(+B.q[s].dp).toFixed(2),cur:curOf(s),t:B.q[s].mt||B.q[s].t}])),
     h:Object.fromEntries(Object.entries(B.hist).map(([s,v])=>[s,v.c.map(x=>+(+x).toFixed(4))])),w:Object.fromEntries(meine.map(s=>[s,fruehwarnung(s)]).filter(([,w])=>w))});B.kursePush=true;if(neu.length)log("Neue Verläufe:",neu.join(","))}
 function kurseHochladen(){if(!B.kursePush||DRY)return;B.kursePush=false;try{const o={cwd:ROOT};const blob=execSync("git hash-object -w .state/kurse.json",o).toString().trim();
@@ -308,6 +316,13 @@ async function aufAnfrage(){if(!API){if(RURL&&RTOK)await anfrageRoutine();return
       await send(`🧠 <b>Einschätzung da: ${esc(name)}</b>\n${esc(B.kiExtra[s].text)}\n\nIn der App mit Quellen.${LA(s,"Einschätzung öffnen")}`,{direkt:true})}catch(e){B.err.ki=e.message.slice(0,120);log("KI",e.message)}}
   if(offen.length)await euKurse(true)}
 
+/* ---------- Kaufrückblick ---------- */
+async function rueckblick(){B.serien=B.serien||{};const heute=zeit().date,syms=[...new Set([...depot().map(x=>x.s),...(U.trades||[]).map(t=>LEGACY[t.s]||t.s),"EUNL.DE"])];
+  for(const s of syms)if(!B.serien[s]||B.serien[s].d!==heute){const x=await RB.serie(s);if(x)B.serien[s]=x}
+  for(const s of Object.keys(B.serien))if(!syms.includes(s))delete B.serien[s];
+  try{B.rb=RB.bewerte({depot:depot(),trades:(U.trades||[]).map(t=>Object.assign({},t,{s:LEGACY[t.s]||t.s})),serien:B.serien,hist:B.hist||{},preis:priceOf,warn:fruehwarnung,daempfung:params().trendDamping||.5})}catch(e){log("Rückblick",e.message)}}
+const rbName=s=>(depot().find(x=>x.s===s)||{}).n||catOf(s).n||s;
+
 /* ---------- Abend-Rückblick um 21 Uhr (ohne KI) ---------- */
 async function abendRueckblick(){const z=zeit(),n=U.notify||{};if((!E.FORCE_ABEND&&(z.h<21||z.h>=22))||B.sent.abend===z.date||n.briefing===false||!CHAT)return;B.sent.abend=z.date;
   const d=depot();for(const x of d)await frisch(x.s);for(const [s] of INDEX_ETF)await quote(s);for(const [s] of EU_INDEX.slice(0,2))await yq(s);await yq("EURUSD=X");
@@ -317,7 +332,8 @@ async function abendRueckblick(){const z=zeit(),n=U.notify||{};if((!E.FORCE_ABEN
   for(const x of d)if(x.tag&&+morgen.slice(8)===+x.tag)termine.push(`Nachkauf-Tag ${esc(x.n)}`);
   const kh=khListe(),faellig=kh.filter(x=>x.due<=Date.now()+864e5);
   const markt=[...EU_INDEX.slice(0,2),...INDEX_ETF].filter(([s])=>B.q[s]).map(([s,n])=>`${n} ${sgn(B.q[s].dp)}`).join(" · ");
-  await send(`🌙 <b>Dein Abend-Rückblick</b>${markt?`\n${markt}`:""}\n\n${mit.length?`<b>Depot heute: ${heute>=0?"+":""}${fmt(heute)} €</b> (gesamt ${fmt(tot)} €, ${sgn((tot/cost-1)*100)} seit Kauf)\n${zeilen.join("\n")}`:"Noch keine Aktien im Depot übertragen."}${mit.length>1?`\n\nBester: ${esc(mit.slice().sort((a,b)=>moveOf(b.s)-moveOf(a.s))[0].n)} · Schwächster: ${esc(mit.slice().sort((a,b)=>moveOf(a.s)-moveOf(b.s))[0].n)}`:""}\n\n<b>Morgen:</b> ${termine.length?termine.join(", "):"keine besonderen Termine bei deinen Aktien"}${kh.length?`\n\n🧺 Warenkorb: ${kh.length} Ding${kh.length>1?"e":""}${faellig.length?`, davon ${faellig.length} bald fällig (${faellig.map(x=>esc(x.n)).join(", ")})`:""}`:""}\n\nDie US-Börse schließt um 22 Uhr. Gute Nacht! 😴${L("depot","Depot öffnen")}`)}
+  await rueckblick();const rbT=B.rb&&Object.keys(B.rb.pos).length?`🧭 <b>Deine Entscheidungen</b>\n${RB.text(B.rb,rbName,z.wd!=="Sun")}\n\n`:"";
+  await send(`🌙 <b>Dein Abend-Rückblick</b>${markt?`\n${markt}`:""}\n\n${mit.length?`<b>Depot heute: ${heute>=0?"+":""}${fmt(heute)} €</b> (gesamt ${fmt(tot)} €, ${sgn((tot/cost-1)*100)} seit Kauf)\n${zeilen.join("\n")}`:"Noch keine Aktien im Depot übertragen."}${mit.length>1?`\n\nBester: ${esc(mit.slice().sort((a,b)=>moveOf(b.s)-moveOf(a.s))[0].n)} · Schwächster: ${esc(mit.slice().sort((a,b)=>moveOf(a.s)-moveOf(b.s))[0].n)}`:""}\n\n<b>Morgen:</b> ${termine.length?termine.join(", "):"keine besonderen Termine bei deinen Aktien"}${kh.length?`\n\n🧺 Warenkorb: ${kh.length} Ding${kh.length>1?"e":""}${faellig.length?`, davon ${faellig.length} bald fällig (${faellig.map(x=>esc(x.n)).join(", ")})`:""}`:""}\n\n${rbT}Die US-Börse schließt um 22 Uhr. Gute Nacht! 😴${L("depot","Depot öffnen")}`)}
 
 /* ---------- Vorlage für Claude (3x täglich) ---------- */
 const F=s=>`§FILL: ${s}§`;
@@ -396,7 +412,7 @@ export async function main(){
   if(!FH)B.err.finnhub="FINNHUB_KEY fehlt";if(!TG)B.err.telegram="TELEGRAM_TOKEN fehlt";
   await telegramEingang();
   const slot=E.FORCE_SLOT||slotJetzt();if(slot)try{await vorlage(slot)}catch(e){log("Vorlage",e);B.err.vorlage=e.message}
-  await euKurse();await aufAnfrage();await alarme();await fruehwarnungen();await abendRueckblick();await warteschlange();
+  await rueckblick();await euKurse();await aufAnfrage();await alarme();await fruehwarnungen();await abendRueckblick();await warteschlange();
   // Danach noch eine Weile auf Telegram-Befehle lauschen, damit Antworten sofort kommen
   const ende=Date.now()+(E.POLL_SEK!==undefined?+E.POLL_SEK:110)*1000,kiEnde=B.anfrage&&!API?Date.now()+330*1000:0;
   while(Date.now()<Math.max(ende,kiEnde)-26000){if(TG&&CHAT)await telegramEingang(25);else await sleep(25000);if(B.anfrage&&await antwortHolen())await euKurse(true);await warteschlange();if(!(TG&&CHAT)&&!B.anfrage)break}await sichern();log("fertig",{slot,depot:depot().length,fehler:B.err})}

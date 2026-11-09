@@ -298,6 +298,7 @@ Ich verbinde mich dann mit deinem Projekt und lege 3 geplante Aufgaben an (ca. 7
 | `/sparmodell` | Dein Modell und die Empfehlung |
 | `/alarme` | Deine Alarm-Regeln |
 | `/warnung` | Frühwarn-Ampel für deine Werte |
+| `/rueckblick` | Kaufrückblick: wie gut waren deine Entscheidungen? |
 | `/ruhe 2h` | Pause (auch `30m` oder `morgen`) |
 | `/laut` | Pause beenden |
 | `/status` | Läuft alles? |
@@ -361,6 +362,19 @@ Test-Einträge zählen nicht mit. Alles sind Faustregeln, keine Anlageberatung.
 1. Auf **console.anthropic.com** registrieren, Guthaben aufladen (z. B. 5 €) und unter **API Keys** einen Schlüssel erstellen.
 2. Bei GitHub als Secret **ANTHROPIC_API_KEY** eintragen (wie in Schritt 6).
 Kosten: wenige Cent pro Anfrage, getrennt von deinem Claude-Abo. Der Bot meldet sich in Telegram, sobald die Einschätzung da ist.
+
+## Kaufrückblick
+Im Depot unter **Kaufrückblick** und per Telegram (täglich um 21 Uhr kurz, sonntags ausführlich, jederzeit mit `/rueckblick`):
+- **Seit Kauf** im Vergleich zum MSCI World im selben Zeitraum
+- **Nach 1 Tag, 1 Woche, 1 Monat:** wie sich der Kauf direkt danach entwickelt hat, und ob der **Kaufzeitpunkt** eher günstig oder teuer war
+- **Zufalls-Check:** Wie viel Prozent der Vergleichswerte hat dein Kauf im selben Zeitraum geschlagen? Um 50 % ist wie Zufall, darüber besser.
+- **Chance, über deinem Kaufpreis zu liegen:** morgen, in 1 Woche, in 3 Monaten (Schätzung aus Trend und Schwankung)
+- **Stabilität** jeder Entscheidung: stabil, wackelig oder kritisch, mit Gründen
+- **Verkäufe im Rückblick:** Hat sich der Verkauf gelohnt oder wäre Halten besser gewesen?
+- Dafür braucht jeder Kauf ein **Kaufdatum** (beim Eintragen bzw. unter Ändern › Bearbeiten). Test-Einträge zählen nicht.
+
+## Gewinnschutz
+Zusätzlich zur Meldegrenze im Minus: Der Bot meldet sich, wenn der Kurs um **x %** unter seinen **Höchststand seit Kauf** fällt, solange du noch im Plus bist. So merkst du, wenn ein Gewinn schrumpft. Einstellbar beim Eintragen, unter Ändern › Bearbeiten, mit − / + direkt auf der Aktienseite und als Standard unter ⚙️ (0 = aus).
 
 ## Hilfe bei Problemen
 
