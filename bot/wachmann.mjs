@@ -4,7 +4,7 @@ import fs from "node:fs";
 import {execSync} from "node:child_process";
 import {verschluesseln,entschluesseln} from "./krypto.mjs";
 
-const E=process.env,API=E.ANTHROPIC_API_KEY||"",FH=E.FINNHUB_KEY||"",AV=E.AV_KEY||"",TG=E.TELEGRAM_TOKEN||"",CHAT=String(E.TELEGRAM_CHAT||""),PASS=E.SYNC_PASSWORD||"";
+const E=process.env,API=E.ANTHROPIC_API_KEY||"",FH=E.FINNHUB_KEY||"",AV=E.AV_KEY||"",TG=E.TELEGRAM_TOKEN||"",CHAT=String(E.TELEGRAM_CHAT||""),PASS=E.SYNC_PASSWORD||"",RURL=E.KI_ROUTINE_URL||"",RTOK=E.KI_ROUTINE_TOKEN||"";
 const DRY=E.DRY==="1",ROOT=E.ROOT||".",P=f=>`${ROOT}/${f}`;
 const SF=P(".state/bot.json");
 const INDEX_ETF=[["SPY","S&P 500"],["QQQ","Nasdaq 100"],["DIA","Dow Jones"]];
@@ -204,7 +204,7 @@ async function euKurse(zwang){const z=zeit(),heute=z.date;B.hist=B.hist||{};
   const pick=l=>l.filter(([s])=>B.q[s]).map(([s,n])=>({s,n,c:B.q[s].c,dp:+(+B.q[s].dp).toFixed(2)}));
   const mit=alle.filter(s=>B.q[s]);
   writeJSON(P(".state/kurse.json"),{t:Date.now(),fx:{EURUSD:fx()},idx:pick(EU_INDEX),sec:pick(EU_SECTOR),
-    markt:MARKT.filter(([s])=>B.q[s]).map(([s,n,k])=>({s,n,k})),ki:B.kiExtra||{},kiApi:!!API,
+    markt:MARKT.filter(([s])=>B.q[s]).map(([s,n,k])=>({s,n,k})),ki:B.kiExtra||{},kiApi:!!API||!!(RURL&&RTOK),kiWeg:API?"api":RURL&&RTOK?"abo":"",
     q:Object.fromEntries(mit.map(s=>[s,{c:B.q[s].c,dp:+(+B.q[s].dp).toFixed(2),cur:curOf(s),t:B.q[s].mt||B.q[s].t}])),
     h:Object.fromEntries(Object.entries(B.hist).map(([s,v])=>[s,v.c.map(x=>+(+x).toFixed(4))])),w:Object.fromEntries(meine.map(s=>[s,fruehwarnung(s)]).filter(([,w])=>w))});B.kursePush=true;if(neu.length)log("Neue Verläufe:",neu.join(","))}
 function kurseHochladen(){if(!B.kursePush||DRY)return;B.kursePush=false;try{const o={cwd:ROOT};const blob=execSync("git hash-object -w .state/kurse.json",o).toString().trim();
@@ -235,7 +235,38 @@ async function fruehwarnungen(){const n=Object.assign({warn:true},U.notify||{});
     await send(`🌡️ <b>Der Markt wird nervös</b>\nDas Angst-Barometer VIX steht bei ${fmt(vix,1)} (normal: unter 20).\nIn solchen Phasen schwanken Aktien stärker. Prüfe, ob dein Depot zu deiner Risikobereitschaft passt.`)}}
 
 /* ---------- Einschätzung auf Anfrage (sofort, nur mit eigenem API-Schlüssel) ---------- */
-async function aufAnfrage(){if(!API)return;B.kiExtra=B.kiExtra||{};B.wunschDone=B.wunschDone||{};
+async function anfrageDaten(s){if(!B.hist||!B.hist[s]){const c=await yq(s,true);if(c&&c.length)(B.hist=B.hist||{})[s]={d:zeit().date,c}}
+  const an=B.hist&&B.hist[s]?analyse({s,h:"lang",closes:B.hist[s].c}):null;let news=[];
+  if(isUS(s)){try{const t=zeit().date;news=(await fh(`company-news?symbol=${s}&from=${addDays(t,-4)}&to=${t}`)).slice(0,6).map(n=>({t:n.headline,u:n.url,q:n.source,z:(n.summary||"").slice(0,200)}))}catch(e){}}
+  else news=(await yNews(s)).slice(0,5).map(n=>({t:n.headline,u:n.url,q:n.source,z:n.summary}));
+  const name=(MARKT.find(m=>m[0]===s)||[])[1]||catOf(s).n||s;
+  return {name,news,fakten:an?{waehrung:curOf(s),kurs:+an.last.toFixed(2),trend:an.dir,vierWochenProzent:+an.ch20.toFixed(1),dreiMonateProzent:+an.ch3m.toFixed(1),schwankungProJahr:+an.vol.toFixed(0),heuteProzent:+moveOf(s).toFixed(2)}:{}}}
+/* Ohne eigenen API-Schlüssel: kleine Vorlage ins Repo, dann die Claude-Aufgabe „KI-Anfrage“ direkt anstoßen (läuft über das Claude-Abo). */
+async function antwortHolen(){if(!B.anfrage)return false;let a=null;
+  try{execSync(`git -C ${ROOT} fetch -q origin main`);a=JSON.parse(execSync(`git -C ${ROOT} show origin/main:data/ki-antwort.json`,{stdio:["ignore","pipe","ignore"]}).toString())}catch(e){return false}
+  if(!a||a.id!==B.anfrage.id)return false;B.kiExtra=B.kiExtra||{};const neu=[];
+  for(const x of (a.items||[]))if(x&&x.s&&x.text){B.kiExtra[x.s]={text:String(x.text),h:x.h||"lang",warn:+x.warn||0,quellen:Array.isArray(x.quellen)?x.quellen.filter(q=>q&&q.u).slice(0,6):[],t:Date.now()};neu.push(x.s)}
+  B.anfrage=null;B.kursePush=true;delete B.err.ki;log("KI-Anfrage beantwortet",neu.join(","));
+  for(const s of neu){const name=(MARKT.find(m=>m[0]===s)||[])[1]||catOf(s).n||s;await send(`🧠 <b>Einschätzung da: ${esc(name)}</b>\n${esc(B.kiExtra[s].text)}\n\nIn der App mit Quellen.`,{direkt:true})}
+  return true}
+async function anfrageRoutine(){B.kiExtra=B.kiExtra||{};B.wunschDone=B.wunschDone||{};
+  for(const s of Object.keys(B.kiExtra))if(Date.now()-B.kiExtra[s].t>3*864e5)delete B.kiExtra[s];
+  if(B.anfrage&&Date.now()-B.anfrage.t>25*6e4){(B.anfrage.syms||[]).forEach(s=>delete B.wunschDone[s]);B.err.ki="Claude-Aufgabe hat nicht geantwortet, neuer Versuch";B.anfrage=null}
+  if(await antwortHolen())await euKurse(true);if(B.anfrage)return;
+  const offen=kiWahl().wunsch.filter(s=>!B.wunschDone[s]||Date.now()-B.wunschDone[s]>864e5).slice(0,5);if(!offen.length)return;
+  const id="a"+Date.now().toString(36),items=[];
+  for(const s of offen){const d=await anfrageDaten(s);items.push({s,n:d.name,_fakten:d.fakten,_meldungen:d.news,
+    text:F("2 kurze Sätze zur Lage und worauf es ankommt (bei Indizes/VIX/Wechselkurs: was die Bewegung bedeutet). Sachlich, keine Kaufempfehlung"),
+    h:F('"kurz", "lang", "spekulativ" oder "nicht kaufbar"'),warn:F("Zahl 0–3: 0 ruhig, 3 deutliche Warnzeichen"),quellen:F("Liste {t,u} der genutzten Meldungen aus _meldungen oder leere Liste")})}
+  writeJSON(P("data/ki-anfrage.json"),{id,erstellt:new Date().toISOString(),_anleitung:"Nur die §FILL…§-Platzhalter in items ersetzen, Quellen sind nur _fakten und _meldungen. Danach Felder mit _ löschen und als data/ki-antwort.json speichern.",items});
+  if(DRY){log("DRY KI-Anfrage",offen.join(","));return}
+  try{execSync(`git -C ${ROOT} add data/ki-anfrage.json && git -C ${ROOT} -c user.name="Wachmann" -c user.email="wachmann@users.noreply.github.com" commit -q -m "KI-Anfrage ${id}" -- data/ki-anfrage.json && git -C ${ROOT} pull -q --rebase -X theirs --autostash && git -C ${ROOT} push -q`,{stdio:"inherit"})}
+  catch(e){B.err.ki="KI-Anfrage nicht hochgeladen: "+e.message.slice(0,80);return}
+  try{const r=await fetch(RURL,{method:"POST",headers:{Authorization:`Bearer ${RTOK}`,"anthropic-version":"2023-06-01","content-type":"application/json"},body:JSON.stringify({text:`KI-Anfrage ${id}: ${offen.join(", ")}`})});
+    if(!r.ok)throw new Error("Claude-Aufgabe "+r.status+" "+(await r.text()).slice(0,80));
+    B.anfrage={id,t:Date.now(),syms:offen};offen.forEach(s=>B.wunschDone[s]=Date.now());delete B.err.ki;log("KI-Anfrage gestartet",id,offen.join(","))}
+  catch(e){B.err.ki=e.message.slice(0,120);log("KI-Anfrage",e.message)}}
+async function aufAnfrage(){if(!API){if(RURL&&RTOK)await anfrageRoutine();return}B.kiExtra=B.kiExtra||{};B.wunschDone=B.wunschDone||{};
   for(const s of Object.keys(B.kiExtra))if(Date.now()-B.kiExtra[s].t>3*864e5)delete B.kiExtra[s];
   const offen=kiWahl().wunsch.filter(s=>!B.wunschDone[s]||Date.now()-B.wunschDone[s]>864e5).slice(0,3);
   for(const s of offen){B.wunschDone[s]=Date.now();if(!B.hist||!B.hist[s]){const c=await yq(s,true);if(c&&c.length)(B.hist=B.hist||{})[s]={d:zeit().date,c}}
@@ -329,5 +360,6 @@ export async function main(){
   const slot=E.FORCE_SLOT||slotJetzt();if(slot)try{await vorlage(slot)}catch(e){log("Vorlage",e);B.err.vorlage=e.message}
   await euKurse();await aufAnfrage();await alarme();await fruehwarnungen();await abendRueckblick();await warteschlange();
   // Danach noch eine Weile auf Telegram-Befehle lauschen, damit Antworten sofort kommen
-  const ende=Date.now()+(E.POLL_SEK!==undefined?+E.POLL_SEK:110)*1000;while(TG&&CHAT&&Date.now()<ende-26000){await telegramEingang(25);await warteschlange()}await sichern();log("fertig",{slot,depot:depot().length,fehler:B.err})}
+  const ende=Date.now()+(E.POLL_SEK!==undefined?+E.POLL_SEK:110)*1000,kiEnde=B.anfrage&&!API?Date.now()+330*1000:0;
+  while(Date.now()<Math.max(ende,kiEnde)-26000){if(TG&&CHAT)await telegramEingang(25);else await sleep(25000);if(B.anfrage&&await antwortHolen())await euKurse(true);await warteschlange();if(!(TG&&CHAT)&&!B.anfrage)break}await sichern();log("fertig",{slot,depot:depot().length,fehler:B.err})}
 if(import.meta.url===`file://${process.argv[1]}`)main().catch(e=>{console.error(e);process.exit(1)});

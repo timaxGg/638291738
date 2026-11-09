@@ -392,3 +392,11 @@ GitHub stoppt geplante Abläufe in Projekten ohne Änderungen. Die täglichen KI
 - **Öffentlich sichtbar** sind nur: der App-Code, die KI-Texte (`ki.json`) und welche Aktien beobachtet werden. **Nicht sichtbar:** wie viele Aktien du hast, Kaufpreise, Finanzen, Kaufhilfe, deine Codes. Diese sind verschlüsselt oder nur auf deinem Handy.
 - **Später etwas ändern:** Einfach im Claude-Projekt sagen, was anders sein soll. Ich ändere die Dateien und lade sie bei verbundenem Projekt direkt hoch.
 - **Keine Anlageberatung.** Prognosen sind Schätzungen. Die Entscheidung triffst immer du.
+
+## KI-Einschätzung auf Anfrage in 5 bis 10 Minuten (über dein Claude-Abo)
+
+1. Auf claude.ai/code/routines die Aufgabe „Aktien Helfer KI-Anfrage“ öffnen, „Add another trigger“ → „API“ → „Generate token“.
+2. Im GitHub-Repository unter Settings → Secrets and variables → Actions zwei Secrets anlegen:
+   - `KI_ROUTINE_URL`: die angezeigte Adresse (endet auf `/fire`)
+   - `KI_ROUTINE_TOKEN`: der Token (beginnt mit `sk-ant-oat01-`, wird nur einmal angezeigt)
+Danach startet der Wachmann bei „KI-Einschätzung anfordern“ die Aufgabe sofort und meldet sich per Telegram, sobald die Einschätzung da ist.

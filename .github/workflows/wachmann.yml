@@ -14,7 +14,7 @@ concurrency:
 jobs:
   lauf:
     runs-on: ubuntu-latest
-    timeout-minutes: 8
+    timeout-minutes: 11
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -34,6 +34,8 @@ jobs:
           TELEGRAM_CHAT: ${{ secrets.TELEGRAM_CHAT }}
           SYNC_PASSWORD: ${{ secrets.SYNC_PASSWORD }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          KI_ROUTINE_URL: ${{ secrets.KI_ROUTINE_URL }}
+          KI_ROUTINE_TOKEN: ${{ secrets.KI_ROUTINE_TOKEN }}
         run: node bot/wachmann.mjs
       - name: Gedächtnis speichern
         if: always()
