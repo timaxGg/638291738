@@ -5,6 +5,7 @@ import {execSync} from "node:child_process";
 import {verschluesseln,entschluesseln} from "./krypto.mjs";
 import * as RB from "./rueckblick.mjs";
 import * as AN from "./analyse.mjs";
+import * as SIG from "./signale.mjs"; // Trading-Signale (eigene Datei)
 import "../modell.js";
 const Modell=globalThis.Modell;
 
@@ -70,7 +71,7 @@ const priceOf=s=>(B.q[s]&&B.q[s].c)||(B.eod[s]&&B.eod[s].c)||null;
 const moveOf=s=>B.q[s]&&Date.now()-B.q[s].t<36e5?B.q[s].dp:(B.eod[s]?B.eod[s].dp:0);
 
 /* ---------- Telegram ---------- */
-const FUSS="\n\n<i>Befehle:</i> /hilfe /kurs /depot /top /markt /chancen /kurzanalyse /analyse /warnung /rueckblick /news /briefing /prognose /termine /kaufhilfe /merken /gespart /ziel /sparmodell /alarme /ruhe /laut /status";
+const FUSS="\n\n<i>Befehle:</i> /hilfe /kurs /depot /top /markt /chancen /kurzanalyse /analyse /warnung /rueckblick /news /briefing /prognose /termine /kaufhilfe /merken /gespart /ziel /sparmodell /alarme /ruhe /laut /status"+SIG.FUSS_TEIL;
 async function tg(method,body){if(!TG)return null;
   try{const r=await fetch(`https://api.telegram.org/bot${TG}/${method}`,{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify(body)});return r.json()}catch(e){B.err.telegram=e.message;return null}}
 const nacht=()=>{if(E.FORCE_DAY)return false;if(U.notify&&U.notify.night===false)return false;const z=zeit();return z.h>=22||z.h<7};
@@ -114,6 +115,7 @@ const HILFE=`<b>Was ich kann</b>
 /kurzanalyse SAP – kurz: Trend auf- oder abwärts und die neuesten Nachrichten (ohne Namen: dein ganzes Depot)
 /analyse – deine Werte: wie sicher, warum genau, Zukunft und Alternativen mit Begründung (auch /analyse SAP für einen Wert)
 /rueckblick – Kaufrückblick: wie gut waren deine Entscheidungen?
+${SIG.HILFE_ZEILEN}
 /ruhe 2h – Nachrichten pausieren (z. B. 30m, 2h, morgen)
 /laut – Pause beenden
 /status – läuft alles?
@@ -165,6 +167,7 @@ async function befehl(text){const [c0,...a]=text.trim().split(/\s+/),c=c0.toLowe
   case "/chancen":case "/beste":case "/top3":case "/3tage":return chancen(arg);
   case "/kurzanalyse":case "/kurz":case "/ka":return kurzAnalyse(arg);
   case "/analyse":case "/analyze":case "/sicherheit":case "/meine":return analyseBefehl(arg);
+  case "/signale":case "/signal":return SIG.befehl(c,arg,sigCtx());
   case "/status":{const e=Object.entries(B.err);return send(`🩺 <b>Status</b>\nLetzter Lauf: ${B.lastRun?new Date(B.lastRun).toLocaleString("de-DE",{timeZone:"Europe/Berlin"}):"–"}\nKI-Stand: ${KI.generated?new Date(KI.generated).toLocaleString("de-DE",{timeZone:"Europe/Berlin"}):"–"}\nDepot übertragen: ${U.updatedAt?new Date(U.updatedAt).toLocaleString("de-DE",{timeZone:"Europe/Berlin"}):"nein"}\nXetra: ${xetraOffen()?"offen":"geschlossen"} · US-Börse: ${boerseOffen()?"offen":"geschlossen"}\nEU-Kurse: ${B.euT?new Date(B.euT).toLocaleTimeString("de-DE",{timeZone:"Europe/Berlin",hour:"2-digit",minute:"2-digit"})+" Uhr":"–"}\n${e.length?"⚠️ Probleme:\n"+e.map(([k,v])=>`• ${k}: ${esc(v)}`).join("\n"):"✅ Alle Datenquellen erreichbar"}`,{direkt:true})}
   default:return send(`Den Befehl „${esc(c0)}“ kenne ich nicht. /hilfe zeigt alle Befehle.`,{direkt:true})}}
 async function knopf(cb){const [t,id]=String(cb.data||"").split(":"),x=khListe().find(i=>String(i.id)===id);await tg("answerCallbackQuery",{callback_query_id:cb.id,text:x?"Gespeichert":"Schon erledigt"});if(!x)return;
@@ -232,7 +235,7 @@ async function euKurse(zwang){const z=zeit(),heute=z.date;B.hist=B.hist||{};
   const pick=l=>l.filter(([s])=>B.q[s]).map(([s,n])=>({s,n,c:B.q[s].c,dp:+(+B.q[s].dp).toFixed(2)}));
   const mit=alle.filter(s=>B.q[s]);
   writeJSON(P(".state/kurse.json"),{t:Date.now(),fx:{EURUSD:fx()},idx:pick(EU_INDEX),sec:pick(EU_SECTOR),
-    markt:MARKT.filter(([s])=>B.q[s]).map(([s,n,k])=>({s,n,k})),ki:B.kiExtra||{},rb:B.rb||null,fa:B.kiFragen||{},kiApi:!!API||!!(RURL&&RTOK),kiWeg:API?"api":RURL&&RTOK?"abo":"",
+    markt:MARKT.filter(([s])=>B.q[s]).map(([s,n,k])=>({s,n,k})),ki:B.kiExtra||{},rb:B.rb||null,sig:SIG.app(),fa:B.kiFragen||{},kiApi:!!API||!!(RURL&&RTOK),kiWeg:API?"api":RURL&&RTOK?"abo":"",
     q:Object.fromEntries(mit.map(s=>[s,{c:B.q[s].c,dp:+(+B.q[s].dp).toFixed(2),cur:curOf(s),t:B.q[s].mt||B.q[s].t}])),
     h:Object.fromEntries(Object.entries(B.hist).map(([s,v])=>[s,v.c.map(x=>+(+x).toFixed(4))])),w:Object.fromEntries(meine.map(s=>[s,fruehwarnung(s)]).filter(([,w])=>w))});B.kursePush=true;if(neu.length)log("Neue Verläufe:",neu.join(","))}
 function kurseHochladen(){if(!B.kursePush||DRY)return;B.kursePush=false;try{const o={cwd:ROOT};const blob=execSync("git hash-object -w .state/kurse.json",o).toString().trim();
@@ -492,6 +495,9 @@ async function sichern(){if(changed.has("inbox")&&PASS){const keep=B.inbox.filte
   kurseHochladen();B.lastRun=Date.now();writeJSON(SF,B);if(!changed.size||DRY)return;
   try{const files=[...changed].join(" ");execSync(`git -C ${ROOT} add ${files} && git -C ${ROOT} -c user.name="Wachmann" -c user.email="wachmann@users.noreply.github.com" commit -m "Wachmann: ${[...changed].map(f=>f.replace(/.*\//,"")).join(", ")}" && git -C ${ROOT} pull --rebase -X theirs && git -C ${ROOT} push`,{stdio:"inherit"})}catch(e){log("git",e.message)}}
 
+/* ---------- Trading-Signale (Code in bot/signale.mjs) ---------- */
+const sigCtx=()=>({B,U,P,send,esc,leise,log,APP,finde,name:s=>(MARKT.find(m=>m[0]===s)||[])[1]||catOf(s).n||s,eigene:()=>[...depot().map(x=>x.s),...(U.watch||[]).map(w=>LEGACY[w]||w)]});
+
 /* ---------- Ablauf ---------- */
 export async function main(){
   KI=readJSON(P("ki.json"),{});if(B.err.alphavantage&&!B.avFix){delete B.err.alphavantage;B.avFix=1}
@@ -501,7 +507,7 @@ export async function main(){
   if(!FH)B.err.finnhub="FINNHUB_KEY fehlt";if(!TG)B.err.telegram="TELEGRAM_TOKEN fehlt";
   await telegramEingang();
   const slot=E.FORCE_SLOT||slotJetzt();if(slot)try{await vorlage(slot)}catch(e){log("Vorlage",e);B.err.vorlage=e.message}
-  await rueckblick();await euKurse();await aufAnfrage();await alarme();await fruehwarnungen();await abendRueckblick();await warteschlange();
+  await rueckblick();const sigNeu=await SIG.lauf(sigCtx()).catch(e=>{log("Signale",e);B.err.signale=String(e.message).slice(0,120);return false});await euKurse(sigNeu);await aufAnfrage();await alarme();await fruehwarnungen();await abendRueckblick();await warteschlange();
   // Danach noch eine Weile auf Telegram-Befehle lauschen, damit Antworten sofort kommen
   const ende=Date.now()+(E.POLL_SEK!==undefined?+E.POLL_SEK:110)*1000,kiEnde=B.anfrage&&!API?Date.now()+330*1000:0;
   while(Date.now()<Math.max(ende,kiEnde)-26000){if(TG&&CHAT)await telegramEingang(25);else await sleep(25000);if(B.anfrage&&await antwortHolen())await euKurse(true);await warteschlange();if(!(TG&&CHAT)&&!B.anfrage)break}await sichern();log("fertig",{slot,depot:depot().length,fehler:B.err})}
