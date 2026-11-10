@@ -1,4 +1,4 @@
-// Top-Aktien (eigene App im Repository timaxGg/Top-Picks73o1p1u3o1o, Anleitung für die KI in trading/KI-AUFGABE.md). Wird vom Wachmann bei jedem Lauf aufgerufen.
+// Top-Aktien (eigene App im Repository timaxGg/Top-Picks, Anleitung für die KI in trading/KI-AUFGABE.md). Wird vom Wachmann bei jedem Lauf aufgerufen.
 // 1. Rechnung: aus Tageskursen (Yahoo) eine Rangliste je Zeitraum (3, 7, 30 Handelstage), am letzten Jahr getestet.
 // 2. Vorlage: 3x täglich die besten Kandidaten mit Fakten und Meldungen nach data/beste-vorlage.json.
 //    Die Claude-Aufgabe „Top-Aktien Recherche“ recherchiert dazu im Netz und schreibt data/beste.json.
@@ -308,7 +308,7 @@ async function vorlage(ctx,W,rang,fakten,slot,datum,bisher,lernen){const quart=a
 export const HINWEIS="Rangliste aus Kursdaten, von der KI mit Quellen geprüft. Vergangene Ergebnisse sind keine Garantie. Keine Anlageberatung.";
 const esc=(ctx,s)=>ctx.esc?ctx.esc(s):String(s??"");
 // Die App liegt in einem eigenen Repository (eigene Adresse = eigene App auf dem Handy)
-const TOP_URL=(process.env.TOP_URL||"https://timaxgg.github.io/Top-Picks73o1p1u3o1o/").replace(/\/?$/,"/");
+const TOP_URL=(process.env.TOP_URL||"https://timaxgg.github.io/Top-Picks/").replace(/\/?$/,"/");
 function link(ctx,s){return `\n<a href="${TOP_URL}${s?"#s-"+encodeURIComponent(s):""}">In der Top-Aktien-App öffnen ›</a>`}
 export const HILFE_ZEILEN=`/beste – die besten Aktien und ETFs für 3, 7 und 30 Tage mit Grund (/beste 7 nur ein Zeitraum)
 /warum SAP – warum ein Wert in der Liste ist, mit Quellen und Entwicklung`;
