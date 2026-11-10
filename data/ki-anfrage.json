@@ -1,6 +1,6 @@
 {
- "id": "amw95hwhq",
- "erstellt": "2026-11-09T11:01:14.277Z",
+ "id": "amwal3eya",
+ "erstellt": "2026-11-10T11:05:38.227Z",
  "_anleitung": "Nur die §FILL…§-Platzhalter in items ersetzen, Quellen sind nur _fakten und _meldungen. Danach Felder mit _ löschen und alle übrigen Felder als data/ki-antwort.json speichern.",
  "items": [
   {
@@ -8,18 +8,46 @@
    "n": "Öl (Brent)",
    "_fakten": {
     "waehrung": "USD",
-    "kurs": 96.62,
+    "kurs": 90.77,
     "trend": "down",
-    "vierWochenProzent": -8.6,
-    "dreiMonateProzent": 10.1,
-    "schwankungProJahr": 45,
-    "heuteProzent": -1.73,
+    "vierWochenProzent": -14.1,
+    "dreiMonateProzent": 3.5,
+    "schwankungProJahr": 46,
+    "heuteProzent": -1.94,
     "prognose": {
      "tage": 63,
-     "von": 81.03,
-     "mitte": 101.25,
-     "bis": 126.52
+     "von": 73.2,
+     "mitte": 92.29,
+     "bis": 116.35,
+     "zusammensetzung": [
+      {
+       "teil": "Trend 3 Monate (abgeschwächt)",
+       "prozent": 1.7
+      },
+      {
+       "teil": "Langfrist-Durchschnitt",
+       "prozent": 0
+      },
+      {
+       "teil": "Gegenbewegung nach starker Bewegung",
+       "prozent": 0,
+       "vorsicht": true
+      },
+      {
+       "teil": "Bekannte Muster",
+       "prozent": 0,
+       "vorsicht": true
+      },
+      {
+       "teil": "Marktumfeld",
+       "prozent": 0,
+       "vorsicht": true
+      }
+     ],
+     "hinweis": "mitte ist rein rechnerisch; Teile mit vorsicht (Muster, Marktumfeld) sind unsicher"
     },
+    "muster": [],
+    "zusammenhaenge": [],
     "anlegerTyp": "ausgewogen"
    },
    "_meldungen": [],
@@ -32,6 +60,7 @@
    "horizont": "§FILL: Zeitraum, für den der Ausblick gilt, z. B. \"4–8 Wochen\" oder \"6–12 Monate\"§",
    "halten": "§FILL: 1–2 Sätze Abwägung: Was spricht dafür, investiert zu bleiben, und für welchen Zeitraum passt dieser Wert eher (kurz, mittel, lang), was dagegen. Wenn _fakten.depot vorhanden ist, darauf eingehen. Keine Anweisung zum Kaufen oder Verkaufen, sondern Gründe zum Abwägen§",
    "signale": "§FILL: Liste mit 2–3 kurzen Punkten: woran man merkt, dass sich das Bild ändert (z. B. Kurs unter einer Marke aus _fakten.prognose, ein Termin, eine Meldungslage)§",
+   "muster": "§FILL: 1–2 Sätze: was die erkannten Muster (_fakten.muster) und Zusammenhänge (_fakten.zusammenhaenge, z. B. Öl, Dollar, Gesamtmarkt) für diesen Wert bedeuten könnten. Ausdrücklich als unsicher kennzeichnen. Leerer Text, wenn es keine gibt§",
    "quellen": "§FILL: Liste {t,u} der genutzten Meldungen aus _meldungen oder leere Liste§"
   }
  ]
