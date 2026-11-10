@@ -1,0 +1,1114 @@
+{
+ "id": "b-2026-11-10-mittags",
+ "datum": "2026-11-10",
+ "slot": "mittags",
+ "erstellt": "2026-11-10T14:50:48.642Z",
+ "_anleitung": "Siehe trading/KI-AUFGABE.md. Kurz: Für jeden Zeitraum (3, 7, 30 Handelstage) aus den kandidaten genau 5 Werte auswählen und begründen, mit echter Websuche und Quellen-Links. Nur Werte aus der jeweiligen Kandidatenliste. Keine Zahlen erfinden. Ergebnis als data/beste.json.",
+ "methode": {
+  "text": "Rangliste nach risikobereinigtem Kursanstieg (Anstieg geteilt durch normale Schwankung) plus Trend, abzüglich Überhitzung (RSI über 75). rechenRang 1 = beste Punktzahl.",
+  "test": {
+   "d": "2026-11-10",
+   "von": "2025-11-10",
+   "werte": 30,
+   "h": {
+    "3": {
+     "tage": 249,
+     "topAvg": -0.04,
+     "alleAvg": -0.09,
+     "besser": 50,
+     "plus": 50
+    },
+    "7": {
+     "tage": 245,
+     "topAvg": 0.16,
+     "alleAvg": 0.11,
+     "besser": 53,
+     "plus": 49
+    },
+    "30": {
+     "tage": 222,
+     "topAvg": 0.05,
+     "alleAvg": 1.19,
+     "besser": 49,
+     "plus": 47
+    }
+   }
+  }
+ },
+ "kandidaten": {
+  "3": [
+   {
+    "s": "NESN.SW",
+    "n": "Nestlé",
+    "cur": "CHF",
+    "p": 86.66,
+    "dp": 0.62,
+    "tage5": 2.7,
+    "wochen4": 12.1,
+    "monate3": 9.4,
+    "monate6": 9.2,
+    "rsi": 70,
+    "schwankungJahr": 18,
+    "trend": "aufwärts",
+    "ueber50": 8.6,
+    "punkte": 2.74,
+    "bereich": {
+     "lo": 84.96291,
+     "hi": 88.39099
+    },
+    "rechenRang": 1
+   },
+   {
+    "s": "OR.PA",
+    "n": "L'Oréal",
+    "cur": "EUR",
+    "p": 446.3,
+    "dp": -0.11,
+    "tage5": 3.1,
+    "wochen4": 15.3,
+    "monate3": 18.9,
+    "monate6": 21,
+    "rsi": 68,
+    "schwankungJahr": 23,
+    "trend": "aufwärts",
+    "ueber50": 11.8,
+    "punkte": 2.69,
+    "bereich": {
+     "lo": 435.219,
+     "hi": 457.6631
+    },
+    "rechenRang": 2
+   },
+   {
+    "s": "LLY",
+    "n": "Eli Lilly",
+    "cur": "USD",
+    "p": 1415.65,
+    "dp": 0.26,
+    "tage5": 0.4,
+    "wochen4": 21.4,
+    "monate3": 19.6,
+    "monate6": 38.9,
+    "rsi": 68,
+    "schwankungJahr": 31,
+    "trend": "aufwärts",
+    "ueber50": 15.6,
+    "punkte": 2.68,
+    "bereich": {
+     "lo": 1367.853,
+     "hi": 1465.117
+    },
+    "rechenRang": 3
+   },
+   {
+    "s": "SAN.PA",
+    "n": "Sanofi",
+    "cur": "EUR",
+    "p": 86.14,
+    "dp": 0.44,
+    "tage5": 6.4,
+    "wochen4": 21.8,
+    "monate3": 10.9,
+    "monate6": 12.9,
+    "rsi": 80,
+    "schwankungJahr": 23,
+    "trend": "aufwärts",
+    "ueber50": 14.9,
+    "punkte": 2.59,
+    "bereich": {
+     "lo": 84.03681,
+     "hi": 88.29583
+    },
+    "rechenRang": 4
+   },
+   {
+    "s": "HD",
+    "n": "Home Depot",
+    "cur": "USD",
+    "p": 349.895,
+    "dp": -1,
+    "tage5": 4.9,
+    "wochen4": 19,
+    "monate3": 3.6,
+    "monate6": 12.7,
+    "rsi": 65,
+    "schwankungJahr": 30,
+    "trend": "aufwärts",
+    "ueber50": 12.8,
+    "punkte": 2.57,
+    "bereich": {
+     "lo": 338.677,
+     "hi": 361.4845
+    },
+    "rechenRang": 5
+   },
+   {
+    "s": "ADS.DE",
+    "n": "Adidas",
+    "cur": "EUR",
+    "p": 180.5,
+    "dp": 1.15,
+    "tage5": 7.4,
+    "wochen4": 17.8,
+    "monate3": 16.7,
+    "monate6": 14.8,
+    "rsi": 71,
+    "schwankungJahr": 29,
+    "trend": "aufwärts",
+    "ueber50": 17.6,
+    "punkte": 2.53,
+    "bereich": {
+     "lo": 174.9556,
+     "hi": 186.2201
+    },
+    "rechenRang": 6
+   },
+   {
+    "s": "COST",
+    "n": "Costco",
+    "cur": "USD",
+    "p": 1065.91,
+    "dp": -0.03,
+    "tage5": 4.6,
+    "wochen4": 11.7,
+    "monate3": 11.8,
+    "monate6": -0.8,
+    "rsi": 69,
+    "schwankungJahr": 20,
+    "trend": "aufwärts",
+    "ueber50": 11.3,
+    "punkte": 2.43,
+    "bereich": {
+     "lo": 1042.618,
+     "hi": 1089.723
+    },
+    "rechenRang": 7
+   },
+   {
+    "s": "BAYN.DE",
+    "n": "Bayer",
+    "cur": "EUR",
+    "p": 56.64,
+    "dp": 0.04,
+    "tage5": 9.3,
+    "wochen4": 28.3,
+    "monate3": 16.2,
+    "monate6": 49.8,
+    "rsi": 77,
+    "schwankungJahr": 32,
+    "trend": "aufwärts",
+    "ueber50": 18.1,
+    "punkte": 2.3,
+    "bereich": {
+     "lo": 54.72,
+     "hi": 58.62737
+    },
+    "rechenRang": 8
+   }
+  ],
+  "7": [
+   {
+    "s": "OR.PA",
+    "n": "L'Oréal",
+    "cur": "EUR",
+    "p": 446.3,
+    "dp": -0.11,
+    "tage5": 3.1,
+    "wochen4": 15.3,
+    "monate3": 18.9,
+    "monate6": 21,
+    "rsi": 68,
+    "schwankungJahr": 23,
+    "trend": "aufwärts",
+    "ueber50": 11.8,
+    "punkte": 2.36,
+    "bereich": {
+     "lo": 429.4848,
+     "hi": 463.7736
+    },
+    "rechenRang": 1
+   },
+   {
+    "s": "LLY",
+    "n": "Eli Lilly",
+    "cur": "USD",
+    "p": 1415.65,
+    "dp": 0.26,
+    "tage5": 0.4,
+    "wochen4": 21.4,
+    "monate3": 19.6,
+    "monate6": 38.9,
+    "rsi": 68,
+    "schwankungJahr": 31,
+    "trend": "aufwärts",
+    "ueber50": 15.6,
+    "punkte": 2.18,
+    "bereich": {
+     "lo": 1343.293,
+     "hi": 1491.905
+    },
+    "rechenRang": 2
+   },
+   {
+    "s": "NESN.SW",
+    "n": "Nestlé",
+    "cur": "CHF",
+    "p": 86.66,
+    "dp": 0.62,
+    "tage5": 2.7,
+    "wochen4": 12.1,
+    "monate3": 9.4,
+    "monate6": 9.2,
+    "rsi": 70,
+    "schwankungJahr": 18,
+    "trend": "aufwärts",
+    "ueber50": 8.6,
+    "punkte": 2.13,
+    "bereich": {
+     "lo": 84.08108,
+     "hi": 89.31802
+    },
+    "rechenRang": 3
+   },
+   {
+    "s": "AI.PA",
+    "n": "Air Liquide",
+    "cur": "EUR",
+    "p": 190.5,
+    "dp": 0.55,
+    "tage5": 4.3,
+    "wochen4": 12.7,
+    "monate3": 14,
+    "monate6": 15.2,
+    "rsi": 79,
+    "schwankungJahr": 17,
+    "trend": "aufwärts",
+    "ueber50": 10.4,
+    "punkte": 2.1,
+    "bereich": {
+     "lo": 185.3286,
+     "hi": 195.8157
+    },
+    "rechenRang": 4
+   },
+   {
+    "s": "ADS.DE",
+    "n": "Adidas",
+    "cur": "EUR",
+    "p": 180.5,
+    "dp": 1.15,
+    "tage5": 7.4,
+    "wochen4": 17.8,
+    "monate3": 16.7,
+    "monate6": 14.8,
+    "rsi": 71,
+    "schwankungJahr": 29,
+    "trend": "aufwärts",
+    "ueber50": 17.6,
+    "punkte": 2.07,
+    "bereich": {
+     "lo": 172.0998,
+     "hi": 189.3103
+    },
+    "rechenRang": 5
+   },
+   {
+    "s": "HNR1.DE",
+    "n": "Hannover Rück",
+    "cur": "EUR",
+    "p": 296.2,
+    "dp": 2.49,
+    "tage5": 1.6,
+    "wochen4": 9.9,
+    "monate3": 15.6,
+    "monate6": 22.4,
+    "rsi": 65,
+    "schwankungJahr": 20,
+    "trend": "aufwärts",
+    "ueber50": 10.7,
+    "punkte": 2.05,
+    "bereich": {
+     "lo": 286.2848,
+     "hi": 306.4587
+    },
+    "rechenRang": 6
+   },
+   {
+    "s": "COST",
+    "n": "Costco",
+    "cur": "USD",
+    "p": 1065.91,
+    "dp": -0.03,
+    "tage5": 4.6,
+    "wochen4": 11.7,
+    "monate3": 11.8,
+    "monate6": -0.8,
+    "rsi": 69,
+    "schwankungJahr": 20,
+    "trend": "aufwärts",
+    "ueber50": 11.3,
+    "punkte": 2.03,
+    "bereich": {
+     "lo": 1030.536,
+     "hi": 1102.498
+    },
+    "rechenRang": 7
+   },
+   {
+    "s": "SAN.PA",
+    "n": "Sanofi",
+    "cur": "EUR",
+    "p": 86.14,
+    "dp": 0.44,
+    "tage5": 6.4,
+    "wochen4": 21.8,
+    "monate3": 10.9,
+    "monate6": 12.9,
+    "rsi": 80,
+    "schwankungJahr": 23,
+    "trend": "aufwärts",
+    "ueber50": 14.9,
+    "punkte": 2.01,
+    "bereich": {
+     "lo": 82.94809,
+     "hi": 89.45474
+    },
+    "rechenRang": 8
+   }
+  ],
+  "30": [
+   {
+    "s": "QIA.DE",
+    "n": "Qiagen",
+    "cur": "EUR",
+    "p": 45.165,
+    "dp": 0.1,
+    "tage5": 0.3,
+    "wochen4": 11.5,
+    "monate3": 22.6,
+    "monate6": 48.6,
+    "rsi": 77,
+    "schwankungJahr": 26,
+    "trend": "aufwärts",
+    "ueber50": 10.9,
+    "punkte": 3.24,
+    "bereich": {
+     "lo": 41.32316,
+     "hi": 49.36402
+    },
+    "rechenRang": 1
+   },
+   {
+    "s": "ABBV",
+    "n": "AbbVie",
+    "cur": "USD",
+    "p": 292.69,
+    "dp": -0.21,
+    "tage5": 2.3,
+    "wochen4": 6.7,
+    "monate3": 16.9,
+    "monate6": 37.9,
+    "rsi": 61,
+    "schwankungJahr": 22,
+    "trend": "aufwärts",
+    "ueber50": 7,
+    "punkte": 3.06,
+    "bereich": {
+     "lo": 271.6478,
+     "hi": 315.3621
+    },
+    "rechenRang": 2
+   },
+   {
+    "s": "V",
+    "n": "Visa",
+    "cur": "USD",
+    "p": 422.995,
+    "dp": 0.2,
+    "tage5": 0.6,
+    "wochen4": 6.8,
+    "monate3": 17.9,
+    "monate6": 27.9,
+    "rsi": 63,
+    "schwankungJahr": 21,
+    "trend": "aufwärts",
+    "ueber50": 9.2,
+    "punkte": 2.9,
+    "bereich": {
+     "lo": 392.8419,
+     "hi": 455.4626
+    },
+    "rechenRang": 3
+   },
+   {
+    "s": "MA",
+    "n": "Mastercard",
+    "cur": "USD",
+    "p": 657.47,
+    "dp": 0.25,
+    "tage5": 1.6,
+    "wochen4": 8.7,
+    "monate3": 16.9,
+    "monate6": 32,
+    "rsi": 65,
+    "schwankungJahr": 22,
+    "trend": "aufwärts",
+    "ueber50": 10.4,
+    "punkte": 2.85,
+    "bereich": {
+     "lo": 609.0145,
+     "hi": 709.7808
+    },
+    "rechenRang": 4
+   },
+   {
+    "s": "DB1.DE",
+    "n": "Deutsche Börse",
+    "cur": "EUR",
+    "p": 319.5,
+    "dp": 1.43,
+    "tage5": 1.6,
+    "wochen4": 6.9,
+    "monate3": 14.4,
+    "monate6": 25.9,
+    "rsi": 61,
+    "schwankungJahr": 19,
+    "trend": "aufwärts",
+    "ueber50": 7.8,
+    "punkte": 2.84,
+    "bereich": {
+     "lo": 299.3092,
+     "hi": 341.0528
+    },
+    "rechenRang": 5
+   },
+   {
+    "s": "AI.PA",
+    "n": "Air Liquide",
+    "cur": "EUR",
+    "p": 190.5,
+    "dp": 0.55,
+    "tage5": 4.3,
+    "wochen4": 12.7,
+    "monate3": 14,
+    "monate6": 15.2,
+    "rsi": 79,
+    "schwankungJahr": 17,
+    "trend": "aufwärts",
+    "ueber50": 10.4,
+    "punkte": 2.75,
+    "bereich": {
+     "lo": 179.9497,
+     "hi": 201.6689
+    },
+    "rechenRang": 6
+   },
+   {
+    "s": "HNR1.DE",
+    "n": "Hannover Rück",
+    "cur": "EUR",
+    "p": 296.2,
+    "dp": 2.49,
+    "tage5": 1.6,
+    "wochen4": 9.9,
+    "monate3": 15.6,
+    "monate6": 22.4,
+    "rsi": 65,
+    "schwankungJahr": 20,
+    "trend": "aufwärts",
+    "ueber50": 10.7,
+    "punkte": 2.67,
+    "bereich": {
+     "lo": 276.0409,
+     "hi": 317.8313
+    },
+    "rechenRang": 7
+   },
+   {
+    "s": "OR.PA",
+    "n": "L'Oréal",
+    "cur": "EUR",
+    "p": 446.3,
+    "dp": -0.11,
+    "tage5": 3.1,
+    "wochen4": 15.3,
+    "monate3": 18.9,
+    "monate6": 21,
+    "rsi": 68,
+    "schwankungJahr": 23,
+    "trend": "aufwärts",
+    "ueber50": 11.8,
+    "punkte": 2.64,
+    "bereich": {
+     "lo": 412.1904,
+     "hi": 483.2323
+    },
+    "rechenRang": 8
+   }
+  ]
+ },
+ "werteInfo": {
+  "NESN.SW": {
+   "meldungen": [
+    {
+     "t": "Das kannst du erwarten, wenn du heute 5.000 Euro in die Nestlé-Aktie investierst!",
+     "u": "https://www.aktienwelt360.de/2026/11/05/das-kannst-du-erwarten-wenn-du-heute-5-000-euro-in-die-nestle-aktie-investierst/?.tsrc=rss",
+     "q": "Yahoo Finanzen",
+     "d": "2026-11-05",
+     "z": "Die Aktie von Nestlé kann so manches bieten, muss aber auch einiges leisten. Das passiert, wenn du jetzt 5.000 Euro investierst! Der Artikel Das kannst du erwarten, wenn du heute 5.000 Euro in die Nestlé-Aktie investierst! ist zuerst erschi"
+    },
+    {
+     "t": "Ängste vor einer KI-Blase führen zu überraschender Hinwendung zu Schweizer Aktien",
+     "u": "https://de.beincrypto.com/ki-aktien-verkauf-investoren-wechseln-zu-schweizer-aktien/?.tsrc=rss",
+     "q": "Yahoo Finanzen",
+     "d": "2026-10-24",
+     "z": "Roche, Novartis und Nestlé verschaffen Schweizer Aktien den größten Vorsprung gegenüber Eurozonen-Pendants seit März 2020."
+    },
+    {
+     "t": "ANALYSE-FLASH: JPMorgan belässt Nestle auf 'Overweight' - Ziel 100 Franken",
+     "u": "https://de.finance.yahoo.com/nachrichten/analyse-flash-jpmorgan-bel%C3%A4sst-nestle-140502642.html?.tsrc=rss",
+     "q": "Yahoo Finanzen",
+     "d": "2026-10-22",
+     "z": "Die US-Bank JPMorgan hat die Einstufung für Nestle  auf \"Overweight\" mit einem Kursziel von 100 Franken belassen. Nach starken Quartalszahlen des Nahrungsmittelkonzerns habe das Management auf der Telefonkonferenz zuversichtliche Botschafte"
+    },
+    {
+     "t": "Nach Coca-Cola und Nestlé: Auch Danone ändert Flaschen",
+     "u": "https://de.finance.yahoo.com/nachrichten/coca-cola-nestl%C3%A9-danone-%C3%A4ndert-135442248.html?.tsrc=rss",
+     "q": "Yahoo Finanzen",
+     "d": "2026-10-22",
+     "z": "Nach den Zugeständnissen der Getränkehersteller Coca-Cola  und Nestlé ändert auch Danone  die Recycling-Werbung auf Plastikflaschen. Alle drei Konzerne erklärten sich nach einer Beschwerde von Verbraucherschützern und Gesprächen unter Leitu"
+    }
+   ],
+   "quartalszahlen": null
+  },
+  "OR.PA": {
+   "meldungen": [
+    {
+     "t": "AKTIEN IM FOKUS: Kering brechen ein - L'Oreal stabilisieren Konsumgüter etwas",
+     "u": "https://de.finance.yahoo.com/nachrichten/aktien-fokus-kering-brechen-loreal-084122901.html?.tsrc=rss",
+     "q": "Yahoo Finanzen",
+     "d": "2026-10-23",
+     "z": "Die Aktien von Kering  sind am Freitag eingebrochen. Zuletzt fielen sie um 11 Prozent und markierten ein Tief seit Juli 2025. Damit kam es erneut zu einer negativen Überraschung im Luxussegment. Erst am Vortag waren die Aktien von Hermes  g"
+    },
+    {
+     "t": "ROUNDUP: L'Oreal profitiert von Nachfrage nach Parfüm und Haarpflege",
+     "u": "https://de.finance.yahoo.com/nachrichten/roundup-loreal-profitiert-nachfrage-parf%C3%BCm-073643300.html?.tsrc=rss",
+     "q": "Yahoo Finanzen",
+     "d": "2026-10-23",
+     "z": "Die Geschäfte mit feinen Düften und Haarpflege haben den Kosmetikriesen L'Oreal  im dritten Quartal stärker angetrieben als von Analysten erwartet. Der Umsatz stieg im Jahresvergleich um knapp 12 Prozent auf 11,56 Milliarden Euro, wie das i"
+    },
+    {
+     "t": "ANALYSE-FLASH: Jefferies belässt L'Oreal auf 'Hold' - Ziel 361 Euro",
+     "u": "https://de.finance.yahoo.com/nachrichten/analyse-flash-jefferies-bel%C3%A4sst-loreal-195004901.html?.tsrc=rss",
+     "q": "Yahoo Finanzen",
+     "d": "2026-10-22",
+     "z": "Das Analysehaus Jefferies hat die Einstufung für L'Oreal  auf \"Hold\" mit einem Kursziel von 361 Euro belassen. David Hayes nannte am Donnerstag den Quartalsbericht des Kosmetikherstellers beeindruckend. Das Papier sei hoch bewertet, dies se"
+    },
+    {
+     "t": "L'Oreal profitiert von Nachfrage nach Parfüm und Haarpflege-Produkten",
+     "u": "https://de.finance.yahoo.com/nachrichten/loreal-profitiert-nachfrage-parf%C3%BCm-haarpflege-162217539.html?.tsrc=rss",
+     "q": "Yahoo Finanzen",
+     "d": "2026-10-22",
+     "z": "Die Geschäfte mit feinen Düften und Haarpflege haben den Kosmetikriesen L'Oreal  im dritten Quartal stärker angetrieben als von Analysten erwartet. Der Umsatz stieg im Jahresvergleich um knapp 12 Prozent auf 11,56 Milliarden Euro, wie das i"
+    }
+   ],
+   "quartalszahlen": null
+  },
+  "LLY": {
+   "meldungen": [
+    {
+     "t": "Can You Still Buy Merck Stock Today?",
+     "u": "https://finnhub.io/api/news?id=92157bceddaffe1cf14d9ce78b9bc6ead3f63fa2a1ab784479d88acdb1080496",
+     "q": "Yahoo",
+     "d": "2026-11-10",
+     "z": "For questions about this article or underlying research, email help@trefis.com."
+    },
+    {
+     "t": "Life doesn't slow down, and Foundayo™ (orforglipron) patient Leanne Morgan is done waiting",
+     "u": "https://finnhub.io/api/news?id=5abfd42db1f54e69b6c6b84f28dadd996fdec2bb0eb8e5d22414a46c34e6b3d4",
+     "q": "Yahoo",
+     "d": "2026-11-10",
+     "z": "Eli Lilly and Company (NYSE: LLY) and partner Leanne Morgan today announced the launch of Life Doesn't Slow Down, a new campaign for Lilly's Foundayo™ (orforglipron), a once-daily prescription GLP-1 pill proven to help adults with obesity, "
+    },
+    {
+     "t": "The FDA Ordered GLP-1 Vision-Loss Warnings For Some Products. Shares of Eli Lilly and Novo Nordisk Were Unfazed.",
+     "u": "https://finnhub.io/api/news?id=f42a54cd55a595edb261e44212b431cb5b51d5a17b71026dd21bd4ef51519b00",
+     "q": "Yahoo",
+     "d": "2026-11-10",
+     "z": "The updated labeling covers Mounjaro, Zepbound, Ozempic and Wegovy."
+    },
+    {
+     "t": "Gilead Sciences Stock Hits a New All-Time High: Is it Still a Good Buy?",
+     "u": "https://finnhub.io/api/news?id=404199c9437d3ae77da507c13be20776715fd15bfe8152a4d1251c61c309b56e",
+     "q": "Yahoo",
+     "d": "2026-11-10",
+     "z": "The healthcare stock has soared past the S&P 500 this year as its results have been strong in recent quarters."
+    },
+    {
+     "t": "FDA Flags Potential Vision Loss Risk With GLP-1 Drugs, Requiring Weight-Loss Medicines Like Wegovy and Zepbound to Carry New Warning",
+     "u": "https://finnhub.io/api/news?id=daefa3bda1e667f9852476f93cb6c58880fd5df45c69f311e13067709124de5b",
+     "q": "Benzinga",
+     "d": "2026-11-10",
+     "z": "FDA requires new NAION eye warning on all GLP-1 drugs, citing potential increased risk."
+    }
+   ],
+   "quartalszahlen": null
+  },
+  "SAN.PA": {
+   "meldungen": [
+    {
+     "t": "Nurix Therapeutics: Sanofi beendet Wirkstoffprogramm – Aktie bricht nachbörslich um 34 % ein",
+     "u": "https://de.finance.yahoo.com/nachrichten/nurix-therapeutics-sanofi-beendet-wirkstoffprogramm-215420181.html?.tsrc=rss",
+     "q": "Yahoo Finanzen",
+     "d": "2026-11-03",
+     "z": "Investing.com – Die Aktien von Nurix Therapeutics Inc. (NASDAQ:NRIX) sind am Dienstag im nachbörslichen Handel um 34 % eingebrochen, nachdem Sanofi beschlossen hat, die Entwicklung des oralen STAT6-Degraders SAR448272 einzustellen."
+    },
+    {
+     "t": "ROUNDUP/Dank Dupixent: Sanofi hebt Prognose an - Quartal übertrifft Erwartungen",
+     "u": "https://de.finance.yahoo.com/nachrichten/roundup-dank-dupixent-sanofi-hebt-083555573.html?.tsrc=rss",
+     "q": "Yahoo Finanzen",
+     "d": "2026-10-30",
+     "z": "Der Pharmakonzern Sanofi  wird nach einem überraschend starken dritten Quartal optimistischer für das Gesamtjahr. Rückenwind liefert das weiterhin starke Wachstum des Asthma- und Neurodermitis-Medikaments Dupixent, wie aus dem am Freitag in"
+    },
+    {
+     "t": "Sanofi hebt Jahresziele an - Quartalsergebnisse übertreffen Erwartungen",
+     "u": "https://de.finance.yahoo.com/nachrichten/sanofi-hebt-jahresziele-quartalsergebnisse-%C3%BCbertreffen-063509041.html?.tsrc=rss",
+     "q": "Yahoo Finanzen",
+     "d": "2026-10-30",
+     "z": "Der Pharmakonzern Sanofi  wird nach einem überraschend starken dritten Quartal optimistischer für das Gesamtjahr. Rückenwind liefert das zuletzt weiterhin starke Wachstum des Medikamentes gegen Asthma und Neurodermitis Dupixent; und auch di"
+    },
+    {
+     "t": "Sanofi baut neue Insulinfabrik in Frankfurt für zwei Milliarden",
+     "u": "https://de.finance.yahoo.com/nachrichten/sanofi-baut-neue-insulinfabrik-frankfurt-102640061.html?.tsrc=rss",
+     "q": "Yahoo Finanzen",
+     "d": "2026-10-19",
+     "z": "Großprojekt für die Insulin-Versorgung in Europa: Der Pharmakonzern Sanofi  hat in Frankfurt mit dem Bau einer neuen Insulinanlage begonnen, für die das Unternehmen mit Hauptsitz in Paris rund zwei Milliarden Euro investiert. Die neue Fabri"
+    }
+   ],
+   "quartalszahlen": null
+  },
+  "HD": {
+   "meldungen": [
+    {
+     "t": "What Moved Best Buy Stock?",
+     "u": "https://finnhub.io/api/news?id=5f744a86cdb36f9d0d2a224ed98afa9d59999aaff871b976a6b18eb8e64ec0ab",
+     "q": "Yahoo",
+     "d": "2026-11-10",
+     "z": "For questions about this article or underlying research, email help@trefis.com."
+    },
+    {
+     "t": "Home Depot: Hold Into Q3 Earnings, Transactions Must Turn Positive",
+     "u": "https://finnhub.io/api/news?id=084e41af3245e4614a77c65dcf1439a7ef3e9a9995af558c9154e38aff7007f4",
+     "q": "SeekingAlpha",
+     "d": "2026-11-10",
+     "z": "Home Depot rallied 22%, driven by falling bond yields and midterm election sentiment, not by fundamental store performance. Read why HD stock is a buy."
+    },
+    {
+     "t": "Ethan Allen (ETD) Lags Q1 Earnings and Revenue Estimates",
+     "u": "https://finnhub.io/api/news?id=78a9202de42e6465e288ea5d41c51f104f0773daa1508c4c9aafc4a43192f335",
+     "q": "Yahoo",
+     "d": "2026-11-09",
+     "z": "Ethan Allen (ETD) delivered earnings and revenue surprises of -60.00% and -5.19%, respectively, for the quarter ended September 2026. Do the numbers hold clues to what lies ahead for the stock?"
+    },
+    {
+     "t": "Home Depot (HD) Rises Higher Than Market: Key Facts",
+     "u": "https://finnhub.io/api/news?id=386e9faf2346eda9e1a8f308886549fc837ccfbd738e4ee49b799c920002e573",
+     "q": "Yahoo",
+     "d": "2026-11-09",
+     "z": "In the most recent trading session, Home Depot (HD) closed at $353.42, indicating a +2.9% shift from the previous trading day."
+    },
+    {
+     "t": "Dow Jones Gainers Today: Caterpillar, Cisco and Goldman Sachs Lead US Session",
+     "u": "https://finnhub.io/api/news?id=92116e6e259f79c5b099611cc06d2df36603031623883ef3b3e708a29e5fa995",
+     "q": "ChartMill",
+     "d": "2026-11-09",
+     "z": "Dow Jones top gainers in today's US session were led by Caterpillar (+6.72%), Cisco (+5.18%) and Goldman Sachs (+5.17%)."
+    }
+   ],
+   "quartalszahlen": "2026-11-17"
+  },
+  "ADS.DE": {
+   "meldungen": [
+    {
+     "t": "ANALYSE-FLASH: Bernstein belässt Adidas auf 'Outperform' - Ziel 245 Euro",
+     "u": "https://de.finance.yahoo.com/nachrichten/analyse-flash-bernstein-bel%C3%A4sst-adidas-143503500.html?.tsrc=rss",
+     "q": "Yahoo Finanzen",
+     "d": "2026-11-10",
+     "z": "Das US-Analysehaus Bernstein Research hat die Einstufung für Adidas  mit einem Kursziel von 245 Euro auf \"Outperform\" belassen. Die Nachfrage in China bleibe mau, schrieb Aneesha Sherman am Dienstag anlässlich des deutlichen Rückgangs der E"
+    },
+    {
+     "t": "Adidas: UBS rät zum Verkauf – Schuhgeschäft verliert an Schwung",
+     "u": "https://de.finance.yahoo.com/nachrichten/adidas-ubs-r%C3%A4t-verkauf-schuhgesch%C3%A4ft-084649816.html?.tsrc=rss",
+     "q": "Yahoo Finanzen",
+     "d": "2026-11-03",
+     "z": "Investing.com – Erst die Erholung, jetzt der Dämpfer: Die UBS stuft Adidas von „Neutral“ auf „Sell“ ab. Nach Einschätzung der Schweizer Großbank bringen eine nachlassende Dynamik im Schuhgeschäft und wachsender Margendruck die ambitionierte"
+    },
+    {
+     "t": "ANALYSE-FLASH: UBS senkt Adidas auf 'Sell' - Ziel leicht runter auf 156 Euro",
+     "u": "https://de.finance.yahoo.com/nachrichten/analyse-flash-ubs-senkt-adidas-065000650.html?.tsrc=rss",
+     "q": "Yahoo Finanzen",
+     "d": "2026-11-03",
+     "z": "Die Schweizer Großbank UBS hat das Kursziel für Adidas  von 160 auf 156 Euro gesenkt und die Aktien von \"Neutral\" auf \"Sell\" abgestuft. \"Heute stark, morgen schwieriger\", so betitelte Robert Krankowski am Dienstag seine Verkaufsempfehlung. "
+    },
+    {
+     "t": "ANALYSE-FLASH: JPMorgan hebt Ziel für Adidas auf 230 Euro - 'Overweight'",
+     "u": "https://de.finance.yahoo.com/nachrichten/analyse-flash-jpmorgan-hebt-ziel-075041630.html?.tsrc=rss",
+     "q": "Yahoo Finanzen",
+     "d": "2026-10-30",
+     "z": "Die US-Bank JPMorgan hat das Kursziel für Adidas  von 210 auf 230 Euro angehoben und die Einstufung auf \"Overweight\" belassen. Nach den vollständigen Quartalszahlen passte Analystin Wendy Liu ihr Bewertungsmodell am Donnerstag an diese sowi"
+    }
+   ],
+   "quartalszahlen": null
+  },
+  "COST": {
+   "meldungen": [
+    {
+     "t": "State Street Consumer Staples SPDR (XLP) Sells Walmart and Costco on Nov. 6",
+     "u": "https://finnhub.io/api/news?id=70b2d63d2cd68d7babcacabb3f6ada29f8fe00715517907d70a7c67a8b419fb7",
+     "q": "Yahoo",
+     "d": "2026-11-10",
+     "z": "The fund sold $144.2 million of stock, cutting all 33 positions, with $16.3 million of Walmart and $13.6 million of Costco leading the exits."
+    },
+    {
+     "t": "ETFs Bought $69.5 Million of Costco (COST) on Friday",
+     "u": "https://finnhub.io/api/news?id=2d24de6ac1ec312fa3bfe002ef5de96a181101327c9f1a9b68c839740b5f7c28",
+     "q": "Yahoo",
+     "d": "2026-11-10",
+     "z": "49 ETFs bought Costco shares versus 15 that sold on Friday, Nov. 6."
+    },
+    {
+     "t": "Costco Wholesale (COST) Gains Grocery Share As Its Valuation Looks Harder To Ignore",
+     "u": "https://finnhub.io/api/news?id=04841a73c8873cbdbb6baa3269fcc32ac29c25be59513a1087be797edda7111a",
+     "q": "Yahoo",
+     "d": "2026-11-10",
+     "z": "Costco Wholesale (COST) has just overtaken Kroger in a key grocery market share ranking, as warehouse expansion, digital sales growth, and partnerships like NationsBenefits draw more everyday food spending into its membership model. Recent "
+    },
+    {
+     "t": "Costco just passed Kroger in a grocery ranking that matters",
+     "u": "https://finnhub.io/api/news?id=23e1b37b1de29ac1c96719f8035d22e07b13f69dfa8057f2851a740c4b700bdd",
+     "q": "Yahoo",
+     "d": "2026-11-10",
+     "z": "The numbers don’t lie: Shoppers are choosing Costco for a very specific reason."
+    },
+    {
+     "t": "She Plans to Join Costco’s New Medicare Advantage Plan at 65. Once Her 12-Month Trial Right Ends, a Medigap Insurer Could Ask Health Questions and Reject Her Application",
+     "u": "https://finnhub.io/api/news?id=0def323b3bf6d38864d21223a77c510f8600e3d6ae61846d9e62d5e1cd480592",
+     "q": "Yahoo",
+     "d": "2026-11-09",
+     "z": "A $0 premium and a trusted warehouse brand make Costco's new Medicare Advantage plan an easy yes at 65. The fine print on getting out of it, and a clock that starts on day one, could turn an easy yes into a costly trap."
+    }
+   ],
+   "quartalszahlen": "2026-12-10"
+  },
+  "BAYN.DE": {
+   "meldungen": [
+    {
+     "t": "ROUNDUP: Bayer darf Gerinnungshemmer Sunharbo auch in den USA verkaufen",
+     "u": "https://de.finance.yahoo.com/nachrichten/roundup-bayer-darf-gerinnungshemmer-sunharbo-101933330.html?.tsrc=rss",
+     "q": "Yahoo Finanzen",
+     "d": "2026-11-10",
+     "z": "Bayer  darf auf dem wichtigen US-Markt den Nachfolger des Blockbusters Xarelto zur Schlaganfallvorbeugung verkaufen. Die US-Arzneimittelbehörde FDA ließ laut einer Mitteilung vom späten Montag das Medikament Sunharbo (Wirkstoff Asundexian) "
+    },
+    {
+     "t": "AKTIE IM FOKUS: Bayer nach US-Zulassung weiter gefragt",
+     "u": "https://de.finance.yahoo.com/nachrichten/aktie-fokus-bayer-us-zulassung-081204880.html?.tsrc=rss",
+     "q": "Yahoo Finanzen",
+     "d": "2026-11-10",
+     "z": "Auf dem höchsten Kursniveau seit Mai 2023 dürften die Papiere von Bayer  am Dienstag weiter zulegen. Für Auftrieb sorgt eine US-Zulassung für ein wichtiges Medikament. Der Kurs stieg kurz nach der Xetra-Eröffnung um 1,5 Prozent."
+    },
+    {
+     "t": "Bayer erhält US-Zulassung für Schlaganfallmittel Asundexian",
+     "u": "https://de.finance.yahoo.com/nachrichten/bayer-erh%C3%A4lt-us-zulassung-f%C3%BCr-050404982.html?.tsrc=rss",
+     "q": "Yahoo Finanzen",
+     "d": "2026-11-10",
+     "z": "Bayer hat in den USA die Zulassung für das Schlaganfallmedikament Asundexian erhalten. Das stärkt die Pharmasparte des Leverkusener Konzerns, während einige seiner umsatzstärksten Medikamente mit Generikakonkurrenz konfrontiert sind."
+    },
+    {
+     "t": "Gerinnungshemmer Sunharbo von Bayer auch in den USA zugelassen",
+     "u": "https://de.finance.yahoo.com/nachrichten/gerinnungshemmer-sunharbo-bayer-usa-zugelassen-231251243.html?.tsrc=rss",
+     "q": "Yahoo Finanzen",
+     "d": "2026-11-09",
+     "z": "Bayer  darf auf dem wichtigen US-Markt den Nachfolger des vormaligen Blockbusters Xarelto zur Schlaganfallvorbeugung verkaufen. Die US-amerikanische Arzneimittelbehörde FDA ließ laut einer Mitteilung vom späten Montag das Medikament Sunharb"
+    }
+   ],
+   "quartalszahlen": null
+  },
+  "AI.PA": {
+   "meldungen": [
+    {
+     "t": "ROUNDUP: Air Liquide wächst weiter - Hohe Nachfrage nach Gasen für KI-Halbleiter",
+     "u": "https://de.finance.yahoo.com/nachrichten/roundup-air-liquide-w%C3%A4chst-hohe-121333070.html?.tsrc=rss",
+     "q": "Yahoo Finanzen",
+     "d": "2026-10-29",
+     "z": "Eine starke Nachfrage nach Gasen etwa für die Herstellung von KI-Halbleitern hat den Industriegase-Konzern Air Liquide  im dritten Quartal angetrieben. Zudem profitierten die Franzosen von einem guten Handelsgeschäft. An der Börse kamen die"
+    },
+    {
+     "t": "Air Liquide wächst weiter - Hohe Nachfrage nach Gasen für Ki-Halbleiter",
+     "u": "https://de.finance.yahoo.com/nachrichten/air-liquide-w%C3%A4chst-hohe-nachfrage-070204887.html?.tsrc=rss",
+     "q": "Yahoo Finanzen",
+     "d": "2026-10-29",
+     "z": "Eine anhaltend starke Nachfrage nach Gasen etwa für die Herstellung von KI-Halbleitern hat den Industriegase-Konzern Air Liquide  im dritten Quartal angetrieben. Zudem profitierten die Franzosen von einem guten Handelsgeschäft. Der Umsatz s"
+    },
+    {
+     "t": "ANALYSE-FLASH: Bernstein hebt Ziel für Air Liquide auf 193 Euro - 'Outperform'",
+     "u": "https://de.finance.yahoo.com/nachrichten/analyse-flash-bernstein-hebt-ziel-074447567.html?.tsrc=rss",
+     "q": "Yahoo Finanzen",
+     "d": "2026-10-20",
+     "z": "Das US-Analysehaus Bernstein Research hat das Kursziel für Air Liquide  von 192 auf 193 Euro angehoben und die Einstufung auf \"Outperform\" belassen. Überraschend gute Geschäftszahlen  und höhere Unternehmensziele müssten in der Berichtssais"
+    },
+    {
+     "t": "ANALYSE-FLASH: JPMorgan hebt Ziel für Air Liquide auf 166 Euro - 'Neutral'",
+     "u": "https://de.finance.yahoo.com/nachrichten/analyse-flash-jpmorgan-hebt-ziel-093416918.html?.tsrc=rss",
+     "q": "Yahoo Finanzen",
+     "d": "2026-10-15",
+     "z": "Die US-Bank JPMorgan hat das Kursziel für Air Liquide  vor Quartalszahlen von 162 auf 166 Euro angehoben und die Einstufung auf \"Neutral\" belassen. Er habe sein Bewertungsmodell für den Industriegasekonzern aktualisiert, um den neuesten Bra"
+    }
+   ],
+   "quartalszahlen": null
+  },
+  "HNR1.DE": {
+   "meldungen": [
+    {
+     "t": "ROUNDUP: Hannover Rück will Rekordgewinn zugunsten von Reserven deckeln",
+     "u": "https://de.finance.yahoo.com/nachrichten/roundup-hannover-r%C3%BCck-will-rekordgewinn-100133942.html?.tsrc=rss",
+     "q": "Yahoo Finanzen",
+     "d": "2026-11-09",
+     "z": "Der Rückversicherer Hannover Rück  sieht sich nach einem überraschend profitablen Sommer auf Kurs zu seinem geplanten Rekordgewinn für 2026. Sollten die bisher vergleichsweise geringen Großschäden des Jahres zu überraschend viel Spielraum f"
+    },
+    {
+     "t": "Hannover Rück überrascht mit Gewinnplus - Jahresziel bestätigt",
+     "u": "https://de.finance.yahoo.com/nachrichten/hannover-r%C3%BCck-%C3%BCberrascht-gewinnplus-jahresziel-070740315.html?.tsrc=rss",
+     "q": "Yahoo Finanzen",
+     "d": "2026-11-09",
+     "z": "Der weltweit drittgrößte Rückversicherer Hannover Rück  sieht sich nach einem überraschend profitablen Sommer auf Kurs zu seinem geplanten Rekordgewinn für 2026. Im dritten Quartal stand trotz des verheerenden Erdbebens in Kolumbien unter d"
+    },
+    {
+     "t": "AKTIEN IM FOKUS: Abstufungen bremsen Rückversicherer im Dax aus",
+     "u": "https://de.finance.yahoo.com/nachrichten/aktien-fokus-abstufungen-bremsen-r%C3%BCckversicherer-112727837.html?.tsrc=rss",
+     "q": "Yahoo Finanzen",
+     "d": "2026-11-06",
+     "z": "Abstufungen für Munich Re  und Hannover Rück  durch die Analysten der US-Bank JPMorgan haben die Aktien der beiden Rückversicherer am Freitag belastet. Im schwachen Gesamtmarkt gehörten sie mit Abschlägen von jeweils um die 4 Prozent zu den"
+    },
+    {
+     "t": "ANALYSE-FLASH: JPMorgan senkt Hannover Rück auf 'Underweight' - Ziel 270 Euro",
+     "u": "https://de.finance.yahoo.com/nachrichten/analyse-flash-jpmorgan-senkt-hannover-063502311.html?.tsrc=rss",
+     "q": "Yahoo Finanzen",
+     "d": "2026-11-06",
+     "z": "Die US-Bank JPMorgan hat Hannover Rück  nach der jüngsten Rally bei unverändertem Kursziel von 270 Euro von \"Neutral\" auf \"Underweight\" . Die Rückversicherer hätten mit Blick auf die Eigenkapitalrenditen die stärkste Phase der vergangenen d"
+    }
+   ],
+   "quartalszahlen": null
+  },
+  "QIA.DE": {
+   "meldungen": [
+    {
+     "t": "QIAGEN-Aktionäre stimmen der Berufung von Jonathan M. Pratt in die Geschäftsführung mit überwältigender Mehrheit zu",
+     "u": "https://de.finance.yahoo.com/nachrichten/qiagen-aktion%C3%A4re-stimmen-berufung-jonathan-150000551.html?.tsrc=rss",
+     "q": "Yahoo Finanzen",
+     "d": "2026-11-06",
+     "z": "Venlo, Niederlande, November 06, 2026--QIAGEN N.V. (NYSE: QGEN; Frankfurt Prime Standard: QIA) hat heute bekannt gegeben, dass die Aktionärinnen und Aktionäre auf einer Außerordentlichen Hauptversammlung der Berufung von Jonathan M. Pratt i"
+    },
+    {
+     "t": "TAGESVORSCHAU: Termine am 6. November 2026",
+     "u": "https://de.finance.yahoo.com/nachrichten/tagesvorschau-termine-6-novem-2026-050507209.html?.tsrc=rss",
+     "q": "Yahoo Finanzen",
+     "d": "2026-11-06",
+     "z": "Wirtschafts- und Finanztermine am Freitag, den 6. November"
+    },
+    {
+     "t": "WOCHENVORSCHAU: Termine bis 19. November 2026",
+     "u": "https://de.finance.yahoo.com/nachrichten/wochenvorschau-termine-19-novem-2026-050506158.html?.tsrc=rss",
+     "q": "Yahoo Finanzen",
+     "d": "2026-11-06",
+     "z": "Wirtschafts- und Finanztermine bis Donnerstag, den 19. November"
+    },
+    {
+     "t": "QIAGEN berichtet vollständige Ergebnisse für das dritte Quartal 2026",
+     "u": "https://de.finance.yahoo.com/nachrichten/qiagen-berichtet-vollst%C3%A4ndige-ergebnisse-f%C3%BCr-210500930.html?.tsrc=rss",
+     "q": "Yahoo Finanzen",
+     "d": "2026-11-04",
+     "z": "Venlo, Niederlande, und Germantown, Maryland (USA), November 04, 2026--QIAGEN N.V. (NYSE: QGEN; Frankfurt Prime Standard: QIA) hat heute die vollständigen Ergebnisse für das dritte Quartal 2026 bekannt gegeben, wobei der Konzernumsatz und d"
+    }
+   ],
+   "quartalszahlen": null
+  },
+  "ABBV": {
+   "meldungen": [
+    {
+     "t": "Can You Still Buy Merck Stock Today?",
+     "u": "https://finnhub.io/api/news?id=92157bceddaffe1cf14d9ce78b9bc6ead3f63fa2a1ab784479d88acdb1080496",
+     "q": "Yahoo",
+     "d": "2026-11-10",
+     "z": "For questions about this article or underlying research, email help@trefis.com."
+    },
+    {
+     "t": "While pharma peers stumble, AbbVie defeated the patent cliff",
+     "u": "https://finnhub.io/api/news?id=8f38b131c118ba94f5258458a4c6a429e65455635ce35ce311e9c95f2ec8b4cb",
+     "q": "Yahoo",
+     "d": "2026-11-10",
+     "z": "Investing.com and Yahoo Finance LLC may earn commission or revenue on some items through the links below."
+    },
+    {
+     "t": "Can IBM's Latest Quantum System Boost Illinois' Innovation Future?",
+     "u": "https://finnhub.io/api/news?id=44f73d7b94e152abff5bd221bf594bbf1827ea62553280b18d4ce4b7da2cdb6a",
+     "q": "Yahoo",
+     "d": "2026-11-09",
+     "z": "IBM has launched its first quantum computer in Illinois, advancing research partnerships, industry applications and plans to create 750 technology jobs."
+    },
+    {
+     "t": "Hims-Eli Lilly GLP-1 Deal Meets Summit’s FDA Gamble: Which Biotech ETFs Stand to Gain?",
+     "u": "https://finnhub.io/api/news?id=b3df94d3aa5fe2cc3b56807ab9fae07783eb529469ed10ff651eea49dbb17a26",
+     "q": "Benzinga",
+     "d": "2026-11-09",
+     "z": "Biotech ETFs face key FDA catalysts as Summit Therapeutics&#39; decision and the Hims-Lilly GLP-1 deal put XLV, IBB and XBI in focus."
+    },
+    {
+     "t": "What Happens To Pfizer Stock If Patent Losses Outpace New Drugs?",
+     "u": "https://finnhub.io/api/news?id=895c30a604c642d18adc2ca87464c2cbaadd23a49ebbd1555a7b2fbae9351dbd",
+     "q": "Yahoo",
+     "d": "2026-11-09",
+     "z": "For questions about this article or underlying research, email help@trefis.com."
+    }
+   ],
+   "quartalszahlen": null
+  },
+  "V": {
+   "meldungen": [
+    {
+     "t": "The Dates That Matter Most For Visa Stock",
+     "u": "https://finnhub.io/api/news?id=536ac43cc6e7adfd3560af0d150fbad1814a97d5d59a039a2cb1837b82c02003",
+     "q": "Yahoo",
+     "d": "2026-11-10",
+     "z": "For questions about this article or underlying research, email help@trefis.com."
+    },
+    {
+     "t": "Global Payments adds Visa IDX API to Adaptive Authentication",
+     "u": "https://finnhub.io/api/news?id=b2c48c397a0cc993849844da187bcc6d3ff22ede43d536e68dcdfc25a890d07b",
+     "q": "Yahoo",
+     "d": "2026-11-10",
+     "z": "The payments technology company said the integration is intended to help merchants share more transaction data with card issuers."
+    },
+    {
+     "t": "Spdr Dow Jones Industrial Average ETF (DIA) Buys $36 Million More GS on Friday",
+     "u": "https://finnhub.io/api/news?id=de9ee641492486ee72d144c5b24e232ed1622ba8d9dfad7f46506b2b93fb172e",
+     "q": "Yahoo",
+     "d": "2026-11-10",
+     "z": "The fund added $358.4 million across all 30 holdings, with Goldman Sachs its largest purchase at $36.0 million."
+    },
+    {
+     "t": "What State Street Fin. Select Sector SPDR (XLF) Sold: Berkshire Leads on Friday",
+     "u": "https://finnhub.io/api/news?id=903334ccb962c30557b1a4ee35f83d795015a959620a5329623ee95026c5d816",
+     "q": "Yahoo",
+     "d": "2026-11-10",
+     "z": "The $53.58 billion fund sold $551.5 million across all 76 positions, with Berkshire Hathaway's $72.9 million reduction the largest."
+    },
+    {
+     "t": "PayPal’s (PYPL) Turnaround Still Needs Proof",
+     "u": "https://finnhub.io/api/news?id=86e4e8396f40f1341092a562656e4b121fc0a9abfdfd7c5adb3fab1990490f87",
+     "q": "Yahoo",
+     "d": "2026-11-09",
+     "z": "PayPal’s (PYPL) turnaround still needs more proof, even after its Q3 FY2026 report showed higher adjusted earnings per share (EPS) and an improved full-year outlook. PayPal Holdings operates a global digital-payments network spanning its Pa"
+    }
+   ],
+   "quartalszahlen": null
+  },
+  "MA": {
+   "meldungen": [
+    {
+     "t": "The Dates That Matter Most For Visa Stock",
+     "u": "https://finnhub.io/api/news?id=536ac43cc6e7adfd3560af0d150fbad1814a97d5d59a039a2cb1837b82c02003",
+     "q": "Yahoo",
+     "d": "2026-11-10",
+     "z": "For questions about this article or underlying research, email help@trefis.com."
+    },
+    {
+     "t": "What State Street Fin. Select Sector SPDR (XLF) Sold: Berkshire Leads on Friday",
+     "u": "https://finnhub.io/api/news?id=903334ccb962c30557b1a4ee35f83d795015a959620a5329623ee95026c5d816",
+     "q": "Yahoo",
+     "d": "2026-11-10",
+     "z": "The $53.58 billion fund sold $551.5 million across all 76 positions, with Berkshire Hathaway's $72.9 million reduction the largest."
+    },
+    {
+     "t": "Sage partners with Adyen and Mastercard to deliver business accounts with debit cards for small businesses",
+     "u": "https://finnhub.io/api/news?id=83a7c6996e11c9f1c5de92dbf7f863e15f9fa959bc51f6aab48d2bf561395b31",
+     "q": "Yahoo",
+     "d": "2026-11-10",
+     "z": "Sage business debit card Sage business debit card Sage is developing financial services that bring business account, debit card, payment and reconciliation capabilities into the software small businesses use to manage their financesAdyen wi"
+    },
+    {
+     "t": "Mastercard (MA) Expands Its Business Banking Reach Through New Partnerships",
+     "u": "https://finnhub.io/api/news?id=d15748c3e64a0c5a6280e5f8cda29b090e8b112d2c226be869122249830ddf88",
+     "q": "Yahoo",
+     "d": "2026-11-10",
+     "z": "Mastercard (NYSE:MA) is expanding its business banking reach through new partnerships focused on commercial cards and treasury tools. BMO and Mastercard launched the BMO CashBack World Elite Business Mastercard in Canada, targeting small an"
+    },
+    {
+     "t": "'Elon Musk and Michael Miebach to join Trump at Apec in Shenzhen. What about Jensen Huang?' - SCMP",
+     "u": "https://finnhub.io/api/news?id=d8b9d90b5582e6b443771c2b0ed987613061ffcf0b32eb044d6376824fabb4e8",
+     "q": "Benzinga",
+     "d": "2026-11-10",
+     "z": "https://www.scmp.com/news/china/diplomacy/article/3373901/top-us-business-leaders-including-elon-musk-set-join-donald-trump-apec-china "
+    }
+   ],
+   "quartalszahlen": null
+  },
+  "DB1.DE": {
+   "meldungen": [],
+   "quartalszahlen": null
+  }
+ },
+ "format": {
+  "id": "wie oben",
+  "datum": "wie oben",
+  "slot": "wie oben",
+  "erstellt": "ISO-Zeitstempel jetzt",
+  "markt": "2–3 Sätze zur Marktlage heute",
+  "marktQuellen": [
+   {
+    "t": "Titel",
+    "u": "https://…",
+    "q": "Quelle",
+    "d": "JJJJ-MM-TT"
+   }
+  ],
+  "listen": {
+   "3": [
+    {
+     "s": "Kürzel aus kandidaten[3]",
+     "warum": "3–5 Sätze",
+     "treiber": [
+      "…"
+     ],
+     "risiken": [
+      "…"
+     ],
+     "termine": [
+      "…"
+     ],
+     "zuversicht": "niedrig|mittel|hoch",
+     "quellen": [
+      {
+       "t": "Titel",
+       "u": "https://…",
+       "q": "Quelle",
+       "d": "JJJJ-MM-TT"
+      }
+     ]
+    }
+   ],
+   "7": [
+    "…"
+   ],
+   "30": [
+    "…"
+   ]
+  },
+  "aussortiert": [
+   {
+    "s": "Kürzel",
+    "h": 3,
+    "grund": "1 Satz, warum trotz guter Rechnung nicht gewählt"
+   }
+  ]
+ }
+}
