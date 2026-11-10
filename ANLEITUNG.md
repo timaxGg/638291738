@@ -298,6 +298,7 @@ Ich verbinde mich dann mit deinem Projekt und lege 3 geplante Aufgaben an (ca. 7
 | `/sparmodell` | Dein Modell und die Empfehlung |
 | `/alarme` | Deine Alarm-Regeln |
 | `/warnung` | Frühwarn-Ampel für deine Werte |
+| `/kurzanalyse SAP` | Kurz: Trend auf- oder abwärts mit Grund, nächste Woche und die neuesten Nachrichten. Ohne Namen: dein ganzes Depot in einer Nachricht |
 | `/analyse` | Deine Werte: wie sicher, warum genau, Zukunft und Alternativen mit Begründung (`/analyse SAP` für einen einzelnen Wert) |
 | `/rueckblick` | Kaufrückblick: wie gut waren deine Entscheidungen? |
 | `/ruhe 2h` | Pause (auch `30m` oder `morgen`) |
@@ -377,6 +378,9 @@ Im Depot unter **Kaufrückblick** und per Telegram (täglich um 21 Uhr kurz, son
 - **Erwarteter Bereich** in 1 Woche und 3 Monaten
 - **Verkäufe im Rückblick:** Hat sich der Verkauf gelohnt (in Euro: vermiedener Verlust oder entgangener Gewinn)?
 - Dafür braucht jeder Kauf ein **Kaufdatum** (beim Eintragen bzw. unter Ändern › Bearbeiten). Test-Einträge zählen nicht.
+
+## Kurzanalyse (/kurzanalyse)
+Für den schnellen Blick: `/kurzanalyse Siemens` (kurz auch `/ka Siemens`) zeigt Kurs, heute, Trend (↗️ aufwärts, ↘️ abwärts oder ➡️ seitwärts) mit kurzem Grund, die Chance auf Plus nächste Woche, eine Frühwarnung falls vorhanden, die KI-Einschätzung in einem Satz und die neuesten Nachrichten mit Link. Ohne Namen kommt dein ganzes Depot, je Wert mit Trend und der wichtigsten Nachricht.
 
 ## Sicherheits-Analyse (/analyse)
 Schreib dem Bot `/analyse`. Du bekommst zuerst eine Übersicht aller deiner Werte mit Ampel und Punkten (0 bis 100, nach Anteil gewichtet auch fürs ganze Depot). Danach kommt zu jedem Wert eine eigene Nachricht, der unsicherste zuerst:
