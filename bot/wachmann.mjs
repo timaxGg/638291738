@@ -155,7 +155,7 @@ async function befehl(text){const [c0,...a]=text.trim().split(/\s+/),c=c0.toLowe
   case "/gespart":{const k=U.kh||{saved:0,bought:0};return send(`💚 Durch die Kaufhilfe nicht ausgegeben: <b>${fmt(k.saved||0,0)} €</b>\nBewusst gekauft: ${fmt(k.bought||0,0)} €`,{direkt:true})}
   case "/ziel":{const g=U.fin&&U.fin.goal;return send(g?`🎯 <b>${esc(g.n)}</b>: ${fmt(g.g,0)} von ${fmt(g.z,0)} € (${fmt(g.g/(g.z||1)*100,0)} %)`:"Noch kein Sparziel übertragen.",{direkt:true})}
   case "/sparmodell":return send(U.model?`💶 Dein Sparmodell: <b>${esc(U.modelName||U.model)}</b>${U.rec&&U.rec!==U.model?`\nEmpfohlen wäre gerade: <b>${esc(U.recName||U.rec)}</b>. Ansehen in der App unter Finanzen → Sparmodell.`:"\nPasst weiterhin zu deinen Zahlen."}`:"Du hast noch kein Sparmodell gewählt (App → Finanzen → Sparmodell).",{direkt:true});
-  case "/alarme":{const n=U.notify||{},d=depot();return send(`⚙️ <b>Deine Alarme</b>\n${d.map(x=>`• ${esc(x.n)}: Meldung ab ${x.a} %${x.z?`, Kursziel ${fmt(x.z)} ${CS(x.s)}`:""}${x.gs?`, Gewinnschutz ${x.gs} % vom Höchststand`:""}${x.gse?`, Gewinnschutz ${x.gse} € weniger Gewinn`:""}${x.tag?`, Nachkauf am ${x.tag}.`:""}`).join("\n")||"Keine Aktien im Depot."}\n\nStarke Bewegung ab ±${n.move||5} % · Nachtruhe ${n.night===false?"aus":"22–7 Uhr"}\nÄndern kannst du das in der App.`,{direkt:true})}
+  case "/alarme":{const n=U.notify||{},d=depot();return send(`⚙️ <b>Deine Alarme</b>\n${d.map(x=>`• ${esc(x.n)}: Meldung ab ${x.a} %${x.z?`, Kursziel ${fmt(x.z)} ${CS(x.s)}`:""}${x.nl!==0?`, Gewinnschutz ${fmt(x.nl>0?x.nl:.5,1)} Punkte unter dem Höchstwert${B.tr&&B.tr[`${x.s}:${x.k}`]?` (Schutzlinie jetzt ${sgn(B.tr[`${x.s}:${x.k}`].lv)})`:""}`:""}${x.gse?`, Gewinnschutz ${x.gse} € weniger Gewinn`:""}${x.tag?`, Nachkauf am ${x.tag}.`:""}`).join("\n")||"Keine Aktien im Depot."}\n\nStarke Bewegung ab ±${n.move||5} % · Nachtruhe ${n.night===false?"aus":"22–7 Uhr"}\nÄndern kannst du das in der App.`,{direkt:true})}
   case "/ruhe":{const m=(a[0]||"2h").match(/^(\d+)(m|h)$/);const bis=a[0]==="morgen"?Date.parse(addDays(zeit().date,1)+"T06:00:00Z"):Date.now()+(m?(+m[1])*(m[2]==="h"?36e5:6e4):72e5);
     B.mute=bis;return send(`🔕 Pause bis ${new Date(bis).toLocaleString("de-DE",{timeZone:"Europe/Berlin",weekday:"short",hour:"2-digit",minute:"2-digit"})} Uhr. Wichtiges sammle ich und schicke es danach. /laut beendet die Pause.`,{direkt:true})}
   case "/laut":B.mute=0;await send("🔔 Pause beendet.",{direkt:true});return warteschlange();
@@ -170,7 +170,7 @@ async function befehl(text){const [c0,...a]=text.trim().split(/\s+/),c=c0.toLowe
   case "/beste":case "/warum":case "/signale":case "/signal":return SIG.befehl(c,arg,sigCtx());
   case "/status":{const e=Object.entries(B.err);return send(`🩺 <b>Status</b>\nLetzter Lauf: ${B.lastRun?new Date(B.lastRun).toLocaleString("de-DE",{timeZone:"Europe/Berlin"}):"–"}\nKI-Stand: ${KI.generated?new Date(KI.generated).toLocaleString("de-DE",{timeZone:"Europe/Berlin"}):"–"}\nDepot übertragen: ${U.updatedAt?new Date(U.updatedAt).toLocaleString("de-DE",{timeZone:"Europe/Berlin"}):"nein"}\nXetra: ${xetraOffen()?"offen":"geschlossen"} · US-Börse: ${boerseOffen()?"offen":"geschlossen"}\nEU-Kurse: ${B.euT?new Date(B.euT).toLocaleTimeString("de-DE",{timeZone:"Europe/Berlin",hour:"2-digit",minute:"2-digit"})+" Uhr":"–"}\n${e.length?"⚠️ Probleme:\n"+e.map(([k,v])=>`• ${k}: ${esc(v)}`).join("\n"):"✅ Alle Datenquellen erreichbar"}`,{direkt:true})}
   default:return send(`Den Befehl „${esc(c0)}“ kenne ich nicht. /hilfe zeigt alle Befehle.`,{direkt:true})}}
-async function knopf(cb){if(String(cb.data||"").startsWith("bu:"))return SIG.knopf(cb,sigCtx());const [t,id]=String(cb.data||"").split(":"),x=khListe().find(i=>String(i.id)===id);await tg("answerCallbackQuery",{callback_query_id:cb.id,text:x?"Gespeichert":"Schon erledigt"});if(!x)return;
+async function knopf(cb){if(String(cb.data||"").startsWith("gsok:"))return gsOk(cb);if(String(cb.data||"").startsWith("bu:"))return SIG.knopf(cb,sigCtx());const [t,id]=String(cb.data||"").split(":"),x=khListe().find(i=>String(i.id)===id);await tg("answerCallbackQuery",{callback_query_id:cb.id,text:x?"Gespeichert":"Schon erledigt"});if(!x)return;
   B.khDone.push(String(x.id));inbox(t==="kb"?"kh-buy":"kh-skip",x);
   await tg("editMessageText",{chat_id:CHAT,message_id:cb.message.message_id,parse_mode:"HTML",text:t==="kb"?`✅ <b>${esc(x.n)}</b>: gekauft. Viel Freude damit!`:`💚 <b>${esc(x.n)}</b>: nicht gekauft. ${fmt(x.p,0)} € gespart!`})}
 async function telegramEingang(warte=0){if(!TG)return;const r=await tg("getUpdates",{offset:B.offset,timeout:warte,allowed_updates:["message","callback_query"]});if(!r||!r.ok){B.err.telegram=(r&&r.description)||"Telegram nicht erreichbar";log("Telegram-Fehler:",B.err.telegram);return}
@@ -180,14 +180,30 @@ async function telegramEingang(warte=0){if(!TG)return;const r=await tg("getUpdat
     if(chat!==CHAT)continue;try{if(msg&&msg.text)await befehl(msg.text);if(cb)await knopf(cb)}catch(e){log("Befehl",e)}}}
 
 /* ---------- Alarme und Erinnerungen ---------- */
+function schutzLinie(ref,abst,erste){const t=ref-abst;return erste&&t<0?-.5:Math.max(0,t)}
+async function gsOk(cb){const kp=String(cb.data).slice(5),st=B.tr&&B.tr[kp];
+  await tg("answerCallbackQuery",{callback_query_id:cb.id,text:st?"Gewinnschutz neu gesetzt":"Position nicht mehr gefunden"});if(!st)return;
+  st.ref=st.ch;st.okT=Date.now();st.lv=schutzLinie(st.ref,st.abst||.5,false);st.al=st.ch<st.lv?st.ch:null;B.kursePush=true;
+  await tg("editMessageText",{chat_id:CHAT,message_id:cb.message.message_id,parse_mode:"HTML",text:`${cb.message.text?esc(cb.message.text.split("\n")[0]):"🛡️ Gewinnschutz"}\n✅ Bestätigt: ${sgn(st.ch)} ist jetzt der Ausgangswert, die Schutzlinie liegt bei <b>${sgn(st.lv)}</b>.${st.al!=null?" Du liegst noch darunter: Ich melde mich wieder, wenn es einen weiteren Prozentpunkt fällt.":""}`})}
 async function alarme(){const n=Object.assign({loss:true,target:true,move:5,news:true,kh:true,sparplan:true,earnings:true,model:true,briefing:true},U.notify||{}),z=zeit(),d=depot();
+  if(B.tr){const da=new Set(d.map(x=>`${x.s}:${x.k}`));for(const k of Object.keys(B.tr))if(!da.has(k))delete B.tr[k]}
   for(const x of d)if(isUS(x.s)&&(boerseOffen()||!B.q[x.s]||Date.now()-B.q[x.s].t>6*36e5))await quote(x.s);else if(isEU(x.s)&&!B.q[x.s])await yq(x.s);
   for(const x of d){const p=priceOf(x.s);if(!p)continue;const ch=(p/x.k-1)*100,mv=moveOf(x.s),kL=`loss:${x.s}`,kZ=`ziel:${x.s}`,kM=`move:${x.s}:${z.date}`;
     if(n.loss&&ch<=x.a){if(!B.sent[kL]||ch<=B.sent[kL]-5){B.sent[kL]=ch;await send(`🔴 <b>${esc(x.n)}</b> liegt ${sgn(ch)} unter deinem Kaufpreis.\nKurs ${fmt(p)} ${CS(x.s)} · deine Meldegrenze: ${x.a} %${LA(x.s)}`,{dringend:mv<=-10})}}else if(B.sent[kL]&&ch>x.a+2)delete B.sent[kL];
-    if(n.gewinn!==false&&(x.gs>0||x.gse>0)){B.peak=B.peak||{};const kp=`${x.s}:${x.k}`,rbH=(B.rb&&B.rb.pos[x.s]&&B.rb.pos[x.s].hoch)||0,hoch=Math.max(B.peak[kp]||0,rbH,p);B.peak[kp]=hoch;
+    // Gewinnschutz (nachlaufend): Schutzlinie = höchstes Plus seit Kauf (oder seit „OK“) minus Abstand, nie unter 0.
+    // In der ersten Stunde nach dem Kauf erst ab −0,5 %.
+    if(n.gewinn!==false&&x.nl!==0){B.tr=B.tr||{};const kp=`${x.s}:${x.k}`,abst=x.nl>0?x.nl:.5;let st=B.tr[kp];
+      if(!st)st=B.tr[kp]={ref:ch,okT:0,al:null,seit:Date.now()};
+      if(x.nlOk&&x.nlOk.t>st.okT){st.ref=x.nlOk.g;st.okT=x.nlOk.t;st.al=x.nlOk.g<0?x.nlOk.g:null}
+      st.ref=Math.max(st.ref,ch);const erste=!!x.t&&Date.now()-x.t<36e5,lv=schutzLinie(st.ref,abst,erste);Object.assign(st,{ch,lv,erste,abst,u:Date.now()});
+      const unter=lv>0?ch<=lv:ch<lv;
+      if(unter){if(st.al==null||ch<=st.al-1){st.al=ch;const neu=schutzLinie(ch,abst,false);
+        await send(`🛡️ <b>Gewinnschutz: ${esc(x.n)}</b>\n${lv>0?`Dein Plus ist auf <b>${sgn(ch)}</b> gefallen. Höchster Stand war ${sgn(st.ref)}, deine Schutzlinie liegt bei ${sgn(lv)}.`:`Du bist ins Minus gerutscht: <b>${sgn(ch)}</b> seit Kauf${erste?" (erste Stunde: Grenze −0,5 %)":""}.`}\nKurs ${fmt(p)} ${CS(x.s)} · Kauf ${fmt(x.k)} ${CS(x.s)}\n\nVerkaufen oder mit <b>OK</b> bestätigen, dass die Aktie gesund ist. ${ch>=0?`Dann gilt ${sgn(ch)} als neuer Höchstwert und die Schutzlinie liegt bei ${sgn(neu)}.`:`Dann melde ich mich erst wieder, wenn es einen weiteren Prozentpunkt fällt. Sobald du im Plus bist, läuft der Schutz wieder mit.`}${LA(x.s)}`,{knoepfe:[[{text:"✅ OK, Aktie ist gesund",callback_data:`gsok:${kp}`.slice(0,64)}]]})}}
+      else if(st.al!=null&&ch>lv+.2)st.al=null}
+    if(n.gewinn!==false&&x.gse>0){B.peak=B.peak||{};const kp=`${x.s}:${x.k}`,rbH=(B.rb&&B.rb.pos[x.s]&&B.rb.pos[x.s].hoch)||0,hoch=Math.max(B.peak[kp]||0,rbH,p);B.peak[kp]=hoch;
       // Gewinn in Euro: höchster Gewinn seit Kauf gegen jetzt
       const gNow=toEUR((p-x.k)*x.q,x.s),gMax=toEUR((hoch-x.k)*x.q,x.s),weg=gMax-gNow;
-      const proz=x.gs>0&&p<=hoch*(1-x.gs/100),euro=x.gse>0&&weg>=x.gse;
+      const proz=false,euro=x.gse>0&&weg>=x.gse;
       const kG=`gs:${kp}`;
       if(hoch>x.k&&gMax>0&&(proz||euro)&&p>x.k*0.98){if(!B.sent[kG]||hoch>B.sent[kG]*1.002){B.sent[kG]=hoch;const gv=(hoch/x.k-1)*100;
         await send(`🟠 <b>Gewinnschutz: ${esc(x.n)}</b>\nDein Gewinn ist um <b>${fmt(weg)} €</b> geschrumpft: von ${fmt(gMax)} € auf ${fmt(gNow)} €.\nDas sind ${fmt((1-p/hoch)*100,1)} % unter dem Höchststand seit Kauf (${fmt(hoch)} ${CS(x.s)}).\nPlus seit Kauf: jetzt ${sgn(ch)}, vorher ${sgn(gv)}.\nDeine Grenze: ${euro?`${fmt(x.gse,0)} € weniger Gewinn`:`${x.gs} % unter dem Hoch`}`)}}}
@@ -235,7 +251,7 @@ async function euKurse(zwang){const z=zeit(),heute=z.date;B.hist=B.hist||{};
   const pick=l=>l.filter(([s])=>B.q[s]).map(([s,n])=>({s,n,c:B.q[s].c,dp:+(+B.q[s].dp).toFixed(2)}));
   const mit=alle.filter(s=>B.q[s]);
   writeJSON(P(".state/kurse.json"),{t:Date.now(),fx:{EURUSD:fx()},idx:pick(EU_INDEX),sec:pick(EU_SECTOR),
-    markt:MARKT.filter(([s])=>B.q[s]).map(([s,n,k])=>({s,n,k})),ki:B.kiExtra||{},rb:B.rb||null,sig:SIG.app(),fa:B.kiFragen||{},kiApi:!!API||!!(RURL&&RTOK),kiWeg:API?"api":RURL&&RTOK?"abo":"",
+    markt:MARKT.filter(([s])=>B.q[s]).map(([s,n,k])=>({s,n,k})),ki:B.kiExtra||{},rb:B.rb||null,tr:B.tr||{},sig:SIG.app(),fa:B.kiFragen||{},kiApi:!!API||!!(RURL&&RTOK),kiWeg:API?"api":RURL&&RTOK?"abo":"",
     q:Object.fromEntries(mit.map(s=>[s,{c:B.q[s].c,dp:+(+B.q[s].dp).toFixed(2),cur:curOf(s),t:B.q[s].mt||B.q[s].t}])),
     h:Object.fromEntries(Object.entries(B.hist).map(([s,v])=>[s,v.c.map(x=>+(+x).toFixed(4))])),w:Object.fromEntries(meine.map(s=>[s,fruehwarnung(s)]).filter(([,w])=>w))});B.kursePush=true;if(neu.length)log("Neue Verläufe:",neu.join(","))}
 function kurseHochladen(){if(!B.kursePush||DRY)return;B.kursePush=false;try{const o={cwd:ROOT};const blob=execSync("git hash-object -w .state/kurse.json",o).toString().trim();

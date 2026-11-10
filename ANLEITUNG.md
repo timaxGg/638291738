@@ -402,9 +402,19 @@ Schreib dem Bot `/analyse`. Du bekommst zuerst eine Übersicht aller deiner Wert
 Mit `/analyse Siemens` prüfst du einen einzelnen Wert, auch einen, den du noch nicht besitzt. Alles ist aus Kursdaten geschätzt und keine Anlageberatung.
 
 ## Gewinnschutz
-Zusätzlich zur Meldegrenze im Minus: Der Bot meldet sich, wenn der Kurs um **x %** unter seinen **Höchststand seit Kauf** fällt, solange du noch im Plus bist. So merkst du, wenn ein Gewinn schrumpft. Einstellbar beim Eintragen, unter Ändern › Bearbeiten, mit − / + direkt auf der Aktienseite und als Standard unter ⚙️ (0 = aus).
+Der Gewinnschutz läuft mit deinem Gewinn mit (nachlaufend). Gerechnet wird in Prozent seit Kauf.
 
-**Oder in Euro:** Auf der Aktienseite (und unter Ändern › Bearbeiten) kannst du stattdessen einen Betrag eintragen, z. B. 20 €. Dann meldet sich der Bot, sobald dein Gewinn um 20 € kleiner ist als sein bisher höchster Stand seit Kauf.
+- **Ins Minus:** Der Bot meldet sich sofort, sobald du unter deinem Kaufpreis liegst. In der **ersten Stunde nach dem Kauf** erst ab **−0,5 %**, damit kleine Schwankungen direkt nach dem Kauf keinen Alarm auslösen.
+- **Mitlaufen:** Die Schutzlinie liegt immer **0,5 Prozentpunkte unter dem höchsten Plus**. Steigt die Aktie auf +2 %, liegt der Schutz bei +1,5 %. Fällt sie auf +1,5 % oder tiefer, kommt eine Meldung.
+- **Nie ins Minus:** Liegt das höchste Plus z. B. bei +0,3 %, ist die Schutzlinie nicht −0,2 %, sondern 0 %.
+- **OK-Taste:** Ist der Rückgang in Ordnung und die Aktie gesund, tippst du auf **„OK, Aktie ist gesund“**. Die Taste findest du auf der Aktienseite in der App oder direkt unter der Telegram-Meldung. Dann gilt der aktuelle Stand als neuer Höchstwert: bei +1,5 % liegt der Schutz danach bei +1 %. Bestätigst du im Minus, meldet sich der Bot erst wieder, wenn es einen weiteren Prozentpunkt fällt.
+- Fällt der Kurs ohne OK weiter, kommt pro weiterem Prozentpunkt eine neue Meldung. Steigt er wieder über die Schutzlinie, ist der Alarm wieder scharf.
+
+Den Abstand (Standard 0,5 Punkte) stellst du mit − / + auf der Aktienseite ein, beim Eintragen, unter Ändern › Bearbeiten oder als Standard für neue Käufe unter ⚙️. 0 schaltet den Schutz für diese Aktie aus.
+
+Gut zu wissen: Der Wachmann prüft etwa alle 5 Minuten, deutsche Kurse sind rund 15 Minuten verzögert. „Sofort“ heißt also: beim nächsten Durchlauf. Mit 0,5 Punkten Abstand meldet sich der Bot bei schwankenden Aktien oft, weil sich viele Werte an einem normalen Tag um 1 bis 2 % bewegen. Wird es dir zu viel, stell den Abstand größer.
+
+**Zusätzlich in Euro (optional):** Unter Ändern › Bearbeiten kannst du einen Betrag eintragen, z. B. 20 €. Dann meldet sich der Bot auch, sobald dein Gewinn um 20 € kleiner ist als sein bisher höchster Stand.
 
 ## Hilfe bei Problemen
 
