@@ -1,4 +1,4 @@
-/* Signale-App: dunkles Terminal-Gefühl, eine Spalte für das Handy, Tab-Leiste unten */
+/* Top-Aktien-App: dunkles Terminal-Gefühl, eine Spalte für das Handy, Tab-Leiste unten */
 :root{
   --bg:#0e1426; --surface:#161e36; --surface2:#1d2744; --fg:#e8ecf7; --muted:#97a1bd; --line:#27325480;
   --accent:#7a8cff; --up:#3cc882; --down:#f06c60; --warn:#e9b44c;
@@ -100,3 +100,14 @@ td{font-family:var(--f-mono);white-space:nowrap}td:first-child{font-family:var(-
 p{margin:6px 0}
 a{color:var(--accent)}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+.tabs button b{font:700 18px/20px var(--f-display)}
+.rang{flex:none;width:30px;height:30px;border-radius:9px;display:grid;place-items:center;background:var(--acc-soft);color:var(--accent);font:700 15px var(--f-display)}
+.warum{font-size:14px;margin:10px 0 4px}
+.markt p{margin:6px 0 0}
+.test-k .kz{margin:8px 0}
+.quelle{display:block;padding:10px 0;border-bottom:1px solid var(--line);text-decoration:none;color:var(--fg)}
+.quelle:last-child{border-bottom:0}
+.quelle b{display:block;font-weight:600;font-size:14px;color:var(--accent)}
+.quelle span{font-size:12px;color:var(--muted)}
+details summary{cursor:pointer}

@@ -167,7 +167,7 @@ async function befehl(text){const [c0,...a]=text.trim().split(/\s+/),c=c0.toLowe
   case "/chancen":case "/beste":case "/top3":case "/3tage":return chancen(arg);
   case "/kurzanalyse":case "/kurz":case "/ka":return kurzAnalyse(arg);
   case "/analyse":case "/analyze":case "/sicherheit":case "/meine":return analyseBefehl(arg);
-  case "/signale":case "/signal":return SIG.befehl(c,arg,sigCtx());
+  case "/beste":case "/warum":case "/signale":case "/signal":return SIG.befehl(c,arg,sigCtx());
   case "/status":{const e=Object.entries(B.err);return send(`🩺 <b>Status</b>\nLetzter Lauf: ${B.lastRun?new Date(B.lastRun).toLocaleString("de-DE",{timeZone:"Europe/Berlin"}):"–"}\nKI-Stand: ${KI.generated?new Date(KI.generated).toLocaleString("de-DE",{timeZone:"Europe/Berlin"}):"–"}\nDepot übertragen: ${U.updatedAt?new Date(U.updatedAt).toLocaleString("de-DE",{timeZone:"Europe/Berlin"}):"nein"}\nXetra: ${xetraOffen()?"offen":"geschlossen"} · US-Börse: ${boerseOffen()?"offen":"geschlossen"}\nEU-Kurse: ${B.euT?new Date(B.euT).toLocaleTimeString("de-DE",{timeZone:"Europe/Berlin",hour:"2-digit",minute:"2-digit"})+" Uhr":"–"}\n${e.length?"⚠️ Probleme:\n"+e.map(([k,v])=>`• ${k}: ${esc(v)}`).join("\n"):"✅ Alle Datenquellen erreichbar"}`,{direkt:true})}
   default:return send(`Den Befehl „${esc(c0)}“ kenne ich nicht. /hilfe zeigt alle Befehle.`,{direkt:true})}}
 async function knopf(cb){const [t,id]=String(cb.data||"").split(":"),x=khListe().find(i=>String(i.id)===id);await tg("answerCallbackQuery",{callback_query_id:cb.id,text:x?"Gespeichert":"Schon erledigt"});if(!x)return;
@@ -495,8 +495,8 @@ async function sichern(){if(changed.has("inbox")&&PASS){const keep=B.inbox.filte
   kurseHochladen();B.lastRun=Date.now();writeJSON(SF,B);if(!changed.size||DRY)return;
   try{const files=[...changed].join(" ");execSync(`git -C ${ROOT} add ${files} && git -C ${ROOT} -c user.name="Wachmann" -c user.email="wachmann@users.noreply.github.com" commit -m "Wachmann: ${[...changed].map(f=>f.replace(/.*\//,"")).join(", ")}" && git -C ${ROOT} pull --rebase -X theirs && git -C ${ROOT} push`,{stdio:"inherit"})}catch(e){log("git",e.message)}}
 
-/* ---------- Trading-Signale (Code in bot/signale.mjs) ---------- */
-const sigCtx=()=>({B,U,P,send,esc,leise,log,APP,finde,name:s=>(MARKT.find(m=>m[0]===s)||[])[1]||catOf(s).n||s,eigene:()=>[...depot().map(x=>x.s),...(U.watch||[]).map(w=>LEGACY[w]||w)]});
+/* ---------- Top-Aktien, zweite App (Code in bot/signale.mjs) ---------- */
+const sigCtx=()=>({B,U,P,send,esc,leise,log,APP,finde,merk:f=>changed.add(f),name:s=>(MARKT.find(m=>m[0]===s)||[])[1]||catOf(s).n||s,eigene:()=>[...depot().map(x=>x.s),...(U.watch||[]).map(w=>LEGACY[w]||w)]});
 
 /* ---------- Ablauf ---------- */
 export async function main(){

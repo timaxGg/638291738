@@ -1,242 +1,202 @@
-// Trading-Signale (eigene Datei, wird vom Wachmann bei jedem Lauf aufgerufen).
-// Kurzfristige Signale (Kaufen / Verkaufen / Abwarten) aus Tageskerzen. Jede Regel wird an den Kursen
-// des letzten Jahres getestet. Datenquelle: Yahoo Finance (ohne Schlüssel). Keine Anlageberatung.
+// Top-Aktien (zweite App, Ordner trading/). Wird vom Wachmann bei jedem Lauf aufgerufen.
+// 1. Rechnung: aus Tageskursen (Yahoo) eine Rangliste je Zeitraum (3, 7, 30 Handelstage), am letzten Jahr getestet.
+// 2. Vorlage: 3x täglich die besten Kandidaten mit Fakten und Meldungen nach data/beste-vorlage.json.
+//    Die Claude-Aufgabe „Top-Aktien Recherche“ recherchiert dazu im Netz und schreibt data/beste.json.
+// 3. Ergebnis + Entwicklung früherer Listen landen in kurse.json (Feld sig), die App liest es dort.
+// Keine erfundenen Zahlen: alle Zahlen kommen aus Kursdaten oder aus verlinkten Quellen. Keine Anlageberatung.
 import fs from "node:fs";
 
-const KOSTEN=0.1;   // angenommene Kosten in % je Kauf bzw. Verkauf
-const HALTE=10;     // ein Test-Trade endet spätestens nach 10 Handelstagen
-const MIN_N=15;     // so viele Test-Trades braucht eine Regel, bevor sie Signale zeigen darf
+const KOSTEN=0.1;          // % je Kauf bzw. Verkauf (im Test abgezogen)
+const TOP=5;               // so viele Werte zeigt die App je Zeitraum
+const KAND=8;              // so viele Kandidaten bekommt die KI je Zeitraum
+const HORIZONTE=[3,7,30];  // Handelstage
+const SLOTS=[["morgens",6*60+40],["mittags",12*60+40],["abends",18*60+40]]; // Vorlage ab dieser Uhrzeit (Berlin)
 
 const UNIVERSUM=[
-  ["AAPL","Apple","us"],["MSFT","Microsoft","us"],["NVDA","Nvidia","us"],["AMZN","Amazon","us"],["GOOGL","Alphabet","us"],["META","Meta","us"],
-  ["TSLA","Tesla","us"],["AMD","AMD","us"],["NFLX","Netflix","us"],["JPM","JPMorgan","us"],["V","Visa","us"],["XOM","Exxon Mobil","us"],
-  ["SAP.DE","SAP","eu"],["SIE.DE","Siemens","eu"],["ALV.DE","Allianz","eu"],["DTE.DE","Deutsche Telekom","eu"],["AIR.DE","Airbus","eu"],["RHM.DE","Rheinmetall","eu"],
-  ["MUV2.DE","Münchener Rück","eu"],["IFX.DE","Infineon","eu"],["BMW.DE","BMW","eu"],["BAS.DE","BASF","eu"],["ASML.AS","ASML","eu"],["MC.PA","LVMH","eu"],["TTE.PA","TotalEnergies","eu"],
-  ["BTC-EUR","Bitcoin","krypto"],["ETH-EUR","Ethereum","krypto"],["SOL-EUR","Solana","krypto"],["XRP-EUR","XRP","krypto"],["BNB-EUR","BNB","krypto"],["ADA-EUR","Cardano","krypto"],["DOGE-EUR","Dogecoin","krypto"],
-  ["SPY","S&P 500 ETF (SPY)","etf"],["QQQ","Nasdaq 100 ETF (QQQ)","etf"],["EUNL.DE","MSCI World ETF","etf"],["VWCE.DE","FTSE All-World ETF","etf"],["EXS1.DE","DAX ETF","etf"],["XMME.DE","Schwellenländer ETF","etf"],["4GLD.DE","Xetra-Gold","etf"],
-  ["^GDAXI","DAX","idx"],["^STOXX50E","Euro Stoxx 50","idx"],["^GSPC","S&P 500","idx"],["^NDX","Nasdaq 100","idx"],["^DJI","Dow Jones","idx"]];
-export const KLASSEN={us:"US-Aktien",eu:"EU-Aktien",krypto:"Krypto",etf:"ETFs",idx:"Indizes"};
-const KL1={us:"US-Aktie",eu:"EU-Aktie",krypto:"Krypto",etf:"ETF",idx:"Index"};
-export const REGELN=[
-  {id:"rsi",name:"RSI-Wende",kauf:"RSI(14) steigt von unter 30 wieder über 30 (Erholung nach Ausverkauf).",verk:"RSI(14) fällt von über 70 wieder unter 70 (Abkühlung nach Übertreibung).",ziele:"Stop 1,5 × ATR, Ziel 2 × ATR"},
-  {id:"macd",name:"MACD-Kreuz mit Trend",kauf:"MACD kreuzt seine Signallinie nach oben und der Kurs liegt über dem 50-Tage-Schnitt.",verk:"MACD kreuzt seine Signallinie nach unten und der Kurs liegt unter dem 50-Tage-Schnitt.",ziele:"Stop 2 × ATR, Ziel 4 × ATR"},
-  {id:"ausbruch",name:"Ausbruch mit Volumen",kauf:"Schlusskurs erstmals über dem 20-Tage-Hoch, Volumen mindestens 1,5-mal so hoch wie im Schnitt.",verk:"Schlusskurs erstmals unter dem 20-Tage-Tief, Volumen mindestens 1,5-mal so hoch wie im Schnitt.",ziele:"Stop knapp jenseits der Ausbruchsmarke (1–3 × ATR), Ziel doppelter Abstand"},
-  {id:"trend",name:"Rücksetzer im Trend",kauf:"Aufwärtstrend (20-Tage-Schnitt über 50-Tage-Schnitt), Kurs taucht bis zum 20-Tage-Schnitt ab und schließt wieder darüber, RSI 40–60.",verk:"Abwärtstrend (20-Tage-Schnitt unter 50-Tage-Schnitt), Kurs steigt bis zum 20-Tage-Schnitt und schließt wieder darunter, RSI 40–60.",ziele:"Stop unter dem 5-Tage-Tief (1–3 × ATR), Ziel doppelter Abstand"}];
-const RNAME=Object.fromEntries(REGELN.map(r=>[r.id,r.name]));
+  ["AAPL","Apple"],["MSFT","Microsoft"],["NVDA","Nvidia"],["AMZN","Amazon"],["GOOGL","Alphabet"],["META","Meta"],["TSLA","Tesla"],["AVGO","Broadcom"],
+  ["AMD","AMD"],["NFLX","Netflix"],["JPM","JPMorgan"],["V","Visa"],["MA","Mastercard"],["XOM","Exxon Mobil"],["CVX","Chevron"],["LLY","Eli Lilly"],
+  ["UNH","UnitedHealth"],["ABBV","AbbVie"],["PFE","Pfizer"],["COST","Costco"],["WMT","Walmart"],["HD","Home Depot"],["MCD","McDonald's"],["KO","Coca-Cola"],
+  ["PEP","PepsiCo"],["NKE","Nike"],["DIS","Disney"],["ORCL","Oracle"],["CRM","Salesforce"],["ADBE","Adobe"],["INTC","Intel"],["QCOM","Qualcomm"],
+  ["MU","Micron"],["PLTR","Palantir"],["UBER","Uber"],["BAC","Bank of America"],["GS","Goldman Sachs"],["CAT","Caterpillar"],["BA","Boeing"],["SHOP","Shopify"],
+  ["SAP.DE","SAP"],["SIE.DE","Siemens"],["ALV.DE","Allianz"],["DTE.DE","Deutsche Telekom"],["AIR.DE","Airbus"],["RHM.DE","Rheinmetall"],["MUV2.DE","Münchener Rück"],
+  ["IFX.DE","Infineon"],["BMW.DE","BMW"],["MBG.DE","Mercedes-Benz"],["VOW3.DE","Volkswagen"],["BAS.DE","BASF"],["BAYN.DE","Bayer"],["DBK.DE","Deutsche Bank"],
+  ["ADS.DE","Adidas"],["DHL.DE","DHL Group"],["ENR.DE","Siemens Energy"],["MTX.DE","MTU Aero Engines"],["DB1.DE","Deutsche Börse"],["HNR1.DE","Hannover Rück"],
+  ["ASML.AS","ASML"],["MC.PA","LVMH"],["TTE.PA","TotalEnergies"],["OR.PA","L'Oréal"],["SAN.PA","Sanofi"],["AI.PA","Air Liquide"],["NOVO-B.CO","Novo Nordisk"],
+  ["NESN.SW","Nestlé"],["ROG.SW","Roche"],["NOVN.SW","Novartis"]];
 
 /* ---------- Hilfen ---------- */
 const EU_SUF=/\.(DE|F|AS|PA|MI|L|SW|VI|MC|BR|CO|ST|HE|OL|LS|IR)$/;
-const EU_IDX=/^\^(GDAXI|MDAXI|STOXX50E|FTSE|FCHI|AEX)$/;
-const klasseVon=s=>/-(EUR|USD)$/.test(s)?"krypto":/^\^/.test(s)?"idx":EU_SUF.test(s)?"eu":"us";
-const regionVon=(s,k)=>k==="krypto"?"krypto":EU_IDX.test(s)||EU_SUF.test(s)?"eu":"us";
-const ZONE={us:{tz:"America/New_York",a:570,b:960},eu:{tz:"Europe/Berlin",a:540,b:1050},krypto:{tz:"UTC",a:0,b:1440}};
+const regionVon=s=>EU_SUF.test(s)?"eu":"us";
+const istAktie=s=>!!s&&!/^\^|=X$|=F$|-(EUR|USD)$/.test(s);
+const ZONE={us:{tz:"America/New_York",a:570,b:960},eu:{tz:"Europe/Berlin",a:540,b:1050}};
 function teile(tz,d=new Date()){const p=new Intl.DateTimeFormat("en-CA",{timeZone:tz,year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",weekday:"short",hourCycle:"h23"}).formatToParts(d);
   const g=k=>(p.find(x=>x.type===k)||{}).value;return {date:`${g("year")}-${g("month")}-${g("day")}`,min:+g("hour")*60+ +g("minute"),wd:g("weekday")}}
-function sitzung(reg){const m=ZONE[reg],z=teile(m.tz),we=reg!=="krypto"&&["Sat","Sun"].includes(z.wd),offen=!we&&z.min>=m.a&&z.min<m.b;
-  return {offen,date:z.date,frac:offen?Math.max(.08,(z.min-m.a)/(m.b-m.a)):1,rest:offen?m.b-z.min:0}}
-const r6=v=>v==null?null:+(+v).toPrecision(7);
-const f1=v=>(+v).toFixed(1).replace(".",",");
+const offen=reg=>{const m=ZONE[reg],z=teile(m.tz);return !["Sat","Sun"].includes(z.wd)&&z.min>=m.a&&z.min<m.b};
+const r6=v=>v==null||!isFinite(v)?null:+(+v).toPrecision(7);
 const mean=a=>a.reduce((x,y)=>x+y,0)/a.length;
-const clamp=(v,a,b)=>Math.min(b,Math.max(a,v));
+const f1=v=>(+v).toFixed(1).replace(".",",");
+const pz=v=>v==null||!isFinite(v)?"–":(v>0?"+":"")+f1(v)+" %";
+function dez(v){v=+v;const d=v>=1?2:v>=.01?4:6;return v.toLocaleString("de-DE",{minimumFractionDigits:d,maximumFractionDigits:d})}
+const CS={EUR:"€",USD:"$",GBp:"p",GBP:"£",CHF:"CHF",DKK:"kr"};
 
-/* ---------- Daten (Yahoo, Tageskerzen) ---------- */
+/* ---------- Daten ---------- */
 async function yahoo(s,range){const r=await fetch(`https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(s)}?range=${range}&interval=1d`,{headers:{"user-agent":"Mozilla/5.0 (compatible; AktienHelfer/1.0)"}});
   if(!r.ok)throw new Error("Yahoo "+r.status);const j=await r.json(),res=j&&j.chart&&j.chart.result&&j.chart.result[0];if(!res||!res.timestamp)throw new Error("keine Daten für "+s);
-  const q=(res.indicators.quote||[])[0]||{},m=res.meta||{},tz=klasseVon(s)==="krypto"?"UTC":(m.exchangeTimezoneName||"UTC"),bars=[];
+  const q=(res.indicators.quote||[])[0]||{},m=res.meta||{},tz=m.exchangeTimezoneName||"UTC",out=[];
   for(let i=0;i<res.timestamp.length;i++){const o=q.open&&q.open[i],h=q.high&&q.high[i],l=q.low&&q.low[i],c=q.close&&q.close[i];if([o,h,l,c].some(v=>v==null||!isFinite(v)||v<=0))continue;
-    bars.push([teile(tz,new Date(res.timestamp[i]*1000)).date,r6(o),r6(h),r6(l),r6(c),Math.round((q.volume&&q.volume[i])||0)])}
-  // gleicher Tag doppelt (kommt bei Yahoo vor): letzten behalten
-  const out=[];for(const b of bars){if(out.length&&out[out.length-1][0]===b[0])out[out.length-1]=b;else out.push(b)}
+    const b=[teile(tz,new Date(res.timestamp[i]*1000)).date,r6(o),r6(h),r6(l),r6(c),Math.round((q.volume&&q.volume[i])||0)];if(out.length&&out[out.length-1][0]===b[0])out[out.length-1]=b;else out.push(b)}
   return {bars:out,cur:m.currency||"",p:m.regularMarketPrice,mt:(m.regularMarketTime||0)*1000}}
-function zusammen(alt,neu){const m=new Map(alt.map(b=>[b[0],b]));for(const b of neu)m.set(b[0],b);return [...m.values()].sort((a,b)=>a[0]<b[0]?-1:1)}
+const zusammen=(alt,neu)=>{const m=new Map(alt.map(b=>[b[0],b]));for(const b of neu)m.set(b[0],b);return [...m.values()].sort((a,b)=>a[0]<b[0]?-1:1)};
+async function meldungen(s){const FH=process.env.FINNHUB_KEY||"",heute=new Date().toISOString().slice(0,10),von=new Date(Date.now()-6*864e5).toISOString().slice(0,10);
+  try{if(regionVon(s)==="us"&&FH){const r=await fetch(`https://finnhub.io/api/v1/company-news?symbol=${encodeURIComponent(s)}&from=${von}&to=${heute}&token=${FH}`);if(r.ok)return (await r.json()).slice(0,5).map(n=>({t:n.headline,u:n.url,q:n.source,d:new Date(n.datetime*1000).toISOString().slice(0,10),z:(n.summary||"").slice(0,240)}))}
+    const r=await fetch(`https://feeds.finance.yahoo.com/rss/2.0/headline?s=${encodeURIComponent(s)}&region=DE&lang=de-DE`,{headers:{"user-agent":"Mozilla/5.0"}});if(!r.ok)return [];const x=await r.text();
+    return [...x.matchAll(/<item>([\s\S]*?)<\/item>/g)].slice(0,4).map(m=>{const g=t=>((m[1].match(new RegExp(`<${t}>(?:<!\\[CDATA\\[)?([\\s\\S]*?)(?:\\]\\]>)?<\/${t}>`))||[])[1]||"").trim();
+      const d=Date.parse(g("pubDate"));return {t:g("title"),u:g("link"),q:"Yahoo Finanzen",d:d?new Date(d).toISOString().slice(0,10):"",z:g("description").slice(0,240)}}).filter(n=>n.t&&n.u)}catch(e){return []}}
+async function quartalszahlen(){const FH=process.env.FINNHUB_KEY||"";if(!FH)return [];const a=new Date().toISOString().slice(0,10),b=new Date(Date.now()+40*864e5).toISOString().slice(0,10);
+  try{const r=await fetch(`https://finnhub.io/api/v1/calendar/earnings?from=${a}&to=${b}&token=${FH}`);if(!r.ok)return [];return ((await r.json()).earningsCalendar||[]).map(e=>({s:e.symbol,d:e.date}))}catch(e){return []}}
 
-/* ---------- Indikatoren ---------- */
-function sma(a,n){const r=Array(a.length).fill(null);let s=0;for(let i=0;i<a.length;i++){s+=a[i];if(i>=n)s-=a[i-n];if(i>=n-1)r[i]=s/n}return r}
-function ema(a,n,start=0){const r=Array(a.length).fill(null),k=2/(n+1);let e=null;for(let i=start;i<a.length;i++){if(a[i]==null)continue;
-  if(i===start+n-1)e=mean(a.slice(start,start+n));else if(i>=start+n)e=a[i]*k+e*(1-k);if(e!=null&&i>=start+n-1)r[i]=e}return r}
+/* ---------- Kennzahlen und Punktzahl je Zeitraum ---------- */
 function rsiR(c,n=14){const r=Array(c.length).fill(null);if(c.length<=n)return r;let g=0,l=0;for(let i=1;i<=n;i++){const d=c[i]-c[i-1];if(d>0)g+=d;else l-=d}g/=n;l/=n;r[n]=l===0?100:100-100/(1+g/l);
   for(let i=n+1;i<c.length;i++){const d=c[i]-c[i-1];g=(g*(n-1)+Math.max(d,0))/n;l=(l*(n-1)+Math.max(-d,0))/n;r[i]=l===0?100:100-100/(1+g/l)}return r}
-function atrR(H,L,C,n=14){const r=Array(C.length).fill(null),tr=C.map((c,i)=>i?Math.max(H[i]-L[i],Math.abs(H[i]-C[i-1]),Math.abs(L[i]-C[i-1])):H[i]-L[i]);if(C.length<=n)return r;
-  let a=mean(tr.slice(1,n+1));r[n]=a;for(let i=n+1;i<C.length;i++){a=(a*(n-1)+tr[i])/n;r[i]=a}return r}
-function indikatoren(bars){const C=bars.map(b=>b[4]),H=bars.map(b=>b[2]),L=bars.map(b=>b[3]),V=bars.map(b=>b[5]);
-  const e12=ema(C,12),e26=ema(C,26),macd=C.map((_,i)=>e12[i]!=null&&e26[i]!=null?e12[i]-e26[i]:null),sig=ema(macd,9,25);
-  const hi20=C.map((_,i)=>i>=20?Math.max(...H.slice(i-20,i)):null),lo20=C.map((_,i)=>i>=20?Math.min(...L.slice(i-20,i)):null);
-  const vAvg=C.map((_,i)=>i>=20?mean(V.slice(i-20,i)):null),lo5=C.map((_,i)=>i>=5?Math.min(...L.slice(i-4,i+1)):null),hi5=C.map((_,i)=>i>=5?Math.max(...H.slice(i-4,i+1)):null);
-  return {C,H,L,V,sma20:sma(C,20),sma50:sma(C,50),rsi:rsiR(C),atr:atrR(H,L,C),macd,sig,hi20,lo20,vAvg,lo5,hi5}}
-const volRatio=(I,i,frac=1)=>I.vAvg[i]>0&&I.V[i]>0?I.V[i]/(I.vAvg[i]*frac):null;
+function sma(a,n){const r=Array(a.length).fill(null);let s=0;for(let i=0;i<a.length;i++){s+=a[i];if(i>=n)s-=a[i-n];if(i>=n-1)r[i]=s/n}return r}
+// Punktzahl = Kursanstieg geteilt durch die normale Schwankung (risikobereinigtes Momentum) + Trend − Überhitzung
+function rechne(C){const n=C.length,lr=C.map((c,i)=>i?Math.log(c/C[i-1]):0),rsi=rsiR(C),s20=sma(C,20),s50=sma(C,50);
+  const sd=Array(n).fill(null);for(let i=60;i<n;i++){const a=lr.slice(i-59,i+1),m=mean(a);sd[i]=Math.sqrt(mean(a.map(x=>(x-m)**2)))||null}
+  const z=(i,k)=>i>=k&&sd[i]?Math.log(C[i]/C[i-k])/(sd[i]*Math.sqrt(k)):null;
+  const P={3:[],7:[],30:[]};
+  for(let i=0;i<n;i++){const z20=z(i,20),z60=z(i,60),z120=z(i,120),tr=s20[i]!=null&&s50[i]!=null&&s20[i]>s50[i]?1:0,heiss=rsi[i]>75?1:0;
+    P[3][i]=z20==null?null:z20+.5*tr-heiss-(rsi[i]<25?.5:0);
+    P[7][i]=z20==null||z60==null?null:.5*z20+.5*z60+.5*tr-.5*heiss;
+    P[30][i]=z60==null||z120==null?null:z60+.5*z120+.5*tr}
+  return {P,rsi,s20,s50,sd}}
 
-/* ---------- Regeln: welche schlagen an Tag i an? ---------- */
-function pruefe(I,i,frac=1){const out=[],c=I.C[i],a=I.atr[i];
-  if(i<51||!a||I.sma50[i]==null||I.rsi[i-1]==null||I.macd[i-1]==null||I.sig[i-1]==null)return out;
-  const trendT=I.sma20[i]>I.sma50[i]?"20-Tage-Schnitt über 50-Tage-Schnitt (Aufwärtstrend)":"20-Tage-Schnitt unter 50-Tage-Schnitt (Abwärtstrend)";
-  const vr=volRatio(I,i,frac),volT=vr==null?"keine Volumendaten":`Volumen ${f1(vr)}× so hoch wie im 20-Tage-Schnitt`;
-  // RSI-Wende
-  if(I.rsi[i-1]<30&&I.rsi[i]>=30)out.push({r:"rsi",dir:1,sl:1.5*a,tp:2*a,g:[`RSI steigt von ${f1(I.rsi[i-1])} auf ${f1(I.rsi[i])} und verlässt den überverkauften Bereich`,trendT]});
-  if(I.rsi[i-1]>70&&I.rsi[i]<=70)out.push({r:"rsi",dir:-1,sl:1.5*a,tp:2*a,g:[`RSI fällt von ${f1(I.rsi[i-1])} auf ${f1(I.rsi[i])} und verlässt den überkauften Bereich`,trendT]});
-  // MACD-Kreuz mit Trend
-  if(I.macd[i-1]<=I.sig[i-1]&&I.macd[i]>I.sig[i]&&c>I.sma50[i])out.push({r:"macd",dir:1,sl:2*a,tp:4*a,g:["MACD kreuzt die Signallinie nach oben",`Kurs ${f1((c/I.sma50[i]-1)*100)} % über dem 50-Tage-Schnitt`,trendT]});
-  if(I.macd[i-1]>=I.sig[i-1]&&I.macd[i]<I.sig[i]&&c<I.sma50[i])out.push({r:"macd",dir:-1,sl:2*a,tp:4*a,g:["MACD kreuzt die Signallinie nach unten",`Kurs ${f1((1-c/I.sma50[i])*100)} % unter dem 50-Tage-Schnitt`,trendT]});
-  // Ausbruch mit Volumen (ohne Volumendaten, z. B. manche Indizes: nur der Ausbruch zählt)
-  const volOk=vr==null||vr>=1.5;
-  if(I.hi20[i]!=null&&c>I.hi20[i]&&I.C[i-1]<=I.hi20[i-1]&&volOk){const sl=clamp(c-(I.hi20[i]-.5*a),a,3*a);out.push({r:"ausbruch",dir:1,sl,tp:2*sl,g:[`Schlusskurs über dem 20-Tage-Hoch (${dez(I.hi20[i])})`,volT,trendT]})}
-  if(I.lo20[i]!=null&&c<I.lo20[i]&&I.C[i-1]>=I.lo20[i-1]&&volOk){const sl=clamp((I.lo20[i]+.5*a)-c,a,3*a);out.push({r:"ausbruch",dir:-1,sl,tp:2*sl,g:[`Schlusskurs unter dem 20-Tage-Tief (${dez(I.lo20[i])})`,volT,trendT]})}
-  // Rücksetzer im Trend
-  const rs=I.rsi[i];
-  if(I.sma20[i]>I.sma50[i]&&I.L[i]<=I.sma20[i]&&c>I.sma20[i]&&rs>=40&&rs<=60){const sl=clamp(c-(I.lo5[i]-.25*a),a,3*a);out.push({r:"trend",dir:1,sl,tp:2*sl,g:["Aufwärtstrend: 20-Tage-Schnitt über 50-Tage-Schnitt","Kurs hat den 20-Tage-Schnitt angetestet und darüber geschlossen",`RSI ${f1(rs)} (neutral, nicht überhitzt)`]})}
-  if(I.sma20[i]<I.sma50[i]&&I.H[i]>=I.sma20[i]&&c<I.sma20[i]&&rs>=40&&rs<=60){const sl=clamp((I.hi5[i]+.25*a)-c,a,3*a);out.push({r:"trend",dir:-1,sl,tp:2*sl,g:["Abwärtstrend: 20-Tage-Schnitt unter 50-Tage-Schnitt","Kurs ist bis zum 20-Tage-Schnitt gestiegen und darunter geschlossen",`RSI ${f1(rs)} (neutral)`]})}
+/* ---------- Test: wie gut war die Rangliste im letzten Jahr? ---------- */
+// An jedem Handelstag die Top 5 nach Punktzahl kaufen (Schlusskurs), nach H Handelstagen verkaufen, Kosten abziehen,
+// und mit dem Durchschnitt aller Werte im selben Zeitraum vergleichen.
+function test(W){const ab=new Date(Date.now()-365*864e5).toISOString().slice(0,10),zaehl={};
+  for(const w of W)for(const b of w.bars)if(b[0]>=ab)zaehl[b[0]]=(zaehl[b[0]]||0)+1;
+  const tage=Object.keys(zaehl).filter(d=>zaehl[d]>=W.length*.5).sort(),out={};
+  for(const H of HORIZONTE){const top=[],alle=[];let besser=0,n=0;
+    for(const d of tage){const l=[];for(const w of W){const i=w.idx.get(d);if(i==null||i+H>=w.C.length)continue;const p=w.R.P[H][i];if(p==null)continue;l.push({p,f:(w.C[i+H]/w.C[i]-1)*100-2*KOSTEN})}
+      if(l.length<10)continue;l.sort((a,b)=>b.p-a.p);const t=l.slice(0,TOP),mt=mean(t.map(x=>x.f)),ma=mean(l.map(x=>x.f));top.push(...t.map(x=>x.f));alle.push(ma);n++;if(mt>ma)besser++}
+    out[H]=n?{tage:n,topAvg:+mean(top).toFixed(2),alleAvg:+mean(alle).toFixed(2),besser:Math.round(besser/n*100),plus:Math.round(top.filter(x=>x>0).length/top.length*100)}:{tage:0}}
   return out}
-function dez(v){v=+v;const d=v>=100?2:v>=1?2:v>=.01?4:6;return v.toLocaleString("de-DE",{minimumFractionDigits:d,maximumFractionDigits:d})}
-
-/* ---------- Ausstieg simulieren (gleich für Test und Live-Bilanz) ---------- */
-// Einstieg zur Eröffnung des Folgetags. Stop und Ziel am selben Tag: zählt vorsichtshalber als Stop.
-function ausstieg(bars,ein,dir,sl,tp,von){const stop=ein-dir*sl,ziel=ein+dir*tp;
-  for(let j=von;j<bars.length&&j<von+HALTE;j++){const [,o,h,l]=bars[j],oo=j===von?ein:o;
-    if(dir>0){if(l<=stop)return {x:Math.min(oo,stop),j,art:"stop"};if(h>=ziel)return {x:Math.max(oo,ziel),j,art:"ziel"}}
-    else{if(h>=stop)return {x:Math.max(oo,stop),j,art:"stop"};if(l<=ziel)return {x:Math.min(oo,ziel),j,art:"ziel"}}}
-  const ende=von+HALTE-1;return ende<bars.length?{x:bars[ende][4],j:ende,art:"zeit"}:null}
-const netto=(ein,x,dir)=>dir*(x/ein-1)*100-2*KOSTEN;
-// Backtest: Signale der letzten 365 Tage, je Regel und Richtung höchstens ein offener Test-Trade
-function backtest(bars,I,abDatum){const tr=[],belegt={};
-  for(let i=51;i<bars.length-1;i++){if(bars[i][0]<abDatum)continue;
-    for(const t of pruefe(I,i)){const k=t.r+t.dir;if(belegt[k]>=i)continue;const ein=bars[i+1][1],a=ausstieg(bars,ein,t.dir,t.sl,t.tp,i+1);
-      if(!a){belegt[k]=bars.length;continue}
-      tr.push({r:t.r,dir:t.dir,d:bars[i][0],n:netto(ein,a.x,t.dir),art:a.art});belegt[k]=a.j}}
-  return tr}
-function statistik(l){if(!l.length)return {n:0};const g=l.filter(t=>t.n>0),plus=g.reduce((x,t)=>x+t.n,0),minus=-l.filter(t=>t.n<=0).reduce((x,t)=>x+t.n,0);
-  return {n:l.length,win:Math.round(g.length/l.length*100),avg:+mean(l.map(t=>t.n)).toFixed(2),pf:minus>0?+(plus/minus).toFixed(2):null,ziel:Math.round(l.filter(t=>t.art==="ziel").length/l.length*100)}}
 
 /* ---------- Zustand ---------- */
-let SF="";
-const lade=()=>{try{return Object.assign({hist:{},sent:{},nacht:[],log:[],fehler:{}},JSON.parse(fs.readFileSync(SF,"utf8")))}catch(e){return {hist:{},sent:{},nacht:[],log:[],fehler:{}}}};
-const speichere=st=>{fs.mkdirSync(SF.replace(/\/[^/]*$/,""),{recursive:true});fs.writeFileSync(SF,JSON.stringify(st))};
-let ST=null;
-// für kurse.json (die App liest es dort)
+let SF="",ST=null;
+const lade=()=>{try{return Object.assign({hist:{},listen:[],fehler:{}},JSON.parse(fs.readFileSync(SF,"utf8")))}catch(e){return {hist:{},listen:[],fehler:{}}}};
+const speichere=()=>{fs.mkdirSync(SF.replace(/\/[^/]*$/,""),{recursive:true});fs.writeFileSync(SF,JSON.stringify(ST))};
 export const app=()=>ST&&ST.app||null;
+const readJSON=(f,d)=>{try{return JSON.parse(fs.readFileSync(f,"utf8"))}catch(e){return d}};
 
-function liste(ctx){const l=UNIVERSUM.map(([s,n,k])=>({s,n,k})),da=new Set(l.map(x=>x.s));
-  const extra=[...(ctx.eigene?ctx.eigene():[])].filter(s=>s&&!da.has(s)&&!/=X$|=F$/.test(s)).slice(0,10);
-  for(const s of extra){da.add(s);l.push({s,n:ctx.name?ctx.name(s):s,k:klasseVon(s),eigen:1})}
-  for(const [s,h] of Object.entries(ST.hist))if(h.tmp&&!da.has(s)){if(Date.now()-h.tmp>3*864e5){delete ST.hist[s];continue}da.add(s);l.push({s,n:h.n||s,k:h.k||klasseVon(s),eigen:1})}
+function liste(ctx){const l=UNIVERSUM.map(([s,n])=>({s,n})),da=new Set(l.map(x=>x.s));
+  for(const s of (ctx.eigene?ctx.eigene():[]))if(istAktie(s)&&!da.has(s)&&l.length<UNIVERSUM.length+10){da.add(s);l.push({s,n:ctx.name?ctx.name(s):s,eigen:1})}
+  for(const [s,h] of Object.entries(ST.hist))if(h.tmp&&!da.has(s)){if(Date.now()-h.tmp>3*864e5){delete ST.hist[s];continue}da.add(s);l.push({s,n:h.n||s,eigen:1})}
   return l}
 
-/* ---------- Einen Wert bewerten ---------- */
-function bewerte(w){const h=ST.hist[w.s];if(!h||!h.bars||h.bars.length<60)return null;
-  const reg=regionVon(w.s,w.k),se=sitzung(reg),bars=h.bars,teil=se.offen&&bars[bars.length-1][0]===se.date;
-  const fertig=teil?bars.slice(0,-1):bars,I=indikatoren(bars),If=teil?indikatoren(fertig):I;
-  const ab=new Date(Date.now()-365*864e5).toISOString().slice(0,10),tests=backtest(fertig,If,ab);
-  const n=bars.length-1,p=h.p&&Date.now()-(h.mt||0)<3*864e5?h.p:bars[n][4],vor=bars[n-1][4],last=I.C[n];
-  // aktuelle Treffer: am letzten fertigen Tag (gilt jetzt) und vorläufig am laufenden Tag
-  const hits=[...pruefe(If,fertig.length-1).map(t=>Object.assign(t,{d:fertig[fertig.length-1][0],c:fertig[fertig.length-1][4],vorl:false})),...(teil?pruefe(I,n,se.frac).map(t=>Object.assign(t,{d:bars[n][0],c:bars[n][4],vorl:true})):[])];
-  const vr=volRatio(I,n,teil?se.frac:1);
-  return {w,h,reg,se,teil,bars,I,tests,hits,p,dp:(p/vor-1)*100,
-    ind:{rsi:I.rsi[n]!=null?+I.rsi[n].toFixed(1):null,macd:I.macd[n]!=null?r6(I.macd[n]):null,ms:I.sig[n]!=null?r6(I.sig[n]):null,sma20:r6(I.sma20[n]),sma50:r6(I.sma50[n]),atr:r6(I.atr[n]),
-      volR:vr!=null?+vr.toFixed(2):null,trend:I.sma20[n]==null||I.sma50[n]==null?null:I.sma20[n]>I.sma50[n]?(last>I.sma20[n]?"aufwärts":"aufwärts, Kurs unter 20-Tage-Schnitt"):(last<I.sma20[n]?"abwärts":"abwärts, Kurs über 20-Tage-Schnitt")}}}
-
 /* ---------- Hauptlauf ---------- */
-export async function lauf(ctx){SF=ctx.P(".state/signale.json");if(!ST)ST=lade();const B=ctx.B,heute=new Date().toISOString().slice(0,10);let geholt=0,fehler=0;
+export async function lauf(ctx){SF=ctx.P(".state/beste.json");if(!ST)ST=lade();const B=ctx.B,heute=new Date().toISOString().slice(0,10);let fehler=0,geholt=0;
   const L=liste(ctx);
-  // 1) Verlauf (2 Jahre, damit die Indikatoren für das Testjahr eingeschwungen sind) einmal am Tag
+  // Verlauf (2 Jahre) einmal am Tag, höchstens 30 pro Lauf; offene Börsen: aktuelle Tageskerze alle 15 Min.
   for(const w of L){const h=ST.hist[w.s];if(h&&h.d===heute&&h.bars)continue;if(geholt>=30)break;geholt++;
-    try{const y=await yahoo(w.s,"2y");ST.hist[w.s]=Object.assign(h||{},{d:heute,bars:y.bars,cur:y.cur,p:y.p,mt:y.mt,lt:Date.now()});delete ST.fehler[w.s]}catch(e){fehler++;ST.fehler[w.s]=e.message.slice(0,80)}}
-  // 2) laufende Tageskerze: offene Märkte bei jedem Lauf, sonst höchstens stündlich
-  for(const w of L){const h=ST.hist[w.s];if(!h||!h.bars||Date.now()-(h.lt||0)<6e4)continue;const se=sitzung(regionVon(w.s,w.k));
-    if(!se.offen&&Date.now()-(h.lt||0)<36e5)continue;
-    try{const y=await yahoo(w.s,"5d");h.bars=zusammen(h.bars,y.bars).slice(-800);h.p=y.p;h.mt=y.mt;h.cur=y.cur||h.cur;h.lt=Date.now();delete ST.fehler[w.s]}catch(e){fehler++;ST.fehler[w.s]=e.message.slice(0,80)}}
+    try{const y=await yahoo(w.s,"2y");ST.hist[w.s]=Object.assign(h||{},{d:heute,bars:y.bars,cur:y.cur,p:y.p,mt:y.mt,lt:Date.now()});delete ST.fehler[w.s]}catch(e){fehler++;ST.fehler[w.s]=String(e.message).slice(0,80)}}
+  for(const w of L){const h=ST.hist[w.s];if(!h||!h.bars)continue;const alt=Date.now()-(h.lt||0);if(alt<14*6e4||(!offen(regionVon(w.s))&&alt<3*36e5))continue;
+    try{const y=await yahoo(w.s,"5d");h.bars=zusammen(h.bars,y.bars).slice(-800);h.p=y.p;h.mt=y.mt;h.cur=y.cur||h.cur;h.lt=Date.now();delete ST.fehler[w.s]}catch(e){fehler++;ST.fehler[w.s]=String(e.message).slice(0,80)}}
   for(const s of Object.keys(ST.hist))if(!L.some(w=>w.s===s))delete ST.hist[s];
-  if(fehler)B.err.signale=`${fehler} Kursabruf(e) fehlgeschlagen (Yahoo)`;else delete B.err.signale;
+  if(fehler)B.err.beste=`${fehler} Kursabruf(e) fehlgeschlagen (Yahoo)`;else delete B.err.beste;
 
-  // 3) bewerten, Regeln über alle Werte auswerten
-  const E=L.map(bewerte).filter(Boolean),stat={};
-  for(const r of REGELN)for(const dir of [1,-1]){const k=r.id+":"+dir,alle=E.flatMap(e=>e.tests.filter(t=>t.r===r.id&&t.dir===dir));
-    stat[k]={alle:statistik(alle)};for(const kl of Object.keys(KLASSEN))stat[k][kl]=statistik(E.filter(e=>e.w.k===kl).flatMap(e=>e.tests.filter(t=>t.r===r.id&&t.dir===dir)))}
-  const gilt=(r,dir,kl)=>{const s=stat[r+":"+dir],a=s[kl]||{n:0};if(a.n>=MIN_N)return a.avg>0?{ok:1,s:a,ebene:KLASSEN[kl]}:{ok:0,s:a,ebene:KLASSEN[kl]};
-    return s.alle.n>=2*MIN_N&&s.alle.avg>0?{ok:1,s:s.alle,ebene:"alle Klassen",wenig:1}:{ok:0,s:s.alle.n>=2*MIN_N?s.alle:a,ebene:s.alle.n>=2*MIN_N?"alle Klassen":KLASSEN[kl]}};
+  // Rechnen
+  const W=[];for(const w of L){const h=ST.hist[w.s];if(!h||!h.bars||h.bars.length<130)continue;const C=h.bars.map(b=>b[4]);
+    W.push(Object.assign({},w,{h,bars:h.bars,C,idx:new Map(h.bars.map((b,i)=>[b[0],i])),R:rechne(C)}))}
+  if(W.length<15){speichere();return false}
+  // erst wenn (fast) alle Verläufe von heute da sind, wird getestet und die Vorlage geschrieben
+  const vollst=L.filter(w=>ST.hist[w.s]&&ST.hist[w.s].d===heute).length>=L.length*.9;
+  // Test einmal am Tag (ändert sich im Tagesverlauf nicht)
+  if(!ST.test||(ST.test.d!==heute&&vollst))ST.test={d:heute,von:new Date(Date.now()-365*864e5).toISOString().slice(0,10),werte:W.length,h:test(W)};
+  const jetzt=W.filter(w=>Date.now()-Date.parse(w.bars[w.bars.length-1][0])<6*864e5);// ohne veraltete Werte
+  const fakten=(w,H)=>{const i=w.C.length-1,C=w.C,p=w.h.p&&Date.now()-(w.h.mt||0)<3*864e5?w.h.p:C[i],sd=w.R.sd[i],ch=k=>i>=k?+((p/C[i-k]-1)*100).toFixed(1):null;
+    return {s:w.s,n:w.n,cur:w.h.cur||"",p:r6(p),dp:+((p/C[i-1]-1)*100).toFixed(2),mt:w.h.mt||w.h.lt||0,eigen:w.eigen||undefined,
+      tage5:ch(5),wochen4:ch(20),monate3:ch(60),monate6:ch(120),rsi:w.R.rsi[i]!=null?+w.R.rsi[i].toFixed(0):null,schwankungJahr:sd?+(sd*Math.sqrt(252)*100).toFixed(0):null,
+      trend:w.R.s20[i]!=null&&w.R.s50[i]!=null?(w.R.s20[i]>w.R.s50[i]?"aufwärts":"abwärts"):null,ueber50:w.R.s50[i]?+((p/w.R.s50[i]-1)*100).toFixed(1):null,
+      punkte:H?+w.R.P[H][i].toFixed(2):undefined,bereich:H&&sd?{lo:r6(p*Math.exp(-sd*Math.sqrt(H))),hi:r6(p*Math.exp(sd*Math.sqrt(H)))}:undefined,
+      spark:C.slice(-60).map(x=>+(+x).toPrecision(5))}};
+  const rang={};for(const H of HORIZONTE)rang[H]=jetzt.filter(w=>w.R.P[H][w.C.length-1]!=null).sort((a,b)=>b.R.P[H][b.C.length-1]-a.R.P[H][a.C.length-1]);
 
-  // 4) Signal je Wert
-  const werte=E.map(e=>{const {w,h}=e,cur=h.cur||(w.k==="eu"?"EUR":"USD"),o={s:w.s,n:w.n,k:w.k,cur,p:r6(e.p),dp:+e.dp.toFixed(2),mt:h.mt||h.lt||0,offen:e.se.offen,eigen:w.eigen||undefined,
-      sig:"abwarten",ind:e.ind,spark:e.bars.slice(-45).map(b=>+(+b[4]).toPrecision(5)),d:e.bars[e.bars.length-1][0]};
-    // je Regel: Test nur für diesen Wert
-    o.ts={};for(const r of REGELN)for(const dir of [1,-1]){const s=statistik(e.tests.filter(t=>t.r===r.id&&t.dir===dir));if(s.n)o.ts[r.id+":"+dir]=s}
-    const ok=e.hits.map(t=>Object.assign(t,{g2:gilt(t.r,t.dir,w.k)})),gut=ok.filter(t=>t.g2.ok);
-    const fest=gut.filter(t=>!t.vorl),dirs=new Set((fest.length?fest:gut).map(t=>t.dir));
-    if(dirs.size>1){o.hin="Regeln widersprechen sich (Kauf- und Verkaufssignal gleichzeitig). Daher abwarten.";o.aus=ok.map(t=>({r:t.r,dir:t.dir}));return o}
-    const kand=(fest.length?fest:gut).sort((a,b)=>b.g2.s.avg-a.g2.s.avg);
-    if(!kand.length){const nicht=ok.filter(t=>!t.g2.ok);if(nicht.length)o.hin=nicht.map(t=>`${RNAME[t.r]} (${t.dir>0?"Kauf":"Verkauf"}) hat angeschlagen, war im Test aber nicht im Plus${t.g2.s.n?` (Ø ${t.g2.s.avg.toFixed(2).replace(".",",")} % bei ${t.g2.s.n} Trades)`:" (zu wenige Testfälle)"}.`).join(" ");
-      return o}
-    const t=kand[0],ein=e.p,f=ein/t.c;// Abstände (aus ATR) im Verhältnis auf den aktuellen Kurs übertragen
-    Object.assign(o,{sig:t.dir>0?"kaufen":"verkaufen",r:t.r,vorl:t.vorl||undefined,seit:t.d,ein:r6(ein),stop:r6(ein-t.dir*t.sl*f),ziel:r6(ein+t.dir*t.tp*f),crv:+(t.tp/t.sl).toFixed(2),
-      g:t.g,weitere:kand.slice(1).map(x=>x.r),test:Object.assign({ebene:t.g2.ebene,wenig:t.g2.wenig},t.g2.s)});
-    return o});
+  // KI-Ergebnis lesen (data/beste.json, kommt von der Claude-Aufgabe)
+  const ki=readJSON(ctx.P("data/beste.json"),null),kiOk=ki&&ki.id&&ki.listen;
+  if(kiOk&&!ST.listen.some(x=>x.id===ki.id)){// neue Liste: Startkurse merken, damit die Entwicklung messbar ist
+    const e={id:ki.id,d:heute,t:Date.now(),slot:ki.slot||"",h:{}};for(const H of HORIZONTE)e.h[H]=(ki.listen[H]||[]).slice(0,TOP).map(x=>{const w=W.find(y=>y.s===x.s);return {s:x.s,p0:w?r6(w.h.p||w.C[w.C.length-1]):null}}).filter(x=>x.p0);
+    ST.listen.push(e);ST.listen=ST.listen.filter(x=>Date.now()-x.t<75*864e5);
+    if(ctx.send&&!ctx.leise()&&!(ctx.U&&ctx.U.notify&&ctx.U.notify.beste===false)){const name=s=>(W.find(w=>w.s===s)||{n:s}).n;
+      await ctx.send(`🏆 <b>Neue Top-Aktien (${esc(ctx,ki.slot||"aktuell")})</b>\n\n${HORIZONTE.map(H=>`<b>${H} Tage:</b> ${(ki.listen[H]||[]).slice(0,3).map((x,i)=>`${i+1}. ${esc(ctx,name(x.s))}`).join(" · ")}`).join("\n")}${ki.markt?`\n\n${esc(ctx,ki.markt)}`:""}\n\nGründe und Quellen: /beste oder /warum Kürzel\n<i>${HINWEIS}</i>${link(ctx)}`)}}
 
-  // 5) Live-Bilanz: jedes gemeldete Signal wird mit denselben Regeln weiterverfolgt
-  const bilanz=()=>{for(const x of ST.log){if(x.st!=="offen")continue;const h=ST.hist[x.s];if(!h||!h.bars)continue;const se=sitzung(regionVon(x.s,klasseVon(x.s)));
-      const fertig=se.offen&&h.bars[h.bars.length-1][0]===se.date?h.bars.slice(0,-1):h.bars,i=fertig.findIndex(b=>b[0]===x.d);if(i<0||i+1>=fertig.length)continue;
-      const ein=fertig[i+1][1],a=ausstieg(fertig,ein,x.dir,x.sl,x.tp,i+1);x.ein=r6(ein);if(a){x.st=a.art;x.erg=+netto(ein,a.x,x.dir).toFixed(2);x.ende=fertig[a.j][0]}}
-    ST.log=ST.log.slice(-300)};
+  // Entwicklung früherer Listen (je Tag die erste Liste, damit nichts doppelt zählt)
+  const fertig={},laufend=[];const erste=[];for(const x of ST.listen)if(!erste.some(y=>y.d===x.d))erste.push(x);
+  for(const H of HORIZONTE){const erg=[];for(const x of erste)for(const p of x.h[H]||[]){const w=W.find(y=>y.s===p.s);if(!w)continue;
+      const i0=w.bars.findIndex(b=>b[0]>=x.d);if(i0<0)continue;const fertigBar=i0+H<w.C.length-(offen(regionVon(w.s))?1:0);
+      if(fertigBar){const r=(w.C[i0+H]/p.p0-1)*100-2*KOSTEN,bench=mean(W.filter(v=>v.idx.has(w.bars[i0][0])&&v.idx.get(w.bars[i0][0])+H<v.C.length).map(v=>{const j=v.idx.get(w.bars[i0][0]);return (v.C[j+H]/v.C[j]-1)*100}));erg.push({r,bench})}}
+    fertig[H]=erg.length?{n:erg.length,avg:+mean(erg.map(e=>e.r)).toFixed(2),plus:Math.round(erg.filter(e=>e.r>0).length/erg.length*100),bench:+mean(erg.map(e=>e.bench)).toFixed(2),besser:Math.round(erg.filter(e=>e.r>e.bench).length/erg.length*100)}:{n:0}}
+  for(const x of ST.listen.slice(-12).reverse())laufend.push({id:x.id,d:x.d,slot:x.slot,h:Object.fromEntries(HORIZONTE.map(H=>[H,(x.h[H]||[]).map(p=>{const w=W.find(y=>y.s===p.s),pj=w?(w.h.p||w.C[w.C.length-1]):null;return {s:p.s,n:w?w.n:p.s,p0:p.p0,r:pj?+((pj/p.p0-1)*100).toFixed(1):null}})]))});
 
-  // 6) neue Signale melden (nur bestätigte, vorläufige kurz vor Handelsschluss). Nachts ruhig: gesammelt, morgens nur was noch gilt.
-  const an=!(ctx.U&&ctx.U.notify&&ctx.U.notify.signale===false),neu=[];
-  for(const o of werte){if(o.sig==="abwarten")continue;const e=E.find(x=>x.w.s===o.s),t=e.hits.find(h=>h.r===o.r&&h.vorl===!!o.vorl);
-    const key=`${o.s}|${o.r}|${o.sig}|${o.seit}`;if(ST.sent[key])continue;
-    if(o.vorl){if(e.se.rest>45)continue}
-    ST.sent[key]=Date.now();if(t&&!ST.log.some(x=>x.s===o.s&&x.d===o.seit&&x.r===o.r))ST.log.push({s:o.s,nm:o.n,r:o.r,dir:o.sig==="kaufen"?1:-1,d:o.seit,sl:t.sl,tp:t.tp,st:"offen",t:Date.now()});
-    neu.push(key)}
-  bilanz();
-  for(const k of Object.keys(ST.sent))if(Date.now()-ST.sent[k]>20*864e5)delete ST.sent[k];
-  if(an&&ctx.send){const text=k=>{const o=werte.find(w=>`${w.s}|${w.r}|${w.sig}|${w.seit}`===k);return o?karte(o,ctx):null};
-    if(ctx.leise()){ST.nacht.push(...neu)}
-    else{const nacht=ST.nacht.map(text).filter(Boolean);ST.nacht=[];
-      if(nacht.length)await ctx.send(`🌅 <b>Neue Signale seit gestern Abend</b> (gelten weiterhin)\n\n${nacht.join("\n\n")}\n\n<i>${HINWEIS}</i>${link(ctx,"")}`);
-      const jetzt=neu.map(text).filter(Boolean);
-      if(jetzt.length)await ctx.send(`📶 <b>${jetzt.length>1?"Neue Trading-Signale":"Neues Trading-Signal"}</b>\n\n${jetzt.join("\n\n")}\n\n<i>${HINWEIS}</i>${link(ctx,"")}`)}}
-  else if(!an)ST.nacht=[];
+  // Liste für die App: KI-Auswahl (wenn von heute) sonst die reine Rechnung
+  const kiHeute=kiOk&&ST.listen.some(x=>x.id===ki.id&&Date.now()-x.t<20*36e5),aktuell=ST.listen.find(x=>kiOk&&x.id===ki.id);
+  const listen={};for(const H of HORIZONTE){const l=kiHeute?(ki.listen[H]||[]).slice(0,TOP):rang[H].slice(0,TOP).map(w=>({s:w.s}));
+    listen[H]=l.map((x,i)=>{const w=W.find(y=>y.s===x.s);if(!w)return null;const r=rang[H].findIndex(y=>y.s===x.s),p0=aktuell&&(aktuell.h[H]||[]).find(p=>p.s===x.s);
+      return Object.assign(fakten(w,H),{platz:i+1,rechenRang:r>=0?r+1:null,p0:kiHeute&&p0?p0.p0:undefined,warum:x.warum,treiber:x.treiber,risiken:x.risiken,termine:x.termine,zuversicht:x.zuversicht,quellen:Array.isArray(x.quellen)?x.quellen.filter(q=>q&&/^https?:\/\//.test(q.u||"")).slice(0,8):undefined})}).filter(Boolean)}
+  ST.app={v:2,t:Date.now(),top:TOP,kosten:KOSTEN,horizonte:HORIZONTE,test:ST.test,werte:W.length,
+    ki:kiHeute?{id:ki.id,erstellt:ki.erstellt,slot:ki.slot,markt:ki.markt||"",marktQuellen:Array.isArray(ki.marktQuellen)?ki.marktQuellen.slice(0,4):[],aussortiert:Array.isArray(ki.aussortiert)?ki.aussortiert.slice(0,12):[]}:null,
+    listen,bilanz:{fertig,laufend},fehler:Object.keys(ST.fehler).length?ST.fehler:undefined};
 
-  // 7) für die App (landet in kurse.json)
-  const fertigeLog=ST.log.filter(x=>x.st!=="offen"&&x.erg!=null).map(x=>({n:x.erg,art:x.st}));
-  ST.app={v:1,t:Date.now(),kosten:KOSTEN,halte:HALTE,minN:MIN_N,von:new Date(Date.now()-365*864e5).toISOString().slice(0,10),
-    regeln:REGELN,stat,werte,fehler:Object.keys(ST.fehler).length?ST.fehler:undefined,
-    live:{gesamt:statistik(fertigeLog),offen:ST.log.filter(x=>x.st==="offen").length,seit:ST.log.length?ST.log[0].d:null,liste:ST.log.slice(-40).reverse().map(x=>({s:x.s,n:x.nm||x.s,r:x.r,dir:x.dir,d:x.d,ein:x.ein,st:x.st,erg:x.erg,ende:x.ende}))}};
-  const alt=ST.k||"";ST.k=JSON.stringify(ST.app.werte.map(w=>[w.s,w.sig,w.p]));speichere(ST);
-  ctx.log("Signale:",werte.filter(w=>w.sig!=="abwarten").length,"aktiv von",werte.length,neu.length?`neu: ${neu.join(", ")}`:"");
+  // Vorlage für die Claude-Aufgabe (3x täglich)
+  const z=teile("Europe/Berlin"),slot=[...SLOTS].reverse().find(([,m])=>z.min>=m);
+  if(slot&&vollst&&ST.vorlage!==z.date+slot[0]){ST.vorlage=z.date+slot[0];await vorlage(ctx,W,rang,fakten,slot[0],z.date,kiOk&&ki.datum===z.date?ki:null)}
+
+  const alt=ST.k||"";ST.k=JSON.stringify([ST.app.ki&&ST.app.ki.id,...HORIZONTE.map(H=>listen[H].map(x=>x.s+x.p))]);speichere();
+  ctx.log("Top-Aktien:",HORIZONTE.map(H=>`${H}T ${listen[H].map(x=>x.s).join(",")}`).join(" | "),kiHeute?"(mit KI)":"(nur Rechnung)");
   return alt!==ST.k}
 
-/* ---------- Texte für Telegram ---------- */
-export const HINWEIS="Regel-Signale aus Kursdaten, getestet am letzten Jahr. Vergangene Trefferquoten sind keine Garantie. Keine Anlageberatung.";
-const CS={EUR:"€",USD:"$",GBp:"p",GBP:"£",CHF:"CHF"};
-const pz=v=>(v>0?"+":"")+(+v).toFixed(1).replace(".",",")+" %";
-function link(ctx,s){return ctx.APP?`\n<a href="${ctx.APP}trading/${s?"#s-"+encodeURIComponent(s):""}">In der Signale-App öffnen ›</a>`:""}
-function testZeile(t){if(!t||!t.n)return "Test: noch keine Testfälle";return `Test (${t.ebene}, 1 Jahr): ${t.win} % Gewinn-Trades, Ø ${pz(t.avg)} je Trade, ${t.n} Trades${t.wenig?" · in dieser Klasse noch wenige Fälle":""}`}
-function karte(o,ctx,lang){const esc=ctx.esc,c=o.k==="idx"?"Pkt.":CS[o.cur]||o.cur||"",kauf=o.sig==="kaufen";
-  const z=[`${kauf?"🟢 <b>KAUFEN</b>":"🔴 <b>VERKAUFEN</b>"} ${esc(o.n)} (${esc(o.s)})${o.vorl?" · <i>vorläufig bis Handelsschluss</i>":""}`,
-    `Einstieg ≈ ${dez(o.ein)} ${c} · Stop ${dez(o.stop)} (${pz((o.stop/o.ein-1)*100)}) · Ziel ${dez(o.ziel)} (${pz((o.ziel/o.ein-1)*100)}) · CRV ${f1(o.crv)}`,
-    `Regel: ${RNAME[o.r]}${lang?"":" – "+esc(o.g[0])}`,testZeile(o.test)];
-  if(lang)z.push("Begründung:\n"+o.g.map(g=>"• "+esc(g)).join("\n"));
-  if(!kauf)z.push("<i>Verkaufen heißt: Gewinne sichern bzw. nicht neu einsteigen. Getestet wurde es als Wette auf fallende Kurse.</i>");
-  return z.join("\n")}
-export const HILFE_ZEILEN=`/signale – aktuelle Trading-Signale (Kaufen/Verkaufen mit Einstieg, Stop, Ziel)
-/signal BTC – Signal und Begründung für einen Wert (z. B. /signal AAPL, /signal SAP.DE)`;
-export const FUSS_TEIL=" /signale /signal";
+async function vorlage(ctx,W,rang,fakten,slot,datum,bisher){const quart=await quartalszahlen(),kand={},alle=new Set();
+  for(const H of HORIZONTE)kand[H]=rang[H].slice(0,KAND).map((w,i)=>{alle.add(w.s);const f=fakten(w,H);delete f.spark;delete f.mt;delete f.eigen;return Object.assign(f,{rechenRang:i+1})});
+  const mel={};for(const s of alle){mel[s]={meldungen:await meldungen(s),quartalszahlen:(quart.find(q=>q.s===s)||{}).d||null}}
+  const alt={};if(bisher)for(const H of HORIZONTE)for(const x of bisher.listen[H]||[])if(alle.has(x.s)&&!alt[x.s])alt[x.s]={warum:x.warum,treiber:x.treiber,risiken:x.risiken,termine:x.termine,quellen:x.quellen};
+  const v={id:`b-${datum}-${slot}`,datum,slot,erstellt:new Date().toISOString(),
+    _anleitung:"Siehe trading/KI-AUFGABE.md. Kurz: Für jeden Zeitraum (3, 7, 30 Handelstage) aus den kandidaten genau 5 Werte auswählen und begründen, mit echter Websuche und Quellen-Links. Nur Werte aus der jeweiligen Kandidatenliste. Keine Zahlen erfinden. Ergebnis als data/beste.json.",
+    methode:{text:"Rangliste nach risikobereinigtem Kursanstieg (Anstieg geteilt durch normale Schwankung) plus Trend, abzüglich Überhitzung (RSI über 75). rechenRang 1 = beste Punktzahl.",test:ST.test},
+    kandidaten:kand,werteInfo:mel,_bisherHeute:Object.keys(alt).length?alt:undefined,
+    format:{id:"wie oben",datum:"wie oben",slot:"wie oben",erstellt:"ISO-Zeitstempel jetzt",markt:"2–3 Sätze zur Marktlage heute",marktQuellen:[{t:"Titel",u:"https://…",q:"Quelle",d:"JJJJ-MM-TT"}],
+      listen:{"3":[{s:"Kürzel aus kandidaten[3]",warum:"3–5 Sätze",treiber:["…"],risiken:["…"],termine:["…"],zuversicht:"niedrig|mittel|hoch",quellen:[{t:"Titel",u:"https://…",q:"Quelle",d:"JJJJ-MM-TT"}]}],"7":["…"],"30":["…"]},
+      aussortiert:[{s:"Kürzel",h:3,grund:"1 Satz, warum trotz guter Rechnung nicht gewählt"}]}};
+  fs.mkdirSync(ctx.P("data"),{recursive:true});fs.writeFileSync(ctx.P("data/beste-vorlage.json"),JSON.stringify(v,null,1));if(ctx.merk)ctx.merk("data/beste-vorlage.json");
+  ctx.log("Top-Aktien: Vorlage",v.id,[...alle].length,"Werte")}
 
-export async function befehl(c,arg,ctx){SF=ctx.P(".state/signale.json");if(!ST)ST=lade();const app=ST.app;const esc=ctx.esc;
-  if(c==="/signale"){if(!app||!app.werte)return ctx.send("Die Signale werden gerade zum ersten Mal berechnet. Bitte in ein paar Minuten nochmal /signale.",{direkt:true});
-    const filt=(arg||"").trim().toLowerCase(),kl=filt?Object.keys(KLASSEN).find(k=>k===filt||KLASSEN[k].toLowerCase().startsWith(filt)):null;
-    const akt=app.werte.filter(w=>w.sig!=="abwarten"&&(!kl||w.k===kl)).sort((a,b)=>(b.test.avg||0)-(a.test.avg||0));
-    const stand=new Date(app.t).toLocaleTimeString("de-DE",{timeZone:"Europe/Berlin",hour:"2-digit",minute:"2-digit"});
-    const head=`📶 <b>Trading-Signale</b>${kl?` · ${KLASSEN[kl]}`:""} (Stand ${stand} Uhr)`;
-    const rest=app.werte.filter(w=>w.sig==="abwarten"&&(!kl||w.k===kl)).length;
-    if(!akt.length)return ctx.send(`${head}\n\n⏸ Gerade kein Signal: alle ${rest} Werte auf <b>Abwarten</b>. Das ist normal, die Regeln schlagen nur selten an.\n\n<i>${HINWEIS}</i>${link(ctx,"")}`,{direkt:true});
-    return ctx.send(`${head}\n\n${akt.slice(0,10).map(o=>karte(o,ctx)).join("\n\n")}${akt.length>10?`\n\n… und ${akt.length-10} weitere in der App.`:""}\n\n⏸ ${rest} Werte: Abwarten\nFilter: /signale krypto, /signale us, /signale eu, /signale etf\nDetails: /signal Kürzel\n\n<i>${HINWEIS}</i>${link(ctx,"")}`,{direkt:true})}
-  // /signal X
-  const q=(arg||"").trim();if(!q)return ctx.send("Welcher Wert? Beispiel: /signal BTC, /signal AAPL oder /signal SAP.DE",{direkt:true});
-  const u=q.toUpperCase(),werte=(app&&app.werte)||[];
-  let o=werte.find(w=>w.s.toUpperCase()===u)||werte.find(w=>w.s.toUpperCase()===u+"-EUR"||w.s.toUpperCase()===u+".DE")||werte.find(w=>w.n.toLowerCase().includes(q.toLowerCase()));
-  if(!o){// unbekannter Wert: jetzt holen und berechnen (bleibt 3 Tage in der Liste)
-    const s=(ctx.finde&&ctx.finde(q))||u;try{const y=await yahoo(s,"2y");ST.hist[s]={d:new Date().toISOString().slice(0,10),bars:y.bars,cur:y.cur,p:y.p,mt:y.mt,lt:Date.now(),tmp:Date.now(),n:ctx.name?ctx.name(s):s,k:klasseVon(s)};
-      await lauf(ctx);o=((ST.app&&ST.app.werte)||[]).find(w=>w.s===s)}catch(e){return ctx.send(`Für „${esc(q)}“ habe ich keine Kurse gefunden. Tipp: Kürzel wie bei Yahoo, z. B. AAPL, SAP.DE, BTC-EUR.`,{direkt:true})}
-    if(!o)return ctx.send(`Für ${esc(s)} reichen die Kursdaten nicht (mindestens 60 Handelstage nötig).`,{direkt:true})}
-  const c2=o.k==="idx"?"Pkt.":CS[o.cur]||o.cur||"",i=o.ind||{};
-  const kopf=`📶 <b>${esc(o.n)}</b> (${esc(o.s)}) · ${KL1[o.k]||""}\nKurs ${dez(o.p)} ${c2} · heute ${pz(o.dp)}${o.k==="eu"||o.k==="idx"?" · Kurs ca. 15 Min. verzögert":""}`;
-  const indT=`<b>Kennzahlen</b>\nRSI ${i.rsi!=null?f1(i.rsi):"–"} · MACD ${i.macd!=null&&i.ms!=null?(i.macd>i.ms?"über":"unter")+" Signallinie":"–"} · Trend ${i.trend?esc(i.trend):"–"}${i.volR!=null?` · Volumen ${f1(i.volR)}× Schnitt`:""}`;
-  const tsT=Object.entries(o.ts||{}).map(([k,s])=>{const [r,d]=k.split(":");return `• ${RNAME[r]} ${+d>0?"Kauf":"Verkauf"}: ${s.win} % Gewinn-Trades, Ø ${pz(s.avg)} (${s.n})`}).join("\n");
-  const sig=o.sig==="abwarten"?`⏸ <b>Abwarten</b>${o.hin?`\n${esc(o.hin)}`:"\nGerade schlägt keine Regel an."}`:karte(o,ctx,true);
-  return ctx.send(`${kopf}\n\n${sig}\n\n${indT}${tsT?`\n\n<b>Regeln an diesem Wert getestet</b> (1 Jahr)\n${tsT}`:""}\n\n<i>${HINWEIS}</i>${link(ctx,o.s)}`,{direkt:true})}
+/* ---------- Telegram ---------- */
+export const HINWEIS="Rangliste aus Kursdaten, von der KI mit Quellen geprüft. Vergangene Ergebnisse sind keine Garantie. Keine Anlageberatung.";
+const esc=(ctx,s)=>ctx.esc?ctx.esc(s):String(s??"");
+function link(ctx,s){return ctx.APP?`\n<a href="${ctx.APP}trading/${s?"#s-"+encodeURIComponent(s):""}">In der Top-Aktien-App öffnen ›</a>`:""}
+export const HILFE_ZEILEN=`/beste – die besten Aktien für 3, 7 und 30 Tage mit Grund (/beste 7 nur ein Zeitraum)
+/warum SAP – warum ein Wert in der Liste ist, mit Quellen und Entwicklung`;
+export const FUSS_TEIL=" /beste /warum";
+const cs=x=>CS[x.cur]||x.cur||"";
+export async function befehl(c,arg,ctx){SF=ctx.P(".state/beste.json");if(!ST)ST=lade();const A=ST.app;
+  if(!A||!A.listen)return ctx.send("Die Liste wird gerade zum ersten Mal berechnet (dauert 2–3 Läufe). Bitte gleich nochmal versuchen.",{direkt:true});
+  const kiT=A.ki?`Recherche ${esc(ctx,A.ki.slot||"")} ${new Date(A.ki.erstellt||A.t).toLocaleTimeString("de-DE",{timeZone:"Europe/Berlin",hour:"2-digit",minute:"2-digit"})} Uhr`:"KI-Recherche steht noch aus, nur Rechnung";
+  if(c==="/beste"||c==="/signale"){const nur=HORIZONTE.find(H=>String(H)===String(arg||"").replace(/\D/g,""));
+    const teil=H=>{const t=(A.test.h||{})[H]||{};return `📅 <b>${H} Handelstage</b>${t.tage?` <i>(Test: Top ${A.top} lagen an ${t.besser} % der Tage vorn, Ø ${pz(t.topAvg)} statt ${pz(t.alleAvg)})</i>`:""}\n${A.listen[H].map(x=>`${x.platz}. <b>${esc(ctx,x.n)}</b> ${dez(x.p)} ${cs(x)}${x.p0?` · seit Liste ${pz((x.p/x.p0-1)*100)}`:""}${x.warum?`\n   ${esc(ctx,String(x.warum).split(/(?<=\.)\s/)[0])}`:`\n   4 Wochen ${pz(x.wochen4)}, 3 Monate ${pz(x.monate3)}`}`).join("\n")}`};
+    return ctx.send(`🏆 <b>Top-Aktien</b> · ${kiT}\n\n${(nur?[nur]:HORIZONTE).map(teil).join("\n\n")}${A.ki&&A.ki.markt?`\n\n🌍 ${esc(ctx,A.ki.markt)}`:""}\n\nDetails mit Quellen: /warum Kürzel\n<i>${HINWEIS}</i>${link(ctx)}`,{direkt:true})}
+  // /warum X
+  const q=(arg||"").trim();if(!q)return ctx.send("Welcher Wert? Beispiel: /warum NVDA oder /warum SAP",{direkt:true});
+  const u=q.toUpperCase(),alle=HORIZONTE.flatMap(H=>A.listen[H].map(x=>Object.assign({H},x)));
+  const treffer=alle.filter(x=>x.s.toUpperCase()===u||x.s.toUpperCase()===u+".DE"||x.n.toLowerCase().includes(q.toLowerCase()));
+  if(!treffer.length)return ctx.send(`${esc(ctx,q)} ist gerade in keiner Liste. Aktuell drin: ${[...new Set(alle.map(x=>x.n))].map(n=>esc(ctx,n)).join(", ")}`,{direkt:true});
+  const x=treffer.find(t=>t.warum)||treffer[0],in_=treffer.map(t=>`${t.H} Tage: Platz ${t.platz}`).join(" · ");
+  const z=[`🔎 <b>${esc(ctx,x.n)}</b> (${esc(ctx,x.s)}) · ${dez(x.p)} ${cs(x)} · heute ${pz(x.dp)}`,`In der Liste: ${in_}`,
+    `Kurs: 5 Tage ${pz(x.tage5)} · 4 Wochen ${pz(x.wochen4)} · 3 Monate ${pz(x.monate3)} · RSI ${x.rsi??"–"} · Trend ${x.trend||"–"}`,
+    x.bereich?`Übliche Schwankung in ${x.H} Tagen: ${dez(x.bereich.lo)}–${dez(x.bereich.hi)} ${cs(x)} (keine Prognose, nur die normale Bandbreite)`:""];
+  if(x.p0)z.push(`Seit der Liste: ${pz((x.p/x.p0-1)*100)}`);
+  if(x.warum)z.push(`\n<b>Warum</b>\n${esc(ctx,x.warum)}`);else z.push("\n<i>Die KI-Recherche für diese Liste steht noch aus.</i>");
+  if(x.treiber&&x.treiber.length)z.push(`<b>Treiber</b>\n${x.treiber.map(t=>"• "+esc(ctx,t)).join("\n")}`);
+  if(x.risiken&&x.risiken.length)z.push(`<b>Risiken</b>\n${x.risiken.map(t=>"• "+esc(ctx,t)).join("\n")}`);
+  if(x.termine&&x.termine.length)z.push(`<b>Termine</b>\n${x.termine.map(t=>"• "+esc(ctx,t)).join("\n")}`);
+  if(x.zuversicht)z.push(`Zuversicht der KI: <b>${esc(ctx,x.zuversicht)}</b>`);
+  if(x.quellen&&x.quellen.length)z.push(`<b>Quellen</b>\n${x.quellen.map(q=>`• <a href="${esc(ctx,q.u)}">${esc(ctx,q.t||q.q||"Quelle")}</a>${q.q?` (${esc(ctx,q.q)}${q.d?", "+esc(ctx,q.d):""})`:""}`).join("\n")}`);
+  return ctx.send(`${z.filter(Boolean).join("\n")}\n\n<i>${HINWEIS}</i>${link(ctx,x.s)}`,{direkt:true})}
