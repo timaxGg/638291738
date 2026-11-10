@@ -1,1 +1,2400 @@
-{"version":2,"generated":"2026-11-10T07:06:47+01:00","dataAsOf":"2026-11-10","indices":[{"n":"DAX","v":26267.19,"c":1.73,"s":"Europa"},{"n":"MDAX","v":31072.75,"c":1.41,"s":"Europa"},{"n":"Euro Stoxx 50","v":6290.45,"c":1.94,"s":"Europa"},{"n":"FTSE 100","v":10782.87,"c":1.02,"s":"Europa"},{"n":"CAC 40","v":8233.3,"c":1.16,"s":"Europa"},{"n":"S&P 500","v":752.69,"c":2.37,"s":"USA, über SPY"},{"n":"Nasdaq 100","v":679.35,"c":3.54,"s":"USA, über QQQ"},{"n":"Dow Jones","v":523.33,"c":2.17,"s":"USA, über DIA"}],"sectors":[{"n":"Technologie","c":2.05,"p":"Europa"},{"n":"Gesundheit","c":0.7,"p":"Europa"},{"n":"Banken","c":2.98,"p":"Europa"},{"n":"Energie","c":-0.13,"p":"Europa"},{"n":"Autos","c":0.15,"p":"Europa"},{"n":"Industrie","c":2.14,"p":"Europa"},{"n":"Technologie","c":3.73,"p":"USA"},{"n":"Gesundheit","c":1.91,"p":"USA"},{"n":"Finanzen","c":1.45,"p":"USA"},{"n":"Energie","c":0.52,"p":"USA"},{"n":"Konsum","c":2.92,"p":"USA"},{"n":"Industrie","c":3.82,"p":"USA"}],"calendar":[],"stocks":[{"s":"SPY","n":"S&P 500 ETF","closes":[752.6900024414062,735.2899780273438,733,766.8099975585938,754.3499755859375,752.0999755859375,755.719970703125,769.3599853515625,772.3099975585938,769.6599731445312,765.3699951171875,759.969970703125,763.9600219726562,773.0900268554688,769.0499877929688,766.47998046875,763.25,771.7899780273438,769.5999755859375,778.010009765625,778.0999755859375,778.5700073242188,773.9299926757812,777.219970703125,779.0900268554688,774.8300170898438,769.6400146484375,763.989990234375,762.6300048828125,764.2000122070312,765.6099853515625,771.3499755859375,767.1799926757812,767.8099975585938,773.3800048828125,773.5,761.6900024414062,762.5999755859375,754.0499877929688,757.3900146484375,760.8800048828125,764.2899780273438,757.8300170898438,762.4000244140625,765.9600219726562,770.1900024414062,773.1699829101562,765.1599731445312,761.780029296875,767.0499877929688,769.3499755859375,771.0999755859375,766.0800170898438,765.9099731445312,763.469970703125,765.719970703125,762.5999755859375,769.0599975585938,767.4500122070312,772.6699829101562,776.3400268554688,777.8800048828125,772.489990234375,770.5599975585938,773.030029296875],"cur":"USD","cat":"Breiter US-Markt","h":"lang","bias":1,"why":"Der S&P 500 hat sich am Montag um gut 2 % erholt, nachdem die Vorwoche von einem Ausverkauf bei KI-Werten geprägt war. Auf vier Wochen liegt er noch gut 3 % im Minus und nahe am 3-Monats-Tief.","ausblick":"Am wahrscheinlichsten ist eine Seitwärtsbewegung mit großen Ausschlägen, bis sich der Streit um KI-Bewertungen beruhigt. Die Rechnung sieht eine Mitte um 763 bei einer Spanne von etwa 711 bis 819 in drei Monaten. Das ist unsicher, weil die Stimmung schnell kippen kann.","richtung":"seitwärts","zuversicht":"niedrig","horizont":"2–3 Monate","halten":"Als breiter Marktbaustein passt der ETF eher zu einem langen Zeitraum; der Kauf liegt rund 2 % im Plus. Dagegen spricht kurzfristig der Abwärtstrend und die hohe Abhängigkeit von großen Tech-Werten.","signale":["Schluss unter rund 735 (3-Monats-Tief) würde den Abwärtstrend bestätigen","Rückgang des VIX unter 15 spräche für Beruhigung","Neue Schlagzeilen zu KI-Bewertungen"],"muster":"Das Todeskreuz und die Nähe zum 3-Monats-Tief deuten auf Schwäche, die übliche Jahresend-Stärke spricht dagegen. Solche Signale treffen oft nicht zu und sind daher unsicher.","pro":["Kräftige Erholung zu Wochenbeginn","Fallender Ölpreis entlastet","Jahresende oft freundlich"],"con":["Abwärtstrend seit vier Wochen","Unsicherheit um KI-Bewertungen"],"news":["n143663025","ny1172309629","n8737058"],"warn":1,"warnGrund":"Die Debatte um überbewertete KI-Aktien hält an.","quellen":[{"t":"Tech leads Asian stock rally as traders track Wall St rebound","u":"https://finnhub.io/api/news?id=63768f7d3c8064721680987c6ad68fd3b5947900378fe19e87b33960215f7440"},{"t":"Tom Lee und ein JPMorgan-Manager halten die KI-Korrektur für normal: Steigt der Nasdaq um 15 %?","u":"https://de.beincrypto.com/tom-lee-kauft-ai-dip-nasdaq-rally/?.tsrc=rss"},{"t":"Oil falls as Trump downplays prospect of escalation with Iran - Reuters","u":"https://news.google.com/rss/articles/CBMiqwFBVV95cUxQYWIxdHFYZXdDLUkyNjhxSklldE1kTVJUMXBHOENVUUF0YWVXRmhpbGhvSDdJSUtSUG9ZUk5FVGxZdExQa0c0WmJFZDd2QXFNUnJUV0ZuZ0x3eHZCTFBiVXY3b0lVMVA0RkVaVllFRHJHSjJaUmlpSjNOQThxOGhoN05LelBtdjE4Qk5PbnRoTThFVWc3NE91WlE2WHJKbG5kWEVkeF9SS20wSGs?oc=5"}]},{"s":"URTH","n":"MSCI World ETF","closes":[204.82000732421875,199.6699981689453,199.6300048828125,207.8699951171875,204.27999877929688,204.14999389648438,204.63999938964844,207.97000122070312,208.07000732421875,207.58999633789062,206.22000122070312,205.14999389648438,206.1699981689453,208.49000549316406,207.39999389648438,206.64999389648438,206.33999633789062,208.11000061035156,207.25999450683594,209.16000366210938,208.92999267578125,209.13999938964844,207.8699951171875,208.6699981689453,209.72999572753906,208.5500030517578,207.52999877929688,205.83999633789062,206.22999572753906,206.7100067138672,207.17999267578125,208.72999572753906,207.64999389648438,207.83999633789062,210.02000427246094,209.6999969482422,206.77000427246094,207.2100067138672,204.7100067138672,205.6300048828125,206.8000030517578,207.69000244140625,205.8699951171875,207.4499969482422,208.6300048828125,209.82000732421875,210.33999633789062,208,207.02999877929688,208.82000732421875,209.42999267578125,209.92999267578125,208.9600067138672,209.3300018310547,208.47999572753906,209.07000732421875,207.8300018310547,209.22000122070312,208.74000549316406,210.42999267578125,211.2100067138672,211.50999450683594,210.3800048828125,209.69000244140625,210.11000061035156],"cur":"USD","cat":"Weltaktien breit","h":"lang","bias":1,"why":"Der MSCI World legte am Montag um rund 2,6 % zu und folgte der Erholung in den USA. Über vier Wochen steht dennoch ein Minus von etwa 2 %.","ausblick":"Wegen des hohen US-Anteils hängt der Weg stark an der Wall Street. Die Rechnung nennt in drei Monaten eine Mitte um 206 bei einer Spanne von etwa 192 bis 220. Eine Richtung zeichnet sich noch nicht klar ab.","richtung":"seitwärts","zuversicht":"niedrig","horizont":"2–3 Monate","halten":"Breit gestreut und daher eher für einen langen Zeitraum geeignet; seit Kauf leicht im Plus. Dagegen spricht die kurzfristige Schwäche und die starke Gewichtung großer US-Tech-Werte.","signale":["Fall unter rund 192 (untere Spanne)","Anhaltende Erholung der US-Tech-Werte","Entwicklung des Ölpreises"],"muster":"Die Nähe zum 3-Monats-Tief könnte als Stütze wirken, bricht sie, drohen weitere Verluste. Die Jahresend-Stärke ist nur eine historische Tendenz und unsicher.","pro":["Breite Streuung","Erholung zu Wochenbeginn"],"con":["Leichter Abwärtstrend","Hohe Abhängigkeit vom US-Markt"],"news":["n143663025","ny1172309629","n8737058"],"warn":1,"warnGrund":"Der Streit um KI-Bewertungen belastet den Gesamtmarkt.","quellen":[{"t":"Tech leads Asian stock rally as traders track Wall St rebound","u":"https://finnhub.io/api/news?id=63768f7d3c8064721680987c6ad68fd3b5947900378fe19e87b33960215f7440"},{"t":"Tom Lee und ein JPMorgan-Manager halten die KI-Korrektur für normal: Steigt der Nasdaq um 15 %?","u":"https://de.beincrypto.com/tom-lee-kauft-ai-dip-nasdaq-rally/?.tsrc=rss"}]},{"s":"SAP","n":"SAP (USA, $)","closes":[237.4199981689453,233.4499969482422,243.52999877929688,240.0399932861328,230.30999755859375,233.6199951171875,235.02000427246094,234.07000732421875,236.92999267578125,235.8000030517578,238.5500030517578,238.13999938964844,240.58999633789062,232.72999572753906,228.97999572753906,226.02999877929688,224.2899932861328,225,220.49000549316406,219.75,217.85000610351562,214.77999877929688,212.39999389648438,210.1300048828125,210.4600067138672,207.74000549316406,208.57000732421875,210.7899932861328,208.47999572753906,210.85000610351562,209.30999755859375,210.67999267578125,209.11000061035156,210.6199951171875,210.67999267578125,209.22000122070312,209.4499969482422,213.66000366210938,213.1999969482422,215.6699981689453,218.27999877929688,206.36000061035156,205.9499969482422,209.13999938964844,211.49000549316406,215.11000061035156,217.02999877929688,209.69000244140625,212.0399932861328,220.88999938964844,221.5399932861328,221.1699981689453,211.67999267578125,216.92999267578125,218.66000366210938,218.67999267578125,217.08999633789062,215.60000610351562,210.47000122070312,207.83999633789062,207.97000122070312,209.27999877929688,204.14999389648438,209.67999267578125,208.5500030517578],"cur":"USD","cat":"Software","h":"lang","bias":-0.5,"why":"SAP stieg am Montag um 1,7 % und liegt über drei Monate rund 14 % im Plus. Die Aktie notiert nahe am 3-Monats-Hoch.","ausblick":"Der Aufwärtstrend spricht für weitere Stärke, nach dem schnellen Anstieg sind Rücksetzer aber wahrscheinlich. Die Rechnung sieht eine Mitte um 257 Dollar bei einer Spanne von etwa 224 bis 296. Eine Abstufung und Währungsrisiken mahnen zur Vorsicht.","richtung":"steigend","zuversicht":"mittel","horizont":"2–3 Monate","halten":"Für einen langen Zeitraum spricht das stabile Softwaregeschäft; der Kauf liegt knapp 2 % im Plus. Dagegen sprechen die bereits gute Entwicklung und Euro-Schwankungen, die die Dollar-Notierung beeinflussen.","signale":["Ausbruch über das 3-Monats-Hoch","Rückfall unter rund 224 Dollar","Weitere Analysten-Abstufungen"],"muster":"Nahe am 3-Monats-Hoch kann es zu Gegenwind kommen, ein Ausbruch würde den Trend stärken. Die Aktie läuft nur teilweise mit dem S&P 500; das ist kein sicherer Zusammenhang.","pro":["Klarer Aufwärtstrend","Nur mäßiger Gleichlauf mit dem Gesamtmarkt"],"con":["Abstufung nach starkem Anstieg","Euro-Risiken"],"news":["n143661029"],"warn":1,"warnGrund":"Ein Analyst hat die Aktie nach der Erholung abgestuft.","quellen":[{"t":"SAP: Trim On The Recent Rebound, Especially With Euro Turmoil Rising (Downgrade)","u":"https://finnhub.io/api/news?id=07ac48032e9d9a84e6e7c75479d0a0f14570bfa09291ef1e40686171e5841af2"}]},{"s":"SIE.DE","n":"Siemens","closes":[263.6499938964844,273.25,275.6499938964844,269.75,270.3500061035156,265.6499938964844,273.75,270.04998779296875,266.20001220703125,261.3999938964844,256.79998779296875,255.6999969482422,266.75,260.25,266.20001220703125,270.6499938964844,270.6499938964844,275.04998779296875,274.5,275.75,272.1000061035156,264.25,271.20001220703125,279,275,276.1000061035156,271.8999938964844,275.5,282,278.45001220703125,278.29998779296875,274.79998779296875,273.95001220703125,273.8500061035156,273.5,264,266.6000061035156,260.5,258.79998779296875,261.79998779296875,264.6499938964844,258.1000061035156,264.3999938964844,272.5,270.3999938964844,272.6499938964844,270.6000061035156,273.79998779296875,277.8500061035156,285.6000061035156,289.8500061035156,286.95001220703125,288.1000061035156,285.54998779296875,280.6000061035156,280.3500061035156,276,276.6499938964844,275.79998779296875,282.29998779296875,284,284.1000061035156,281.95001220703125,280.25,276.95001220703125],"cur":"EUR","cat":"Industrie / Technik","h":"lang","bias":0.5,"why":"Siemens stieg am Montag um 2,8 %, liegt über vier Wochen aber noch leicht im Minus. Bernstein sieht den Konzern als Profiteur des Rechenzentren-Ausbaus.","ausblick":"Nach Seitwärtsphase könnte die Aktie von Rechenzentren-Fantasie und dem Umbau des Konzerns profitieren. Die Rechnung sieht in drei Monaten eine Mitte um 274 Euro bei einer Spanne von 239 bis 315. Schwankungen bleiben hoch.","richtung":"seitwärts","zuversicht":"mittel","horizont":"2–3 Monate","halten":"Positive Analystenstimmen und der klare Fokus auf Industrie und Software sprechen eher für einen langen Zeitraum; seit Kauf knapp 3 % im Plus. Dagegen sprechen die Konjunkturabhängigkeit und der fehlende Trend.","signale":["Fall unter rund 239 Euro","Neue Aufträge aus dem Rechenzentrums-Bereich","Entwicklung des Gesamtmarkts (S&P 500)"],"muster":"Die Aktie läuft recht stark mit dem S&P 500 und eher gegen den Ölpreis; fallendes Öl könnte also helfen. Diese Zusammenhänge sind schwankend und unsicher.","pro":["Bernstein-Favorit beim Rechenzentren-Thema","Kräftiger Anstieg zu Wochenbeginn"],"con":["Kein klarer Trend","Abhängig von Konjunktur und Gesamtmarkt"],"news":["ny910394608","ny496951525"],"warn":0,"warnGrund":"","quellen":[{"t":"Rechenzentren-Boom: Bernstein setzt auf Siemens, Siemens Energy und Schneider","u":"https://de.finance.yahoo.com/nachrichten/rechenzentren-boom-bernstein-setzt-siemens-064108042.html?.tsrc=rss"},{"t":"Nach Trennung vom Mutterkonzern: Healthineers streicht Siemens aus seinem Namen","u":"https://de.finance.yahoo.com/nachrichten/trennung-mutterkonzern-healthineers-streicht-siemens-060519987.html?.tsrc=rss"}]},{"s":"EXS1.DE","n":"iShares Core DAX ETF","closes":[212.60000610351562,217.5,218.0500030517578,213.14999389648438,214.10000610351562,212.6999969482422,214.64999389648438,211.75,210.85000610351562,209.39999389648438,207.4499969482422,209.14999389648438,211.5500030517578,208.60000610351562,208.64999389648438,211.1999969482422,209.14999389648438,208.60000610351562,208.14999389648438,208.39999389648438,206.8000030517578,204.4499969482422,206.9499969482422,209.8000030517578,208.10000610351562,208.0500030517578,205.4499969482422,207.64999389648438,209.25,209.1999969482422,209.5,208.14999389648438,209.5500030517578,210.85000610351562,210.85000610351562,208.5500030517578,212.0500030517578,210.5500030517578,209.39999389648438,209.6999969482422,210.8000030517578,209.10000610351562,210.85000610351562,214.3000030517578,214.35000610351562,214.6999969482422,214.39999389648438,212.9499969482422,214,216.4499969482422,218.9499969482422,217.25,216.6999969482422,216.64999389648438,215.1999969482422,215.5,214.10000610351562,215.10000610351562,215.4499969482422,217.10000610351562,217.8000030517578,216.85000610351562,217.1999969482422,217.5500030517578,217],"cur":"EUR","cat":"Deutsche Aktien breit","h":"lang","bias":0.5,"why":"Der DAX-ETF legte am Montag um 1,8 % zu und steht über vier Wochen fast 4 % im Plus. Er notiert nahe am 3-Monats-Hoch.","ausblick":"Der jüngste Aufwärtstrend und fallendes Öl könnten den DAX weiter stützen. Die Rechnung sieht in drei Monaten eine Mitte um 221 Euro bei einer Spanne von 206 bis 237. Ein Rückschlag an der Wall Street würde auch hier belasten.","richtung":"steigend","zuversicht":"mittel","horizont":"2–3 Monate","halten":"Breit gestreut über deutsche Großkonzerne und daher eher für einen langen Zeitraum; seit Kauf knapp 2 % im Plus. Dagegen spricht die Abhängigkeit von Export und Industrie.","signale":["Ausbruch über das 3-Monats-Hoch","Fall unter rund 206 Euro","Wieder steigender Ölpreis"],"muster":"Goldenes Kreuz und die Nähe zum Hoch deuten auf Stärke, am Hoch kann aber Widerstand bremsen. Der DAX läuft eher gegen den Ölpreis; alles nur unsichere Tendenzen.","pro":["Aufwärtstrend über vier Wochen","Fallender Ölpreis"],"con":["Widerstand am 3-Monats-Hoch","Abhängig von der Weltkonjunktur"],"news":["n8737058"],"warn":0,"warnGrund":"","quellen":[{"t":"Oil falls as Trump downplays prospect of escalation with Iran - Reuters","u":"https://news.google.com/rss/articles/CBMiqwFBVV95cUxQYWIxdHFYZXdDLUkyNjhxSklldE1kTVJUMXBHOENVUUF0YWVXRmhpbGhvSDdJSUtSUG9ZUk5FVGxZdExQa0c0WmJFZDd2QXFNUnJUV0ZuZ0x3eHZCTFBiVXY3b0lVMVA0RkVaVllFRHJHSjJaUmlpSjNOQThxOGhoN05LelBtdjE4Qk5PbnRoTThFVWc3NE91WlE2WHJKbG5kWEVkeF9SS20wSGs?oc=5"}]},{"s":"EUNK.DE","n":"iShares Core MSCI Europe ETF","closes":[105.5999984741211,106.73999786376953,107.18000030517578,105.0999984741211,105.77999877929688,105.27999877929688,105.68000030517578,104.80000305175781,104.69999694824219,104.16000366210938,103.5,103.80000305175781,104.81999969482422,103.87999725341797,103.95999908447266,104.81999969482422,104.0999984741211,103.68000030517578,103.19999694824219,103.33999633789062,102.66000366210938,101.62000274658203,102.5199966430664,103.41999816894531,102.94000244140625,102.73999786376953,101.94000244140625,103.22000122070312,103.68000030517578,103.80000305175781,103.86000061035156,103.5199966430664,103.95999908447266,104.31999969482422,104.22000122070312,103.16000366210938,104.36000061035156,103.5199966430664,103.0199966430664,103.4800033569336,103.83999633789062,103.33999633789062,104.04000091552734,105.5199966430664,105.62000274658203,105.58000183105469,105.5,104.95999908447266,105.18000030517578,105.55999755859375,106.41999816894531,105.91999816894531,106.5999984741211,106.72000122070312,106.27999877929688,106.31999969482422,105.66000366210938,105.80000305175781,105.94000244140625,106.69999694824219,106.83999633789062,107.08000183105469,107.0199966430664,107.16000366210938,107.13999938964844],"cur":"EUR","cat":"Europa-Aktien breit","h":"lang","bias":0.5,"why":"Der Europa-ETF stieg am Montag um 1,4 % und liegt über vier Wochen knapp 4 % im Plus. Er schwankt vergleichsweise wenig.","ausblick":"Ein leichter Anstieg ist wahrscheinlich, getragen von günstigerem Öl und defensiven Werten wie Schweizer Pharma. Die Rechnung sieht eine Mitte um 109 Euro bei einer Spanne von 103 bis 115. Die Prognose bleibt unsicher.","richtung":"steigend","zuversicht":"mittel","horizont":"2–3 Monate","halten":"Breite Streuung und geringe Schwankung sprechen für einen langen Zeitraum; der erst gestern begonnene Kauf liegt knapp 1 % im Plus. Dagegen spricht, dass Europa bei einer Wachstumsschwäche mit betroffen wäre.","signale":["Fall unter rund 103 Euro","Ausbruch über das 3-Monats-Hoch","Wieder steigender Ölpreis"],"muster":"Goldenes Kreuz und Nähe zum Hoch deuten auf Stärke, am Hoch kann es aber stocken. Fallendes Öl hat zuletzt eher geholfen; das ist kein fester Zusammenhang.","pro":["Geringe Schwankung","Aufwärtstrend über vier Wochen"],"con":["Widerstand am 3-Monats-Hoch","Konjunkturrisiken in Europa"],"news":["n8737058"],"warn":0,"warnGrund":"","quellen":[{"t":"Oil falls as Trump downplays prospect of escalation with Iran - Reuters","u":"https://news.google.com/rss/articles/CBMiqwFBVV95cUxQYWIxdHFYZXdDLUkyNjhxSklldE1kTVJUMXBHOENVUUF0YWVXRmhpbGhvSDdJSUtSUG9ZUk5FVGxZdExQa0c0WmJFZDd2QXFNUnJUV0ZuZ0x3eHZCTFBiVXY3b0lVMVA0RkVaVllFRHJHSjJaUmlpSjNOQThxOGhoN05LelBtdjE4Qk5PbnRoTThFVWc3NE91WlE2WHJKbG5kWEVkeF9SS20wSGs?oc=5"}]},{"s":"XDEW.DE","n":"Xtrackers S&P 500 Equal Weight ETF","closes":[108.66000366210938,109.18000030517578,110.66000366210938,109.76000213623047,110.12000274658203,109.4000015258789,109.73999786376953,108.9000015258789,108.77999877929688,108.45999908447266,108.27999877929688,108.0199966430664,107.63999938964844,107.13999938964844,106.54000091552734,106.86000061035156,106.83999633789062,106.23999786376953,106.0199966430664,106.66000366210938,106.12000274658203,104.73999786376953,105,105.4800033569336,104.83999633789062,104.04000091552734,103.18000030517578,102.95999908447266,102.9000015258789,102.73999786376953,103.13999938964844,103.22000122070312,104,103.73999786376953,103.54000091552734,103.05999755859375,103.5,103.27999877929688,103.18000030517578,103.45999908447266,102.94000244140625,102.41999816894531,102.94000244140625,104.05999755859375,104.45999908447266,104.9800033569336,105.22000122070312,105.04000091552734,104.80000305175781,105.13999938964844,106.22000122070312,106.0999984741211,106.05999755859375,105.76000213623047,105.69999694824219,105.77999877929688,105.66000366210938,106.23999786376953,106.12000274658203,106.30000305175781,107.0999984741211,107.05999755859375,106.4000015258789,106.37999725341797,106.18000030517578],"cur":"EUR","cat":"US-Aktien gleichgewichtet","h":"lang","bias":0.5,"why":"Der gleichgewichtete S&P-500-ETF stieg am Montag um 1,1 %. Er hat sich in den letzten Monaten stabiler entwickelt als der klassische S&P 500.","ausblick":"Weil große Tech-Werte hier weniger Gewicht haben, trifft ihn der KI-Streit weniger. Die Rechnung sieht eine Mitte um 114 Euro bei einer Spanne von 109 bis 118. Ein schwächerer Dollar könnte in Euro gerechnet bremsen.","richtung":"steigend","zuversicht":"mittel","horizont":"2–3 Monate","halten":"Breite Streuung ohne Übergewicht einzelner Tech-Riesen spricht für einen langen Zeitraum; der Kauf von gestern liegt rund 1 % im Plus. Dagegen spricht das Dollar-Risiko.","signale":["Fall unter rund 109 Euro","Weiter steigender Euro gegenüber dem Dollar","Anhaltende Stärke der Nicht-Tech-Sektoren"],"muster":"Die Nähe zum 3-Monats-Hoch kann bremsen, ein Ausbruch wäre ein positives Zeichen. Der Fonds läuft nur mäßig mit dem S&P 500 mit; beides ist unsicher.","pro":["Geringe Schwankung","Weniger abhängig von KI-Werten"],"con":["Währungsrisiko Dollar/Euro","Widerstand am 3-Monats-Hoch"],"news":["n143663025"],"warn":0,"warnGrund":"","quellen":[{"t":"Tech leads Asian stock rally as traders track Wall St rebound","u":"https://finnhub.io/api/news?id=63768f7d3c8064721680987c6ad68fd3b5947900378fe19e87b33960215f7440"}]},{"s":"AAPL","n":"Apple","closes":[350.69000244140625,342.3699951171875,344.1700134277344,349.510009765625,331.8999938964844,338.32000732421875,344.6300048828125,348.9100036621094,343.8299865722656,347.1000061035156,343.9100036621094,347.7300109863281,348.2200012207031,343.989990234375,339.5,342.94000244140625,343.4599914550781,342,342.9599914550781,341.2699890136719,340.9700012207031,336.6400146484375,340.4200134277344,336.6700134277344,333.6300048828125,332.8900146484375,333.69000244140625,330.32000732421875,333.0199890136719,329.3999938964844,338.3999938964844,341.07000732421875,335.9200134277344,337.0199890136719,339.75,338.9800109863281,336.1300048828125,337,332.4100036621094,331.3399963378906,333.0799865722656,332.2699890136719,326.57000732421875,315.3399963378906,316.2200012207031,319.9700012207031,328.2099914550781,324.9599914550781,325.1300048828125,316.8500061035156,319.70001220703125,314.5799865722656,313.45001220703125,309.8999938964844,310.3399963378906,309.3500061035156,311.29998779296875,316.8299865722656,310.0299987792969,305.5899963378906,305.92999267578125,305.260009765625,302.25,304.9100036621094,308.260009765625],"cur":"USD","cat":"Geräte / Dienste","h":"lang","bias":1,"why":"Apple stieg am Montag um 2,4 % im Zuge der Tech-Erholung. Über drei Monate liegt die Aktie rund 14 % im Plus und nahe am 3-Monats-Hoch.","ausblick":"Der Aufwärtstrend ist intakt, doch die Stimmung bei Tech-Werten ist anfällig. Die Rechnung sieht eine Mitte um 380 Dollar bei einer Spanne von 341 bis 423. Rücksetzer am Hoch sind möglich.","richtung":"steigend","zuversicht":"mittel","horizont":"2–3 Monate","halten":"Für einen langen Zeitraum sprechen das starke Dienste-Geschäft und der Trend; der Kauf von gestern liegt gut 2 % im Plus. Dagegen sprechen die hohe Bewertung und die Abhängigkeit von der Tech-Stimmung.","signale":["Ausbruch über das 3-Monats-Hoch","Fall unter rund 341 Dollar","Neue Ausverkaufswelle bei Tech-Werten"],"muster":"Nahe am Hoch kann Verkaufsdruck entstehen, ein Ausbruch würde den Trend stärken. Die Jahresend-Stärke ist nur eine unsichere Tendenz.","pro":["Klarer Aufwärtstrend","Tech-Erholung zu Wochenbeginn"],"con":["Widerstand am Hoch","Anfällige Tech-Stimmung"],"news":["n143663025"],"warn":0,"warnGrund":"","quellen":[{"t":"Tech leads Asian stock rally as traders track Wall St rebound","u":"https://finnhub.io/api/news?id=63768f7d3c8064721680987c6ad68fd3b5947900378fe19e87b33960215f7440"}]},{"s":"TSLA","n":"Tesla","closes":[378.04998779296875,358.2200012207031,343.69000244140625,385.19000244140625,398.5,403.82000732421875,399.80999755859375,403.29998779296875,404.2200012207031,407.4599914550781,391.6199951171875,372.2200012207031,374.5799865722656,386.4700012207031,373.7099914550781,368.05999755859375,354.7200012207031,362.44000244140625,367.1600036621094,375.2300109863281,378.0299987792969,382.70001220703125,375,377.80999755859375,380.67999267578125,378.7300109863281,370.5899963378906,354.1099853515625,354.80999755859375,352.8399963378906,357.45001220703125,372.1099853515625,377.94000244140625,380.1199951171875,378.8999938964844,375.29998779296875,364.2699890136719,366.20001220703125,358.0799865722656,356.5799865722656,358.9700012207031,365.44000244140625,363.55999755859375,367.80999755859375,368.1600036621094,354.0799865722656,376.3699951171875,357.010009765625,356.0899963378906,367.95001220703125,348.75,354.80999755859375,345.82000732421875,350.25,348.95001220703125,362.8599853515625,345.1300048828125,351.1199951171875,336.8699951171875,339.29998779296875,342.2699890136719,339.9599914550781,327.510009765625,332.80999755859375,330.8800048828125],"cur":"USD","cat":"E-Autos","h":"kurz","bias":0.5,"why":"Tesla sprang am Montag um 5,5 % und schwankt deutlich stärker als der Markt. Über drei Monate liegt die Aktie rund 14 % im Plus.","ausblick":"Die Aktie bewegt sich vor allem nach Stimmung und Musk-Aussagen, eine klare Richtung ist kaum vorherzusagen. Die Rechnung sieht in einem Monat eine Mitte um 388 Dollar bei einer breiten Spanne von 340 bis 443.","richtung":"seitwärts","zuversicht":"niedrig","horizont":"4 Wochen","halten":"Der Dreimonatstrend und hohe Fantasie sprechen für Stärke, aber eher für einen kurzen, spekulativen Zeitraum. Dagegen sprechen die sehr starken Schwankungen und die unklare Lage bei der Autoproduktion.","signale":["Fall unter rund 340 Dollar","Neue Produktions- oder Auslieferungszahlen","Aussagen von Musk"],"muster":"Tesla lief zuletzt eher gegen den S&P 500 und Gold, was ungewöhnlich ist. Diese Zusammenhänge sind schwach und sehr unsicher.","pro":["Starker Dreimonatstrend","Kräftiger Tagesgewinn"],"con":["Sehr hohe Schwankung","Unklares Bild bei der Autoproduktion"],"news":["n143663049"],"warn":1,"warnGrund":"Die Lage bei der Fahrzeugproduktion gilt als schwierig.","quellen":[{"t":"Elon Musk sends strong signal to Tesla stock investors","u":"https://finnhub.io/api/news?id=678ff47261f464bd7c54028336d8c77eba1fa0f70766395f1cac65fbda091b9d"}]},{"s":"^VIX","n":"^VIX","closes":[19.920000076293945,25.639999389648438,28.18000030517578,16.610000610351562,20.829999923706055,21.149999618530273,19.420000076293945,17.200000762939453,16.90999984741211,17.520000457763672,18.389999389648438,19.450000762939453,19.030000686645508,16.68000030517578,17.309999465942383,18.440000534057617,19.989999771118164,16.459999084472656,16.8700008392334,15.270000457763672,15.210000038146973,14.84000015258789,15.40999984741211,15.079999923706055,15.010000228881836,15.520000457763672,15.3100004196167,16.389999389648438,16.34000015258789,16.040000915527344,16.06999969482422,14.869999885559082,15.670000076293945,15.180000305175781,14.210000038146973,14.869999885559082,14.8100004196167,15.4399995803833,17.709999084472656,17.200000762939453,17.100000381469727,15.84000015258789,17.84000015258789,16.459999084472656,15.720000267028809,15.300000190734863,14.529999732971191,14.319999694824219,15.199999809265137,16.34000015258789,14.920000076293945,14.430000305175781,14.510000228881836,15.210000038146973,15.449999809265137,15.850000381469727,15.130000114440918,16.010000228881836,14.890000343322754,15.84000015258789,15.1899995803833,14.25,14.630000114440918,14.550000190734863,15.279999732971191],"cur":"USD","cat":"Volatilitätsindex","h":"kurz","bias":-1,"why":"Das Angst-Barometer fiel am Montag um über 22 %, die Anleger sind deutlich ruhiger geworden. Über vier Wochen liegt der VIX aber noch rund 30 % höher.","ausblick":"Bleibt die Entspannung bei Öl und Tech, dürfte der VIX weiter sinken. Die Rechnung nennt in einem Monat eine Mitte um 20,5 bei einer breiten Spanne von 13 bis 32, ein erneuter Anstieg ist also gut möglich.","richtung":"fallend","zuversicht":"niedrig","horizont":"4 Wochen","halten":"Der VIX ist kein Wert zum langfristigen Halten, sondern ein Stimmungsanzeiger. Steigt er wieder, deutet das auf neue Unruhe am Markt.","signale":["Anstieg über 25 wäre ein Warnzeichen","Wert unter 15 deutet auf Ruhe","Neue Eskalation im Nahen Osten"],"muster":"","pro":["Starker Rückgang der Angst","Entspannung beim Ölpreis"],"con":["Bleibt über dem Niveau von vor vier Wochen","KI-Debatte ungelöst"],"news":["n143663025","n8737058"],"warn":1,"warnGrund":"Die Schwankungsangst ist trotz Rückgang höher als vor einem Monat.","quellen":[{"t":"Tech leads Asian stock rally as traders track Wall St rebound","u":"https://finnhub.io/api/news?id=63768f7d3c8064721680987c6ad68fd3b5947900378fe19e87b33960215f7440"},{"t":"Oil falls as Trump downplays prospect of escalation with Iran - Reuters","u":"https://news.google.com/rss/articles/CBMiqwFBVV95cUxQYWIxdHFYZXdDLUkyNjhxSklldE1kTVJUMXBHOENVUUF0YWVXRmhpbGhvSDdJSUtSUG9ZUk5FVGxZdExQa0c0WmJFZDd2QXFNUnJUV0ZuZ0x3eHZCTFBiVXY3b0lVMVA0RkVaVllFRHJHSjJaUmlpSjNOQThxOGhoN05LelBtdjE4Qk5PbnRoTThFVWc3NE91WlE2WHJKbG5kWEVkeF9SS20wSGs?oc=5"}]}],"news":[{"id":"n8737058","imp":3,"kind":["Ölpreis fällt","down"],"cat":"Rohstoffe","t":"Ölpreis sinkt nach Entspannungssignalen im Iran-Konflikt","sum":"Trump hält ein militärisches Vorgehen gegen Iran derzeit nicht für nötig, Brent gab daraufhin nach.","body":["Aus Washington kamen Signale, dass eine weitere Eskalation mit Iran vorerst nicht geplant ist. Auch Katar und Saudi-Arabien sollen eine friedliche Lösung bevorzugen.","Sinkende Ölpreise entlasten Unternehmen und dämpfen Inflationssorgen. Die Lage bleibt aber unruhig, etwa durch abgefangene Raketen in Richtung Riad."],"back":"Wirkt jetzt: Günstigeres Öl stützt die Stimmung an den Aktienmärkten.","stocks":["BZ=F","EXS1.DE","EUNK.DE","^VIX"],"u":"https://news.google.com/rss/articles/CBMiqwFBVV95cUxQYWIxdHFYZXdDLUkyNjhxSklldE1kTVJUMXBHOENVUUF0YWVXRmhpbGhvSDdJSUtSUG9ZUk5FVGxZdExQa0c0WmJFZDd2QXFNUnJUV0ZuZ0x3eHZCTFBiVXY3b0lVMVA0RkVaVllFRHJHSjJaUmlpSjNOQThxOGhoN05LelBtdjE4Qk5PbnRoTThFVWc3NE91WlE2WHJKbG5kWEVkeF9SS20wSGs?oc=5","q":"Reuters"},{"id":"n143663025","imp":3,"kind":["Erholung","up"],"cat":"Märkte","t":"Technologiewerte führen Erholung von der Wall Street bis Asien","sum":"Nach dem Ausverkauf der Vorwoche griffen Anleger bei Tech-Aktien wieder zu, Asien folgte am Dienstag.","body":["Die US-Börsen legten am Montag kräftig zu, angeführt von Technologiewerten. Der Nasdaq 100 stieg um rund 3,5 %, der S&P 500 um gut 2 %.","Asiatische Börsen zogen am Dienstag nach. Ob die Erholung trägt, ist offen, denn die Verluste der Vorwoche waren groß."],"back":"Wirkt jetzt: Die Angst am Markt (VIX) ist deutlich zurückgegangen.","stocks":["SPY","URTH","AAPL","XDEW.DE","^VIX"],"u":"https://finnhub.io/api/news?id=63768f7d3c8064721680987c6ad68fd3b5947900378fe19e87b33960215f7440","q":"Yahoo"},{"id":"ny1172309629","imp":2,"kind":["KI-Debatte","warn"],"cat":"Märkte","t":"Streit um den KI-Rückschlag: Korrektur oder Warnsignal?","sum":"Einige Marktstrategen halten den jüngsten Einbruch bei KI-Werten für eine normale Korrektur.","body":["Nach einem starken Wertverlust bei Nasdaq-Titeln sehen einzelne Strategen Raum für eine Erholung. Andere Stimmen warnen weiterhin vor einer Überbewertung im KI-Bereich.","Die Meinungen gehen weit auseinander, das spricht für weiter schwankende Kurse."],"back":"Wirkt bald: Die Bewertung von KI-Aktien bleibt ein Hauptthema für den Gesamtmarkt.","stocks":["SPY","URTH"],"u":"https://de.beincrypto.com/tom-lee-kauft-ai-dip-nasdaq-rally/?.tsrc=rss","q":"Yahoo Finanzen"},{"id":"n143661029","imp":2,"kind":["Abstufung","warn"],"cat":"Unternehmen","t":"SAP: Analyst stuft nach Erholung ab und verweist auf Euro-Risiken","sum":"Ein Beitrag auf SeekingAlpha sieht nach dem jüngsten Anstieg weniger Luft und nennt Währungsrisiken.","body":["Nach der kräftigen Erholung der SAP-Aktie hält ein Autor die Bewertung für weniger attraktiv. Als Risiko nennt er Unruhe beim Euro.","Es handelt sich um eine Einzelmeinung, keine Unternehmensmeldung."],"back":"Wirkt bald: Kann kurzfristig Gewinnmitnahmen begünstigen.","stocks":["SAP","SAP.DE"],"u":"https://finnhub.io/api/news?id=07ac48032e9d9a84e6e7c75479d0a0f14570bfa09291ef1e40686171e5841af2","q":"SeekingAlpha"},{"id":"ny910394608","imp":2,"kind":["Rechenzentren","up"],"cat":"Unternehmen","t":"Bernstein sieht Siemens als Profiteur des Rechenzentren-Booms","sum":"Das Analysehaus zählt Siemens zu seinen Favoriten bei Investitionsgütern wegen der Nachfrage durch Rechenzentren.","body":["Bernstein erwartet, dass Anbieter von Strom- und Automatisierungstechnik vom Ausbau der Rechenzentren profitieren. Siemens steht dabei weit oben auf der Liste."],"back":"Wirkt bald: Unterstützt die Wachstumserzählung für Siemens.","stocks":["SIE.DE"],"u":"https://de.finance.yahoo.com/nachrichten/rechenzentren-boom-bernstein-setzt-siemens-064108042.html?.tsrc=rss","q":"Yahoo Finanzen"},{"id":"ny496951525","imp":1,"kind":["Umbenennung",""],"cat":"Unternehmen","t":"Healthineers trennt sich vom Namen Siemens","sum":"Nach der Abspaltung will die Medizintechnik-Tochter künftig ohne den Namen Siemens auftreten.","body":["Siemens Healthineers soll künftig nur noch Healthineers heißen. Zugleich verlassen Siemens-Manager den Aufsichtsrat der früheren Tochter.","Für Siemens ist das ein weiterer Schritt zur Konzentration auf Industrie und Software."],"back":"Rückblick: Folgt der beschlossenen Trennung vom Mutterkonzern.","stocks":["SIE.DE"],"u":"https://de.finance.yahoo.com/nachrichten/trennung-mutterkonzern-healthineers-streicht-siemens-060519987.html?.tsrc=rss","q":"Yahoo Finanzen"},{"id":"ny1824844599","imp":2,"kind":["Gold schwach","down"],"cat":"Rohstoffe","t":"Gold rutscht unter 4.000 Dollar trotz Käufen Chinas","sum":"Der Goldpreis erlebte den stärksten Oktober-Rückgang seit 2008, obwohl Chinas Notenbank weiter zukauft.","body":["Chinas Zentralbank hat ihre Goldbestände den 24. Monat in Folge erhöht. Dennoch fiel der Preis unter 4.000 US-Dollar je Unze.","Laut Goldman Sachs haben spekulative Verkäufe Ende Oktober zugenommen."],"back":"Rückblick: Erklärt die Schwäche von Gold in den letzten Wochen.","stocks":["4GLD.DE"],"u":"https://de.finance.yahoo.com/nachrichten/gold-f%C3%A4llt-4-000-china-041505609.html?.tsrc=rss","q":"Yahoo Finanzen"},{"id":"n143663049","imp":1,"kind":["Tesla",""],"cat":"Unternehmen","t":"Musk setzt bei Tesla neue Prioritäten","sum":"Musk hat seine Schwerpunkte deutlich gemacht, die Lage bei der Fahrzeugproduktion bleibt aber unklar.","body":["Ein Bericht beschreibt klare Signale von Musk an die Aktionäre. Gleichzeitig wird darauf hingewiesen, dass das Bild bei der Autoproduktion schwieriger ist."],"back":"Wirkt bald: Die Aktie reagiert stark auf Aussagen von Musk.","stocks":["TSLA"],"u":"https://finnhub.io/api/news?id=678ff47261f464bd7c54028336d8c77eba1fa0f70766395f1cac65fbda091b9d","q":"Yahoo"}],"telegram":"**Guten Morgen – Märkte erholt**\nWall Street mit kräftigem Plus (S&P 500 +2,4 %, Nasdaq 100 +3,5 %), DAX +1,7 %. Angst-Barometer VIX −22 %.\n**Öl fällt:** Signale zur Entspannung im Iran-Konflikt drücken Brent.\n**KI-Debatte:** Strategen streiten, ob der Tech-Rückschlag nur eine Korrektur war.\n**Siemens:** Bernstein sieht Profiteur des Rechenzentren-Booms.\nAsien folgt am Dienstag mit Gewinnen.\nAuffällig: Tesla +5,5 %, Rheinmetall +4 %, Siemens +2,8 %.","kurz":[{"s":"SAP.DE","n":"SAP (Xetra)","text":"SAP in Euro liegt über vier Wochen fast 9 % im Plus und nahe am 3-Monats-Hoch. Am Montag stieg die Aktie leicht um 0,4 %.","h":"lang","warn":1,"ausblick":"Der Trend zeigt nach oben, nach dem schnellen Anstieg sind Rücksetzer aber wahrscheinlich. Die Rechnung sieht eine Mitte um 233 Euro bei einer Spanne von 202 bis 269. Eine Analysten-Abstufung bremst die Fantasie.","richtung":"steigend","zuversicht":"mittel","horizont":"2–3 Monate","halten":"Stabiles Softwaregeschäft spricht eher für einen langen Zeitraum. Dagegen sprechen die starke jüngste Entwicklung und mögliche Gewinnmitnahmen.","signale":["Ausbruch über das 3-Monats-Hoch","Fall unter rund 202 Euro","Weitere Abstufungen"],"muster":"Nahe am 3-Monats-Hoch kann Widerstand bremsen, ein Ausbruch würde den Trend stärken. Das ist eine unsichere Tendenz.","quellen":[{"t":"SAP: Trim On The Recent Rebound, Especially With Euro Turmoil Rising (Downgrade)","u":"https://finnhub.io/api/news?id=07ac48032e9d9a84e6e7c75479d0a0f14570bfa09291ef1e40686171e5841af2"}]},{"s":"4GLD.DE","n":"Xetra-Gold","text":"Xetra-Gold legte am Montag knapp 1 % zu, liegt aber über drei Monate rund 2,5 % im Minus. Gold fiel zuletzt unter 4.000 Dollar.","h":"lang","warn":1,"ausblick":"Nach dem starken Oktober-Rückgang ist eine Bodenbildung möglich, gestützt durch Käufe von Notenbanken wie China. Die Rechnung sieht eine Mitte um 117 Euro bei einer Spanne von 106 bis 129. Spekulative Verkäufe können weiter belasten.","richtung":"seitwärts","zuversicht":"niedrig","horizont":"2–3 Monate","halten":"Als Absicherung für unruhige Zeiten eher für einen langen Zeitraum geeignet. Dagegen sprechen der aktuelle Abwärtstrend und fehlende Zinsen.","signale":["Fall unter rund 106 Euro","Weitere Goldkäufe von Notenbanken","Neue Krisen, die sichere Häfen gefragt machen"],"muster":"Der Kurs folgt eng dem Goldpreis in Dollar und läuft leicht gegen den Ölpreis. Diese Zusammenhänge sind nicht sicher.","quellen":[{"t":"Gold fällt unter $4.000: China baut Goldreserven den 24. Monat in Folge aus","u":"https://de.finance.yahoo.com/nachrichten/gold-f%C3%A4llt-4-000-china-041505609.html?.tsrc=rss"},{"t":"Warum Gold an Glanz verliert: Goldman Sachs analysiert jüngste Verkaufswelle","u":"https://de.finance.yahoo.com/nachrichten/gold-glanz-verliert-goldman-sachs-203206295.html?.tsrc=rss"}]},{"s":"IS3Q.DE","n":"MSCI World Qualität","text":"Der Qualitäts-ETF stieg am Montag um 0,7 % und schwankt wenig. Über drei Monate liegt er rund 2 % im Plus.","h":"lang","warn":0,"ausblick":"Qualitätsunternehmen gelten in unsicheren Phasen als stabiler, daher ist ein ruhiger, leicht steigender Verlauf wahrscheinlich. Die Rechnung sieht eine Mitte um 82 Euro bei einer Spanne von 79 bis 86.","richtung":"seitwärts","zuversicht":"mittel","horizont":"2–3 Monate","halten":"Geringe Schwankung und solide Firmen sprechen für einen langen Zeitraum. Dagegen spricht, dass er in starken Aufschwüngen hinter dem Markt zurückbleiben kann.","signale":["Fall unter rund 79 Euro","Ausbruch über das 3-Monats-Hoch","Stimmung am Gesamtmarkt (VIX)"],"muster":"Der Fonds läuft eng mit dem S&P 500 und gegen den VIX; fällt die Angst, hilft das eher. Das sind unsichere Tendenzen.","quellen":[]},{"s":"RHM.DE","n":"Rheinmetall","text":"Rheinmetall erholte sich am Montag um 4 %, liegt über drei Monate aber rund 26 % im Minus. Die Aktie gilt als stark überverkauft.","h":"spekulativ","warn":1,"ausblick":"Nach dem starken Rückgang ist eine Gegenbewegung möglich, der Abwärtstrend ist aber noch nicht gebrochen. Die Rechnung nennt eine sehr breite Spanne von 580 bis 953 Euro. Signale zu Frieden im Nahen Osten können weiter belasten.","richtung":"seitwärts","zuversicht":"niedrig","horizont":"4–8 Wochen","halten":"Volle Auftragsbücher sprechen langfristig für den Wert. Dagegen sprechen der deutliche Abwärtstrend und die sehr hohe Schwankung.","signale":["Fall unter rund 580 Euro","Nachhaltige Erholung über mehrere Tage","Nachrichten zu Rüstungsbudgets"],"muster":"Der überverkaufte Zustand deutet oft auf eine kurze Erholung, die Aktie reagiert zudem stark auf den Gesamtmarkt. Das ist unsicher.","quellen":[]},{"s":"BZ=F","n":"Öl (Brent)","text":"Brent fiel am Montag um knapp 1 % und liegt über vier Wochen rund 13 % im Minus. Signale zur Entspannung im Iran-Konflikt drücken den Preis.","h":"nicht kaufbar","warn":1,"ausblick":"Bleibt es bei Entspannung im Nahen Osten, dürfte der Ölpreis eher schwach bleiben. Die Rechnung nennt eine breite Spanne von 74 bis 118 Dollar. Neue Angriffe könnten den Preis schnell wieder treiben.","richtung":"fallend","zuversicht":"niedrig","horizont":"4–8 Wochen","halten":"Öl dient hier als Marktanzeiger, nicht zum Halten. Ein niedriger Ölpreis entlastet Unternehmen und Verbraucher.","signale":["Neue Eskalation mit Iran","Entscheidungen der Förderländer","Anstieg über 90 Dollar"],"muster":"","quellen":[{"t":"Oil falls as Trump downplays prospect of escalation with Iran - Reuters","u":"https://news.google.com/rss/articles/CBMiqwFBVV95cUxQYWIxdHFYZXdDLUkyNjhxSklldE1kTVJUMXBHOENVUUF0YWVXRmhpbGhvSDdJSUtSUG9ZUk5FVGxZdExQa0c0WmJFZDd2QXFNUnJUV0ZuZ0x3eHZCTFBiVXY3b0lVMVA0RkVaVllFRHJHSjJaUmlpSjNOQThxOGhoN05LelBtdjE4Qk5PbnRoTThFVWc3NE91WlE2WHJKbG5kWEVkeF9SS20wSGs?oc=5"},{"t":"Trump says US military action against Iran not necessary 'at this point' - Reuters","u":"https://news.google.com/rss/articles/CBMiwgFBVV95cUxQTmtxNXdZTTY4U3h6bUNvMm5NZDBiWXNMMVJoalRMSzZ5OG4yR3ZkWkdaVU82SUFNYTlPcWhjZGZGUlVWczRwMnM1RjJLZGxtZUI3T0ZaTm1xS3RpZ0Z0V0lBQW5LRW9Ja3hoUXhuekl1UnNzWVE1QXA3MVk2Z2ppQVpwQ2pzSTdPbThuLUIzeko5UDIyQ21leGpreE9PdWEtN000NVQ2clduSTJQRC1wM2pwYmxWNjdmbGRLQTFFcjdjZw?oc=5"}]},{"s":"^GDAXI","n":"DAX","text":"Der DAX stieg am Montag um 1,7 % auf rund 26.270 Punkte. Er liegt nahe am 3-Monats-Hoch.","h":"nicht kaufbar","warn":0,"ausblick":"Fallendes Öl und die Erholung an der Wall Street stützen den DAX. Die Rechnung sieht eine Mitte um 26.700 Punkte bei einer Spanne von 24.900 bis 28.600. Am Hoch kann es stocken.","richtung":"steigend","zuversicht":"mittel","horizont":"2–3 Monate","halten":"Der Index selbst ist nicht kaufbar, über einen DAX-ETF aber gut abbildbar. Er zeigt die Stimmung bei deutschen Großkonzernen.","signale":["Ausbruch über das 3-Monats-Hoch","Fall unter rund 24.900 Punkte","Wieder steigender Ölpreis"],"muster":"Goldenes Kreuz und Nähe zum Hoch deuten auf Stärke, der DAX läuft zudem eher gegen den Ölpreis. Beides ist unsicher.","quellen":[{"t":"Oil falls as Trump downplays prospect of escalation with Iran - Reuters","u":"https://news.google.com/rss/articles/CBMiqwFBVV95cUxQYWIxdHFYZXdDLUkyNjhxSklldE1kTVJUMXBHOENVUUF0YWVXRmhpbGhvSDdJSUtSUG9ZUk5FVGxZdExQa0c0WmJFZDd2QXFNUnJUV0ZuZ0x3eHZCTFBiVXY3b0lVMVA0RkVaVllFRHJHSjJaUmlpSjNOQThxOGhoN05LelBtdjE4Qk5PbnRoTThFVWc3NE91WlE2WHJKbG5kWEVkeF9SS20wSGs?oc=5"}]},{"s":"EUNH.DE","n":"Euro-Staatsanleihen","text":"Euro-Staatsanleihen legten leicht um 0,1 % zu und schwanken sehr wenig. Über vier Wochen steht ein Plus von 1,7 %.","h":"lang","warn":0,"ausblick":"Nach mehreren Plus-Tagen ist eine kurze Abkühlung möglich, insgesamt dürfte es ruhig bleiben. Die Rechnung sieht eine Mitte um 106 Euro bei einer Spanne von 104 bis 109.","richtung":"seitwärts","zuversicht":"mittel","horizont":"2–3 Monate","halten":"Als stabiler Baustein zur Absicherung eher für einen langen Zeitraum geeignet. Dagegen spricht, dass steigende Zinsen die Kurse drücken können.","signale":["Fall unter rund 104 Euro","Aussagen der EZB zu Zinsen","Steigende Inflation"],"muster":"Überkauft und Goldenes Kreuz widersprechen sich teilweise, eine kurze Pause wäre nicht ungewöhnlich. Das ist unsicher.","quellen":[]},{"s":"^GSPC","n":"S&P 500","text":"Der S&P 500 stieg am Montag um 2,4 %, nachdem KI-Werte zuvor stark gefallen waren. Er liegt noch nahe am 3-Monats-Tief.","h":"nicht kaufbar","warn":1,"ausblick":"Eine Seitwärtsphase mit starken Ausschlägen ist am wahrscheinlichsten. Die Rechnung sieht eine Mitte um 7.580 Punkte bei einer Spanne von 7.060 bis 8.140. Die KI-Bewertung bleibt der Hauptfaktor.","richtung":"seitwärts","zuversicht":"niedrig","horizont":"2–3 Monate","halten":"Der Index ist nicht direkt kaufbar, über ETFs aber abbildbar. Er zeigt die Stimmung am größten Aktienmarkt der Welt.","signale":["Fall unter das 3-Monats-Tief","VIX deutlich unter 15","Neue Schlagzeilen zu KI-Bewertungen"],"muster":"Todeskreuz und Nähe zum Tief deuten auf Schwäche, die Tagesgewinne sprechen dagegen. Solche Signale sind unsicher.","quellen":[{"t":"Tech leads Asian stock rally as traders track Wall St rebound","u":"https://finnhub.io/api/news?id=63768f7d3c8064721680987c6ad68fd3b5947900378fe19e87b33960215f7440"},{"t":"Tom Lee und ein JPMorgan-Manager halten die KI-Korrektur für normal: Steigt der Nasdaq um 15 %?","u":"https://de.beincrypto.com/tom-lee-kauft-ai-dip-nasdaq-rally/?.tsrc=rss"}]},{"s":"EUNL.DE","n":"MSCI World (ETF)","text":"Der MSCI-World-ETF in Euro stieg am Montag um 0,9 %. Über vier Wochen liegt er knapp 3 % im Minus, auch wegen des stärkeren Euro.","h":"lang","warn":0,"ausblick":"Der Verlauf hängt stark an den US-Börsen und am Dollar. Die Rechnung sieht eine Mitte um 130 Euro bei einer Spanne von 124 bis 137. Ein weiter steigender Euro würde in Euro gerechnet bremsen.","richtung":"seitwärts","zuversicht":"niedrig","horizont":"2–3 Monate","halten":"Breite weltweite Streuung spricht für einen langen Zeitraum. Dagegen sprechen das Dollar-Risiko und die hohe Gewichtung von US-Tech.","signale":["Fall unter rund 124 Euro","Euro-Dollar-Kurs","Entwicklung der US-Tech-Werte"],"muster":"Nahe am 3-Monats-Tief kann Unterstützung wirken; der Fonds läuft eng mit dem S&P 500 und gegen den VIX. Das sind unsichere Tendenzen.","quellen":[{"t":"Tech leads Asian stock rally as traders track Wall St rebound","u":"https://finnhub.io/api/news?id=63768f7d3c8064721680987c6ad68fd3b5947900378fe19e87b33960215f7440"},{"t":"Devisen: Euro legt zu","u":"https://de.finance.yahoo.com/nachrichten/devisen-euro-legt-162048153.html?.tsrc=rss"}]}],"model":{"trendDamping":0.5,"bandFactor":1,"newsWeight":1},"updates":[],"catalog":[{"s":"NVDA","n":"Nvidia","a":""},{"s":"MSFT","n":"Microsoft","a":""},{"s":"AAPL","n":"Apple","a":""},{"s":"SAP","n":"SAP (USA, $)","a":""},{"s":"AMZN","n":"Amazon","a":""},{"s":"XLV","n":"Gesundheit-ETF (Health Care Select)","a":""},{"s":"GOOGL","n":"Alphabet","a":"google"},{"s":"META","n":"Meta Platforms","a":"facebook"},{"s":"TSLA","n":"Tesla","a":""},{"s":"NFLX","n":"Netflix","a":""},{"s":"AMD","n":"AMD","a":""},{"s":"INTC","n":"Intel","a":""},{"s":"ASML","n":"ASML","a":""},{"s":"NVO","n":"Novo Nordisk","a":""},{"s":"KO","n":"Coca-Cola","a":""},{"s":"JPM","n":"JPMorgan Chase","a":""},{"s":"V","n":"Visa","a":""},{"s":"BRK.B","n":"Berkshire Hathaway","a":""},{"s":"URTH","n":"MSCI World ETF","a":"msci world welt"},{"s":"SPY","n":"S&P 500 ETF","a":"sp500 s&p"},{"s":"SAP.DE","n":"SAP (Xetra)","a":"sap"},{"s":"SIE.DE","n":"Siemens","a":""},{"s":"ALV.DE","n":"Allianz","a":""},{"s":"DTE.DE","n":"Deutsche Telekom","a":"telekom"},{"s":"MBG.DE","n":"Mercedes-Benz","a":"mercedes daimler"},{"s":"BMW.DE","n":"BMW","a":""},{"s":"VOW3.DE","n":"Volkswagen","a":"vw"},{"s":"P911.DE","n":"Porsche AG","a":"porsche"},{"s":"BAS.DE","n":"BASF","a":""},{"s":"BAYN.DE","n":"Bayer","a":""},{"s":"ADS.DE","n":"Adidas","a":""},{"s":"PUM.DE","n":"Puma","a":""},{"s":"IFX.DE","n":"Infineon","a":""},{"s":"RHM.DE","n":"Rheinmetall","a":""},{"s":"HAG.DE","n":"Hensoldt","a":""},{"s":"RENK.DE","n":"Renk","a":""},{"s":"MUV2.DE","n":"Münchener Rück","a":"munich re"},{"s":"HNR1.DE","n":"Hannover Rück","a":""},{"s":"DBK.DE","n":"Deutsche Bank","a":""},{"s":"CBK.DE","n":"Commerzbank","a":""},{"s":"DB1.DE","n":"Deutsche Börse","a":""},{"s":"DHL.DE","n":"DHL Group","a":"post"},{"s":"AIR.DE","n":"Airbus","a":""},{"s":"MTX.DE","n":"MTU Aero Engines","a":"mtu"},{"s":"EOAN.DE","n":"E.ON","a":"eon"},{"s":"RWE.DE","n":"RWE","a":""},{"s":"SHL.DE","n":"Siemens Healthineers","a":"healthineers"},{"s":"ENR.DE","n":"Siemens Energy","a":"energy"},{"s":"MRK.DE","n":"Merck KGaA","a":"merck"},{"s":"HEI.DE","n":"Heidelberg Materials","a":"heidelberg"},{"s":"VNA.DE","n":"Vonovia","a":""},{"s":"ZAL.DE","n":"Zalando","a":""},{"s":"BEI.DE","n":"Beiersdorf","a":"nivea"},{"s":"HEN3.DE","n":"Henkel","a":""},{"s":"CON.DE","n":"Continental","a":""},{"s":"QIA.DE","n":"Qiagen","a":""},{"s":"SY1.DE","n":"Symrise","a":""},{"s":"FRE.DE","n":"Fresenius","a":""},{"s":"LHA.DE","n":"Lufthansa","a":""},{"s":"TKA.DE","n":"Thyssenkrupp","a":""},{"s":"ASML.AS","n":"ASML (Amsterdam)","a":"asml"},{"s":"MC.PA","n":"LVMH","a":"louis vuitton"},{"s":"OR.PA","n":"L'Oréal","a":"loreal"},{"s":"TTE.PA","n":"TotalEnergies","a":"total"},{"s":"NESN.SW","n":"Nestlé","a":"nestle"},{"s":"NOVN.SW","n":"Novartis","a":""},{"s":"ROG.SW","n":"Roche","a":""},{"s":"NOVO-B.CO","n":"Novo Nordisk (Kopenhagen)","a":"novo"},{"s":"SHEL.L","n":"Shell","a":""},{"s":"EUNL.DE","n":"iShares Core MSCI World ETF","a":"msci world welt etf"},{"s":"VWCE.DE","n":"Vanguard FTSE All-World ETF","a":"all world welt etf"},{"s":"XDWD.DE","n":"Xtrackers MSCI World ETF","a":"msci world welt etf"},{"s":"SXR8.DE","n":"iShares Core S&P 500 ETF","a":"sp500 s&p etf"},{"s":"EXS1.DE","n":"iShares Core DAX ETF","a":"dax etf"},{"s":"IS3N.DE","n":"iShares MSCI Emerging Markets IMI ETF","a":"schwellenländer emerging etf"},{"s":"EUNK.DE","n":"iShares Core MSCI Europe ETF","a":"europa etf"},{"s":"BTC-EUR","n":"Bitcoin","a":"krypto btc"},{"s":"ETH-EUR","n":"Ethereum","a":"krypto eth etherium"},{"s":"SOL-EUR","n":"Solana","a":"krypto"},{"s":"XRP-EUR","n":"XRP (Ripple)","a":"krypto ripple"},{"s":"BNB-EUR","n":"BNB","a":"krypto binance"},{"s":"ADA-EUR","n":"Cardano","a":"krypto ada"},{"s":"DOGE-EUR","n":"Dogecoin","a":"krypto doge"},{"s":"4GLD.DE","n":"Xetra-Gold","a":"gold"},{"s":"EXUS.DE","n":"Xtrackers MSCI World ex USA ETF","a":"welt ohne usa etf"},{"s":"IUSQ.DE","n":"iShares MSCI ACWI ETF","a":"acwi welt etf"},{"s":"XDEW.DE","n":"Xtrackers S&P 500 Equal Weight ETF","a":"gleichgewichtet sp500 etf"},{"s":"EXSA.DE","n":"iShares STOXX Europe 600 ETF","a":"europa etf"},{"s":"EXW1.DE","n":"iShares Core Euro Stoxx 50 ETF","a":"euro stoxx etf"},{"s":"XMME.DE","n":"Xtrackers MSCI Emerging Markets ETF","a":"schwellenländer emerging etf"},{"s":"VFEM.DE","n":"Vanguard FTSE Emerging Markets ETF","a":"schwellenländer emerging etf"},{"s":"IS3Q.DE","n":"iShares MSCI World Quality Factor ETF","a":"qualität etf"},{"s":"ISPA.DE","n":"iShares STOXX Global Select Dividend 100 ETF","a":"dividende etf"},{"s":"VGWD.DE","n":"Vanguard FTSE All-World High Dividend Yield ETF","a":"dividende etf"},{"s":"EUNH.DE","n":"iShares Core € Govt Bond ETF","a":"staatsanleihen anleihen etf"},{"s":"IBCI.DE","n":"iShares € Inflation Linked Govt Bond ETF","a":"inflation anleihen etf"},{"s":"XEON.DE","n":"Xtrackers II EUR Overnight Rate Swap ETF","a":"geldmarkt tagesgeld etf"},{"s":"XGLE.DE","n":"Xtrackers Eurozone Government Bond ETF","a":"staatsanleihen anleihen etf"},{"s":"SXRV.DE","n":"iShares Nasdaq 100 ETF","a":"nasdaq etf"},{"s":"EXS3.DE","n":"iShares MDAX ETF","a":"mdax etf"},{"s":"EXI3.DE","n":"iShares Dow Jones Industrial Average ETF","a":"dow jones etf"},{"s":"SXRT.DE","n":"iShares Core Euro Stoxx 50 ETF (Acc)","a":"euro stoxx etf"},{"s":"BRNT.L","n":"WisdomTree Brent Crude Oil (ETC)","a":"öl oil brent"},{"s":"XDJP.DE","n":"Xtrackers Nikkei 225 ETF","a":"japan etf"}]}
+{
+ "version": 2,
+ "generated": "2026-11-10T12:41:31+01:00",
+ "dataAsOf": "2026-11-10",
+ "indices": [
+  {
+   "n": "DAX",
+   "v": 26567.52,
+   "c": 1.14,
+   "s": "Europa"
+  },
+  {
+   "n": "MDAX",
+   "v": 31349.59,
+   "c": 0.89,
+   "s": "Europa"
+  },
+  {
+   "n": "Euro Stoxx 50",
+   "v": 6359.46,
+   "c": 1.1,
+   "s": "Europa"
+  },
+  {
+   "n": "FTSE 100",
+   "v": 10819.92,
+   "c": 0.34,
+   "s": "Europa"
+  },
+  {
+   "n": "CAC 40",
+   "v": 8324.8,
+   "c": 1.11,
+   "s": "Europa"
+  },
+  {
+   "n": "S&P 500",
+   "v": 752.69,
+   "c": 2.37,
+   "s": "USA, über SPY"
+  },
+  {
+   "n": "Nasdaq 100",
+   "v": 679.35,
+   "c": 3.54,
+   "s": "USA, über QQQ"
+  },
+  {
+   "n": "Dow Jones",
+   "v": 523.33,
+   "c": 2.17,
+   "s": "USA, über DIA"
+  }
+ ],
+ "sectors": [
+  {
+   "n": "Technologie",
+   "c": 0.72,
+   "p": "Europa"
+  },
+  {
+   "n": "Gesundheit",
+   "c": -0.25,
+   "p": "Europa"
+  },
+  {
+   "n": "Banken",
+   "c": 2.17,
+   "p": "Europa"
+  },
+  {
+   "n": "Energie",
+   "c": -1.32,
+   "p": "Europa"
+  },
+  {
+   "n": "Autos",
+   "c": 0.3,
+   "p": "Europa"
+  },
+  {
+   "n": "Industrie",
+   "c": 1.69,
+   "p": "Europa"
+  },
+  {
+   "n": "Technologie",
+   "c": 3.73,
+   "p": "USA"
+  },
+  {
+   "n": "Gesundheit",
+   "c": 1.91,
+   "p": "USA"
+  },
+  {
+   "n": "Finanzen",
+   "c": 1.45,
+   "p": "USA"
+  },
+  {
+   "n": "Energie",
+   "c": 0.52,
+   "p": "USA"
+  },
+  {
+   "n": "Konsum",
+   "c": 2.92,
+   "p": "USA"
+  },
+  {
+   "n": "Industrie",
+   "c": 3.82,
+   "p": "USA"
+  }
+ ],
+ "calendar": [],
+ "stocks": [
+  {
+   "s": "URTH",
+   "n": "MSCI World ETF",
+   "closes": [
+    204.82000732421875,
+    199.6699981689453,
+    199.6300048828125,
+    207.8699951171875,
+    204.27999877929688,
+    204.14999389648438,
+    204.63999938964844,
+    207.97000122070312,
+    208.07000732421875,
+    207.58999633789062,
+    206.22000122070312,
+    205.14999389648438,
+    206.1699981689453,
+    208.49000549316406,
+    207.39999389648438,
+    206.64999389648438,
+    206.33999633789062,
+    208.11000061035156,
+    207.25999450683594,
+    209.16000366210938,
+    208.92999267578125,
+    209.13999938964844,
+    207.8699951171875,
+    208.6699981689453,
+    209.72999572753906,
+    208.5500030517578,
+    207.52999877929688,
+    205.83999633789062,
+    206.22999572753906,
+    206.7100067138672,
+    207.17999267578125,
+    208.72999572753906,
+    207.64999389648438,
+    207.83999633789062,
+    210.02000427246094,
+    209.6999969482422,
+    206.77000427246094,
+    207.2100067138672,
+    204.7100067138672,
+    205.6300048828125,
+    206.8000030517578,
+    207.69000244140625,
+    205.8699951171875,
+    207.4499969482422,
+    208.6300048828125,
+    209.82000732421875,
+    210.33999633789062,
+    208,
+    207.02999877929688,
+    208.82000732421875,
+    209.42999267578125,
+    209.92999267578125,
+    208.9600067138672,
+    209.3300018310547,
+    208.47999572753906,
+    209.07000732421875,
+    207.8300018310547,
+    209.22000122070312,
+    208.74000549316406,
+    210.42999267578125,
+    211.2100067138672,
+    211.50999450683594,
+    210.3800048828125,
+    209.69000244140625,
+    210.11000061035156
+   ],
+   "cur": "USD",
+   "cat": "Weltaktien breit",
+   "h": "lang",
+   "bias": 1,
+   "why": "Der MSCI World legte am Montag um rund 2,6 % zu und folgte der Erholung in den USA. Über vier Wochen steht dennoch ein Minus von etwa 2 %.",
+   "ausblick": "Wegen des hohen US-Anteils hängt der Weg stark an der Wall Street. Die Rechnung nennt in drei Monaten eine Mitte um 206 bei einer Spanne von etwa 192 bis 220. Eine Richtung zeichnet sich noch nicht klar ab.",
+   "richtung": "seitwärts",
+   "zuversicht": "niedrig",
+   "horizont": "2–3 Monate",
+   "halten": "Breit gestreut und daher eher für einen langen Zeitraum geeignet; seit Kauf leicht im Plus. Dagegen spricht die kurzfristige Schwäche und die starke Gewichtung großer US-Tech-Werte.",
+   "signale": [
+    "Fall unter rund 192 (untere Spanne)",
+    "Anhaltende Erholung der US-Tech-Werte",
+    "Entwicklung des Ölpreises"
+   ],
+   "muster": "Die Nähe zum 3-Monats-Tief könnte als Stütze wirken, bricht sie, drohen weitere Verluste. Die Jahresend-Stärke ist nur eine historische Tendenz und unsicher.",
+   "pro": [
+    "Breite Streuung",
+    "Erholung zu Wochenbeginn"
+   ],
+   "con": [
+    "Leichter Abwärtstrend",
+    "Hohe Abhängigkeit vom US-Markt"
+   ],
+   "news": [
+    "n143663025",
+    "ny1172309629",
+    "n8737058"
+   ],
+   "warn": 1,
+   "warnGrund": "Der Streit um KI-Bewertungen belastet den Gesamtmarkt.",
+   "quellen": [
+    {
+     "t": "Tech leads Asian stock rally as traders track Wall St rebound",
+     "u": "https://finnhub.io/api/news?id=63768f7d3c8064721680987c6ad68fd3b5947900378fe19e87b33960215f7440"
+    },
+    {
+     "t": "Tom Lee und ein JPMorgan-Manager halten die KI-Korrektur für normal: Steigt der Nasdaq um 15 %?",
+     "u": "https://de.beincrypto.com/tom-lee-kauft-ai-dip-nasdaq-rally/?.tsrc=rss"
+    }
+   ]
+  },
+  {
+   "s": "SAP",
+   "n": "SAP (USA, $)",
+   "closes": [
+    237.4199981689453,
+    233.4499969482422,
+    243.52999877929688,
+    240.0399932861328,
+    230.30999755859375,
+    233.6199951171875,
+    235.02000427246094,
+    234.07000732421875,
+    236.92999267578125,
+    235.8000030517578,
+    238.5500030517578,
+    238.13999938964844,
+    240.58999633789062,
+    232.72999572753906,
+    228.97999572753906,
+    226.02999877929688,
+    224.2899932861328,
+    225,
+    220.49000549316406,
+    219.75,
+    217.85000610351562,
+    214.77999877929688,
+    212.39999389648438,
+    210.1300048828125,
+    210.4600067138672,
+    207.74000549316406,
+    208.57000732421875,
+    210.7899932861328,
+    208.47999572753906,
+    210.85000610351562,
+    209.30999755859375,
+    210.67999267578125,
+    209.11000061035156,
+    210.6199951171875,
+    210.67999267578125,
+    209.22000122070312,
+    209.4499969482422,
+    213.66000366210938,
+    213.1999969482422,
+    215.6699981689453,
+    218.27999877929688,
+    206.36000061035156,
+    205.9499969482422,
+    209.13999938964844,
+    211.49000549316406,
+    215.11000061035156,
+    217.02999877929688,
+    209.69000244140625,
+    212.0399932861328,
+    220.88999938964844,
+    221.5399932861328,
+    221.1699981689453,
+    211.67999267578125,
+    216.92999267578125,
+    218.66000366210938,
+    218.67999267578125,
+    217.08999633789062,
+    215.60000610351562,
+    210.47000122070312,
+    207.83999633789062,
+    207.97000122070312,
+    209.27999877929688,
+    204.14999389648438,
+    209.67999267578125,
+    208.5500030517578
+   ],
+   "cur": "USD",
+   "cat": "Software",
+   "h": "lang",
+   "bias": -0.5,
+   "why": "SAP stieg am Montag um 1,7 % und liegt über drei Monate rund 14 % im Plus. Die Aktie notiert nahe am 3-Monats-Hoch.",
+   "ausblick": "Der Aufwärtstrend spricht für weitere Stärke, nach dem schnellen Anstieg sind Rücksetzer aber wahrscheinlich. Die Rechnung sieht eine Mitte um 257 Dollar bei einer Spanne von etwa 224 bis 296. Eine Abstufung und Währungsrisiken mahnen zur Vorsicht.",
+   "richtung": "steigend",
+   "zuversicht": "mittel",
+   "horizont": "2–3 Monate",
+   "halten": "Für einen langen Zeitraum spricht das stabile Softwaregeschäft; der Kauf liegt knapp 2 % im Plus. Dagegen sprechen die bereits gute Entwicklung und Euro-Schwankungen, die die Dollar-Notierung beeinflussen.",
+   "signale": [
+    "Ausbruch über das 3-Monats-Hoch",
+    "Rückfall unter rund 224 Dollar",
+    "Weitere Analysten-Abstufungen"
+   ],
+   "muster": "Nahe am 3-Monats-Hoch kann es zu Gegenwind kommen, ein Ausbruch würde den Trend stärken. Die Aktie läuft nur teilweise mit dem S&P 500; das ist kein sicherer Zusammenhang.",
+   "pro": [
+    "Klarer Aufwärtstrend",
+    "Nur mäßiger Gleichlauf mit dem Gesamtmarkt"
+   ],
+   "con": [
+    "Abstufung nach starkem Anstieg",
+    "Euro-Risiken"
+   ],
+   "news": [
+    "n143661029"
+   ],
+   "warn": 1,
+   "warnGrund": "Ein Analyst hat die Aktie nach der Erholung abgestuft.",
+   "quellen": [
+    {
+     "t": "SAP: Trim On The Recent Rebound, Especially With Euro Turmoil Rising (Downgrade)",
+     "u": "https://finnhub.io/api/news?id=07ac48032e9d9a84e6e7c75479d0a0f14570bfa09291ef1e40686171e5841af2"
+    }
+   ]
+  },
+  {
+   "s": "SIE.DE",
+   "n": "Siemens",
+   "closes": [
+    263.6499938964844,
+    273.25,
+    275.6499938964844,
+    269.75,
+    270.3500061035156,
+    265.6499938964844,
+    273.75,
+    270.04998779296875,
+    266.20001220703125,
+    261.3999938964844,
+    256.79998779296875,
+    255.6999969482422,
+    266.75,
+    260.25,
+    266.20001220703125,
+    270.6499938964844,
+    270.6499938964844,
+    275.04998779296875,
+    274.5,
+    275.75,
+    272.1000061035156,
+    264.25,
+    271.20001220703125,
+    279,
+    275,
+    276.1000061035156,
+    271.8999938964844,
+    275.5,
+    282,
+    278.45001220703125,
+    278.29998779296875,
+    274.79998779296875,
+    273.95001220703125,
+    273.8500061035156,
+    273.5,
+    264,
+    266.6000061035156,
+    260.5,
+    258.79998779296875,
+    261.79998779296875,
+    264.6499938964844,
+    258.1000061035156,
+    264.3999938964844,
+    272.5,
+    270.3999938964844,
+    272.6499938964844,
+    270.6000061035156,
+    273.79998779296875,
+    277.8500061035156,
+    285.6000061035156,
+    289.8500061035156,
+    286.95001220703125,
+    288.1000061035156,
+    285.54998779296875,
+    280.6000061035156,
+    280.3500061035156,
+    276,
+    276.6499938964844,
+    275.79998779296875,
+    282.29998779296875,
+    284,
+    284.1000061035156,
+    281.95001220703125,
+    280.25,
+    276.95001220703125
+   ],
+   "cur": "EUR",
+   "cat": "Industrie / Technik",
+   "h": "lang",
+   "bias": 0.5,
+   "why": "Siemens stieg am Montag um 2,8 %, liegt über vier Wochen aber noch leicht im Minus. Bernstein sieht den Konzern als Profiteur des Rechenzentren-Ausbaus.",
+   "ausblick": "Nach Seitwärtsphase könnte die Aktie von Rechenzentren-Fantasie und dem Umbau des Konzerns profitieren. Die Rechnung sieht in drei Monaten eine Mitte um 274 Euro bei einer Spanne von 239 bis 315. Schwankungen bleiben hoch.",
+   "richtung": "seitwärts",
+   "zuversicht": "mittel",
+   "horizont": "2–3 Monate",
+   "halten": "Positive Analystenstimmen und der klare Fokus auf Industrie und Software sprechen eher für einen langen Zeitraum; seit Kauf knapp 3 % im Plus. Dagegen sprechen die Konjunkturabhängigkeit und der fehlende Trend.",
+   "signale": [
+    "Fall unter rund 239 Euro",
+    "Neue Aufträge aus dem Rechenzentrums-Bereich",
+    "Entwicklung des Gesamtmarkts (S&P 500)"
+   ],
+   "muster": "Die Aktie läuft recht stark mit dem S&P 500 und eher gegen den Ölpreis; fallendes Öl könnte also helfen. Diese Zusammenhänge sind schwankend und unsicher.",
+   "pro": [
+    "Bernstein-Favorit beim Rechenzentren-Thema",
+    "Kräftiger Anstieg zu Wochenbeginn"
+   ],
+   "con": [
+    "Kein klarer Trend",
+    "Abhängig von Konjunktur und Gesamtmarkt"
+   ],
+   "news": [
+    "ny910394608",
+    "ny496951525"
+   ],
+   "warn": 0,
+   "warnGrund": "",
+   "quellen": [
+    {
+     "t": "Rechenzentren-Boom: Bernstein setzt auf Siemens, Siemens Energy und Schneider",
+     "u": "https://de.finance.yahoo.com/nachrichten/rechenzentren-boom-bernstein-setzt-siemens-064108042.html?.tsrc=rss"
+    },
+    {
+     "t": "Nach Trennung vom Mutterkonzern: Healthineers streicht Siemens aus seinem Namen",
+     "u": "https://de.finance.yahoo.com/nachrichten/trennung-mutterkonzern-healthineers-streicht-siemens-060519987.html?.tsrc=rss"
+    }
+   ]
+  },
+  {
+   "s": "EXS1.DE",
+   "n": "iShares Core DAX ETF",
+   "closes": [
+    212.60000610351562,
+    217.5,
+    218.0500030517578,
+    213.14999389648438,
+    214.10000610351562,
+    212.6999969482422,
+    214.64999389648438,
+    211.75,
+    210.85000610351562,
+    209.39999389648438,
+    207.4499969482422,
+    209.14999389648438,
+    211.5500030517578,
+    208.60000610351562,
+    208.64999389648438,
+    211.1999969482422,
+    209.14999389648438,
+    208.60000610351562,
+    208.14999389648438,
+    208.39999389648438,
+    206.8000030517578,
+    204.4499969482422,
+    206.9499969482422,
+    209.8000030517578,
+    208.10000610351562,
+    208.0500030517578,
+    205.4499969482422,
+    207.64999389648438,
+    209.25,
+    209.1999969482422,
+    209.5,
+    208.14999389648438,
+    209.5500030517578,
+    210.85000610351562,
+    210.85000610351562,
+    208.5500030517578,
+    212.0500030517578,
+    210.5500030517578,
+    209.39999389648438,
+    209.6999969482422,
+    210.8000030517578,
+    209.10000610351562,
+    210.85000610351562,
+    214.3000030517578,
+    214.35000610351562,
+    214.6999969482422,
+    214.39999389648438,
+    212.9499969482422,
+    214,
+    216.4499969482422,
+    218.9499969482422,
+    217.25,
+    216.6999969482422,
+    216.64999389648438,
+    215.1999969482422,
+    215.5,
+    214.10000610351562,
+    215.10000610351562,
+    215.4499969482422,
+    217.10000610351562,
+    217.8000030517578,
+    216.85000610351562,
+    217.1999969482422,
+    217.5500030517578,
+    217
+   ],
+   "cur": "EUR",
+   "cat": "Deutsche Aktien breit",
+   "h": "lang",
+   "bias": 0.5,
+   "why": "Der DAX-ETF legte am Montag um 1,8 % zu und steht über vier Wochen fast 4 % im Plus. Er notiert nahe am 3-Monats-Hoch.",
+   "ausblick": "Der jüngste Aufwärtstrend und fallendes Öl könnten den DAX weiter stützen. Die Rechnung sieht in drei Monaten eine Mitte um 221 Euro bei einer Spanne von 206 bis 237. Ein Rückschlag an der Wall Street würde auch hier belasten.",
+   "richtung": "steigend",
+   "zuversicht": "mittel",
+   "horizont": "2–3 Monate",
+   "halten": "Breit gestreut über deutsche Großkonzerne und daher eher für einen langen Zeitraum; seit Kauf knapp 2 % im Plus. Dagegen spricht die Abhängigkeit von Export und Industrie.",
+   "signale": [
+    "Ausbruch über das 3-Monats-Hoch",
+    "Fall unter rund 206 Euro",
+    "Wieder steigender Ölpreis"
+   ],
+   "muster": "Goldenes Kreuz und die Nähe zum Hoch deuten auf Stärke, am Hoch kann aber Widerstand bremsen. Der DAX läuft eher gegen den Ölpreis; alles nur unsichere Tendenzen.",
+   "pro": [
+    "Aufwärtstrend über vier Wochen",
+    "Fallender Ölpreis"
+   ],
+   "con": [
+    "Widerstand am 3-Monats-Hoch",
+    "Abhängig von der Weltkonjunktur"
+   ],
+   "news": [
+    "n8737058"
+   ],
+   "warn": 0,
+   "warnGrund": "",
+   "quellen": [
+    {
+     "t": "Oil falls as Trump downplays prospect of escalation with Iran - Reuters",
+     "u": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQYWIxdHFYZXdDLUkyNjhxSklldE1kTVJUMXBHOENVUUF0YWVXRmhpbGhvSDdJSUtSUG9ZUk5FVGxZdExQa0c0WmJFZDd2QXFNUnJUV0ZuZ0x3eHZCTFBiVXY3b0lVMVA0RkVaVllFRHJHSjJaUmlpSjNOQThxOGhoN05LelBtdjE4Qk5PbnRoTThFVWc3NE91WlE2WHJKbG5kWEVkeF9SS20wSGs?oc=5"
+    }
+   ]
+  },
+  {
+   "s": "EUNK.DE",
+   "n": "iShares Core MSCI Europe ETF",
+   "closes": [
+    105.5999984741211,
+    106.73999786376953,
+    107.18000030517578,
+    105.0999984741211,
+    105.77999877929688,
+    105.27999877929688,
+    105.68000030517578,
+    104.80000305175781,
+    104.69999694824219,
+    104.16000366210938,
+    103.5,
+    103.80000305175781,
+    104.81999969482422,
+    103.87999725341797,
+    103.95999908447266,
+    104.81999969482422,
+    104.0999984741211,
+    103.68000030517578,
+    103.19999694824219,
+    103.33999633789062,
+    102.66000366210938,
+    101.62000274658203,
+    102.5199966430664,
+    103.41999816894531,
+    102.94000244140625,
+    102.73999786376953,
+    101.94000244140625,
+    103.22000122070312,
+    103.68000030517578,
+    103.80000305175781,
+    103.86000061035156,
+    103.5199966430664,
+    103.95999908447266,
+    104.31999969482422,
+    104.22000122070312,
+    103.16000366210938,
+    104.36000061035156,
+    103.5199966430664,
+    103.0199966430664,
+    103.4800033569336,
+    103.83999633789062,
+    103.33999633789062,
+    104.04000091552734,
+    105.5199966430664,
+    105.62000274658203,
+    105.58000183105469,
+    105.5,
+    104.95999908447266,
+    105.18000030517578,
+    105.55999755859375,
+    106.41999816894531,
+    105.91999816894531,
+    106.5999984741211,
+    106.72000122070312,
+    106.27999877929688,
+    106.31999969482422,
+    105.66000366210938,
+    105.80000305175781,
+    105.94000244140625,
+    106.69999694824219,
+    106.83999633789062,
+    107.08000183105469,
+    107.0199966430664,
+    107.16000366210938,
+    107.13999938964844
+   ],
+   "cur": "EUR",
+   "cat": "Europa-Aktien breit",
+   "h": "lang",
+   "bias": 0.5,
+   "why": "Der Europa-ETF stieg am Montag um 1,4 % und liegt über vier Wochen knapp 4 % im Plus. Er schwankt vergleichsweise wenig.",
+   "ausblick": "Ein leichter Anstieg ist wahrscheinlich, getragen von günstigerem Öl und defensiven Werten wie Schweizer Pharma. Die Rechnung sieht eine Mitte um 109 Euro bei einer Spanne von 103 bis 115. Die Prognose bleibt unsicher.",
+   "richtung": "steigend",
+   "zuversicht": "mittel",
+   "horizont": "2–3 Monate",
+   "halten": "Breite Streuung und geringe Schwankung sprechen für einen langen Zeitraum; der erst gestern begonnene Kauf liegt knapp 1 % im Plus. Dagegen spricht, dass Europa bei einer Wachstumsschwäche mit betroffen wäre.",
+   "signale": [
+    "Fall unter rund 103 Euro",
+    "Ausbruch über das 3-Monats-Hoch",
+    "Wieder steigender Ölpreis"
+   ],
+   "muster": "Goldenes Kreuz und Nähe zum Hoch deuten auf Stärke, am Hoch kann es aber stocken. Fallendes Öl hat zuletzt eher geholfen; das ist kein fester Zusammenhang.",
+   "pro": [
+    "Geringe Schwankung",
+    "Aufwärtstrend über vier Wochen"
+   ],
+   "con": [
+    "Widerstand am 3-Monats-Hoch",
+    "Konjunkturrisiken in Europa"
+   ],
+   "news": [
+    "n8737058"
+   ],
+   "warn": 0,
+   "warnGrund": "",
+   "quellen": [
+    {
+     "t": "Oil falls as Trump downplays prospect of escalation with Iran - Reuters",
+     "u": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQYWIxdHFYZXdDLUkyNjhxSklldE1kTVJUMXBHOENVUUF0YWVXRmhpbGhvSDdJSUtSUG9ZUk5FVGxZdExQa0c0WmJFZDd2QXFNUnJUV0ZuZ0x3eHZCTFBiVXY3b0lVMVA0RkVaVllFRHJHSjJaUmlpSjNOQThxOGhoN05LelBtdjE4Qk5PbnRoTThFVWc3NE91WlE2WHJKbG5kWEVkeF9SS20wSGs?oc=5"
+    }
+   ]
+  },
+  {
+   "s": "XDEW.DE",
+   "n": "Xtrackers S&P 500 Equal Weight ETF",
+   "closes": [
+    108.66000366210938,
+    109.18000030517578,
+    110.66000366210938,
+    109.76000213623047,
+    110.12000274658203,
+    109.4000015258789,
+    109.73999786376953,
+    108.9000015258789,
+    108.77999877929688,
+    108.45999908447266,
+    108.27999877929688,
+    108.0199966430664,
+    107.63999938964844,
+    107.13999938964844,
+    106.54000091552734,
+    106.86000061035156,
+    106.83999633789062,
+    106.23999786376953,
+    106.0199966430664,
+    106.66000366210938,
+    106.12000274658203,
+    104.73999786376953,
+    105,
+    105.4800033569336,
+    104.83999633789062,
+    104.04000091552734,
+    103.18000030517578,
+    102.95999908447266,
+    102.9000015258789,
+    102.73999786376953,
+    103.13999938964844,
+    103.22000122070312,
+    104,
+    103.73999786376953,
+    103.54000091552734,
+    103.05999755859375,
+    103.5,
+    103.27999877929688,
+    103.18000030517578,
+    103.45999908447266,
+    102.94000244140625,
+    102.41999816894531,
+    102.94000244140625,
+    104.05999755859375,
+    104.45999908447266,
+    104.9800033569336,
+    105.22000122070312,
+    105.04000091552734,
+    104.80000305175781,
+    105.13999938964844,
+    106.22000122070312,
+    106.0999984741211,
+    106.05999755859375,
+    105.76000213623047,
+    105.69999694824219,
+    105.77999877929688,
+    105.66000366210938,
+    106.23999786376953,
+    106.12000274658203,
+    106.30000305175781,
+    107.0999984741211,
+    107.05999755859375,
+    106.4000015258789,
+    106.37999725341797,
+    106.18000030517578
+   ],
+   "cur": "EUR",
+   "cat": "US-Aktien gleichgewichtet",
+   "h": "lang",
+   "bias": 0.5,
+   "why": "Der gleichgewichtete S&P-500-ETF stieg am Montag um 1,1 %. Er hat sich in den letzten Monaten stabiler entwickelt als der klassische S&P 500.",
+   "ausblick": "Weil große Tech-Werte hier weniger Gewicht haben, trifft ihn der KI-Streit weniger. Die Rechnung sieht eine Mitte um 114 Euro bei einer Spanne von 109 bis 118. Ein schwächerer Dollar könnte in Euro gerechnet bremsen.",
+   "richtung": "steigend",
+   "zuversicht": "mittel",
+   "horizont": "2–3 Monate",
+   "halten": "Breite Streuung ohne Übergewicht einzelner Tech-Riesen spricht für einen langen Zeitraum; der Kauf von gestern liegt rund 1 % im Plus. Dagegen spricht das Dollar-Risiko.",
+   "signale": [
+    "Fall unter rund 109 Euro",
+    "Weiter steigender Euro gegenüber dem Dollar",
+    "Anhaltende Stärke der Nicht-Tech-Sektoren"
+   ],
+   "muster": "Die Nähe zum 3-Monats-Hoch kann bremsen, ein Ausbruch wäre ein positives Zeichen. Der Fonds läuft nur mäßig mit dem S&P 500 mit; beides ist unsicher.",
+   "pro": [
+    "Geringe Schwankung",
+    "Weniger abhängig von KI-Werten"
+   ],
+   "con": [
+    "Währungsrisiko Dollar/Euro",
+    "Widerstand am 3-Monats-Hoch"
+   ],
+   "news": [
+    "n143663025"
+   ],
+   "warn": 0,
+   "warnGrund": "",
+   "quellen": [
+    {
+     "t": "Tech leads Asian stock rally as traders track Wall St rebound",
+     "u": "https://finnhub.io/api/news?id=63768f7d3c8064721680987c6ad68fd3b5947900378fe19e87b33960215f7440"
+    }
+   ]
+  },
+  {
+   "s": "AAPL",
+   "n": "Apple",
+   "closes": [
+    350.69000244140625,
+    342.3699951171875,
+    344.1700134277344,
+    349.510009765625,
+    331.8999938964844,
+    338.32000732421875,
+    344.6300048828125,
+    348.9100036621094,
+    343.8299865722656,
+    347.1000061035156,
+    343.9100036621094,
+    347.7300109863281,
+    348.2200012207031,
+    343.989990234375,
+    339.5,
+    342.94000244140625,
+    343.4599914550781,
+    342,
+    342.9599914550781,
+    341.2699890136719,
+    340.9700012207031,
+    336.6400146484375,
+    340.4200134277344,
+    336.6700134277344,
+    333.6300048828125,
+    332.8900146484375,
+    333.69000244140625,
+    330.32000732421875,
+    333.0199890136719,
+    329.3999938964844,
+    338.3999938964844,
+    341.07000732421875,
+    335.9200134277344,
+    337.0199890136719,
+    339.75,
+    338.9800109863281,
+    336.1300048828125,
+    337,
+    332.4100036621094,
+    331.3399963378906,
+    333.0799865722656,
+    332.2699890136719,
+    326.57000732421875,
+    315.3399963378906,
+    316.2200012207031,
+    319.9700012207031,
+    328.2099914550781,
+    324.9599914550781,
+    325.1300048828125,
+    316.8500061035156,
+    319.70001220703125,
+    314.5799865722656,
+    313.45001220703125,
+    309.8999938964844,
+    310.3399963378906,
+    309.3500061035156,
+    311.29998779296875,
+    316.8299865722656,
+    310.0299987792969,
+    305.5899963378906,
+    305.92999267578125,
+    305.260009765625,
+    302.25,
+    304.9100036621094,
+    308.260009765625
+   ],
+   "cur": "USD",
+   "cat": "Geräte / Dienste",
+   "h": "lang",
+   "bias": 1,
+   "why": "Apple stieg am Montag um 2,4 % im Zuge der Tech-Erholung. Über drei Monate liegt die Aktie rund 14 % im Plus und nahe am 3-Monats-Hoch.",
+   "ausblick": "Der Aufwärtstrend ist intakt, doch die Stimmung bei Tech-Werten ist anfällig. Die Rechnung sieht eine Mitte um 380 Dollar bei einer Spanne von 341 bis 423. Rücksetzer am Hoch sind möglich.",
+   "richtung": "steigend",
+   "zuversicht": "mittel",
+   "horizont": "2–3 Monate",
+   "halten": "Für einen langen Zeitraum sprechen das starke Dienste-Geschäft und der Trend; der Kauf von gestern liegt gut 2 % im Plus. Dagegen sprechen die hohe Bewertung und die Abhängigkeit von der Tech-Stimmung.",
+   "signale": [
+    "Ausbruch über das 3-Monats-Hoch",
+    "Fall unter rund 341 Dollar",
+    "Neue Ausverkaufswelle bei Tech-Werten"
+   ],
+   "muster": "Nahe am Hoch kann Verkaufsdruck entstehen, ein Ausbruch würde den Trend stärken. Die Jahresend-Stärke ist nur eine unsichere Tendenz.",
+   "pro": [
+    "Klarer Aufwärtstrend",
+    "Tech-Erholung zu Wochenbeginn"
+   ],
+   "con": [
+    "Widerstand am Hoch",
+    "Anfällige Tech-Stimmung"
+   ],
+   "news": [
+    "n143663025"
+   ],
+   "warn": 0,
+   "warnGrund": "",
+   "quellen": [
+    {
+     "t": "Tech leads Asian stock rally as traders track Wall St rebound",
+     "u": "https://finnhub.io/api/news?id=63768f7d3c8064721680987c6ad68fd3b5947900378fe19e87b33960215f7440"
+    }
+   ]
+  },
+  {
+   "s": "SAP.DE",
+   "n": "SAP (Xetra)",
+   "closes": [
+    210.1999969482422,
+    211.64999389648438,
+    210.75,
+    215.75,
+    214.3000030517578,
+    206.64999389648438,
+    210.5,
+    211.25,
+    208.89999389648438,
+    211.1999969482422,
+    213.14999389648438,
+    212.25,
+    214.39999389648438,
+    215.35000610351562,
+    208.64999389648438,
+    201.5500030517578,
+    199.83999633789062,
+    199.22000122070312,
+    201.25,
+    196.94000244140625,
+    197.27999877929688,
+    194.4600067138672,
+    191.4600067138672,
+    184.6199951171875,
+    187.6199951171875,
+    188.60000610351562,
+    185.0399932861328,
+    183.9199981689453,
+    186.74000549316406,
+    185.66000366210938,
+    185.32000732421875,
+    184.02000427246094,
+    185.9199981689453,
+    184.17999267578125,
+    186.4600067138672,
+    182.32000732421875,
+    182.86000061035156,
+    183.1199951171875,
+    188,
+    186.55999755859375,
+    187.0800018310547,
+    186.25999450683594,
+    177.25999450683594,
+    177.82000732421875,
+    182.86000061035156,
+    181.6999969482422,
+    182.8000030517578,
+    185.67999267578125,
+    185.5800018310547,
+    181.44000244140625,
+    184.25999450683594,
+    190.89999389648438,
+    191.32000732421875,
+    189.8800048828125,
+    180.02000427246094,
+    185.4600067138672,
+    187.1999969482422,
+    188.1199951171875,
+    185.63999938964844,
+    185.89999389648438,
+    182.5,
+    179.5800018310547,
+    180.13999938964844,
+    175.3800048828125,
+    175.9600067138672
+   ],
+   "cur": "EUR",
+   "cat": "Software",
+   "h": "lang",
+   "bias": 1.5,
+   "why": "SAP gab am Morgen leicht nach, liegt über drei Monate aber rund 19 % im Plus. JPMorgan hat die Aktie hochgestuft und das Kursziel auf 275 Euro angehoben, ein anderer Autor sieht nach der Erholung dagegen weniger Luft.",
+   "ausblick": "Der Aufwärtstrend und die Hochstufung sprechen für weiter steigende Kurse, getragen von der KI-Nutzung in Unternehmen. Die Rechnung sieht eine Mitte um 233 Euro bei einer Spanne von 202 bis 268. Nahe am 3-Monats-Hoch kann es aber stocken, die Schwankung ist mit 28 % recht hoch.",
+   "richtung": "steigend",
+   "zuversicht": "mittel",
+   "horizont": "2–3 Monate",
+   "halten": "Du liegst seit heute knapp im Minus; als großer Softwarekonzern mit KI-Fantasie passt SAP eher für einen langen Zeitraum. Dagegen sprechen die spürbaren Schwankungen und Euro-Risiken.",
+   "signale": [
+    "Ausbruch über das 3-Monats-Hoch",
+    "Fall unter rund 202 Euro",
+    "Weitere Analysten-Urteile nach der Hochstufung"
+   ],
+   "muster": "Die Nähe zum 3-Monats-Hoch kann bremsen, die oft starke Jahresend-Phase könnte stützen. Beides ist unsicher.",
+   "pro": [
+    "Hochstufung durch JPMorgan, Kursziel 275 Euro",
+    "KI geht in Unternehmen in den Alltag über",
+    "Klarer Aufwärtstrend über drei Monate"
+   ],
+   "con": [
+    "Einzelne Stimmen sehen nach der Erholung weniger Luft",
+    "Widerstand am 3-Monats-Hoch",
+    "Euro-Schwankungen belasten Auslandserlöse"
+   ],
+   "news": [
+    "ny1910368211",
+    "n143661029"
+   ],
+   "warn": 0,
+   "warnGrund": "",
+   "quellen": [
+    {
+     "t": "ANALYSE-FLASH: JPMorgan hebt SAP auf 'Overweight' - Ziel auf 275 Euro",
+     "u": "https://de.finance.yahoo.com/nachrichten/analyse-flash-jpmorgan-hebt-sap-062003650.html?.tsrc=rss"
+    }
+   ]
+  },
+  {
+   "s": "EUNH.DE",
+   "n": "iShares Core € Govt Bond ETF",
+   "closes": [
+    106.44999694824219,
+    106.30500030517578,
+    106.18000030517578,
+    106.29499816894531,
+    106.02999877929688,
+    105.4800033569336,
+    105.57499694824219,
+    105.34500122070312,
+    105.2750015258789,
+    105.04499816894531,
+    105.1449966430664,
+    105.12000274658203,
+    104.80500030517578,
+    104.65499877929688,
+    104.6050033569336,
+    104.91999816894531,
+    104.65499877929688,
+    105.12999725341797,
+    105.16999816894531,
+    104.625,
+    104.76000213623047,
+    104.54499816894531,
+    104.54000091552734,
+    104.4800033569336,
+    104.51000213623047,
+    104.83499908447266,
+    104.47000122070312,
+    104.59500122070312,
+    103.98500061035156,
+    104.19000244140625,
+    104.09500122070312,
+    104.1050033569336,
+    104.44999694824219,
+    104.43499755859375,
+    104.69000244140625,
+    105.37999725341797,
+    105.45999908447266,
+    104.94499969482422,
+    105.46499633789062,
+    105.19999694824219,
+    104.9749984741211,
+    105.12000274658203,
+    105.26499938964844,
+    105.23500061035156,
+    105.78500366210938,
+    106.33499908447266,
+    106.1449966430664,
+    106.47000122070312,
+    106.42500305175781,
+    106.1050033569336,
+    106.4000015258789,
+    106.44499969482422,
+    106.81500244140625,
+    106.94499969482422,
+    107.0999984741211,
+    107.26499938964844,
+    106.83999633789062,
+    106.81500244140625,
+    106.7750015258789,
+    106.7750015258789,
+    106.7249984741211,
+    107.05500030517578,
+    107.20999908447266,
+    107.7300033569336,
+    107.51499938964844
+   ],
+   "cur": "EUR",
+   "cat": "Staatsanleihen Euro",
+   "h": "lang",
+   "bias": 0,
+   "why": "Der Anleihe-ETF bewegt sich kaum und legte heute leicht zu. Über vier Wochen steht ein Plus von rund 1,7 %, über drei Monate ein kleines Minus.",
+   "ausblick": "Bei Staatsanleihen sind nur kleine Bewegungen zu erwarten, die Richtung hängt vor allem von den Zinsen ab. Die Rechnung sieht eine Mitte um 106,60 Euro bei einer Spanne von 104,30 bis 108,90. Nach vielen Plus-Tagen ist eine kurze Abkühlung möglich.",
+   "richtung": "seitwärts",
+   "zuversicht": "mittel",
+   "horizont": "2–3 Monate",
+   "halten": "Seit dem Kauf heute praktisch unverändert; als ruhiger Baustein zum Ausgleich von Aktienschwankungen passt der ETF eher für einen langen Zeitraum. Dagegen spricht die geringe Ertragserwartung.",
+   "signale": [
+    "Fall unter rund 104,30 Euro",
+    "Deutlich steigende Zinsen in der Eurozone",
+    "Neue Signale der EZB"
+   ],
+   "muster": "Der Wert gilt als überkauft, was eine kurze Pause nahelegt, das Goldene Kreuz deutet dagegen auf einen beginnenden Aufwärtstrend. Diese Signale sind unsicher und widersprechen sich teils.",
+   "pro": [
+    "Sehr geringe Schwankung",
+    "Ausgleich zu Aktien im Depot"
+   ],
+   "con": [
+    "Wenig Ertrag",
+    "Steigende Zinsen drücken Anleihekurse",
+    "Überkauft nach vielen Plus-Tagen"
+   ],
+   "news": [],
+   "warn": 0,
+   "warnGrund": "",
+   "quellen": []
+  },
+  {
+   "s": "QIA.DE",
+   "n": "Qiagen",
+   "closes": [
+    45.1349983215332,
+    45.119998931884766,
+    45.20500183105469,
+    45.27000045776367,
+    45.22999954223633,
+    45.02000045776367,
+    45,
+    45.09000015258789,
+    45.04999923706055,
+    45.099998474121094,
+    45.099998474121094,
+    45.099998474121094,
+    45.04999923706055,
+    44.935001373291016,
+    42.81999969482422,
+    42.83000183105469,
+    41.244998931884766,
+    41.029998779296875,
+    41.130001068115234,
+    41.119998931884766,
+    40.5,
+    40.53499984741211,
+    40.189998626708984,
+    39.57500076293945,
+    40.79999923706055,
+    40.540000915527344,
+    40.185001373291016,
+    40.404998779296875,
+    38.189998626708984,
+    38.720001220703125,
+    39.1150016784668,
+    39.30500030517578,
+    38.95500183105469,
+    38.834999084472656,
+    38.5099983215332,
+    38.40999984741211,
+    38.69499969482422,
+    38.40999984741211,
+    38.60499954223633,
+    37.19499969482422,
+    37.18000030517578,
+    36.494998931884766,
+    36.525001525878906,
+    36.6150016784668,
+    36.619998931884766,
+    36.470001220703125,
+    36.34000015258789,
+    37.435001373291016,
+    37.470001220703125,
+    38.154998779296875,
+    37.35499954223633,
+    37.23500061035156,
+    37.59000015258789,
+    37.75,
+    37.34000015258789,
+    36.709999084472656,
+    36.404998779296875,
+    37.564998626708984,
+    38.73500061035156,
+    37.59000015258789,
+    36.834999084472656,
+    37.06999969482422,
+    37.290000915527344,
+    37.65999984741211,
+    37.040000915527344
+   ],
+   "cur": "EUR",
+   "cat": "Diagnostik",
+   "h": "lang",
+   "bias": 0,
+   "why": "Qiagen ist heute kaum verändert, liegt aber über drei Monate rund 22 % im Plus. Die Aktionäre haben einen neuen Manager in die Geschäftsführung gewählt.",
+   "ausblick": "Der starke Trend spricht für eine Fortsetzung, das Personalthema dürfte den Kurs kaum bewegen. Die Rechnung sieht eine Mitte um 50,50 Euro bei einer Spanne von 44,50 bis 57,30. Nach dem kräftigen Anstieg sind Rücksetzer möglich.",
+   "richtung": "steigend",
+   "zuversicht": "mittel",
+   "horizont": "2–3 Monate",
+   "halten": "Seit dem Kauf heute unverändert; der Diagnostik-Spezialist passt eher für einen mittleren bis langen Zeitraum. Dagegen spricht, dass nach dem starken Lauf Gewinnmitnahmen wahrscheinlicher werden.",
+   "signale": [
+    "Fall unter rund 44,50 Euro",
+    "Ausbruch über das 3-Monats-Hoch",
+    "Neue Zahlen oder Ausblick des Unternehmens"
+   ],
+   "muster": "Am 3-Monats-Hoch kann der Kurs stocken, die oft gute Jahresend-Phase könnte helfen. Beides ist unsicher.",
+   "pro": [
+    "Kräftiger Aufwärtstrend",
+    "Klarheit in der Führung nach Abstimmung"
+   ],
+   "con": [
+    "Widerstand am 3-Monats-Hoch",
+    "Rücksetzer nach starkem Anstieg möglich"
+   ],
+   "news": [],
+   "warn": 0,
+   "warnGrund": "",
+   "quellen": [
+    {
+     "t": "QIAGEN-Aktionäre stimmen der Berufung von Jonathan M. Pratt in die Geschäftsführung mit überwältigender Mehrheit zu",
+     "u": "https://de.finance.yahoo.com/nachrichten/qiagen-aktion%C3%A4re-stimmen-berufung-jonathan-150000551.html?.tsrc=rss"
+    }
+   ]
+  },
+  {
+   "s": "V",
+   "n": "Visa",
+   "closes": [
+    422.1600036621094,
+    422.6499938964844,
+    422.5899963378906,
+    436.57000732421875,
+    420.4200134277344,
+    425.510009765625,
+    413.5899963378906,
+    410.5400085449219,
+    400.6000061035156,
+    401.8599853515625,
+    404.1600036621094,
+    407.9200134277344,
+    414.3399963378906,
+    407.8500061035156,
+    406.57000732421875,
+    402.9200134277344,
+    402.6099853515625,
+    399.75,
+    391.42999267578125,
+    396.05999755859375,
+    389.2699890136719,
+    385.45001220703125,
+    375.1000061035156,
+    372.1000061035156,
+    370.6400146484375,
+    369.7099914550781,
+    360.6600036621094,
+    359.8500061035156,
+    359.3299865722656,
+    365.8800048828125,
+    367.739990234375,
+    367.3800048828125,
+    367.9800109863281,
+    361.5199890136719,
+    362.0400085449219,
+    369.95001220703125,
+    368.2900085449219,
+    369.92999267578125,
+    370.92999267578125,
+    375.6199951171875,
+    375.2799987792969,
+    370.45001220703125,
+    367.2099914550781,
+    367.3900146484375,
+    368.6400146484375,
+    375.07000732421875,
+    378.75,
+    378.3999938964844,
+    372.6700134277344,
+    379.3699951171875,
+    381.6000061035156,
+    379.6600036621094,
+    383.8999938964844,
+    384.1400146484375,
+    382.4100036621094,
+    371.0400085449219,
+    365.7300109863281,
+    365.5400085449219,
+    364.25,
+    358.8399963378906,
+    364.1499938964844,
+    365.45001220703125,
+    359.4200134277344,
+    362.82000732421875,
+    361.32000732421875
+   ],
+   "cur": "USD",
+   "cat": "Zahlungsdienste",
+   "h": "lang",
+   "bias": 0,
+   "why": "Visa ist heute kaum verändert, über drei Monate aber rund 17 % gestiegen. Eigene Meldungen gab es nicht, die Aktie folgt dem ruhigeren Teil des US-Marktes.",
+   "ausblick": "Der stabile Trend spricht für leicht steigende Kurse, getragen von weiter wachsenden Kartenzahlungen. Die Rechnung sieht eine Mitte um 463 Dollar bei einer Spanne von 416 bis 515. Eine Abkühlung beim Konsum würde bremsen.",
+   "richtung": "steigend",
+   "zuversicht": "mittel",
+   "horizont": "2–3 Monate",
+   "halten": "Seit dem Kauf heute unverändert; als Geschäftsmodell mit stetigen Gebühren passt Visa eher für einen langen Zeitraum. Dagegen sprechen das Dollar-Risiko für Euro-Anleger und eine mögliche Konsumschwäche.",
+   "signale": [
+    "Fall unter rund 416 Dollar",
+    "Deutlich schwächere US-Konsumdaten",
+    "Starker Anstieg des Euro"
+   ],
+   "muster": "Die Jahresend-Phase war oft günstig, zudem lief Visa leicht mit dem Ölpreis. Der Zusammenhang ist schwach und unsicher.",
+   "pro": [
+    "Stabiler Aufwärtstrend",
+    "Geringere Schwankung als viele Tech-Werte"
+   ],
+   "con": [
+    "Abhängig vom US-Konsum",
+    "Dollar-Risiko"
+   ],
+   "news": [],
+   "warn": 0,
+   "warnGrund": "",
+   "quellen": []
+  },
+  {
+   "s": "TSLA",
+   "n": "Tesla",
+   "closes": [
+    378.04998779296875,
+    358.2200012207031,
+    343.69000244140625,
+    385.19000244140625,
+    398.5,
+    403.82000732421875,
+    399.80999755859375,
+    403.29998779296875,
+    404.2200012207031,
+    407.4599914550781,
+    391.6199951171875,
+    372.2200012207031,
+    374.5799865722656,
+    386.4700012207031,
+    373.7099914550781,
+    368.05999755859375,
+    354.7200012207031,
+    362.44000244140625,
+    367.1600036621094,
+    375.2300109863281,
+    378.0299987792969,
+    382.70001220703125,
+    375,
+    377.80999755859375,
+    380.67999267578125,
+    378.7300109863281,
+    370.5899963378906,
+    354.1099853515625,
+    354.80999755859375,
+    352.8399963378906,
+    357.45001220703125,
+    372.1099853515625,
+    377.94000244140625,
+    380.1199951171875,
+    378.8999938964844,
+    375.29998779296875,
+    364.2699890136719,
+    366.20001220703125,
+    358.0799865722656,
+    356.5799865722656,
+    358.9700012207031,
+    365.44000244140625,
+    363.55999755859375,
+    367.80999755859375,
+    368.1600036621094,
+    354.0799865722656,
+    376.3699951171875,
+    357.010009765625,
+    356.0899963378906,
+    367.95001220703125,
+    348.75,
+    354.80999755859375,
+    345.82000732421875,
+    350.25,
+    348.95001220703125,
+    362.8599853515625,
+    345.1300048828125,
+    351.1199951171875,
+    336.8699951171875,
+    339.29998779296875,
+    342.2699890136719,
+    339.9599914550781,
+    327.510009765625,
+    332.80999755859375,
+    330.8800048828125
+   ],
+   "cur": "USD",
+   "cat": "E-Autos",
+   "h": "kurz",
+   "bias": 0.5,
+   "why": "Tesla sprang am Montag um 5,5 % und schwankt deutlich stärker als der Markt. Über drei Monate liegt die Aktie rund 14 % im Plus.",
+   "ausblick": "Die Aktie bewegt sich vor allem nach Stimmung und Musk-Aussagen, eine klare Richtung ist kaum vorherzusagen. Die Rechnung sieht in einem Monat eine Mitte um 388 Dollar bei einer breiten Spanne von 340 bis 443.",
+   "richtung": "seitwärts",
+   "zuversicht": "niedrig",
+   "horizont": "4 Wochen",
+   "halten": "Der Dreimonatstrend und hohe Fantasie sprechen für Stärke, aber eher für einen kurzen, spekulativen Zeitraum. Dagegen sprechen die sehr starken Schwankungen und die unklare Lage bei der Autoproduktion.",
+   "signale": [
+    "Fall unter rund 340 Dollar",
+    "Neue Produktions- oder Auslieferungszahlen",
+    "Aussagen von Musk"
+   ],
+   "muster": "Tesla lief zuletzt eher gegen den S&P 500 und Gold, was ungewöhnlich ist. Diese Zusammenhänge sind schwach und sehr unsicher.",
+   "pro": [
+    "Starker Dreimonatstrend",
+    "Kräftiger Tagesgewinn"
+   ],
+   "con": [
+    "Sehr hohe Schwankung",
+    "Unklares Bild bei der Autoproduktion"
+   ],
+   "news": [
+    "n143663049"
+   ],
+   "warn": 1,
+   "warnGrund": "Die Lage bei der Fahrzeugproduktion gilt als schwierig.",
+   "quellen": [
+    {
+     "t": "Elon Musk sends strong signal to Tesla stock investors",
+     "u": "https://finnhub.io/api/news?id=678ff47261f464bd7c54028336d8c77eba1fa0f70766395f1cac65fbda091b9d"
+    }
+   ]
+  },
+  {
+   "s": "^VIX",
+   "n": "^VIX",
+   "closes": [
+    19.920000076293945,
+    25.639999389648438,
+    28.18000030517578,
+    16.610000610351562,
+    20.829999923706055,
+    21.149999618530273,
+    19.420000076293945,
+    17.200000762939453,
+    16.90999984741211,
+    17.520000457763672,
+    18.389999389648438,
+    19.450000762939453,
+    19.030000686645508,
+    16.68000030517578,
+    17.309999465942383,
+    18.440000534057617,
+    19.989999771118164,
+    16.459999084472656,
+    16.8700008392334,
+    15.270000457763672,
+    15.210000038146973,
+    14.84000015258789,
+    15.40999984741211,
+    15.079999923706055,
+    15.010000228881836,
+    15.520000457763672,
+    15.3100004196167,
+    16.389999389648438,
+    16.34000015258789,
+    16.040000915527344,
+    16.06999969482422,
+    14.869999885559082,
+    15.670000076293945,
+    15.180000305175781,
+    14.210000038146973,
+    14.869999885559082,
+    14.8100004196167,
+    15.4399995803833,
+    17.709999084472656,
+    17.200000762939453,
+    17.100000381469727,
+    15.84000015258789,
+    17.84000015258789,
+    16.459999084472656,
+    15.720000267028809,
+    15.300000190734863,
+    14.529999732971191,
+    14.319999694824219,
+    15.199999809265137,
+    16.34000015258789,
+    14.920000076293945,
+    14.430000305175781,
+    14.510000228881836,
+    15.210000038146973,
+    15.449999809265137,
+    15.850000381469727,
+    15.130000114440918,
+    16.010000228881836,
+    14.890000343322754,
+    15.84000015258789,
+    15.1899995803833,
+    14.25,
+    14.630000114440918,
+    14.550000190734863,
+    15.279999732971191
+   ],
+   "cur": "USD",
+   "cat": "Volatilitätsindex",
+   "h": "kurz",
+   "bias": -1,
+   "why": "Das Angst-Barometer fiel am Montag um über 22 %, die Anleger sind deutlich ruhiger geworden. Über vier Wochen liegt der VIX aber noch rund 30 % höher.",
+   "ausblick": "Bleibt die Entspannung bei Öl und Tech, dürfte der VIX weiter sinken. Die Rechnung nennt in einem Monat eine Mitte um 20,5 bei einer breiten Spanne von 13 bis 32, ein erneuter Anstieg ist also gut möglich.",
+   "richtung": "fallend",
+   "zuversicht": "niedrig",
+   "horizont": "4 Wochen",
+   "halten": "Der VIX ist kein Wert zum langfristigen Halten, sondern ein Stimmungsanzeiger. Steigt er wieder, deutet das auf neue Unruhe am Markt.",
+   "signale": [
+    "Anstieg über 25 wäre ein Warnzeichen",
+    "Wert unter 15 deutet auf Ruhe",
+    "Neue Eskalation im Nahen Osten"
+   ],
+   "muster": "",
+   "pro": [
+    "Starker Rückgang der Angst",
+    "Entspannung beim Ölpreis"
+   ],
+   "con": [
+    "Bleibt über dem Niveau von vor vier Wochen",
+    "KI-Debatte ungelöst"
+   ],
+   "news": [
+    "n143663025",
+    "n8737058"
+   ],
+   "warn": 1,
+   "warnGrund": "Die Schwankungsangst ist trotz Rückgang höher als vor einem Monat.",
+   "quellen": [
+    {
+     "t": "Tech leads Asian stock rally as traders track Wall St rebound",
+     "u": "https://finnhub.io/api/news?id=63768f7d3c8064721680987c6ad68fd3b5947900378fe19e87b33960215f7440"
+    },
+    {
+     "t": "Oil falls as Trump downplays prospect of escalation with Iran - Reuters",
+     "u": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQYWIxdHFYZXdDLUkyNjhxSklldE1kTVJUMXBHOENVUUF0YWVXRmhpbGhvSDdJSUtSUG9ZUk5FVGxZdExQa0c0WmJFZDd2QXFNUnJUV0ZuZ0x3eHZCTFBiVXY3b0lVMVA0RkVaVllFRHJHSjJaUmlpSjNOQThxOGhoN05LelBtdjE4Qk5PbnRoTThFVWc3NE91WlE2WHJKbG5kWEVkeF9SS20wSGs?oc=5"
+    }
+   ]
+  }
+ ],
+ "news": [
+  {
+   "id": "ny1910368211",
+   "imp": 3,
+   "kind": [
+    "Hochstufung",
+    "up"
+   ],
+   "cat": "Unternehmen",
+   "t": "JPMorgan stuft SAP hoch und hebt das Kursziel deutlich an",
+   "sum": "Die US-Bank sieht SAP nun positiv und erhöht ihr Kursziel um 100 auf 275 Euro.",
+   "body": [
+    "JPMorgan begründet den Schritt damit, dass Firmen KI zunehmend im Alltag einsetzen statt nur zu testen. Davon soll SAP mit seiner Unternehmenssoftware profitieren.",
+    "Kurz zuvor hatte ein anderer Autor nach der Erholung eher zur Vorsicht geraten. Die Einschätzungen gehen also auseinander."
+   ],
+   "back": "Wirkt jetzt: Eine Hochstufung durch eine Großbank kann kurzfristig Käufer anziehen.",
+   "stocks": [
+    "SAP.DE",
+    "SAP"
+   ],
+   "u": "https://de.finance.yahoo.com/nachrichten/analyse-flash-jpmorgan-hebt-sap-062003650.html?.tsrc=rss",
+   "q": "Yahoo Finanzen"
+  },
+  {
+   "id": "n143671134",
+   "imp": 2,
+   "kind": [
+    "Chip-Nachfrage",
+    "up"
+   ],
+   "cat": "Unternehmen",
+   "t": "TSMC meldet kräftiges Umsatzplus im Oktober",
+   "sum": "Der taiwanische Auftragsfertiger steigerte seinen Monatsumsatz um rund 60 % und wuchs schneller als im Vorquartal.",
+   "body": [
+    "TSMC fertigt Chips für Apple, Nvidia und viele andere. Das starke Wachstum zeigt, dass die Nachfrage nach KI-Chips weiter hoch ist."
+   ],
+   "back": "Wirkt jetzt: Stützt die Erholung bei Technologiewerten.",
+   "stocks": [
+    "AAPL",
+    "SPY",
+    "XDEW.DE"
+   ],
+   "u": "https://finnhub.io/api/news?id=d097b10290e65f1e8a1076f51c45ede5b1ecc72474b05be35926fef83287558b",
+   "q": "Yahoo"
+  },
+  {
+   "id": "n8737058",
+   "imp": 3,
+   "kind": [
+    "Ölpreis fällt",
+    "down"
+   ],
+   "cat": "Rohstoffe",
+   "t": "Ölpreis sinkt nach Entspannungssignalen im Iran-Konflikt",
+   "sum": "Trump hält ein militärisches Vorgehen gegen Iran derzeit nicht für nötig, Brent gab daraufhin nach.",
+   "body": [
+    "Aus Washington kamen Signale, dass eine weitere Eskalation mit Iran vorerst nicht geplant ist. Auch Katar und Saudi-Arabien sollen eine friedliche Lösung bevorzugen.",
+    "Sinkende Ölpreise entlasten Unternehmen und dämpfen Inflationssorgen. Die Lage bleibt aber unruhig, etwa durch abgefangene Raketen in Richtung Riad."
+   ],
+   "back": "Wirkt jetzt: Günstigeres Öl stützt die Stimmung an den Aktienmärkten.",
+   "stocks": [
+    "BZ=F",
+    "EXS1.DE",
+    "EUNK.DE",
+    "^VIX"
+   ],
+   "u": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQYWIxdHFYZXdDLUkyNjhxSklldE1kTVJUMXBHOENVUUF0YWVXRmhpbGhvSDdJSUtSUG9ZUk5FVGxZdExQa0c0WmJFZDd2QXFNUnJUV0ZuZ0x3eHZCTFBiVXY3b0lVMVA0RkVaVllFRHJHSjJaUmlpSjNOQThxOGhoN05LelBtdjE4Qk5PbnRoTThFVWc3NE91WlE2WHJKbG5kWEVkeF9SS20wSGs?oc=5",
+   "q": "Reuters"
+  },
+  {
+   "id": "n143663025",
+   "imp": 3,
+   "kind": [
+    "Erholung",
+    "up"
+   ],
+   "cat": "Märkte",
+   "t": "Technologiewerte führen Erholung von der Wall Street bis Asien",
+   "sum": "Nach dem Ausverkauf der Vorwoche griffen Anleger bei Tech-Aktien wieder zu, Asien folgte am Dienstag.",
+   "body": [
+    "Die US-Börsen legten am Montag kräftig zu, angeführt von Technologiewerten. Der Nasdaq 100 stieg um rund 3,5 %, der S&P 500 um gut 2 %.",
+    "Asiatische Börsen zogen am Dienstag nach. Ob die Erholung trägt, ist offen, denn die Verluste der Vorwoche waren groß."
+   ],
+   "back": "Wirkt jetzt: Die Angst am Markt (VIX) ist deutlich zurückgegangen.",
+   "stocks": [
+    "SPY",
+    "URTH",
+    "AAPL",
+    "XDEW.DE",
+    "^VIX"
+   ],
+   "u": "https://finnhub.io/api/news?id=63768f7d3c8064721680987c6ad68fd3b5947900378fe19e87b33960215f7440",
+   "q": "Yahoo"
+  },
+  {
+   "id": "ny1172309629",
+   "imp": 2,
+   "kind": [
+    "KI-Debatte",
+    "warn"
+   ],
+   "cat": "Märkte",
+   "t": "Streit um den KI-Rückschlag: Korrektur oder Warnsignal?",
+   "sum": "Einige Marktstrategen halten den jüngsten Einbruch bei KI-Werten für eine normale Korrektur.",
+   "body": [
+    "Nach einem starken Wertverlust bei Nasdaq-Titeln sehen einzelne Strategen Raum für eine Erholung. Andere Stimmen warnen weiterhin vor einer Überbewertung im KI-Bereich.",
+    "Die Meinungen gehen weit auseinander, das spricht für weiter schwankende Kurse."
+   ],
+   "back": "Wirkt bald: Die Bewertung von KI-Aktien bleibt ein Hauptthema für den Gesamtmarkt.",
+   "stocks": [
+    "SPY",
+    "URTH"
+   ],
+   "u": "https://de.beincrypto.com/tom-lee-kauft-ai-dip-nasdaq-rally/?.tsrc=rss",
+   "q": "Yahoo Finanzen"
+  },
+  {
+   "id": "n143661029",
+   "imp": 2,
+   "kind": [
+    "Abstufung",
+    "warn"
+   ],
+   "cat": "Unternehmen",
+   "t": "SAP: Analyst stuft nach Erholung ab und verweist auf Euro-Risiken",
+   "sum": "Ein Beitrag auf SeekingAlpha sieht nach dem jüngsten Anstieg weniger Luft und nennt Währungsrisiken.",
+   "body": [
+    "Nach der kräftigen Erholung der SAP-Aktie hält ein Autor die Bewertung für weniger attraktiv. Als Risiko nennt er Unruhe beim Euro.",
+    "Es handelt sich um eine Einzelmeinung, keine Unternehmensmeldung."
+   ],
+   "back": "Wirkt bald: Kann kurzfristig Gewinnmitnahmen begünstigen.",
+   "stocks": [
+    "SAP",
+    "SAP.DE"
+   ],
+   "u": "https://finnhub.io/api/news?id=07ac48032e9d9a84e6e7c75479d0a0f14570bfa09291ef1e40686171e5841af2",
+   "q": "SeekingAlpha"
+  },
+  {
+   "id": "ny910394608",
+   "imp": 2,
+   "kind": [
+    "Rechenzentren",
+    "up"
+   ],
+   "cat": "Unternehmen",
+   "t": "Bernstein sieht Siemens als Profiteur des Rechenzentren-Booms",
+   "sum": "Das Analysehaus zählt Siemens zu seinen Favoriten bei Investitionsgütern wegen der Nachfrage durch Rechenzentren.",
+   "body": [
+    "Bernstein erwartet, dass Anbieter von Strom- und Automatisierungstechnik vom Ausbau der Rechenzentren profitieren. Siemens steht dabei weit oben auf der Liste."
+   ],
+   "back": "Wirkt bald: Unterstützt die Wachstumserzählung für Siemens.",
+   "stocks": [
+    "SIE.DE"
+   ],
+   "u": "https://de.finance.yahoo.com/nachrichten/rechenzentren-boom-bernstein-setzt-siemens-064108042.html?.tsrc=rss",
+   "q": "Yahoo Finanzen"
+  },
+  {
+   "id": "ny496951525",
+   "imp": 1,
+   "kind": [
+    "Umbenennung",
+    ""
+   ],
+   "cat": "Unternehmen",
+   "t": "Healthineers trennt sich vom Namen Siemens",
+   "sum": "Nach der Abspaltung will die Medizintechnik-Tochter künftig ohne den Namen Siemens auftreten.",
+   "body": [
+    "Siemens Healthineers soll künftig nur noch Healthineers heißen. Zugleich verlassen Siemens-Manager den Aufsichtsrat der früheren Tochter.",
+    "Für Siemens ist das ein weiterer Schritt zur Konzentration auf Industrie und Software."
+   ],
+   "back": "Rückblick: Folgt der beschlossenen Trennung vom Mutterkonzern.",
+   "stocks": [
+    "SIE.DE"
+   ],
+   "u": "https://de.finance.yahoo.com/nachrichten/trennung-mutterkonzern-healthineers-streicht-siemens-060519987.html?.tsrc=rss",
+   "q": "Yahoo Finanzen"
+  },
+  {
+   "id": "ny1824844599",
+   "imp": 2,
+   "kind": [
+    "Gold schwach",
+    "down"
+   ],
+   "cat": "Rohstoffe",
+   "t": "Gold rutscht unter 4.000 Dollar trotz Käufen Chinas",
+   "sum": "Der Goldpreis erlebte den stärksten Oktober-Rückgang seit 2008, obwohl Chinas Notenbank weiter zukauft.",
+   "body": [
+    "Chinas Zentralbank hat ihre Goldbestände den 24. Monat in Folge erhöht. Dennoch fiel der Preis unter 4.000 US-Dollar je Unze.",
+    "Laut Goldman Sachs haben spekulative Verkäufe Ende Oktober zugenommen."
+   ],
+   "back": "Rückblick: Erklärt die Schwäche von Gold in den letzten Wochen.",
+   "stocks": [
+    "4GLD.DE"
+   ],
+   "u": "https://de.finance.yahoo.com/nachrichten/gold-f%C3%A4llt-4-000-china-041505609.html?.tsrc=rss",
+   "q": "Yahoo Finanzen"
+  },
+  {
+   "id": "n143663049",
+   "imp": 1,
+   "kind": [
+    "Tesla",
+    ""
+   ],
+   "cat": "Unternehmen",
+   "t": "Musk setzt bei Tesla neue Prioritäten",
+   "sum": "Musk hat seine Schwerpunkte deutlich gemacht, die Lage bei der Fahrzeugproduktion bleibt aber unklar.",
+   "body": [
+    "Ein Bericht beschreibt klare Signale von Musk an die Aktionäre. Gleichzeitig wird darauf hingewiesen, dass das Bild bei der Autoproduktion schwieriger ist."
+   ],
+   "back": "Wirkt bald: Die Aktie reagiert stark auf Aussagen von Musk.",
+   "stocks": [
+    "TSLA"
+   ],
+   "u": "https://finnhub.io/api/news?id=678ff47261f464bd7c54028336d8c77eba1fa0f70766395f1cac65fbda091b9d",
+   "q": "Yahoo"
+  }
+ ],
+ "telegram": "**Mittags-Update**\n**SAP:** JPMorgan stuft hoch, Kursziel 275 Euro – KI-Nutzung in Firmen als Treiber.\n**Chips:** TSMC meldet rund 60 % mehr Umsatz im Oktober, stützt die Tech-Erholung.\nDAX legt weiter zu (rund +1,1 %), Energiewerte bleiben wegen des schwächeren Öls im Minus.",
+ "kurz": [
+  {
+   "s": "4GLD.DE",
+   "n": "Xetra-Gold",
+   "text": "Xetra-Gold legte am Montag knapp 1 % zu, liegt aber über drei Monate rund 2,5 % im Minus. Gold fiel zuletzt unter 4.000 Dollar.",
+   "h": "lang",
+   "warn": 1,
+   "ausblick": "Nach dem starken Oktober-Rückgang ist eine Bodenbildung möglich, gestützt durch Käufe von Notenbanken wie China. Die Rechnung sieht eine Mitte um 117 Euro bei einer Spanne von 106 bis 129. Spekulative Verkäufe können weiter belasten.",
+   "richtung": "seitwärts",
+   "zuversicht": "niedrig",
+   "horizont": "2–3 Monate",
+   "halten": "Als Absicherung für unruhige Zeiten eher für einen langen Zeitraum geeignet. Dagegen sprechen der aktuelle Abwärtstrend und fehlende Zinsen.",
+   "signale": [
+    "Fall unter rund 106 Euro",
+    "Weitere Goldkäufe von Notenbanken",
+    "Neue Krisen, die sichere Häfen gefragt machen"
+   ],
+   "muster": "Der Kurs folgt eng dem Goldpreis in Dollar und läuft leicht gegen den Ölpreis. Diese Zusammenhänge sind nicht sicher.",
+   "quellen": [
+    {
+     "t": "Gold fällt unter $4.000: China baut Goldreserven den 24. Monat in Folge aus",
+     "u": "https://de.finance.yahoo.com/nachrichten/gold-f%C3%A4llt-4-000-china-041505609.html?.tsrc=rss"
+    },
+    {
+     "t": "Warum Gold an Glanz verliert: Goldman Sachs analysiert jüngste Verkaufswelle",
+     "u": "https://de.finance.yahoo.com/nachrichten/gold-glanz-verliert-goldman-sachs-203206295.html?.tsrc=rss"
+    }
+   ]
+  },
+  {
+   "s": "IS3Q.DE",
+   "n": "MSCI World Qualität",
+   "text": "Der Qualitäts-ETF stieg am Montag um 0,7 % und schwankt wenig. Über drei Monate liegt er rund 2 % im Plus.",
+   "h": "lang",
+   "warn": 0,
+   "ausblick": "Qualitätsunternehmen gelten in unsicheren Phasen als stabiler, daher ist ein ruhiger, leicht steigender Verlauf wahrscheinlich. Die Rechnung sieht eine Mitte um 82 Euro bei einer Spanne von 79 bis 86.",
+   "richtung": "seitwärts",
+   "zuversicht": "mittel",
+   "horizont": "2–3 Monate",
+   "halten": "Geringe Schwankung und solide Firmen sprechen für einen langen Zeitraum. Dagegen spricht, dass er in starken Aufschwüngen hinter dem Markt zurückbleiben kann.",
+   "signale": [
+    "Fall unter rund 79 Euro",
+    "Ausbruch über das 3-Monats-Hoch",
+    "Stimmung am Gesamtmarkt (VIX)"
+   ],
+   "muster": "Der Fonds läuft eng mit dem S&P 500 und gegen den VIX; fällt die Angst, hilft das eher. Das sind unsichere Tendenzen.",
+   "quellen": []
+  },
+  {
+   "s": "RHM.DE",
+   "n": "Rheinmetall",
+   "text": "Rheinmetall erholte sich am Montag um 4 %, liegt über drei Monate aber rund 26 % im Minus. Die Aktie gilt als stark überverkauft.",
+   "h": "spekulativ",
+   "warn": 1,
+   "ausblick": "Nach dem starken Rückgang ist eine Gegenbewegung möglich, der Abwärtstrend ist aber noch nicht gebrochen. Die Rechnung nennt eine sehr breite Spanne von 580 bis 953 Euro. Signale zu Frieden im Nahen Osten können weiter belasten.",
+   "richtung": "seitwärts",
+   "zuversicht": "niedrig",
+   "horizont": "4–8 Wochen",
+   "halten": "Volle Auftragsbücher sprechen langfristig für den Wert. Dagegen sprechen der deutliche Abwärtstrend und die sehr hohe Schwankung.",
+   "signale": [
+    "Fall unter rund 580 Euro",
+    "Nachhaltige Erholung über mehrere Tage",
+    "Nachrichten zu Rüstungsbudgets"
+   ],
+   "muster": "Der überverkaufte Zustand deutet oft auf eine kurze Erholung, die Aktie reagiert zudem stark auf den Gesamtmarkt. Das ist unsicher.",
+   "quellen": []
+  },
+  {
+   "s": "BZ=F",
+   "n": "Öl (Brent)",
+   "text": "Brent fiel am Montag um knapp 1 % und liegt über vier Wochen rund 13 % im Minus. Signale zur Entspannung im Iran-Konflikt drücken den Preis.",
+   "h": "nicht kaufbar",
+   "warn": 1,
+   "ausblick": "Bleibt es bei Entspannung im Nahen Osten, dürfte der Ölpreis eher schwach bleiben. Die Rechnung nennt eine breite Spanne von 74 bis 118 Dollar. Neue Angriffe könnten den Preis schnell wieder treiben.",
+   "richtung": "fallend",
+   "zuversicht": "niedrig",
+   "horizont": "4–8 Wochen",
+   "halten": "Öl dient hier als Marktanzeiger, nicht zum Halten. Ein niedriger Ölpreis entlastet Unternehmen und Verbraucher.",
+   "signale": [
+    "Neue Eskalation mit Iran",
+    "Entscheidungen der Förderländer",
+    "Anstieg über 90 Dollar"
+   ],
+   "muster": "",
+   "quellen": [
+    {
+     "t": "Oil falls as Trump downplays prospect of escalation with Iran - Reuters",
+     "u": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQYWIxdHFYZXdDLUkyNjhxSklldE1kTVJUMXBHOENVUUF0YWVXRmhpbGhvSDdJSUtSUG9ZUk5FVGxZdExQa0c0WmJFZDd2QXFNUnJUV0ZuZ0x3eHZCTFBiVXY3b0lVMVA0RkVaVllFRHJHSjJaUmlpSjNOQThxOGhoN05LelBtdjE4Qk5PbnRoTThFVWc3NE91WlE2WHJKbG5kWEVkeF9SS20wSGs?oc=5"
+    },
+    {
+     "t": "Trump says US military action against Iran not necessary 'at this point' - Reuters",
+     "u": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQTmtxNXdZTTY4U3h6bUNvMm5NZDBiWXNMMVJoalRMSzZ5OG4yR3ZkWkdaVU82SUFNYTlPcWhjZGZGUlVWczRwMnM1RjJLZGxtZUI3T0ZaTm1xS3RpZ0Z0V0lBQW5LRW9Ja3hoUXhuekl1UnNzWVE1QXA3MVk2Z2ppQVpwQ2pzSTdPbThuLUIzeko5UDIyQ21leGpreE9PdWEtN000NVQ2clduSTJQRC1wM2pwYmxWNjdmbGRLQTFFcjdjZw?oc=5"
+    }
+   ]
+  },
+  {
+   "s": "^GDAXI",
+   "n": "DAX",
+   "text": "Der DAX stieg am Montag um 1,7 % auf rund 26.270 Punkte. Er liegt nahe am 3-Monats-Hoch.",
+   "h": "nicht kaufbar",
+   "warn": 0,
+   "ausblick": "Fallendes Öl und die Erholung an der Wall Street stützen den DAX. Die Rechnung sieht eine Mitte um 26.700 Punkte bei einer Spanne von 24.900 bis 28.600. Am Hoch kann es stocken.",
+   "richtung": "steigend",
+   "zuversicht": "mittel",
+   "horizont": "2–3 Monate",
+   "halten": "Der Index selbst ist nicht kaufbar, über einen DAX-ETF aber gut abbildbar. Er zeigt die Stimmung bei deutschen Großkonzernen.",
+   "signale": [
+    "Ausbruch über das 3-Monats-Hoch",
+    "Fall unter rund 24.900 Punkte",
+    "Wieder steigender Ölpreis"
+   ],
+   "muster": "Goldenes Kreuz und Nähe zum Hoch deuten auf Stärke, der DAX läuft zudem eher gegen den Ölpreis. Beides ist unsicher.",
+   "quellen": [
+    {
+     "t": "Oil falls as Trump downplays prospect of escalation with Iran - Reuters",
+     "u": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQYWIxdHFYZXdDLUkyNjhxSklldE1kTVJUMXBHOENVUUF0YWVXRmhpbGhvSDdJSUtSUG9ZUk5FVGxZdExQa0c0WmJFZDd2QXFNUnJUV0ZuZ0x3eHZCTFBiVXY3b0lVMVA0RkVaVllFRHJHSjJaUmlpSjNOQThxOGhoN05LelBtdjE4Qk5PbnRoTThFVWc3NE91WlE2WHJKbG5kWEVkeF9SS20wSGs?oc=5"
+    }
+   ]
+  },
+  {
+   "s": "SPY",
+   "n": "S&P 500 ETF",
+   "text": "Der S&P 500 legte am Montag um 2,4 % zu, angeführt von Tech-Werten. Das ist eine kräftige Gegenbewegung nach der schwachen Vorwoche, über vier Wochen bleibt ein Minus von gut 3 %.",
+   "h": "lang",
+   "warn": 1,
+   "ausblick": "Ob die Erholung trägt, ist offen: Der Trend zeigt noch nach unten, die KI-Bewertungen bleiben umstritten. Die Rechnung sieht eine Mitte um 756 Dollar bei einer Spanne von 704 bis 811. Die oft starke Jahresend-Phase könnte stützen.",
+   "richtung": "seitwärts",
+   "zuversicht": "niedrig",
+   "horizont": "2–3 Monate",
+   "halten": "Ein breiter US-Index-ETF passt eher für einen langen Zeitraum, weil er viele Firmen bündelt. Kurzfristig sprechen der Abwärtstrend und die KI-Debatte für weitere Schwankungen.",
+   "signale": [
+    "Fall unter rund 704 Dollar",
+    "Rückeroberung des 50-Tage-Schnitts",
+    "Neue Zahlen von großen Tech-Firmen"
+   ],
+   "muster": "Das Todeskreuz deutet auf Schwäche, die Nähe zum 3-Monats-Tief und die Jahresend-Phase eher auf Unterstützung. Die Signale widersprechen sich und sind unsicher.",
+   "quellen": [
+    {
+     "t": "Technologiewerte führen Erholung von der Wall Street bis Asien",
+     "u": "https://finnhub.io/api/news?id=63768f7d3c8064721680987c6ad68fd3b5947900378fe19e87b33960215f7440"
+    },
+    {
+     "t": "Why Is TSM Stock Rising Overnight?",
+     "u": "https://finnhub.io/api/news?id=d097b10290e65f1e8a1076f51c45ede5b1ecc72474b05be35926fef83287558b"
+    }
+   ]
+  }
+ ],
+ "model": {
+  "trendDamping": 0.5,
+  "bandFactor": 1,
+  "newsWeight": 1
+ },
+ "updates": [],
+ "catalog": [
+  {
+   "s": "NVDA",
+   "n": "Nvidia",
+   "a": ""
+  },
+  {
+   "s": "MSFT",
+   "n": "Microsoft",
+   "a": ""
+  },
+  {
+   "s": "AAPL",
+   "n": "Apple",
+   "a": ""
+  },
+  {
+   "s": "SAP",
+   "n": "SAP (USA, $)",
+   "a": ""
+  },
+  {
+   "s": "AMZN",
+   "n": "Amazon",
+   "a": ""
+  },
+  {
+   "s": "XLV",
+   "n": "Gesundheit-ETF (Health Care Select)",
+   "a": ""
+  },
+  {
+   "s": "GOOGL",
+   "n": "Alphabet",
+   "a": "google"
+  },
+  {
+   "s": "META",
+   "n": "Meta Platforms",
+   "a": "facebook"
+  },
+  {
+   "s": "TSLA",
+   "n": "Tesla",
+   "a": ""
+  },
+  {
+   "s": "NFLX",
+   "n": "Netflix",
+   "a": ""
+  },
+  {
+   "s": "AMD",
+   "n": "AMD",
+   "a": ""
+  },
+  {
+   "s": "INTC",
+   "n": "Intel",
+   "a": ""
+  },
+  {
+   "s": "ASML",
+   "n": "ASML",
+   "a": ""
+  },
+  {
+   "s": "NVO",
+   "n": "Novo Nordisk",
+   "a": ""
+  },
+  {
+   "s": "KO",
+   "n": "Coca-Cola",
+   "a": ""
+  },
+  {
+   "s": "JPM",
+   "n": "JPMorgan Chase",
+   "a": ""
+  },
+  {
+   "s": "V",
+   "n": "Visa",
+   "a": ""
+  },
+  {
+   "s": "BRK.B",
+   "n": "Berkshire Hathaway",
+   "a": ""
+  },
+  {
+   "s": "URTH",
+   "n": "MSCI World ETF",
+   "a": "msci world welt"
+  },
+  {
+   "s": "SPY",
+   "n": "S&P 500 ETF",
+   "a": "sp500 s&p"
+  },
+  {
+   "s": "SAP.DE",
+   "n": "SAP (Xetra)",
+   "a": "sap"
+  },
+  {
+   "s": "SIE.DE",
+   "n": "Siemens",
+   "a": ""
+  },
+  {
+   "s": "ALV.DE",
+   "n": "Allianz",
+   "a": ""
+  },
+  {
+   "s": "DTE.DE",
+   "n": "Deutsche Telekom",
+   "a": "telekom"
+  },
+  {
+   "s": "MBG.DE",
+   "n": "Mercedes-Benz",
+   "a": "mercedes daimler"
+  },
+  {
+   "s": "BMW.DE",
+   "n": "BMW",
+   "a": ""
+  },
+  {
+   "s": "VOW3.DE",
+   "n": "Volkswagen",
+   "a": "vw"
+  },
+  {
+   "s": "P911.DE",
+   "n": "Porsche AG",
+   "a": "porsche"
+  },
+  {
+   "s": "BAS.DE",
+   "n": "BASF",
+   "a": ""
+  },
+  {
+   "s": "BAYN.DE",
+   "n": "Bayer",
+   "a": ""
+  },
+  {
+   "s": "ADS.DE",
+   "n": "Adidas",
+   "a": ""
+  },
+  {
+   "s": "PUM.DE",
+   "n": "Puma",
+   "a": ""
+  },
+  {
+   "s": "IFX.DE",
+   "n": "Infineon",
+   "a": ""
+  },
+  {
+   "s": "RHM.DE",
+   "n": "Rheinmetall",
+   "a": ""
+  },
+  {
+   "s": "HAG.DE",
+   "n": "Hensoldt",
+   "a": ""
+  },
+  {
+   "s": "RENK.DE",
+   "n": "Renk",
+   "a": ""
+  },
+  {
+   "s": "MUV2.DE",
+   "n": "Münchener Rück",
+   "a": "munich re"
+  },
+  {
+   "s": "HNR1.DE",
+   "n": "Hannover Rück",
+   "a": ""
+  },
+  {
+   "s": "DBK.DE",
+   "n": "Deutsche Bank",
+   "a": ""
+  },
+  {
+   "s": "CBK.DE",
+   "n": "Commerzbank",
+   "a": ""
+  },
+  {
+   "s": "DB1.DE",
+   "n": "Deutsche Börse",
+   "a": ""
+  },
+  {
+   "s": "DHL.DE",
+   "n": "DHL Group",
+   "a": "post"
+  },
+  {
+   "s": "AIR.DE",
+   "n": "Airbus",
+   "a": ""
+  },
+  {
+   "s": "MTX.DE",
+   "n": "MTU Aero Engines",
+   "a": "mtu"
+  },
+  {
+   "s": "EOAN.DE",
+   "n": "E.ON",
+   "a": "eon"
+  },
+  {
+   "s": "RWE.DE",
+   "n": "RWE",
+   "a": ""
+  },
+  {
+   "s": "SHL.DE",
+   "n": "Siemens Healthineers",
+   "a": "healthineers"
+  },
+  {
+   "s": "ENR.DE",
+   "n": "Siemens Energy",
+   "a": "energy"
+  },
+  {
+   "s": "MRK.DE",
+   "n": "Merck KGaA",
+   "a": "merck"
+  },
+  {
+   "s": "HEI.DE",
+   "n": "Heidelberg Materials",
+   "a": "heidelberg"
+  },
+  {
+   "s": "VNA.DE",
+   "n": "Vonovia",
+   "a": ""
+  },
+  {
+   "s": "ZAL.DE",
+   "n": "Zalando",
+   "a": ""
+  },
+  {
+   "s": "BEI.DE",
+   "n": "Beiersdorf",
+   "a": "nivea"
+  },
+  {
+   "s": "HEN3.DE",
+   "n": "Henkel",
+   "a": ""
+  },
+  {
+   "s": "CON.DE",
+   "n": "Continental",
+   "a": ""
+  },
+  {
+   "s": "QIA.DE",
+   "n": "Qiagen",
+   "a": ""
+  },
+  {
+   "s": "SY1.DE",
+   "n": "Symrise",
+   "a": ""
+  },
+  {
+   "s": "FRE.DE",
+   "n": "Fresenius",
+   "a": ""
+  },
+  {
+   "s": "LHA.DE",
+   "n": "Lufthansa",
+   "a": ""
+  },
+  {
+   "s": "TKA.DE",
+   "n": "Thyssenkrupp",
+   "a": ""
+  },
+  {
+   "s": "ASML.AS",
+   "n": "ASML (Amsterdam)",
+   "a": "asml"
+  },
+  {
+   "s": "MC.PA",
+   "n": "LVMH",
+   "a": "louis vuitton"
+  },
+  {
+   "s": "OR.PA",
+   "n": "L'Oréal",
+   "a": "loreal"
+  },
+  {
+   "s": "TTE.PA",
+   "n": "TotalEnergies",
+   "a": "total"
+  },
+  {
+   "s": "NESN.SW",
+   "n": "Nestlé",
+   "a": "nestle"
+  },
+  {
+   "s": "NOVN.SW",
+   "n": "Novartis",
+   "a": ""
+  },
+  {
+   "s": "ROG.SW",
+   "n": "Roche",
+   "a": ""
+  },
+  {
+   "s": "NOVO-B.CO",
+   "n": "Novo Nordisk (Kopenhagen)",
+   "a": "novo"
+  },
+  {
+   "s": "SHEL.L",
+   "n": "Shell",
+   "a": ""
+  },
+  {
+   "s": "EUNL.DE",
+   "n": "iShares Core MSCI World ETF",
+   "a": "msci world welt etf"
+  },
+  {
+   "s": "VWCE.DE",
+   "n": "Vanguard FTSE All-World ETF",
+   "a": "all world welt etf"
+  },
+  {
+   "s": "XDWD.DE",
+   "n": "Xtrackers MSCI World ETF",
+   "a": "msci world welt etf"
+  },
+  {
+   "s": "SXR8.DE",
+   "n": "iShares Core S&P 500 ETF",
+   "a": "sp500 s&p etf"
+  },
+  {
+   "s": "EXS1.DE",
+   "n": "iShares Core DAX ETF",
+   "a": "dax etf"
+  },
+  {
+   "s": "IS3N.DE",
+   "n": "iShares MSCI Emerging Markets IMI ETF",
+   "a": "schwellenländer emerging etf"
+  },
+  {
+   "s": "EUNK.DE",
+   "n": "iShares Core MSCI Europe ETF",
+   "a": "europa etf"
+  },
+  {
+   "s": "BTC-EUR",
+   "n": "Bitcoin",
+   "a": "krypto btc"
+  },
+  {
+   "s": "ETH-EUR",
+   "n": "Ethereum",
+   "a": "krypto eth etherium"
+  },
+  {
+   "s": "SOL-EUR",
+   "n": "Solana",
+   "a": "krypto"
+  },
+  {
+   "s": "XRP-EUR",
+   "n": "XRP (Ripple)",
+   "a": "krypto ripple"
+  },
+  {
+   "s": "BNB-EUR",
+   "n": "BNB",
+   "a": "krypto binance"
+  },
+  {
+   "s": "ADA-EUR",
+   "n": "Cardano",
+   "a": "krypto ada"
+  },
+  {
+   "s": "DOGE-EUR",
+   "n": "Dogecoin",
+   "a": "krypto doge"
+  },
+  {
+   "s": "4GLD.DE",
+   "n": "Xetra-Gold",
+   "a": "gold"
+  },
+  {
+   "s": "EXUS.DE",
+   "n": "Xtrackers MSCI World ex USA ETF",
+   "a": "welt ohne usa etf"
+  },
+  {
+   "s": "IUSQ.DE",
+   "n": "iShares MSCI ACWI ETF",
+   "a": "acwi welt etf"
+  },
+  {
+   "s": "XDEW.DE",
+   "n": "Xtrackers S&P 500 Equal Weight ETF",
+   "a": "gleichgewichtet sp500 etf"
+  },
+  {
+   "s": "EXSA.DE",
+   "n": "iShares STOXX Europe 600 ETF",
+   "a": "europa etf"
+  },
+  {
+   "s": "EXW1.DE",
+   "n": "iShares Core Euro Stoxx 50 ETF",
+   "a": "euro stoxx etf"
+  },
+  {
+   "s": "XMME.DE",
+   "n": "Xtrackers MSCI Emerging Markets ETF",
+   "a": "schwellenländer emerging etf"
+  },
+  {
+   "s": "VFEM.DE",
+   "n": "Vanguard FTSE Emerging Markets ETF",
+   "a": "schwellenländer emerging etf"
+  },
+  {
+   "s": "IS3Q.DE",
+   "n": "iShares MSCI World Quality Factor ETF",
+   "a": "qualität etf"
+  },
+  {
+   "s": "ISPA.DE",
+   "n": "iShares STOXX Global Select Dividend 100 ETF",
+   "a": "dividende etf"
+  },
+  {
+   "s": "VGWD.DE",
+   "n": "Vanguard FTSE All-World High Dividend Yield ETF",
+   "a": "dividende etf"
+  },
+  {
+   "s": "EUNH.DE",
+   "n": "iShares Core € Govt Bond ETF",
+   "a": "staatsanleihen anleihen etf"
+  },
+  {
+   "s": "IBCI.DE",
+   "n": "iShares € Inflation Linked Govt Bond ETF",
+   "a": "inflation anleihen etf"
+  },
+  {
+   "s": "XEON.DE",
+   "n": "Xtrackers II EUR Overnight Rate Swap ETF",
+   "a": "geldmarkt tagesgeld etf"
+  },
+  {
+   "s": "XGLE.DE",
+   "n": "Xtrackers Eurozone Government Bond ETF",
+   "a": "staatsanleihen anleihen etf"
+  },
+  {
+   "s": "SXRV.DE",
+   "n": "iShares Nasdaq 100 ETF",
+   "a": "nasdaq etf"
+  },
+  {
+   "s": "EXS3.DE",
+   "n": "iShares MDAX ETF",
+   "a": "mdax etf"
+  },
+  {
+   "s": "EXI3.DE",
+   "n": "iShares Dow Jones Industrial Average ETF",
+   "a": "dow jones etf"
+  },
+  {
+   "s": "SXRT.DE",
+   "n": "iShares Core Euro Stoxx 50 ETF (Acc)",
+   "a": "euro stoxx etf"
+  },
+  {
+   "s": "BRNT.L",
+   "n": "WisdomTree Brent Crude Oil (ETC)",
+   "a": "öl oil brent"
+  },
+  {
+   "s": "XDJP.DE",
+   "n": "Xtrackers Nikkei 225 ETF",
+   "a": "japan etf"
+  }
+ ]
+}
