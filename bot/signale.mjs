@@ -113,7 +113,8 @@ function testTage(W){const ab=new Date(Date.now()-365*864e5).toISOString().slice
 function testH(W,H,par,tage){const top=[],alle=[];let besser=0,n=0;
   for(const d of tage){const l=[];for(const w of W){const i=w.idx.get(d);if(i==null||i+H>=w.C.length)continue;const p=par?punkte(w.R,i,par):w.P[H][i];if(p==null)continue;l.push({p,f:(w.C[i+H]/w.C[i]-1)*100-2*KOSTEN})}
     if(l.length<10)continue;l.sort((a,b)=>b.p-a.p);const t=l.slice(0,TOP),mt=mean(t.map(x=>x.f)),ma=mean(l.map(x=>x.f));top.push(...t.map(x=>x.f));alle.push(ma);n++;if(mt>ma)besser++}
-  return n?{tage:n,topAvg:+mean(top).toFixed(2),alleAvg:+mean(alle).toFixed(2),vorsprung:+(mean(top)-mean(alle)).toFixed(2),besser:Math.round(besser/n*100),plus:Math.round(top.filter(x=>x>0).length/top.length*100)}:{tage:0}}
+  const ziel=[.5,1,2,3,5,10].map(z=>[z,Math.round(top.filter(x=>x>=z*H).length/(top.length||1)*100)]); // Anteil der Käufe mit mindestens z % pro Tag (einfach gerechnet)
+  return n?{tage:n,zielQuote:Object.fromEntries(ziel),topAvg:+mean(top).toFixed(2),alleAvg:+mean(alle).toFixed(2),vorsprung:+(mean(top)-mean(alle)).toFixed(2),besser:Math.round(besser/n*100),plus:Math.round(top.filter(x=>x>0).length/top.length*100)}:{tage:0}}
 function test(W){const tage=testTage(W),out={};for(const H of HORIZONTE)out[H]=testH(W,H,null,tage);return out}
 // Prüfung eines Vorschlags: ganzes Jahr und getrennt nach erster und zweiter Jahreshälfte (gegen Zufallstreffer)
 function pruefe(W,H,alt,neu){const tage=testTage(W),m=Math.floor(tage.length/2),teil=t=>({alt:testH(W,H,alt,t),neu:testH(W,H,neu,t)});
@@ -164,7 +165,8 @@ function musterAktiv(w,H,speicher){const n=w.C.length;return musterEreignisse(w)
 function abrechnen(W,eintraege,H){const erg=[];
   for(const x of eintraege)for(const p of x.picks||[]){const w=W.find(y=>y.s===p.s);if(!w||!p.p0)continue;const i0=w.bars.findIndex(b=>b[0]>=x.d);if(i0<0||!(i0+H<w.C.length-(offen(regionVon(w.s))?1:0)))continue;
     const d0=w.bars[i0][0],r=(w.C[i0+H]/p.p0-1)*100-2*KOSTEN,b=W.filter(v=>v.idx.has(d0)&&v.idx.get(d0)+H<v.C.length).map(v=>{const j=v.idx.get(d0);return (v.C[j+H]/v.C[j]-1)*100});erg.push({r,bench:b.length?mean(b):0})}
-  return erg.length?{n:erg.length,avg:+mean(erg.map(e=>e.r)).toFixed(2),plus:Math.round(erg.filter(e=>e.r>0).length/erg.length*100),bench:+mean(erg.map(e=>e.bench)).toFixed(2),besser:Math.round(erg.filter(e=>e.r>e.bench).length/erg.length*100)}:{n:0}}
+  return erg.length?{n:erg.length,avg:+mean(erg.map(e=>e.r)).toFixed(2),plus:Math.round(erg.filter(e=>e.r>0).length/erg.length*100),bench:+mean(erg.map(e=>e.bench)).toFixed(2),besser:Math.round(erg.filter(e=>e.r>e.bench).length/erg.length*100),
+    werte:erg.slice(-300).map(e=>+e.r.toFixed(2))}:{n:0}} // werte: Einzelergebnisse, damit die App prüfen kann, wie oft ein Ziel erreicht wurde
 
 /* ---------- Updates der Rechnung: KI schlägt vor, Wachmann testet, du stimmst zu ---------- */
 const MODELL="data/beste-modell.json";
