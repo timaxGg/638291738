@@ -5,6 +5,7 @@
 // 3. Ergebnis + Entwicklung früherer Listen landen in kurse.json (Feld sig), die App liest es dort.
 // Keine erfundenen Zahlen: alle Zahlen kommen aus Kursdaten oder aus verlinkten Quellen. Keine Anlageberatung.
 import fs from "node:fs";
+import {verschluesseln,entschluesseln} from "./krypto.mjs";
 
 const KOSTEN=0.1;          // % je Kauf bzw. Verkauf (im Test abgezogen)
 const TOP=5;               // so viele Werte zeigt die App je Zeitraum
@@ -182,12 +183,44 @@ async function entscheide(ctx,antwort,quelle){const V=ST.vorschlag;if(!V)return 
     return `↩️ Rückgängig gemacht: ${ctx.esc(S.titel)}. Die Liste rechnet wieder wie vorher.`}
   return "Dazu gibt es gerade nichts zu entscheiden."}
 const vorschlagText=(ctx,V)=>`🧪 <b>Update-Vorschlag der KI</b> (${V.horizont} Tage)\n<b>${ctx.esc(V.titel)}</b>\n\n<b>Was sich ändert</b>\n${V.liste.map(x=>`• ${ctx.esc(x.name)}: ${x.von} → ${x.nach}`).join("\n")}\n\n<b>Warum</b>\n${ctx.esc(V.warum)}\n\n<b>Test am letzten Jahr</b> (Vorsprung der Top 5 vor dem Durchschnitt je Kauf)\nGanzes Jahr: jetzt ${pz2(V.test.jahr.alt.vorsprung)} → neu ${pz2(V.test.jahr.neu.vorsprung)}\n1. Hälfte: ${pz2(V.test.h1.alt.vorsprung)} → ${pz2(V.test.h1.neu.vorsprung)} · 2. Hälfte: ${pz2(V.test.h2.alt.vorsprung)} → ${pz2(V.test.h2.neu.vorsprung)}\nUrteil: <b>${V.test.urteil}</b>. ${ctx.esc(V.test.text)}\n\nÜbernehmen? Erst nach deinem Ja ändert sich etwas.`;
-export async function knopf(cb,ctx){SF=ctx.P(".state/beste.json");if(!ST)ST=lade();const [,a,id]=String(cb.data||"").split(":"),V=ST.vorschlag;
+export async function knopf(cb,ctx){SF=ctx.P(".state/beste.json");if(!ST)ST=lade();const [art,a,id]=String(cb.data||"").split(":"),V=ST.vorschlag;
+  if(art==="tp"){if(!MD)MD=await meinDepot(ctx);return okKnopf(cb,ctx,id)}
   const ok=a==="zurueck"?!!ST.schatten:V&&V.id===id;const t=ok?await entscheide(ctx,a,"Telegram"):"Dieser Vorschlag ist nicht mehr offen.";
   if(ctx.tg){await ctx.tg("answerCallbackQuery",{callback_query_id:cb.id,text:ok?"Gespeichert":"Nicht mehr offen"});await ctx.tg("editMessageText",{chat_id:cb.message.chat.id,message_id:cb.message.message_id,parse_mode:"HTML",text:t})}speichere()}
 
+/* ---------- Eigenes Depot der Top-Aktien-App ---------- */
+// Die App speichert Merkliste und übernommene Aktien verschlüsselt (Sync-Passwort der Haupt-App) in data/top.enc.
+async function meinDepot(ctx){const PASS=process.env.SYNC_PASSWORD||"",f=ctx.P("data/top.enc");if(!PASS||!fs.existsSync(f))return null;
+  try{const d=await entschluesseln(fs.readFileSync(f,"utf8"),PASS);delete ctx.B.err.topdepot;return {depot:Array.isArray(d.depot)?d.depot:[],merk:Array.isArray(d.merk)?d.merk:[]}}
+  catch(e){ctx.B.err.topdepot="Top-Aktien-Depot nicht lesbar. Stimmt das Sync-Passwort?";return null}}
+const linie=(ref,abst,erste)=>{const t=ref-abst;return erste&&t<0?-.5:Math.max(0,t)};
+async function schutz(ctx,W,out){ST.sch=ST.sch||{};const da=new Set();
+  for(const x of MD.depot){if(!x||!x.id||!x.s||!(x.k>0))continue;da.add(x.id);const h=ST.hist[x.s];if(!h||!h.bars)continue;
+    const p=h.p&&Date.now()-(h.mt||0)<4*864e5?h.p:h.bars[h.bars.length-1][1];if(!(p>0))continue;
+    const ch=(p/x.k-1)*100,st=ST.sch[x.id]=ST.sch[x.id]||{ref:ch,al:null,vl:null,okT:0,seit:Date.now()},n=x.n||x.s,c=CS[h.cur]||h.cur||"";
+    if(x.okT&&x.okT>st.okT){st.okT=x.okT;st.ref=ch;st.al=ch<0?ch:null}
+    const kurs=`Kurs ${dez(p)} ${c} · Kauf ${dez(x.k)} ${c}${x.q?` · ${x.q} Stück`:""}`,lk=link(ctx,x.s).replace("In der Top-Aktien-App öffnen ›","Zur Aktie in der Top-Aktien-App ›");
+    // Verlustschutz: Meldung, wenn das Minus die Grenze erreicht, danach bei jedem weiteren 2 Prozentpunkten
+    const a=-Math.abs(x.a==null?10:x.a);
+    if(x.a!==0&&ch<=a){if(st.vl==null||ch<=st.vl-2){st.vl=ch;
+      if(ctx.send)await ctx.send(`🔴 <b>Verlustschutz: ${ctx.esc(n)}</b>\nDu liegst <b>${pz(ch)}</b> unter deinem Kaufkurs. Deine Grenze: ${pz(a)}.\n${kurs}\n\nJetzt prüfen: verkaufen, um das Minus zu begrenzen, oder bewusst halten. Ich melde mich wieder, wenn es 2 weitere Prozentpunkte fällt.${lk}`,{dringend:ch<=a-5})}}
+    else if(st.vl!=null&&ch>a+1)st.vl=null;
+    // Gewinnschutz: Schutzlinie = höchstes Plus seit Kauf (oder seit „OK“) minus Abstand, nie unter 0; erste Stunde ab −0,5 %
+    if(x.nl!==0){const abst=x.nl>0?x.nl:.5,erste=!!x.t&&Date.now()-x.t<36e5;st.ref=Math.max(st.ref,ch);const lv=linie(st.ref,abst,erste),unter=lv>0?ch<=lv:ch<lv,doppelt=lv<=0&&x.a!==0&&ch<=a; // im Minus unter der Verlustgrenze reicht die Verlust-Meldung
+      if(unter&&!doppelt){if(st.al==null||ch<=st.al-1){st.al=ch;const neu=linie(ch,abst,false);
+          if(ctx.send)await ctx.send(`🛡️ <b>Gewinnschutz: ${ctx.esc(n)}</b>\n${lv>0?`Dein Plus ist auf <b>${pz(ch)}</b> gefallen. Höchster Stand war ${pz(st.ref)}, deine Schutzlinie liegt bei ${pz(lv)}.`:`Du bist ins Minus gerutscht: <b>${pz(ch)}</b> seit Kauf.`}\n${kurs}\n\nVerkaufen oder mit <b>OK</b> bestätigen, dass die Aktie gesund ist. ${ch>=0?`Dann gilt ${pz(ch)} als neuer Höchstwert und die Schutzlinie liegt bei ${pz(neu)}.`:"Dann melde ich mich erst wieder, wenn es einen weiteren Prozentpunkt fällt."}${lk}`,{knoepfe:[[{text:"✅ OK, Aktie ist gesund",callback_data:`tp:ok:${x.id}`.slice(0,64)}]]})}}
+      else if(st.al!=null&&ch>lv+.2)st.al=null;
+      out[x.id]={ch:+ch.toFixed(2),p:r6(p),ref:+st.ref.toFixed(2),lv:+lv.toFixed(2),abst,warn:unter,vl:st.vl!=null,t:Date.now()}}
+    else out[x.id]={ch:+ch.toFixed(2),p:r6(p),vl:st.vl!=null,t:Date.now()}}
+  for(const id of Object.keys(ST.sch))if(!da.has(id))delete ST.sch[id]}
+async function okKnopf(cb,ctx,id){const st=ST.sch&&ST.sch[id],x=MD&&MD.depot.find(d=>d.id===id);
+  if(!st||!x){if(ctx.tg)await ctx.tg("answerCallbackQuery",{callback_query_id:cb.id,text:"Position nicht mehr gefunden"});return}
+  const h=ST.hist[x.s],p=h&&h.p||x.k,ch=(p/x.k-1)*100;st.ref=ch;st.al=ch<0?ch:null;st.okT=Date.now();const lv=linie(ch,x.nl>0?x.nl:.5,false);
+  if(ctx.tg){await ctx.tg("answerCallbackQuery",{callback_query_id:cb.id,text:"Gewinnschutz neu gesetzt"});
+    await ctx.tg("editMessageText",{chat_id:cb.message.chat.id,message_id:cb.message.message_id,parse_mode:"HTML",text:`🛡️ Gewinnschutz: ${ctx.esc(x.n||x.s)}\n✅ Bestätigt: ${pz(ch)} ist jetzt der Ausgangswert, die Schutzlinie liegt bei <b>${pz(lv)}</b>.${ch<0?" Ich melde mich wieder, wenn es einen weiteren Prozentpunkt fällt.":""}`})}speichere()}
+
 /* ---------- Zustand ---------- */
-let SF="",ST=null;
+let SF="",ST=null,MD=null; // MD = eigenes Depot und Merkliste der Top-Aktien-App (verschlüsselt in data/top.enc)
 const lade=()=>{try{return Object.assign({hist:{},listen:[],fehler:{}},JSON.parse(fs.readFileSync(SF,"utf8")))}catch(e){return {hist:{},listen:[],fehler:{}}}};
 const speichere=()=>{fs.mkdirSync(SF.replace(/\/[^/]*$/,""),{recursive:true});fs.writeFileSync(SF,JSON.stringify(ST))};
 export const app=()=>ST&&ST.app||null;
@@ -195,11 +228,12 @@ const readJSON=(f,d)=>{try{return JSON.parse(fs.readFileSync(f,"utf8"))}catch(e)
 
 function liste(ctx){const l=UNIVERSUM.map(([s,n,typ])=>({s,n,typ})),da=new Set(l.map(x=>x.s));
   for(const s of (ctx.eigene?ctx.eigene():[]))if(istAktie(s)&&!da.has(s)&&l.length<UNIVERSUM.length+10){da.add(s);l.push({s,n:ctx.name?ctx.name(s):s,typ:"a",eigen:1})}
+  for(const x of [...((MD&&MD.depot)||[]),...((MD&&MD.merk)||[])])if(x&&x.s&&istAktie(x.s)&&!da.has(x.s)){da.add(x.s);l.push({s:x.s,n:x.n||x.s,typ:"a",eigen:1})}
   for(const [s,h] of Object.entries(ST.hist))if(h.tmp&&!da.has(s)){if(Date.now()-h.tmp>3*864e5){delete ST.hist[s];continue}da.add(s);l.push({s,n:h.n||s,typ:"a",eigen:1})}
   return l}
 
 /* ---------- Hauptlauf ---------- */
-export async function lauf(ctx){SF=ctx.P(".state/beste.json");if(!ST)ST=lade();const B=ctx.B,heute=new Date().toISOString().slice(0,10);let fehler=0,geholt=0;
+export async function lauf(ctx){SF=ctx.P(".state/beste.json");if(!ST)ST=lade();MD=await meinDepot(ctx);const B=ctx.B,heute=new Date().toISOString().slice(0,10);let fehler=0,geholt=0;
   const L=liste(ctx);
   // Gespeichert werden nur Datum und Schlusskurs, damit der Speicher bei über 200 Werten klein bleibt
   const knapp=bars=>bars.map(b=>[b[0],b.length>2?b[4]:b[1]]);ST.versucht=ST.versucht||{};
@@ -209,7 +243,7 @@ export async function lauf(ctx){SF=ctx.P(".state/beste.json");if(!ST)ST=lade();c
     try{const y=await yahoo(w.s,"2y");ST.hist[w.s]=Object.assign(h||{},{d:heute,bars:knapp(y.bars),cur:y.cur,p:y.p,mt:y.mt,lt:Date.now()});delete ST.fehler[w.s]}catch(e){fehler++;ST.fehler[w.s]=String(e.message).slice(0,80)}}
   for(const s of Object.keys(ST.versucht))if(!L.some(w=>w.s===s))delete ST.versucht[s];
   // Laufende Tageskerze: aussichtsreiche Werte alle 15 Min., die übrigen reihum etwa stündlich (Börse offen) bzw. alle 3 Std.
-  const wichtig=new Set(ST.wichtig||[]),kand=L.map(w=>({w,h:ST.hist[w.s]})).filter(x=>x.h&&x.h.bars).map(x=>Object.assign(x,{alt:Date.now()-(x.h.lt||0),of:offen(regionVon(x.w.s))}));
+  const wichtig=new Set([...(ST.wichtig||[]),...((MD&&MD.depot)||[]).map(x=>x.s)]),kand=L.map(w=>({w,h:ST.hist[w.s]})).filter(x=>x.h&&x.h.bars).map(x=>Object.assign(x,{alt:Date.now()-(x.h.lt||0),of:offen(regionVon(x.w.s))}));
   const jetztHolen=[...kand.filter(x=>x.of&&wichtig.has(x.w.s)&&x.alt>14*6e4),...kand.filter(x=>!wichtig.has(x.w.s)||!x.of).filter(x=>x.alt>(x.of?50*6e4:3*36e5)).sort((a,b)=>b.alt-a.alt).slice(0,20)];
   for(const {w,h} of jetztHolen){try{const y=await yahoo(w.s,"5d");h.bars=zusammen(h.bars,knapp(y.bars)).slice(-560);h.p=y.p;h.mt=y.mt;h.cur=y.cur||h.cur;h.lt=Date.now();delete ST.fehler[w.s]}catch(e){fehler++;ST.fehler[w.s]=String(e.message).slice(0,80)}}
   for(const s of Object.keys(ST.hist))if(!L.some(w=>w.s===s))delete ST.hist[s];
@@ -271,12 +305,18 @@ export async function lauf(ctx){SF=ctx.P(".state/beste.json");if(!ST)ST=lade();c
         const p0=w=>r6(w.h.p||w.C[w.C.length-1]);e.h[H]={neu:rang[H].slice(0,TOP).map(w=>({s:w.s,p0:p0(w)})),alt:altR.map(x=>({s:x.w.s,p0:p0(x.w)}))}}S.eintraege.push(e)}
     pruefung={seit:S.seit,titel:S.titel,version:S.version,tage:S.eintraege.length,h:Object.fromEntries(HORIZONTE.map(H=>[H,{neu:abrechnen(W,S.eintraege.map(e=>({d:e.d,picks:e.h[H].neu})),H),alt:abrechnen(W,S.eintraege.map(e=>({d:e.d,picks:e.h[H].alt})),H)}]))};
     if(Date.now()-Date.parse(S.seit)>75*864e5)ST.schatten=null}
+
+  // Eigenes Depot der Top-Aktien-App: Gewinnschutz (nachlaufend, wie in der Haupt-App) und Verlustschutz, mit Link zur Aktie
+  const meine={},schutzApp={};
+  if(MD){for(const x of [...(MD.depot||[]),...(MD.merk||[])]){const w=W.find(y=>y.s===x.s);if(w&&!meine[x.s])meine[x.s]=fakten(w,7)}
+    await schutz(ctx,W,schutzApp);ST.app_schutz=schutzApp}
   ST.app={v:2,t:Date.now(),top:TOP,kosten:KOSTEN,horizonte:HORIZONTE,test:ST.test,werte:W.length,
     ki:kiHeute?{id:ki.id,erstellt:ki.erstellt,slot:ki.slot,markt:ki.markt||"",marktQuellen:Array.isArray(ki.marktQuellen)?ki.marktQuellen.slice(0,4):[],aussortiert:Array.isArray(ki.aussortiert)?ki.aussortiert.slice(0,12):[]}:null,
     aktien:W.filter(w=>w.typ!=="e").length,etfs:W.filter(w=>w.typ==="e").length,
     weitere:Object.fromEntries(HORIZONTE.map(H=>[H,rang[H].filter(w=>!listen[H].some(x=>x.s===w.s)).slice(0,WEITERE).map(w=>{const f=fakten(w,H);return {s:f.s,n:f.n,typ:f.typ,cur:f.cur,p:f.p,dp:f.dp,mt:f.mt,wochen4:f.wochen4,monate3:f.monate3,trend:f.trend,rsi:f.rsi,rang:rang[H].indexOf(w)+1}})])),
     modell:{version:MO.version,params:M,standard:STANDARD,param:PARAM,verlauf:MO.verlauf.slice(-10).reverse()},vorschlag:ST.vorschlag&&(ST.vorschlag.status==='offen'||Date.now()-(ST.vorschlag.entschieden||0)<3*864e5)?ST.vorschlag:null,pruefung,
     muster:{info:MUSTER.map(m=>({id:m.id,n:m.n,t:m.t})),speicher:ST.muster?ST.muster.m:null},
+    meine,schutz:Object.keys(schutzApp).length&&process.env.SYNC_PASSWORD?await verschluesseln(schutzApp,process.env.SYNC_PASSWORD):null,
     listen,bilanz:{fertig,laufend},fehler:Object.keys(ST.fehler).length?ST.fehler:undefined};
 
   // Vorlage für die Claude-Aufgabe (3x täglich)
