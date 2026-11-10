@@ -1,0 +1,601 @@
+{
+ "id": "b-2026-11-10-abends",
+ "datum": "2026-11-10",
+ "slot": "abends",
+ "erstellt": "2026-11-10T19:24:27+01:00",
+ "markt": "Die US-Verbraucherpreise sind im Oktober stärker gestiegen als erwartet, Fed-Gouverneur Waller sprach sich danach für eine Zinserhöhung im Dezember aus, und die Anleihezinsen zogen an. Die Börsen gaben nach einem starken Wochenstart nach, besonders KI- und Technologiewerte wie Nvidia, während Geld in defensive Branchen wie Gesundheit floss. Die Ölpreise fielen auf den tiefsten Stand seit Ende August.",
+ "marktQuellen": [
+  {
+   "t": "Stock Market Today (Nov. 10, 2026): Nasdaq falls after key inflation report",
+   "u": "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-nov-10-2026",
+   "q": "TheStreet",
+   "d": "2026-11-10"
+  },
+  {
+   "t": "Stock market today: Dow, S&P 500, Nasdaq slip after CPI data raises Fed rate-hike bets",
+   "u": "https://finance.yahoo.com/markets/live/stock-market-today-tuesday-november-10-dow-sp-500-nasdaq-inflation-data-cpi-090627830.html",
+   "q": "Yahoo Finance",
+   "d": "2026-11-10"
+  }
+ ],
+ "listen": {
+  "3": [
+   {
+    "s": "SBUX",
+    "einschaetzung": "Chancen überwiegen leicht, Bewertung aber schon sportlich.",
+    "warum": "Starbucks hat in vier Wochen knapp 19 % zugelegt, der Trend zeigt nach oben und der RSI von 66 ist noch nicht überhitzt. Frischen Rückenwind gab es am Montag: Stifel hat die Abdeckung mit Kaufempfehlung und Kursziel 115 US-Dollar wieder aufgenommen, die Aktie sprang daraufhin um fast 4 %. Begründet wird das mit einer Erholung, die sich zunehmend selbst trägt; zuletzt stiegen die vergleichbaren Umsätze weltweit um 7,2 %. Vor kurzem markierte die Aktie ein neues 52-Wochen-Hoch, ein Muster, das im Rückblick kaum Vorsprung gebracht hat.",
+    "ausblick": "Nach dem Analystenimpuls ist eine Seitwärtsbewegung mit leichtem Aufwärtsdrang am wahrscheinlichsten. Das Kursziel von 115 US-Dollar liegt nur rund 5 % über dem aktuellen Kurs, viel Luft ist laut dieser Quelle also nicht. Ein unruhiger Gesamtmarkt nach den Inflationsdaten kann kurzfristig mehr ausmachen als Firmennachrichten.",
+    "szenarien": {
+     "gut": "Die positive Analystenstimmung hält an und der Markt beruhigt sich nach dem Inflationsschock.",
+     "schlecht": "Gewinnmitnahmen nach dem starken Monat oder ein breiter Rückschlag am Markt wegen Zinserhöhungssorgen."
+    },
+    "treiber": [
+     "Kaufempfehlung von Stifel (Ziel 115 USD)",
+     "starke vergleichbare Umsätze in Nordamerika"
+    ],
+    "risiken": [
+     "hohe Bewertung (laut GuruFocus rund 34-faches Gewinnziel 2027)",
+     "schwaches Auslandsgeschäft",
+     "Konkurrenz durch neue Getränke bei McDonald's"
+    ],
+    "termine": [],
+    "zuversicht": "mittel",
+    "quellen": [
+     {
+      "t": "Starbucks Stocks Rise 3.74% as Stifel Resumes With Buy, $115 Target",
+      "u": "https://www.gurufocus.com/news/9185603/starbucks-stocks-rise-374-as-stifel-resumes-with-buy-115-target",
+      "q": "GuruFocus",
+      "d": "2026-11-09"
+     },
+     {
+      "t": "Starbucks rises as Stifel resumes coverage with Buy rating and $115 target",
+      "u": "https://sg.finance.yahoo.com/news/starbucks-rises-stifel-resumes-coverage-174725638.html",
+      "q": "Investing.com/Yahoo",
+      "d": "2026-11-09"
+     }
+    ]
+   },
+   {
+    "s": "NESN.SW",
+    "einschaetzung": "Ruhiger Aufwärtstrend, kurzfristig solide, aber wenig Schwung.",
+    "warum": "Nestlé ist ein schwankungsarmer Wert (Jahresschwankung 18 %) und hat in vier Wochen gut 12 % gewonnen; der Trend ist aufwärts, der RSI liegt mit 71 knapp unter der Überhitzungsgrenze. Inhaltlich stützt das dritte Quartal mit 4,0 % organischem Wachstum und bestätigtem Jahresziel von 3–4 %. Belastend ist die Entkonsolidierung des Russlandgeschäfts mit einer nicht zahlungswirksamen Abschreibung, die den Kurs aber bisher kaum gebremst hat. Dazu kommt die Umschichtung vieler Anleger aus KI-Werten in defensive Titel, wovon Schweizer Schwergewichte profitieren.",
+    "ausblick": "Am wahrscheinlichsten ist ein weiteres langsames Vorantasten nahe dem Hoch, da keine Firmentermine anstehen. Der heutige Rückzug aus Technologiewerten in defensive Branchen spricht eher für Nestlé. Das frische Golden Cross ist laut Rückblick kein verlässliches Signal.",
+    "szenarien": {
+     "gut": "Die Rotation in defensive Konsumwerte hält an.",
+     "schlecht": "Steigende Zinsen drücken auf dividendenstarke Defensivwerte oder Gewinnmitnahmen nahe dem Hoch."
+    },
+    "treiber": [
+     "Rotation in defensive Werte",
+     "bestätigte Jahresziele"
+    ],
+    "risiken": [
+     "RSI nahe Überhitzung",
+     "Russland-Sondereffekt"
+    ],
+    "termine": [],
+    "zuversicht": "mittel",
+    "quellen": [
+     {
+      "t": "Nestle stock weighs strong Q3 growth against Russia reporting reset",
+      "u": "https://www.ad-hoc-news.de/boerse/news/corporate-news/nestle-stock-weighs-strong-q3-growth-against-russia-reporting-reset/70480513",
+      "q": "ad-hoc-news",
+      "d": "2026-11-09"
+     },
+     {
+      "t": "ANALYSE-FLASH: JPMorgan belässt Nestle auf 'Overweight' - Ziel 100 Franken",
+      "u": "https://de.finance.yahoo.com/nachrichten/analyse-flash-jpmorgan-bel%C3%A4sst-nestle-140502642.html?.tsrc=rss",
+      "q": "dpa-AFX/Yahoo Finanzen",
+      "d": "2026-10-22"
+     }
+    ]
+   },
+   {
+    "s": "MAR",
+    "einschaetzung": "Trend und Zahlen stark, nach dem Sprung aber anfällig für Verschnaufpausen.",
+    "warum": "Marriott hat Anfang November ein starkes drittes Quartal gemeldet und die Jahresprognose angehoben, getragen von höheren Erlösen pro verfügbarem Zimmer. Seitdem steigt die Aktie, allein heute um rund 2 % auf ein neues 52-Wochen-Hoch; in drei Monaten sind es gut 19 %. Der RSI von 74 kratzt an der Überhitzungsgrenze. Das erkannte Muster „Abkühlung nach Übertreibung“ war im Rückblick leicht positiv, aber statistisch schwach.",
+    "ausblick": "Wahrscheinlich bleibt der Trend intakt, nach dem neuen Hoch sind kleinere Rücksetzer aber gut möglich. Neue Firmentermine stehen im Zeitraum nicht an, daher dürfte die allgemeine Marktstimmung den Ausschlag geben.",
+    "szenarien": {
+     "gut": "Weiter gute Reise-Nachfrage und ein stabiler Gesamtmarkt halten das Momentum.",
+     "schlecht": "Zinserhöhungssorgen nach den Inflationsdaten treffen konjunkturabhängige Werte."
+    },
+    "treiber": [
+     "angehobene Jahresprognose",
+     "neues 52-Wochen-Hoch"
+    ],
+    "risiken": [
+     "RSI nahe 75",
+     "schwächerer Ausblick im internationalen Geschäft laut Berichten"
+    ],
+    "termine": [],
+    "zuversicht": "mittel",
+    "quellen": [
+     {
+      "t": "Marriott Q3 2026 earnings beat estimates, outlook raised",
+      "u": "https://qz.com/marriott-earnings-outlook-raise-us-hotel-demand-110226",
+      "q": "Quartz",
+      "d": "2026-11-02"
+     },
+     {
+      "t": "Following strong Q3, Marriott raises 2026 full-year guidance",
+      "u": "https://www.hotelmanagement.net/data-trends/following-strong-q3-marriott-raises-2026-full-year-guidance",
+      "q": "Hotel Management",
+      "d": "2026-11-02"
+     }
+    ]
+   },
+   {
+    "s": "LLY",
+    "einschaetzung": "Starke Nachrichtenlage, kurzfristig aber hohe Schwankung.",
+    "warum": "Eli Lilly liegt in vier Wochen fast 22 % und in sechs Monaten fast 40 % im Plus, der Trend ist klar aufwärts. Am Montag hob Jefferies das Kursziel auf 1.700 US-Dollar, den höchsten Wert an der Wall Street. Dazu kamen Studiendaten, wonach die Abnehmpille Foundayo die Schwere von Schlafapnoe um bis zu 44 % senkte; Lilly will bis Jahresende die Zulassung dafür beantragen. Die neue FDA-Warnung zu Sehstörungen bei GLP-1-Mitteln hat die Aktie bisher nicht belastet.",
+    "ausblick": "Die Nachrichtenlage bleibt freundlich und Gesundheitswerte profitieren gerade von der Flucht aus KI-Titeln. Nach dem starken Lauf und einer Tagesschwankung von rund 2 % ist aber auch ein Rücksetzer jederzeit möglich.",
+    "szenarien": {
+     "gut": "Weitere positive Analystenstimmen und anhaltende Rotation in Gesundheitswerte.",
+     "schlecht": "Neue Sicherheits- oder Preisdebatten bei Abnehmmitteln lösen Gewinnmitnahmen aus."
+    },
+    "treiber": [
+     "Jefferies-Kursziel 1.700 USD",
+     "positive Schlafapnoe-Studie zu Foundayo"
+    ],
+    "risiken": [
+     "FDA-Warnhinweise zu GLP-1",
+     "hohe Bewertung nach starkem Lauf"
+    ],
+    "termine": [],
+    "zuversicht": "mittel",
+    "quellen": [
+     {
+      "t": "Lilly's Foundayo pill cuts sleep apnea severity by up to 44% in late-stage trial",
+      "u": "https://stockanalysis.com/news/lilly-foundayo-sleep-apnea-trial/",
+      "q": "StockAnalysis",
+      "d": "2026-11-09"
+     },
+     {
+      "t": "Eli Lilly and Company (NYSE:LLY) Price Target Raised to $1,700.00",
+      "u": "https://www.marketbeat.com/instant-alerts/analyst-eli-lilly-and-company-nyse-lly-price-target-raised-to-170000-2026-11-09/",
+      "q": "MarketBeat",
+      "d": "2026-11-09"
+     },
+     {
+      "t": "The FDA Ordered GLP-1 Vision-Loss Warnings For Some Products. Shares of Eli Lilly and Novo Nordisk Were Unfazed",
+      "u": "https://finnhub.io/api/news?id=f42a54cd55a595edb261e44212b431cb5b51d5a17b71026dd21bd4ef51519b00",
+      "q": "Yahoo",
+      "d": "2026-11-10"
+     }
+    ]
+   },
+   {
+    "s": "OR.PA",
+    "einschaetzung": "Solider Trend, aber Analysten sehen wenig Luft.",
+    "warum": "L'Oréal hat in drei Monaten fast 19 % zugelegt, der RSI von 68 ist nicht überhitzt und der Trend zeigt nach oben. Das dritte Quartal lief dank Parfüm und Haarpflege besser als erwartet, während andere Luxuswerte enttäuschten. Heute bestätigte Bernstein allerdings nur ein neutrales Urteil mit Kursziel 420 Euro, also unter dem aktuellen Kurs, und Jefferies hält an „Hold“ fest. Kurzfristig spricht also vor allem das Kursmomentum für den Wert, weniger die Analysten.",
+    "ausblick": "Ohne Termine im Zeitraum ist eine ruhige Fortsetzung des Trends am wahrscheinlichsten. Die vorsichtigen Analystenziele begrenzen aber die Fantasie, ein Rücksetzer Richtung 435 Euro wäre im Rahmen der normalen Schwankung.",
+    "szenarien": {
+     "gut": "Konsumwerte bleiben als defensive Alternative zu Technologie gefragt.",
+     "schlecht": "Schwache Signale aus China oder dem Luxussektor drücken die Stimmung."
+    },
+    "treiber": [
+     "starkes drittes Quartal",
+     "Rotation in Konsumwerte"
+    ],
+    "risiken": [
+     "Analystenziele unter dem Kurs",
+     "Luxus-Sektor wackelig"
+    ],
+    "termine": [],
+    "zuversicht": "niedrig",
+    "quellen": [
+     {
+      "t": "L'Oréal-Aktie: Bernstein bleibt bei Market-Perform",
+      "u": "https://www.ad-hoc-news.de/boerse/news/corporate-news/l-or-al-aktie-bernstein-bleibt-bei-market-perform/70487091",
+      "q": "ad-hoc-news (dpa-AFX)",
+      "d": "2026-11-10"
+     },
+     {
+      "t": "ROUNDUP: L'Oreal profitiert von Nachfrage nach Parfüm und Haarpflege",
+      "u": "https://de.finance.yahoo.com/nachrichten/roundup-loreal-profitiert-nachfrage-parf%C3%BCm-073643300.html?.tsrc=rss",
+      "q": "dpa-AFX/Yahoo Finanzen",
+      "d": "2026-10-23"
+     }
+    ]
+   }
+  ],
+  "7": [
+   {
+    "s": "BRK-B",
+    "einschaetzung": "Ruhiger Qualitätswert mit Rückenwind durch Aktienrückkäufe.",
+    "warum": "Berkshire schwankt mit 15 % im Jahr sehr wenig und hat in drei Monaten trotzdem gut 17 % gewonnen. Am Samstag zeigten die Quartalszahlen, dass der Konzern im dritten Quartal eigene Aktien für 9,6 Mrd. US-Dollar zurückgekauft hat, mehr als im ganzen Jahr davor; das gilt als Vertrauenssignal. Dagegen fiel der operative Gewinn um 6 % und Geico verdiente vor Steuern 45 % weniger. Der RSI von 78 zeigt, dass die Aktie kurzfristig überhitzt ist.",
+    "ausblick": "Die Rückkäufe dürften weiter stützen, nach dem schnellen Anstieg ist aber eine Pause wahrscheinlich. Über sieben Tage ist eine leichte Aufwärtsbewegung oder Seitwärtsphase das wahrscheinlichste Bild.",
+    "szenarien": {
+     "gut": "Anleger suchen weiter sichere Werte und die Rückkäufe laufen fort.",
+     "schlecht": "Die Überhitzung baut sich über Gewinnmitnahmen ab oder die Geico-Schwäche rückt in den Vordergrund."
+    },
+    "treiber": [
+     "hohe Aktienrückkäufe",
+     "geringe Schwankung als sicherer Hafen"
+    ],
+    "risiken": [
+     "RSI 78",
+     "sinkender operativer Gewinn, Geico schwächer"
+    ],
+    "termine": [],
+    "zuversicht": "mittel",
+    "quellen": [
+     {
+      "t": "Berkshire Hathaway accelerates stock buybacks, operating profit falls",
+      "u": "https://gvwire.com/2026/11/07/berkshire-hathaway-accelerates-stock-buybacks-operating-profit-falls/",
+      "q": "GV Wire (Reuters)",
+      "d": "2026-11-07"
+     },
+     {
+      "t": "Berkshire Kept Buying Back Stock as Shares Hit Records",
+      "u": "https://www.fool.com/investing/2026/11/09/berkshire-kept-buying-back-stock-as-shares-hit-records-heres-what-the-price-it-paid-tells-you/",
+      "q": "The Motley Fool",
+      "d": "2026-11-09"
+     }
+    ]
+   },
+   {
+    "s": "MAR",
+    "einschaetzung": "Trend intakt, nach Rekordhoch leicht anfällig.",
+    "warum": "Marriott hat nach starken Quartalszahlen und angehobener Prognose in drei Monaten gut 19 % zugelegt und heute ein neues Hoch erreicht. Die Kursdaten zeigen einen klaren Aufwärtstrend mit RSI 74. Über sieben Tage waren sowohl „neues 52-Wochen-Hoch“ als auch „Abkühlung nach Übertreibung“ im Rückblick leicht positiv, aber mit großer Unsicherheit. Die Reise-Nachfrage in den USA hat laut Berichten zuletzt angezogen.",
+    "ausblick": "Wahrscheinlich hält der Trend, unterbrochen von kleinen Rücksetzern. Ohne eigene Termine hängt viel an der Zinsdebatte nach den heißen Inflationsdaten.",
+    "szenarien": {
+     "gut": "Gute Buchungslage und neue Hochs ziehen Trendfolger an.",
+     "schlecht": "Steigende Zinsen und Konjunktursorgen belasten Reise- und Hotelwerte."
+    },
+    "treiber": [
+     "angehobene Prognose",
+     "starker Aufwärtstrend"
+    ],
+    "risiken": [
+     "RSI nahe Überhitzung",
+     "Zinsrisiko"
+    ],
+    "termine": [],
+    "zuversicht": "mittel",
+    "quellen": [
+     {
+      "t": "Marriott Q3 2026 earnings beat estimates, outlook raised",
+      "u": "https://qz.com/marriott-earnings-outlook-raise-us-hotel-demand-110226",
+      "q": "Quartz",
+      "d": "2026-11-02"
+     },
+     {
+      "t": "Following strong Q3, Marriott raises 2026 full-year guidance",
+      "u": "https://www.hotelmanagement.net/data-trends/following-strong-q3-marriott-raises-2026-full-year-guidance",
+      "q": "Hotel Management",
+      "d": "2026-11-02"
+     }
+    ]
+   },
+   {
+    "s": "OR.PA",
+    "einschaetzung": "Stetiger Trend, aber Analysten bremsen.",
+    "warum": "L'Oréal steigt seit Monaten stetig (drei Monate fast +19 %) bei mittlerer Schwankung. Das gute dritte Quartal mit starkem Parfüm- und Haarpflegegeschäft hat den Trend getragen. Bernstein hat heute das neutrale Urteil mit Kursziel 420 Euro bestätigt, was unter dem aktuellen Kurs liegt. Für eine Woche zählt aber vor allem das Momentum, das weiter intakt ist.",
+    "ausblick": "Wahrscheinlich ist eine ruhige Fortsetzung, solange Konsumwerte als sicherere Alternative gefragt sind. Der Abstand zu den Kurszielen spricht gegen große Sprünge.",
+    "szenarien": {
+     "gut": "Weitere Umschichtung in defensive Konsumwerte.",
+     "schlecht": "Negative Nachrichten aus dem Luxussektor oder aus China."
+    },
+    "treiber": [
+     "Momentum",
+     "starkes Quartal"
+    ],
+    "risiken": [
+     "Kursziele unter Kurs",
+     "Luxus-Schwäche"
+    ],
+    "termine": [],
+    "zuversicht": "niedrig",
+    "quellen": [
+     {
+      "t": "L'Oréal-Aktie: Bernstein bleibt bei Market-Perform",
+      "u": "https://www.ad-hoc-news.de/boerse/news/corporate-news/l-or-al-aktie-bernstein-bleibt-bei-market-perform/70487091",
+      "q": "ad-hoc-news (dpa-AFX)",
+      "d": "2026-11-10"
+     },
+     {
+      "t": "ROUNDUP: L'Oreal profitiert von Nachfrage nach Parfüm und Haarpflege",
+      "u": "https://de.finance.yahoo.com/nachrichten/roundup-loreal-profitiert-nachfrage-parf%C3%BCm-073643300.html?.tsrc=rss",
+      "q": "dpa-AFX/Yahoo Finanzen",
+      "d": "2026-10-23"
+     }
+    ]
+   },
+   {
+    "s": "AZN.L",
+    "einschaetzung": "Positive Grundstimmung, Übernahmepläne bringen etwas Unruhe.",
+    "warum": "AstraZeneca hat Ende Oktober mit einem überraschend starken dritten Quartal und einem großen Sparprogramm überzeugt, die Aktie legte in drei Monaten fast 21 % zu. Der RSI von 68 lässt noch Spielraum. Neu ist ein unverbindliches Angebot von rund 10 Mrd. US-Dollar für Rhythm Pharmaceuticals; Analysten von Jefferies halten den Fokus auf seltene Krankheiten für sinnvoll. Unsicherheit entsteht, weil Berichte über einen möglichen Bieterwettstreit kursieren.",
+    "ausblick": "Wahrscheinlich bleibt der Trend aufwärts, solange der Rhythm-Deal nicht zu teuer wird. Gesundheitswerte profitieren aktuell von der Umschichtung aus KI-Titeln.",
+    "szenarien": {
+     "gut": "Rotation in Pharma und eine diszipliniert ablaufende Übernahme.",
+     "schlecht": "Ein Bieterwettstreit treibt den Preis für Rhythm hoch und belastet die Aktie."
+    },
+    "treiber": [
+     "starke Quartalszahlen",
+     "Rotation in Gesundheitswerte"
+    ],
+    "risiken": [
+     "mögliche teure Übernahme",
+     "frühere Studienrückschläge"
+    ],
+    "termine": [],
+    "zuversicht": "mittel",
+    "quellen": [
+     {
+      "t": "AstraZeneca offers $10B to buy drugmaker Rhythm",
+      "u": "https://www.manilatimes.net/2026/11/06/business/foreign-business/astrazeneca-offers-10b-to-buy-drugmaker-rhythm/2463261",
+      "q": "Manila Times (Reuters)",
+      "d": "2026-11-06"
+     },
+     {
+      "t": "ROUNDUP: Astrazeneca legt stärker zu als gedacht - Aktienkurs schnellt hoch",
+      "u": "https://de.finance.yahoo.com/nachrichten/roundup-astrazeneca-legt-st%C3%A4rker-gedacht-140608608.html?.tsrc=rss",
+      "q": "dpa-AFX/Yahoo Finanzen",
+      "d": "2026-10-30"
+     }
+    ]
+   },
+   {
+    "s": "LLY",
+    "einschaetzung": "Starkes Momentum mit Rückenwind von Analysten.",
+    "warum": "Eli Lilly gehört zu den stärksten Werten der Liste (vier Wochen fast +22 %, sechs Monate fast +40 %). Jefferies hob das Kursziel auf ein Wall-Street-Hoch von 1.700 US-Dollar, und neue Studiendaten zu Foundayo bei Schlafapnoe erweitern die Einsatzmöglichkeiten. Die neue FDA-Warnung zu Sehstörungen hat die Aktie bisher nicht belastet. Der RSI von 69 ist erhöht, aber noch nicht überhitzt.",
+    "ausblick": "Für die kommende Woche spricht viel für ein Halten des Trends, da Gesundheitswerte gefragt sind. Wegen der großen Schwankung kann aber auch ein deutlicher Rücksetzer kommen, ohne dass sich an der Geschichte etwas ändert.",
+    "szenarien": {
+     "gut": "Weitere Analystenanhebungen und gute Nachfrage nach Abnehmmitteln.",
+     "schlecht": "Neue Regulierungs- oder Preisdebatten bei GLP-1-Mitteln."
+    },
+    "treiber": [
+     "Jefferies-Ziel 1.700 USD",
+     "Schlafapnoe-Daten"
+    ],
+    "risiken": [
+     "hohe Bewertung",
+     "FDA-Warnhinweise"
+    ],
+    "termine": [],
+    "zuversicht": "mittel",
+    "quellen": [
+     {
+      "t": "Lilly's Foundayo pill cuts sleep apnea severity by up to 44% in late-stage trial",
+      "u": "https://stockanalysis.com/news/lilly-foundayo-sleep-apnea-trial/",
+      "q": "StockAnalysis",
+      "d": "2026-11-09"
+     },
+     {
+      "t": "Eli Lilly and Company (NYSE:LLY) Price Target Raised to $1,700.00",
+      "u": "https://www.marketbeat.com/instant-alerts/analyst-eli-lilly-and-company-nyse-lly-price-target-raised-to-170000-2026-11-09/",
+      "q": "MarketBeat",
+      "d": "2026-11-09"
+     },
+     {
+      "t": "The FDA Ordered GLP-1 Vision-Loss Warnings For Some Products. Shares of Eli Lilly and Novo Nordisk Were Unfazed",
+      "u": "https://finnhub.io/api/news?id=f42a54cd55a595edb261e44212b431cb5b51d5a17b71026dd21bd4ef51519b00",
+      "q": "Yahoo",
+      "d": "2026-11-10"
+     }
+    ]
+   }
+  ],
+  "30": [
+   {
+    "s": "BRK-B",
+    "einschaetzung": "Defensiver Kandidat mit Rückkauf-Stütze.",
+    "warum": "Berkshire hat den höchsten Rechenwert für 30 Tage, weil der Kurs stetig steigt (sechs Monate gut +21 %) und dabei sehr wenig schwankt. Der Konzern kaufte im dritten Quartal Aktien für 9,6 Mrd. US-Dollar zurück und hat weiter einen riesigen Bargeldbestand. Schwächen sind der um 6 % gesunkene operative Gewinn und der Gewinneinbruch bei Geico. Der RSI von 78 zeigt eine kurzfristige Überhitzung, die über einen Monat aber weniger ins Gewicht fällt.",
+    "ausblick": "Über einen Monat ist eine weitere moderate Aufwärtsbewegung plausibel, zumal unsichere Märkte sichere Werte begünstigen. Eine zwischenzeitliche Abkühlung nach dem schnellen Anstieg ist wahrscheinlich.",
+    "szenarien": {
+     "gut": "Rückkäufe laufen weiter und Anleger bevorzugen Qualität.",
+     "schlecht": "Das Versicherungsgeschäft enttäuscht weiter oder der Markt dreht zurück in Wachstumswerte."
+    },
+    "treiber": [
+     "Rückkäufe",
+     "geringe Schwankung"
+    ],
+    "risiken": [
+     "Geico-Schwäche",
+     "RSI 78"
+    ],
+    "termine": [],
+    "zuversicht": "mittel",
+    "quellen": [
+     {
+      "t": "Berkshire Hathaway accelerates stock buybacks, operating profit falls",
+      "u": "https://gvwire.com/2026/11/07/berkshire-hathaway-accelerates-stock-buybacks-operating-profit-falls/",
+      "q": "GV Wire (Reuters)",
+      "d": "2026-11-07"
+     },
+     {
+      "t": "Berkshire Kept Buying Back Stock as Shares Hit Records",
+      "u": "https://www.fool.com/investing/2026/11/09/berkshire-kept-buying-back-stock-as-shares-hit-records-heres-what-the-price-it-paid-tells-you/",
+      "q": "The Motley Fool",
+      "d": "2026-11-09"
+     }
+    ]
+   },
+   {
+    "s": "IBE.MC",
+    "einschaetzung": "Stabiler Versorger mit Gewinnwachstum, Bewertung schon ambitioniert.",
+    "warum": "Iberdrola schwankt mit 14 % im Jahr sehr wenig und hat in drei Monaten gut 14 % zugelegt; gestern schloss die Aktie bei 22,96 Euro nahe dem 52-Wochen-Hoch. Im Oktober hob der Konzern das Gewinnziel erneut an, Goldman Sachs stufte auf Kaufen hoch, und Morgan Stanley verweist auf beschleunigtes Gewinnwachstum. Die DZ Bank sieht den fairen Wert dagegen bei 22 Euro, also unter dem Kurs. Das Muster „neues 52-Wochen-Hoch“ war über 30 Tage im Rückblick leicht positiv, ist aber kein sicheres Signal.",
+    "ausblick": "Wahrscheinlich setzt sich der ruhige Aufwärtstrend fort, getragen von Netzinvestitionen und Gewinnwachstum. Steigende Zinsen sind für Versorger aber ein Gegenwind, deshalb dürfte die Bewegung gedämpft bleiben.",
+    "szenarien": {
+     "gut": "Weiter starke Netzinvestitionen und positive Analystenstimmen.",
+     "schlecht": "Ein deutlicher Zinsanstieg nach einer Fed-Erhöhung belastet zinsempfindliche Versorger."
+    },
+    "treiber": [
+     "angehobenes Gewinnziel",
+     "Netzausbau"
+    ],
+    "risiken": [
+     "RSI 77",
+     "Zinsrisiko",
+     "Bewertungsziele teils unter Kurs"
+    ],
+    "termine": [],
+    "zuversicht": "mittel",
+    "quellen": [
+     {
+      "t": "Acciones de Iberdrola hoy: suben un 1,37% hasta 22,96 euros",
+      "u": "https://theofficer.es/acciones-de-iberdrola-hoy-suben-un-137-hasta-2296-euros/",
+      "q": "The Officer",
+      "d": "2026-11-09"
+     },
+     {
+      "t": "Energiekonzern Iberdrola erhöht erneut Gewinnziel - Stromgeschäft treibt",
+      "u": "https://de.finance.yahoo.com/nachrichten/energiekonzern-iberdrola-erh%C3%B6ht-erneut-gewinnziel-090513177.html?.tsrc=rss",
+      "q": "dpa-AFX/Yahoo Finanzen",
+      "d": "2026-10-21"
+     },
+     {
+      "t": "ANALYSE-FLASH: DZ Bank hebt Iberdrola auf 'Halten' und fairen Wert auf 22 Euro",
+      "u": "https://de.finance.yahoo.com/nachrichten/analyse-flash-dz-bank-hebt-155005643.html?.tsrc=rss",
+      "q": "dpa-AFX/Yahoo Finanzen",
+      "d": "2026-10-21"
+     }
+    ]
+   },
+   {
+    "s": "HEN3.DE",
+    "einschaetzung": "Starke Dynamik, kurzfristig heiß gelaufen.",
+    "warum": "Henkel-Vorzüge haben nach den finalen Quartalszahlen heute ihre Rally fortgesetzt und liegen in sechs Monaten fast 32 % vorn. Der Umsatz wuchs im dritten Quartal organisch um 6,5 %, vor allem durch höhere Preise. Gleichzeitig erwartet Henkel für das Gesamtjahr rund 10 % höhere Materialpreise und zusätzliche Umbaukosten. Der RSI von 80 zeigt eine deutliche Überhitzung; für 30 Tage zählt aber eher die Geschäftslage, die derzeit gut aussieht.",
+    "ausblick": "Nach dem starken Anstieg ist zunächst eine Verschnaufpause wahrscheinlich. Über einen Monat könnte der Trend dennoch halten, wenn Henkel die Kostensteigerungen weiter über Preise ausgleicht.",
+    "szenarien": {
+     "gut": "Preiserhöhungen gleichen die Materialkosten aus und das Wachstum bleibt hoch.",
+     "schlecht": "Die steigenden Materialkosten drücken die Marge stärker als erwartet."
+    },
+    "treiber": [
+     "organisches Wachstum 6,5 %",
+     "Preissetzungsmacht"
+    ],
+    "risiken": [
+     "RSI 80",
+     "Materialpreise etwa +10 %",
+     "Umbaukosten"
+    ],
+    "termine": [],
+    "zuversicht": "niedrig",
+    "quellen": [
+     {
+      "t": "ROUNDUP: Henkel erwartet deutlich steigende Materialpreise - Aktie gewinnt",
+      "u": "https://www.ariva.de/news/roundup-henkel-erwartet-deutlich-steigende-materialpreise-12201312",
+      "q": "ARIVA.DE (dpa-AFX)",
+      "d": "2026-11-10"
+     },
+     {
+      "t": "Henkel-Aktie: Q3-Umsatz wächst organisch um 6,5 Prozent",
+      "u": "https://www.ad-hoc-news.de/boerse/news/corporate-news/henkel-aktie-q3-umsatz-waechst-organisch-um-6-5-prozent/70485431",
+      "q": "ad-hoc-news",
+      "d": "2026-11-10"
+     }
+    ]
+   },
+   {
+    "s": "TMO",
+    "einschaetzung": "Aufwärtstrend mit neuem Hoch, solides Geschäft.",
+    "warum": "Thermo Fisher hat in sechs Monaten fast 59 % zugelegt und am Montag mit einem Plus von fast 4 % ein neues Hoch erreicht. Der RSI von 60 ist noch neutral, was für einen 30-Tage-Zeitraum Spielraum lässt. Das dritte Quartal brachte laut 10-Q rund 9 % Umsatzwachstum. Der Laborausrüster profitiert zudem von der aktuellen Umschichtung in Gesundheitswerte.",
+    "ausblick": "Wahrscheinlich hält der Trend, da keine Firmentermine anstehen und der Sektor gefragt ist. Rückschläge sind wegen der höheren Schwankung (28 % im Jahr) aber einzuplanen.",
+    "szenarien": {
+     "gut": "Rotation in Gesundheitswerte und gute Nachfrage aus Pharma und Biotech.",
+     "schlecht": "Schwächere Forschungsbudgets oder ein breiter Marktrückgang."
+    },
+    "treiber": [
+     "Umsatzwachstum",
+     "Sektorrotation"
+    ],
+    "risiken": [
+     "laut GuruFocus über fairem Wert",
+     "höhere Schwankung"
+    ],
+    "termine": [],
+    "zuversicht": "mittel",
+    "quellen": [
+     {
+      "t": "Thermo Fisher Scientific (TMO) Stock: $721.63, Up 3.87% Nov 9",
+      "u": "https://journalarta.com/en/2026/11/10/thermo-fisher-scientific-tmo-stock-rises-3-87-on-monday-testing-key-resistance/",
+      "q": "JournalArta",
+      "d": "2026-11-10"
+     },
+     {
+      "t": "Thermo Fisher Scientific Inc (TMO) Stock Up 3.9% but GF Value Says Overvalued",
+      "u": "https://www.gurufocus.com/news/9186280/thermo-fisher-scientific-inc-tmo-stock-up-39-but-gf-value-says-overvalued-gf-score-85100",
+      "q": "GuruFocus",
+      "d": "2026-11-09"
+     }
+    ]
+   },
+   {
+    "s": "ABBV",
+    "einschaetzung": "Solide Wachstumsgeschichte nach dem Humira-Patentende.",
+    "warum": "AbbVie hat in sechs Monaten fast 39 % gewonnen, der RSI von 62 ist moderat. Ende Oktober hob der Konzern die Jahresprognose an, getragen von Skyrizi und Rinvoq, die jeweils über 20 % wuchsen. Damit hat AbbVie den Wegfall des Humira-Patentschutzes besser verkraftet als viele Konkurrenten. Risiken sind Preisregeln des IRA, Rückgänge im Ästhetikgeschäft und eine abgelehnte Zulassung, die erst 2027 entschieden wird.",
+    "ausblick": "Für einen Monat spricht die stabile Geschäftslage für eine Fortsetzung des Trends. Pharma ist aktuell als defensive Branche gefragt, große Sprünge sind aber nicht zu erwarten.",
+    "szenarien": {
+     "gut": "Weiteres starkes Wachstum der Immunologie-Mittel und Sektorrotation.",
+     "schlecht": "Neue Preis- oder Regulierungsrisiken für Pharma in den USA."
+    },
+    "treiber": [
+     "angehobene Prognose",
+     "Skyrizi und Rinvoq"
+    ],
+    "risiken": [
+     "IRA-Preisregeln",
+     "Humira-Rückgang"
+    ],
+    "termine": [],
+    "zuversicht": "mittel",
+    "quellen": [
+     {
+      "t": "AbbVie Inc (ABBV) Q3 2026 Earnings Call Highlights: Raised Guidance, Immunology Momentum",
+      "u": "https://finance.yahoo.com/healthcare/articles/abbvie-inc-abbv-q3-2026-070810215.html",
+      "q": "GuruFocus/Yahoo Finance",
+      "d": "2026-10-31"
+     },
+     {
+      "t": "While pharma peers stumble, AbbVie defeated the patent cliff",
+      "u": "https://finnhub.io/api/news?id=8f38b131c118ba94f5258458a4c6a429e65455635ce35ce311e9c95f2ec8b4cb",
+      "q": "Yahoo",
+      "d": "2026-11-10"
+     }
+    ]
+   }
+  ]
+ },
+ "aussortiert": [
+  {
+   "s": "LOW",
+   "h": 3,
+   "grund": "Die Rally der Baumarktwerte beruhte stark auf sinkenden Zinsen, nach den heißen Inflationsdaten droht hier Gegenwind; die Zahlen folgen erst am 18.11."
+  },
+  {
+   "s": "EOAN.DE",
+   "h": 3,
+   "grund": "Quartalszahlen am 11.11. mitten im kurzen Zeitraum machen den Ausgang schwer einschätzbar."
+  },
+  {
+   "s": "FRE.DE",
+   "h": 3,
+   "grund": "Mit RSI 84 und fast 10 % Plus in fünf Tagen deutlich überhitzt."
+  },
+  {
+   "s": "FRE.DE",
+   "h": 7,
+   "grund": "Starke Zahlen sind eingepreist, der RSI von 84 spricht kurzfristig für eine Abkühlung."
+  },
+  {
+   "s": "HEN3.DE",
+   "h": 7,
+   "grund": "Nach dem heutigen Kurssprung und RSI 80 kurzfristig überhitzt."
+  },
+  {
+   "s": "QIA.DE",
+   "h": 30,
+   "grund": "Laufendes Übernahmeangebot von EQT zu 46,50 Euro je Aktie begrenzt das Kurspotenzial bei aktuell rund 45 Euro."
+  }
+ ],
+ "vorschlag": {
+  "titel": "30 Tage: Sechs-Monats-Gewicht etwas senken",
+  "horizont": 30,
+  "aenderung": {
+   "w120": 0.25
+  },
+  "warum": "Die 30-Tage-Liste schneidet im Jahrestest schwächer ab als der Durchschnitt aller Werte (Vorsprung −0,44). Wenn der Kursanstieg über sechs Monate weniger stark zählt (0,25 statt 0,5), wurde das Ergebnis im Test in beiden Jahreshälften besser: in der ersten von 2,37 auf 2,70, in der zweiten von −4,13 auf −3,38. Das ist die einzige Variante mit Verbesserung in beiden Hälften, die auch in der schwachen zweiten Hälfte deutlich hilft. Dagegen spricht, dass die zweite Hälfte trotzdem negativ bleibt, der Effekt also das Grundproblem nicht löst, und dass ein Jahr Daten wenig ist und Zufall eine Rolle spielt.",
+  "erwartung": "Werte, die vor allem über lange Zeit stark gestiegen sind, rutschen etwas nach hinten; Werte mit frischerem Drei-Monats-Trend rücken nach vorn."
+ }
+}
