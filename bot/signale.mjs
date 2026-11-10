@@ -8,21 +8,52 @@ import fs from "node:fs";
 
 const KOSTEN=0.1;          // % je Kauf bzw. Verkauf (im Test abgezogen)
 const TOP=5;               // so viele Werte zeigt die App je Zeitraum
-const KAND=8;              // so viele Kandidaten bekommt die KI je Zeitraum
+const KAND=10;             // so viele Kandidaten bekommt die KI je Zeitraum
+const WEITERE=20;          // so viele weitere Werte aus der Rechnung zeigt die App je Zeitraum
 const HORIZONTE=[3,7,30];  // Handelstage
 const SLOTS=[["morgens",6*60+40],["mittags",12*60+40],["abends",18*60+40]]; // Vorlage ab dieser Uhrzeit (Berlin)
 
-const UNIVERSUM=[
-  ["AAPL","Apple"],["MSFT","Microsoft"],["NVDA","Nvidia"],["AMZN","Amazon"],["GOOGL","Alphabet"],["META","Meta"],["TSLA","Tesla"],["AVGO","Broadcom"],
-  ["AMD","AMD"],["NFLX","Netflix"],["JPM","JPMorgan"],["V","Visa"],["MA","Mastercard"],["XOM","Exxon Mobil"],["CVX","Chevron"],["LLY","Eli Lilly"],
-  ["UNH","UnitedHealth"],["ABBV","AbbVie"],["PFE","Pfizer"],["COST","Costco"],["WMT","Walmart"],["HD","Home Depot"],["MCD","McDonald's"],["KO","Coca-Cola"],
-  ["PEP","PepsiCo"],["NKE","Nike"],["DIS","Disney"],["ORCL","Oracle"],["CRM","Salesforce"],["ADBE","Adobe"],["INTC","Intel"],["QCOM","Qualcomm"],
-  ["MU","Micron"],["PLTR","Palantir"],["UBER","Uber"],["BAC","Bank of America"],["GS","Goldman Sachs"],["CAT","Caterpillar"],["BA","Boeing"],["SHOP","Shopify"],
-  ["SAP.DE","SAP"],["SIE.DE","Siemens"],["ALV.DE","Allianz"],["DTE.DE","Deutsche Telekom"],["AIR.DE","Airbus"],["RHM.DE","Rheinmetall"],["MUV2.DE","Münchener Rück"],
-  ["IFX.DE","Infineon"],["BMW.DE","BMW"],["MBG.DE","Mercedes-Benz"],["VOW3.DE","Volkswagen"],["BAS.DE","BASF"],["BAYN.DE","Bayer"],["DBK.DE","Deutsche Bank"],
-  ["ADS.DE","Adidas"],["DHL.DE","DHL Group"],["ENR.DE","Siemens Energy"],["MTX.DE","MTU Aero Engines"],["DB1.DE","Deutsche Börse"],["HNR1.DE","Hannover Rück"],
-  ["ASML.AS","ASML"],["MC.PA","LVMH"],["TTE.PA","TotalEnergies"],["OR.PA","L'Oréal"],["SAN.PA","Sanofi"],["AI.PA","Air Liquide"],["NOVO-B.CO","Novo Nordisk"],
-  ["NESN.SW","Nestlé"],["ROG.SW","Roche"],["NOVN.SW","Novartis"]];
+const UNIVERSUM=[ // [Kürzel (Yahoo), Name, a=Aktie e=ETF]
+["AAPL","Apple","a"],["MSFT","Microsoft","a"],["NVDA","Nvidia","a"],["AMZN","Amazon","a"],["GOOGL","Alphabet","a"],["META","Meta","a"],
+["TSLA","Tesla","a"],["AVGO","Broadcom","a"],["AMD","AMD","a"],["NFLX","Netflix","a"],["JPM","JPMorgan","a"],["V","Visa","a"],
+["MA","Mastercard","a"],["XOM","Exxon Mobil","a"],["CVX","Chevron","a"],["COP","ConocoPhillips","a"],["SLB","Schlumberger","a"],["OXY","Occidental","a"],
+["LLY","Eli Lilly","a"],["UNH","UnitedHealth","a"],["ABBV","AbbVie","a"],["PFE","Pfizer","a"],["JNJ","Johnson & Johnson","a"],["MRK","Merck & Co","a"],
+["TMO","Thermo Fisher","a"],["ABT","Abbott","a"],["DHR","Danaher","a"],["AMGN","Amgen","a"],["GILD","Gilead","a"],["ISRG","Intuitive Surgical","a"],
+["VRTX","Vertex","a"],["REGN","Regeneron","a"],["BMY","Bristol-Myers","a"],["CVS","CVS Health","a"],["MDT","Medtronic","a"],["SYK","Stryker","a"],
+["BSX","Boston Scientific","a"],["COST","Costco","a"],["WMT","Walmart","a"],["HD","Home Depot","a"],["LOW","Lowe's","a"],["TGT","Target","a"],
+["MCD","McDonald's","a"],["SBUX","Starbucks","a"],["CMG","Chipotle","a"],["KO","Coca-Cola","a"],["PEP","PepsiCo","a"],["PG","Procter & Gamble","a"],
+["NKE","Nike","a"],["DIS","Disney","a"],["BKNG","Booking","a"],["ABNB","Airbnb","a"],["MAR","Marriott","a"],["ORCL","Oracle","a"],
+["CRM","Salesforce","a"],["ADBE","Adobe","a"],["INTC","Intel","a"],["QCOM","Qualcomm","a"],["MU","Micron","a"],["TXN","Texas Instruments","a"],
+["AMAT","Applied Materials","a"],["LRCX","Lam Research","a"],["KLAC","KLA","a"],["ADI","Analog Devices","a"],["MRVL","Marvell","a"],["ARM","Arm Holdings","a"],
+["SMCI","Super Micro","a"],["ANET","Arista","a"],["PANW","Palo Alto","a"],["CRWD","CrowdStrike","a"],["SNOW","Snowflake","a"],["NOW","ServiceNow","a"],
+["INTU","Intuit","a"],["IBM","IBM","a"],["CSCO","Cisco","a"],["DELL","Dell","a"],["PLTR","Palantir","a"],["UBER","Uber","a"],
+["SHOP","Shopify","a"],["SPOT","Spotify","a"],["DDOG","Datadog","a"],["NET","Cloudflare","a"],["RBLX","Roblox","a"],["BAC","Bank of America","a"],
+["WFC","Wells Fargo","a"],["C","Citigroup","a"],["GS","Goldman Sachs","a"],["MS","Morgan Stanley","a"],["SCHW","Charles Schwab","a"],["AXP","American Express","a"],
+["BLK","BlackRock","a"],["PYPL","PayPal","a"],["COIN","Coinbase","a"],["HOOD","Robinhood","a"],["SOFI","SoFi","a"],["BRK-B","Berkshire Hathaway","a"],
+["CAT","Caterpillar","a"],["BA","Boeing","a"],["GE","GE Aerospace","a"],["HON","Honeywell","a"],["LMT","Lockheed Martin","a"],["RTX","RTX","a"],
+["NOC","Northrop Grumman","a"],["GD","General Dynamics","a"],["DE","Deere","a"],["UPS","UPS","a"],["UNP","Union Pacific","a"],["T","AT&T","a"],
+["VZ","Verizon","a"],["TMUS","T-Mobile US","a"],["CMCSA","Comcast","a"],["NEE","NextEra Energy","a"],["DUK","Duke Energy","a"],["SO","Southern Co","a"],
+["LIN","Linde","a"],["FCX","Freeport-McMoRan","a"],["NEM","Newmont","a"],["MSTR","Strategy","a"],["RIVN","Rivian","a"],["F","Ford","a"],
+["GM","General Motors","a"],["SAP.DE","SAP","a"],["SIE.DE","Siemens","a"],["ALV.DE","Allianz","a"],["DTE.DE","Deutsche Telekom","a"],["AIR.DE","Airbus","a"],
+["RHM.DE","Rheinmetall","a"],["MUV2.DE","Münchener Rück","a"],["IFX.DE","Infineon","a"],["BMW.DE","BMW","a"],["MBG.DE","Mercedes-Benz","a"],["VOW3.DE","Volkswagen","a"],
+["BAS.DE","BASF","a"],["BAYN.DE","Bayer","a"],["DBK.DE","Deutsche Bank","a"],["CBK.DE","Commerzbank","a"],["ADS.DE","Adidas","a"],["PUM.DE","Puma","a"],
+["DHL.DE","DHL Group","a"],["ENR.DE","Siemens Energy","a"],["MTX.DE","MTU Aero Engines","a"],["DB1.DE","Deutsche Börse","a"],["HNR1.DE","Hannover Rück","a"],["CON.DE","Continental","a"],
+["HEI.DE","Heidelberg Materials","a"],["BEI.DE","Beiersdorf","a"],["FRE.DE","Fresenius","a"],["MRK.DE","Merck KGaA","a"],["SY1.DE","Symrise","a"],["ZAL.DE","Zalando","a"],
+["SHL.DE","Siemens Healthineers","a"],["P911.DE","Porsche AG","a"],["EOAN.DE","E.ON","a"],["RWE.DE","RWE","a"],["VNA.DE","Vonovia","a"],["HEN3.DE","Henkel","a"],
+["QIA.DE","Qiagen","a"],["HAG.DE","Hensoldt","a"],["R3NK.DE","Renk","a"],["ASML.AS","ASML","a"],["ADYEN.AS","Adyen","a"],["INGA.AS","ING","a"],
+["PRX.AS","Prosus","a"],["MC.PA","LVMH","a"],["TTE.PA","TotalEnergies","a"],["OR.PA","L'Oréal","a"],["SAN.PA","Sanofi","a"],["AI.PA","Air Liquide","a"],
+["SU.PA","Schneider Electric","a"],["BNP.PA","BNP Paribas","a"],["RMS.PA","Hermès","a"],["SAF.PA","Safran","a"],["DG.PA","Vinci","a"],["NOVO-B.CO","Novo Nordisk","a"],
+["NESN.SW","Nestlé","a"],["ROG.SW","Roche","a"],["NOVN.SW","Novartis","a"],["UBSG.SW","UBS","a"],["ZURN.SW","Zurich Insurance","a"],["AZN.L","AstraZeneca","a"],
+["SHEL.L","Shell","a"],["HSBA.L","HSBC","a"],["RR.L","Rolls-Royce","a"],["ENI.MI","Eni","a"],["UCG.MI","UniCredit","a"],["RACE.MI","Ferrari","a"],
+["IBE.MC","Iberdrola","a"],["SAN.MC","Banco Santander","a"],["ITX.MC","Inditex","a"],["NOKIA.HE","Nokia","a"],["ERIC-B.ST","Ericsson","a"],["VOLV-B.ST","Volvo","a"],
+["EQNR.OL","Equinor","a"],["SPY","S&P 500 ETF","e"],["QQQ","Nasdaq 100 ETF","e"],["IWM","Russell 2000 ETF","e"],["DIA","Dow Jones ETF","e"],["EEM","Schwellenländer ETF (USD)","e"],
+["EFA","Industrieländer ex USA ETF","e"],["GLD","Gold ETF","e"],["SLV","Silber ETF","e"],["TLT","US-Staatsanleihen 20J ETF","e"],["XLK","US-Technologie ETF","e"],["XLF","US-Finanzen ETF","e"],
+["XLE","US-Energie ETF","e"],["XLV","US-Gesundheit ETF","e"],["XLI","US-Industrie ETF","e"],["XLY","US-Konsum ETF","e"],["XLP","US-Basiskonsum ETF","e"],["XLU","US-Versorger ETF","e"],
+["SMH","Halbleiter ETF","e"],["ITA","US-Rüstung ETF","e"],["XBI","Biotech ETF","e"],["URA","Uran ETF","e"],["KWEB","China Internet ETF","e"],["EWJ","Japan ETF","e"],
+["EWG","Deutschland ETF (USD)","e"],["IBIT","Bitcoin ETF (iShares)","e"],["EUNL.DE","MSCI World ETF","e"],["VWCE.DE","FTSE All-World ETF","e"],["EXS1.DE","DAX ETF","e"],["SXR8.DE","S&P 500 ETF (EUR)","e"],
+["SXRV.DE","Nasdaq 100 ETF (EUR)","e"],["EXW1.DE","Euro Stoxx 50 ETF","e"],["XMME.DE","Schwellenländer ETF","e"],["IUSQ.DE","MSCI ACWI ETF","e"],["EUNK.DE","MSCI Europe ETF","e"],["4GLD.DE","Xetra-Gold","e"],
+["QDVE.DE","S&P 500 IT ETF","e"],["EXSA.DE","STOXX 600 ETF","e"],["IS3N.DE","Schwellenländer IMI ETF","e"],["XDEW.DE","S&P 500 gleichgewichtet ETF","e"],["EXV3.DE","Europa Technologie ETF","e"],["IQQH.DE","Saubere Energie ETF","e"],
+["DFEN.DE","Europa Rüstung ETF","e"]];
 
 /* ---------- Hilfen ---------- */
 const EU_SUF=/\.(DE|F|AS|PA|MI|L|SW|VI|MC|BR|CO|ST|HE|OL|LS|IR)$/;
@@ -36,6 +67,7 @@ const r6=v=>v==null||!isFinite(v)?null:+(+v).toPrecision(7);
 const mean=a=>a.reduce((x,y)=>x+y,0)/a.length;
 const f1=v=>(+v).toFixed(1).replace(".",",");
 const pz=v=>v==null||!isFinite(v)?"–":(v>0?"+":"")+f1(v)+" %";
+const pz2=v=>v==null||!isFinite(v)?"–":(v>0?"+":"")+(+v).toFixed(2).replace(".",",")+" %";
 function dez(v){v=+v;const d=v>=1?2:v>=.01?4:6;return v.toLocaleString("de-DE",{minimumFractionDigits:d,maximumFractionDigits:d})}
 const CS={EUR:"€",USD:"$",GBp:"p",GBP:"£",CHF:"CHF",DKK:"kr"};
 
@@ -59,28 +91,100 @@ async function quartalszahlen(){const FH=process.env.FINNHUB_KEY||"";if(!FH)retu
 function rsiR(c,n=14){const r=Array(c.length).fill(null);if(c.length<=n)return r;let g=0,l=0;for(let i=1;i<=n;i++){const d=c[i]-c[i-1];if(d>0)g+=d;else l-=d}g/=n;l/=n;r[n]=l===0?100:100-100/(1+g/l);
   for(let i=n+1;i<c.length;i++){const d=c[i]-c[i-1];g=(g*(n-1)+Math.max(d,0))/n;l=(l*(n-1)+Math.max(-d,0))/n;r[i]=l===0?100:100-100/(1+g/l)}return r}
 function sma(a,n){const r=Array(a.length).fill(null);let s=0;for(let i=0;i<a.length;i++){s+=a[i];if(i>=n)s-=a[i-n];if(i>=n-1)r[i]=s/n}return r}
-// Punktzahl = Kursanstieg geteilt durch die normale Schwankung (risikobereinigtes Momentum) + Trend − Überhitzung
+// Punktzahl = Gewicht × Kursanstieg (geteilt durch die normale Schwankung) + Trend-Bonus − Abzug bei Überhitzung bzw. Ausverkauf.
+// Die Gewichte sind einstellbar (data/beste-modell.json) und werden nur nach Zustimmung geändert (siehe „Updates“ unten).
+export const STANDARD={3:{w20:1,w60:0,w120:0,trend:.5,heiss:1,rsiGrenze:75,kalt:.5},7:{w20:.5,w60:.5,w120:0,trend:.5,heiss:.5,rsiGrenze:75,kalt:0},30:{w20:0,w60:1,w120:.5,trend:.5,heiss:0,rsiGrenze:75,kalt:0}};
+export const PARAM={w20:{n:"Gewicht Kursanstieg 4 Wochen",min:0,max:2,schritt:.25},w60:{n:"Gewicht Kursanstieg 3 Monate",min:0,max:2,schritt:.25},w120:{n:"Gewicht Kursanstieg 6 Monate",min:0,max:2,schritt:.25},
+  trend:{n:"Bonus für Aufwärtstrend (20- über 50-Tage-Schnitt)",min:0,max:2,schritt:.25},heiss:{n:"Abzug bei Überhitzung",min:0,max:3,schritt:.25},rsiGrenze:{n:"RSI-Grenze für Überhitzung",min:65,max:90,schritt:5},kalt:{n:"Abzug bei Ausverkauf (RSI unter 25)",min:0,max:2,schritt:.25}};
 function rechne(C){const n=C.length,lr=C.map((c,i)=>i?Math.log(c/C[i-1]):0),rsi=rsiR(C),s20=sma(C,20),s50=sma(C,50);
   const sd=Array(n).fill(null);for(let i=60;i<n;i++){const a=lr.slice(i-59,i+1),m=mean(a);sd[i]=Math.sqrt(mean(a.map(x=>(x-m)**2)))||null}
-  const z=(i,k)=>i>=k&&sd[i]?Math.log(C[i]/C[i-k])/(sd[i]*Math.sqrt(k)):null;
-  const P={3:[],7:[],30:[]};
-  for(let i=0;i<n;i++){const z20=z(i,20),z60=z(i,60),z120=z(i,120),tr=s20[i]!=null&&s50[i]!=null&&s20[i]>s50[i]?1:0,heiss=rsi[i]>75?1:0;
-    P[3][i]=z20==null?null:z20+.5*tr-heiss-(rsi[i]<25?.5:0);
-    P[7][i]=z20==null||z60==null?null:.5*z20+.5*z60+.5*tr-.5*heiss;
-    P[30][i]=z60==null||z120==null?null:z60+.5*z120+.5*tr}
-  return {P,rsi,s20,s50,sd}}
+  const z=k=>C.map((c,i)=>i>=k&&sd[i]?Math.log(c/C[i-k])/(sd[i]*Math.sqrt(k)):null);
+  return {s200:sma(C,200),z20:z(20),z60:z(60),z120:z(120),tr:C.map((_,i)=>s20[i]!=null&&s50[i]!=null&&s20[i]>s50[i]?1:0),rsi,s20,s50,sd}}
+const punkte=(R,i,p)=>R.z120[i]==null||R.z20[i]==null||R.z60[i]==null?null:p.w20*R.z20[i]+p.w60*R.z60[i]+p.w120*R.z120[i]+p.trend*R.tr[i]-(R.rsi[i]>p.rsiGrenze?p.heiss:0)-(R.rsi[i]<25?p.kalt:0);
+const setzePunkte=(W,M)=>{for(const w of W){w.P={};for(const H of HORIZONTE)w.P[H]=w.C.map((_,i)=>punkte(w.R,i,M[H]))}};
 
 /* ---------- Test: wie gut war die Rangliste im letzten Jahr? ---------- */
 // An jedem Handelstag die Top 5 nach Punktzahl kaufen (Schlusskurs), nach H Handelstagen verkaufen, Kosten abziehen,
 // und mit dem Durchschnitt aller Werte im selben Zeitraum vergleichen.
-function test(W){const ab=new Date(Date.now()-365*864e5).toISOString().slice(0,10),zaehl={};
+function testTage(W){const ab=new Date(Date.now()-365*864e5).toISOString().slice(0,10),zaehl={};
   for(const w of W)for(const b of w.bars)if(b[0]>=ab)zaehl[b[0]]=(zaehl[b[0]]||0)+1;
-  const tage=Object.keys(zaehl).filter(d=>zaehl[d]>=W.length*.5).sort(),out={};
-  for(const H of HORIZONTE){const top=[],alle=[];let besser=0,n=0;
-    for(const d of tage){const l=[];for(const w of W){const i=w.idx.get(d);if(i==null||i+H>=w.C.length)continue;const p=w.R.P[H][i];if(p==null)continue;l.push({p,f:(w.C[i+H]/w.C[i]-1)*100-2*KOSTEN})}
-      if(l.length<10)continue;l.sort((a,b)=>b.p-a.p);const t=l.slice(0,TOP),mt=mean(t.map(x=>x.f)),ma=mean(l.map(x=>x.f));top.push(...t.map(x=>x.f));alle.push(ma);n++;if(mt>ma)besser++}
-    out[H]=n?{tage:n,topAvg:+mean(top).toFixed(2),alleAvg:+mean(alle).toFixed(2),besser:Math.round(besser/n*100),plus:Math.round(top.filter(x=>x>0).length/top.length*100)}:{tage:0}}
-  return out}
+  return Object.keys(zaehl).filter(d=>zaehl[d]>=W.length*.5).sort()}
+function testH(W,H,par,tage){const top=[],alle=[];let besser=0,n=0;
+  for(const d of tage){const l=[];for(const w of W){const i=w.idx.get(d);if(i==null||i+H>=w.C.length)continue;const p=par?punkte(w.R,i,par):w.P[H][i];if(p==null)continue;l.push({p,f:(w.C[i+H]/w.C[i]-1)*100-2*KOSTEN})}
+    if(l.length<10)continue;l.sort((a,b)=>b.p-a.p);const t=l.slice(0,TOP),mt=mean(t.map(x=>x.f)),ma=mean(l.map(x=>x.f));top.push(...t.map(x=>x.f));alle.push(ma);n++;if(mt>ma)besser++}
+  return n?{tage:n,topAvg:+mean(top).toFixed(2),alleAvg:+mean(alle).toFixed(2),vorsprung:+(mean(top)-mean(alle)).toFixed(2),besser:Math.round(besser/n*100),plus:Math.round(top.filter(x=>x>0).length/top.length*100)}:{tage:0}}
+function test(W){const tage=testTage(W),out={};for(const H of HORIZONTE)out[H]=testH(W,H,null,tage);return out}
+// Prüfung eines Vorschlags: ganzes Jahr und getrennt nach erster und zweiter Jahreshälfte (gegen Zufallstreffer)
+function pruefe(W,H,alt,neu){const tage=testTage(W),m=Math.floor(tage.length/2),teil=t=>({alt:testH(W,H,alt,t),neu:testH(W,H,neu,t)});
+  const r={jahr:teil(tage),h1:teil(tage.slice(0,m)),h2:teil(tage.slice(m))};
+  const besser=x=>x.neu.tage&&x.alt.tage&&x.neu.vorsprung>x.alt.vorsprung;
+  r.urteil=besser(r.h1)&&besser(r.h2)&&r.jahr.neu.besser>=r.jahr.alt.besser?"besteht":besser(r.jahr)?"unsicher":"fällt durch";
+  r.text=r.urteil==="besteht"?"Besser im ganzen Jahr und in beiden Jahreshälften einzeln. Das spricht dafür, dass es kein Zufallstreffer ist."
+    :r.urteil==="unsicher"?"Im ganzen Jahr besser, aber nicht in beiden Hälften. Kann ein Zufallstreffer sein."
+    :"Im Test nicht besser als die jetzige Rechnung.";
+  return r}
+// Varianten-Test: jede Einstellung einzeln einen Schritt rauf und runter, als Grundlage für die KI
+function varianten(W,M){const tage=testTage(W),m=Math.floor(tage.length/2),out=[];
+  for(const H of HORIZONTE){const b1=testH(W,H,M[H],tage.slice(0,m)),b2=testH(W,H,M[H],tage.slice(m));
+    for(const [k,d] of Object.entries(PARAM))for(const sg of [1,-1]){const v=+(M[H][k]+sg*d.schritt).toFixed(2);if(v<d.min||v>d.max)continue;const par=Object.assign({},M[H],{[k]:v});
+      const t1=testH(W,H,par,tage.slice(0,m)),t2=testH(W,H,par,tage.slice(m));if(!t1.tage||!t2.tage)continue;
+      out.push({horizont:H,param:k,von:M[H][k],nach:v,vorsprungH1:{alt:b1.vorsprung,neu:t1.vorsprung},vorsprungH2:{alt:b2.vorsprung,neu:t2.vorsprung},beideBesser:t1.vorsprung>b1.vorsprung&&t2.vorsprung>b2.vorsprung})}}
+  return out.sort((a,b)=>(b.beideBesser-a.beideBesser)||((b.vorsprungH1.neu-b.vorsprungH1.alt)+(b.vorsprungH2.neu-b.vorsprungH2.alt))-((a.vorsprungH1.neu-a.vorsprungH1.alt)+(a.vorsprungH2.neu-a.vorsprungH2.alt))).slice(0,15)}
+
+/* ---------- Muster-Speicher: bekannte Kursmuster, an allen Werten der letzten 2 Jahre nachgeprüft ---------- */
+// Nur Information mit Vorsicht: Muster fließen NICHT in die Rangliste ein.
+const maxV=(C,a,b)=>{let m=-Infinity;for(let k=a;k<b;k++)if(C[k]>m)m=C[k];return m},minV=(C,a,b)=>{let m=Infinity;for(let k=a;k<b;k++)if(C[k]<m)m=C[k];return m};
+const argmin=(C,a,b)=>{let j=a;for(let k=a;k<b;k++)if(C[k]<C[j])j=k;return j},argmax=(C,a,b)=>{let j=a;for(let k=a;k<b;k++)if(C[k]>C[j])j=k;return j};
+export const MUSTER=[
+  {id:"golden",n:"Golden Cross",t:"Der 50-Tage-Schnitt steigt über den 200-Tage-Schnitt.",f:(C,R,i)=>R.s200[i-1]!=null&&R.s50[i-1]<=R.s200[i-1]&&R.s50[i]>R.s200[i]},
+  {id:"death",n:"Death Cross",t:"Der 50-Tage-Schnitt fällt unter den 200-Tage-Schnitt.",f:(C,R,i)=>R.s200[i-1]!=null&&R.s50[i-1]>=R.s200[i-1]&&R.s50[i]<R.s200[i]},
+  {id:"hoch52",n:"Neues 52-Wochen-Hoch",t:"Schlusskurs höher als an jedem Tag des letzten Jahres.",f:(C,R,i)=>i>=251&&C[i]>maxV(C,i-250,i)&&C[i-1]<=maxV(C,i-251,i-1)},
+  {id:"tief52",n:"Neues 52-Wochen-Tief",t:"Schlusskurs tiefer als an jedem Tag des letzten Jahres.",f:(C,R,i)=>i>=251&&C[i]<minV(C,i-250,i)&&C[i-1]>=minV(C,i-251,i-1)},
+  {id:"doppelboden",n:"Doppelboden",t:"Zwei ähnliche Tiefs (höchstens 3 % auseinander), dann steigt der Kurs über das Hoch dazwischen.",f:(C,R,i)=>{if(i<45)return false;const a=argmin(C,i-40,i-20),b=argmin(C,i-15,i-1);if(Math.abs(C[b]/C[a]-1)>.03)return false;const hals=maxV(C,a+1,b);return hals>C[a]*1.05&&C[i]>hals&&C[i-1]<=hals}},
+  {id:"doppeltop",n:"Doppeltop",t:"Zwei ähnliche Hochs (höchstens 3 % auseinander), dann fällt der Kurs unter das Tief dazwischen.",f:(C,R,i)=>{if(i<45)return false;const a=argmax(C,i-40,i-20),b=argmax(C,i-15,i-1);if(Math.abs(C[b]/C[a]-1)>.03)return false;const hals=minV(C,a+1,b);return hals<C[a]*.95&&C[i]<hals&&C[i-1]>=hals}},
+  {id:"rsiErholung",n:"Erholung nach Ausverkauf",t:"Der RSI steigt von unter 30 wieder über 30.",f:(C,R,i)=>R.rsi[i-1]<30&&R.rsi[i]>=30},
+  {id:"rsiAbkuehlung",n:"Abkühlung nach Übertreibung",t:"Der RSI fällt von über 70 wieder unter 70.",f:(C,R,i)=>R.rsi[i-1]>70&&R.rsi[i]<=70},
+  {id:"enge",n:"Ausbruch aus ruhiger Seitwärtsphase",t:"Nach 4 ungewöhnlich ruhigen Wochen schließt der Kurs über dem Hoch dieser Phase.",f:(C,R,i)=>{if(i<81||!R.sd[i-1])return false;const hi=maxV(C,i-20,i),lo=minV(C,i-20,i);return Math.log(hi/lo)<1.5*R.sd[i-1]*Math.sqrt(20)&&C[i]>hi&&C[i-1]<=hi}},
+  {id:"abverkauf",n:"Starker Abverkauf",t:"4 Verlusttage in Folge, zusammen mehr als 6 % minus.",f:(C,R,i)=>i>5&&C[i]<C[i-1]&&C[i-1]<C[i-2]&&C[i-2]<C[i-3]&&C[i-3]<C[i-4]&&C[i]/C[i-4]<.94&&!(C[i-1]/C[i-5]<.94&&C[i-4]<C[i-5])},
+  {id:"test200",n:"Rücksetzer an den 200-Tage-Schnitt",t:"Im langfristigen Aufwärtstrend fällt der Kurs an den 200-Tage-Schnitt und schließt wieder deutlich darüber.",f:(C,R,i)=>R.s200[i-1]!=null&&R.s50[i]>R.s200[i]&&C[i-1]<=R.s200[i-1]*1.01&&C[i]>R.s200[i]*1.015}];
+function musterEreignisse(w){if(w.ev)return w.ev;const ev=[],letzt={};for(let i=60;i<w.C.length;i++)for(const m of MUSTER){if(letzt[m.id]!=null&&i-letzt[m.id]<10)continue;try{if(m.f(w.C,w.R,i)){ev.push({m:m.id,i});letzt[m.id]=i}}catch(e){}}return w.ev=ev}
+function musterSpeicher(W){const markt={};for(const H of HORIZONTE){const sum={},n={};for(const w of W)for(let i=0;i+H<w.C.length;i++){const d=w.bars[i][0];sum[d]=(sum[d]||0)+(w.C[i+H]/w.C[i]-1)*100;n[d]=(n[d]||0)+1}markt[H]=Object.fromEntries(Object.keys(sum).map(d=>[d,sum[d]/n[d]]))}
+  const out={};for(const m of MUSTER){const o={n:0,h:{}};for(const H of HORIZONTE){const f=[],v=[];for(const w of W)for(const e of musterEreignisse(w))if(e.m===m.id&&e.i+H<w.C.length){const r=(w.C[e.i+H]/w.C[e.i]-1)*100;f.push(r);v.push(r-(markt[H][w.bars[e.i][0]]||0))}
+      const mv=f.length?mean(v):0,sv=f.length>1?Math.sqrt(mean(v.map(x=>(x-mv)**2))):0,t=sv?mv/(sv/Math.sqrt(f.length)):0;
+      o.n=Math.max(o.n,f.length);o.h[H]=f.length?{n:f.length,avg:+mean(f).toFixed(2),plus:Math.round(f.filter(x=>x>0).length/f.length*100),vorsprung:+mv.toFixed(2),t:+t.toFixed(1)}:{n:0}}
+    // Urteil nur, wenn der Unterschied zum Markt deutlich größer ist als der Zufall (t-Wert über 2)
+    const sig=HORIZONTE.filter(H=>o.h[H].n>=30&&Math.abs(o.h[H].t)>=2);
+    o.urteil=HORIZONTE.every(H=>(o.h[H].n||0)<30)?"zu wenige Fälle":!sig.length?"kein klarer Vorteil":sig.every(H=>o.h[H].t>0)?"leicht positiv":sig.every(H=>o.h[H].t<0)?"eher negativ":"widersprüchlich";
+    out[m.id]=o}return out}
+function musterAktiv(w,H,speicher){const n=w.C.length;return musterEreignisse(w).filter(e=>e.i>=n-5).map(e=>{const m=MUSTER.find(x=>x.id===e.m),st=speicher&&speicher[e.m];
+  return {id:e.m,n:m.n,vor:n-1-e.i,stat:st&&st.h[H]&&st.h[H].n?st.h[H]:null,urteil:st?st.urteil:null}})}
+
+/* ---------- Abrechnung von Listen (Bilanz und Prüfung nach Updates) ---------- */
+function abrechnen(W,eintraege,H){const erg=[];
+  for(const x of eintraege)for(const p of x.picks||[]){const w=W.find(y=>y.s===p.s);if(!w||!p.p0)continue;const i0=w.bars.findIndex(b=>b[0]>=x.d);if(i0<0||!(i0+H<w.C.length-(offen(regionVon(w.s))?1:0)))continue;
+    const d0=w.bars[i0][0],r=(w.C[i0+H]/p.p0-1)*100-2*KOSTEN,b=W.filter(v=>v.idx.has(d0)&&v.idx.get(d0)+H<v.C.length).map(v=>{const j=v.idx.get(d0);return (v.C[j+H]/v.C[j]-1)*100});erg.push({r,bench:b.length?mean(b):0})}
+  return erg.length?{n:erg.length,avg:+mean(erg.map(e=>e.r)).toFixed(2),plus:Math.round(erg.filter(e=>e.r>0).length/erg.length*100),bench:+mean(erg.map(e=>e.bench)).toFixed(2),besser:Math.round(erg.filter(e=>e.r>e.bench).length/erg.length*100)}:{n:0}}
+
+/* ---------- Updates der Rechnung: KI schlägt vor, Wachmann testet, du stimmst zu ---------- */
+const MODELL="data/beste-modell.json";
+function modell(ctx){const f=readJSON(ctx.P(MODELL),null)||{},M={};for(const H of HORIZONTE)M[H]=Object.assign({},STANDARD[H],(f.params||{})[H]||{});return {M,version:f.version||0,verlauf:f.verlauf||[]}}
+function pruefeVorschlag(v,M){if(!v||typeof v!=="object")return "kein Vorschlag";const H=+v.horizont;if(!HORIZONTE.includes(H))return "Zeitraum muss 3, 7 oder 30 sein";
+  const ae=v.aenderung&&typeof v.aenderung==="object"?Object.entries(v.aenderung):[];if(!ae.length||ae.length>2)return "1 oder 2 Einstellungen ändern";
+  for(const [k,x] of ae){const d=PARAM[k];if(!d)return "unbekannte Einstellung "+k;if(typeof x!=="number"||x<d.min||x>d.max)return `${k} muss zwischen ${d.min} und ${d.max} liegen`;if(x===M[H][k])return `${k} ist schon ${x}`}return ""}
+async function entscheide(ctx,antwort,quelle){const V=ST.vorschlag;if(!V)return "Kein Vorschlag vorhanden.";const mo=modell(ctx),heute=new Date().toISOString().slice(0,10);
+  const schreib=(params,eintrag)=>{const f={version:mo.version+1,geaendert:new Date().toISOString(),params,verlauf:[...mo.verlauf,eintrag].slice(-30)};fs.mkdirSync(ctx.P("data"),{recursive:true});fs.writeFileSync(ctx.P(MODELL),JSON.stringify(f,null,1));if(ctx.merk)ctx.merk(MODELL);return f.version};
+  if(antwort==="ja"&&V.status==="offen"){const params=JSON.parse(JSON.stringify(mo.M));Object.assign(params[V.horizont],V.neu);
+    const v=schreib(params,{version:mo.version+1,datum:heute,art:"Update",id:V.id,titel:V.titel,horizont:V.horizont,aenderung:V.liste,warum:V.warum,test:{urteil:V.test.urteil,jahr:V.test.jahr},zugestimmt:quelle});
+    V.status="angenommen";V.entschieden=Date.now();ST.schatten={seit:heute,version:v,id:V.id,titel:V.titel,alt:mo.M,eintraege:[]};ST.verlauf=(ST.verlauf||[]).concat({id:V.id,titel:V.titel,status:"angenommen",urteil:V.test.urteil}).slice(-20);
+    return `✅ Übernommen: <b>${ctx.esc(V.titel)}</b>. Ab jetzt rechnet die Liste so. Die alte Rechnung läuft 30 Tage zur Kontrolle mit, das Ergebnis siehst du unter Bilanz → Updates.`}
+  if(antwort==="nein"&&V.status==="offen"){V.status="abgelehnt";V.entschieden=Date.now();ST.verlauf=(ST.verlauf||[]).concat({id:V.id,titel:V.titel,status:"abgelehnt",urteil:V.test.urteil}).slice(-20);return `❌ Abgelehnt: ${ctx.esc(V.titel)}. Es bleibt alles wie es ist.`}
+  if(antwort==="zurueck"&&ST.schatten){const S=ST.schatten;schreib(S.alt,{version:mo.version+1,datum:heute,art:"Rückgängig",titel:"Rückgängig: "+S.titel,zugestimmt:quelle});ST.verlauf=(ST.verlauf||[]).concat({id:S.id,titel:S.titel,status:"rückgängig"}).slice(-20);ST.schatten=null;
+    return `↩️ Rückgängig gemacht: ${ctx.esc(S.titel)}. Die Liste rechnet wieder wie vorher.`}
+  return "Dazu gibt es gerade nichts zu entscheiden."}
+const vorschlagText=(ctx,V)=>`🧪 <b>Update-Vorschlag der KI</b> (${V.horizont} Tage)\n<b>${ctx.esc(V.titel)}</b>\n\n<b>Was sich ändert</b>\n${V.liste.map(x=>`• ${ctx.esc(x.name)}: ${x.von} → ${x.nach}`).join("\n")}\n\n<b>Warum</b>\n${ctx.esc(V.warum)}\n\n<b>Test am letzten Jahr</b> (Vorsprung der Top 5 vor dem Durchschnitt je Kauf)\nGanzes Jahr: jetzt ${pz2(V.test.jahr.alt.vorsprung)} → neu ${pz2(V.test.jahr.neu.vorsprung)}\n1. Hälfte: ${pz2(V.test.h1.alt.vorsprung)} → ${pz2(V.test.h1.neu.vorsprung)} · 2. Hälfte: ${pz2(V.test.h2.alt.vorsprung)} → ${pz2(V.test.h2.neu.vorsprung)}\nUrteil: <b>${V.test.urteil}</b>. ${ctx.esc(V.test.text)}\n\nÜbernehmen? Erst nach deinem Ja ändert sich etwas.`;
+export async function knopf(cb,ctx){SF=ctx.P(".state/beste.json");if(!ST)ST=lade();const [,a,id]=String(cb.data||"").split(":"),V=ST.vorschlag;
+  const ok=a==="zurueck"?!!ST.schatten:V&&V.id===id;const t=ok?await entscheide(ctx,a,"Telegram"):"Dieser Vorschlag ist nicht mehr offen.";
+  if(ctx.tg){await ctx.tg("answerCallbackQuery",{callback_query_id:cb.id,text:ok?"Gespeichert":"Nicht mehr offen"});await ctx.tg("editMessageText",{chat_id:cb.message.chat.id,message_id:cb.message.message_id,parse_mode:"HTML",text:t})}speichere()}
 
 /* ---------- Zustand ---------- */
 let SF="",ST=null;
@@ -89,38 +193,47 @@ const speichere=()=>{fs.mkdirSync(SF.replace(/\/[^/]*$/,""),{recursive:true});fs
 export const app=()=>ST&&ST.app||null;
 const readJSON=(f,d)=>{try{return JSON.parse(fs.readFileSync(f,"utf8"))}catch(e){return d}};
 
-function liste(ctx){const l=UNIVERSUM.map(([s,n])=>({s,n})),da=new Set(l.map(x=>x.s));
-  for(const s of (ctx.eigene?ctx.eigene():[]))if(istAktie(s)&&!da.has(s)&&l.length<UNIVERSUM.length+10){da.add(s);l.push({s,n:ctx.name?ctx.name(s):s,eigen:1})}
-  for(const [s,h] of Object.entries(ST.hist))if(h.tmp&&!da.has(s)){if(Date.now()-h.tmp>3*864e5){delete ST.hist[s];continue}da.add(s);l.push({s,n:h.n||s,eigen:1})}
+function liste(ctx){const l=UNIVERSUM.map(([s,n,typ])=>({s,n,typ})),da=new Set(l.map(x=>x.s));
+  for(const s of (ctx.eigene?ctx.eigene():[]))if(istAktie(s)&&!da.has(s)&&l.length<UNIVERSUM.length+10){da.add(s);l.push({s,n:ctx.name?ctx.name(s):s,typ:"a",eigen:1})}
+  for(const [s,h] of Object.entries(ST.hist))if(h.tmp&&!da.has(s)){if(Date.now()-h.tmp>3*864e5){delete ST.hist[s];continue}da.add(s);l.push({s,n:h.n||s,typ:"a",eigen:1})}
   return l}
 
 /* ---------- Hauptlauf ---------- */
 export async function lauf(ctx){SF=ctx.P(".state/beste.json");if(!ST)ST=lade();const B=ctx.B,heute=new Date().toISOString().slice(0,10);let fehler=0,geholt=0;
   const L=liste(ctx);
-  // Verlauf (2 Jahre) einmal am Tag, höchstens 30 pro Lauf; offene Börsen: aktuelle Tageskerze alle 15 Min.
-  for(const w of L){const h=ST.hist[w.s];if(h&&h.d===heute&&h.bars)continue;if(geholt>=30)break;geholt++;
-    try{const y=await yahoo(w.s,"2y");ST.hist[w.s]=Object.assign(h||{},{d:heute,bars:y.bars,cur:y.cur,p:y.p,mt:y.mt,lt:Date.now()});delete ST.fehler[w.s]}catch(e){fehler++;ST.fehler[w.s]=String(e.message).slice(0,80)}}
-  for(const w of L){const h=ST.hist[w.s];if(!h||!h.bars)continue;const alt=Date.now()-(h.lt||0);if(alt<14*6e4||(!offen(regionVon(w.s))&&alt<3*36e5))continue;
-    try{const y=await yahoo(w.s,"5d");h.bars=zusammen(h.bars,y.bars).slice(-800);h.p=y.p;h.mt=y.mt;h.cur=y.cur||h.cur;h.lt=Date.now();delete ST.fehler[w.s]}catch(e){fehler++;ST.fehler[w.s]=String(e.message).slice(0,80)}}
+  // Gespeichert werden nur Datum und Schlusskurs, damit der Speicher bei über 200 Werten klein bleibt
+  const knapp=bars=>bars.map(b=>[b[0],b.length>2?b[4]:b[1]]);ST.versucht=ST.versucht||{};
+  for(const h of Object.values(ST.hist))if(h.bars&&h.bars[0]&&h.bars[0].length>2)h.bars=knapp(h.bars);
+  // Verlauf (2 Jahre) einmal am Tag, höchstens 50 pro Lauf (der erste Tag braucht 5 Läufe)
+  for(const w of L){const h=ST.hist[w.s];if(ST.versucht[w.s]===heute||(h&&h.d===heute&&h.bars))continue;if(geholt>=50)break;geholt++;ST.versucht[w.s]=heute;
+    try{const y=await yahoo(w.s,"2y");ST.hist[w.s]=Object.assign(h||{},{d:heute,bars:knapp(y.bars),cur:y.cur,p:y.p,mt:y.mt,lt:Date.now()});delete ST.fehler[w.s]}catch(e){fehler++;ST.fehler[w.s]=String(e.message).slice(0,80)}}
+  for(const s of Object.keys(ST.versucht))if(!L.some(w=>w.s===s))delete ST.versucht[s];
+  // Laufende Tageskerze: aussichtsreiche Werte alle 15 Min., die übrigen reihum etwa stündlich (Börse offen) bzw. alle 3 Std.
+  const wichtig=new Set(ST.wichtig||[]),kand=L.map(w=>({w,h:ST.hist[w.s]})).filter(x=>x.h&&x.h.bars).map(x=>Object.assign(x,{alt:Date.now()-(x.h.lt||0),of:offen(regionVon(x.w.s))}));
+  const jetztHolen=[...kand.filter(x=>x.of&&wichtig.has(x.w.s)&&x.alt>14*6e4),...kand.filter(x=>!wichtig.has(x.w.s)||!x.of).filter(x=>x.alt>(x.of?50*6e4:3*36e5)).sort((a,b)=>b.alt-a.alt).slice(0,20)];
+  for(const {w,h} of jetztHolen){try{const y=await yahoo(w.s,"5d");h.bars=zusammen(h.bars,knapp(y.bars)).slice(-560);h.p=y.p;h.mt=y.mt;h.cur=y.cur||h.cur;h.lt=Date.now();delete ST.fehler[w.s]}catch(e){fehler++;ST.fehler[w.s]=String(e.message).slice(0,80)}}
   for(const s of Object.keys(ST.hist))if(!L.some(w=>w.s===s))delete ST.hist[s];
   if(fehler)B.err.beste=`${fehler} Kursabruf(e) fehlgeschlagen (Yahoo)`;else delete B.err.beste;
 
   // Rechnen
-  const W=[];for(const w of L){const h=ST.hist[w.s];if(!h||!h.bars||h.bars.length<130)continue;const C=h.bars.map(b=>b[4]);
+  const W=[];for(const w of L){const h=ST.hist[w.s];if(!h||!h.bars||h.bars.length<130)continue;const C=h.bars.map(b=>b[1]);
     W.push(Object.assign({},w,{h,bars:h.bars,C,idx:new Map(h.bars.map((b,i)=>[b[0],i])),R:rechne(C)}))}
   if(W.length<15){speichere();return false}
+  const MO=modell(ctx),M=MO.M;setzePunkte(W,M);
   // erst wenn (fast) alle Verläufe von heute da sind, wird getestet und die Vorlage geschrieben
-  const vollst=L.filter(w=>ST.hist[w.s]&&ST.hist[w.s].d===heute).length>=L.length*.9;
+  const vollst=L.filter(w=>ST.versucht[w.s]===heute||(ST.hist[w.s]&&ST.hist[w.s].d===heute)).length>=L.length*.95;
   // Test einmal am Tag (ändert sich im Tagesverlauf nicht)
-  if(!ST.test||(ST.test.d!==heute&&vollst))ST.test={d:heute,von:new Date(Date.now()-365*864e5).toISOString().slice(0,10),werte:W.length,h:test(W)};
+  if(!ST.test||((ST.test.d!==heute||ST.test.version!==MO.version)&&vollst))ST.test={d:heute,version:MO.version,von:new Date(Date.now()-365*864e5).toISOString().slice(0,10),werte:W.length,h:test(W)};
+  if(!ST.muster||(ST.muster.d!==heute&&vollst))ST.muster={d:heute,m:musterSpeicher(W)};
   const jetzt=W.filter(w=>Date.now()-Date.parse(w.bars[w.bars.length-1][0])<6*864e5);// ohne veraltete Werte
   const fakten=(w,H)=>{const i=w.C.length-1,C=w.C,p=w.h.p&&Date.now()-(w.h.mt||0)<3*864e5?w.h.p:C[i],sd=w.R.sd[i],ch=k=>i>=k?+((p/C[i-k]-1)*100).toFixed(1):null;
-    return {s:w.s,n:w.n,cur:w.h.cur||"",p:r6(p),dp:+((p/C[i-1]-1)*100).toFixed(2),mt:w.h.mt||w.h.lt||0,eigen:w.eigen||undefined,
+    return {s:w.s,n:w.n,typ:w.typ||"a",cur:w.h.cur||"",p:r6(p),sdTag:sd?+sd.toFixed(5):null,dp:+((p/C[i-1]-1)*100).toFixed(2),mt:w.h.mt||w.h.lt||0,eigen:w.eigen||undefined,
       tage5:ch(5),wochen4:ch(20),monate3:ch(60),monate6:ch(120),rsi:w.R.rsi[i]!=null?+w.R.rsi[i].toFixed(0):null,schwankungJahr:sd?+(sd*Math.sqrt(252)*100).toFixed(0):null,
       trend:w.R.s20[i]!=null&&w.R.s50[i]!=null?(w.R.s20[i]>w.R.s50[i]?"aufwärts":"abwärts"):null,ueber50:w.R.s50[i]?+((p/w.R.s50[i]-1)*100).toFixed(1):null,
-      punkte:H?+w.R.P[H][i].toFixed(2):undefined,bereich:H&&sd?{lo:r6(p*Math.exp(-sd*Math.sqrt(H))),hi:r6(p*Math.exp(sd*Math.sqrt(H)))}:undefined,
-      spark:C.slice(-60).map(x=>+(+x).toPrecision(5))}};
-  const rang={};for(const H of HORIZONTE)rang[H]=jetzt.filter(w=>w.R.P[H][w.C.length-1]!=null).sort((a,b)=>b.R.P[H][b.C.length-1]-a.R.P[H][a.C.length-1]);
+      punkte:H?+w.P[H][i].toFixed(2):undefined,bereich:H&&sd?{lo:r6(p*Math.exp(-sd*Math.sqrt(H))),hi:r6(p*Math.exp(sd*Math.sqrt(H)))}:undefined,
+      spark:C.slice(-60).map(x=>+(+x).toPrecision(5)),muster:H?musterAktiv(w,H,ST.muster&&ST.muster.m):undefined}};
+  const rang={};for(const H of HORIZONTE)rang[H]=jetzt.filter(w=>w.P[H][w.C.length-1]!=null).sort((a,b)=>b.P[H][b.C.length-1]-a.P[H][a.C.length-1]);
+  ST.wichtig=[...new Set(HORIZONTE.flatMap(H=>rang[H].slice(0,25).map(w=>w.s)))];
 
   // KI-Ergebnis lesen (data/beste.json, kommt von der Claude-Aufgabe)
   const ki=readJSON(ctx.P("data/beste.json"),null),kiOk=ki&&ki.id&&ki.listen;
@@ -132,40 +245,62 @@ export async function lauf(ctx){SF=ctx.P(".state/beste.json");if(!ST)ST=lade();c
 
   // Entwicklung früherer Listen (je Tag die erste Liste, damit nichts doppelt zählt)
   const fertig={},laufend=[];const erste=[];for(const x of ST.listen)if(!erste.some(y=>y.d===x.d))erste.push(x);
-  for(const H of HORIZONTE){const erg=[];for(const x of erste)for(const p of x.h[H]||[]){const w=W.find(y=>y.s===p.s);if(!w)continue;
-      const i0=w.bars.findIndex(b=>b[0]>=x.d);if(i0<0)continue;const fertigBar=i0+H<w.C.length-(offen(regionVon(w.s))?1:0);
-      if(fertigBar){const r=(w.C[i0+H]/p.p0-1)*100-2*KOSTEN,bench=mean(W.filter(v=>v.idx.has(w.bars[i0][0])&&v.idx.get(w.bars[i0][0])+H<v.C.length).map(v=>{const j=v.idx.get(w.bars[i0][0]);return (v.C[j+H]/v.C[j]-1)*100}));erg.push({r,bench})}}
-    fertig[H]=erg.length?{n:erg.length,avg:+mean(erg.map(e=>e.r)).toFixed(2),plus:Math.round(erg.filter(e=>e.r>0).length/erg.length*100),bench:+mean(erg.map(e=>e.bench)).toFixed(2),besser:Math.round(erg.filter(e=>e.r>e.bench).length/erg.length*100)}:{n:0}}
+  for(const H of HORIZONTE)fertig[H]=abrechnen(W,erste.map(x=>({d:x.d,picks:x.h[H]})),H);
   for(const x of ST.listen.slice(-12).reverse())laufend.push({id:x.id,d:x.d,slot:x.slot,h:Object.fromEntries(HORIZONTE.map(H=>[H,(x.h[H]||[]).map(p=>{const w=W.find(y=>y.s===p.s),pj=w?(w.h.p||w.C[w.C.length-1]):null;return {s:p.s,n:w?w.n:p.s,p0:p.p0,r:pj?+((pj/p.p0-1)*100).toFixed(1):null}})]))});
 
   // Liste für die App: KI-Auswahl (wenn von heute) sonst die reine Rechnung
   const kiHeute=kiOk&&ST.listen.some(x=>x.id===ki.id&&Date.now()-x.t<20*36e5),aktuell=ST.listen.find(x=>kiOk&&x.id===ki.id);
   const listen={};for(const H of HORIZONTE){const l=kiHeute?(ki.listen[H]||[]).slice(0,TOP):rang[H].slice(0,TOP).map(w=>({s:w.s}));
     listen[H]=l.map((x,i)=>{const w=W.find(y=>y.s===x.s);if(!w)return null;const r=rang[H].findIndex(y=>y.s===x.s),p0=aktuell&&(aktuell.h[H]||[]).find(p=>p.s===x.s);
-      return Object.assign(fakten(w,H),{platz:i+1,rechenRang:r>=0?r+1:null,p0:kiHeute&&p0?p0.p0:undefined,warum:x.warum,treiber:x.treiber,risiken:x.risiken,termine:x.termine,zuversicht:x.zuversicht,quellen:Array.isArray(x.quellen)?x.quellen.filter(q=>q&&/^https?:\/\//.test(q.u||"")).slice(0,8):undefined})}).filter(Boolean)}
+      return Object.assign(fakten(w,H),{platz:i+1,rechenRang:r>=0?r+1:null,p0:kiHeute&&p0?p0.p0:undefined,warum:x.warum,treiber:x.treiber,risiken:x.risiken,termine:x.termine,zuversicht:x.zuversicht,einschaetzung:x.einschaetzung,ausblick:x.ausblick,szenarien:x.szenarien&&typeof x.szenarien==="object"?{gut:x.szenarien.gut,schlecht:x.szenarien.schlecht}:undefined,quellen:Array.isArray(x.quellen)?x.quellen.filter(q=>q&&/^https?:\/\//.test(q.u||"")).slice(0,8):undefined})}).filter(Boolean)}
+
+  // Updates: Entscheidung aus der App (data/beste-entscheidung.json), neuer KI-Vorschlag, Prüfung nach einem Update
+  const ent=readJSON(ctx.P("data/beste-entscheidung.json"),null);
+  if(ent&&ent.id&&ent.t&&ent.t!==ST.entT){ST.entT=ent.t;if(ent.antwort==="zurueck"?!!ST.schatten:ST.vorschlag&&ST.vorschlag.id===ent.id){const t=await entscheide(ctx,ent.antwort,"App");if(ctx.send)await ctx.send(t,{direkt:true})}}
+  if(ST.vorschlag&&ST.vorschlag.status==="offen"&&Date.now()-ST.vorschlag.t>14*864e5){ST.vorschlag.status="verfallen";ST.verlauf=(ST.verlauf||[]).concat({id:ST.vorschlag.id,titel:ST.vorschlag.titel,status:"verfallen"}).slice(-20)}
+  if(kiOk&&ki.vorschlag&&!(ST.vorschlag&&ST.vorschlag.id===ki.id+"-u")&&!(ST.vorschlag&&ST.vorschlag.status==="offen")&&vollst){const v=ki.vorschlag,fehl=pruefeVorschlag(v,M);
+    if(fehl)ctx.log("Update-Vorschlag ungültig:",fehl);
+    else{const H=+v.horizont,neu=Object.fromEntries(Object.entries(v.aenderung).map(([k,x])=>[k,+x])),test=pruefe(W,H,M[H],Object.assign({},M[H],neu));
+      ST.vorschlag={id:ki.id+"-u",t:Date.now(),status:"offen",gemeldet:false,horizont:H,titel:String(v.titel||"Änderung der Rechnung").slice(0,120),warum:String(v.warum||"").slice(0,900),erwartung:String(v.erwartung||"").slice(0,400),
+        neu,liste:Object.entries(neu).map(([k,x])=>({param:k,name:PARAM[k].n,von:M[H][k],nach:x})),test}}}
+  if(ST.vorschlag&&ST.vorschlag.status==="offen"&&!ST.vorschlag.gemeldet&&ctx.send&&!ctx.leise()){ST.vorschlag.gemeldet=true;
+    await ctx.send(vorschlagText(ctx,ST.vorschlag)+link(ctx,""),{knoepfe:[[{text:"✅ Übernehmen",callback_data:`bu:ja:${ST.vorschlag.id}`},{text:"❌ Ablehnen",callback_data:`bu:nein:${ST.vorschlag.id}`}]]})}
+  // Nach einem Update: alte Rechnung läuft 30 Tage mit, beide Listen werden abgerechnet
+  let pruefung=null;if(ST.schatten){const S=ST.schatten;
+    if(vollst&&!S.eintraege.some(e=>e.d===heute)&&Date.now()-Date.parse(S.seit)<31*864e5){const e={d:heute,h:{}};for(const H of HORIZONTE){const altR=jetzt.map(w=>({w,p:punkte(w.R,w.C.length-1,S.alt[H])})).filter(x=>x.p!=null).sort((a,b)=>b.p-a.p).slice(0,TOP);
+        const p0=w=>r6(w.h.p||w.C[w.C.length-1]);e.h[H]={neu:rang[H].slice(0,TOP).map(w=>({s:w.s,p0:p0(w)})),alt:altR.map(x=>({s:x.w.s,p0:p0(x.w)}))}}S.eintraege.push(e)}
+    pruefung={seit:S.seit,titel:S.titel,version:S.version,tage:S.eintraege.length,h:Object.fromEntries(HORIZONTE.map(H=>[H,{neu:abrechnen(W,S.eintraege.map(e=>({d:e.d,picks:e.h[H].neu})),H),alt:abrechnen(W,S.eintraege.map(e=>({d:e.d,picks:e.h[H].alt})),H)}]))};
+    if(Date.now()-Date.parse(S.seit)>75*864e5)ST.schatten=null}
   ST.app={v:2,t:Date.now(),top:TOP,kosten:KOSTEN,horizonte:HORIZONTE,test:ST.test,werte:W.length,
     ki:kiHeute?{id:ki.id,erstellt:ki.erstellt,slot:ki.slot,markt:ki.markt||"",marktQuellen:Array.isArray(ki.marktQuellen)?ki.marktQuellen.slice(0,4):[],aussortiert:Array.isArray(ki.aussortiert)?ki.aussortiert.slice(0,12):[]}:null,
+    aktien:W.filter(w=>w.typ!=="e").length,etfs:W.filter(w=>w.typ==="e").length,
+    weitere:Object.fromEntries(HORIZONTE.map(H=>[H,rang[H].filter(w=>!listen[H].some(x=>x.s===w.s)).slice(0,WEITERE).map(w=>{const f=fakten(w,H);return {s:f.s,n:f.n,typ:f.typ,cur:f.cur,p:f.p,dp:f.dp,mt:f.mt,wochen4:f.wochen4,monate3:f.monate3,trend:f.trend,rsi:f.rsi,rang:rang[H].indexOf(w)+1}})])),
+    modell:{version:MO.version,params:M,standard:STANDARD,param:PARAM,verlauf:MO.verlauf.slice(-10).reverse()},vorschlag:ST.vorschlag&&(ST.vorschlag.status==='offen'||Date.now()-(ST.vorschlag.entschieden||0)<3*864e5)?ST.vorschlag:null,pruefung,
+    muster:{info:MUSTER.map(m=>({id:m.id,n:m.n,t:m.t})),speicher:ST.muster?ST.muster.m:null},
     listen,bilanz:{fertig,laufend},fehler:Object.keys(ST.fehler).length?ST.fehler:undefined};
 
   // Vorlage für die Claude-Aufgabe (3x täglich)
   const z=teile("Europe/Berlin"),slot=[...SLOTS].reverse().find(([,m])=>z.min>=m);
-  if(slot&&vollst&&ST.vorlage!==z.date+slot[0]){ST.vorlage=z.date+slot[0];await vorlage(ctx,W,rang,fakten,slot[0],z.date,kiOk&&ki.datum===z.date?ki:null)}
+  if(slot&&vollst&&ST.vorlage!==z.date+slot[0]){ST.vorlage=z.date+slot[0];const lernen=slot[0]==="abends"&&!(ST.vorschlag&&ST.vorschlag.status==="offen")&&Date.now()-((ST.vorschlag&&ST.vorschlag.t)||0)>6*864e5&&Date.now()-(ST.lernT||0)>6*864e5;if(lernen)ST.lernT=Date.now();
+    await vorlage(ctx,W,rang,fakten,slot[0],z.date,kiOk&&ki.datum===z.date?ki:null,lernen?{aktuelleEinstellungen:M,einstellungen:PARAM,testJetzt:ST.test,bilanzListen:fertig,variantenTest:varianten(W,M),bisherigeUpdates:(ST.verlauf||[]).slice(-10),musterSpeicher:ST.muster&&ST.muster.m}:null)}
 
   const alt=ST.k||"";ST.k=JSON.stringify([ST.app.ki&&ST.app.ki.id,...HORIZONTE.map(H=>listen[H].map(x=>x.s+x.p))]);speichere();
   ctx.log("Top-Aktien:",HORIZONTE.map(H=>`${H}T ${listen[H].map(x=>x.s).join(",")}`).join(" | "),kiHeute?"(mit KI)":"(nur Rechnung)");
   return alt!==ST.k}
 
-async function vorlage(ctx,W,rang,fakten,slot,datum,bisher){const quart=await quartalszahlen(),kand={},alle=new Set();
-  for(const H of HORIZONTE)kand[H]=rang[H].slice(0,KAND).map((w,i)=>{alle.add(w.s);const f=fakten(w,H);delete f.spark;delete f.mt;delete f.eigen;return Object.assign(f,{rechenRang:i+1})});
+async function vorlage(ctx,W,rang,fakten,slot,datum,bisher,lernen){const quart=await quartalszahlen(),kand={},alle=new Set();
+  for(const H of HORIZONTE)kand[H]=rang[H].slice(0,KAND).map((w,i)=>{alle.add(w.s);const f=fakten(w,H);delete f.spark;delete f.mt;delete f.eigen;if(f.muster)f.muster=f.muster.map(m=>({name:m.n,vorTagen:m.vor,rueckblick:m.stat,urteil:m.urteil,hinweis:"nur mit Vorsicht verwenden"}));return Object.assign(f,{rechenRang:i+1})});
   const mel={};for(const s of alle){mel[s]={meldungen:await meldungen(s),quartalszahlen:(quart.find(q=>q.s===s)||{}).d||null}}
-  const alt={};if(bisher)for(const H of HORIZONTE)for(const x of bisher.listen[H]||[])if(alle.has(x.s)&&!alt[x.s])alt[x.s]={warum:x.warum,treiber:x.treiber,risiken:x.risiken,termine:x.termine,quellen:x.quellen};
+  const alt={};if(bisher)for(const H of HORIZONTE)for(const x of bisher.listen[H]||[])if(alle.has(x.s)&&!alt[x.s])alt[x.s]={einschaetzung:x.einschaetzung,warum:x.warum,ausblick:x.ausblick,szenarien:x.szenarien,treiber:x.treiber,risiken:x.risiken,termine:x.termine,quellen:x.quellen};
   const v={id:`b-${datum}-${slot}`,datum,slot,erstellt:new Date().toISOString(),
     _anleitung:"Siehe trading/KI-AUFGABE.md. Kurz: Für jeden Zeitraum (3, 7, 30 Handelstage) aus den kandidaten genau 5 Werte auswählen und begründen, mit echter Websuche und Quellen-Links. Nur Werte aus der jeweiligen Kandidatenliste. Keine Zahlen erfinden. Ergebnis als data/beste.json.",
-    methode:{text:"Rangliste nach risikobereinigtem Kursanstieg (Anstieg geteilt durch normale Schwankung) plus Trend, abzüglich Überhitzung (RSI über 75). rechenRang 1 = beste Punktzahl.",test:ST.test},
+    methode:{text:"Aktien und ETFs gemischt (typ a = Aktie, e = ETF). Rangliste nach risikobereinigtem Kursanstieg (Anstieg geteilt durch normale Schwankung) plus Trend, abzüglich Überhitzung (RSI über 75). rechenRang 1 = beste Punktzahl.",test:ST.test},
     kandidaten:kand,werteInfo:mel,_bisherHeute:Object.keys(alt).length?alt:undefined,
+    _lernen:lernen?Object.assign({aufgabe:"Schlage höchstens EIN Update der Rechnung vor (Feld vorschlag), nur wenn es gut begründet ist. Grundlage: variantenTest (jede Einstellung einen Schritt verändert, getestet in beiden Jahreshälften), bilanzListen und bisherigeUpdates (abgelehnte nicht wiederholen). Bevorzuge Varianten mit beideBesser=true. Kein guter Kandidat: vorschlag weglassen. Der Wachmann testet deinen Vorschlag selbst noch einmal, der Nutzer muss zustimmen."},lernen):undefined,
     format:{id:"wie oben",datum:"wie oben",slot:"wie oben",erstellt:"ISO-Zeitstempel jetzt",markt:"2–3 Sätze zur Marktlage heute",marktQuellen:[{t:"Titel",u:"https://…",q:"Quelle",d:"JJJJ-MM-TT"}],
-      listen:{"3":[{s:"Kürzel aus kandidaten[3]",warum:"3–5 Sätze",treiber:["…"],risiken:["…"],termine:["…"],zuversicht:"niedrig|mittel|hoch",quellen:[{t:"Titel",u:"https://…",q:"Quelle",d:"JJJJ-MM-TT"}]}],"7":["…"],"30":["…"]},
-      aussortiert:[{s:"Kürzel",h:3,grund:"1 Satz, warum trotz guter Rechnung nicht gewählt"}]}};
+      listen:{"3":[{s:"Kürzel aus kandidaten[3]",einschaetzung:"1 kurzer Satz Fazit, z. B. Chancen überwiegen leicht",warum:"3–5 Sätze",ausblick:"2–4 Sätze: wie es im Zeitraum am wahrscheinlichsten weitergeht und warum",szenarien:{gut:"1 Satz: was passieren muss, damit es gut läuft",schlecht:"1 Satz: was es kippen würde"},treiber:["…"],risiken:["…"],termine:["…"],zuversicht:"niedrig|mittel|hoch",quellen:[{t:"Titel",u:"https://…",q:"Quelle",d:"JJJJ-MM-TT"}]}],"7":["…"],"30":["…"]},
+      aussortiert:[{s:"Kürzel",h:3,grund:"1 Satz, warum trotz guter Rechnung nicht gewählt"}],
+      vorschlag:lernen?{titel:"kurzer Titel",horizont:7,aenderung:{w20:0.75},warum:"3–5 Sätze in einfachen Worten: was geändert wird, welches Problem es löst, welche Testzahlen dafür sprechen, was dagegen spricht",erwartung:"1–2 Sätze, was sich dadurch an der Liste ändert"}:undefined}};
   fs.mkdirSync(ctx.P("data"),{recursive:true});fs.writeFileSync(ctx.P("data/beste-vorlage.json"),JSON.stringify(v,null,1));if(ctx.merk)ctx.merk("data/beste-vorlage.json");
   ctx.log("Top-Aktien: Vorlage",v.id,[...alle].length,"Werte")}
 
@@ -173,7 +308,7 @@ async function vorlage(ctx,W,rang,fakten,slot,datum,bisher){const quart=await qu
 export const HINWEIS="Rangliste aus Kursdaten, von der KI mit Quellen geprüft. Vergangene Ergebnisse sind keine Garantie. Keine Anlageberatung.";
 const esc=(ctx,s)=>ctx.esc?ctx.esc(s):String(s??"");
 function link(ctx,s){return ctx.APP?`\n<a href="${ctx.APP}trading/${s?"#s-"+encodeURIComponent(s):""}">In der Top-Aktien-App öffnen ›</a>`:""}
-export const HILFE_ZEILEN=`/beste – die besten Aktien für 3, 7 und 30 Tage mit Grund (/beste 7 nur ein Zeitraum)
+export const HILFE_ZEILEN=`/beste – die besten Aktien und ETFs für 3, 7 und 30 Tage mit Grund (/beste 7 nur ein Zeitraum)
 /warum SAP – warum ein Wert in der Liste ist, mit Quellen und Entwicklung`;
 export const FUSS_TEIL=" /beste /warum";
 const cs=x=>CS[x.cur]||x.cur||"";
@@ -193,7 +328,10 @@ export async function befehl(c,arg,ctx){SF=ctx.P(".state/beste.json");if(!ST)ST=
     `Kurs: 5 Tage ${pz(x.tage5)} · 4 Wochen ${pz(x.wochen4)} · 3 Monate ${pz(x.monate3)} · RSI ${x.rsi??"–"} · Trend ${x.trend||"–"}`,
     x.bereich?`Übliche Schwankung in ${x.H} Tagen: ${dez(x.bereich.lo)}–${dez(x.bereich.hi)} ${cs(x)} (keine Prognose, nur die normale Bandbreite)`:""];
   if(x.p0)z.push(`Seit der Liste: ${pz((x.p/x.p0-1)*100)}`);
-  if(x.warum)z.push(`\n<b>Warum</b>\n${esc(ctx,x.warum)}`);else z.push("\n<i>Die KI-Recherche für diese Liste steht noch aus.</i>");
+  if(x.einschaetzung)z.push(`\n<b>Einschätzung:</b> ${esc(ctx,x.einschaetzung)}`);
+  if(x.warum)z.push(`\n<b>Warum</b>\n${esc(ctx,x.warum)}`);
+  if(x.ausblick)z.push(`<b>Ausblick ${x.H} Tage</b>\n${esc(ctx,x.ausblick)}`);
+  if(x.szenarien&&(x.szenarien.gut||x.szenarien.schlecht))z.push(`<b>Szenarien</b>\n${x.szenarien.gut?"🟢 "+esc(ctx,x.szenarien.gut):""}${x.szenarien.schlecht?"\n🔴 "+esc(ctx,x.szenarien.schlecht):""}`);else z.push("\n<i>Die KI-Recherche für diese Liste steht noch aus.</i>");
   if(x.treiber&&x.treiber.length)z.push(`<b>Treiber</b>\n${x.treiber.map(t=>"• "+esc(ctx,t)).join("\n")}`);
   if(x.risiken&&x.risiken.length)z.push(`<b>Risiken</b>\n${x.risiken.map(t=>"• "+esc(ctx,t)).join("\n")}`);
   if(x.termine&&x.termine.length)z.push(`<b>Termine</b>\n${x.termine.map(t=>"• "+esc(ctx,t)).join("\n")}`);
