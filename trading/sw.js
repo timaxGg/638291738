@@ -1,6 +1,3 @@
-/* Offline-Speicher nur für die Hülle der Signale-App (eigener Bereich trading/). Kurse kommen immer frisch. */
-const V="sig-v4",SHELL=["./","./index.html","./style.css","./app.js","./manifest.webmanifest","./icon-192.png","./icon-512.png","./icon-maskable.png","./apple-touch-icon.png"];
-self.addEventListener("install",e=>{e.waitUntil(caches.open(V).then(c=>c.addAll(SHELL)));self.skipWaiting()});
-self.addEventListener("activate",e=>{e.waitUntil(caches.keys().then(k=>Promise.all(k.filter(x=>x.startsWith("sig-")&&x!==V).map(x=>caches.delete(x)))));self.clients.claim()});
-self.addEventListener("fetch",e=>{const u=new URL(e.request.url);if(u.origin!==location.origin||!u.pathname.includes("/trading/"))return;
- e.respondWith(fetch(e.request,{cache:"no-cache"}).then(r=>{const c=r.clone();caches.open(V).then(x=>x.put(e.request,c));return r}).catch(()=>caches.match(e.request)))});
+/* Die Top-Aktien-App ist in ein eigenes Repository umgezogen. Dieser Service Worker räumt den alten auf und meldet sich ab. */
+self.addEventListener("install",()=>self.skipWaiting());
+self.addEventListener("activate",e=>{e.waitUntil(caches.keys().then(k=>Promise.all(k.filter(x=>x.startsWith("sig-")).map(x=>caches.delete(x)))).then(()=>self.registration.unregister()))});
