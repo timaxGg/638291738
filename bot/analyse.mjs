@@ -40,7 +40,7 @@ export function kennzahlen(c, p, opt = {}) {
   const c3 = c.slice(-64); let p3 = c3[0], dd3 = 0; c3.forEach(v => { p3 = Math.max(p3, v); dd3 = Math.min(dd3, v / p3 - 1) });
   const damp = opt.damp ?? 0.5, band = opt.band ?? 1;
   const proj = h => { const m = damp * mu * h, s = sd * Math.sqrt(h) * band; return { mid: last * Math.exp(m), lo: last * Math.exp(m - s), hi: last * Math.exp(m + s), steigt: Math.round(phi(m / s) * 100), ueber: k => Math.round(phi((Math.log(last / k) + m) / s) * 100) } };
-  return { last, vol: sd * Math.sqrt(252) * 100, s20: sma(20), s50: sma(50), s200: sma(200), dd1j: dd * 100, dd3m: dd3 * 100, tage: c.length,
+  return { last, mu, sd, proj, vol: sd * Math.sqrt(252) * 100, s20: sma(20), s50: sma(50), s200: sma(200), dd1j: dd * 100, dd3m: dd3 * 100, tage: c.length,
     ch20: (last / c[Math.max(0, c.length - 21)] - 1) * 100, ch3m: (last / c[Math.max(0, c.length - 64)] - 1) * 100, ch1j: c.length > 200 ? (last / c[0] - 1) * 100 : null, w1: proj(5), m3: proj(63) };
 }
 

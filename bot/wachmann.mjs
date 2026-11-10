@@ -70,7 +70,7 @@ const priceOf=s=>(B.q[s]&&B.q[s].c)||(B.eod[s]&&B.eod[s].c)||null;
 const moveOf=s=>B.q[s]&&Date.now()-B.q[s].t<36e5?B.q[s].dp:(B.eod[s]?B.eod[s].dp:0);
 
 /* ---------- Telegram ---------- */
-const FUSS="\n\n<i>Befehle:</i> /hilfe /kurs /depot /top /markt /kurzanalyse /analyse /warnung /rueckblick /news /briefing /prognose /termine /kaufhilfe /merken /gespart /ziel /sparmodell /alarme /ruhe /laut /status";
+const FUSS="\n\n<i>Befehle:</i> /hilfe /kurs /depot /top /markt /chancen /kurzanalyse /analyse /warnung /rueckblick /news /briefing /prognose /termine /kaufhilfe /merken /gespart /ziel /sparmodell /alarme /ruhe /laut /status";
 async function tg(method,body){if(!TG)return null;
   try{const r=await fetch(`https://api.telegram.org/bot${TG}/${method}`,{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify(body)});return r.json()}catch(e){B.err.telegram=e.message;return null}}
 const nacht=()=>{if(E.FORCE_DAY)return false;if(U.notify&&U.notify.night===false)return false;const z=zeit();return z.h>=22||z.h<7};
@@ -110,6 +110,7 @@ const HILFE=`<b>Was ich kann</b>
 /sparmodell – dein Modell und die Empfehlung
 /alarme – deine Alarm-Regeln
 /warnung – Frühwarn-Ampel für deine Werte
+/chancen – die aussichtsreichsten Werte für die nächsten 3 Tage, mit Grund, Link und Sicherheit (/chancen sicher = mehr Gewicht auf Sicherheit)
 /kurzanalyse SAP – kurz: Trend auf- oder abwärts und die neuesten Nachrichten (ohne Namen: dein ganzes Depot)
 /analyse – deine Werte: wie sicher, warum genau, Zukunft und Alternativen mit Begründung (auch /analyse SAP für einen Wert)
 /rueckblick – Kaufrückblick: wie gut waren deine Entscheidungen?
@@ -161,6 +162,7 @@ async function befehl(text){const [c0,...a]=text.trim().split(/\s+/),c=c0.toLowe
     return send(`🚦 <b>Frühwarnungen</b>\n${l.sort((a,b)=>b[1].p-a[1].p).map(([s,w])=>`${["","🟩","🟨","🟥"][w.lv]} <b>${esc((depot().find(x=>x.s===s)||{}).n||catOf(s).n||s)}</b>${w.gr.length?"\n   "+w.gr.map(esc).join("\n   "):" – unauffällig"}`).join("\n")}${L("depot","Depot öffnen")}`,{direkt:true})}
   case "/rueckblick":case "/rückblick":{await rueckblick();if(!B.rb||!Object.keys(B.rb.pos).length)return send("Noch kein Kaufrückblick möglich. Trag Käufe mit Kaufdatum in der App ein.",{direkt:true});
     return send(`🧭 <b>Kaufrückblick</b>\n\n${RB.text(B.rb,rbName,false,CS)}`,{direkt:true})}
+  case "/chancen":case "/beste":case "/top3":case "/3tage":return chancen(arg);
   case "/kurzanalyse":case "/kurz":case "/ka":return kurzAnalyse(arg);
   case "/analyse":case "/analyze":case "/sicherheit":case "/meine":return analyseBefehl(arg);
   case "/status":{const e=Object.entries(B.err);return send(`🩺 <b>Status</b>\nLetzter Lauf: ${B.lastRun?new Date(B.lastRun).toLocaleString("de-DE",{timeZone:"Europe/Berlin"}):"–"}\nKI-Stand: ${KI.generated?new Date(KI.generated).toLocaleString("de-DE",{timeZone:"Europe/Berlin"}):"–"}\nDepot übertragen: ${U.updatedAt?new Date(U.updatedAt).toLocaleString("de-DE",{timeZone:"Europe/Berlin"}):"nein"}\nXetra: ${xetraOffen()?"offen":"geschlossen"} · US-Börse: ${boerseOffen()?"offen":"geschlossen"}\nEU-Kurse: ${B.euT?new Date(B.euT).toLocaleTimeString("de-DE",{timeZone:"Europe/Berlin",hour:"2-digit",minute:"2-digit"})+" Uhr":"–"}\n${e.length?"⚠️ Probleme:\n"+e.map(([k,v])=>`• ${k}: ${esc(v)}`).join("\n"):"✅ Alle Datenquellen erreichbar"}`,{direkt:true})}
@@ -336,21 +338,51 @@ const ETF_RE=/^(SPY|URTH|QQQ|VOO|VTI|IVV|DIA|XL[A-Z]{1,2}|(EX|SX)[A-Z0-9]{2}\.DE
 async function verlaufFuer(s){B.serienAlt=B.serienAlt||{};const heute=zeit().date;if(B.serien&&B.serien[s])return B.serien[s].c;
   if(!B.serienAlt[s]||B.serienAlt[s].d!==heute){const x=await RB.serie(s);if(x)B.serienAlt[s]=x}if(B.serienAlt[s])return B.serienAlt[s].c;
   return B.hist&&B.hist[s]?B.hist[s].c.slice().reverse():null}
+function anCtx(d,V){
+  const wert=d.reduce((t,x)=>t+(priceOf(x.s)?toEUR(priceOf(x.s)*x.q,x.s):0),0);
+  const kiVon=s=>{const st=(KI.stocks||[]).find(x=>x.s===s),k=(KI.kurz||[]).find(x=>x.s===s),e=(B.kiExtra||{})[s];return st||e||k||null};
+  return {verlauf:s=>V[s]||null,preis:priceOf,warn:fruehwarnung,ki:kiVon,istEtf:s=>ETF_RE.test(s)||/^(etf|alt:(?!Gold))/.test((MARKT.find(m=>m[0]===s)||[])[2]||""),
+    anteil:s=>{const x=d.find(y=>y.s===s);return x&&wert&&priceOf(s)?toEUR(priceOf(s)*x.q,s)/wert*100:null},waehrung:curOf,cs:CS,
+    termin:s=>{const e=((B.earn&&B.earn.list)||[]).find(e=>e.symbol===s&&e.date>=zeit().date&&e.date<=addDays(zeit().date,14));return e?new Date(e.date).toLocaleDateString("de-DE"):null},
+    name:s=>(d.find(x=>x.s===s)||{}).n||(MARKT.find(m=>m[0]===s)||[])[1]||catOf(s).n||s,quellen:s=>{const k=kiVon(s);return (k&&Array.isArray(k.quellen)?k.quellen:[]).filter(q=>q&&q.u)},
+    imDepot:s=>d.some(x=>x.s===s),opt:{damp:params().trendDamping||.5}};}
 async function analyseBefehl(arg){B.serienAlt=B.serienAlt||{};for(const k of Object.keys(B.serienAlt))if(B.serienAlt[k].d<addDays(zeit().date,-2))delete B.serienAlt[k];const d=depot().filter(x=>!x.test);await rueckblick();if(!B.q["EURUSD=X"])await yq("EURUSD=X");
   let ziele=d;if(arg){const s=finde(arg);ziele=d.filter(x=>x.s===s);if(!ziele.length)ziele=[{s,n:catOf(s).n||(MARKT.find(m=>m[0]===s)||[])[1]||s}]}
   if(!ziele.length)return send("Dein Depot ist leer oder noch nicht übertragen. Trag Aktien in der App ein. Einen einzelnen Wert prüfst du mit /analyse SAP.",{direkt:true});
   const V={};const alle=new Set(ziele.map(x=>x.s));for(const x of ziele)AN.kandidatenFuer(x.s,ETF_RE).forEach(a=>alle.add(a));
   for(const s of alle){if(!priceOf(s)||Date.now()-((B.q[s]||{}).t||0)>9e5)await frisch(s);V[s]=await verlaufFuer(s)}
-  const wert=d.reduce((t,x)=>t+(priceOf(x.s)?toEUR(priceOf(x.s)*x.q,x.s):0),0);
-  const kiVon=s=>{const st=(KI.stocks||[]).find(x=>x.s===s),k=(KI.kurz||[]).find(x=>x.s===s),e=(B.kiExtra||{})[s];return st||e||k||null};
-  const ctx={verlauf:s=>V[s]||null,preis:priceOf,warn:fruehwarnung,ki:kiVon,istEtf:s=>ETF_RE.test(s)||/^(etf|alt:(?!Gold))/.test((MARKT.find(m=>m[0]===s)||[])[2]||""),
-    anteil:s=>{const x=d.find(y=>y.s===s);return x&&wert&&priceOf(s)?toEUR(priceOf(s)*x.q,s)/wert*100:null},waehrung:curOf,cs:CS,
-    termin:s=>{const e=((B.earn&&B.earn.list)||[]).find(e=>e.symbol===s&&e.date>=zeit().date&&e.date<=addDays(zeit().date,14));return e?new Date(e.date).toLocaleDateString("de-DE"):null},
-    name:s=>(d.find(x=>x.s===s)||{}).n||(MARKT.find(m=>m[0]===s)||[])[1]||catOf(s).n||s,quellen:s=>{const k=kiVon(s);return (k&&Array.isArray(k.quellen)?k.quellen:[]).filter(q=>q&&q.u)},
-    imDepot:s=>d.some(x=>x.s===s),opt:{damp:params().trendDamping||.5}};
+  const ctx=anCtx(d,V);
   if(ziele.length>1){const u=AN.uebersicht(ziele,ctx);if(u)await send(u,{direkt:true})}
   const sorted=ziele.map(x=>[x,AN.sicherheit(x.s,ctx)]).sort((a,b)=>(a[1]?a[1].score:999)-(b[1]?b[1].score:999));
   for(const [x] of sorted)await send(AN.bericht(x.s,ctx,d.find(y=>y.s===x.s))+(sorted.length===1?LA(x.s,"In der App öffnen"):""),{direkt:true})}
+function phiN(x){const t=1/(1+.2316419*Math.abs(x)),d=.3989423*Math.exp(-x*x/2),p=d*t*(.3193815+t*(-.3565638+t*(1.781478+t*(-1.821256+t*1.330274))));return x>0?1-p:p}
+/* ---------- /chancen: aussichtsreichste Werte für die nächsten 3 Tage ---------- */
+const OHNE_CHANCE=/^\^|=X$|=F$|^(XEON|EUNH|IBCI|XGLE)\.DE$/;
+async function chancen(arg){const sicher=/sicher/i.test(arg||""),d=depot().filter(x=>!x.test),heute=zeit().date;B.chH=B.chH&&B.chH.d===heute?B.chH:{d:heute,c:{}};
+  // Auswahl: alles mit Verlauf plus der Katalog (Aktien, ETFs, Krypto)
+  const pool=[...new Set([...Object.keys(B.hist||{}),...(KI.catalog||[]).map(c=>c.s),...EXTRA,...MARKT.filter(m=>/krypto|etf|alt:/.test(m[2])).map(m=>m[0])])].filter(s=>s&&!OHNE_CHANCE.test(s));
+  const V={};let neu=0;
+  for(const s of pool){if(B.hist&&B.hist[s])V[s]=B.hist[s].c.slice().reverse();else if(B.chH.c[s])V[s]=B.chH.c[s];else if(neu<70){neu++;const c=await yq(s,true);if(c&&c.length){B.chH.c[s]=c.slice().reverse();V[s]=B.chH.c[s]}}}
+  const ctx=anCtx(d,V),opt={damp:params().trendDamping||.5},liste=[];
+  for(const s of Object.keys(V)){const p=priceOf(s),k=AN.kennzahlen(V[s],p,opt);if(!k)continue;
+    const S=AN.sicherheit(s,ctx);if(!S)continue;const w=S.w,ki=S.ki;
+    if(w&&w.lv>=3)continue;if(ki&&+ki.warn>=2)continue;if(S.score<25)continue;
+    const tr0=trendVon(k);if(!tr0||tr0.dir==="ab"||k.ch20<-3)continue;
+    const m=opt.damp*k.mu*3,sd3=k.sd*Math.sqrt(3),r3=(Math.exp(m)-1)*100;if(r3<=0)continue;
+    const c=V[s],r5=c.length>5?((p||c[c.length-1])/c[c.length-6]-1)*100:0;
+    liste.push({s,k,S,r3,r5,lo:(Math.exp(m-sd3)-1)*100,hi:(Math.exp(m+sd3)-1)*100,plus:Math.round(phiN(m/sd3)*100)})}
+  if(!liste.length)return send("Gerade finde ich keinen Wert mit positivem Kurztrend ohne Warnzeichen. Das kommt in unruhigen Phasen vor. Lieber abwarten.",{direkt:true});
+  // Rendite zählt mehr (65 %), Sicherheit weniger (35 %); mit „sicher“ umgekehrt
+  const rang=[...liste].sort((a,b)=>a.r3-b.r3);liste.forEach(x=>{x.rp=rang.indexOf(x)/Math.max(1,rang.length-1)*100;x.ges=sicher?.35*x.rp+.65*x.S.score:.65*x.rp+.35*x.S.score});
+  const top=liste.sort((a,b)=>b.ges-a.ges).slice(0,5),A=[];
+  for(const [i,x] of top.entries()){const s=x.s,k=x.k,n=(await kurzNews(s,1))[0],ki=x.S.ki,term=ctx.termin(s),tr=trendVon(k);
+    const gr=[`4 Wochen ${sgn(k.ch20)}, letzte 5 Tage ${sgn(x.r5)}`,tr?`Trend ${tr.pfeil.replace(/^\S+ /,"")}`:"",k.s20&&k.last>k.s20?"Kurs über dem 20-Tage-Schnitt":""].filter(Boolean);
+    A.push(`${["🥇","🥈","🥉","4️⃣","5️⃣"][i]} <b>${esc(ctx.name(s))}</b> (${s}) · ${fmt(k.last)} ${CS(s)}
+📈 Erwartet in 3 Tagen: <b>${sgn(x.r3)}</b> (Bereich ${sgn(x.lo)} bis ${sgn(x.hi)}) · Chance auf Plus ${x.plus} %
+🛡️ Sicherheit: <b>${x.S.stufe}</b> (${x.S.score}/100) · Schwankung ${fmt(k.vol,0)} % pro Jahr${x.S.art!=="ETF"?` · ${x.S.art}`:" · ETF"}
+💡 Warum: ${esc(gr.join(", "))}${ki&&(ki.why||ki.text)?`\n🧠 ${esc(String(ki.why||ki.text).split(/(?<=\.)\s/)[0])}`:""}${term?`\n⚠️ Quartalszahlen am ${term}: in den nächsten Tagen größere Sprünge möglich`:""}
+${n?`📰 <a href="${esc(n.u)}">${esc(n.t)}</a>${n.q?` (${esc(n.q)}${n.en?", englisch":""})`:""}\n`:""}${LA(s,"Details in der App").trim()}`)}
+  return send(`🚀 <b>Chancen für die nächsten 3 Tage</b>\n<i>${sicher?"Sicherheit zählt mehr als Rendite":"Rendite im Vordergrund, Sicherheit zählt mit"} · ${liste.length} von ${Object.keys(V).length} Werten ohne Warnzeichen und mit positivem Trend</i>\n\n${A.join("\n\n")}\n\n<i>Wichtig: 3 Tage sind an der Börse sehr kurz. Die Schätzung kommt aus dem Trend der letzten 3 Monate, und kurzfristig ist viel Zufall dabei. Der Bereich zeigt, wie weit es in beide Richtungen gehen kann. Keine Anlageberatung. Mehr Gewicht auf Sicherheit: /chancen sicher</i>`,{direkt:true})}
 /* ---------- /kurzanalyse: Trend und Nachrichten in Kürze ---------- */
 async function kurzNews(s,n){let l=[];const t=zeit().date;
   if(isUS(s)){try{l=(await fh(`company-news?symbol=${s}&from=${addDays(t,-5)}&to=${t}`)).map(x=>({t:x.headline,u:x.url,q:x.source,en:1}))}catch(e){}}

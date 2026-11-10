@@ -298,6 +298,7 @@ Ich verbinde mich dann mit deinem Projekt und lege 3 geplante Aufgaben an (ca. 7
 | `/sparmodell` | Dein Modell und die Empfehlung |
 | `/alarme` | Deine Alarm-Regeln |
 | `/warnung` | Frühwarn-Ampel für deine Werte |
+| `/chancen` | Die 5 aussichtsreichsten Werte für die nächsten 3 Tage, jeweils mit Grund, Nachrichten-Link und Sicherheit (`/chancen sicher`: Sicherheit zählt mehr) |
 | `/kurzanalyse SAP` | Kurz: Trend auf- oder abwärts mit Grund, nächste Woche und die neuesten Nachrichten. Ohne Namen: dein ganzes Depot in einer Nachricht |
 | `/analyse` | Deine Werte: wie sicher, warum genau, Zukunft und Alternativen mit Begründung (`/analyse SAP` für einen einzelnen Wert) |
 | `/rueckblick` | Kaufrückblick: wie gut waren deine Entscheidungen? |
@@ -378,6 +379,16 @@ Im Depot unter **Kaufrückblick** und per Telegram (täglich um 21 Uhr kurz, son
 - **Erwarteter Bereich** in 1 Woche und 3 Monaten
 - **Verkäufe im Rückblick:** Hat sich der Verkauf gelohnt (in Euro: vermiedener Verlust oder entgangener Gewinn)?
 - Dafür braucht jeder Kauf ein **Kaufdatum** (beim Eintragen bzw. unter Ändern › Bearbeiten). Test-Einträge zählen nicht.
+
+## Chancen für 3 Tage (/chancen)
+Der Bot prüft rund 100 Werte (Katalog, ETFs, Krypto, deine beobachteten) und zeigt die 5 aussichtsreichsten für die nächsten 3 Tage:
+- **Erwartet in 3 Tagen** mit Bereich nach oben und unten und der Chance auf Plus
+- **Sicherheit** (Punkte von 0 bis 100 wie bei `/analyse`) und Schwankung pro Jahr
+- **Warum:** Trend, 4 Wochen und letzte 5 Tage, KI-Satz, dazu ein **Nachrichten-Link** und der Link in die App
+- Aussortiert wird alles mit roter Frühwarnung, negativer Nachrichtenlage, Abwärtstrend oder sehr wenig Sicherheit. Warnung bei Quartalszahlen in den nächsten Tagen.
+- Gewichtung: Rendite 65 %, Sicherheit 35 %. Mit `/chancen sicher` umgekehrt.
+
+Ehrlich gesagt: 3 Tage sind an der Börse sehr kurz, da ist viel Zufall dabei. Nimm die Liste als Anregung zum Anschauen, nicht als Kaufsignal.
 
 ## Kurzanalyse (/kurzanalyse)
 Für den schnellen Blick: `/kurzanalyse Siemens` (kurz auch `/ka Siemens`) zeigt Kurs, heute, Trend (↗️ aufwärts, ↘️ abwärts oder ➡️ seitwärts) mit kurzem Grund, die Chance auf Plus nächste Woche, eine Frühwarnung falls vorhanden, die KI-Einschätzung in einem Satz und die neuesten Nachrichten mit Link. Ohne Namen kommt dein ganzes Depot, je Wert mit Trend und der wichtigsten Nachricht.
