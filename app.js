@@ -416,11 +416,15 @@ function rbHTML(){const R=S.rb;const eigene=S.depot.filter(d=>!d.test&&!d.demo);
  const card=d=>{const r=R.pos[d.s];if(!r)return "";const st=STAB[r.stab]||STAB.wackelig;
   return `<div class="panel" style="margin-bottom:10px"><div style="display:flex;justify-content:space-between;gap:8px;align-items:center"><button class="x" data-go="aktie-${enc(d.s)}" style="padding:0;font-size:16px;font-weight:700;color:var(--fg)">${esc(d.n)} ›</button><span class="tag ${st[1]}">${st[0]}</span></div>
   ${r.kauf?`<p class="note" style="margin:2px 0 8px">Gekauft am ${new Date(r.kauf).toLocaleDateString("de-DE")} zu ${fmt(d.k)} ${cs(d.s)}</p>`:`<p class="note" style="margin:2px 0 8px">Kaufdatum fehlt. <button class="x" data-posm="${S.depot.indexOf(d)}:edit" style="padding:0;color:var(--accent)">Nachtragen ›</button></p>`}
-  <div class="facts"><div><b>Seit Kauf</b>${f(r.since)}${r.benchSince!=null?`<div class="note" style="margin:0">MSCI World ${sgn(r.benchSince)}</div>`:""}</div>
+  <div class="facts"><div><b>Seit Kauf</b>${f(r.since)}${r.eur!=null?`<div class="note" style="margin:0">${r.eur>=0?"+":"−"}${fmt(Math.abs(r.eur))} €${r.pa!=null?` · ${sgn(r.pa)} pro Jahr`:""}</div>`:""}</div>
+   <div><b>Gegen MSCI World</b>${r.diffBench!=null?`<span class="num ${r.diffBench>=0?"up":"down"}">${r.diffBench>=0?"+":"−"}${fmt(Math.abs(r.diffBench),1)} Pkt.</span><div class="note" style="margin:0">MSCI World ${sgn(r.benchSince)} · ${r.mehrAlsBench>=0?"+":"−"}${fmt(Math.abs(r.mehrAlsBench))} €</div>`:"–"}</div>
+   ${r.maxPlus!=null?`<div><b>Spanne seit Kauf</b><span class="num">${sgn(r.maxMinus)} bis ${sgn(r.maxPlus)}</span><div class="note" style="margin:0">jetzt ${sgn(r.vomHoch)} unter dem Hoch</div></div>`:""}
+   ${r.billiger!=null?`<div><b>Kaufzeitpunkt</b><span class="num">${r.billiger} von ${r.fenster} Tagen günstiger</span><div class="note" style="margin:0">±5 Handelstage um den Kauf · ${r.billiger<=r.fenster*.3?"guter":r.billiger<=r.fenster*.6?"durchschnittlicher":"eher teurer"} Zeitpunkt</div></div>`:""}
    <div><b>Zufalls-Check</b>${r.pct!=null?`<span class="num">besser als ${r.pct} %</span><div class="note" style="margin:0">von ${r.pctN} Vergleichswerten</div>`:"–"}</div>
-   <div><b>Nach 1 Tag / 1 Woche</b>${f(r.r1)} / ${f(r.r5)}</div><div><b>Nach 1 Monat</b>${f(r.r21)}${r.timing!=null?`<div class="note" style="margin:0">Kaufzeitpunkt ${r.timing>=0?"günstig":"eher teuer"}</div>`:""}</div></div>
+   <div><b>Danach</b><span style="font-size:13px">1 Tag ${f(r.r1)}<br>1 Woche ${f(r.r5)}<br>1 Monat ${f(r.r21)}</span>${r.billiger==null&&r.timing!=null?`<div class="note" style="margin:0">Kaufzeitpunkt ${r.timing>=0?"günstig":"eher teuer"}</div>`:""}</div></div>
   <h3 style="margin:12px 0 6px">Chance, über deinem Kaufpreis zu liegen</h3>
   ${[["morgen",r.h1],["in 1 Woche",r.h5],["in 3 Monaten",r.h63]].map(([l,c])=>`<div class="bar" style="grid-template-columns:96px 1fr 44px;margin-bottom:6px"><div style="font-size:13px">${l}</div><div class="track"><span style="left:0;width:${c.ueberKauf}%;background:var(${c.ueberKauf>=60?"--up":c.ueberKauf>=40?"--warn":"--down"})"></span></div><div class="num" style="font-size:12px;text-align:right">${c.ueberKauf} %</div></div>`).join("")}
+  ${r.erw?`<p class="note" style="margin:6px 0 0">Erwartet: in 1 Woche ${fmt(r.erw.w1.lo)}–${fmt(r.erw.w1.hi)} ${cs(d.s)}, in 3 Monaten ${fmt(r.erw.m3.lo)}–${fmt(r.erw.m3.hi)} ${cs(d.s)} (Schätzung)</p>`:""}
   <p class="note" style="margin:6px 0 0">${r.gr.map(esc).join(" · ")}</p>
   <p class="note" style="margin:4px 0 0"><i>Langfrist-Durchschnitt (Info):</i> ${LANGFRIST[artOf(d.s)]||""}</p></div>`};
  const tr=(R.trades||[]).slice().reverse();
@@ -428,7 +432,7 @@ function rbHTML(){const R=S.rb;const eigene=S.depot.filter(d=>!d.test&&!d.demo);
   <div class="ticks"><span>schlechter</span><span>Zufall</span><span>besser</span></div><p style="margin:8px 0 0">Deine Käufe schlagen im Schnitt <b>${z.avg} %</b> der Vergleichswerte im selben Zeitraum, also <b>${urteil}</b>.${z.n<5?' <span class="note">Noch wenige Käufe, wenig aussagekräftig.</span>':""}</p></div>`:""}
  ${eigene.map(card).join("")}
  ${tr.length?`<h3>Verkäufe im Rückblick</h3><div class="list">${tr.map(t=>`<div class="row"><div class="l"><b>${esc(t.n)}</b><div class="sub">verkauft am ${new Date(t.d).toLocaleDateString("de-DE")} mit ${sgn(t.gewinn)}</div></div><div class="r"><span class="num ${t.seitVerkauf<0?"up":"down"}">seitdem ${sgn(t.seitVerkauf)}</span><div class="sub">${t.seitVerkauf<0?"Verkauf hat sich gelohnt":"Halten wäre besser gewesen"}</div></div></div>`).join("")}</div>`:""}
- <p class="note">Aus Kursdaten berechnet (Yahoo Finance). Chancen sind Schätzungen aus Trend und Schwankung der letzten 3 Monate, keine Garantie. Täglich um 21 Uhr kommt die Kurzfassung per Telegram, mit /rueckblick jederzeit.</p>`}
+ <p class="note">Aus Kursdaten berechnet (Yahoo Finance). Chancen sind Schätzungen aus Trend und Schwankung der letzten 3 Monate, keine Garantie. Täglich um 21 Uhr kommt die Kurzfassung per Telegram, mit /rueckblick jederzeit. Wie sicher deine Werte sind, mit Gründen und Alternativen: /analyse im Bot.</p>`}
 
 /* ---------- Finanzen ---------- */
 const FIN={
@@ -592,7 +596,7 @@ function settingsHTML(sec){const s=S.settings;const seg=(k,opts)=>`<div class="s
  <h3>Sicherung</h3><p class="note" style="margin-top:0">Deine Daten liegen auf diesem Gerät. Mit einer Sicherungsdatei bringst du sie auf ein anderes Gerät.</p>
  <div class="btns"><button class="btn ghost" data-export>Sicherung speichern</button><label class="btn ghost" for="imp-file">Sicherung laden</label><input id="imp-file" type="file" accept=".json,application/json" hidden></div>
  <div id="reset-zone"><button class="x" data-reset>Alle Daten auf diesem Gerät löschen</button></div>
- <p class="note">Ki Aktien Helfer · Version 26 · Keine Anlageberatung.</p></div>`}
+ <p class="note">Ki Aktien Helfer · Version 27 · Keine Anlageberatung.</p></div>`}
 function cartHTML(){const now=Date.now(),l=S.kh.list.slice().sort((a,b)=>a.due-b.due),h=(S.kh.hist||[]).slice().reverse();
  return `<div class="grab"></div><div class="in"><div style="display:flex;justify-content:space-between;align-items:center"><h1 style="margin:0">Warenkorb</h1><button class="icon-btn" data-close aria-label="Schließen"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
  <p class="note" style="margin-top:4px">Dinge in Bedenkzeit aus der Kaufhilfe. ${S.kh.saved?`Bisher nicht ausgegeben: <b class="up">${fmt(S.kh.saved,0)} €</b>`:""}</p>

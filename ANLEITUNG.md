@@ -298,6 +298,7 @@ Ich verbinde mich dann mit deinem Projekt und lege 3 geplante Aufgaben an (ca. 7
 | `/sparmodell` | Dein Modell und die Empfehlung |
 | `/alarme` | Deine Alarm-Regeln |
 | `/warnung` | Frühwarn-Ampel für deine Werte |
+| `/analyse` | Deine Werte: wie sicher, warum genau, Zukunft und Alternativen mit Begründung (`/analyse SAP` für einen einzelnen Wert) |
 | `/rueckblick` | Kaufrückblick: wie gut waren deine Entscheidungen? |
 | `/ruhe 2h` | Pause (auch `30m` oder `morgen`) |
 | `/laut` | Pause beenden |
@@ -365,13 +366,25 @@ Kosten: wenige Cent pro Anfrage, getrennt von deinem Claude-Abo. Der Bot meldet 
 
 ## Kaufrückblick
 Im Depot unter **Kaufrückblick** und per Telegram (täglich um 21 Uhr kurz, sonntags ausführlich, jederzeit mit `/rueckblick`):
-- **Seit Kauf** im Vergleich zum MSCI World im selben Zeitraum
+- **Seit Kauf** in Prozent und in Euro, ab 60 Tagen auch aufs Jahr gerechnet
+- **Gegen MSCI World:** wie viele Prozentpunkte und wie viel Euro du gegenüber dem MSCI World im selben Zeitraum vorn oder hinten liegst
+- **Spanne seit Kauf:** bester und schlechtester Stand und wie weit du gerade unter dem Höchststand bist
+- **Kaufzeitpunkt genau:** an wie vielen der Handelstage rund um deinen Kauf (5 davor, 5 danach) es günstiger gewesen wäre
 - **Nach 1 Tag, 1 Woche, 1 Monat:** wie sich der Kauf direkt danach entwickelt hat, und ob der **Kaufzeitpunkt** eher günstig oder teuer war
 - **Zufalls-Check:** Wie viel Prozent der Vergleichswerte hat dein Kauf im selben Zeitraum geschlagen? Um 50 % ist wie Zufall, darüber besser.
 - **Chance, über deinem Kaufpreis zu liegen:** morgen, in 1 Woche, in 3 Monaten (Schätzung aus Trend und Schwankung)
 - **Stabilität** jeder Entscheidung: stabil, wackelig oder kritisch, mit Gründen
-- **Verkäufe im Rückblick:** Hat sich der Verkauf gelohnt oder wäre Halten besser gewesen?
+- **Erwarteter Bereich** in 1 Woche und 3 Monaten
+- **Verkäufe im Rückblick:** Hat sich der Verkauf gelohnt (in Euro: vermiedener Verlust oder entgangener Gewinn)?
 - Dafür braucht jeder Kauf ein **Kaufdatum** (beim Eintragen bzw. unter Ändern › Bearbeiten). Test-Einträge zählen nicht.
+
+## Sicherheits-Analyse (/analyse)
+Schreib dem Bot `/analyse`. Du bekommst zuerst eine Übersicht aller deiner Werte mit Ampel und Punkten (0 bis 100, nach Anteil gewichtet auch fürs ganze Depot). Danach kommt zu jedem Wert eine eigene Nachricht, der unsicherste zuerst:
+- **Warum genau:** jeder Grund mit seinen Punkten, z. B. Schwankung pro Jahr, größter Rückgang im letzten Jahr, Trend gegenüber 20-, 50- und 200-Tage-Schnitt, Frühwarnungen, Nachrichtenlage, Einzelaktie oder ETF, Anteil am Depot, Dollar-Risiko, anstehende Quartalszahlen
+- **Zukunft:** erwarteter Kurs und Bereich in 1 Woche und 3 Monaten, Chance auf Plus, Chance über deinem Kaufpreis zu liegen, dazu die KI-Einschätzung mit Dafür und Dagegen und den Quellen
+- **Alternativen:** bis zu 3 passende breitere oder ruhigere Werte, jeweils mit Begründung und ihren eigenen Zahlen (Sicherheit, Schwankung, Trend, Chance). Werte, die gerade selbst eine Frühwarnung haben, stehen hinten und sind markiert.
+
+Mit `/analyse Siemens` prüfst du einen einzelnen Wert, auch einen, den du noch nicht besitzt. Alles ist aus Kursdaten geschätzt und keine Anlageberatung.
 
 ## Gewinnschutz
 Zusätzlich zur Meldegrenze im Minus: Der Bot meldet sich, wenn der Kurs um **x %** unter seinen **Höchststand seit Kauf** fällt, solange du noch im Plus bist. So merkst du, wenn ein Gewinn schrumpft. Einstellbar beim Eintragen, unter Ändern › Bearbeiten, mit − / + direkt auf der Aktienseite und als Standard unter ⚙️ (0 = aus).

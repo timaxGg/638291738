@@ -4,6 +4,7 @@ import fs from "node:fs";
 import {execSync} from "node:child_process";
 import {verschluesseln,entschluesseln} from "./krypto.mjs";
 import * as RB from "./rueckblick.mjs";
+import * as AN from "./analyse.mjs";
 import "../modell.js";
 const Modell=globalThis.Modell;
 
@@ -69,13 +70,15 @@ const priceOf=s=>(B.q[s]&&B.q[s].c)||(B.eod[s]&&B.eod[s].c)||null;
 const moveOf=s=>B.q[s]&&Date.now()-B.q[s].t<36e5?B.q[s].dp:(B.eod[s]?B.eod[s].dp:0);
 
 /* ---------- Telegram ---------- */
-const FUSS="\n\n<i>Befehle:</i> /hilfe /kurs /depot /top /markt /warnung /rueckblick /news /briefing /prognose /termine /kaufhilfe /merken /gespart /ziel /sparmodell /alarme /ruhe /laut /status";
+const FUSS="\n\n<i>Befehle:</i> /hilfe /kurs /depot /top /markt /analyse /warnung /rueckblick /news /briefing /prognose /termine /kaufhilfe /merken /gespart /ziel /sparmodell /alarme /ruhe /laut /status";
 async function tg(method,body){if(!TG)return null;
   try{const r=await fetch(`https://api.telegram.org/bot${TG}/${method}`,{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify(body)});return r.json()}catch(e){B.err.telegram=e.message;return null}}
 const nacht=()=>{if(E.FORCE_DAY)return false;if(U.notify&&U.notify.night===false)return false;const z=zeit();return z.h>=22||z.h<7};
 const leise=()=>B.mute>Date.now()||nacht();
 async function send(text,o={}){if(!CHAT)return;if(!o.direkt&&!o.dringend&&leise()){B.queue.push(text);return}
-  const body={chat_id:CHAT,text:text+FUSS,parse_mode:"HTML",disable_web_page_preview:true};if(o.knoepfe)body.reply_markup={inline_keyboard:o.knoepfe};await tg("sendMessage",body)}
+  // Telegram erlaubt 4096 Zeichen: lange Texte an Absätzen teilen
+  const teile=[];let cur="";for(const t of String(text).split("\n\n")){if(cur&&(cur+"\n\n"+t+FUSS).length>3900){teile.push(cur);cur=t}else cur=cur?cur+"\n\n"+t:t}teile.push(cur);
+  for(let i=0;i<teile.length;i++){const last=i===teile.length-1,body={chat_id:CHAT,text:(teile[i].length>4000?teile[i].slice(0,3990)+"…":teile[i])+(last?FUSS:""),parse_mode:"HTML",disable_web_page_preview:true};if(o.knoepfe&&last)body.reply_markup={inline_keyboard:o.knoepfe};await tg("sendMessage",body)}}
 async function warteschlange(){if(!B.queue.length||leise())return;const q=B.queue.splice(0,15);await send(`🔔 <b>Während der Ruhezeit:</b>\n\n${q.join("\n\n———\n\n")}`,{direkt:true})}
 
 /* ---------- Prognose (gleiches Modell wie die App) ---------- */
@@ -107,6 +110,7 @@ const HILFE=`<b>Was ich kann</b>
 /sparmodell – dein Modell und die Empfehlung
 /alarme – deine Alarm-Regeln
 /warnung – Frühwarn-Ampel für deine Werte
+/analyse – deine Werte: wie sicher, warum genau, Zukunft und Alternativen mit Begründung (auch /analyse SAP für einen Wert)
 /rueckblick – Kaufrückblick: wie gut waren deine Entscheidungen?
 /ruhe 2h – Nachrichten pausieren (z. B. 30m, 2h, morgen)
 /laut – Pause beenden
@@ -155,7 +159,8 @@ async function befehl(text){const [c0,...a]=text.trim().split(/\s+/),c=c0.toLowe
     if(!l.length)return send("Noch keine Daten für Frühwarnungen. Trag Aktien ins Depot ein oder beobachte welche.",{direkt:true});
     return send(`🚦 <b>Frühwarnungen</b>\n${l.sort((a,b)=>b[1].p-a[1].p).map(([s,w])=>`${["","🟩","🟨","🟥"][w.lv]} <b>${esc((depot().find(x=>x.s===s)||{}).n||catOf(s).n||s)}</b>${w.gr.length?"\n   "+w.gr.map(esc).join("\n   "):" – unauffällig"}`).join("\n")}${L("depot","Depot öffnen")}`,{direkt:true})}
   case "/rueckblick":case "/rückblick":{await rueckblick();if(!B.rb||!Object.keys(B.rb.pos).length)return send("Noch kein Kaufrückblick möglich. Trag Käufe mit Kaufdatum in der App ein.",{direkt:true});
-    return send(`🧭 <b>Kaufrückblick</b>\n\n${RB.text(B.rb,rbName,false)}`,{direkt:true})}
+    return send(`🧭 <b>Kaufrückblick</b>\n\n${RB.text(B.rb,rbName,false,CS)}`,{direkt:true})}
+  case "/analyse":case "/analyze":case "/sicherheit":case "/meine":return analyseBefehl(arg);
   case "/status":{const e=Object.entries(B.err);return send(`🩺 <b>Status</b>\nLetzter Lauf: ${B.lastRun?new Date(B.lastRun).toLocaleString("de-DE",{timeZone:"Europe/Berlin"}):"–"}\nKI-Stand: ${KI.generated?new Date(KI.generated).toLocaleString("de-DE",{timeZone:"Europe/Berlin"}):"–"}\nDepot übertragen: ${U.updatedAt?new Date(U.updatedAt).toLocaleString("de-DE",{timeZone:"Europe/Berlin"}):"nein"}\nXetra: ${xetraOffen()?"offen":"geschlossen"} · US-Börse: ${boerseOffen()?"offen":"geschlossen"}\nEU-Kurse: ${B.euT?new Date(B.euT).toLocaleTimeString("de-DE",{timeZone:"Europe/Berlin",hour:"2-digit",minute:"2-digit"})+" Uhr":"–"}\n${e.length?"⚠️ Probleme:\n"+e.map(([k,v])=>`• ${k}: ${esc(v)}`).join("\n"):"✅ Alle Datenquellen erreichbar"}`,{direkt:true})}
   default:return send(`Den Befehl „${esc(c0)}“ kenne ich nicht. /hilfe zeigt alle Befehle.`,{direkt:true})}}
 async function knopf(cb){const [t,id]=String(cb.data||"").split(":"),x=khListe().find(i=>String(i.id)===id);await tg("answerCallbackQuery",{callback_query_id:cb.id,text:x?"Gespeichert":"Schon erledigt"});if(!x)return;
@@ -323,7 +328,27 @@ async function aufAnfrage(){if(!API){if(RURL&&RTOK)await anfrageRoutine();return
 async function rueckblick(){B.serien=B.serien||{};const heute=zeit().date,syms=[...new Set([...depot().map(x=>x.s),...(U.trades||[]).map(t=>LEGACY[t.s]||t.s),"EUNL.DE"])];
   for(const s of syms)if(!B.serien[s]||B.serien[s].d!==heute){const x=await RB.serie(s);if(x)B.serien[s]=x}
   for(const s of Object.keys(B.serien))if(!syms.includes(s))delete B.serien[s];
-  try{B.rb=RB.bewerte({depot:depot(),trades:(U.trades||[]).map(t=>Object.assign({},t,{s:LEGACY[t.s]||t.s})),serien:B.serien,hist:B.hist||{},preis:priceOf,warn:fruehwarnung,daempfung:params().trendDamping||.5})}catch(e){log("Rückblick",e.message)}}
+  try{B.rb=RB.bewerte({depot:depot(),trades:(U.trades||[]).map(t=>Object.assign({},t,{s:LEGACY[t.s]||t.s})),serien:B.serien,hist:B.hist||{},preis:priceOf,warn:fruehwarnung,eur:toEUR,daempfung:params().trendDamping||.5})}catch(e){log("Rückblick",e.message)}}
+/* ---------- /analyse: Sicherheit, Gründe, Zukunft, Alternativen ---------- */
+const ETF_RE=/^(SPY|URTH|QQQ|VOO|VTI|IVV|DIA|XL[A-Z]{1,2}|(EX|SX)[A-Z0-9]{2}\.DE|XD[A-Z]{2}\.DE|XEON\.DE|XMME\.DE|IUSQ\.DE|IS3Q\.DE|ISPA\.DE|EUN[A-Z]\.DE|IBCI\.DE|VWCE\.DE|VFEM\.DE|VGWD\.DE)$/;
+async function verlaufFuer(s){B.serienAlt=B.serienAlt||{};const heute=zeit().date;if(B.serien&&B.serien[s])return B.serien[s].c;
+  if(!B.serienAlt[s]||B.serienAlt[s].d!==heute){const x=await RB.serie(s);if(x)B.serienAlt[s]=x}if(B.serienAlt[s])return B.serienAlt[s].c;
+  return B.hist&&B.hist[s]?B.hist[s].c.slice().reverse():null}
+async function analyseBefehl(arg){B.serienAlt=B.serienAlt||{};for(const k of Object.keys(B.serienAlt))if(B.serienAlt[k].d<addDays(zeit().date,-2))delete B.serienAlt[k];const d=depot().filter(x=>!x.test);await rueckblick();if(!B.q["EURUSD=X"])await yq("EURUSD=X");
+  let ziele=d;if(arg){const s=finde(arg);ziele=d.filter(x=>x.s===s);if(!ziele.length)ziele=[{s,n:catOf(s).n||(MARKT.find(m=>m[0]===s)||[])[1]||s}]}
+  if(!ziele.length)return send("Dein Depot ist leer oder noch nicht übertragen. Trag Aktien in der App ein. Einen einzelnen Wert prüfst du mit /analyse SAP.",{direkt:true});
+  const V={};const alle=new Set(ziele.map(x=>x.s));for(const x of ziele)AN.kandidatenFuer(x.s,ETF_RE).forEach(a=>alle.add(a));
+  for(const s of alle){if(!priceOf(s)||Date.now()-((B.q[s]||{}).t||0)>9e5)await frisch(s);V[s]=await verlaufFuer(s)}
+  const wert=d.reduce((t,x)=>t+(priceOf(x.s)?toEUR(priceOf(x.s)*x.q,x.s):0),0);
+  const kiVon=s=>{const st=(KI.stocks||[]).find(x=>x.s===s),k=(KI.kurz||[]).find(x=>x.s===s),e=(B.kiExtra||{})[s];return st||e||k||null};
+  const ctx={verlauf:s=>V[s]||null,preis:priceOf,warn:fruehwarnung,ki:kiVon,istEtf:s=>ETF_RE.test(s)||/^(etf|alt:(?!Gold))/.test((MARKT.find(m=>m[0]===s)||[])[2]||""),
+    anteil:s=>{const x=d.find(y=>y.s===s);return x&&wert&&priceOf(s)?toEUR(priceOf(s)*x.q,s)/wert*100:null},waehrung:curOf,cs:CS,
+    termin:s=>{const e=((B.earn&&B.earn.list)||[]).find(e=>e.symbol===s&&e.date>=zeit().date&&e.date<=addDays(zeit().date,14));return e?new Date(e.date).toLocaleDateString("de-DE"):null},
+    name:s=>(d.find(x=>x.s===s)||{}).n||(MARKT.find(m=>m[0]===s)||[])[1]||catOf(s).n||s,quellen:s=>{const k=kiVon(s);return (k&&Array.isArray(k.quellen)?k.quellen:[]).filter(q=>q&&q.u)},
+    imDepot:s=>d.some(x=>x.s===s),opt:{damp:params().trendDamping||.5}};
+  if(ziele.length>1){const u=AN.uebersicht(ziele,ctx);if(u)await send(u,{direkt:true})}
+  const sorted=ziele.map(x=>[x,AN.sicherheit(x.s,ctx)]).sort((a,b)=>(a[1]?a[1].score:999)-(b[1]?b[1].score:999));
+  for(const [x] of sorted)await send(AN.bericht(x.s,ctx,d.find(y=>y.s===x.s))+(sorted.length===1?LA(x.s,"In der App öffnen"):""),{direkt:true})}
 const rbName=s=>(depot().find(x=>x.s===s)||{}).n||catOf(s).n||s;
 
 /* ---------- Abend-Rückblick um 21 Uhr (ohne KI) ---------- */
@@ -335,7 +360,7 @@ async function abendRueckblick(){const z=zeit(),n=U.notify||{};if((!E.FORCE_ABEN
   for(const x of d)if(x.tag&&+morgen.slice(8)===+x.tag)termine.push(`Nachkauf-Tag ${esc(x.n)}`);
   const kh=khListe(),faellig=kh.filter(x=>x.due<=Date.now()+864e5);
   const markt=[...EU_INDEX.slice(0,2),...INDEX_ETF].filter(([s])=>B.q[s]).map(([s,n])=>`${n} ${sgn(B.q[s].dp)}`).join(" · ");
-  await rueckblick();const rbT=B.rb&&Object.keys(B.rb.pos).length?`🧭 <b>Deine Entscheidungen</b>\n${RB.text(B.rb,rbName,z.wd!=="Sun")}\n\n`:"";
+  await rueckblick();const rbT=B.rb&&Object.keys(B.rb.pos).length?`🧭 <b>Deine Entscheidungen</b>\n${RB.text(B.rb,rbName,z.wd!=="Sun",CS)}\n\n`:"";
   await send(`🌙 <b>Dein Abend-Rückblick</b>${markt?`\n${markt}`:""}\n\n${mit.length?`<b>Depot heute: ${heute>=0?"+":""}${fmt(heute)} €</b> (gesamt ${fmt(tot)} €, ${sgn((tot/cost-1)*100)} seit Kauf)\n${zeilen.join("\n")}`:"Noch keine Aktien im Depot übertragen."}${mit.length>1?`\n\nBester: ${esc(mit.slice().sort((a,b)=>moveOf(b.s)-moveOf(a.s))[0].n)} · Schwächster: ${esc(mit.slice().sort((a,b)=>moveOf(a.s)-moveOf(b.s))[0].n)}`:""}\n\n<b>Morgen:</b> ${termine.length?termine.join(", "):"keine besonderen Termine bei deinen Aktien"}${kh.length?`\n\n🧺 Warenkorb: ${kh.length} Ding${kh.length>1?"e":""}${faellig.length?`, davon ${faellig.length} bald fällig (${faellig.map(x=>esc(x.n)).join(", ")})`:""}`:""}\n\n${rbT}Die US-Börse schließt um 22 Uhr. Gute Nacht! 😴${L("depot","Depot öffnen")}`)}
 
 /* ---------- Vorlage für Claude (3x täglich) ---------- */
