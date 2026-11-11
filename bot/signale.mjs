@@ -63,6 +63,28 @@ const UNIVERSUM=[ // [Kürzel (Yahoo), Name, a=Aktie e=ETF]
 ["QDVE.DE","S&P 500 IT ETF","e"],["EXSA.DE","STOXX 600 ETF","e"],["IS3N.DE","Schwellenländer IMI ETF","e"],["XDEW.DE","S&P 500 gleichgewichtet ETF","e"],["EXV3.DE","Europa Technologie ETF","e"],["IQQH.DE","Saubere Energie ETF","e"],
 ["DFEN.DE","Europa Rüstung ETF","e"]];
 
+
+// Erweiterung: alle S&P-500-Werte (Liste wird täglich von GitHub geladen) plus deutsche Nebenwerte, Europa und bekannte Wachstumswerte.
+const SP500_URL="https://raw.githubusercontent.com/datasets/s-and-p-500-companies/main/data/constituents.csv";
+const ZUSATZ=`BNR.DE:Brenntag DTG.DE:Daimler_Truck FME.DE:Fresenius_Medical_Care G1A.DE:GEA PAH3.DE:Porsche_SE SRT3.DE:Sartorius 1COV.DE:Covestro AIXA.DE:Aixtron BOSS.DE:Hugo_Boss
+DUE.DE:Dürr EVK.DE:Evonik EVT.DE:Evotec FRA.DE:Fraport FNTN.DE:Freenet G24.DE:Scout24 GXI.DE:Gerresheimer HOT.DE:Hochtief JEN.DE:Jenoptik KGX.DE:Kion KRN.DE:Krones LEG.DE:LEG_Immobilien
+LHA.DE:Lufthansa NEM.DE:Nemetschek NDA.DE:Aurubis RAA.DE:Rational RRTL.DE:RTL_Group SDF.DE:K+S SHA0.DE:Schaeffler SIX2.DE:Sixt SMHN.DE:Süss_Microtec SZG.DE:Salzgitter TEG.DE:TAG_Immobilien
+TKA.DE:Thyssenkrupp TLX.DE:Talanx TMV.DE:Teamviewer UTDI.DE:United_Internet WAF.DE:Siltronic WCH.DE:Wacker_Chemie 8TRA.DE:Traton HFG.DE:HelloFresh AFX.DE:Carl_Zeiss_Meditec BC8.DE:Bechtle
+EVD.DE:CTS_Eventim DHER.DE:Delivery_Hero TUI1.DE:TUI IOS.DE:Ionos AG1.DE:Auto1 KBX.DE:Knorr-Bremse 1U1.DE:1&1 NA9.DE:Nagarro VBK.DE:Verbio HYQ.DE:Hypoport TKMS.DE:TKMS FPE3.DE:Fuchs
+STLAM.MI:Stellantis ISP.MI:Intesa_Sanpaolo ENEL.MI:Enel LDO.MI:Leonardo AD.AS:Ahold_Delhaize PHIA.AS:Philips ASM.AS:ASM_International BESI.AS:BE_Semiconductor KER.PA:Kering CAP.PA:Capgemini
+HO.PA:Thales AM.PA:Dassault_Aviation DSY.PA:Dassault_Systèmes EL.PA:EssilorLuxottica CS.PA:AXA ULVR.L:Unilever BP.L:BP GSK.L:GSK BA.L:BAE_Systems LSEG.L:London_Stock_Exchange
+ABBN.SW:ABB SIKA.SW:Sika LOGN.SW:Logitech SAAB-B.ST:Saab KOG.OL:Kongsberg ABI.BR:AB_InBev NESTE.HE:Neste VWS.CO:Vestas ORSTED.CO:Ørsted DSV.CO:DSV ATCO-A.ST:Atlas_Copco
+MELI:MercadoLibre PDD:PDD BABA:Alibaba JD:JD.com BIDU:Baidu NIO:NIO LI:Li_Auto XPEV:XPeng SE:Sea NU:Nu_Holdings TSM:TSMC NVO:Novo_Nordisk_ADR RKLB:Rocket_Lab ASTS:AST_SpaceMobile
+IONQ:IonQ RGTI:Rigetti QBTS:D-Wave SOUN:SoundHound BBAI:BigBear.ai AI:C3.ai PATH:UiPath U:Unity SNAP:Snap PINS:Pinterest RDDT:Reddit DUOL:Duolingo CELH:Celsius ELF:e.l.f._Beauty CAVA:Cava
+HIMS:Hims_&_Hers OKLO:Oklo SMR:NuScale NBIS:Nebius CRWV:CoreWeave CRCL:Circle MARA:MARA RIOT:Riot_Platforms CLSK:CleanSpark IREN:IREN CIFR:Cipher_Mining AFRM:Affirm UPST:Upstart LMND:Lemonade
+ROKU:Roku ZM:Zoom DOCU:DocuSign TWLO:Twilio OKTA:Okta ZS:Zscaler MDB:MongoDB TEAM:Atlassian LCID:Lucid PLUG:Plug_Power RUN:Sunrun ACHR:Archer_Aviation JOBY:Joby_Aviation LUNR:Intuitive_Machines
+RCAT:Red_Cat ONDS:Ondas TEM:Tempus_AI RXRX:Recursion BTDR:Bitdeer TOST:Toast GME:GameStop CHWY:Chewy DKNG:DraftKings W:Wayfair ETSY:Etsy LYFT:Lyft SHOP:Shopify CVNA:Carvana APP:AppLovin`
+  .split(/\s+/).filter(Boolean).map(x=>{const i=x.indexOf(":");return [x.slice(0,i),x.slice(i+1).replace(/_/g," "),"a"]});
+async function grossesUniversum(ctx){const heute=new Date().toISOString().slice(0,10);if(ST.uni&&ST.uni.d===heute)return;
+  try{const r=await fetch(SP500_URL);if(!r.ok)throw new Error("HTTP "+r.status);const t=await r.text(),zeilen=t.trim().split(/\r?\n/).slice(1),l=[];
+    for(const z of zeilen){const m=z.match(/^([^,]+),("([^"]*)"|[^,]*)/);if(!m)continue;const s=m[1].trim().replace(".","-"),n=(m[3]??m[2]).trim();if(/^[A-Z0-9-]{1,6}$/.test(s))l.push([s,n,"a"])}
+    if(l.length>400)ST.uni={d:heute,liste:l};else throw new Error("Liste zu kurz")}catch(e){ctx.log("S&P-500-Liste:",e.message);ST.uni=Object.assign(ST.uni||{liste:[]},{d:heute})}}
+
 /* ---------- Hilfen ---------- */
 const EU_SUF=/\.(DE|F|AS|PA|MI|L|SW|VI|MC|BR|CO|ST|HE|OL|LS|IR)$/;
 const regionVon=s=>EU_SUF.test(s)?"eu":"us";
@@ -81,7 +103,7 @@ const CS={EUR:"€",USD:"$",GBp:"p",GBP:"£",CHF:"CHF",DKK:"kr"};
 
 /* ---------- Daten ---------- */
 async function yahoo(s,range){const r=await fetch(`https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(s)}?range=${range}&interval=1d`,{headers:{"user-agent":"Mozilla/5.0 (compatible; AktienHelfer/1.0)"}});
-  if(!r.ok)throw new Error("Yahoo "+r.status);const j=await r.json(),res=j&&j.chart&&j.chart.result&&j.chart.result[0];if(!res||!res.timestamp)throw new Error("keine Daten für "+s);
+  if(!r.ok){const e=new Error("Yahoo "+r.status);e.status=r.status;throw e}const j=await r.json(),res=j&&j.chart&&j.chart.result&&j.chart.result[0];if(!res||!res.timestamp)throw new Error("keine Daten für "+s);
   const q=(res.indicators.quote||[])[0]||{},m=res.meta||{},tz=m.exchangeTimezoneName||"UTC",out=[];
   for(let i=0;i<res.timestamp.length;i++){const o=q.open&&q.open[i],h=q.high&&q.high[i],l=q.low&&q.low[i],c=q.close&&q.close[i];if([o,h,l,c].some(v=>v==null||!isFinite(v)||v<=0))continue;
     const b=[teile(tz,new Date(res.timestamp[i]*1000)).date,r6(o),r6(h),r6(l),r6(c),Math.round((q.volume&&q.volume[i])||0)];if(out.length&&out[out.length-1][0]===b[0])out[out.length-1]=b;else out.push(b)}
@@ -328,26 +350,29 @@ const speichere=()=>{fs.mkdirSync(SF.replace(/\/[^/]*$/,""),{recursive:true});fs
 export const app=()=>ST&&ST.app||null;
 const readJSON=(f,d)=>{try{return JSON.parse(fs.readFileSync(f,"utf8"))}catch(e){return d}};
 
-function liste(ctx){const l=UNIVERSUM.map(([s,n,typ])=>({s,n,typ})),da=new Set(l.map(x=>x.s));
+function liste(ctx){const l=UNIVERSUM.map(([s,n,typ])=>({s,n,typ,basis:1})),da=new Set(l.map(x=>x.s));
+  for(const [s,n,typ] of [...((ST.uni&&ST.uni.liste)||[]),...ZUSATZ])if(!da.has(s)&&!(ST.tot&&ST.tot[s]>=3)){da.add(s);l.push({s,n,typ})} // tot: 3× nicht gefunden → ausgelassen
   for(const s of (ctx.eigene?ctx.eigene():[]))if(istAktie(s)&&!da.has(s)&&l.length<UNIVERSUM.length+10){da.add(s);l.push({s,n:ctx.name?ctx.name(s):s,typ:"a",eigen:1})}
   for(const x of [...((MD&&MD.depot)||[]),...((MD&&MD.merk)||[])])if(x&&x.s&&istAktie(x.s)&&!da.has(x.s)){da.add(x.s);l.push({s:x.s,n:x.n||x.s,typ:"a",eigen:1})}
   for(const [s,h] of Object.entries(ST.hist))if(h.tmp&&!da.has(s)){if(Date.now()-h.tmp>3*864e5){delete ST.hist[s];continue}da.add(s);l.push({s,n:h.n||s,typ:"a",eigen:1})}
   return l}
 
 /* ---------- Hauptlauf ---------- */
-export async function lauf(ctx){SF=ctx.P(".state/beste.json");if(!ST)ST=lade();MD=await meinDepot(ctx);const KZ=setzeKosten(MD),kKey=JSON.stringify([KOSTEN,STEUER,ZIEL_TAG]);const B=ctx.B,heute=new Date().toISOString().slice(0,10);let fehler=0,geholt=0;
+export async function lauf(ctx){SF=ctx.P(".state/beste.json");if(!ST)ST=lade();await grossesUniversum(ctx);MD=await meinDepot(ctx);const KZ=setzeKosten(MD),kKey=JSON.stringify([KOSTEN,STEUER,ZIEL_TAG]);const B=ctx.B,heute=new Date().toISOString().slice(0,10);let fehler=0,geholt=0;
   const L=liste(ctx);
   // Gespeichert werden nur Datum und Schlusskurs, damit der Speicher bei über 200 Werten klein bleibt
   const knapp=bars=>bars.map(b=>[b[0],b.length>2?b[4]:b[1]]);ST.versucht=ST.versucht||{};
   for(const h of Object.values(ST.hist))if(h.bars&&h.bars[0]&&h.bars[0].length>2)h.bars=knapp(h.bars);
   // Verlauf (2 Jahre) einmal am Tag, höchstens 50 pro Lauf (der erste Tag braucht 5 Läufe)
-  for(const w of L){const h=ST.hist[w.s];if(ST.versucht[w.s]===heute||(h&&h.d===heute&&h.bars))continue;if(geholt>=50)break;geholt++;ST.versucht[w.s]=heute;
-    try{const y=await yahoo(w.s,"2y");ST.hist[w.s]=Object.assign(h||{},{d:heute,bars:knapp(y.bars),cur:y.cur,p:y.p,mt:y.mt,lt:Date.now()});delete ST.fehler[w.s]}catch(e){fehler++;ST.fehler[w.s]=String(e.message).slice(0,80)}}
+  ST.tot=ST.tot||{};const verlauf=L.filter(w=>!(ST.versucht[w.s]===heute||(ST.hist[w.s]&&ST.hist[w.s].d===heute&&ST.hist[w.s].bars))).sort((a,b)=>(b.basis||b.eigen?1:0)-(a.basis||a.eigen?1:0)).slice(0,90);geholt=verlauf.length;
+  await parallel(verlauf,6,async w=>{ST.versucht[w.s]=heute;const h=ST.hist[w.s];try{const y=await yahoo(w.s,"2y");ST.hist[w.s]=Object.assign(h||{},{d:heute,bars:knapp(y.bars),cur:y.cur,p:y.p,mt:y.mt,lt:Date.now()});delete ST.fehler[w.s];delete ST.tot[w.s]}
+    catch(e){if(e.status===429)throw e;fehler++;ST.fehler[w.s]=String(e.message).slice(0,80);if(/404|keine Daten/.test(e.message))ST.tot[w.s]=(ST.tot[w.s]||0)+1}});
   for(const s of Object.keys(ST.versucht))if(!L.some(w=>w.s===s))delete ST.versucht[s];
   // Laufende Tageskerze: aussichtsreiche Werte alle 15 Min., die übrigen reihum etwa stündlich (Börse offen) bzw. alle 3 Std.
   const wichtig=new Set([...(ST.wichtig||[]),...((MD&&MD.depot)||[]).map(x=>x.s)]),kand=L.map(w=>({w,h:ST.hist[w.s]})).filter(x=>x.h&&x.h.bars).map(x=>Object.assign(x,{alt:Date.now()-(x.h.lt||0),of:offen(regionVon(x.w.s))}));
   // Kurse höchstens 10 Minuten alt: alle Werte im Handelsfenster bei jedem Lauf (parallel), wichtige zuerst.
-  const imF=kand.filter(x=>imFenster(regionVon(x.w.s))&&Date.now()-(x.h.pt||0)>4*6e4).sort((a,b)=>(wichtig.has(b.w.s)-wichtig.has(a.w.s))||((a.h.pt||0)-(b.h.pt||0)));
+  const aktiv=new Set([...wichtig,...(ST.aktiv||L.filter(w=>w.basis).map(w=>w.s)),...((MD&&MD.merk)||[]).map(x=>x.s)]);
+  const imF=kand.filter(x=>aktiv.has(x.w.s)&&imFenster(regionVon(x.w.s))&&Date.now()-(x.h.pt||0)>4*6e4).sort((a,b)=>(wichtig.has(b.w.s)-wichtig.has(a.w.s))||((a.h.pt||0)-(b.h.pt||0)));
   const gebremst=await parallel(imF,6,async({w,h})=>{try{const y=await preis(w.s);h.p=y.p;h.mt=y.mt;h.sess=y.sess;h.heute=y.heute;h.pt=Date.now();h.cur=y.cur||h.cur;
       if(y.regP&&y.regT){const d=teile(regionVon(w.s)==="eu"?"Europe/Berlin":"America/New_York",new Date(y.regT)).date;h.bars=zusammen(h.bars,[[d,y.regP]]).slice(-560)}delete ST.fehler[w.s]}
     catch(e){if(e.status!==429){fehler++;ST.fehler[w.s]=String(e.message).slice(0,80)}throw e}});
@@ -362,13 +387,13 @@ export async function lauf(ctx){SF=ctx.P(".state/beste.json");if(!ST)ST=lade();M
   const W=[];for(const w of L){const h=ST.hist[w.s];if(!h||!h.bars||h.bars.length<130)continue;const C=h.bars.map(b=>b[1]);
     W.push(Object.assign({},w,{h,bars:h.bars,C,idx:new Map(h.bars.map((b,i)=>[b[0],i])),R:rechne(C)}))}
   if(W.length<15){speichere();return false}
-  const MO=modell(ctx),M=MO.M;setzePunkte(W,M);
+  const MO=modell(ctx),M=MO.M;setzePunkte(W,M);const WB=W.filter(w=>w.basis); // Tests auf den Kernwerten
   // erst wenn (fast) alle Verläufe von heute da sind, wird getestet und die Vorlage geschrieben
   const vollst=L.filter(w=>ST.versucht[w.s]===heute||(ST.hist[w.s]&&ST.hist[w.s].d===heute)).length>=L.length*.95;
   // Test einmal am Tag (ändert sich im Tagesverlauf nicht)
-  if(!ST.test||((ST.test.d!==heute||ST.test.version!==MO.version||ST.test.k!==kKey)&&vollst))ST.test={d:heute,version:MO.version,k:kKey,von:new Date(Date.now()-365*864e5).toISOString().slice(0,10),werte:W.length,h:test(W)};
-  if(!ST.muster||(ST.muster.d!==heute&&vollst))ST.muster={d:heute,m:musterSpeicher(W)};
-  if(!ST.einstieg||((ST.einstieg.d!==heute||ST.einstieg.k!==kKey)&&vollst))ST.einstieg={d:heute,k:kKey,s:einstiegStat(W)};
+  if(!ST.test||((ST.test.d!==heute||ST.test.version!==MO.version||ST.test.k!==kKey||ST.test.werte<WB.length*.95)&&vollst))ST.test={d:heute,version:MO.version,k:kKey,von:new Date(Date.now()-365*864e5).toISOString().slice(0,10),werte:WB.length,h:test(WB)};
+  if(!ST.muster||((ST.muster.d!==heute||(ST.muster.n||0)<WB.length*.95)&&vollst))ST.muster={d:heute,n:WB.length,m:musterSpeicher(WB)};
+  if(!ST.einstieg||((ST.einstieg.d!==heute||ST.einstieg.k!==kKey||(ST.einstieg.n||0)<WB.length*.95)&&vollst))ST.einstieg={d:heute,k:kKey,n:WB.length,s:einstiegStat(WB)};
   const jetzt=W.filter(w=>Date.now()-Date.parse(w.bars[w.bars.length-1][0])<6*864e5);// ohne veraltete Werte
   const fakten=(w,H)=>{const i=w.C.length-1,C=w.C,p=w.h.p&&Date.now()-(w.h.mt||0)<3*864e5?w.h.p:C[i],sd=w.R.sd[i],ch=k=>i>=k?+((p/C[i-k]-1)*100).toFixed(1):null;
     const heuteBar=w.bars[i][0]===teile(regionVon(w.s)==="eu"?"Europe/Berlin":"America/New_York",new Date(w.h.mt||Date.now())).date,vt=heuteBar?C[i-1]:C[i];
@@ -378,12 +403,15 @@ export async function lauf(ctx){SF=ctx.P(".state/beste.json");if(!ST)ST=lade();M
       punkte:H&&w.P[H][i]!=null?+w.P[H][i].toFixed(2):undefined,typBew:H&&sd?+(sd*Math.sqrt(H)*100).toFixed(1):undefined,noetig:H?NOETIG[H]:undefined,bereich:H&&sd?{lo:r6(p*Math.exp(-sd*Math.sqrt(H))),hi:r6(p*Math.exp(sd*Math.sqrt(H)))}:undefined,
       spark:C.slice(-60).map(x=>+(+x).toPrecision(5)),sparkD:w.bars.slice(-60).map(b=>b[0].slice(5)),muster:H?musterAktiv(w,H,ST.muster&&ST.muster.m):undefined,einstieg:einstieg(w,p),vomHoch10:w.R.dd[i]!=null?+((Math.exp(w.R.dd[i]*sd)-1)*100).toFixed(1):null}};
   const rangVorab={};for(const H of HORIZONTE)rangVorab[H]=jetzt.filter(w=>w.P[H][w.C.length-1]!=null).sort((a,b)=>b.P[H][b.C.length-1]-a.P[H][a.C.length-1]);
-  {ST.intra=ST.intra||{};const kand=[...new Set([...((MD&&MD.depot)||[]).map(x=>x.s),...((MD&&MD.merk)||[]).map(x=>x.s),...HORIZONTE.flatMap(H=>rangVorab[H].slice(0,15).map(w=>w.s)),
+  {ST.intra=ST.intra||{};const kand=[...new Set([...(ST.eTopS||[]).slice(0,15),...((MD&&MD.depot)||[]).map(x=>x.s),...((MD&&MD.merk)||[]).map(x=>x.s),...HORIZONTE.flatMap(H=>rangVorab[H].slice(0,15).map(w=>w.s)),
       ...(readJSON(ctx.P("data/beste.json"),{listen:{}}).listen?Object.values(readJSON(ctx.P("data/beste.json"),{listen:{}}).listen).flat().map(x=>x&&x.s).filter(Boolean):[])])].filter(s=>!(ST.intra[s]&&ST.intra[s].d===heute)).slice(0,20);
     await parallel(kand,4,async s=>{try{ST.intra[s]={d:heute,r:await tageszeit(s)}}catch(e){if(e.status===429)throw e;ST.intra[s]={d:heute,r:null}}});
     for(const s of Object.keys(ST.intra))if(!L.some(w=>w.s===s))delete ST.intra[s]}
   const rang={};for(const H of HORIZONTE)rang[H]=jetzt.filter(w=>w.P[H][w.C.length-1]!=null).sort((a,b)=>b.P[H][b.C.length-1]-a.P[H][a.C.length-1]);
   ST.wichtig=[...new Set(HORIZONTE.flatMap(H=>rang[H].slice(0,25).map(w=>w.s)))];
+  ST.aktiv=[...new Set([...HORIZONTE.flatMap(H=>rang[H].slice(0,150).map(w=>w.s)),...L.filter(w=>w.basis).map(w=>w.s)])];
+  // Beste Einstiege aus allen Werten: Zustand „jetzt günstig“ oder „Wende“, sortiert nach Stärke für 3 und 7 Tage
+  const eTop=jetzt.map(w=>{const i=w.C.length-1,z=zustand(w,i),p3=w.P[3][i],p7=w.P[7][i];return z&&(z.z==="guenstig"||z.z==="wende")&&p3!=null&&p7!=null?{w,sc:p3+p7}:null}).filter(Boolean).sort((a,b)=>b.sc-a.sc).slice(0,25);
 
   // KI-Ergebnis lesen (data/beste.json, kommt von der Claude-Aufgabe)
   const ki=readJSON(ctx.P("data/beste.json"),null),kiOk=ki&&ki.id&&ki.listen;
@@ -410,12 +438,12 @@ export async function lauf(ctx){SF=ctx.P(".state/beste.json");if(!ST)ST=lade();M
   if(ST.vorschlag&&ST.vorschlag.status==="offen"&&Date.now()-ST.vorschlag.t>14*864e5){ST.vorschlag.status="verfallen";ST.verlauf=(ST.verlauf||[]).concat({id:ST.vorschlag.id,titel:ST.vorschlag.titel,status:"verfallen"}).slice(-20)}
   if(kiOk&&ki.vorschlag&&!(ST.vorschlag&&ST.vorschlag.id===ki.id+"-u")&&!(ST.vorschlag&&ST.vorschlag.status==="offen")&&vollst){const v=ki.vorschlag,fehl=pruefeVorschlag(v,M);
     if(fehl)ctx.log("Update-Vorschlag ungültig:",fehl);
-    else{const H=+v.horizont,neu=Object.fromEntries(Object.entries(v.aenderung).map(([k,x])=>[k,+x])),test=pruefe(W,H,M[H],Object.assign({},M[H],neu));
+    else{const H=+v.horizont,neu=Object.fromEntries(Object.entries(v.aenderung).map(([k,x])=>[k,+x])),test=pruefe(WB,H,M[H],Object.assign({},M[H],neu));
       ST.vorschlag={id:ki.id+"-u",t:Date.now(),status:"offen",gemeldet:false,horizont:H,titel:String(v.titel||"Änderung der Rechnung").slice(0,120),warum:String(v.warum||"").slice(0,900),erwartung:String(v.erwartung||"").slice(0,400),
         neu,liste:Object.entries(neu).map(([k,x])=>({param:k,name:PARAM[k].n,von:M[H][k],nach:x})),test}}}
   if(vollst&&ST.autoT!==heute&&!(ST.vorschlag&&ST.vorschlag.status==="offen")){ST.autoT=heute;let best=null;
     for(const H of HORIZONTE)for(const w5 of [0,.5,1])for(const dd of [0,.5,1]){if(w5===M[H].w5&&dd===M[H].dd)continue;const neu={};if(w5!==M[H].w5)neu.w5=w5;if(dd!==M[H].dd)neu.dd=dd;
-      const t=pruefe(W,H,M[H],Object.assign({},M[H],neu));if(t.urteil!=="besteht")continue;const gew=t.jahr.neu.vorsprung-t.jahr.alt.vorsprung;if(!best||gew>best.gew)best={H,neu,t,gew}}
+      const t=pruefe(WB,H,M[H],Object.assign({},M[H],neu));if(t.urteil!=="besteht")continue;const gew=t.jahr.neu.vorsprung-t.jahr.alt.vorsprung;if(!best||gew>best.gew)best={H,neu,t,gew}}
     if(best&&best.gew>=.05){const bsp=W.filter(w=>{const i=w.C.length-1;return (w.R.dd[i]??0)<-2&&w.P[best.H][i]!=null&&rang[best.H].indexOf(w)>=0&&rang[best.H].indexOf(w)<15}).slice(0,3).map(w=>w.n);
       ST.vorschlag={id:`auto-${heute}`,t:Date.now(),status:"offen",gemeldet:false,horizont:best.H,quelle:"Automatischer Test",
         titel:[best.neu.w5?"Kurzfristigen Schwung (5 Tage) beachten":"",best.neu.dd?"Werte abwerten, die gerade vom Hoch fallen":""].filter(Boolean).join(" und ")||"Feinjustierung",
@@ -452,6 +480,11 @@ export async function lauf(ctx){SF=ctx.P(".state/beste.json");if(!ST)ST=lade();M
   const meine={},schutzApp={};
   if(MD){for(const x of [...(MD.depot||[]),...(MD.merk||[])]){const w=W.find(y=>y.s===x.s);if(w&&!meine[x.s])meine[x.s]=fakten(w,7)}
     await schutz(ctx,W,schutzApp);await bewegung(ctx);ST.app_schutz=schutzApp}
+  ST.eTopS=eTop.map(x=>x.w.s);
+  // Telegram: beste Einstiege aus allen Werten, höchstens stündlich und nur wenn sich die Top 5 geändert haben
+  {const z=teile("Europe/Berlin"),t5=eTop.slice(0,5).map(x=>x.w.s),key=t5.join(",");
+    if(vollst&&t5.length&&key!==ST.eTopMeld&&Date.now()-(ST.eTopT||0)>36e5&&!["Sat","Sun"].includes(z.wd)&&z.min>=9*60&&z.min<22*60){ST.eTopMeld=key;ST.eTopT=Date.now();
+      await melde(ctx,"einstieg",`⏱️ <b>Beste Einstiege jetzt</b> (aus ${W.length} Werten)\n${eTop.slice(0,5).map((x,i)=>{const f=fakten(x.w,3),e=f.einstieg,zt=ST.intra&&ST.intra[f.s]&&ST.intra[f.s].r;return `${i+1}. 🟢 <b>${ctx.esc(f.n)}</b> ${dez(f.p)} ${CS[f.cur]||f.cur} · ${e.n} · ${pz(e.vomHoch)} vom 10-Tage-Hoch · 4 Wo. ${pz(f.wochen4)}${zt&&zt.best?` · günstig meist ${zt.best.t} Uhr`:""}`}).join("\n")}\n<i>Regel-Einschätzung aus Kursdaten, keine Anlageberatung.</i>${link(ctx,"")}`)}}
   ST.app={v:2,t:Date.now(),top:TOP,kosten:KOSTEN,kostenRT:+(2*KOSTEN).toFixed(2),steuer:+(STEUER*100).toFixed(2),zielTag:+ZIEL_TAG.toFixed(3),noetig:NOETIG,kostenEin:KZ.kosten,horizonte:HORIZONTE,test:ST.test,werte:W.length,
     ki:kiHeute?{id:ki.id,erstellt:ki.erstellt,slot:ki.slot,markt:ki.markt||"",marktQuellen:Array.isArray(ki.marktQuellen)?ki.marktQuellen.slice(0,4):[],aussortiert:Array.isArray(ki.aussortiert)?ki.aussortiert.slice(0,12):[]}:null,
     aktien:W.filter(w=>w.typ!=="e").length,etfs:W.filter(w=>w.typ==="e").length,
@@ -459,6 +492,7 @@ export async function lauf(ctx){SF=ctx.P(".state/beste.json");if(!ST)ST=lade();M
     modell:{version:MO.version,params:M,standard:STANDARD,param:PARAM,verlauf:MO.verlauf.slice(-10).reverse()},vorschlag:ST.vorschlag&&(ST.vorschlag.status==='offen'||Date.now()-(ST.vorschlag.entschieden||0)<3*864e5)?ST.vorschlag:null,pruefung,
     muster:{info:MUSTER.map(m=>({id:m.id,n:m.n,t:m.t})),speicher:ST.muster?ST.muster.m:null},
     einstiegInfo:{zust:ZUST,stat:ST.einstieg?ST.einstieg.s:null},
+    einstiegTop:eTop.map((x,i)=>{const f=fakten(x.w,3);return {s:f.s,n:f.n,typ:f.typ,cur:f.cur,p:f.p,dp:f.dp,mt:f.mt,sess:f.sess,rang:i+1,wochen4:f.wochen4,tage5:f.tage5,trend:f.trend,rsi:f.rsi,typBew:f.typBew,noetig:f.noetig,sdTag:f.sdTag,spark:f.spark.slice(-30),sparkD:f.sparkD.slice(-30),einstieg:f.einstieg&&Object.assign({},f.einstieg,{heute:undefined})}}),
     meldungen:MELDUNGEN,
     meine,schutz:Object.keys(schutzApp).length&&process.env.SYNC_PASSWORD?await verschluesseln(schutzApp,process.env.SYNC_PASSWORD):null,
     listen,bilanz:{fertig,laufend},fehler:Object.keys(ST.fehler).length?ST.fehler:undefined};
@@ -466,7 +500,7 @@ export async function lauf(ctx){SF=ctx.P(".state/beste.json");if(!ST)ST=lade();M
   // Vorlage für die Claude-Aufgabe (3x täglich)
   const z=teile("Europe/Berlin"),slot=[...SLOTS].reverse().find(([,m])=>z.min>=m);
   if(slot&&vollst&&ST.vorlage!==z.date+slot[0]){ST.vorlage=z.date+slot[0];const lernen=slot[0]==="abends"&&!(ST.vorschlag&&ST.vorschlag.status==="offen")&&Date.now()-((ST.vorschlag&&ST.vorschlag.t)||0)>6*864e5&&Date.now()-(ST.lernT||0)>6*864e5;if(lernen)ST.lernT=Date.now();
-    await vorlage(ctx,W,rang,fakten,slot[0],z.date,kiOk&&ki.datum===z.date?ki:null,lernen?{aktuelleEinstellungen:M,einstellungen:PARAM,testJetzt:ST.test,bilanzListen:fertig,variantenTest:varianten(W,M),bisherigeUpdates:(ST.verlauf||[]).slice(-10),musterSpeicher:ST.muster&&ST.muster.m}:null)}
+    await vorlage(ctx,W,rang,fakten,slot[0],z.date,kiOk&&ki.datum===z.date?ki:null,lernen?{aktuelleEinstellungen:M,einstellungen:PARAM,testJetzt:ST.test,bilanzListen:fertig,variantenTest:varianten(WB,M),bisherigeUpdates:(ST.verlauf||[]).slice(-10),musterSpeicher:ST.muster&&ST.muster.m}:null)}
 
   const alt=ST.k||"";ST.k=JSON.stringify([ST.app.ki&&ST.app.ki.id,...HORIZONTE.map(H=>listen[H].map(x=>x.s+x.p))]);speichere();
   ctx.log("Top-Aktien:",HORIZONTE.map(H=>`${H}T ${listen[H].map(x=>x.s).join(",")}`).join(" | "),kiHeute?"(mit KI)":"(nur Rechnung)");
