@@ -523,8 +523,8 @@ export async function main(){
   if(!FH)B.err.finnhub="FINNHUB_KEY fehlt";if(!TG)B.err.telegram="TELEGRAM_TOKEN fehlt";
   await telegramEingang();
   const slot=E.FORCE_SLOT||slotJetzt();if(slot)try{await vorlage(slot)}catch(e){log("Vorlage",e);B.err.vorlage=e.message}
-  await rueckblick();const sigNeu=await SIG.lauf(sigCtx()).catch(e=>{log("Signale",e);B.err.signale=String(e.message).slice(0,120);return false});await euKurse(sigNeu);await aufAnfrage();await alarme();await fruehwarnungen();await abendRueckblick();await warteschlange();
+  const sigNeu=await SIG.lauf(sigCtx()).catch(e=>{log("Signale",e);B.err.signale=String(e.message).slice(0,120);return false});await rueckblick();await euKurse(sigNeu); // Top-Aktien zuerst (Vorrang)await aufAnfrage();await alarme();await fruehwarnungen();await abendRueckblick();await warteschlange();
   // Danach noch eine Weile auf Telegram-Befehle lauschen, damit Antworten sofort kommen
   const ende=Date.now()+(E.POLL_SEK!==undefined?+E.POLL_SEK:110)*1000,kiEnde=B.anfrage&&!API?Date.now()+330*1000:0;
-  while(Date.now()<Math.max(ende,kiEnde)-26000){if(TG&&CHAT)await telegramEingang(25);else await sleep(25000);if(B.anfrage&&await antwortHolen())await euKurse(true);await warteschlange();if(!(TG&&CHAT)&&!B.anfrage)break}await sichern();log("fertig",{slot,depot:depot().length,fehler:B.err})}
+  while(Date.now()<Math.max(ende,kiEnde)-26000){if(TG&&CHAT)await telegramEingang(25);else await sleep(25000);if(B.anfrage&&await antwortHolen())await euKurse(true);await warteschlange();await SIG.schnell(sigCtx()).catch(e=>log("Top schnell",e));if(!(TG&&CHAT)&&!B.anfrage)break}await sichern();log("fertig",{slot,depot:depot().length,fehler:B.err})}
 if(import.meta.url===`file://${process.argv[1]}`)main().catch(e=>{console.error(e);process.exit(1)});
