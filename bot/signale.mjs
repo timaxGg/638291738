@@ -86,6 +86,19 @@ async function yahoo(s,range){const r=await fetch(`https://query1.finance.yahoo.
   for(let i=0;i<res.timestamp.length;i++){const o=q.open&&q.open[i],h=q.high&&q.high[i],l=q.low&&q.low[i],c=q.close&&q.close[i];if([o,h,l,c].some(v=>v==null||!isFinite(v)||v<=0))continue;
     const b=[teile(tz,new Date(res.timestamp[i]*1000)).date,r6(o),r6(h),r6(l),r6(c),Math.round((q.volume&&q.volume[i])||0)];if(out.length&&out[out.length-1][0]===b[0])out[out.length-1]=b;else out.push(b)}
   return {bars:out,cur:m.currency||"",p:m.regularMarketPrice,mt:(m.regularMarketTime||0)*1000}}
+// Aktueller Preis inkl. vor- und nachbörslichem Handel (5-Minuten-Kerzen von heute). sess: pre, regular oder post.
+async function preis(s){const r=await fetch(`https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(s)}?range=1d&interval=5m&includePrePost=true`,{headers:{"user-agent":"Mozilla/5.0 (compatible; AktienHelfer/1.0)"}});
+  if(!r.ok){const e=new Error("Yahoo "+r.status);e.status=r.status;throw e}const j=await r.json(),res=j&&j.chart&&j.chart.result&&j.chart.result[0];if(!res)throw new Error("keine Daten für "+s);
+  const m=res.meta||{},ts=res.timestamp||[],c=((res.indicators.quote||[])[0]||{}).close||[],tp=m.currentTradingPeriod||{};let p=null,t=0,last=null;
+  for(let i=ts.length-1;i>=0;i--)if(c[i]>0){p=c[i];t=ts[i];break}
+  for(let i=ts.length-1;i>=0;i--)if(c[i]>0&&tp.regular&&ts[i]>=tp.regular.start&&ts[i]<tp.regular.end){last=c[i];break}
+  const reg=m.regularMarketTime||0;if(!p||reg>t){p=m.regularMarketPrice;t=reg}
+  const sess=tp.pre&&t>=tp.pre.start&&t<tp.pre.end?"pre":tp.post&&t>=tp.post.start&&t<tp.post.end?"post":"regular";
+  return {p:r6(p),mt:t*1000,sess,regP:last!=null?r6(last):r6(m.regularMarketPrice),regT:(m.regularMarketTime||0)*1000,cur:m.currency||""}}
+// Handelsfenster (vorbörslich bis nachbörslich), in denen sich Kurse ändern
+const FENSTER={us:{tz:"America/New_York",a:240,b:1200},eu:{tz:"Europe/Berlin",a:480,b:1320}};
+const imFenster=reg=>{const m=FENSTER[reg],z=teile(m.tz);return !["Sat","Sun"].includes(z.wd)&&z.min>=m.a&&z.min<m.b};
+async function parallel(liste,n,f){let i=0,stop=false;await Promise.all(Array.from({length:n},async()=>{while(!stop&&i<liste.length){const x=liste[i++];try{await f(x)}catch(e){if(e.status===429)stop=true}}}));return stop}
 const zusammen=(alt,neu)=>{const m=new Map(alt.map(b=>[b[0],b]));for(const b of neu)m.set(b[0],b);return [...m.values()].sort((a,b)=>a[0]<b[0]?-1:1)};
 async function meldungen(s){const FH=process.env.FINNHUB_KEY||"",heute=new Date().toISOString().slice(0,10),von=new Date(Date.now()-6*864e5).toISOString().slice(0,10);
   try{if(regionVon(s)==="us"&&FH){const r=await fetch(`https://finnhub.io/api/v1/company-news?symbol=${encodeURIComponent(s)}&from=${von}&to=${heute}&token=${FH}`);if(r.ok)return (await r.json()).slice(0,5).map(n=>({t:n.headline,u:n.url,q:n.source,d:new Date(n.datetime*1000).toISOString().slice(0,10),z:(n.summary||"").slice(0,240)}))}
@@ -318,10 +331,17 @@ export async function lauf(ctx){SF=ctx.P(".state/beste.json");if(!ST)ST=lade();M
   for(const s of Object.keys(ST.versucht))if(!L.some(w=>w.s===s))delete ST.versucht[s];
   // Laufende Tageskerze: aussichtsreiche Werte alle 15 Min., die übrigen reihum etwa stündlich (Börse offen) bzw. alle 3 Std.
   const wichtig=new Set([...(ST.wichtig||[]),...((MD&&MD.depot)||[]).map(x=>x.s)]),kand=L.map(w=>({w,h:ST.hist[w.s]})).filter(x=>x.h&&x.h.bars).map(x=>Object.assign(x,{alt:Date.now()-(x.h.lt||0),of:offen(regionVon(x.w.s))}));
-  const jetztHolen=[...kand.filter(x=>x.of&&wichtig.has(x.w.s)&&x.alt>14*6e4),...kand.filter(x=>!wichtig.has(x.w.s)||!x.of).filter(x=>x.alt>(x.of?50*6e4:3*36e5)).sort((a,b)=>b.alt-a.alt).slice(0,20)];
+  // Kurse höchstens 10 Minuten alt: alle Werte im Handelsfenster bei jedem Lauf (parallel), wichtige zuerst.
+  const imF=kand.filter(x=>imFenster(regionVon(x.w.s))&&Date.now()-(x.h.pt||0)>4*6e4).sort((a,b)=>(wichtig.has(b.w.s)-wichtig.has(a.w.s))||((a.h.pt||0)-(b.h.pt||0)));
+  const gebremst=await parallel(imF,6,async({w,h})=>{try{const y=await preis(w.s);h.p=y.p;h.mt=y.mt;h.sess=y.sess;h.pt=Date.now();h.cur=y.cur||h.cur;
+      if(y.regP&&y.regT){const d=teile(regionVon(w.s)==="eu"?"Europe/Berlin":"America/New_York",new Date(y.regT)).date;h.bars=zusammen(h.bars,[[d,y.regP]]).slice(-560)}delete ST.fehler[w.s]}
+    catch(e){if(e.status!==429){fehler++;ST.fehler[w.s]=String(e.message).slice(0,80)}throw e}});
+  if(gebremst)ctx.B.err.beste="Yahoo bremst gerade (zu viele Abrufe), Rest folgt im nächsten Lauf";
+  // Tageskerze nach Handelsschluss sauber abschließen (außerhalb des Fensters, alle 3 Std.)
+  const jetztHolen=kand.filter(x=>!x.of&&!imFenster(regionVon(x.w.s))&&x.alt>3*36e5).sort((a,b)=>b.alt-a.alt).slice(0,20);
   for(const {w,h} of jetztHolen){try{const y=await yahoo(w.s,"5d");h.bars=zusammen(h.bars,knapp(y.bars)).slice(-560);h.p=y.p;h.mt=y.mt;h.cur=y.cur||h.cur;h.lt=Date.now();delete ST.fehler[w.s]}catch(e){fehler++;ST.fehler[w.s]=String(e.message).slice(0,80)}}
   for(const s of Object.keys(ST.hist))if(!L.some(w=>w.s===s))delete ST.hist[s];
-  if(fehler)B.err.beste=`${fehler} Kursabruf(e) fehlgeschlagen (Yahoo)`;else delete B.err.beste;
+  if(fehler)B.err.beste=`${fehler} Kursabruf(e) fehlgeschlagen (Yahoo)`;else if(!B.err.beste||!/bremst/.test(B.err.beste))delete B.err.beste;
 
   // Rechnen
   const W=[];for(const w of L){const h=ST.hist[w.s];if(!h||!h.bars||h.bars.length<130)continue;const C=h.bars.map(b=>b[1]);
@@ -336,7 +356,8 @@ export async function lauf(ctx){SF=ctx.P(".state/beste.json");if(!ST)ST=lade();M
   if(!ST.einstieg||((ST.einstieg.d!==heute||ST.einstieg.k!==kKey)&&vollst))ST.einstieg={d:heute,k:kKey,s:einstiegStat(W)};
   const jetzt=W.filter(w=>Date.now()-Date.parse(w.bars[w.bars.length-1][0])<6*864e5);// ohne veraltete Werte
   const fakten=(w,H)=>{const i=w.C.length-1,C=w.C,p=w.h.p&&Date.now()-(w.h.mt||0)<3*864e5?w.h.p:C[i],sd=w.R.sd[i],ch=k=>i>=k?+((p/C[i-k]-1)*100).toFixed(1):null;
-    return {s:w.s,n:w.n,typ:w.typ||"a",cur:w.h.cur||"",p:r6(p),sdTag:sd?+sd.toFixed(5):null,dp:+((p/C[i-1]-1)*100).toFixed(2),mt:w.h.mt||w.h.lt||0,eigen:w.eigen||undefined,
+    const heuteBar=w.bars[i][0]===teile(regionVon(w.s)==="eu"?"Europe/Berlin":"America/New_York",new Date(w.h.mt||Date.now())).date,vt=heuteBar?C[i-1]:C[i];
+    return {s:w.s,n:w.n,typ:w.typ||"a",cur:w.h.cur||"",p:r6(p),sdTag:sd?+sd.toFixed(5):null,dp:+((p/vt-1)*100).toFixed(2),mt:w.h.mt||w.h.lt||0,sess:w.h.sess||undefined,eigen:w.eigen||undefined,
       tage5:ch(5),wochen4:ch(20),monate3:ch(60),monate6:ch(120),rsi:w.R.rsi[i]!=null?+w.R.rsi[i].toFixed(0):null,schwankungJahr:sd?+(sd*Math.sqrt(252)*100).toFixed(0):null,
       trend:w.R.s20[i]!=null&&w.R.s50[i]!=null?(w.R.s20[i]>w.R.s50[i]?"aufwärts":"abwärts"):null,ueber50:w.R.s50[i]?+((p/w.R.s50[i]-1)*100).toFixed(1):null,
       punkte:H&&w.P[H][i]!=null?+w.P[H][i].toFixed(2):undefined,typBew:H&&sd?+(sd*Math.sqrt(H)*100).toFixed(1):undefined,noetig:H?NOETIG[H]:undefined,bereich:H&&sd?{lo:r6(p*Math.exp(-sd*Math.sqrt(H))),hi:r6(p*Math.exp(sd*Math.sqrt(H)))}:undefined,
@@ -403,7 +424,7 @@ export async function lauf(ctx){SF=ctx.P(".state/beste.json");if(!ST)ST=lade();M
   ST.app={v:2,t:Date.now(),top:TOP,kosten:KOSTEN,kostenRT:+(2*KOSTEN).toFixed(2),steuer:+(STEUER*100).toFixed(2),zielTag:+ZIEL_TAG.toFixed(3),noetig:NOETIG,kostenEin:KZ.kosten,horizonte:HORIZONTE,test:ST.test,werte:W.length,
     ki:kiHeute?{id:ki.id,erstellt:ki.erstellt,slot:ki.slot,markt:ki.markt||"",marktQuellen:Array.isArray(ki.marktQuellen)?ki.marktQuellen.slice(0,4):[],aussortiert:Array.isArray(ki.aussortiert)?ki.aussortiert.slice(0,12):[]}:null,
     aktien:W.filter(w=>w.typ!=="e").length,etfs:W.filter(w=>w.typ==="e").length,
-    weitere:Object.fromEntries(HORIZONTE.map(H=>[H,rang[H].filter(w=>!listen[H].some(x=>x.s===w.s)).slice(0,WEITERE).map(w=>{const f=fakten(w,H);return {s:f.s,n:f.n,typ:f.typ,cur:f.cur,p:f.p,dp:f.dp,mt:f.mt,einstieg:f.einstieg,spark:f.spark.slice(-30),noetig:f.noetig,typBew:f.typBew,wochen4:f.wochen4,monate3:f.monate3,trend:f.trend,rsi:f.rsi,rang:rang[H].indexOf(w)+1}})])),
+    weitere:Object.fromEntries(HORIZONTE.map(H=>[H,rang[H].filter(w=>!listen[H].some(x=>x.s===w.s)).slice(0,WEITERE).map(w=>{const f=fakten(w,H);return {s:f.s,n:f.n,typ:f.typ,cur:f.cur,p:f.p,dp:f.dp,mt:f.mt,sess:f.sess,einstieg:f.einstieg,spark:f.spark.slice(-30),noetig:f.noetig,typBew:f.typBew,wochen4:f.wochen4,monate3:f.monate3,trend:f.trend,rsi:f.rsi,rang:rang[H].indexOf(w)+1}})])),
     modell:{version:MO.version,params:M,standard:STANDARD,param:PARAM,verlauf:MO.verlauf.slice(-10).reverse()},vorschlag:ST.vorschlag&&(ST.vorschlag.status==='offen'||Date.now()-(ST.vorschlag.entschieden||0)<3*864e5)?ST.vorschlag:null,pruefung,
     muster:{info:MUSTER.map(m=>({id:m.id,n:m.n,t:m.t})),speicher:ST.muster?ST.muster.m:null},
     einstiegInfo:{zust:ZUST,stat:ST.einstieg?ST.einstieg.s:null},
