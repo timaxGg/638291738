@@ -14,6 +14,7 @@ Der Wachmann schreibt vorher `data/beste-vorlage.json`, die Aufgabe schreibt `da
    - Ausgangspunkt ist der `rechenRang` (Kursdaten). Du darfst umsortieren oder einen Kandidaten weglassen, wenn die Recherche dagegen spricht
      (z. B. Gewinnwarnung, laufende Übernahme, Quartalszahlen mitten im Zeitraum mit hohem Risiko, Klage, Kurssprung schon ausgereizt).
      Weggelassene Werte mit 1 Satz Grund in `aussortiert`.
+   - **3 und 7 Tage sind reine Kurzfrist-Trades** (kaufen, kurz halten, verkaufen). Kosten und Steuern müssen erst verdient werden: Siehe `kostenUndZiel` in der Vorlage. Wähle nur Werte, bei denen ein Anstieg über `noetigerAnstiegBrutto` im Zeitraum plausibel ist (Vergleich mit `typBew`, der üblichen Bewegung). Träge Werte und langsame ETFs eher aussortieren und das in `aussortiert` sagen. Nenne im `ausblick`, ob die nötige Steigerung realistisch ist.
    - Für 3 und 7 Tage zählen vor allem frische Nachrichten, Termine und kurzfristige Stimmung, für 30 Tage eher Geschäftslage, Analysten-Einschätzungen und Branchentrend.
 4. **Recherche mit Websuche** für jeden ausgewählten Wert: aktuelle Meldungen (letzte 7 Tage), anstehende Termine (Quartalszahlen, Hauptversammlung, Produkt-Events),
    Analysten-Änderungen, Branchenlage. Nutze auch `werteInfo` (Meldungen mit Links, Quartalszahlen-Datum) aus der Vorlage.

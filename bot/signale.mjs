@@ -7,7 +7,14 @@
 import fs from "node:fs";
 import {verschluesseln,entschluesseln} from "./krypto.mjs";
 
-const KOSTEN=0.1;          // % je Kauf bzw. Verkauf (im Test abgezogen)
+let KOSTEN=0.15;           // % je Kauf bzw. Verkauf, wird bei jedem Lauf aus deinen Einstellungen (Gebühr, Einsatz, Spread) berechnet
+let STEUER=.26375,ZIEL_TAG=1,NOETIG={}; // Steuer auf Gewinne, dein Ziel pro Handelstag in %, nötiger Anstieg je Zeitraum
+export const KOSTEN_STD={gebuehr:1,einsatz:1000,spread:.1,steuer:26.375};
+// Wie viel muss ein Wert in H Handelstagen steigen, damit nach Kosten und Steuern dein Ziel übrig bleibt?
+const zielH=H=>(Math.pow(1+ZIEL_TAG/100,H)-1)*100,noetig=H=>2*KOSTEN+zielH(H)/(1-STEUER);
+function setzeKosten(md){const k=Object.assign({},KOSTEN_STD,(md&&md.kosten)||{}),z=(md&&md.ziel)||{wert:1,je:"tag"},t={tag:1,woche:5,monat:21}[z.je]||1;
+  KOSTEN=(k.einsatz>0?k.gebuehr/k.einsatz*100:0)+(k.spread||0)/2;STEUER=Math.min(.6,Math.max(0,(k.steuer||0)/100));ZIEL_TAG=(Math.pow(1+(+z.wert||0)/100,1/t)-1)*100;
+  for(const H of HORIZONTE)NOETIG[H]=+noetig(H).toFixed(2);return {kosten:k,ziel:z}}
 const TOP=5;               // so viele Werte zeigt die App je Zeitraum
 const KAND=10;             // so viele Kandidaten bekommt die KI je Zeitraum
 const WEITERE=20;          // so viele weitere Werte aus der Rechnung zeigt die App je Zeitraum
@@ -94,15 +101,21 @@ function rsiR(c,n=14){const r=Array(c.length).fill(null);if(c.length<=n)return r
 function sma(a,n){const r=Array(a.length).fill(null);let s=0;for(let i=0;i<a.length;i++){s+=a[i];if(i>=n)s-=a[i-n];if(i>=n-1)r[i]=s/n}return r}
 // Punktzahl = Gewicht × Kursanstieg (geteilt durch die normale Schwankung) + Trend-Bonus − Abzug bei Überhitzung bzw. Ausverkauf.
 // Die Gewichte sind einstellbar (data/beste-modell.json) und werden nur nach Zustimmung geändert (siehe „Updates“ unten).
-export const STANDARD={3:{w20:1,w60:0,w120:0,trend:.5,heiss:1,rsiGrenze:75,kalt:.5},7:{w20:.5,w60:.5,w120:0,trend:.5,heiss:.5,rsiGrenze:75,kalt:0},30:{w20:0,w60:1,w120:.5,trend:.5,heiss:0,rsiGrenze:75,kalt:0}};
+// minBew: Werte, deren übliche Bewegung im Zeitraum kleiner ist als minBew × Kosten, fallen raus (zu träge, Kosten fressen den Gewinn).
+// bew: Bonus für Werte, deren übliche Bewegung reicht, um dein Ziel nach Kosten und Steuern zu schaffen (wichtig für kurze Zeiträume).
+export const STANDARD={3:{w20:1,w60:0,w120:0,trend:.5,heiss:1,rsiGrenze:75,kalt:.5,minBew:3,bew:.5},7:{w20:.5,w60:.5,w120:0,trend:.5,heiss:.5,rsiGrenze:75,kalt:0,minBew:3,bew:.25},30:{w20:0,w60:1,w120:.5,trend:.5,heiss:0,rsiGrenze:75,kalt:0,minBew:0,bew:0}};
 export const PARAM={w20:{n:"Gewicht Kursanstieg 4 Wochen",min:0,max:2,schritt:.25},w60:{n:"Gewicht Kursanstieg 3 Monate",min:0,max:2,schritt:.25},w120:{n:"Gewicht Kursanstieg 6 Monate",min:0,max:2,schritt:.25},
+  minBew:{n:"Mindest-Bewegung (Vielfaches der Kosten)",min:0,max:10,schritt:1},bew:{n:"Bonus, wenn die übliche Bewegung fürs Ziel reicht",min:0,max:2,schritt:.25},
   trend:{n:"Bonus für Aufwärtstrend (20- über 50-Tage-Schnitt)",min:0,max:2,schritt:.25},heiss:{n:"Abzug bei Überhitzung",min:0,max:3,schritt:.25},rsiGrenze:{n:"RSI-Grenze für Überhitzung",min:65,max:90,schritt:5},kalt:{n:"Abzug bei Ausverkauf (RSI unter 25)",min:0,max:2,schritt:.25}};
 function rechne(C){const n=C.length,lr=C.map((c,i)=>i?Math.log(c/C[i-1]):0),rsi=rsiR(C),s20=sma(C,20),s50=sma(C,50);
   const sd=Array(n).fill(null);for(let i=60;i<n;i++){const a=lr.slice(i-59,i+1),m=mean(a);sd[i]=Math.sqrt(mean(a.map(x=>(x-m)**2)))||null}
   const z=k=>C.map((c,i)=>i>=k&&sd[i]?Math.log(c/C[i-k])/(sd[i]*Math.sqrt(k)):null);
   return {s200:sma(C,200),z20:z(20),z60:z(60),z120:z(120),tr:C.map((_,i)=>s20[i]!=null&&s50[i]!=null&&s20[i]>s50[i]?1:0),rsi,s20,s50,sd}}
-const punkte=(R,i,p)=>R.z120[i]==null||R.z20[i]==null||R.z60[i]==null?null:p.w20*R.z20[i]+p.w60*R.z60[i]+p.w120*R.z120[i]+p.trend*R.tr[i]-(R.rsi[i]>p.rsiGrenze?p.heiss:0)-(R.rsi[i]<25?p.kalt:0);
-const setzePunkte=(W,M)=>{for(const w of W){w.P={};for(const H of HORIZONTE)w.P[H]=w.C.map((_,i)=>punkte(w.R,i,M[H]))}};
+const typBew=(R,i,H)=>R.sd[i]?R.sd[i]*Math.sqrt(H)*100:null; // übliche Bewegung in H Tagen (1 Standardabweichung, %)
+const punkte=(R,i,p,H)=>{if(R.z120[i]==null||R.z20[i]==null||R.z60[i]==null)return null;const tb=typBew(R,i,H);
+  if(p.minBew&&tb!=null&&tb<p.minBew*2*KOSTEN)return null;
+  return p.w20*R.z20[i]+p.w60*R.z60[i]+p.w120*R.z120[i]+p.trend*R.tr[i]-(R.rsi[i]>p.rsiGrenze?p.heiss:0)-(R.rsi[i]<25?p.kalt:0)+(p.bew&&tb!=null&&NOETIG[H]>0?p.bew*Math.min(1.5,tb/NOETIG[H]):0)};
+const setzePunkte=(W,M)=>{for(const w of W){w.P={};for(const H of HORIZONTE)w.P[H]=w.C.map((_,i)=>punkte(w.R,i,M[H],H))}};
 
 /* ---------- Test: wie gut war die Rangliste im letzten Jahr? ---------- */
 // An jedem Handelstag die Top 5 nach Punktzahl kaufen (Schlusskurs), nach H Handelstagen verkaufen, Kosten abziehen,
@@ -111,10 +124,11 @@ function testTage(W){const ab=new Date(Date.now()-365*864e5).toISOString().slice
   for(const w of W)for(const b of w.bars)if(b[0]>=ab)zaehl[b[0]]=(zaehl[b[0]]||0)+1;
   return Object.keys(zaehl).filter(d=>zaehl[d]>=W.length*.5).sort()}
 function testH(W,H,par,tage){const top=[],alle=[];let besser=0,n=0;
-  for(const d of tage){const l=[];for(const w of W){const i=w.idx.get(d);if(i==null||i+H>=w.C.length)continue;const p=par?punkte(w.R,i,par):w.P[H][i];if(p==null)continue;l.push({p,f:(w.C[i+H]/w.C[i]-1)*100-2*KOSTEN})}
+  for(const d of tage){const l=[];for(const w of W){const i=w.idx.get(d);if(i==null||i+H>=w.C.length)continue;const p=par?punkte(w.R,i,par,H):w.P[H][i];if(p==null)continue;l.push({p,f:(w.C[i+H]/w.C[i]-1)*100-2*KOSTEN})}
     if(l.length<10)continue;l.sort((a,b)=>b.p-a.p);const t=l.slice(0,TOP),mt=mean(t.map(x=>x.f)),ma=mean(l.map(x=>x.f));top.push(...t.map(x=>x.f));alle.push(ma);n++;if(mt>ma)besser++}
   const ziel=[.5,1,2,3,5,10].map(z=>[z,Math.round(top.filter(x=>x>=z*H).length/(top.length||1)*100)]); // Anteil der Käufe mit mindestens z % pro Tag (einfach gerechnet)
-  return n?{tage:n,zielQuote:Object.fromEntries(ziel),topAvg:+mean(top).toFixed(2),alleAvg:+mean(alle).toFixed(2),vorsprung:+(mean(top)-mean(alle)).toFixed(2),besser:Math.round(besser/n*100),plus:Math.round(top.filter(x=>x>0).length/top.length*100)}:{tage:0}}
+  const zh=zielH(H),netto=x=>x>0?x*(1-STEUER):x,avgS=mean(top)>0?mean(top)*(1-STEUER):mean(top);
+  return n?{tage:n,zielQuote:Object.fromEntries(ziel),nachSteuer:+avgS.toFixed(2),ueberKosten:Math.round(top.filter(x=>x>0).length/top.length*100),ueberZiel:Math.round(top.filter(x=>netto(x)>=zh).length/top.length*100),topAvg:+mean(top).toFixed(2),alleAvg:+mean(alle).toFixed(2),vorsprung:+(mean(top)-mean(alle)).toFixed(2),besser:Math.round(besser/n*100),plus:Math.round(top.filter(x=>x>0).length/top.length*100)}:{tage:0}}
 function test(W){const tage=testTage(W),out={};for(const H of HORIZONTE)out[H]=testH(W,H,null,tage);return out}
 // Prüfung eines Vorschlags: ganzes Jahr und getrennt nach erster und zweiter Jahreshälfte (gegen Zufallstreffer)
 function pruefe(W,H,alt,neu){const tage=testTage(W),m=Math.floor(tage.length/2),teil=t=>({alt:testH(W,H,alt,t),neu:testH(W,H,neu,t)});
@@ -193,7 +207,7 @@ export async function knopf(cb,ctx){SF=ctx.P(".state/beste.json");if(!ST)ST=lade
 /* ---------- Eigenes Depot der Top-Aktien-App ---------- */
 // Die App speichert Merkliste und übernommene Aktien verschlüsselt (Sync-Passwort der Haupt-App) in data/top.enc.
 async function meinDepot(ctx){const PASS=process.env.SYNC_PASSWORD||"",f=ctx.P("data/top.enc");if(!PASS||!fs.existsSync(f))return null;
-  try{const d=await entschluesseln(fs.readFileSync(f,"utf8"),PASS);delete ctx.B.err.topdepot;return {depot:Array.isArray(d.depot)?d.depot:[],merk:Array.isArray(d.merk)?d.merk:[]}}
+  try{const d=await entschluesseln(fs.readFileSync(f,"utf8"),PASS);delete ctx.B.err.topdepot;return {depot:Array.isArray(d.depot)?d.depot:[],merk:Array.isArray(d.merk)?d.merk:[],kosten:d.kosten,ziel:d.ziel}}
   catch(e){ctx.B.err.topdepot="Top-Aktien-Depot nicht lesbar. Stimmt das Sync-Passwort?";return null}}
 const linie=(ref,abst,erste)=>{const t=ref-abst;return erste&&t<0?-.5:Math.max(0,t)};
 async function schutz(ctx,W,out){ST.sch=ST.sch||{};const da=new Set();
@@ -235,7 +249,7 @@ function liste(ctx){const l=UNIVERSUM.map(([s,n,typ])=>({s,n,typ})),da=new Set(l
   return l}
 
 /* ---------- Hauptlauf ---------- */
-export async function lauf(ctx){SF=ctx.P(".state/beste.json");if(!ST)ST=lade();MD=await meinDepot(ctx);const B=ctx.B,heute=new Date().toISOString().slice(0,10);let fehler=0,geholt=0;
+export async function lauf(ctx){SF=ctx.P(".state/beste.json");if(!ST)ST=lade();MD=await meinDepot(ctx);const KZ=setzeKosten(MD),kKey=JSON.stringify([KOSTEN,STEUER,ZIEL_TAG]);const B=ctx.B,heute=new Date().toISOString().slice(0,10);let fehler=0,geholt=0;
   const L=liste(ctx);
   // Gespeichert werden nur Datum und Schlusskurs, damit der Speicher bei über 200 Werten klein bleibt
   const knapp=bars=>bars.map(b=>[b[0],b.length>2?b[4]:b[1]]);ST.versucht=ST.versucht||{};
@@ -259,14 +273,14 @@ export async function lauf(ctx){SF=ctx.P(".state/beste.json");if(!ST)ST=lade();M
   // erst wenn (fast) alle Verläufe von heute da sind, wird getestet und die Vorlage geschrieben
   const vollst=L.filter(w=>ST.versucht[w.s]===heute||(ST.hist[w.s]&&ST.hist[w.s].d===heute)).length>=L.length*.95;
   // Test einmal am Tag (ändert sich im Tagesverlauf nicht)
-  if(!ST.test||((ST.test.d!==heute||ST.test.version!==MO.version)&&vollst))ST.test={d:heute,version:MO.version,von:new Date(Date.now()-365*864e5).toISOString().slice(0,10),werte:W.length,h:test(W)};
+  if(!ST.test||((ST.test.d!==heute||ST.test.version!==MO.version||ST.test.k!==kKey)&&vollst))ST.test={d:heute,version:MO.version,k:kKey,von:new Date(Date.now()-365*864e5).toISOString().slice(0,10),werte:W.length,h:test(W)};
   if(!ST.muster||(ST.muster.d!==heute&&vollst))ST.muster={d:heute,m:musterSpeicher(W)};
   const jetzt=W.filter(w=>Date.now()-Date.parse(w.bars[w.bars.length-1][0])<6*864e5);// ohne veraltete Werte
   const fakten=(w,H)=>{const i=w.C.length-1,C=w.C,p=w.h.p&&Date.now()-(w.h.mt||0)<3*864e5?w.h.p:C[i],sd=w.R.sd[i],ch=k=>i>=k?+((p/C[i-k]-1)*100).toFixed(1):null;
     return {s:w.s,n:w.n,typ:w.typ||"a",cur:w.h.cur||"",p:r6(p),sdTag:sd?+sd.toFixed(5):null,dp:+((p/C[i-1]-1)*100).toFixed(2),mt:w.h.mt||w.h.lt||0,eigen:w.eigen||undefined,
       tage5:ch(5),wochen4:ch(20),monate3:ch(60),monate6:ch(120),rsi:w.R.rsi[i]!=null?+w.R.rsi[i].toFixed(0):null,schwankungJahr:sd?+(sd*Math.sqrt(252)*100).toFixed(0):null,
       trend:w.R.s20[i]!=null&&w.R.s50[i]!=null?(w.R.s20[i]>w.R.s50[i]?"aufwärts":"abwärts"):null,ueber50:w.R.s50[i]?+((p/w.R.s50[i]-1)*100).toFixed(1):null,
-      punkte:H?+w.P[H][i].toFixed(2):undefined,bereich:H&&sd?{lo:r6(p*Math.exp(-sd*Math.sqrt(H))),hi:r6(p*Math.exp(sd*Math.sqrt(H)))}:undefined,
+      punkte:H&&w.P[H][i]!=null?+w.P[H][i].toFixed(2):undefined,typBew:H&&sd?+(sd*Math.sqrt(H)*100).toFixed(1):undefined,noetig:H?NOETIG[H]:undefined,bereich:H&&sd?{lo:r6(p*Math.exp(-sd*Math.sqrt(H))),hi:r6(p*Math.exp(sd*Math.sqrt(H)))}:undefined,
       spark:C.slice(-60).map(x=>+(+x).toPrecision(5)),muster:H?musterAktiv(w,H,ST.muster&&ST.muster.m):undefined}};
   const rang={};for(const H of HORIZONTE)rang[H]=jetzt.filter(w=>w.P[H][w.C.length-1]!=null).sort((a,b)=>b.P[H][b.C.length-1]-a.P[H][a.C.length-1]);
   ST.wichtig=[...new Set(HORIZONTE.flatMap(H=>rang[H].slice(0,25).map(w=>w.s)))];
@@ -303,7 +317,7 @@ export async function lauf(ctx){SF=ctx.P(".state/beste.json");if(!ST)ST=lade();M
     await ctx.send(vorschlagText(ctx,ST.vorschlag)+link(ctx,""),{knoepfe:[[{text:"✅ Übernehmen",callback_data:`bu:ja:${ST.vorschlag.id}`},{text:"❌ Ablehnen",callback_data:`bu:nein:${ST.vorschlag.id}`}]]})}
   // Nach einem Update: alte Rechnung läuft 30 Tage mit, beide Listen werden abgerechnet
   let pruefung=null;if(ST.schatten){const S=ST.schatten;
-    if(vollst&&!S.eintraege.some(e=>e.d===heute)&&Date.now()-Date.parse(S.seit)<31*864e5){const e={d:heute,h:{}};for(const H of HORIZONTE){const altR=jetzt.map(w=>({w,p:punkte(w.R,w.C.length-1,S.alt[H])})).filter(x=>x.p!=null).sort((a,b)=>b.p-a.p).slice(0,TOP);
+    if(vollst&&!S.eintraege.some(e=>e.d===heute)&&Date.now()-Date.parse(S.seit)<31*864e5){const e={d:heute,h:{}};for(const H of HORIZONTE){const altR=jetzt.map(w=>({w,p:punkte(w.R,w.C.length-1,S.alt[H],H)})).filter(x=>x.p!=null).sort((a,b)=>b.p-a.p).slice(0,TOP);
         const p0=w=>r6(w.h.p||w.C[w.C.length-1]);e.h[H]={neu:rang[H].slice(0,TOP).map(w=>({s:w.s,p0:p0(w)})),alt:altR.map(x=>({s:x.w.s,p0:p0(x.w)}))}}S.eintraege.push(e)}
     pruefung={seit:S.seit,titel:S.titel,version:S.version,tage:S.eintraege.length,h:Object.fromEntries(HORIZONTE.map(H=>[H,{neu:abrechnen(W,S.eintraege.map(e=>({d:e.d,picks:e.h[H].neu})),H),alt:abrechnen(W,S.eintraege.map(e=>({d:e.d,picks:e.h[H].alt})),H)}]))};
     if(Date.now()-Date.parse(S.seit)>75*864e5)ST.schatten=null}
@@ -312,7 +326,7 @@ export async function lauf(ctx){SF=ctx.P(".state/beste.json");if(!ST)ST=lade();M
   const meine={},schutzApp={};
   if(MD){for(const x of [...(MD.depot||[]),...(MD.merk||[])]){const w=W.find(y=>y.s===x.s);if(w&&!meine[x.s])meine[x.s]=fakten(w,7)}
     await schutz(ctx,W,schutzApp);ST.app_schutz=schutzApp}
-  ST.app={v:2,t:Date.now(),top:TOP,kosten:KOSTEN,horizonte:HORIZONTE,test:ST.test,werte:W.length,
+  ST.app={v:2,t:Date.now(),top:TOP,kosten:KOSTEN,kostenRT:+(2*KOSTEN).toFixed(2),steuer:+(STEUER*100).toFixed(2),zielTag:+ZIEL_TAG.toFixed(3),noetig:NOETIG,kostenEin:KZ.kosten,horizonte:HORIZONTE,test:ST.test,werte:W.length,
     ki:kiHeute?{id:ki.id,erstellt:ki.erstellt,slot:ki.slot,markt:ki.markt||"",marktQuellen:Array.isArray(ki.marktQuellen)?ki.marktQuellen.slice(0,4):[],aussortiert:Array.isArray(ki.aussortiert)?ki.aussortiert.slice(0,12):[]}:null,
     aktien:W.filter(w=>w.typ!=="e").length,etfs:W.filter(w=>w.typ==="e").length,
     weitere:Object.fromEntries(HORIZONTE.map(H=>[H,rang[H].filter(w=>!listen[H].some(x=>x.s===w.s)).slice(0,WEITERE).map(w=>{const f=fakten(w,H);return {s:f.s,n:f.n,typ:f.typ,cur:f.cur,p:f.p,dp:f.dp,mt:f.mt,wochen4:f.wochen4,monate3:f.monate3,trend:f.trend,rsi:f.rsi,rang:rang[H].indexOf(w)+1}})])),
@@ -336,6 +350,7 @@ async function vorlage(ctx,W,rang,fakten,slot,datum,bisher,lernen){const quart=a
   const alt={};if(bisher)for(const H of HORIZONTE)for(const x of bisher.listen[H]||[])if(alle.has(x.s)&&!alt[x.s])alt[x.s]={einschaetzung:x.einschaetzung,warum:x.warum,ausblick:x.ausblick,szenarien:x.szenarien,treiber:x.treiber,risiken:x.risiken,termine:x.termine,quellen:x.quellen};
   const v={id:`b-${datum}-${slot}`,datum,slot,erstellt:new Date().toISOString(),
     _anleitung:"Siehe trading/KI-AUFGABE.md. Kurz: Für jeden Zeitraum (3, 7, 30 Handelstage) aus den kandidaten genau 5 Werte auswählen und begründen, mit echter Websuche und Quellen-Links. Nur Werte aus der jeweiligen Kandidatenliste. Keine Zahlen erfinden. Ergebnis als data/beste.json.",
+    kostenUndZiel:{kostenHinUndZurueck:+(2*KOSTEN).toFixed(2),steuerProzent:+(STEUER*100).toFixed(2),zielProTag:+ZIEL_TAG.toFixed(3),noetigerAnstiegBrutto:NOETIG,hinweis:"3 und 7 Tage sind reine Kurzfrist-Trades: nur Werte wählen, bei denen ein Anstieg über noetigerAnstiegBrutto in diesem Zeitraum plausibel ist (typBew = übliche Bewegung). Träge Werte und langsame ETFs eher aussortieren. Ehrlich bleiben: sicher steigt nichts."},
     methode:{text:"Aktien und ETFs gemischt (typ a = Aktie, e = ETF). Rangliste nach risikobereinigtem Kursanstieg (Anstieg geteilt durch normale Schwankung) plus Trend, abzüglich Überhitzung (RSI über 75). rechenRang 1 = beste Punktzahl.",test:ST.test},
     kandidaten:kand,werteInfo:mel,_bisherHeute:Object.keys(alt).length?alt:undefined,
     _lernen:lernen?Object.assign({aufgabe:"Schlage höchstens EIN Update der Rechnung vor (Feld vorschlag), nur wenn es gut begründet ist. Grundlage: variantenTest (jede Einstellung einen Schritt verändert, getestet in beiden Jahreshälften), bilanzListen und bisherigeUpdates (abgelehnte nicht wiederholen). Bevorzuge Varianten mit beideBesser=true. Kein guter Kandidat: vorschlag weglassen. Der Wachmann testet deinen Vorschlag selbst noch einmal, der Nutzer muss zustimmen."},lernen):undefined,
