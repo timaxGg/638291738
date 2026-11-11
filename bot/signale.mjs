@@ -235,6 +235,39 @@ async function okKnopf(cb,ctx,id){const st=ST.sch&&ST.sch[id],x=MD&&MD.depot.fin
   if(ctx.tg){await ctx.tg("answerCallbackQuery",{callback_query_id:cb.id,text:"Gewinnschutz neu gesetzt"});
     await ctx.tg("editMessageText",{chat_id:cb.message.chat.id,message_id:cb.message.message_id,parse_mode:"HTML",text:`🛡️ Gewinnschutz: ${ctx.esc(x.n||x.s)}\n✅ Bestätigt: ${pz(ch)} ist jetzt der Ausgangswert, die Schutzlinie liegt bei <b>${pz(lv)}</b>.${ch<0?" Ich melde mich wieder, wenn es einen weiteren Prozentpunkt fällt.":""}`})}speichere()}
 
+/* ---------- Einstieg: Ist jetzt ein guter Moment zum Kaufen, oder lieber auf einen Rücksetzer warten? ---------- */
+// Zustand aus dem Kurs: Abstand zum 20-Tage-Schnitt (in Tagesschwankungen), Abstand zum 10-Tage-Hoch, RSI und Trend.
+// Für jeden Zustand wird an allen Werten des letzten Jahres geprüft, was ein Kauf danach gebracht hat, und ob sich Warten gelohnt hat.
+const ZUST={guenstig:{n:"Jetzt günstig",t:"Aufwärtstrend und der Kurs hat gerade etwas nachgegeben. Du kaufst nicht oben auf dem Berg."},
+  wende:{n:"Wende nach oben",t:"Nach einem Rücksetzer im Aufwärtstrend steigt der Kurs wieder."},
+  neutral:{n:"Neutral",t:"Weder besonders günstig noch überdehnt."},
+  ueberdehnt:{n:"Gerade oben – Rücksetzer abwarten",t:"Der Kurs ist zuletzt schnell gestiegen und liegt weit über seinem Durchschnitt. Wer jetzt kauft, kauft oft oben."},
+  messer:{n:"Fällt noch – Wende abwarten",t:"Der Kurs fällt im Abwärtstrend. Erst kaufen, wenn er wieder Boden findet."}};
+function zustand(w,i){const R=w.R,C=w.C,sd=R.sd[i];if(i<60||!sd||R.s20[i]==null||R.s50[i]==null)return null;
+  const ab=Math.log(C[i]/R.s20[i])/sd,hi10=maxV(C,i-9,i+1),vomHoch=Math.log(C[i]/hi10)/sd,r3=Math.log(C[i]/C[i-3])/sd,r1=Math.log(C[i]/C[i-1])/sd,auf=R.s20[i]>R.s50[i];
+  let z="neutral",ziel=null;
+  if(!auf&&C[i]<R.s20[i]&&r3<-1){z="messer";ziel=maxV(C,i-4,i+1)}                       // erst über dem 5-Tage-Hoch wieder interessant
+  else if(ab>2.5||R.rsi[i]>72){z="ueberdehnt";ziel=R.s20[i]*Math.exp(.5*sd)}              // Einstiegszone: nahe am 20-Tage-Schnitt
+  else if(auf&&ab>-1.5&&ab<1&&vomHoch<-1&&r1>.3)z="wende";
+  else if(auf&&ab>-1.5&&ab<1&&vomHoch<-1)z="guenstig";
+  return {z,ab:+ab.toFixed(2),ziel,vomHoch:+((C[i]/hi10-1)*100).toFixed(1)}}
+function einstiegStat(W){const ab=new Date(Date.now()-365*864e5).toISOString().slice(0,10),out={};
+  for(const k of Object.keys(ZUST))out[k]={3:[],7:[],treffer:0,tage:[],n:0,warten:[],sofort:[]};
+  for(const w of W)for(let i=60;i<w.C.length-1;i++){if(w.bars[i][0]<ab)continue;const z=zustand(w,i);if(!z)continue;const o=out[z.z];
+    for(const H of [3,7])if(i+H<w.C.length)o[H].push((w.C[i+H]/w.C[i]-1)*100-2*KOSTEN);
+    if(z.ziel&&i+17<w.C.length){o.n++;// kommt der Kurs in 10 Tagen an die Einstiegsmarke? Und war Warten besser als sofort kaufen?
+      let j=-1;for(let k=1;k<=10;k++){const c=w.C[i+k];if(z.z==="messer"?c>z.ziel:c<=z.ziel){j=i+k;break}}
+      // fairer Vergleich über ALLE Fälle, beide verkaufen am selben Tag (i+17): sofort kaufen vs. warten (Kauf an der Marke, sonst nach 10 Tagen)
+      const kauf=j>0?j:i+10;if(j>0){o.treffer++;o.tage.push(j-i)}o.warten.push((w.C[i+17]/w.C[kauf]-1)*100);o.sofort.push((w.C[i+17]/w.C[i]-1)*100)}}
+  const med=a=>{if(!a.length)return null;const b=[...a].sort((x,y)=>x-y);return b[Math.floor(b.length/2)]};
+  for(const [k,o] of Object.entries(out)){const r={};for(const H of [3,7])r[H]=o[H].length?{n:o[H].length,avg:+mean(o[H]).toFixed(2),plus:Math.round(o[H].filter(x=>x>0).length/o[H].length*100)}:{n:0};
+    if(o.n)Object.assign(r,{faelle:o.n,erreicht:Math.round(o.treffer/o.n*100),medTage:med(o.tage),wartenAvg:o.warten.length?+mean(o.warten).toFixed(2):null,sofortAvg:o.sofort.length?+mean(o.sofort).toFixed(2):null});
+    out[k]=r}
+  return out}
+function einstieg(w,p){const i=w.C.length-1,z=zustand(w,i);if(!z)return null;const st=ST.einstieg&&ST.einstieg.s&&ST.einstieg.s[z.z];
+  return {z:z.z,n:ZUST[z.z].n,t:ZUST[z.z].t,ab20:+((p/w.R.s20[i]-1)*100).toFixed(1),vomHoch:z.vomHoch,rsi:w.R.rsi[i]!=null?+w.R.rsi[i].toFixed(0):null,
+    ziel:z.ziel?r6(z.ziel):null,zielAbst:z.ziel?+((z.ziel/p-1)*100).toFixed(1):null,s20:r6(w.R.s20[i]),stat:st||null}}
+
 /* ---------- Zustand ---------- */
 let SF="",ST=null,MD=null; // MD = eigenes Depot und Merkliste der Top-Aktien-App (verschlüsselt in data/top.enc)
 const lade=()=>{try{return Object.assign({hist:{},listen:[],fehler:{}},JSON.parse(fs.readFileSync(SF,"utf8")))}catch(e){return {hist:{},listen:[],fehler:{}}}};
@@ -275,13 +308,14 @@ export async function lauf(ctx){SF=ctx.P(".state/beste.json");if(!ST)ST=lade();M
   // Test einmal am Tag (ändert sich im Tagesverlauf nicht)
   if(!ST.test||((ST.test.d!==heute||ST.test.version!==MO.version||ST.test.k!==kKey)&&vollst))ST.test={d:heute,version:MO.version,k:kKey,von:new Date(Date.now()-365*864e5).toISOString().slice(0,10),werte:W.length,h:test(W)};
   if(!ST.muster||(ST.muster.d!==heute&&vollst))ST.muster={d:heute,m:musterSpeicher(W)};
+  if(!ST.einstieg||((ST.einstieg.d!==heute||ST.einstieg.k!==kKey)&&vollst))ST.einstieg={d:heute,k:kKey,s:einstiegStat(W)};
   const jetzt=W.filter(w=>Date.now()-Date.parse(w.bars[w.bars.length-1][0])<6*864e5);// ohne veraltete Werte
   const fakten=(w,H)=>{const i=w.C.length-1,C=w.C,p=w.h.p&&Date.now()-(w.h.mt||0)<3*864e5?w.h.p:C[i],sd=w.R.sd[i],ch=k=>i>=k?+((p/C[i-k]-1)*100).toFixed(1):null;
     return {s:w.s,n:w.n,typ:w.typ||"a",cur:w.h.cur||"",p:r6(p),sdTag:sd?+sd.toFixed(5):null,dp:+((p/C[i-1]-1)*100).toFixed(2),mt:w.h.mt||w.h.lt||0,eigen:w.eigen||undefined,
       tage5:ch(5),wochen4:ch(20),monate3:ch(60),monate6:ch(120),rsi:w.R.rsi[i]!=null?+w.R.rsi[i].toFixed(0):null,schwankungJahr:sd?+(sd*Math.sqrt(252)*100).toFixed(0):null,
       trend:w.R.s20[i]!=null&&w.R.s50[i]!=null?(w.R.s20[i]>w.R.s50[i]?"aufwärts":"abwärts"):null,ueber50:w.R.s50[i]?+((p/w.R.s50[i]-1)*100).toFixed(1):null,
       punkte:H&&w.P[H][i]!=null?+w.P[H][i].toFixed(2):undefined,typBew:H&&sd?+(sd*Math.sqrt(H)*100).toFixed(1):undefined,noetig:H?NOETIG[H]:undefined,bereich:H&&sd?{lo:r6(p*Math.exp(-sd*Math.sqrt(H))),hi:r6(p*Math.exp(sd*Math.sqrt(H)))}:undefined,
-      spark:C.slice(-60).map(x=>+(+x).toPrecision(5)),muster:H?musterAktiv(w,H,ST.muster&&ST.muster.m):undefined}};
+      spark:C.slice(-60).map(x=>+(+x).toPrecision(5)),muster:H?musterAktiv(w,H,ST.muster&&ST.muster.m):undefined,einstieg:einstieg(w,p)}};
   const rang={};for(const H of HORIZONTE)rang[H]=jetzt.filter(w=>w.P[H][w.C.length-1]!=null).sort((a,b)=>b.P[H][b.C.length-1]-a.P[H][a.C.length-1]);
   ST.wichtig=[...new Set(HORIZONTE.flatMap(H=>rang[H].slice(0,25).map(w=>w.s)))];
 
@@ -323,15 +357,21 @@ export async function lauf(ctx){SF=ctx.P(".state/beste.json");if(!ST)ST=lade();M
     if(Date.now()-Date.parse(S.seit)>75*864e5)ST.schatten=null}
 
   // Eigenes Depot der Top-Aktien-App: Gewinnschutz (nachlaufend, wie in der Haupt-App) und Verlustschutz, mit Link zur Aktie
+  // Gemerkte Werte: Meldung, wenn der Einstieg günstig wird (nicht nachts)
+  if(MD&&MD.merk&&MD.merk.length&&ctx.send){ST.eAlt=ST.eAlt||{};for(const m of MD.merk){const w=W.find(y=>y.s===m.s);if(!w)continue;const e=fakten(w,3).einstieg;if(!e)continue;
+    const vor=ST.eAlt[m.s];ST.eAlt[m.s]=e.z;if(vor&&vor!==e.z&&(e.z==="guenstig"||e.z==="wende")&&!ctx.leise()&&!(MD.depot||[]).some(d=>d.s===m.s))
+      await ctx.send(`🟢 <b>Einstieg: ${ctx.esc(m.n||m.s)}</b>\n${e.n}. ${e.t}\nKurs ${pz(e.ab20)} zum 20-Tage-Schnitt, ${pz(e.vomHoch)} unter dem 10-Tage-Hoch, RSI ${e.rsi}.${e.stat&&e.stat[3]&&e.stat[3].n?`\nIm Rückblick brachte ein Kauf in diesem Zustand in 3 Tagen Ø ${pz(e.stat[3].avg)} (${e.stat[3].plus} % im Plus).`:""}\n<i>Keine Anlageberatung.</i>${link(ctx,m.s)}`)}
+    for(const s of Object.keys(ST.eAlt))if(!MD.merk.some(m=>m.s===s))delete ST.eAlt[s]}
   const meine={},schutzApp={};
   if(MD){for(const x of [...(MD.depot||[]),...(MD.merk||[])]){const w=W.find(y=>y.s===x.s);if(w&&!meine[x.s])meine[x.s]=fakten(w,7)}
     await schutz(ctx,W,schutzApp);ST.app_schutz=schutzApp}
   ST.app={v:2,t:Date.now(),top:TOP,kosten:KOSTEN,kostenRT:+(2*KOSTEN).toFixed(2),steuer:+(STEUER*100).toFixed(2),zielTag:+ZIEL_TAG.toFixed(3),noetig:NOETIG,kostenEin:KZ.kosten,horizonte:HORIZONTE,test:ST.test,werte:W.length,
     ki:kiHeute?{id:ki.id,erstellt:ki.erstellt,slot:ki.slot,markt:ki.markt||"",marktQuellen:Array.isArray(ki.marktQuellen)?ki.marktQuellen.slice(0,4):[],aussortiert:Array.isArray(ki.aussortiert)?ki.aussortiert.slice(0,12):[]}:null,
     aktien:W.filter(w=>w.typ!=="e").length,etfs:W.filter(w=>w.typ==="e").length,
-    weitere:Object.fromEntries(HORIZONTE.map(H=>[H,rang[H].filter(w=>!listen[H].some(x=>x.s===w.s)).slice(0,WEITERE).map(w=>{const f=fakten(w,H);return {s:f.s,n:f.n,typ:f.typ,cur:f.cur,p:f.p,dp:f.dp,mt:f.mt,wochen4:f.wochen4,monate3:f.monate3,trend:f.trend,rsi:f.rsi,rang:rang[H].indexOf(w)+1}})])),
+    weitere:Object.fromEntries(HORIZONTE.map(H=>[H,rang[H].filter(w=>!listen[H].some(x=>x.s===w.s)).slice(0,WEITERE).map(w=>{const f=fakten(w,H);return {s:f.s,n:f.n,typ:f.typ,cur:f.cur,p:f.p,dp:f.dp,mt:f.mt,einstieg:f.einstieg,spark:f.spark.slice(-30),noetig:f.noetig,typBew:f.typBew,wochen4:f.wochen4,monate3:f.monate3,trend:f.trend,rsi:f.rsi,rang:rang[H].indexOf(w)+1}})])),
     modell:{version:MO.version,params:M,standard:STANDARD,param:PARAM,verlauf:MO.verlauf.slice(-10).reverse()},vorschlag:ST.vorschlag&&(ST.vorschlag.status==='offen'||Date.now()-(ST.vorschlag.entschieden||0)<3*864e5)?ST.vorschlag:null,pruefung,
     muster:{info:MUSTER.map(m=>({id:m.id,n:m.n,t:m.t})),speicher:ST.muster?ST.muster.m:null},
+    einstiegInfo:{zust:ZUST,stat:ST.einstieg?ST.einstieg.s:null},
     meine,schutz:Object.keys(schutzApp).length&&process.env.SYNC_PASSWORD?await verschluesseln(schutzApp,process.env.SYNC_PASSWORD):null,
     listen,bilanz:{fertig,laufend},fehler:Object.keys(ST.fehler).length?ST.fehler:undefined};
 
