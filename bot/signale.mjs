@@ -209,6 +209,12 @@ export async function knopf(cb,ctx){SF=ctx.P(".state/beste.json");if(!ST)ST=lade
 export const MELDUNGEN={schutz:"Gewinn- und Verlustschutz",bewegung:"Starke Kursbewegung im Top-Depot (alle 2 %)",stand:"Depot-Stand jede Stunde (9–22 Uhr, Börsentage)",
   liste:"Neue KI-Listen (3× täglich)",wechsel:"Neu in den Top 5 (3 und 7 Tage)",einstieg:"Einstieg günstig (Top-Listen und gemerkte)",update:"Update-Vorschläge der KI"};
 const an=art=>!(MD&&MD.notify&&MD.notify[art]===false);
+// Farbe für eine Aktie (Telegram kann keine Textfarbe, daher farbige Punkte):
+// 🟢 steigt · 🟡 bleibt gleich · 🟠 aus dem Plus etwas gesunken · 🔴 fällt im Minus oder hat vom Höchststand mehr als „grenze“ Prozentpunkte verloren
+const EPS=.1;
+function farbe(ch,vorher,hoch,grenze){const g=(MD&&MD.notify&&+MD.notify.grenze>0)?+MD.notify.grenze:(grenze||.5),d=vorher==null?0:ch-vorher;
+  if(hoch!=null&&hoch>0&&hoch-ch>=g)return "🔴";if(d>EPS)return "🟢";if(d>=-EPS)return "🟡";return ch>0?"🟠":"🔴"}
+const hochVon=(id,ch)=>{ST.hoch=ST.hoch||{};ST.hoch[id]=Math.max(ST.hoch[id]??ch,ch);return ST.hoch[id]};
 async function melde(ctx,art,text,o={}){if(!ctx.send||!an(art))return false;const nachts=MD&&MD.notify&&MD.notify.nachts===true;
   if(!nachts&&!o.dringend&&!o.direkt&&ctx.leise()&&art!=="schutz"&&art!=="update")return false; // ruhige Meldungen nachts weglassen statt nachholen
   await ctx.send(text,Object.assign({},o,nachts||art==="schutz"?{dringend:true}:{}));return true} // Schutz-Warnungen immer sofort
@@ -222,7 +228,7 @@ const linie=(ref,abst,erste)=>{const t=ref-abst;return erste&&t<0?-.5:Math.max(0
 async function schutz(ctx,W,out){ST.sch=ST.sch||{};const da=new Set();
   for(const x of MD.depot){if(!x||!x.id||!x.s||!(x.k>0))continue;da.add(x.id);const h=ST.hist[x.s];if(!h||!h.bars)continue;
     const p=h.p&&Date.now()-(h.mt||0)<4*864e5?h.p:h.bars[h.bars.length-1][1];if(!(p>0))continue;
-    const ch=(p/x.k-1)*100,st=ST.sch[x.id]=ST.sch[x.id]||{ref:ch,al:null,vl:null,okT:0,seit:Date.now()},n=x.n||x.s,c=CS[h.cur]||h.cur||"";
+    const ch=(p/x.k-1)*100;hochVon(x.id,ch);const st=ST.sch[x.id]=ST.sch[x.id]||{ref:ch,al:null,vl:null,okT:0,seit:Date.now()},n=x.n||x.s,c=CS[h.cur]||h.cur||"";
     if(x.okT&&x.okT>st.okT){st.okT=x.okT;st.ref=ch;st.al=ch<0?ch:null}
     const kurs=`Kurs ${dez(p)} ${c} · Kauf ${dez(x.k)} ${c}${x.q?` · ${x.q} Stück`:""}`,lk=link(ctx,x.s).replace("In der Top-Aktien-App öffnen ›","Zur Aktie in der Top-Aktien-App ›");
     // Verlustschutz: Meldung, wenn das Minus die Grenze erreicht, danach bei jedem weiteren 2 Prozentpunkten
@@ -233,7 +239,7 @@ async function schutz(ctx,W,out){ST.sch=ST.sch||{};const da=new Set();
     // Gewinnschutz: Schutzlinie = höchstes Plus seit Kauf (oder seit „OK“) minus Abstand, nie unter 0; erste Stunde ab −0,5 %
     if(x.nl!==0){const abst=x.nl>0?x.nl:.5,erste=!!x.t&&Date.now()-x.t<36e5;st.ref=Math.max(st.ref,ch);const lv=linie(st.ref,abst,erste),unter=lv>0?ch<=lv:ch<lv,doppelt=lv<=0&&x.a!==0&&ch<=a; // im Minus unter der Verlustgrenze reicht die Verlust-Meldung
       if(unter&&!doppelt){if(st.al==null||ch<=st.al-1){st.al=ch;const neu=linie(ch,abst,false);
-          await melde(ctx,"schutz",`🛡️ <b>Gewinnschutz: ${ctx.esc(n)}</b>\n${lv>0?`Dein Plus ist auf <b>${pz(ch)}</b> gefallen. Höchster Stand war ${pz(st.ref)}, deine Schutzlinie liegt bei ${pz(lv)}.`:`Du bist ins Minus gerutscht: <b>${pz(ch)}</b> seit Kauf.`}\n${kurs}\n\nVerkaufen oder mit <b>OK</b> bestätigen, dass die Aktie gesund ist. ${ch>=0?`Dann gilt ${pz(ch)} als neuer Höchstwert und die Schutzlinie liegt bei ${pz(neu)}.`:"Dann melde ich mich erst wieder, wenn es einen weiteren Prozentpunkt fällt."}${lk}`,{knoepfe:[[{text:"✅ OK, Aktie ist gesund",callback_data:`tp:ok:${x.id}`.slice(0,64)}]]})}}
+          await melde(ctx,"schutz",`🔴🛡️ <b>Gewinnschutz: ${ctx.esc(n)}</b>\n${lv>0?`Dein Plus ist auf <b>${pz(ch)}</b> gefallen. Höchster Stand war ${pz(st.ref)}, deine Schutzlinie liegt bei ${pz(lv)}.`:`Du bist ins Minus gerutscht: <b>${pz(ch)}</b> seit Kauf.`}\n${kurs}\n\nVerkaufen oder mit <b>OK</b> bestätigen, dass die Aktie gesund ist. ${ch>=0?`Dann gilt ${pz(ch)} als neuer Höchstwert und die Schutzlinie liegt bei ${pz(neu)}.`:"Dann melde ich mich erst wieder, wenn es einen weiteren Prozentpunkt fällt."}${lk}`,{knoepfe:[[{text:"✅ OK, Aktie ist gesund",callback_data:`tp:ok:${x.id}`.slice(0,64)}]]})}}
       else if(st.al!=null&&ch>lv+.2)st.al=null;
       out[x.id]={ch:+ch.toFixed(2),p:r6(p),ref:+st.ref.toFixed(2),lv:+lv.toFixed(2),abst,warn:unter,vl:st.vl!=null,t:Date.now()}}
     else out[x.id]={ch:+ch.toFixed(2),p:r6(p),vl:st.vl!=null,t:Date.now()}}
@@ -242,8 +248,8 @@ async function schutz(ctx,W,out){ST.sch=ST.sch||{};const da=new Set();
 async function bewegung(ctx){ST.bew=ST.bew||{};const heute=new Date().toISOString().slice(0,10);if(!MD)return;
   for(const x of MD.depot){const h=ST.hist[x.s];if(!h||!h.bars||h.bars.length<2||!(h.p>0))continue;const b=h.bars,letzt=b[b.length-1],vorTag=letzt[0]===teile(regionVon(x.s)==="eu"?"Europe/Berlin":"America/New_York").date?b[b.length-2][1]:letzt[1];
     const dp=(h.p/vorTag-1)*100,stufe=Math.trunc(dp/2),st=ST.bew[x.id];if(!st||st.d!==heute)ST.bew[x.id]={d:heute,s:0};
-    if(stufe!==0&&Math.abs(stufe)>Math.abs(ST.bew[x.id].s)){ST.bew[x.id].s=stufe;const ch=(h.p/x.k-1)*100,c=CS[h.cur]||h.cur||"";
-      await melde(ctx,"bewegung",`${dp>0?"📈":"📉"} <b>${ctx.esc(x.n||x.s)} ${pz(dp)} heute</b>\nKurs ${dez(h.p)} ${c} · seit Kauf ${pz(ch)}${dp<0?"\nGewinn- und Verlustschutz laufen weiter.":"\nTipp: Gewinnschutz prüfen, damit das Plus gesichert bleibt."}${link(ctx,x.s)}`)}}}
+    if(stufe!==0&&Math.abs(stufe)>Math.abs(ST.bew[x.id].s)){ST.bew[x.id].s=stufe;const ch=(h.p/x.k-1)*100,c=CS[h.cur]||h.cur||"",hoch=hochVon(x.id,ch),fa=dp>0?(hoch>0&&hoch-ch>=((MD.notify&&+MD.notify.grenze)||.5)?"🔴":"🟢"):(ch>0&&!(hoch-ch>=((MD.notify&&+MD.notify.grenze)||.5))?"🟠":"🔴");
+      await melde(ctx,"bewegung",`${fa} <b>${ctx.esc(x.n||x.s)} ${pz(dp)} heute</b>\nKurs ${dez(h.p)} ${c} · seit Kauf ${pz(ch)}${dp<0?"\nGewinn- und Verlustschutz laufen weiter.":"\nTipp: Gewinnschutz prüfen, damit das Plus gesichert bleibt."}${link(ctx,x.s)}`)}}}
 // Schneller Zwischen-Durchgang (während der Wachmann auf Telegram wartet): nur Kurse des Top-Depots, Schutz und Bewegung
 export async function schnell(ctx){SF=ctx.P(".state/beste.json");if(!ST)ST=lade();if(Date.now()-(ST.schnellT||0)<50e3)return;ST.schnellT=Date.now();if(!MD)MD=await meinDepot(ctx);if(!MD||!MD.depot.length)return;
   for(const s of [...new Set(MD.depot.map(d=>d.s))]){const h=ST.hist[s];if(!h||!h.bars||!offen(regionVon(s)))continue;try{const y=await yahoo(s,"5d");h.bars=zusammen(h.bars,y.bars.map(b=>[b[0],b[4]])).slice(-560);h.p=y.p;h.mt=y.mt;h.lt=Date.now()}catch(e){}}
@@ -380,7 +386,7 @@ export async function lauf(ctx){SF=ctx.P(".state/beste.json");if(!ST)ST=lade();M
   if(ctx.send){ST.eAlt=ST.eAlt||{};ST.eTag=ST.eTag||{};const beob=[...((MD&&MD.merk)||[]),...[3,7].flatMap(H=>rang[H].slice(0,TOP).map(w=>({s:w.s,n:w.n,top:H})))];const gesehen=new Set();for(const m of beob){if(gesehen.has(m.s))continue;gesehen.add(m.s);const w=W.find(y=>y.s===m.s);if(!w)continue;const e=fakten(w,3).einstieg;if(!e)continue;
     const vor=ST.eAlt[m.s];ST.eAlt[m.s]=e.z;if(vor&&vor!==e.z&&(e.z==="guenstig"||e.z==="wende")&&ST.eTag[m.s]!==heute&&!((MD&&MD.depot)||[]).some(d=>d.s===m.s)&&(ST.eTag[m.s]=heute))
       await melde(ctx,"einstieg",`🟢 <b>Einstieg: ${ctx.esc(m.n||m.s)}</b>${m.top?` (Top ${TOP}, ${m.top} Tage)`:" (gemerkt)"}\n${e.n}. ${e.t}\nKurs ${pz(e.ab20)} zum 20-Tage-Schnitt, ${pz(e.vomHoch)} unter dem 10-Tage-Hoch, RSI ${e.rsi}.${e.stat&&e.stat[3]&&e.stat[3].n?`\nIm Rückblick brachte ein Kauf in diesem Zustand in 3 Tagen Ø ${pz(e.stat[3].avg)} (${e.stat[3].plus} % im Plus).`:""}\n<i>Keine Anlageberatung.</i>${link(ctx,m.s)}`)}
-    for(const s of Object.keys(ST.eAlt))if(!gesehen.has(s))delete ST.eAlt[s];for(const s of Object.keys(ST.eTag))if(ST.eTag[s]!==heute)delete ST.eTag[s]}
+    for(const s of Object.keys(ST.eAlt))if(!gesehen.has(s))delete ST.eAlt[s];for(const k of ["standVor","hoch"])if(ST[k]&&MD)for(const id of Object.keys(ST[k]))if(!MD.depot.some(d=>d.id===id))delete ST[k][id];for(const s of Object.keys(ST.eTag))if(ST.eTag[s]!==heute)delete ST.eTag[s]}
   // Neu in den Top 5 (Rechnung, 3 und 7 Tage): höchstens einmal pro Stunde je Zeitraum
   ST.topAlt=ST.topAlt||{};ST.topT=ST.topT||{};if(vollst)for(const H of [3,7]){const jetztTop=rang[H].slice(0,TOP).map(w=>w.s),alt=ST.topAlt[H]||[],neu=jetztTop.filter(s=>!alt.includes(s));
     if(alt.length&&neu.length&&Date.now()-(ST.topT[H]||0)>36e5){ST.topT[H]=Date.now();ST.topAlt[H]=jetztTop;
@@ -388,8 +394,8 @@ export async function lauf(ctx){SF=ctx.P(".state/beste.json");if(!ST)ST=lade();M
     else if(!alt.length)ST.topAlt[H]=jetztTop;else if(!neu.length)ST.topAlt[H]=jetztTop}
   // Depot-Stand jede Stunde während der Börsenzeiten
   {const z=teile("Europe/Berlin");if(MD&&MD.depot&&MD.depot.length&&!["Sat","Sun"].includes(z.wd)&&z.min>=9*60&&z.min<22*60&&ST.standH!==z.date+Math.floor(z.min/60)){ST.standH=z.date+Math.floor(z.min/60);
-    const zl=MD.depot.map(d=>{const w=W.find(y=>y.s===d.s);if(!w)return null;const f=fakten(w,3),ch=(f.p/d.k-1)*100,sc=ST.sch&&ST.sch[d.id];return {d,f,ch,sc}}).filter(Boolean).sort((a,b)=>a.ch-b.ch);
-    if(zl.length)await melde(ctx,"stand",`📊 <b>Top-Depot ${String(Math.floor(z.min/60)).padStart(2,"0")}:00 Uhr</b>\n${zl.map(x=>`${x.ch<0?"🔻":"🔺"} <b>${ctx.esc(x.d.n)}</b> ${pz(x.ch)} seit Kauf · heute ${pz(x.f.dp)}${x.sc&&x.d.nl!==0?` · Schutzlinie ${pz(linie(x.sc.ref,x.d.nl>0?x.d.nl:.5,false))}`:""}`).join("\n")}\n\n<b>Top 3 für 3 Tage:</b> ${rang[3].slice(0,3).map(w=>ctx.esc(w.n)).join(" · ")}${link(ctx,"")}`)}}
+    ST.standVor=ST.standVor||{};const zl=MD.depot.map(d=>{const w=W.find(y=>y.s===d.s);if(!w)return null;const f=fakten(w,3),ch=(f.p/d.k-1)*100,sc=ST.sch&&ST.sch[d.id],vor=ST.standVor[d.id],hoch=hochVon(d.id,ch);ST.standVor[d.id]=ch;return {d,f,ch,sc,vor,fa:farbe(ch,vor,hoch)}}).filter(Boolean).sort((a,b)=>"🔴🟠🟡🟢".indexOf(a.fa)-"🔴🟠🟡🟢".indexOf(b.fa)||a.ch-b.ch);
+    if(zl.length)await melde(ctx,"stand",`📊 <b>Top-Depot ${String(Math.floor(z.min/60)).padStart(2,"0")}:00 Uhr</b> ${zl.map(x=>x.fa).join("")}\n${zl.map(x=>`${x.fa} <b>${ctx.esc(x.d.n)}</b> ${pz(x.ch)} seit Kauf${x.vor!=null?` (${(x.ch-x.vor>=0?"+":"")+f1(x.ch-x.vor)} Pkt. seit letzter Stunde)`:""} · heute ${pz(x.f.dp)}${x.sc&&x.d.nl!==0?` · Schutzlinie ${pz(linie(x.sc.ref,x.d.nl>0?x.d.nl:.5,false))}`:""}`).join("\n")}\n\n<b>Top 3 für 3 Tage:</b> ${rang[3].slice(0,3).map(w=>ctx.esc(w.n)).join(" · ")}${link(ctx,"")}`)}}
 
   const meine={},schutzApp={};
   if(MD){for(const x of [...(MD.depot||[]),...(MD.merk||[])]){const w=W.find(y=>y.s===x.s);if(w&&!meine[x.s])meine[x.s]=fakten(w,7)}
