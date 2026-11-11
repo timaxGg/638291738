@@ -1,40 +1,64 @@
 {
- "id": "b-2026-11-10-abends",
- "datum": "2026-11-10",
- "slot": "abends",
- "erstellt": "2026-11-10T17:40:48.787Z",
+ "id": "b-2026-11-11-morgens",
+ "datum": "2026-11-11",
+ "slot": "morgens",
+ "erstellt": "2026-11-11T05:40:40.522Z",
  "_anleitung": "Siehe trading/KI-AUFGABE.md. Kurz: Für jeden Zeitraum (3, 7, 30 Handelstage) aus den kandidaten genau 5 Werte auswählen und begründen, mit echter Websuche und Quellen-Links. Nur Werte aus der jeweiligen Kandidatenliste. Keine Zahlen erfinden. Ergebnis als data/beste.json.",
  "methode": {
   "text": "Aktien und ETFs gemischt (typ a = Aktie, e = ETF). Rangliste nach risikobereinigtem Kursanstieg (Anstieg geteilt durch normale Schwankung) plus Trend, abzüglich Überhitzung (RSI über 75). rechenRang 1 = beste Punktzahl.",
   "test": {
-   "d": "2026-11-10",
-   "version": 0,
-   "von": "2025-11-10",
+   "d": "2026-11-11",
+   "version": 1,
+   "von": "2025-11-11",
    "werte": 236,
    "h": {
     "3": {
-     "tage": 249,
+     "tage": 248,
+     "zielQuote": {
+      "1": 18,
+      "2": 7,
+      "3": 3,
+      "5": 1,
+      "10": 0,
+      "0.5": 30
+     },
      "topAvg": 0.2,
-     "alleAvg": -0.03,
+     "alleAvg": -0.02,
      "vorsprung": 0.23,
      "besser": 52,
      "plus": 51
     },
     "7": {
-     "tage": 245,
-     "topAvg": 0.5,
-     "alleAvg": 0.23,
-     "vorsprung": 0.27,
+     "tage": 244,
+     "zielQuote": {
+      "1": 13,
+      "2": 5,
+      "3": 3,
+      "5": 0,
+      "10": 0,
+      "0.5": 25
+     },
+     "topAvg": 0.54,
+     "alleAvg": 0.24,
+     "vorsprung": 0.3,
      "besser": 51,
-     "plus": 49
+     "plus": 50
     },
     "30": {
-     "tage": 222,
-     "topAvg": 1.35,
+     "tage": 221,
+     "zielQuote": {
+      "1": 5,
+      "2": 3,
+      "3": 1,
+      "5": 0,
+      "10": 0,
+      "0.5": 10
+     },
+     "topAvg": 1.85,
      "alleAvg": 1.79,
-     "vorsprung": -0.44,
+     "vorsprung": 0.07,
      "besser": 38,
-     "plus": 49
+     "plus": 48
     }
    }
   }
@@ -42,60 +66,74 @@
  "kandidaten": {
   "3": [
    {
-    "s": "LOW",
-    "n": "Lowe's",
-    "typ": "a",
-    "cur": "USD",
-    "p": 232.204,
-    "sdTag": 0.01975,
-    "dp": 0.04,
-    "tage5": 8.8,
-    "wochen4": 23,
-    "monate3": 7.6,
-    "monate6": 5,
-    "rsi": 73,
-    "schwankungJahr": 31,
-    "trend": "aufwärts",
-    "ueber50": 17.2,
-    "punkte": 2.85,
-    "bereich": {
-     "lo": 224.3948,
-     "hi": 240.285
-    },
-    "muster": [],
-    "rechenRang": 1
-   },
-   {
     "s": "SBUX",
     "n": "Starbucks",
     "typ": "a",
     "cur": "USD",
-    "p": 109.265,
-    "sdTag": 0.01651,
-    "dp": -0.16,
-    "tage5": 4.3,
-    "wochen4": 18.8,
-    "monate3": 1.2,
-    "monate6": 2.6,
-    "rsi": 66,
+    "p": 109.95,
+    "sdTag": 0.01652,
+    "dp": 0.47,
+    "tage5": 4.9,
+    "wochen4": 19.5,
+    "monate3": 1.9,
+    "monate6": 3.2,
+    "rsi": 68,
     "schwankungJahr": 26,
     "trend": "aufwärts",
-    "ueber50": 10.1,
-    "punkte": 2.83,
+    "ueber50": 10.8,
+    "punkte": 2.91,
     "bereich": {
-     "lo": 106.1848,
-     "hi": 112.4346
+     "lo": 106.849,
+     "hi": 113.141
     },
     "muster": [
      {
       "name": "Neues 52-Wochen-Hoch",
       "vorTagen": 4,
       "rueckblick": {
-       "n": 470,
-       "avg": 0.03,
+       "n": 918,
+       "avg": -0.02,
        "plus": 50,
        "vorsprung": -0.09,
-       "t": -0.4
+       "t": -0.7
+      },
+      "urteil": "leicht positiv",
+      "hinweis": "nur mit Vorsicht verwenden"
+     }
+    ],
+    "rechenRang": 1
+   },
+   {
+    "s": "OR.PA",
+    "n": "L'Oréal",
+    "typ": "a",
+    "cur": "EUR",
+    "p": 443.85,
+    "sdTag": 0.01458,
+    "dp": -1.32,
+    "tage5": 1.7,
+    "wochen4": 15.9,
+    "monate3": 20,
+    "monate6": 20.7,
+    "rsi": 69,
+    "schwankungJahr": 23,
+    "trend": "aufwärts",
+    "ueber50": 11.6,
+    "punkte": 2.86,
+    "bereich": {
+     "lo": 432.7806,
+     "hi": 455.2025
+    },
+    "muster": [
+     {
+      "name": "Abkühlung nach Übertreibung",
+      "vorTagen": 4,
+      "rueckblick": {
+       "n": 1393,
+       "avg": 0.31,
+       "plus": 55,
+       "vorsprung": 0.25,
+       "t": 2.4
       },
       "urteil": "leicht positiv",
       "hinweis": "nur mit Vorsicht verwenden"
@@ -104,54 +142,27 @@
     "rechenRang": 2
    },
    {
-    "s": "NESN.SW",
-    "n": "Nestlé",
+    "s": "LOW",
+    "n": "Lowe's",
     "typ": "a",
-    "cur": "CHF",
-    "p": 86.83,
-    "sdTag": 0.01143,
-    "dp": 0.81,
-    "tage5": 2.9,
-    "wochen4": 12.3,
-    "monate3": 9.6,
-    "monate6": 9.4,
-    "rsi": 71,
-    "schwankungJahr": 18,
+    "cur": "USD",
+    "p": 231.87,
+    "sdTag": 0.01975,
+    "dp": -0.1,
+    "tage5": 8.7,
+    "wochen4": 22.9,
+    "monate3": 7.4,
+    "monate6": 4.9,
+    "rsi": 72,
+    "schwankungJahr": 31,
     "trend": "aufwärts",
-    "ueber50": 8.8,
-    "punkte": 2.77,
+    "ueber50": 17,
+    "punkte": 2.83,
     "bereich": {
-     "lo": 85.12722,
-     "hi": 88.56684
+     "lo": 224.0713,
+     "hi": 239.9401
     },
-    "muster": [
-     {
-      "name": "Neues 52-Wochen-Hoch",
-      "vorTagen": 3,
-      "rueckblick": {
-       "n": 470,
-       "avg": 0.03,
-       "plus": 50,
-       "vorsprung": -0.09,
-       "t": -0.4
-      },
-      "urteil": "leicht positiv",
-      "hinweis": "nur mit Vorsicht verwenden"
-     },
-     {
-      "name": "Golden Cross",
-      "vorTagen": 0,
-      "rueckblick": {
-       "n": 105,
-       "avg": 0.07,
-       "plus": 53,
-       "vorsprung": -0.22,
-       "t": -0.5
-      },
-      "urteil": "kein klarer Vorteil",
-      "hinweis": "nur mit Vorsicht verwenden"
-     }
-    ],
+    "muster": [],
     "rechenRang": 3
    },
    {
@@ -159,32 +170,32 @@
     "n": "Marriott",
     "typ": "a",
     "cur": "USD",
-    "p": 425.82,
-    "sdTag": 0.01361,
-    "dp": 2.08,
-    "tage5": 2.3,
-    "wochen4": 14.6,
-    "monate3": 19.4,
-    "monate6": 15.2,
+    "p": 428.26,
+    "sdTag": 0.01376,
+    "dp": 2.66,
+    "tage5": 2.9,
+    "wochen4": 15.3,
+    "monate3": 20.1,
+    "monate6": 15.8,
     "rsi": 74,
     "schwankungJahr": 22,
     "trend": "aufwärts",
-    "ueber50": 15.3,
-    "punkte": 2.74,
+    "ueber50": 16,
+    "punkte": 2.81,
     "bereich": {
-     "lo": 415.8967,
-     "hi": 435.98
+     "lo": 418.1771,
+     "hi": 438.5861
     },
     "muster": [
      {
       "name": "Abkühlung nach Übertreibung",
       "vorTagen": 2,
       "rueckblick": {
-       "n": 734,
+       "n": 1393,
        "avg": 0.31,
-       "plus": 51,
-       "vorsprung": 0.29,
-       "t": 1.7
+       "plus": 55,
+       "vorsprung": 0.25,
+       "t": 2.4
       },
       "urteil": "leicht positiv",
       "hinweis": "nur mit Vorsicht verwenden"
@@ -193,11 +204,11 @@
       "name": "Neues 52-Wochen-Hoch",
       "vorTagen": 0,
       "rueckblick": {
-       "n": 470,
-       "avg": 0.03,
+       "n": 918,
+       "avg": -0.02,
        "plus": 50,
        "vorsprung": -0.09,
-       "t": -0.4
+       "t": -0.7
       },
       "urteil": "leicht positiv",
       "hinweis": "nur mit Vorsicht verwenden"
@@ -210,32 +221,32 @@
     "n": "Eli Lilly",
     "typ": "a",
     "cur": "USD",
-    "p": 1421.855,
-    "sdTag": 0.01984,
-    "dp": 0.7,
-    "tage5": 0.9,
-    "wochen4": 21.9,
-    "monate3": 20.2,
-    "monate6": 39.6,
-    "rsi": 69,
-    "schwankungJahr": 31,
+    "p": 1432.29,
+    "sdTag": 0.01988,
+    "dp": 1.44,
+    "tage5": 1.6,
+    "wochen4": 22.8,
+    "monate3": 21.1,
+    "monate6": 40.6,
+    "rsi": 70,
+    "schwankungJahr": 32,
     "trend": "aufwärts",
-    "ueber50": 16.1,
-    "punkte": 2.73,
+    "ueber50": 17,
+    "punkte": 2.81,
     "bereich": {
-     "lo": 1373.833,
-     "hi": 1471.555
+     "lo": 1383.805,
+     "hi": 1482.474
     },
     "muster": [
      {
       "name": "Neues 52-Wochen-Hoch",
       "vorTagen": 4,
       "rueckblick": {
-       "n": 470,
-       "avg": 0.03,
+       "n": 918,
+       "avg": -0.02,
        "plus": 50,
        "vorsprung": -0.09,
-       "t": -0.4
+       "t": -0.7
       },
       "urteil": "leicht positiv",
       "hinweis": "nur mit Vorsicht verwenden"
@@ -244,60 +255,74 @@
     "rechenRang": 5
    },
    {
-    "s": "EOAN.DE",
-    "n": "E.ON",
+    "s": "HEN3.DE",
+    "n": "Henkel",
     "typ": "a",
     "cur": "EUR",
-    "p": 19.17,
-    "sdTag": 0.01158,
-    "dp": 0.08,
-    "tage5": 3.9,
-    "wochen4": 12,
-    "monate3": 9.2,
-    "monate6": 3.2,
-    "rsi": 66,
-    "schwankungJahr": 18,
+    "p": 87.36,
+    "sdTag": 0.01061,
+    "dp": 4.97,
+    "tage5": 7.2,
+    "wochen4": 16,
+    "monate3": 16.7,
+    "monate6": 31.2,
+    "rsi": 73,
+    "schwankungJahr": 17,
     "trend": "aufwärts",
-    "ueber50": 7.9,
-    "punkte": 2.68,
+    "ueber50": 14.6,
+    "punkte": 2.72,
     "bereich": {
-     "lo": 18.78943,
-     "hi": 19.55828
-    },
-    "muster": [],
-    "rechenRang": 6
-   },
-   {
-    "s": "FRE.DE",
-    "n": "Fresenius",
-    "typ": "a",
-    "cur": "EUR",
-    "p": 53.43,
-    "sdTag": 0.01562,
-    "dp": 1.85,
-    "tage5": 9.5,
-    "wochen4": 24.8,
-    "monate3": 14.3,
-    "monate6": 41.4,
-    "rsi": 84,
-    "schwankungJahr": 25,
-    "trend": "aufwärts",
-    "ueber50": 16.7,
-    "punkte": 2.68,
-    "bereich": {
-     "lo": 52.00409,
-     "hi": 54.89501
+     "lo": 85.76852,
+     "hi": 88.98101
     },
     "muster": [
      {
-      "name": "Neues 52-Wochen-Hoch",
-      "vorTagen": 2,
+      "name": "Abkühlung nach Übertreibung",
+      "vorTagen": 4,
       "rueckblick": {
-       "n": 470,
-       "avg": 0.03,
-       "plus": 50,
-       "vorsprung": -0.09,
-       "t": -0.4
+       "n": 1393,
+       "avg": 0.31,
+       "plus": 55,
+       "vorsprung": 0.25,
+       "t": 2.4
+      },
+      "urteil": "leicht positiv",
+      "hinweis": "nur mit Vorsicht verwenden"
+     }
+    ],
+    "rechenRang": 6
+   },
+   {
+    "s": "ADS.DE",
+    "n": "Adidas",
+    "typ": "a",
+    "cur": "EUR",
+    "p": 178.35,
+    "sdTag": 0.01803,
+    "dp": 2.18,
+    "tage5": 3.2,
+    "wochen4": 19.2,
+    "monate3": 16.9,
+    "monate6": 13,
+    "rsi": 69,
+    "schwankungJahr": 29,
+    "trend": "aufwärts",
+    "ueber50": 16.6,
+    "punkte": 2.69,
+    "bereich": {
+     "lo": 172.8655,
+     "hi": 184.0085
+    },
+    "muster": [
+     {
+      "name": "Abkühlung nach Übertreibung",
+      "vorTagen": 4,
+      "rueckblick": {
+       "n": 1393,
+       "avg": 0.31,
+       "plus": 55,
+       "vorsprung": 0.25,
+       "t": 2.4
       },
       "urteil": "leicht positiv",
       "hinweis": "nur mit Vorsicht verwenden"
@@ -306,27 +331,54 @@
     "rechenRang": 7
    },
    {
-    "s": "OR.PA",
-    "n": "L'Oréal",
+    "s": "NESN.SW",
+    "n": "Nestlé",
     "typ": "a",
-    "cur": "EUR",
-    "p": 445.4,
-    "sdTag": 0.01453,
-    "dp": -0.31,
-    "tage5": 2.9,
-    "wochen4": 15,
-    "monate3": 18.6,
-    "monate6": 20.8,
-    "rsi": 68,
-    "schwankungJahr": 23,
+    "cur": "CHF",
+    "p": 86.41,
+    "sdTag": 0.01141,
+    "dp": 0.33,
+    "tage5": 2.4,
+    "wochen4": 11.8,
+    "monate3": 9.1,
+    "monate6": 8.9,
+    "rsi": 70,
+    "schwankungJahr": 18,
     "trend": "aufwärts",
-    "ueber50": 11.6,
-    "punkte": 2.66,
+    "ueber50": 8.3,
+    "punkte": 2.68,
     "bereich": {
-     "lo": 434.3326,
-     "hi": 456.7494
+     "lo": 84.71979,
+     "hi": 88.13393
     },
-    "muster": [],
+    "muster": [
+     {
+      "name": "Neues 52-Wochen-Hoch",
+      "vorTagen": 3,
+      "rueckblick": {
+       "n": 918,
+       "avg": -0.02,
+       "plus": 50,
+       "vorsprung": -0.09,
+       "t": -0.7
+      },
+      "urteil": "leicht positiv",
+      "hinweis": "nur mit Vorsicht verwenden"
+     },
+     {
+      "name": "Golden Cross",
+      "vorTagen": 0,
+      "rueckblick": {
+       "n": 178,
+       "avg": 0.04,
+       "plus": 52,
+       "vorsprung": -0.13,
+       "t": -0.5
+      },
+      "urteil": "kein klarer Vorteil",
+      "hinweis": "nur mit Vorsicht verwenden"
+     }
+    ],
     "rechenRang": 8
    },
    {
@@ -334,73 +386,101 @@
     "n": "Home Depot",
     "typ": "a",
     "cur": "USD",
-    "p": 352.25,
-    "sdTag": 0.01877,
-    "dp": -0.33,
-    "tage5": 5.6,
-    "wochen4": 19.8,
-    "monate3": 4.3,
-    "monate6": 13.4,
-    "rsi": 67,
+    "p": 351,
+    "sdTag": 0.01879,
+    "dp": -0.68,
+    "tage5": 5.2,
+    "wochen4": 19.4,
+    "monate3": 3.9,
+    "monate6": 13,
+    "rsi": 66,
     "schwankungJahr": 30,
     "trend": "aufwärts",
-    "ueber50": 13.5,
-    "punkte": 2.66,
+    "ueber50": 13.1,
+    "punkte": 2.61,
     "bereich": {
-     "lo": 340.9822,
-     "hi": 363.8901
+     "lo": 339.7615,
+     "hi": 362.6102
     },
     "muster": [],
     "rechenRang": 9
    },
    {
-    "s": "AZN.L",
-    "n": "AstraZeneca",
+    "s": "UPS",
+    "n": "UPS",
     "typ": "a",
-    "cur": "GBp",
-    "p": 13952,
-    "sdTag": 0.01709,
-    "dp": -0.81,
-    "tage5": 1.4,
-    "wochen4": 17.3,
-    "monate3": 20.7,
-    "monate6": 0.3,
-    "rsi": 68,
+    "cur": "USD",
+    "p": 111.05,
+    "sdTag": 0.0172,
+    "dp": 0.08,
+    "tage5": 1.7,
+    "wochen4": 17.2,
+    "monate3": 8.9,
+    "monate6": 12.3,
+    "rsi": 65,
     "schwankungJahr": 27,
     "trend": "aufwärts",
-    "ueber50": 11.1,
-    "punkte": 2.59,
+    "ueber50": 11,
+    "punkte": 2.56,
     "bereich": {
-     "lo": 13545.1,
-     "hi": 14371.12
+     "lo": 107.7914,
+     "hi": 114.4071
     },
-    "muster": [],
+    "muster": [
+     {
+      "name": "Abkühlung nach Übertreibung",
+      "vorTagen": 3,
+      "rueckblick": {
+       "n": 1393,
+       "avg": 0.31,
+       "plus": 55,
+       "vorsprung": 0.25,
+       "t": 2.4
+      },
+      "urteil": "leicht positiv",
+      "hinweis": "nur mit Vorsicht verwenden"
+     }
+    ],
     "rechenRang": 10
    }
   ],
   "7": [
    {
-    "s": "BRK-B",
-    "n": "Berkshire Hathaway",
+    "s": "OR.PA",
+    "n": "L'Oréal",
     "typ": "a",
-    "cur": "USD",
-    "p": 583.45,
-    "sdTag": 0.00914,
-    "dp": 1.43,
-    "tage5": 4.7,
-    "wochen4": 12.1,
-    "monate3": 17.1,
-    "monate6": 21.3,
-    "rsi": 78,
-    "schwankungJahr": 15,
+    "cur": "EUR",
+    "p": 443.85,
+    "sdTag": 0.01458,
+    "dp": -1.32,
+    "tage5": 1.7,
+    "wochen4": 15.9,
+    "monate3": 20,
+    "monate6": 20.7,
+    "rsi": 69,
+    "schwankungJahr": 23,
     "trend": "aufwärts",
-    "ueber50": 11.2,
-    "punkte": 2.51,
+    "ueber50": 11.6,
+    "punkte": 2.52,
     "bereich": {
-     "lo": 569.5161,
-     "hi": 597.7248
+     "lo": 427.0529,
+     "hi": 461.3078
     },
-    "muster": [],
+    "muster": [
+     {
+      "name": "Abkühlung nach Übertreibung",
+      "vorTagen": 4,
+      "rueckblick": {
+       "n": 1359,
+       "avg": 0.78,
+       "plus": 55,
+       "vorsprung": 0.51,
+       "t": 3
+      },
+      "urteil": "leicht positiv",
+      "hinweis": "nur mit Vorsicht verwenden"
+     }
+    ],
     "rechenRang": 1
    },
    {
@@ -408,32 +488,32 @@
     "n": "Marriott",
     "typ": "a",
     "cur": "USD",
-    "p": 425.82,
-    "sdTag": 0.01361,
-    "dp": 2.08,
-    "tage5": 2.3,
-    "wochen4": 14.6,
-    "monate3": 19.4,
-    "monate6": 15.2,
+    "p": 428.26,
+    "sdTag": 0.01376,
+    "dp": 2.66,
+    "tage5": 2.9,
+    "wochen4": 15.3,
+    "monate3": 20.1,
+    "monate6": 15.8,
     "rsi": 74,
     "schwankungJahr": 22,
     "trend": "aufwärts",
-    "ueber50": 15.3,
-    "punkte": 2.46,
+    "ueber50": 16,
+    "punkte": 2.52,
     "bereich": {
-     "lo": 410.7555,
-     "hi": 441.437
+     "lo": 412.954,
+     "hi": 444.1333
     },
     "muster": [
      {
       "name": "Abkühlung nach Übertreibung",
       "vorTagen": 2,
       "rueckblick": {
-       "n": 713,
-       "avg": 0.73,
-       "plus": 52,
-       "vorsprung": 0.54,
-       "t": 2
+       "n": 1359,
+       "avg": 0.78,
+       "plus": 55,
+       "vorsprung": 0.51,
+       "t": 3
       },
       "urteil": "leicht positiv",
       "hinweis": "nur mit Vorsicht verwenden"
@@ -442,11 +522,11 @@
       "name": "Neues 52-Wochen-Hoch",
       "vorTagen": 0,
       "rueckblick": {
-       "n": 454,
-       "avg": 0.73,
-       "plus": 57,
-       "vorsprung": 0.26,
-       "t": 0.7
+       "n": 896,
+       "avg": 0.44,
+       "plus": 56,
+       "vorsprung": 0.23,
+       "t": 1.1
       },
       "urteil": "leicht positiv",
       "hinweis": "nur mit Vorsicht verwenden"
@@ -455,25 +535,25 @@
     "rechenRang": 2
    },
    {
-    "s": "OR.PA",
-    "n": "L'Oréal",
+    "s": "BRK-B",
+    "n": "Berkshire Hathaway",
     "typ": "a",
-    "cur": "EUR",
-    "p": 445.4,
-    "sdTag": 0.01453,
-    "dp": -0.31,
-    "tage5": 2.9,
-    "wochen4": 15,
-    "monate3": 18.6,
-    "monate6": 20.8,
-    "rsi": 68,
-    "schwankungJahr": 23,
+    "cur": "USD",
+    "p": 583.34,
+    "sdTag": 0.00913,
+    "dp": 1.41,
+    "tage5": 4.7,
+    "wochen4": 12.1,
+    "monate3": 17.1,
+    "monate6": 21.3,
+    "rsi": 78,
+    "schwankungJahr": 14,
     "trend": "aufwärts",
-    "ueber50": 11.6,
-    "punkte": 2.34,
+    "ueber50": 11.2,
+    "punkte": 2.51,
     "bereich": {
-     "lo": 428.6056,
-     "hi": 462.8525
+     "lo": 569.4147,
+     "hi": 597.6058
     },
     "muster": [],
     "rechenRang": 3
@@ -483,56 +563,70 @@
     "n": "AstraZeneca",
     "typ": "a",
     "cur": "GBp",
-    "p": 13952,
-    "sdTag": 0.01709,
-    "dp": -0.81,
-    "tage5": 1.4,
-    "wochen4": 17.3,
-    "monate3": 20.7,
-    "monate6": 0.3,
-    "rsi": 68,
+    "p": 13884,
+    "sdTag": 0.01704,
+    "dp": -0.33,
+    "tage5": 0.2,
+    "wochen4": 15.4,
+    "monate3": 21.2,
+    "monate6": -0.9,
+    "rsi": 71,
     "schwankungJahr": 27,
     "trend": "aufwärts",
-    "ueber50": 11.1,
-    "punkte": 2.25,
+    "ueber50": 10.9,
+    "punkte": 2.3,
     "bereich": {
-     "lo": 13335.25,
-     "hi": 14597.27
-    },
-    "muster": [],
-    "rechenRang": 4
-   },
-   {
-    "s": "LLY",
-    "n": "Eli Lilly",
-    "typ": "a",
-    "cur": "USD",
-    "p": 1421.855,
-    "sdTag": 0.01984,
-    "dp": 0.7,
-    "tage5": 0.9,
-    "wochen4": 21.9,
-    "monate3": 20.2,
-    "monate6": 39.6,
-    "rsi": 69,
-    "schwankungJahr": 31,
-    "trend": "aufwärts",
-    "ueber50": 16.1,
-    "punkte": 2.21,
-    "bereich": {
-     "lo": 1349.157,
-     "hi": 1498.47
+     "lo": 13271.99,
+     "hi": 14524.23
     },
     "muster": [
      {
-      "name": "Neues 52-Wochen-Hoch",
+      "name": "Abkühlung nach Übertreibung",
       "vorTagen": 4,
       "rueckblick": {
-       "n": 454,
-       "avg": 0.73,
-       "plus": 57,
-       "vorsprung": 0.26,
-       "t": 0.7
+       "n": 1359,
+       "avg": 0.78,
+       "plus": 55,
+       "vorsprung": 0.51,
+       "t": 3
+      },
+      "urteil": "leicht positiv",
+      "hinweis": "nur mit Vorsicht verwenden"
+     }
+    ],
+    "rechenRang": 4
+   },
+   {
+    "s": "HEN3.DE",
+    "n": "Henkel",
+    "typ": "a",
+    "cur": "EUR",
+    "p": 87.36,
+    "sdTag": 0.01061,
+    "dp": 4.97,
+    "tage5": 7.2,
+    "wochen4": 16,
+    "monate3": 16.7,
+    "monate6": 31.2,
+    "rsi": 73,
+    "schwankungJahr": 17,
+    "trend": "aufwärts",
+    "ueber50": 14.6,
+    "punkte": 2.29,
+    "bereich": {
+     "lo": 84.94068,
+     "hi": 89.84822
+    },
+    "muster": [
+     {
+      "name": "Abkühlung nach Übertreibung",
+      "vorTagen": 4,
+      "rueckblick": {
+       "n": 1359,
+       "avg": 0.78,
+       "plus": 55,
+       "vorsprung": 0.51,
+       "t": 3
       },
       "urteil": "leicht positiv",
       "hinweis": "nur mit Vorsicht verwenden"
@@ -541,36 +635,36 @@
     "rechenRang": 5
    },
    {
-    "s": "PG",
-    "n": "Procter & Gamble",
+    "s": "LLY",
+    "n": "Eli Lilly",
     "typ": "a",
     "cur": "USD",
-    "p": 169.54,
-    "sdTag": 0.01327,
-    "dp": 0.72,
-    "tage5": 4.6,
-    "wochen4": 10.8,
-    "monate3": 18.5,
-    "monate6": 19,
-    "rsi": 69,
-    "schwankungJahr": 21,
+    "p": 1432.29,
+    "sdTag": 0.01988,
+    "dp": 1.44,
+    "tage5": 1.6,
+    "wochen4": 22.8,
+    "monate3": 21.1,
+    "monate6": 40.6,
+    "rsi": 70,
+    "schwankungJahr": 32,
     "trend": "aufwärts",
-    "ueber50": 10.8,
-    "punkte": 2.19,
+    "ueber50": 17,
+    "punkte": 2.27,
     "bereich": {
-     "lo": 163.6917,
-     "hi": 175.5973
+     "lo": 1358.893,
+     "hi": 1509.651
     },
     "muster": [
      {
       "name": "Neues 52-Wochen-Hoch",
       "vorTagen": 4,
       "rueckblick": {
-       "n": 454,
-       "avg": 0.73,
-       "plus": 57,
-       "vorsprung": 0.26,
-       "t": 0.7
+       "n": 896,
+       "avg": 0.44,
+       "plus": 56,
+       "vorsprung": 0.23,
+       "t": 1.1
       },
       "urteil": "leicht positiv",
       "hinweis": "nur mit Vorsicht verwenden"
@@ -579,36 +673,36 @@
     "rechenRang": 6
    },
    {
-    "s": "HEN3.DE",
-    "n": "Henkel",
+    "s": "GILD",
+    "n": "Gilead",
     "typ": "a",
-    "cur": "EUR",
-    "p": 86.98,
-    "sdTag": 0.0116,
-    "dp": 3.92,
-    "tage5": 7.4,
-    "wochen4": 14.9,
-    "monate3": 15.9,
-    "monate6": 31.9,
-    "rsi": 80,
-    "schwankungJahr": 18,
+    "cur": "USD",
+    "p": 170.87,
+    "sdTag": 0.01774,
+    "dp": 0.92,
+    "tage5": 2,
+    "wochen4": 15.5,
+    "monate3": 23,
+    "monate6": 30.7,
+    "rsi": 64,
+    "schwankungJahr": 28,
     "trend": "aufwärts",
-    "ueber50": 13.8,
+    "ueber50": 11,
     "punkte": 2.16,
     "bereich": {
-     "lo": 84.35064,
-     "hi": 89.69132
+     "lo": 163.0347,
+     "hi": 179.0819
     },
     "muster": [
      {
       "name": "Neues 52-Wochen-Hoch",
-      "vorTagen": 0,
+      "vorTagen": 4,
       "rueckblick": {
-       "n": 454,
-       "avg": 0.73,
-       "plus": 57,
-       "vorsprung": 0.26,
-       "t": 0.7
+       "n": 896,
+       "avg": 0.44,
+       "plus": 56,
+       "vorsprung": 0.23,
+       "t": 1.1
       },
       "urteil": "leicht positiv",
       "hinweis": "nur mit Vorsicht verwenden"
@@ -617,116 +711,103 @@
     "rechenRang": 7
    },
    {
-    "s": "NESN.SW",
-    "n": "Nestlé",
+    "s": "ADS.DE",
+    "n": "Adidas",
     "typ": "a",
-    "cur": "CHF",
-    "p": 86.83,
-    "sdTag": 0.01143,
-    "dp": 0.81,
-    "tage5": 2.9,
-    "wochen4": 12.3,
-    "monate3": 9.6,
-    "monate6": 9.4,
-    "rsi": 71,
-    "schwankungJahr": 18,
+    "cur": "EUR",
+    "p": 178.35,
+    "sdTag": 0.01803,
+    "dp": 2.18,
+    "tage5": 3.2,
+    "wochen4": 19.2,
+    "monate3": 16.9,
+    "monate6": 13,
+    "rsi": 69,
+    "schwankungJahr": 29,
     "trend": "aufwärts",
-    "ueber50": 8.8,
-    "punkte": 2.16,
+    "ueber50": 16.6,
+    "punkte": 2.15,
     "bereich": {
-     "lo": 84.24246,
-     "hi": 89.49702
+     "lo": 170.0405,
+     "hi": 187.0656
     },
     "muster": [
      {
-      "name": "Neues 52-Wochen-Hoch",
-      "vorTagen": 3,
+      "name": "Abkühlung nach Übertreibung",
+      "vorTagen": 4,
       "rueckblick": {
-       "n": 454,
-       "avg": 0.73,
-       "plus": 57,
-       "vorsprung": 0.26,
-       "t": 0.7
+       "n": 1359,
+       "avg": 0.78,
+       "plus": 55,
+       "vorsprung": 0.51,
+       "t": 3
       },
       "urteil": "leicht positiv",
-      "hinweis": "nur mit Vorsicht verwenden"
-     },
-     {
-      "name": "Golden Cross",
-      "vorTagen": 0,
-      "rueckblick": {
-       "n": 105,
-       "avg": -0.22,
-       "plus": 49,
-       "vorsprung": -0.5,
-       "t": -0.9
-      },
-      "urteil": "kein klarer Vorteil",
       "hinweis": "nur mit Vorsicht verwenden"
      }
     ],
     "rechenRang": 8
    },
    {
-    "s": "FRE.DE",
-    "n": "Fresenius",
-    "typ": "a",
-    "cur": "EUR",
-    "p": 53.43,
-    "sdTag": 0.01562,
-    "dp": 1.85,
-    "tage5": 9.5,
-    "wochen4": 24.8,
-    "monate3": 14.3,
-    "monate6": 41.4,
-    "rsi": 84,
-    "schwankungJahr": 25,
+    "s": "XLV",
+    "n": "US-Gesundheit ETF",
+    "typ": "e",
+    "cur": "USD",
+    "p": 188.88,
+    "sdTag": 0.01205,
+    "dp": 0.29,
+    "tage5": 2.6,
+    "wochen4": 11.3,
+    "monate3": 13.1,
+    "monate6": 28.4,
+    "rsi": 68,
+    "schwankungJahr": 19,
     "trend": "aufwärts",
-    "ueber50": 16.7,
-    "punkte": 2.14,
+    "ueber50": 8.5,
+    "punkte": 2.15,
     "bereich": {
-     "lo": 51.26728,
-     "hi": 55.68396
+     "lo": 182.9512,
+     "hi": 195.0009
+    },
+    "muster": [],
+    "rechenRang": 9
+   },
+   {
+    "s": "PG",
+    "n": "Procter & Gamble",
+    "typ": "a",
+    "cur": "USD",
+    "p": 168.66,
+    "sdTag": 0.01326,
+    "dp": 0.2,
+    "tage5": 4.1,
+    "wochen4": 10.2,
+    "monate3": 17.8,
+    "monate6": 18.4,
+    "rsi": 68,
+    "schwankungJahr": 21,
+    "trend": "aufwärts",
+    "ueber50": 10.3,
+    "punkte": 2.12,
+    "bereich": {
+     "lo": 162.8472,
+     "hi": 174.6803
     },
     "muster": [
      {
       "name": "Neues 52-Wochen-Hoch",
-      "vorTagen": 2,
+      "vorTagen": 4,
       "rueckblick": {
-       "n": 454,
-       "avg": 0.73,
-       "plus": 57,
-       "vorsprung": 0.26,
-       "t": 0.7
+       "n": 896,
+       "avg": 0.44,
+       "plus": 56,
+       "vorsprung": 0.23,
+       "t": 1.1
       },
       "urteil": "leicht positiv",
       "hinweis": "nur mit Vorsicht verwenden"
      }
     ],
-    "rechenRang": 9
-   },
-   {
-    "s": "AI.PA",
-    "n": "Air Liquide",
-    "typ": "a",
-    "cur": "EUR",
-    "p": 190.54,
-    "sdTag": 0.0104,
-    "dp": 0.57,
-    "tage5": 4.4,
-    "wochen4": 12.7,
-    "monate3": 14.1,
-    "monate6": 15.2,
-    "rsi": 79,
-    "schwankungJahr": 17,
-    "trend": "aufwärts",
-    "ueber50": 10.4,
-    "punkte": 2.11,
-    "bereich": {
-     "lo": 185.367,
-     "hi": 195.8574
-    },
-    "muster": [],
     "rechenRang": 10
    }
   ],
@@ -736,21 +817,21 @@
     "n": "Berkshire Hathaway",
     "typ": "a",
     "cur": "USD",
-    "p": 583.45,
-    "sdTag": 0.00914,
-    "dp": 1.43,
+    "p": 583.34,
+    "sdTag": 0.00913,
+    "dp": 1.41,
     "tage5": 4.7,
     "wochen4": 12.1,
     "monate3": 17.1,
     "monate6": 21.3,
     "rsi": 78,
-    "schwankungJahr": 15,
+    "schwankungJahr": 14,
     "trend": "aufwärts",
     "ueber50": 11.2,
-    "punkte": 3.7,
+    "punkte": 3.21,
     "bereich": {
-     "lo": 554.9726,
-     "hi": 613.3887
+     "lo": 554.8799,
+     "hi": 613.2598
     },
     "muster": [],
     "rechenRang": 1
@@ -760,32 +841,45 @@
     "n": "Iberdrola",
     "typ": "a",
     "cur": "EUR",
-    "p": 23.11,
-    "sdTag": 0.00872,
-    "dp": 0.65,
-    "tage5": 4.7,
-    "wochen4": 7.2,
-    "monate3": 14.3,
-    "monate6": 16,
-    "rsi": 77,
+    "p": 22.99,
+    "sdTag": 0.0087,
+    "dp": 1.5,
+    "tage5": 3.3,
+    "wochen4": 6,
+    "monate3": 14.2,
+    "monate6": 16.5,
+    "rsi": 76,
     "schwankungJahr": 14,
     "trend": "aufwärts",
-    "ueber50": 9.6,
-    "punkte": 3.26,
+    "ueber50": 9.4,
+    "punkte": 2.84,
     "bereich": {
-     "lo": 22.03254,
-     "hi": 24.24015
+     "lo": 21.91991,
+     "hi": 24.11233
     },
     "muster": [
      {
-      "name": "Neues 52-Wochen-Hoch",
-      "vorTagen": 1,
+      "name": "Abkühlung nach Übertreibung",
+      "vorTagen": 4,
       "rueckblick": {
-       "n": 411,
-       "avg": 4.35,
-       "plus": 55,
-       "vorsprung": 2.14,
-       "t": 2.4
+       "n": 1302,
+       "avg": 1.8,
+       "plus": 57,
+       "vorsprung": 0.87,
+       "t": 2.5
+      },
+      "urteil": "leicht positiv",
+      "hinweis": "nur mit Vorsicht verwenden"
+     },
+     {
+      "name": "Neues 52-Wochen-Hoch",
+      "vorTagen": 0,
+      "rueckblick": {
+       "n": 834,
+       "avg": 2.51,
+       "plus": 53,
+       "vorsprung": 1.17,
+       "t": 2.3
       },
       "urteil": "leicht positiv",
       "hinweis": "nur mit Vorsicht verwenden"
@@ -798,56 +892,56 @@
     "n": "Qiagen",
     "typ": "a",
     "cur": "EUR",
-    "p": 45.225,
-    "sdTag": 0.01623,
-    "dp": 0.23,
+    "p": 45.235,
+    "sdTag": 0.01628,
+    "dp": 0.07,
     "tage5": 0.5,
-    "wochen4": 11.7,
-    "monate3": 22.8,
-    "monate6": 48.8,
-    "rsi": 78,
+    "wochen4": 11.6,
+    "monate3": 22,
+    "monate6": 47.9,
+    "rsi": 77,
     "schwankungJahr": 26,
     "trend": "aufwärts",
-    "ueber50": 11,
-    "punkte": 3.25,
+    "ueber50": 11.5,
+    "punkte": 2.6,
     "bereich": {
-     "lo": 41.37859,
-     "hi": 49.42896
+     "lo": 41.37691,
+     "hi": 49.45283
     },
     "muster": [],
     "rechenRang": 3
    },
    {
-    "s": "HEN3.DE",
-    "n": "Henkel",
+    "s": "TMO",
+    "n": "Thermo Fisher",
     "typ": "a",
-    "cur": "EUR",
-    "p": 86.98,
-    "sdTag": 0.0116,
-    "dp": 3.92,
-    "tage5": 7.4,
-    "wochen4": 14.9,
-    "monate3": 15.9,
-    "monate6": 31.9,
-    "rsi": 80,
-    "schwankungJahr": 18,
+    "cur": "USD",
+    "p": 718.2,
+    "sdTag": 0.01778,
+    "dp": -0.48,
+    "tage5": 2.8,
+    "wochen4": 8.3,
+    "monate3": 22.7,
+    "monate6": 59,
+    "rsi": 60,
+    "schwankungJahr": 28,
     "trend": "aufwärts",
-    "ueber50": 13.8,
-    "punkte": 3.23,
+    "ueber50": 8,
+    "punkte": 2.58,
     "bereich": {
-     "lo": 81.6247,
-     "hi": 92.68665
+     "lo": 651.558,
+     "hi": 791.6583
     },
     "muster": [
      {
       "name": "Neues 52-Wochen-Hoch",
-      "vorTagen": 0,
+      "vorTagen": 1,
       "rueckblick": {
-       "n": 411,
-       "avg": 4.35,
-       "plus": 55,
-       "vorsprung": 2.14,
-       "t": 2.4
+       "n": 834,
+       "avg": 2.51,
+       "plus": 53,
+       "vorsprung": 1.17,
+       "t": 2.3
       },
       "urteil": "leicht positiv",
       "hinweis": "nur mit Vorsicht verwenden"
@@ -856,222 +950,230 @@
     "rechenRang": 4
    },
    {
-    "s": "TMO",
-    "n": "Thermo Fisher",
-    "typ": "a",
-    "cur": "USD",
-    "p": 717.8,
-    "sdTag": 0.01778,
-    "dp": -0.53,
-    "tage5": 2.8,
-    "wochen4": 8.3,
-    "monate3": 22.6,
-    "monate6": 58.9,
-    "rsi": 60,
-    "schwankungJahr": 28,
-    "trend": "aufwärts",
-    "ueber50": 8,
-    "punkte": 3.17,
-    "bereich": {
-     "lo": 651.1793,
-     "hi": 791.2365
-    },
-    "muster": [
-     {
-      "name": "Neues 52-Wochen-Hoch",
-      "vorTagen": 1,
-      "rueckblick": {
-       "n": 411,
-       "avg": 4.35,
-       "plus": 55,
-       "vorsprung": 2.14,
-       "t": 2.4
-      },
-      "urteil": "leicht positiv",
-      "hinweis": "nur mit Vorsicht verwenden"
-     }
-    ],
-    "rechenRang": 5
-   },
-   {
     "s": "ABBV",
     "n": "AbbVie",
     "typ": "a",
     "cur": "USD",
-    "p": 294.175,
+    "p": 293.89,
     "sdTag": 0.01361,
-    "dp": 0.3,
-    "tage5": 2.9,
-    "wochen4": 7.2,
-    "monate3": 17.5,
-    "monate6": 38.6,
+    "dp": 0.2,
+    "tage5": 2.8,
+    "wochen4": 7.1,
+    "monate3": 17.4,
+    "monate6": 38.4,
     "rsi": 62,
     "schwankungJahr": 22,
     "trend": "aufwärts",
-    "ueber50": 7.6,
-    "punkte": 3.13,
+    "ueber50": 7.5,
+    "punkte": 2.57,
     "bereich": {
-     "lo": 273.0464,
-     "hi": 316.9385
+     "lo": 272.7816,
+     "hi": 316.6318
     },
     "muster": [],
-    "rechenRang": 6
+    "rechenRang": 5
    },
    {
     "s": "V",
     "n": "Visa",
     "typ": "a",
     "cur": "USD",
-    "p": 423.72,
+    "p": 423,
     "sdTag": 0.0135,
-    "dp": 0.37,
-    "tage5": 0.8,
-    "wochen4": 7,
-    "monate3": 18.1,
-    "monate6": 28.1,
-    "rsi": 64,
+    "dp": 0.2,
+    "tage5": 0.6,
+    "wochen4": 6.8,
+    "monate3": 17.9,
+    "monate6": 27.9,
+    "rsi": 63,
     "schwankungJahr": 21,
     "trend": "aufwärts",
-    "ueber50": 9.3,
-    "punkte": 2.93,
+    "ueber50": 9.2,
+    "punkte": 2.49,
     "bereich": {
-     "lo": 393.5148,
-     "hi": 456.2436
+     "lo": 392.8465,
+     "hi": 455.4679
     },
     "muster": [],
+    "rechenRang": 6
+   },
+   {
+    "s": "OR.PA",
+    "n": "L'Oréal",
+    "typ": "a",
+    "cur": "EUR",
+    "p": 443.85,
+    "sdTag": 0.01458,
+    "dp": -1.32,
+    "tage5": 1.7,
+    "wochen4": 15.9,
+    "monate3": 20,
+    "monate6": 20.7,
+    "rsi": 69,
+    "schwankungJahr": 23,
+    "trend": "aufwärts",
+    "ueber50": 11.6,
+    "punkte": 2.48,
+    "bereich": {
+     "lo": 409.7803,
+     "hi": 480.7524
+    },
+    "muster": [
+     {
+      "name": "Abkühlung nach Übertreibung",
+      "vorTagen": 4,
+      "rueckblick": {
+       "n": 1302,
+       "avg": 1.8,
+       "plus": 57,
+       "vorsprung": 0.87,
+       "t": 2.5
+      },
+      "urteil": "leicht positiv",
+      "hinweis": "nur mit Vorsicht verwenden"
+     }
+    ],
     "rechenRang": 7
+   },
+   {
+    "s": "MAR",
+    "n": "Marriott",
+    "typ": "a",
+    "cur": "USD",
+    "p": 428.26,
+    "sdTag": 0.01376,
+    "dp": 2.66,
+    "tage5": 2.9,
+    "wochen4": 15.3,
+    "monate3": 20.1,
+    "monate6": 15.8,
+    "rsi": 74,
+    "schwankungJahr": 22,
+    "trend": "aufwärts",
+    "ueber50": 16,
+    "punkte": 2.46,
+    "bereich": {
+     "lo": 397.1791,
+     "hi": 461.7731
+    },
+    "muster": [
+     {
+      "name": "Abkühlung nach Übertreibung",
+      "vorTagen": 2,
+      "rueckblick": {
+       "n": 1302,
+       "avg": 1.8,
+       "plus": 57,
+       "vorsprung": 0.87,
+       "t": 2.5
+      },
+      "urteil": "leicht positiv",
+      "hinweis": "nur mit Vorsicht verwenden"
+     },
+     {
+      "name": "Neues 52-Wochen-Hoch",
+      "vorTagen": 0,
+      "rueckblick": {
+       "n": 834,
+       "avg": 2.51,
+       "plus": 53,
+       "vorsprung": 1.17,
+       "t": 2.3
+      },
+      "urteil": "leicht positiv",
+      "hinweis": "nur mit Vorsicht verwenden"
+     }
+    ],
+    "rechenRang": 8
    },
    {
     "s": "MA",
     "n": "Mastercard",
     "typ": "a",
     "cur": "USD",
-    "p": 660.91,
-    "sdTag": 0.01399,
-    "dp": 0.78,
-    "tage5": 2.1,
-    "wochen4": 9.3,
-    "monate3": 17.5,
-    "monate6": 32.7,
+    "p": 658.84,
+    "sdTag": 0.01398,
+    "dp": 0.46,
+    "tage5": 1.8,
+    "wochen4": 8.9,
+    "monate3": 17.2,
+    "monate6": 32.3,
     "rsi": 66,
     "schwankungJahr": 22,
     "trend": "aufwärts",
-    "ueber50": 10.9,
-    "punkte": 2.91,
+    "ueber50": 10.6,
+    "punkte": 2.42,
     "bereich": {
-     "lo": 612.1491,
-     "hi": 713.555
+     "lo": 610.2757,
+     "hi": 711.269
     },
     "muster": [],
-    "rechenRang": 8
+    "rechenRang": 9
    },
    {
-    "s": "DB1.DE",
-    "n": "Deutsche Börse",
+    "s": "PG",
+    "n": "Procter & Gamble",
     "typ": "a",
-    "cur": "EUR",
-    "p": 320.5,
-    "sdTag": 0.01198,
-    "dp": 1.75,
-    "tage5": 1.9,
-    "wochen4": 7.2,
-    "monate3": 14.8,
-    "monate6": 26.3,
-    "rsi": 61,
-    "schwankungJahr": 19,
+    "cur": "USD",
+    "p": 168.66,
+    "sdTag": 0.01326,
+    "dp": 0.2,
+    "tage5": 4.1,
+    "wochen4": 10.2,
+    "monate3": 17.8,
+    "monate6": 18.4,
+    "rsi": 68,
+    "schwankungJahr": 21,
     "trend": "aufwärts",
-    "ueber50": 8.2,
-    "punkte": 2.88,
+    "ueber50": 10.3,
+    "punkte": 2.39,
     "bereich": {
-     "lo": 300.1495,
-     "hi": 342.2303
+     "lo": 156.8481,
+     "hi": 181.3614
     },
     "muster": [
      {
       "name": "Neues 52-Wochen-Hoch",
-      "vorTagen": 3,
+      "vorTagen": 4,
       "rueckblick": {
-       "n": 411,
-       "avg": 4.35,
-       "plus": 55,
-       "vorsprung": 2.14,
-       "t": 2.4
+       "n": 834,
+       "avg": 2.51,
+       "plus": 53,
+       "vorsprung": 1.17,
+       "t": 2.3
       },
       "urteil": "leicht positiv",
       "hinweis": "nur mit Vorsicht verwenden"
      }
     ],
-    "rechenRang": 9
-   },
-   {
-    "s": "AI.PA",
-    "n": "Air Liquide",
-    "typ": "a",
-    "cur": "EUR",
-    "p": 190.54,
-    "sdTag": 0.0104,
-    "dp": 0.57,
-    "tage5": 4.4,
-    "wochen4": 12.7,
-    "monate3": 14.1,
-    "monate6": 15.2,
-    "rsi": 79,
-    "schwankungJahr": 17,
-    "trend": "aufwärts",
-    "ueber50": 10.4,
-    "punkte": 2.75,
-    "bereich": {
-     "lo": 179.9863,
-     "hi": 201.7125
-    },
-    "muster": [],
     "rechenRang": 10
    }
   ]
  },
  "werteInfo": {
-  "LOW": {
-   "meldungen": [
-    {
-     "t": "Lowe's Becomes Exclusive Home Improvement Partner of Bilt, Making Homeownership More Rewarding Through Bilt Neighborhood OS",
-     "u": "https://finnhub.io/api/news?id=11fc4707cc4f662ce274b20368de065b169266fb3a11f8d08a06006f630d5e07",
-     "q": "Yahoo",
-     "d": "2026-11-10",
-     "z": "Lowe's and Bilt, the neighborhood commerce and rewards platform, today announced a new partnership designed to make caring for and improving a home easier and more rewarding. As the exclusive home improvement partner, this relationship brin"
-    },
-    {
-     "t": "Bilt Introduces the Operating System for Neighborhoods, Bilt Neighborhood OS™, Connecting Businesses and Communities to Power Local Commerce",
-     "u": "https://finnhub.io/api/news?id=934f0337f39a2247162885c6fe135cf4bb54af39398b5c3b31991246e2367a1e",
-     "q": "Yahoo",
-     "d": "2026-11-10",
-     "z": "NEW YORK, November 10, 2026--Bilt today announced the next evolution of its platform, introducing the operating system for neighborhoods – Bilt Neighborhood OS: an AI operating system and commerce network designed to help businesses grow by"
-    },
-    {
-     "t": "Home Depot: Hold Into Q3 Earnings, Transactions Must Turn Positive",
-     "u": "https://finnhub.io/api/news?id=084e41af3245e4614a77c65dcf1439a7ef3e9a9995af558c9154e38aff7007f4",
-     "q": "SeekingAlpha",
-     "d": "2026-11-10",
-     "z": "Home Depot rallied 22%, driven by falling bond yields and midterm election sentiment, not by fundamental store performance. Read why HD stock is a buy."
-    },
-    {
-     "t": "JP Morgan Maintains Overweight on Lowe's Companies, Raises Price Target to $275",
-     "u": "https://finnhub.io/api/news?id=7b04b65353e3e2dcb1c9577a19b0263e0a448740799d3668afeef89020ecf480",
-     "q": "Benzinga",
-     "d": "2026-11-09",
-     "z": "JP Morgan  analyst Christopher Horvers   maintains Lowe&#39;s Companies (NYSE:LOW) with a Overweight and raises the price target from $252 to $275."
-    },
-    {
-     "t": "3 Top Dividend Stocks to Buy in November for a Lifetime of Passive Income",
-     "u": "https://finnhub.io/api/news?id=8b3cd1e436f9183ac0fcaec4c028fed41806347d026cd59faedd32a71dbf2ae9",
-     "q": "Yahoo",
-     "d": "2026-11-09",
-     "z": "These three companies have built advantages that keep the cash flowing through good markets and bad."
-    }
-   ],
-   "quartalszahlen": "2026-11-18"
-  },
   "SBUX": {
    "meldungen": [
+    {
+     "t": "Can SBUX Deliver 18% EPS Growth Despite a 1% Revenue Decline in FY27?",
+     "u": "https://finnhub.io/api/news?id=edd3ec624482b529e835971f6fe77d89350c8fc39b5c35c4f3c67a65fc1c1be5",
+     "q": "Yahoo",
+     "d": "2026-11-10",
+     "z": "Starbucks targets 18% EPS growth in fiscal 2027 despite a 1% revenue decline, backed by margin expansion, cost savings and an additional fiscal week."
+    },
+    {
+     "t": "Nike or Starbucks: Only One Gets My Dividend Dollars for the Next 10 Years",
+     "u": "https://finnhub.io/api/news?id=32331c09368281485b2c6aa67cd193dd470e46c2292203ab04dccb85e0f53b88",
+     "q": "Yahoo",
+     "d": "2026-11-10",
+     "z": "Key TakeawaysNike yields 4. 3% after its stock fell on weak fiscal 2027 guidance, while Starbucks raised its quarterly dividend to $0."
+    },
+    {
+     "t": "3 Dividend Stocks to Buy in November and Hold Forever",
+     "u": "https://finnhub.io/api/news?id=8211c19fa1bd48144de361589f0a4393cf10fd60bc9fb5cadfe55a43120ba94f",
+     "q": "Yahoo",
+     "d": "2026-11-10",
+     "z": "From the morning latte to the dinner rolls to the nightcap, these three consumer stocks own the holiday table, and each has a dividend date on the calendar right now."
+    },
     {
      "t": "What Is Next For McDonald's Stock?",
      "u": "https://finnhub.io/api/news?id=b416aa3bf2265ece14ed4a412406b67d79483c53ddf139bc753d124f9cc12b95",
@@ -1085,206 +1187,6 @@
      "q": "Yahoo",
      "d": "2026-11-10",
      "z": "The fast-food chain wants to take business from Starbucks, but that’s only part of its plan."
-    },
-    {
-     "t": "Starbucks Stocks Rise 3.74% as Stifel Resumes With Buy, $115 Target",
-     "u": "https://finnhub.io/api/news?id=25c9253d10324a3030a24e4f7901ce3e82d31cb5677d19c4a976357a4177f017",
-     "q": "Yahoo",
-     "d": "2026-11-09",
-     "z": "Stifel says the turnaround is becoming self-funding, projecting 4% global same-store sales growth in fiscal 2027"
-    },
-    {
-     "t": "MCD Stock Outlook: Wall Street Eyes a Potential Upside Breakout After Q3 Results",
-     "u": "https://finnhub.io/api/news?id=a69edb33d2d2ed79c6dc000d57ab4cbe4afdf2d8933e984e1ae75e395662aca4",
-     "q": "Yahoo",
-     "d": "2026-11-09",
-     "z": "McDonald's stock bounced hard after earnings, yet U.S. guest counts are still sliding and revenue missed again. One variable could decide whether the rally runs or stalls, and it starts with a cheap bundle being tested in 1,900 restaurants."
-    },
-    {
-     "t": "Starbucks rises as Stifel resumes coverage with Buy rating and $115 target",
-     "u": "https://finnhub.io/api/news?id=3e920273825c314f7e1903c196f8549003882cc79b7fb92f4fa50f53c231849b",
-     "q": "Yahoo",
-     "d": "2026-11-09",
-     "z": "Investing.com -- Starbucks Corporation (NASDAQ:SBUX) shares rose 3.8% in Monday trading after Stifel resumed coverage with a Buy rating and a $115 price target. The positive reaction reflects growing market confidence that the coffeehouse c"
-    }
-   ],
-   "quartalszahlen": null
-  },
-  "NESN.SW": {
-   "meldungen": [
-    {
-     "t": "Das kannst du erwarten, wenn du heute 5.000 Euro in die Nestlé-Aktie investierst!",
-     "u": "https://www.aktienwelt360.de/2026/11/05/das-kannst-du-erwarten-wenn-du-heute-5-000-euro-in-die-nestle-aktie-investierst/?.tsrc=rss",
-     "q": "Yahoo Finanzen",
-     "d": "2026-11-05",
-     "z": "Die Aktie von Nestlé kann so manches bieten, muss aber auch einiges leisten. Das passiert, wenn du jetzt 5.000 Euro investierst! Der Artikel Das kannst du erwarten, wenn du heute 5.000 Euro in die Nestlé-Aktie investierst! ist zuerst erschi"
-    },
-    {
-     "t": "Ängste vor einer KI-Blase führen zu überraschender Hinwendung zu Schweizer Aktien",
-     "u": "https://de.beincrypto.com/ki-aktien-verkauf-investoren-wechseln-zu-schweizer-aktien/?.tsrc=rss",
-     "q": "Yahoo Finanzen",
-     "d": "2026-10-24",
-     "z": "Roche, Novartis und Nestlé verschaffen Schweizer Aktien den größten Vorsprung gegenüber Eurozonen-Pendants seit März 2020."
-    },
-    {
-     "t": "ANALYSE-FLASH: JPMorgan belässt Nestle auf 'Overweight' - Ziel 100 Franken",
-     "u": "https://de.finance.yahoo.com/nachrichten/analyse-flash-jpmorgan-bel%C3%A4sst-nestle-140502642.html?.tsrc=rss",
-     "q": "Yahoo Finanzen",
-     "d": "2026-10-22",
-     "z": "Die US-Bank JPMorgan hat die Einstufung für Nestle  auf \"Overweight\" mit einem Kursziel von 100 Franken belassen. Nach starken Quartalszahlen des Nahrungsmittelkonzerns habe das Management auf der Telefonkonferenz zuversichtliche Botschafte"
-    },
-    {
-     "t": "Nach Coca-Cola und Nestlé: Auch Danone ändert Flaschen",
-     "u": "https://de.finance.yahoo.com/nachrichten/coca-cola-nestl%C3%A9-danone-%C3%A4ndert-135442248.html?.tsrc=rss",
-     "q": "Yahoo Finanzen",
-     "d": "2026-10-22",
-     "z": "Nach den Zugeständnissen der Getränkehersteller Coca-Cola  und Nestlé ändert auch Danone  die Recycling-Werbung auf Plastikflaschen. Alle drei Konzerne erklärten sich nach einer Beschwerde von Verbraucherschützern und Gesprächen unter Leitu"
-    }
-   ],
-   "quartalszahlen": null
-  },
-  "MAR": {
-   "meldungen": [
-    {
-     "t": "Stock Market Today: Dow Dips On Hot Inflation Data; Nvidia Falls Again, Anthropic Sets IPO Range (Live Coverage)",
-     "u": "https://finnhub.io/api/news?id=da4b6468f7b07843e1b9de42fc190efda0a049a2abd6c729c74866c400d1cd24",
-     "q": "Yahoo",
-     "d": "2026-11-10",
-     "z": "Stock Market Today: The Dow Jones index falls Tuesday on a hot inflation report. Anthropic prices its IPO range. Nvidia sells off."
-    },
-    {
-     "t": "Vacarya Surpasses 500 Properties, Becoming One of North America's Largest Rental Arbitrage Companies",
-     "u": "https://finnhub.io/api/news?id=c85531b9cc839c4ad0ec9d3b68b92b3ced0934cea5f998c34ae1a2d6ae24bc3a",
-     "q": "Yahoo",
-     "d": "2026-11-10",
-     "z": "The Toronto-founded hospitality brand now operates in more than 30 cities across the U. and Canada with a network of more than 110 independent partners."
-    },
-    {
-     "t": "Bilt Introduces the Operating System for Neighborhoods, Bilt Neighborhood OS™, Connecting Businesses and Communities to Power Local Commerce",
-     "u": "https://finnhub.io/api/news?id=934f0337f39a2247162885c6fe135cf4bb54af39398b5c3b31991246e2367a1e",
-     "q": "Yahoo",
-     "d": "2026-11-10",
-     "z": "NEW YORK, November 10, 2026--Bilt today announced the next evolution of its platform, introducing the operating system for neighborhoods – Bilt Neighborhood OS: an AI operating system and commerce network designed to help businesses grow by"
-    },
-    {
-     "t": "Robots and surge pricing won't save fast food: Robert Irvine",
-     "u": "https://finnhub.io/api/news?id=f9e355bd9293470a7f80ff427f16f504110fe0a6d1b850a2416dba5b757b4cd1",
-     "q": "Yahoo",
-     "d": "2026-11-09",
-     "z": "World-class chef and entrepreneur, Robert Irvine explains to Yahoo Finance Executive Editor Brian Sozzi why dynamic pricing is a little much, and why McDonald's burger-flipping robot and Chipotle's avocado-peeling machine can't replace the "
-    },
-    {
-     "t": "The business mistake McDonald's and Chipotle keep making: Robert Irvine",
-     "u": "https://finnhub.io/api/news?id=14338b50d14da120f2c3f79ad1a6893df3bb15ea7994c4af8e061bd099a0fabe",
-     "q": "Yahoo",
-     "d": "2026-11-09",
-     "z": "World-class chef and entrepreneur, Robert Irvine explains to Yahoo Finance Executive Editor Brian Sozzi how he helped push through the legislative change that's replacing 50-year-old Army mess halls with campus-style dining"
-    }
-   ],
-   "quartalszahlen": null
-  },
-  "LLY": {
-   "meldungen": [
-    {
-     "t": "Hims & Hers Sinks 9% on EBITDA Guidance Cut as CEO Says He’d Take Subscriber Losses “Every Time”",
-     "u": "https://finnhub.io/api/news?id=70b8e5f8f95d2438f25f10a7801fc30f6d642cf59d3adf4a7ae95476c5098aca",
-     "q": "Yahoo",
-     "d": "2026-11-10",
-     "z": "Key TakeawaysHims & Hers fell 9% after cutting its 2026 adjusted EBITDA guidance to $257 million-$277 million, its third cut this year. Revenue grew 49%, but gross margin fell to 57% from 74%."
-    },
-    {
-     "t": "Hims & Hers Stock Plunges Despite 49% Revenue Surge",
-     "u": "https://finnhub.io/api/news?id=db9222128a742a8933576ae26a46434f32819c8c1298b5d8b2734bb6b6d0e49a",
-     "q": "Yahoo",
-     "d": "2026-11-10",
-     "z": "Subscribers fell by 100,000 from the previous quarter, prompting concerns about near-term growth."
-    },
-    {
-     "t": "Can You Still Buy Merck Stock Today?",
-     "u": "https://finnhub.io/api/news?id=92157bceddaffe1cf14d9ce78b9bc6ead3f63fa2a1ab784479d88acdb1080496",
-     "q": "Yahoo",
-     "d": "2026-11-10",
-     "z": "For questions about this article or underlying research, email help@trefis.com."
-    },
-    {
-     "t": "Life doesn't slow down, and Foundayo™ (orforglipron) patient Leanne Morgan is done waiting",
-     "u": "https://finnhub.io/api/news?id=5abfd42db1f54e69b6c6b84f28dadd996fdec2bb0eb8e5d22414a46c34e6b3d4",
-     "q": "Yahoo",
-     "d": "2026-11-10",
-     "z": "Eli Lilly and Company (NYSE: LLY) and partner Leanne Morgan today announced the launch of Life Doesn't Slow Down, a new campaign for Lilly's Foundayo™ (orforglipron), a once-daily prescription GLP-1 pill proven to help adults with obesity, "
-    },
-    {
-     "t": "The FDA Ordered GLP-1 Vision-Loss Warnings For Some Products. Shares of Eli Lilly and Novo Nordisk Were Unfazed.",
-     "u": "https://finnhub.io/api/news?id=f42a54cd55a595edb261e44212b431cb5b51d5a17b71026dd21bd4ef51519b00",
-     "q": "Yahoo",
-     "d": "2026-11-10",
-     "z": "The updated labeling covers Mounjaro, Zepbound, Ozempic and Wegovy."
-    }
-   ],
-   "quartalszahlen": null
-  },
-  "EOAN.DE": {
-   "meldungen": [
-    {
-     "t": "Netzausbau als Wachstumstreiber: UBS stuft E.ON auf \"Kaufen\" hoch",
-     "u": "https://de.finance.yahoo.com/nachrichten/netzausbau-wachstumstrei-ubs-stuft-e-104410590.html?.tsrc=rss",
-     "q": "Yahoo Finanzen",
-     "d": "2026-09-07",
-     "z": "Investing.com – Der deutsche Energieriese E.ON SE bietet eine überlegene Investitionsmöglichkeit, die durch den Ausbau der Stromverteilnetze getrieben wird. Dies geht aus einem am Montag veröffentlichten Bericht von UBS Global Research herv"
-    },
-    {
-     "t": "E.on-Chef fordert „System-Wende“ für erneuerbare Energien – und befürwortet Pläne von Reiche",
-     "u": "https://www.businessinsider.de/wirtschaft/e-on-chef-fordert-system-wende-fuer-erneuerbare-energien-und-befuerwortet-plaene-von-reiche/?.tsrc=rss",
-     "q": "Yahoo Finanzen",
-     "d": "2026-05-09",
-     "z": "E.on-Chef Leonhard Birnbaum fordert die Bundesregierung auf, angesichts der jüngsten Störungen auf dem Strommarkt zu handeln."
-    },
-    {
-     "t": "Deutsche Bank benennt europäische Aktienfavoriten für die kommenden 12 Monate",
-     "u": "https://de.finance.yahoo.com/nachrichten/deutsche-bank-benennt-europ%C3%A4ische-aktienfavoriten-120926136.html?.tsrc=rss",
-     "q": "Yahoo Finanzen",
-     "d": "2026-10-01",
-     "z": "Investing.com - Die Deutsche Bank hat am Donnerstag ihre europäischen Top-Aktienfavoriten für die kommenden 12 Monate bekannt gegeben. Dabei wurden sechs neue Titel in die Liste aufgenommen und sechs Werte aus der Auswahl für das dritte Qua"
-    },
-    {
-     "t": "FPT erreicht den SAP®-Silber-Partnerstatus im SAP®-PartnerEdge®-Programm und erweitert damit die SAP-Kompetenzen für europäische Unternehmen",
-     "u": "https://de.finance.yahoo.com/nachrichten/fpt-erreicht-sap-sil-partnerstatus-200400570.html?.tsrc=rss",
-     "q": "Yahoo Finanzen",
-     "d": "2026-06-30",
-     "z": "HANOI, Vietnam, June 30, 2026--FPT gab heute bekannt, dass das Unternehmen den Status eines SAP-Silber-Partners im SAP®-PartnerEdge®-Programm erreicht hat. Damit werden die nachweislichen Kundenerfolge des Unternehmens, sein differenziertes"
-    }
-   ],
-   "quartalszahlen": null
-  },
-  "FRE.DE": {
-   "meldungen": [
-    {
-     "t": "ROUNDUP 2: Biosimilars geben Fresenius Schwung - optimistischer für Gewinn",
-     "u": "https://de.finance.yahoo.com/nachrichten/roundup-2-biosimilars-geben-fresenius-115325454.html?.tsrc=rss",
-     "q": "Yahoo Finanzen",
-     "d": "2026-11-04",
-     "z": "(neu: Aussagen aus der Pressekonferenz, Aktienkurs aktualisiert, weiterer Analyst)"
-    },
-    {
-     "t": "ROUNDUP: Biosimilars geben Fresenius weiter Schwung - optimistischer für Gewinn",
-     "u": "https://de.finance.yahoo.com/nachrichten/roundup-biosimilars-geben-fresenius-schwung-084331096.html?.tsrc=rss",
-     "q": "Yahoo Finanzen",
-     "d": "2026-11-04",
-     "z": "Der Krankenhausbetreiber und Pharmahersteller Fresenius  hat erneut ein starkes Quartal hinter sich. Insbesondere der anhaltend gute Lauf bei biotechnologisch hergestellten Nachahmer-Medikamenten (Biosimilars) gibt dem Unternehmen weiter Sc"
-    },
-    {
-     "t": "Biosimilars geben Fresenius weiter Schwung - optimistischer für Gewinn",
-     "u": "https://de.finance.yahoo.com/nachrichten/biosimilars-geben-fresenius-schwung-optimistischer-055924102.html?.tsrc=rss",
-     "q": "Yahoo Finanzen",
-     "d": "2026-11-04",
-     "z": "Der Krankenhausbetreiber und Pharmahersteller Fresenius  hat erneut ein starkes Quartal hinter sich. Insbesondere der anhaltend gute Lauf bei biotechnologisch hergestellten Nachahmer-Medikamenten (Biosimilars) gibt dem Unternehmen weiter Sc"
-    },
-    {
-     "t": "AKTIE IM FOKUS: Fresenius getrieben von Entwicklungskooperation an Dax-Spitze",
-     "u": "https://de.finance.yahoo.com/nachrichten/aktie-fokus-fresenius-getrieben-entwicklungskooperation-104647654.html?.tsrc=rss",
-     "q": "Yahoo Finanzen",
-     "d": "2026-11-02",
-     "z": "Eine Entwicklungsvereinbarung im Bereich der Nachahmermedikamente kommt am Montag bei den Anlegern von Fresenius  gut an. Der Kurs des Medizinkonzerns und Krankenhausbetreibers zog am Vormittag um bis zu drei Prozent an, was den ersten Plat"
     }
    ],
    "quartalszahlen": null
@@ -1322,119 +1224,122 @@
    ],
    "quartalszahlen": null
   },
-  "HD": {
+  "LOW": {
    "meldungen": [
     {
-     "t": "Home Depot (HD) Reports Next Week: Wall Street Expects Earnings Growth",
-     "u": "https://finnhub.io/api/news?id=57b7e821f71f8d6a145f6af21bcea2d4ec92ca21d2adc5ba3e5eccd47762e234",
+     "t": "Can Home Depot Sustain Comparable Sales Growth Amid Uneven Demand?",
+     "u": "https://finnhub.io/api/news?id=e3c99aacfd37cde49b58f13a3904ebecf55aa6cb7e4fec3392272f2bc25c3576",
      "q": "Yahoo",
      "d": "2026-11-10",
-     "z": "Home Depot (HD) possesses the right combination of the two key ingredients for a likely earnings beat in its upcoming report. Get prepared with the key expectations."
+     "z": "HD's 1.7% comps growth, robust Pro demand and digital gains signal resilience, but housing market pressures and weak transactions cloud its outlook."
     },
     {
-     "t": "OneRail Names Amit Batra SVP of Supply Chain and Nathan Rucker SVP of Strategic Growth & Partnerships",
-     "u": "https://finnhub.io/api/news?id=d405bbdf0ef04b26c089ee1837c56800af4677530b7191c6be416fcca3630d71",
+     "t": "How These 5 Big-Box Retailers Compete for the Same Shopper",
+     "u": "https://finnhub.io/api/news?id=1dc5b277e3c483f221220f6559713d8e745d8a268185c719857d4a6f6c76c939",
      "q": "Yahoo",
      "d": "2026-11-10",
-     "z": "ORLANDO, Fla., November 10, 2026--OneRail today announced two additions to its leadership team."
+     "z": "Walmart keeps gaining ground among shoppers of all income levels, but there's still strong potential among the big-box retailer's four key peers."
     },
     {
-     "t": "What Moved Best Buy Stock?",
-     "u": "https://finnhub.io/api/news?id=5f744a86cdb36f9d0d2a224ed98afa9d59999aaff871b976a6b18eb8e64ec0ab",
-     "q": "Yahoo",
-     "d": "2026-11-10",
-     "z": "For questions about this article or underlying research, email help@trefis.com."
-    },
-    {
-     "t": "Bernstein Maintains Market Perform on Home Depot, Raises Price Target to $357",
-     "u": "https://finnhub.io/api/news?id=9a200ea4e42d00b9ea2152bb415c23ff3a506bef47d4cdf3b4d08a45e60e7e0a",
-     "q": "Benzinga",
-     "d": "2026-11-10",
-     "z": "Bernstein  analyst Zhihan Ma   maintains Home Depot (NYSE:HD) with a Market Perform and raises the price target from $344 to $357."
-    },
-    {
-     "t": "Home Depot: Hold Into Q3 Earnings, Transactions Must Turn Positive",
-     "u": "https://finnhub.io/api/news?id=084e41af3245e4614a77c65dcf1439a7ef3e9a9995af558c9154e38aff7007f4",
+     "t": "The Most Important Market Shift Of The Decade Is Already Underway",
+     "u": "https://finnhub.io/api/news?id=2355a323b3adf31596f84792929f31a24faab7dbe44dd1535953e0ab9291d5ea",
      "q": "SeekingAlpha",
      "d": "2026-11-10",
-     "z": "Home Depot rallied 22%, driven by falling bond yields and midterm election sentiment, not by fundamental store performance. Read why HD stock is a buy."
+     "z": "A market rotation could drive outperformance over 3, 5, and 10 years as investors overlook AI's long-term beneficiaries. Discover more in this market outlook."
+    },
+    {
+     "t": "Lowe's Becomes Exclusive Home Improvement Partner of Bilt, Making Homeownership More Rewarding Through Bilt Neighborhood OS",
+     "u": "https://finnhub.io/api/news?id=11fc4707cc4f662ce274b20368de065b169266fb3a11f8d08a06006f630d5e07",
+     "q": "Yahoo",
+     "d": "2026-11-10",
+     "z": "Lowe's and Bilt, the neighborhood commerce and rewards platform, today announced a new partnership designed to make caring for and improving a home easier and more rewarding. As the exclusive home improvement partner, this relationship brin"
+    },
+    {
+     "t": "Bilt Introduces the Operating System for Neighborhoods, Bilt Neighborhood OS™, Connecting Businesses and Communities to Power Local Commerce",
+     "u": "https://finnhub.io/api/news?id=934f0337f39a2247162885c6fe135cf4bb54af39398b5c3b31991246e2367a1e",
+     "q": "Yahoo",
+     "d": "2026-11-10",
+     "z": "NEW YORK, November 10, 2026--Bilt today announced the next evolution of its platform, introducing the operating system for neighborhoods – Bilt Neighborhood OS: an AI operating system and commerce network designed to help businesses grow by"
     }
    ],
-   "quartalszahlen": "2026-11-17"
+   "quartalszahlen": "2026-11-18"
   },
-  "AZN.L": {
+  "MAR": {
    "meldungen": [
     {
-     "t": "Rhythm Pharmaceuticals-Aktie springt nach Berichten über Übernahmeangebot von AstraZeneca um 28 % an",
-     "u": "https://de.finance.yahoo.com/nachrichten/rhythm-pharmaceuticals-aktie-springt-berichten-215311414.html?.tsrc=rss",
-     "q": "Yahoo Finanzen",
-     "d": "2026-11-04",
-     "z": "Investing.com – Die Aktien von Rhythm Pharmaceuticals (NASDAQ) legten am Mittwoch um 28 % zu, nachdem das „Wall Street Journal“ berichtet hatte, dass AstraZeneca (NASDAQ) ein Übernahmeangebot in Höhe von 10 Milliarden USD für das Biotech-Un"
-    },
-    {
-     "t": "COVID-Impfstoffhersteller AstraZeneca: Aktie steigt um 7%, das steckt dahinter",
-     "u": "https://de.beincrypto.com/astrazeneca-q3-ergebnisse-aktienkurs/?.tsrc=rss",
-     "q": "Yahoo Finanzen",
-     "d": "2026-10-30",
-     "z": "AstraZeneca übertrifft die Prognosen im dritten Quartal, während das Unternehmen einen 1,5-Milliarden-USD-Sparplan für die KI-gestützte Pipeline startet."
-    },
-    {
-     "t": "ROUNDUP: Astrazeneca legt stärker zu als gedacht - Aktienkurs schnellt hoch",
-     "u": "https://de.finance.yahoo.com/nachrichten/roundup-astrazeneca-legt-st%C3%A4rker-gedacht-140608608.html?.tsrc=rss",
-     "q": "Yahoo Finanzen",
-     "d": "2026-10-30",
-     "z": "Der Erfolg von Krebsmedikamenten hat dem Pharmakonzern Astrazeneca  auch im dritten Quartal überraschend deutliche Zuwächse beschert. Der Umsatz wuchs im Jahresvergleich um sieben Prozent auf rund 16,2 Milliarden US-Dollar (14,5 Mrd Euro), "
-    },
-    {
-     "t": "AstraZeneca steigert Gewinn dank Krebsmedikamenten, plant großes Sparprogramm",
-     "u": "https://de.euronews.com/2026/10/30/astrazeneca-steigert-gewinn-dank-krebsmedikamenten-plant-grosses-sparprogramm?.tsrc=rss",
-     "q": "Yahoo Finanzen",
-     "d": "2026-10-30",
-     "z": "AstraZeneca steigert den Nettogewinn im dritten Quartal um 23 Prozent dank boomender Krebsmedikamente und startet ein Sparprogramm über 1,5 Milliarden Dollar jährlich für neue Arzneien.View on euronews"
-    }
-   ],
-   "quartalszahlen": null
-  },
-  "BRK-B": {
-   "meldungen": [],
-   "quartalszahlen": null
-  },
-  "PG": {
-   "meldungen": [
-    {
-     "t": "NVIDIA, Caterpillar & Nike: Three Corporate Events That Could Move Markets",
-     "u": "https://finnhub.io/api/news?id=52c71317d0f109ba0490b58170f1da1fd5bd8cce35bddbb1657078aae5398f54",
+     "t": "Marriott’s Dividend Yields 0.7%. Its $4.8 Billion Cash Return Plan Changes the Math",
+     "u": "https://finnhub.io/api/news?id=3784445c84f64a1263323178ea50d5661162a9baf8545edb1e649cd9655e85ed",
      "q": "Yahoo",
      "d": "2026-11-10",
-     "z": "NVIDIA, Caterpillar, and Nike headline next week’s corporate events, offering important clues on AI investment, construction demand, and the consumer."
+     "z": "A sub-1% yield makes Marriott look like a poor pick for income investors. The real payout hides in a place most dividend screens never check, and one quirk on its balance sheet could test how long it lasts."
     },
     {
-     "t": "Herbal Essences Brings Its #1 Best-Selling Rose Hips Floral Scent to Frizz Care with the New Twist & Bloom Collection",
-     "u": "https://finnhub.io/api/news?id=eced610144d8444385021a96c68e52123919865ff7dd6bc3d82c4810e0f2abbe",
+     "t": "Stock Market Today: Dow Dips On Hot Inflation Data; Nvidia Falls Again, Anthropic Sets IPO Range (Live Coverage)",
+     "u": "https://finnhub.io/api/news?id=da4b6468f7b07843e1b9de42fc190efda0a049a2abd6c729c74866c400d1cd24",
      "q": "Yahoo",
      "d": "2026-11-10",
-     "z": "CINCINNATI, November 10, 2026--Herbal Essences is blooming into new realms by launching the new Rose Hips Twist & Bloom Collection, a three-step frizz-care regimen that brings the brand’s iconic Rose Hips fragrance to treatments for the fir"
+     "z": "Stock Market Today: The Dow Jones index falls Tuesday on a hot inflation report. Anthropic prices its IPO range. Nvidia sells off."
     },
     {
-     "t": "Meet Wall Street’s Safest Dividend Stocks: 3 Companies That Have Paid Through Recessions, Wars and Market Crashes",
-     "u": "https://finnhub.io/api/news?id=e9325f028ccd02e401a70689590025c3987df8a9e3ce172b57a0d3ca66ed7cf3",
+     "t": "Vacarya Surpasses 500 Properties, Becoming One of North America's Largest Rental Arbitrage Companies",
+     "u": "https://finnhub.io/api/news?id=c85531b9cc839c4ad0ec9d3b68b92b3ced0934cea5f998c34ae1a2d6ae24bc3a",
      "q": "Yahoo",
      "d": "2026-11-10",
-     "z": "One of these three dividend payers started out selling candles and soap, another grew out of Rockefeller's Standard Oil. Each carries a hidden risk, and one stock looks pricey enough to challenge its own safe reputation."
+     "z": "The Toronto-founded hospitality brand now operates in more than 30 cities across the U. and Canada with a network of more than 110 independent partners."
     },
     {
-     "t": "What Does Procter & Gamble (PG) Naming A New India Beauty Head Signal?",
-     "u": "https://finnhub.io/api/news?id=e4fe3b44a0988e95acc7d15d81adc1b6ad23520f78b76efc65acc0015c34a895",
+     "t": "Bilt Introduces the Operating System for Neighborhoods, Bilt Neighborhood OS™, Connecting Businesses and Communities to Power Local Commerce",
+     "u": "https://finnhub.io/api/news?id=934f0337f39a2247162885c6fe135cf4bb54af39398b5c3b31991246e2367a1e",
      "q": "Yahoo",
      "d": "2026-11-10",
-     "z": "Procter & Gamble (NYSE:PG) has appointed Shalini Saraswat as Brand Director and Business Head for Pantene India. Saraswat steps into the Pantene India role with prior brand leadership experience within Procter & Gamble. Her background inclu"
+     "z": "NEW YORK, November 10, 2026--Bilt today announced the next evolution of its platform, introducing the operating system for neighborhoods – Bilt Neighborhood OS: an AI operating system and commerce network designed to help businesses grow by"
     },
     {
-     "t": "Is Procter & Gamble's Beauty Momentum Enough to Lift Growth?",
-     "u": "https://finnhub.io/api/news?id=51f2f8f958ff91f4abac0b716189e29532bb0dd66600b55edd0955709d47779c",
+     "t": "Robots and surge pricing won't save fast food: Robert Irvine",
+     "u": "https://finnhub.io/api/news?id=f9e355bd9293470a7f80ff427f16f504110fe0a6d1b850a2416dba5b757b4cd1",
      "q": "Yahoo",
      "d": "2026-11-09",
-     "z": "PG's Beauty business posts 5% organic sales growth in Q1 FY27, fueled by Pantene and SK-II. Can this momentum boost overall growth?"
+     "z": "World-class chef and entrepreneur, Robert Irvine explains to Yahoo Finance Executive Editor Brian Sozzi why dynamic pricing is a little much, and why McDonald's burger-flipping robot and Chipotle's avocado-peeling machine can't replace the "
+    }
+   ],
+   "quartalszahlen": null
+  },
+  "LLY": {
+   "meldungen": [
+    {
+     "t": "Hims & Hers Drops 18% as Q3 Loss and Profit Outlook Cut Disappoint; Novo Nordisk Slides 2%, Eli Lilly Holds Steady",
+     "u": "https://finnhub.io/api/news?id=1087f893080be147249d767d6ae1b6ef00c76c0ceb3d60fd40d9eaade1d9b65f",
+     "q": "Yahoo",
+     "d": "2026-11-10",
+     "z": "Revenue jumped nearly 49%, yet Hims & Hers investors fled anyway. Behind the selloff sit shrinking margins, a subscriber slip, and a bet on branded GLP-1 drugs the company doesn't even make."
+    },
+    {
+     "t": "Hims & Hers Celebrated Its Eli Lilly Deal, Then Lost a Quarter of Its Value in a Week",
+     "u": "https://finnhub.io/api/news?id=47053b185d07bc55377ac743c33a9cc1ccb86d1e28b7d06b2a244c85192de8e0",
+     "q": "Yahoo",
+     "d": "2026-11-10",
+     "z": "Shares of Hims & Hers (NYSE:HIMS) traded at $18.76 at midday Tuesday. That is 18.22% lower on the session and 25.67% lower over the past week. The drop comes four days after Hims and Eli Lilly (NYSE:LLY) announced an agreement on November 6"
+    },
+    {
+     "t": "5 Best US Stocks to Invest In for Long Term",
+     "u": "https://finnhub.io/api/news?id=4242edcbda8053f8de0c785388dc45005d5d0b411a141046dcf290aa8ca9a2f9",
+     "q": "Yahoo",
+     "d": "2026-11-10",
+     "z": "In this article, we will be looking at the 5 best American stocks to invest in for long term. Recent economic and corporate developments have highlighted the importance of identifying businesses with durable growth opportunities. According "
+    },
+    {
+     "t": "Eli Lilly vs Novo Nordisk: What's the Better GLP-1 Stock to Buy?",
+     "u": "https://finnhub.io/api/news?id=8016a0b5a267f540ee5118bab03d488b8bb02d6bd72d8883055f7a30815cc299",
+     "q": "Yahoo",
+     "d": "2026-11-10",
+     "z": "These stocks have been going in different directions over the past year, but that trend may not necessarily continue."
+    },
+    {
+     "t": "Eli Lilly and Company (LLY) Grew Revenue 48% as GLP-1 Demand Accelerated: Can Growth Continue?",
+     "u": "https://finnhub.io/api/news?id=0fbd8a11cccdb0b81c7bfdd4b5c96632359b16543994eaedd39bb2689920ee9f",
+     "q": "Yahoo",
+     "d": "2026-11-10",
+     "z": "Liontrust Investment Partners recently released its “GF Global Dividend Fund” Q3 2026 investor letter. A copy of the letter can be downloaded here. The Fund returned -0.6% in the third quarter of 2026, underperforming the MSCI AC World Inde"
     }
    ],
    "quartalszahlen": null
@@ -1472,35 +1377,305 @@
    ],
    "quartalszahlen": null
   },
-  "AI.PA": {
+  "ADS.DE": {
    "meldungen": [
     {
-     "t": "ROUNDUP: Air Liquide wächst weiter - Hohe Nachfrage nach Gasen für KI-Halbleiter",
-     "u": "https://de.finance.yahoo.com/nachrichten/roundup-air-liquide-w%C3%A4chst-hohe-121333070.html?.tsrc=rss",
+     "t": "ANALYSE-FLASH: Bernstein belässt Adidas auf 'Outperform' - Ziel 245 Euro",
+     "u": "https://de.finance.yahoo.com/nachrichten/analyse-flash-bernstein-bel%C3%A4sst-adidas-143503500.html?.tsrc=rss",
      "q": "Yahoo Finanzen",
-     "d": "2026-10-29",
-     "z": "Eine starke Nachfrage nach Gasen etwa für die Herstellung von KI-Halbleitern hat den Industriegase-Konzern Air Liquide  im dritten Quartal angetrieben. Zudem profitierten die Franzosen von einem guten Handelsgeschäft. An der Börse kamen die"
+     "d": "2026-11-10",
+     "z": "Das US-Analysehaus Bernstein Research hat die Einstufung für Adidas  mit einem Kursziel von 245 Euro auf \"Outperform\" belassen. Die Nachfrage in China bleibe mau, schrieb Aneesha Sherman am Dienstag anlässlich des deutlichen Rückgangs der E"
     },
     {
-     "t": "Air Liquide wächst weiter - Hohe Nachfrage nach Gasen für Ki-Halbleiter",
-     "u": "https://de.finance.yahoo.com/nachrichten/air-liquide-w%C3%A4chst-hohe-nachfrage-070204887.html?.tsrc=rss",
+     "t": "Adidas: UBS rät zum Verkauf – Schuhgeschäft verliert an Schwung",
+     "u": "https://de.finance.yahoo.com/nachrichten/adidas-ubs-r%C3%A4t-verkauf-schuhgesch%C3%A4ft-084649816.html?.tsrc=rss",
      "q": "Yahoo Finanzen",
-     "d": "2026-10-29",
-     "z": "Eine anhaltend starke Nachfrage nach Gasen etwa für die Herstellung von KI-Halbleitern hat den Industriegase-Konzern Air Liquide  im dritten Quartal angetrieben. Zudem profitierten die Franzosen von einem guten Handelsgeschäft. Der Umsatz s"
+     "d": "2026-11-03",
+     "z": "Investing.com – Erst die Erholung, jetzt der Dämpfer: Die UBS stuft Adidas von „Neutral“ auf „Sell“ ab. Nach Einschätzung der Schweizer Großbank bringen eine nachlassende Dynamik im Schuhgeschäft und wachsender Margendruck die ambitionierte"
     },
     {
-     "t": "ANALYSE-FLASH: Bernstein hebt Ziel für Air Liquide auf 193 Euro - 'Outperform'",
-     "u": "https://de.finance.yahoo.com/nachrichten/analyse-flash-bernstein-hebt-ziel-074447567.html?.tsrc=rss",
+     "t": "ANALYSE-FLASH: UBS senkt Adidas auf 'Sell' - Ziel leicht runter auf 156 Euro",
+     "u": "https://de.finance.yahoo.com/nachrichten/analyse-flash-ubs-senkt-adidas-065000650.html?.tsrc=rss",
      "q": "Yahoo Finanzen",
-     "d": "2026-10-20",
-     "z": "Das US-Analysehaus Bernstein Research hat das Kursziel für Air Liquide  von 192 auf 193 Euro angehoben und die Einstufung auf \"Outperform\" belassen. Überraschend gute Geschäftszahlen  und höhere Unternehmensziele müssten in der Berichtssais"
+     "d": "2026-11-03",
+     "z": "Die Schweizer Großbank UBS hat das Kursziel für Adidas  von 160 auf 156 Euro gesenkt und die Aktien von \"Neutral\" auf \"Sell\" abgestuft. \"Heute stark, morgen schwieriger\", so betitelte Robert Krankowski am Dienstag seine Verkaufsempfehlung. "
     },
     {
-     "t": "ANALYSE-FLASH: JPMorgan hebt Ziel für Air Liquide auf 166 Euro - 'Neutral'",
-     "u": "https://de.finance.yahoo.com/nachrichten/analyse-flash-jpmorgan-hebt-ziel-093416918.html?.tsrc=rss",
+     "t": "ANALYSE-FLASH: JPMorgan hebt Ziel für Adidas auf 230 Euro - 'Overweight'",
+     "u": "https://de.finance.yahoo.com/nachrichten/analyse-flash-jpmorgan-hebt-ziel-075041630.html?.tsrc=rss",
      "q": "Yahoo Finanzen",
-     "d": "2026-10-15",
-     "z": "Die US-Bank JPMorgan hat das Kursziel für Air Liquide  vor Quartalszahlen von 162 auf 166 Euro angehoben und die Einstufung auf \"Neutral\" belassen. Er habe sein Bewertungsmodell für den Industriegasekonzern aktualisiert, um den neuesten Bra"
+     "d": "2026-10-30",
+     "z": "Die US-Bank JPMorgan hat das Kursziel für Adidas  von 210 auf 230 Euro angehoben und die Einstufung auf \"Overweight\" belassen. Nach den vollständigen Quartalszahlen passte Analystin Wendy Liu ihr Bewertungsmodell am Donnerstag an diese sowi"
+    }
+   ],
+   "quartalszahlen": null
+  },
+  "NESN.SW": {
+   "meldungen": [
+    {
+     "t": "Das kannst du erwarten, wenn du heute 5.000 Euro in die Nestlé-Aktie investierst!",
+     "u": "https://www.aktienwelt360.de/2026/11/05/das-kannst-du-erwarten-wenn-du-heute-5-000-euro-in-die-nestle-aktie-investierst/?.tsrc=rss",
+     "q": "Yahoo Finanzen",
+     "d": "2026-11-05",
+     "z": "Die Aktie von Nestlé kann so manches bieten, muss aber auch einiges leisten. Das passiert, wenn du jetzt 5.000 Euro investierst! Der Artikel Das kannst du erwarten, wenn du heute 5.000 Euro in die Nestlé-Aktie investierst! ist zuerst erschi"
+    },
+    {
+     "t": "Ängste vor einer KI-Blase führen zu überraschender Hinwendung zu Schweizer Aktien",
+     "u": "https://de.beincrypto.com/ki-aktien-verkauf-investoren-wechseln-zu-schweizer-aktien/?.tsrc=rss",
+     "q": "Yahoo Finanzen",
+     "d": "2026-10-24",
+     "z": "Roche, Novartis und Nestlé verschaffen Schweizer Aktien den größten Vorsprung gegenüber Eurozonen-Pendants seit März 2020."
+    },
+    {
+     "t": "ANALYSE-FLASH: JPMorgan belässt Nestle auf 'Overweight' - Ziel 100 Franken",
+     "u": "https://de.finance.yahoo.com/nachrichten/analyse-flash-jpmorgan-bel%C3%A4sst-nestle-140502642.html?.tsrc=rss",
+     "q": "Yahoo Finanzen",
+     "d": "2026-10-22",
+     "z": "Die US-Bank JPMorgan hat die Einstufung für Nestle  auf \"Overweight\" mit einem Kursziel von 100 Franken belassen. Nach starken Quartalszahlen des Nahrungsmittelkonzerns habe das Management auf der Telefonkonferenz zuversichtliche Botschafte"
+    },
+    {
+     "t": "Nach Coca-Cola und Nestlé: Auch Danone ändert Flaschen",
+     "u": "https://de.finance.yahoo.com/nachrichten/coca-cola-nestl%C3%A9-danone-%C3%A4ndert-135442248.html?.tsrc=rss",
+     "q": "Yahoo Finanzen",
+     "d": "2026-10-22",
+     "z": "Nach den Zugeständnissen der Getränkehersteller Coca-Cola  und Nestlé ändert auch Danone  die Recycling-Werbung auf Plastikflaschen. Alle drei Konzerne erklärten sich nach einer Beschwerde von Verbraucherschützern und Gesprächen unter Leitu"
+    }
+   ],
+   "quartalszahlen": null
+  },
+  "HD": {
+   "meldungen": [
+    {
+     "t": "Can Home Depot Sustain Comparable Sales Growth Amid Uneven Demand?",
+     "u": "https://finnhub.io/api/news?id=e3c99aacfd37cde49b58f13a3904ebecf55aa6cb7e4fec3392272f2bc25c3576",
+     "q": "Yahoo",
+     "d": "2026-11-10",
+     "z": "HD's 1.7% comps growth, robust Pro demand and digital gains signal resilience, but housing market pressures and weak transactions cloud its outlook."
+    },
+    {
+     "t": "The Kiplinger Dividend 15: Our Favorite Dividend-Paying Stocks",
+     "u": "https://finnhub.io/api/news?id=558ef90238987e88a3afc0c5d08780001a753dfe2b7274135f35ccd5bfd41de8",
+     "q": "Yahoo",
+     "d": "2026-11-10",
+     "z": "Rising interest rates create a risk for The Kiplinger Dividend 15, but our favorite dividend-paying stocks remain a worthy consideration for most portfolios."
+    },
+    {
+     "t": "Home Depot brings back viral Christmas tree with major holiday upgrade",
+     "u": "https://finnhub.io/api/news?id=1d703f53f1638607f4535fe9f6d976539469b756714a1666ca3b8631ee48f94b",
+     "q": "Yahoo",
+     "d": "2026-11-10",
+     "z": "The Grand Duchess Christmas tree is making the rounds on social media again, and Home Depot has introduced new features for the holiday season."
+    },
+    {
+     "t": "How These 5 Big-Box Retailers Compete for the Same Shopper",
+     "u": "https://finnhub.io/api/news?id=1dc5b277e3c483f221220f6559713d8e745d8a268185c719857d4a6f6c76c939",
+     "q": "Yahoo",
+     "d": "2026-11-10",
+     "z": "Walmart keeps gaining ground among shoppers of all income levels, but there's still strong potential among the big-box retailer's four key peers."
+    },
+    {
+     "t": "Lerma/ Elevates Taylor To Chief Client Officer",
+     "u": "https://finnhub.io/api/news?id=a5ab49584444646a3115dc9e8c1c38bc91e13bf0b16703ddda728d6ab37e998e",
+     "q": "Yahoo",
+     "d": "2026-11-10",
+     "z": "Taylor will expand The Home Depot's reach beyond Hispanic Marketing into the general marketplace."
+    }
+   ],
+   "quartalszahlen": "2026-11-17"
+  },
+  "UPS": {
+   "meldungen": [
+    {
+     "t": "An $850,000 Portfolio in Verizon, Enterprise Products and UPS Pays $51,000 a Year in Dividends. Here’s What Happens if One Cuts",
+     "u": "https://finnhub.io/api/news?id=0e7c569a63dbf24c8a98ba512116d32788c0f141faa4ca7972a3ea933d029f3f",
+     "q": "Yahoo",
+     "d": "2026-11-10",
+     "z": "Key TakeawaysAn $850,000 portfolio split evenly across Verizon, Enterprise Products Partners and UPS pays about $51,200 a year in dividends, or about $4,270 a month. Verizon and Enterprise Products have plenty of cash behind their payouts, "
+    },
+    {
+     "t": "UPS Takes CBP to Court Over Tariff Refunds",
+     "u": "https://finnhub.io/api/news?id=1514b7e7b9ee179670c75973567e89a10fc8baef250608787bf8e2400a82940d",
+     "q": "Yahoo",
+     "d": "2026-11-10",
+     "z": "The lawsuit covers entries the CBP’s CAPE refund system cannot process by itself, with the agency saying these entries can only be reopened with a judge’s order."
+    },
+    {
+     "t": "Is FedEx Stock a Buy as Margins Improve but Valuation Looks Full?",
+     "u": "https://finnhub.io/api/news?id=e7d413740ca3ebe6474102f7f6e2adc701709f49f9994687075a7551421c9a58",
+     "q": "Yahoo",
+     "d": "2026-11-10",
+     "z": "FDX's improving margins, strong cash flow and network savings bolster its outlook, but premium valuation and rising costs warrant investor caution."
+    },
+    {
+     "t": "$200,000 in Dividend Stocks: How a Roth IRA Could Save You $2,166 a Year",
+     "u": "https://finnhub.io/api/news?id=c3f12114fa733408068e8d2585a6c739e7114776b88f13ecfb1b45d6ee75b06d",
+     "q": "Yahoo",
+     "d": "2026-11-10",
+     "z": "Six famous high-yield stocks pay the same income wherever you hold them, yet two of them quietly trigger most of the tax bill. Find out which two, and why the account you choose matters more than the stocks you pick."
+    },
+    {
+     "t": "The Most Important Market Shift Of The Decade Is Already Underway",
+     "u": "https://finnhub.io/api/news?id=2355a323b3adf31596f84792929f31a24faab7dbe44dd1535953e0ab9291d5ea",
+     "q": "SeekingAlpha",
+     "d": "2026-11-10",
+     "z": "A market rotation could drive outperformance over 3, 5, and 10 years as investors overlook AI's long-term beneficiaries. Discover more in this market outlook."
+    }
+   ],
+   "quartalszahlen": null
+  },
+  "BRK-B": {
+   "meldungen": [],
+   "quartalszahlen": null
+  },
+  "AZN.L": {
+   "meldungen": [
+    {
+     "t": "Rhythm Pharmaceuticals-Aktie springt nach Berichten über Übernahmeangebot von AstraZeneca um 28 % an",
+     "u": "https://de.finance.yahoo.com/nachrichten/rhythm-pharmaceuticals-aktie-springt-berichten-215311414.html?.tsrc=rss",
+     "q": "Yahoo Finanzen",
+     "d": "2026-11-04",
+     "z": "Investing.com – Die Aktien von Rhythm Pharmaceuticals (NASDAQ) legten am Mittwoch um 28 % zu, nachdem das „Wall Street Journal“ berichtet hatte, dass AstraZeneca (NASDAQ) ein Übernahmeangebot in Höhe von 10 Milliarden USD für das Biotech-Un"
+    },
+    {
+     "t": "COVID-Impfstoffhersteller AstraZeneca: Aktie steigt um 7%, das steckt dahinter",
+     "u": "https://de.beincrypto.com/astrazeneca-q3-ergebnisse-aktienkurs/?.tsrc=rss",
+     "q": "Yahoo Finanzen",
+     "d": "2026-10-30",
+     "z": "AstraZeneca übertrifft die Prognosen im dritten Quartal, während das Unternehmen einen 1,5-Milliarden-USD-Sparplan für die KI-gestützte Pipeline startet."
+    },
+    {
+     "t": "ROUNDUP: Astrazeneca legt stärker zu als gedacht - Aktienkurs schnellt hoch",
+     "u": "https://de.finance.yahoo.com/nachrichten/roundup-astrazeneca-legt-st%C3%A4rker-gedacht-140608608.html?.tsrc=rss",
+     "q": "Yahoo Finanzen",
+     "d": "2026-10-30",
+     "z": "Der Erfolg von Krebsmedikamenten hat dem Pharmakonzern Astrazeneca  auch im dritten Quartal überraschend deutliche Zuwächse beschert. Der Umsatz wuchs im Jahresvergleich um sieben Prozent auf rund 16,2 Milliarden US-Dollar (14,5 Mrd Euro), "
+    },
+    {
+     "t": "AstraZeneca steigert Gewinn dank Krebsmedikamenten, plant großes Sparprogramm",
+     "u": "https://de.euronews.com/2026/10/30/astrazeneca-steigert-gewinn-dank-krebsmedikamenten-plant-grosses-sparprogramm?.tsrc=rss",
+     "q": "Yahoo Finanzen",
+     "d": "2026-10-30",
+     "z": "AstraZeneca steigert den Nettogewinn im dritten Quartal um 23 Prozent dank boomender Krebsmedikamente und startet ein Sparprogramm über 1,5 Milliarden Dollar jährlich für neue Arzneien.View on euronews"
+    }
+   ],
+   "quartalszahlen": null
+  },
+  "GILD": {
+   "meldungen": [
+    {
+     "t": "Can Gilead’s Cash Keep Growing?",
+     "u": "https://finnhub.io/api/news?id=8d79befc4d67abf9a6f6a33b5db6aa42899757ffb4e3891d5572fee39ace8a9c",
+     "q": "Yahoo",
+     "d": "2026-11-10",
+     "z": "For questions about this article or underlying research, email help@trefis.com."
+    },
+    {
+     "t": "Gilead Sciences Targets 200 Treatment Centers for Potential Anito-Cel Launch",
+     "u": "https://finnhub.io/api/news?id=29d9af7de30bf68660c2da1b6234682fe16254058c068762b6e594e89c28091d",
+     "q": "Yahoo",
+     "d": "2026-11-10",
+     "z": "Gilead Sciences (NASDAQ:GILD) is preparing for a potential launch of its multiple myeloma cell therapy anito-cel, with plans to build on the treatment-center relationships and manufacturing capabilities established by its existing CAR-T pro"
+    },
+    {
+     "t": "Merck vs. Gilead Sciences: Which Dividend Stock Pays You More in 10 Years?",
+     "u": "https://finnhub.io/api/news?id=02c2d4cd08cfbeb61cdd1695decc4edc5436f70f638586f5ee1041dd39aabdc6",
+     "q": "Yahoo",
+     "d": "2026-11-10",
+     "z": "Key TakeawaysMerck and Gilead Sciences both raised their 2026 sales outlooks when they reported third-quarter results on Oct. 29."
+    },
+    {
+     "t": "Gilead Sciences, Inc. (GILD) Presents at 8th Annual Wolfe Research Healthcare Conference Transcript",
+     "u": "https://finnhub.io/api/news?id=991e7ae4061f58134bc579f5cd312ef60c79cd030c8fcba8bbeec96fa5b4d0ea",
+     "q": "SeekingAlpha",
+     "d": "2026-11-10",
+     "z": "Gilead Sciences, Inc. (GILD) 8th Annual Wolfe Research Healthcare Conference November 10, 2026 11:20 AM ESTCompany ParticipantsCindy Perettie - Executive..."
+    },
+    {
+     "t": "Compugen: COM701 Data On Track And Continued Bispecific Rilvegostomig Development",
+     "u": "https://finnhub.io/api/news?id=c00ac598cf414e6fe202e1e8a8ed9ac2fd1bf37bbeb1d19d3e756fc48cb48e95",
+     "q": "SeekingAlpha",
+     "d": "2026-11-10",
+     "z": "Compugen is rated a Buy, as COM701 targets Q1 2027 results and $117.5 million supporting operations into 2029. Click to read more about CGEN."
+    }
+   ],
+   "quartalszahlen": null
+  },
+  "XLV": {
+   "meldungen": [
+    {
+     "t": "Hims & Hers Celebrated Its Eli Lilly Deal, Then Lost a Quarter of Its Value in a Week",
+     "u": "https://finnhub.io/api/news?id=47053b185d07bc55377ac743c33a9cc1ccb86d1e28b7d06b2a244c85192de8e0",
+     "q": "Yahoo",
+     "d": "2026-11-10",
+     "z": "Shares of Hims & Hers (NYSE:HIMS) traded at $18.76 at midday Tuesday. That is 18.22% lower on the session and 25.67% lower over the past week. The drop comes four days after Hims and Eli Lilly (NYSE:LLY) announced an agreement on November 6"
+    },
+    {
+     "t": "The FDA Ordered GLP-1 Vision-Loss Warnings For Some Products. Shares of Eli Lilly and Novo Nordisk Were Unfazed.",
+     "u": "https://finnhub.io/api/news?id=f42a54cd55a595edb261e44212b431cb5b51d5a17b71026dd21bd4ef51519b00",
+     "q": "Yahoo",
+     "d": "2026-11-10",
+     "z": "The updated labeling covers Mounjaro, Zepbound, Ozempic and Wegovy."
+    },
+    {
+     "t": "Is A 50 Basis Point Hike Back On Table?",
+     "u": "https://finnhub.io/api/news?id=07d0c8e771b914d919ee17baac0ba95418a0e202b4fd2e293705f4e3c843e45b",
+     "q": "SeekingAlpha",
+     "d": "2026-11-10",
+     "z": "October CPI and core CPI topped forecasts, boosting December Fed rate-hike bets; Waller says a 50 bps hike is possible if inflation stays hot. Read more macroanalysis here."
+    },
+    {
+     "t": "What Are Wall Street Analysts' Target Price for Abbott Stock?",
+     "u": "https://finnhub.io/api/news?id=23be3554aab3d67eec79ab0337878f77abe15a1a97ed199c57ebc34c392c2205",
+     "q": "Yahoo",
+     "d": "2026-11-10",
+     "z": "While Abbott has underperformed the broader market over the past year, Wall Street analysts maintain a bullish outlook on the stock’s prospects."
+    },
+    {
+     "t": "Sell The Bounce, AI Bubble Burst To Resume",
+     "u": "https://finnhub.io/api/news?id=12c5d64b7f05579cd2187bf46b628d865f5563c1becd74517ae47060ad69f980",
+     "q": "SeekingAlpha",
+     "d": "2026-11-10",
+     "z": "The Nasdaq 100 bounced as oil prices fell, but this bounce is unsustainable; thus, the selloff is likely to resume. Click here to read what investors need to know."
+    }
+   ],
+   "quartalszahlen": null
+  },
+  "PG": {
+   "meldungen": [
+    {
+     "t": "Treasuries Now Offer 2.66% Above Inflation. Are Dividend Stocks in Trouble?",
+     "u": "https://finnhub.io/api/news?id=17d73eb69b1f35a300d1f36908382a4cefe497f6bb4114a9406e1cae9a25f67f",
+     "q": "Yahoo",
+     "d": "2026-11-10",
+     "z": "Real yields hit a level that crushed income stocks once before, and one dividend name is already repeating the old script. Which holdings sat out the damage this time, and what single number could turn the tide again?"
+    },
+    {
+     "t": "The Kiplinger Dividend 15: Our Favorite Dividend-Paying Stocks",
+     "u": "https://finnhub.io/api/news?id=558ef90238987e88a3afc0c5d08780001a753dfe2b7274135f35ccd5bfd41de8",
+     "q": "Yahoo",
+     "d": "2026-11-10",
+     "z": "Rising interest rates create a risk for The Kiplinger Dividend 15, but our favorite dividend-paying stocks remain a worthy consideration for most portfolios."
+    },
+    {
+     "t": "Clara Shih and Joe Jimenez on AI and Leadership | WSJ Leadership Institute",
+     "u": "https://finnhub.io/api/news?id=ef5dc421f760dd8ad7157703dbe6fc3b2eb185737a509422db78ade93569c9d0",
+     "q": "Yahoo",
+     "d": "2026-11-10",
+     "z": "Joe Jimenez, who is on the board of GM and Procter & Gamble, and Clara Shih, New Work Foundation founder, discuss AI's disruptive impact on the workforce and how corporate leaders should proactively think about how to democratize the techno"
+    },
+    {
+     "t": "NVIDIA, Caterpillar & Nike: Three Corporate Events That Could Move Markets",
+     "u": "https://finnhub.io/api/news?id=52c71317d0f109ba0490b58170f1da1fd5bd8cce35bddbb1657078aae5398f54",
+     "q": "Yahoo",
+     "d": "2026-11-10",
+     "z": "NVIDIA, Caterpillar, and Nike headline next week’s corporate events, offering important clues on AI investment, construction demand, and the consumer."
+    },
+    {
+     "t": "The Most Important Market Shift Of The Decade Is Already Underway",
+     "u": "https://finnhub.io/api/news?id=2355a323b3adf31596f84792929f31a24faab7dbe44dd1535953e0ab9291d5ea",
+     "q": "SeekingAlpha",
+     "d": "2026-11-10",
+     "z": "A market rotation could drive outperformance over 3, 5, and 10 years as investors overlook AI's long-term beneficiaries. Discover more in this market outlook."
     }
    ],
    "quartalszahlen": null
@@ -1574,6 +1749,27 @@
   "TMO": {
    "meldungen": [
     {
+     "t": "Thermo Fisher Scientific (TMO) Is A Key Supplier In Cell Sheet Gene Therapy",
+     "u": "https://finnhub.io/api/news?id=d88926f0441d1716cbeb63cd604d9d7bcbae0721dd2e3c64a4dfddbd39d0dea6",
+     "q": "Yahoo",
+     "d": "2026-11-11",
+     "z": "Thermo Fisher Scientific (NYSE:TMO) is emerging as a key supplier in the global cell sheet-based gene therapy market, which is gaining attention in regenerative medicine in 2026. Sector milestones in cell sheet-based therapies for tissue re"
+    },
+    {
+     "t": "Ingersoll Rand Vs Hubbell: Which Stock Is The Better Buy?",
+     "u": "https://finnhub.io/api/news?id=1350b6212f6d3880965f44c99af0fe53ed40d9f0e072563d0f71fae92924f24b",
+     "q": "Yahoo",
+     "d": "2026-11-11",
+     "z": "For questions about this article or underlying research, email help@trefis.com."
+    },
+    {
+     "t": "Thermo Fisher Scientific (TMO) Is Benefiting From More Than Healthcare Demand: Here’s the Overlooked AI Connection",
+     "u": "https://finnhub.io/api/news?id=68b19618173d02d708f437b1c9e78b4243c659d2dd561440518fc2f09550f77a",
+     "q": "Yahoo",
+     "d": "2026-11-10",
+     "z": "Liontrust Investment Partners recently released its “GF Global Dividend Fund” Q3 2026 investor letter. A copy of the letter can be downloaded here. The Fund returned -0.6% in the third quarter of 2026, underperforming the MSCI AC World Inde"
+    },
+    {
      "t": "Electrophoresis Reagents - Global Strategic Business Report: Capitalize on China's 7.4% CAGR as Bio-Rad, QIAGEN, Agilent, Merck Millipore and Thermo Fisher Battle for $1.3B by 2032",
      "u": "https://finnhub.io/api/news?id=d143ca3feb34113f1e00efb75a942655e27a2feebf1dac10996aa8f12cd004ad",
      "q": "Yahoo",
@@ -1586,33 +1782,26 @@
      "q": "Yahoo",
      "d": "2026-11-10",
      "z": "Target automation, magnetic bead and microfluidic platforms for diagnostics, genomics and precision medicine; use tariff insights to optimize sourcing and supply chains.Dublin, Nov. 10, 2026 (GLOBE NEWSWIRE) -- \"Nucleic Acid Isolation and P"
-    },
-    {
-     "t": "Nucleic Acid Labeling - Global Strategic Business Report 2026: Secure Share of a $2.8 Billion Market by 2032 as Thermo Fisher Scientific, Roche, Merck, and Agilent Accelerate Genomics",
-     "u": "https://finnhub.io/api/news?id=fb9671c0233db4732ca95451bbffdc84e77f6a96d27af81e1c47adaaf20eb459",
-     "q": "Yahoo",
-     "d": "2026-11-10",
-     "z": "Target genomics and diagnostics with automated, high-throughput fluorescent labeling that boosts accuracy, scalability and lab efficiency.Dublin, Nov. 10, 2026 (GLOBE NEWSWIRE) -- \"Nucleic Acid Labeling - Global Strategic Business Report 20"
-    },
-    {
-     "t": "In Vitro Toxicology Testing - Global Strategic Business Report: Capitalize on the $14B-to-$27.4B Surge as Thermo Fisher Scientific, Merck, Eurofins and Bio-Rad Disrupt Testing by 2032",
-     "u": "https://finnhub.io/api/news?id=5d325efa6e2d71df6654bd8a61055236e7d5142deb891c9b7f47a9f4c07fc484",
-     "q": "Yahoo",
-     "d": "2026-11-10",
-     "z": "Cut costs and accelerate safety assessments with human-relevant in vitro models, AI, organ-on-chip and high-throughput screening amid regulatory and ethical shifts.Dublin, Nov. 10, 2026 (GLOBE NEWSWIRE) -- \"In Vitro Toxicology Testing - Glo"
-    },
-    {
-     "t": "Gene Panels - Global Strategic Business Report 2026: Capitalize on 17.9% CAGR as Market Triples to $12.6B by 2032 - Track Key Players Illumina, Roche, QIAGEN, Thermo Fisher, Agilent and More",
-     "u": "https://finnhub.io/api/news?id=1b1fa753189bb9863ac671c598aa2910f37c810d20245c432e1319afb9671b8f",
-     "q": "Yahoo",
-     "d": "2026-11-10",
-     "z": "Dublin, Nov. 10, 2026 (GLOBE NEWSWIRE) -- \"Gene Panel - Global Strategic Business Report 2026\" has been added to ResearchAndMarkets.com's offering. The global gene panel market, valued at US$4 billion in 2025, is projected to reach US$12.6 "
     }
    ],
    "quartalszahlen": null
   },
   "ABBV": {
    "meldungen": [
+    {
+     "t": "Can AbbVie (ABBV) Justify Its Valuation After Raised Guidance And Strong Results?",
+     "u": "https://finnhub.io/api/news?id=0238ab0ffbe683570b6ced594356dc66c0993b1bcf3766c52d37ee23355a8346",
+     "q": "Yahoo",
+     "d": "2026-11-10",
+     "z": "AbbVie (ABBV) just raised its full year 2026 revenue guidance to about US$67.8b and lifted its dividend, after reporting third quarter sales of US$17.4b and net income of US$4.2b. Recent price action has been strong, with AbbVie’s share pri"
+    },
+    {
+     "t": "Can Gilead’s Cash Keep Growing?",
+     "u": "https://finnhub.io/api/news?id=8d79befc4d67abf9a6f6a33b5db6aa42899757ffb4e3891d5572fee39ace8a9c",
+     "q": "Yahoo",
+     "d": "2026-11-10",
+     "z": "For questions about this article or underlying research, email help@trefis.com."
+    },
     {
      "t": "Can You Still Buy Merck Stock Today?",
      "u": "https://finnhub.io/api/news?id=92157bceddaffe1cf14d9ce78b9bc6ead3f63fa2a1ab784479d88acdb1080496",
@@ -1633,20 +1822,6 @@
      "q": "Yahoo",
      "d": "2026-11-09",
      "z": "IBM has launched its first quantum computer in Illinois, advancing research partnerships, industry applications and plans to create 750 technology jobs."
-    },
-    {
-     "t": "Hims-Eli Lilly GLP-1 Deal Meets Summit’s FDA Gamble: Which Biotech ETFs Stand to Gain?",
-     "u": "https://finnhub.io/api/news?id=b3df94d3aa5fe2cc3b56807ab9fae07783eb529469ed10ff651eea49dbb17a26",
-     "q": "Benzinga",
-     "d": "2026-11-09",
-     "z": "Biotech ETFs face key FDA catalysts as Summit Therapeutics&#39; decision and the Hims-Lilly GLP-1 deal put XLV, IBB and XBI in focus."
-    },
-    {
-     "t": "What Happens To Pfizer Stock If Patent Losses Outpace New Drugs?",
-     "u": "https://finnhub.io/api/news?id=895c30a604c642d18adc2ca87464c2cbaadd23a49ebbd1555a7b2fbae9351dbd",
-     "q": "Yahoo",
-     "d": "2026-11-09",
-     "z": "For questions about this article or underlying research, email help@trefis.com."
     }
    ],
    "quartalszahlen": null
@@ -1654,39 +1829,39 @@
   "V": {
    "meldungen": [
     {
-     "t": "Visa (V) Stock Could Be Reasonable With Excess Returns Intact",
-     "u": "https://finnhub.io/api/news?id=24a2a8a850aa34d87ac0eefabe69bc7ad158963399f1b3659f0b6802d5321a3d",
+     "t": "Visa’s Services Grow Over 20% as Company Pushes Beyond Payments",
+     "u": "https://finnhub.io/api/news?id=5eadb6c848507116b0bbdc49ee9f7a7382f1c118033c02f42d092ed3756b0dbf",
      "q": "Yahoo",
-     "d": "2026-11-10",
-     "z": "Visa has delivered strong long term gains for shareholders, which puts a spotlight on whether the current share price is properly supported by the returns the business earns on its capital. With the stock now reflecting years of compounding"
+     "d": "2026-11-11",
+     "z": "Visa (NYSE:V) is expanding its value-added services business through faster product development, broader payment and banking capabilities, and increased investment in security, according to Andrew Torre, the company’s president of value-add"
     },
     {
-     "t": "The Dates That Matter Most For Visa Stock",
-     "u": "https://finnhub.io/api/news?id=536ac43cc6e7adfd3560af0d150fbad1814a97d5d59a039a2cb1837b82c02003",
+     "t": "Goldman, Citi Commit $270M to Their Own Stablecoin: Can Tether and Circle Hold On?",
+     "u": "https://finnhub.io/api/news?id=bb399fad1cb3dc71403be6dc4631bd782cf91da8a8cd27a5ccf0d52f722c45ea",
      "q": "Yahoo",
      "d": "2026-11-10",
-     "z": "For questions about this article or underlying research, email help@trefis.com."
+     "z": "Goldman, Citi and 19 other firms fund a $270M stablecoin to take on Tether and Circle. Here is what it means for Circle stock."
     },
     {
-     "t": "Global Payments adds Visa IDX API to Adaptive Authentication",
-     "u": "https://finnhub.io/api/news?id=b2c48c397a0cc993849844da187bcc6d3ff22ede43d536e68dcdfc25a890d07b",
+     "t": "Monad Is Now a Settlement Option in Visa’s Stablecoin Program",
+     "u": "https://finnhub.io/api/news?id=069aa458fa296ca09145dba2fbbe6bfbdfa33d5fd2e4d9e955d4c1b907fedc7f",
      "q": "Yahoo",
      "d": "2026-11-10",
-     "z": "The payments technology company said the integration is intended to help merchants share more transaction data with card issuers."
+     "z": "Visa hasn't announced the addition itself, and the Monad Foundation's release doesn't say which stablecoins will settle on the network."
     },
     {
-     "t": "Spdr Dow Jones Industrial Average ETF (DIA) Buys $36 Million More GS on Friday",
-     "u": "https://finnhub.io/api/news?id=de9ee641492486ee72d144c5b24e232ed1622ba8d9dfad7f46506b2b93fb172e",
+     "t": "US credit card debt hits record $1.29 trillion in third quarter",
+     "u": "https://finnhub.io/api/news?id=304b42e7e11b253cd64234d4b3357ff3edf6745dfc7354c15053b94b37084325",
      "q": "Yahoo",
      "d": "2026-11-10",
-     "z": "The fund added $358.4 million across all 30 holdings, with Goldman Sachs its largest purchase at $36.0 million."
+     "z": "Investing.com -- Credit card balances in the United States rose by $22 billion in the third quarter to reach a record $1.29 trillion, according to the Federal Reserve Bank of New York's household debt report released today. The balances inc"
     },
     {
-     "t": "What State Street Fin. Select Sector SPDR (XLF) Sold: Berkshire Leads on Friday",
-     "u": "https://finnhub.io/api/news?id=903334ccb962c30557b1a4ee35f83d795015a959620a5329623ee95026c5d816",
+     "t": "Bill Ackman’s Best Buy Is Already Up 27%. Is It Too Late to Follow Him?",
+     "u": "https://finnhub.io/api/news?id=95e7ff804141240eb78d27d0057db662c58eeaa9701950419cd0010c21867895",
      "q": "Yahoo",
      "d": "2026-11-10",
-     "z": "The $53.58 billion fund sold $551.5 million across all 76 positions, with Berkshire Hathaway's $72.9 million reduction the largest."
+     "z": "Key TakeawaysFour of the five stocks Bill Ackman’s Pershing Square bought or added to in the second quarter are up since June 30: Mastercard, Visa, S&P Global and Meta Platforms. Netflix is down 11%."
     }
    ],
    "quartalszahlen": null
@@ -1694,692 +1869,42 @@
   "MA": {
    "meldungen": [
     {
-     "t": "The Dates That Matter Most For Visa Stock",
-     "u": "https://finnhub.io/api/news?id=536ac43cc6e7adfd3560af0d150fbad1814a97d5d59a039a2cb1837b82c02003",
-     "q": "Yahoo",
+     "t": "Mastercard Incorporated (MA) Presents at KBW Fintech Ecosystem Conference 2026 Transcript",
+     "u": "https://finnhub.io/api/news?id=dfdbf44c7a43db3adef85060faf0934ceaec36521e508f1bf7801a2946c6b8a8",
+     "q": "SeekingAlpha",
      "d": "2026-11-10",
-     "z": "For questions about this article or underlying research, email help@trefis.com."
+     "z": "Mastercard Incorporated (MA) KBW Fintech Ecosystem Conference 2026 November 10, 2026 3:25 PM ESTCompany ParticipantsLinda Kirkpatrick - Chief Services..."
     },
     {
-     "t": "What State Street Fin. Select Sector SPDR (XLF) Sold: Berkshire Leads on Friday",
-     "u": "https://finnhub.io/api/news?id=903334ccb962c30557b1a4ee35f83d795015a959620a5329623ee95026c5d816",
+     "t": "US credit card debt hits record $1.29 trillion in third quarter",
+     "u": "https://finnhub.io/api/news?id=304b42e7e11b253cd64234d4b3357ff3edf6745dfc7354c15053b94b37084325",
      "q": "Yahoo",
      "d": "2026-11-10",
-     "z": "The $53.58 billion fund sold $551.5 million across all 76 positions, with Berkshire Hathaway's $72.9 million reduction the largest."
+     "z": "Investing.com -- Credit card balances in the United States rose by $22 billion in the third quarter to reach a record $1.29 trillion, according to the Federal Reserve Bank of New York's household debt report released today. The balances inc"
     },
     {
-     "t": "Sage partners with Adyen and Mastercard to deliver business accounts with debit cards for small businesses",
-     "u": "https://finnhub.io/api/news?id=83a7c6996e11c9f1c5de92dbf7f863e15f9fa959bc51f6aab48d2bf561395b31",
+     "t": "Bill Ackman’s Best Buy Is Already Up 27%. Is It Too Late to Follow Him?",
+     "u": "https://finnhub.io/api/news?id=95e7ff804141240eb78d27d0057db662c58eeaa9701950419cd0010c21867895",
      "q": "Yahoo",
      "d": "2026-11-10",
-     "z": "Sage business debit card Sage business debit card Sage is developing financial services that bring business account, debit card, payment and reconciliation capabilities into the software small businesses use to manage their financesAdyen wi"
+     "z": "Key TakeawaysFour of the five stocks Bill Ackman’s Pershing Square bought or added to in the second quarter are up since June 30: Mastercard, Visa, S&P Global and Meta Platforms. Netflix is down 11%."
     },
     {
-     "t": "Mastercard (MA) Expands Its Business Banking Reach Through New Partnerships",
-     "u": "https://finnhub.io/api/news?id=d15748c3e64a0c5a6280e5f8cda29b090e8b112d2c226be869122249830ddf88",
+     "t": "The Kiplinger Dividend 15: Our Favorite Dividend-Paying Stocks",
+     "u": "https://finnhub.io/api/news?id=558ef90238987e88a3afc0c5d08780001a753dfe2b7274135f35ccd5bfd41de8",
      "q": "Yahoo",
      "d": "2026-11-10",
-     "z": "Mastercard (NYSE:MA) is expanding its business banking reach through new partnerships focused on commercial cards and treasury tools. BMO and Mastercard launched the BMO CashBack World Elite Business Mastercard in Canada, targeting small an"
+     "z": "Rising interest rates create a risk for The Kiplinger Dividend 15, but our favorite dividend-paying stocks remain a worthy consideration for most portfolios."
     },
     {
-     "t": "'Elon Musk and Michael Miebach to join Trump at Apec in Shenzhen. What about Jensen Huang?' - SCMP",
-     "u": "https://finnhub.io/api/news?id=d8b9d90b5582e6b443771c2b0ed987613061ffcf0b32eb044d6376824fabb4e8",
-     "q": "Benzinga",
+     "t": "Mastercard CEO Reveals His Biggest Cybersecurity Concern",
+     "u": "https://finnhub.io/api/news?id=5c790af565b9c731383c0ec61a87291aa9241b73dc4ac5af1147719ca414aa85",
+     "q": "Yahoo",
      "d": "2026-11-10",
-     "z": "https://www.scmp.com/news/china/diplomacy/article/3373901/top-us-business-leaders-including-elon-musk-set-join-donald-trump-apec-china "
+     "z": "Mastercard CEO Michael Miebach says cybersecurity is the issue that keeps him up at night. Speaking with Alan Murray at the WSJ Leadership Institute Board of Directors Summit in Palm Beach, Miebach discusses the growing challenge of protect"
     }
    ],
    "quartalszahlen": null
-  },
-  "DB1.DE": {
-   "meldungen": [],
-   "quartalszahlen": null
-  }
- },
- "_lernen": {
-  "aufgabe": "Schlage höchstens EIN Update der Rechnung vor (Feld vorschlag), nur wenn es gut begründet ist. Grundlage: variantenTest (jede Einstellung einen Schritt verändert, getestet in beiden Jahreshälften), bilanzListen und bisherigeUpdates (abgelehnte nicht wiederholen). Bevorzuge Varianten mit beideBesser=true. Kein guter Kandidat: vorschlag weglassen. Der Wachmann testet deinen Vorschlag selbst noch einmal, der Nutzer muss zustimmen.",
-  "aktuelleEinstellungen": {
-   "3": {
-    "w20": 1,
-    "w60": 0,
-    "w120": 0,
-    "trend": 0.5,
-    "heiss": 1,
-    "rsiGrenze": 75,
-    "kalt": 0.5
-   },
-   "7": {
-    "w20": 0.5,
-    "w60": 0.5,
-    "w120": 0,
-    "trend": 0.5,
-    "heiss": 0.5,
-    "rsiGrenze": 75,
-    "kalt": 0
-   },
-   "30": {
-    "w20": 0,
-    "w60": 1,
-    "w120": 0.5,
-    "trend": 0.5,
-    "heiss": 0,
-    "rsiGrenze": 75,
-    "kalt": 0
-   }
-  },
-  "einstellungen": {
-   "w20": {
-    "n": "Gewicht Kursanstieg 4 Wochen",
-    "min": 0,
-    "max": 2,
-    "schritt": 0.25
-   },
-   "w60": {
-    "n": "Gewicht Kursanstieg 3 Monate",
-    "min": 0,
-    "max": 2,
-    "schritt": 0.25
-   },
-   "w120": {
-    "n": "Gewicht Kursanstieg 6 Monate",
-    "min": 0,
-    "max": 2,
-    "schritt": 0.25
-   },
-   "trend": {
-    "n": "Bonus für Aufwärtstrend (20- über 50-Tage-Schnitt)",
-    "min": 0,
-    "max": 2,
-    "schritt": 0.25
-   },
-   "heiss": {
-    "n": "Abzug bei Überhitzung",
-    "min": 0,
-    "max": 3,
-    "schritt": 0.25
-   },
-   "rsiGrenze": {
-    "n": "RSI-Grenze für Überhitzung",
-    "min": 65,
-    "max": 90,
-    "schritt": 5
-   },
-   "kalt": {
-    "n": "Abzug bei Ausverkauf (RSI unter 25)",
-    "min": 0,
-    "max": 2,
-    "schritt": 0.25
-   }
-  },
-  "testJetzt": {
-   "d": "2026-11-10",
-   "version": 0,
-   "von": "2025-11-10",
-   "werte": 236,
-   "h": {
-    "3": {
-     "tage": 249,
-     "topAvg": 0.2,
-     "alleAvg": -0.03,
-     "vorsprung": 0.23,
-     "besser": 52,
-     "plus": 51
-    },
-    "7": {
-     "tage": 245,
-     "topAvg": 0.5,
-     "alleAvg": 0.23,
-     "vorsprung": 0.27,
-     "besser": 51,
-     "plus": 49
-    },
-    "30": {
-     "tage": 222,
-     "topAvg": 1.35,
-     "alleAvg": 1.79,
-     "vorsprung": -0.44,
-     "besser": 38,
-     "plus": 49
-    }
-   }
-  },
-  "bilanzListen": {
-   "3": {
-    "n": 0
-   },
-   "7": {
-    "n": 0
-   },
-   "30": {
-    "n": 0
-   }
-  },
-  "variantenTest": [
-   {
-    "horizont": 30,
-    "param": "w120",
-    "von": 0.5,
-    "nach": 0.25,
-    "vorsprungH1": {
-     "alt": 2.37,
-     "neu": 2.7
-    },
-    "vorsprungH2": {
-     "alt": -4.13,
-     "neu": -3.38
-    },
-    "beideBesser": true
-   },
-   {
-    "horizont": 30,
-    "param": "w60",
-    "von": 1,
-    "nach": 1.25,
-    "vorsprungH1": {
-     "alt": 2.37,
-     "neu": 2.57
-    },
-    "vorsprungH2": {
-     "alt": -4.13,
-     "neu": -4.05
-    },
-    "beideBesser": true
-   },
-   {
-    "horizont": 3,
-    "param": "w20",
-    "von": 1,
-    "nach": 0.75,
-    "vorsprungH1": {
-     "alt": 0.73,
-     "neu": 0.88
-    },
-    "vorsprungH2": {
-     "alt": -0.28,
-     "neu": -0.22
-    },
-    "beideBesser": true
-   },
-   {
-    "horizont": 3,
-    "param": "heiss",
-    "von": 1,
-    "nach": 1.25,
-    "vorsprungH1": {
-     "alt": 0.73,
-     "neu": 0.81
-    },
-    "vorsprungH2": {
-     "alt": -0.28,
-     "neu": -0.23
-    },
-    "beideBesser": true
-   },
-   {
-    "horizont": 30,
-    "param": "w20",
-    "von": 0,
-    "nach": 0.25,
-    "vorsprungH1": {
-     "alt": 2.37,
-     "neu": 4.04
-    },
-    "vorsprungH2": {
-     "alt": -4.13,
-     "neu": -4.65
-    },
-    "beideBesser": false
-   },
-   {
-    "horizont": 7,
-    "param": "w20",
-    "von": 0.5,
-    "nach": 0.25,
-    "vorsprungH1": {
-     "alt": 1.46,
-     "neu": 1.09
-    },
-    "vorsprungH2": {
-     "alt": -0.99,
-     "neu": -0.47
-    },
-    "beideBesser": false
-   },
-   {
-    "horizont": 3,
-    "param": "w20",
-    "von": 1,
-    "nach": 1.25,
-    "vorsprungH1": {
-     "alt": 0.73,
-     "neu": 0.85
-    },
-    "vorsprungH2": {
-     "alt": -0.28,
-     "neu": -0.3
-    },
-    "beideBesser": false
-   },
-   {
-    "horizont": 3,
-    "param": "heiss",
-    "von": 1,
-    "nach": 0.75,
-    "vorsprungH1": {
-     "alt": 0.73,
-     "neu": 0.87
-    },
-    "vorsprungH2": {
-     "alt": -0.28,
-     "neu": -0.33
-    },
-    "beideBesser": false
-   },
-   {
-    "horizont": 7,
-    "param": "w60",
-    "von": 0.5,
-    "nach": 0.75,
-    "vorsprungH1": {
-     "alt": 1.46,
-     "neu": 1.44
-    },
-    "vorsprungH2": {
-     "alt": -0.99,
-     "neu": -0.88
-    },
-    "beideBesser": false
-   },
-   {
-    "horizont": 30,
-    "param": "w60",
-    "von": 1,
-    "nach": 0.75,
-    "vorsprungH1": {
-     "alt": 2.37,
-     "neu": 2.62
-    },
-    "vorsprungH2": {
-     "alt": -4.13,
-     "neu": -4.3
-    },
-    "beideBesser": false
-   },
-   {
-    "horizont": 3,
-    "param": "w60",
-    "von": 0,
-    "nach": 0.25,
-    "vorsprungH1": {
-     "alt": 0.73,
-     "neu": 0.95
-    },
-    "vorsprungH2": {
-     "alt": -0.28,
-     "neu": -0.44
-    },
-    "beideBesser": false
-   },
-   {
-    "horizont": 3,
-    "param": "w120",
-    "von": 0,
-    "nach": 0.25,
-    "vorsprungH1": {
-     "alt": 0.73,
-     "neu": 0.84
-    },
-    "vorsprungH2": {
-     "alt": -0.28,
-     "neu": -0.33
-    },
-    "beideBesser": false
-   },
-   {
-    "horizont": 3,
-    "param": "rsiGrenze",
-    "von": 75,
-    "nach": 80,
-    "vorsprungH1": {
-     "alt": 0.73,
-     "neu": 0.8
-    },
-    "vorsprungH2": {
-     "alt": -0.28,
-     "neu": -0.3
-    },
-    "beideBesser": false
-   },
-   {
-    "horizont": 3,
-    "param": "trend",
-    "von": 0.5,
-    "nach": 0.75,
-    "vorsprungH1": {
-     "alt": 0.73,
-     "neu": 0.78
-    },
-    "vorsprungH2": {
-     "alt": -0.28,
-     "neu": -0.28
-    },
-    "beideBesser": false
-   },
-   {
-    "horizont": 7,
-    "param": "heiss",
-    "von": 0.5,
-    "nach": 0.75,
-    "vorsprungH1": {
-     "alt": 1.46,
-     "neu": 1.39
-    },
-    "vorsprungH2": {
-     "alt": -0.99,
-     "neu": -0.9
-    },
-    "beideBesser": false
-   }
-  ],
-  "bisherigeUpdates": [],
-  "musterSpeicher": {
-   "golden": {
-    "n": 105,
-    "h": {
-     "3": {
-      "n": 105,
-      "avg": 0.07,
-      "plus": 53,
-      "vorsprung": -0.22,
-      "t": -0.5
-     },
-     "7": {
-      "n": 105,
-      "avg": -0.22,
-      "plus": 49,
-      "vorsprung": -0.5,
-      "t": -0.9
-     },
-     "30": {
-      "n": 99,
-      "avg": 3.66,
-      "plus": 60,
-      "vorsprung": 1.53,
-      "t": 1.1
-     }
-    },
-    "urteil": "kein klarer Vorteil"
-   },
-   "death": {
-    "n": 102,
-    "h": {
-     "3": {
-      "n": 102,
-      "avg": 1.25,
-      "plus": 57,
-      "vorsprung": 0.69,
-      "t": 1.8
-     },
-     "7": {
-      "n": 102,
-      "avg": 1.71,
-      "plus": 62,
-      "vorsprung": 0.77,
-      "t": 1.5
-     },
-     "30": {
-      "n": 92,
-      "avg": 1.85,
-      "plus": 54,
-      "vorsprung": -1.41,
-      "t": -1.2
-     }
-    },
-    "urteil": "kein klarer Vorteil"
-   },
-   "hoch52": {
-    "n": 470,
-    "h": {
-     "3": {
-      "n": 470,
-      "avg": 0.03,
-      "plus": 50,
-      "vorsprung": -0.09,
-      "t": -0.4
-     },
-     "7": {
-      "n": 454,
-      "avg": 0.73,
-      "plus": 57,
-      "vorsprung": 0.26,
-      "t": 0.7
-     },
-     "30": {
-      "n": 411,
-      "avg": 4.35,
-      "plus": 55,
-      "vorsprung": 2.14,
-      "t": 2.4
-     }
-    },
-    "urteil": "leicht positiv"
-   },
-   "tief52": {
-    "n": 189,
-    "h": {
-     "3": {
-      "n": 189,
-      "avg": 0.85,
-      "plus": 55,
-      "vorsprung": 0.28,
-      "t": 0.9
-     },
-     "7": {
-      "n": 187,
-      "avg": 1.29,
-      "plus": 55,
-      "vorsprung": 0.37,
-      "t": 0.9
-     },
-     "30": {
-      "n": 173,
-      "avg": 3.07,
-      "plus": 55,
-      "vorsprung": -0.4,
-      "t": -0.4
-     }
-    },
-    "urteil": "kein klarer Vorteil"
-   },
-   "doppelboden": {
-    "n": 304,
-    "h": {
-     "3": {
-      "n": 304,
-      "avg": -0.23,
-      "plus": 46,
-      "vorsprung": -0.4,
-      "t": -1.8
-     },
-     "7": {
-      "n": 301,
-      "avg": -0.38,
-      "plus": 45,
-      "vorsprung": -0.92,
-      "t": -3
-     },
-     "30": {
-      "n": 280,
-      "avg": 0.82,
-      "plus": 48,
-      "vorsprung": -1.18,
-      "t": -1.3
-     }
-    },
-    "urteil": "eher negativ"
-   },
-   "doppeltop": {
-    "n": 265,
-    "h": {
-     "3": {
-      "n": 265,
-      "avg": 0.5,
-      "plus": 56,
-      "vorsprung": 0.1,
-      "t": 0.4
-     },
-     "7": {
-      "n": 264,
-      "avg": 0.51,
-      "plus": 48,
-      "vorsprung": 0.03,
-      "t": 0.1
-     },
-     "30": {
-      "n": 257,
-      "avg": 2.16,
-      "plus": 56,
-      "vorsprung": -0.43,
-      "t": -0.6
-     }
-    },
-    "urteil": "kein klarer Vorteil"
-   },
-   "rsiErholung": {
-    "n": 500,
-    "h": {
-     "3": {
-      "n": 500,
-      "avg": 0.19,
-      "plus": 53,
-      "vorsprung": -0.17,
-      "t": -1
-     },
-     "7": {
-      "n": 499,
-      "avg": 0.33,
-      "plus": 53,
-      "vorsprung": -0.28,
-      "t": -1.1
-     },
-     "30": {
-      "n": 466,
-      "avg": 3.5,
-      "plus": 58,
-      "vorsprung": -0.4,
-      "t": -0.7
-     }
-    },
-    "urteil": "kein klarer Vorteil"
-   },
-   "rsiAbkuehlung": {
-    "n": 734,
-    "h": {
-     "3": {
-      "n": 734,
-      "avg": 0.31,
-      "plus": 51,
-      "vorsprung": 0.29,
-      "t": 1.7
-     },
-     "7": {
-      "n": 713,
-      "avg": 0.73,
-      "plus": 52,
-      "vorsprung": 0.54,
-      "t": 2
-     },
-     "30": {
-      "n": 678,
-      "avg": 1.93,
-      "plus": 55,
-      "vorsprung": 0.82,
-      "t": 1.5
-     }
-    },
-    "urteil": "leicht positiv"
-   },
-   "enge": {
-    "n": 1760,
-    "h": {
-     "3": {
-      "n": 1760,
-      "avg": 0.23,
-      "plus": 52,
-      "vorsprung": 0.07,
-      "t": 0.7
-     },
-     "7": {
-      "n": 1743,
-      "avg": 0.41,
-      "plus": 52,
-      "vorsprung": -0.09,
-      "t": -0.6
-     },
-     "30": {
-      "n": 1633,
-      "avg": 2.7,
-      "plus": 55,
-      "vorsprung": -0.01,
-      "t": 0
-     }
-    },
-    "urteil": "kein klarer Vorteil"
-   },
-   "abverkauf": {
-    "n": 723,
-    "h": {
-     "3": {
-      "n": 723,
-      "avg": 0.55,
-      "plus": 53,
-      "vorsprung": 0.02,
-      "t": 0.1
-     },
-     "7": {
-      "n": 707,
-      "avg": 1.07,
-      "plus": 55,
-      "vorsprung": 0.25,
-      "t": 0.9
-     },
-     "30": {
-      "n": 670,
-      "avg": 3.84,
-      "plus": 59,
-      "vorsprung": 1.02,
-      "t": 1.9
-     }
-    },
-    "urteil": "kein klarer Vorteil"
-   },
-   "test200": {
-    "n": 180,
-    "h": {
-     "3": {
-      "n": 180,
-      "avg": 0.3,
-      "plus": 56,
-      "vorsprung": 0.2,
-      "t": 0.7
-     },
-     "7": {
-      "n": 175,
-      "avg": 0.85,
-      "plus": 58,
-      "vorsprung": 0.48,
-      "t": 1.1
-     },
-     "30": {
-      "n": 152,
-      "avg": 5.7,
-      "plus": 61,
-      "vorsprung": 3.27,
-      "t": 2.6
-     }
-    },
-    "urteil": "leicht positiv"
-   }
   }
  },
  "format": {
@@ -2440,15 +1965,6 @@
     "h": 3,
     "grund": "1 Satz, warum trotz guter Rechnung nicht gewählt"
    }
-  ],
-  "vorschlag": {
-   "titel": "kurzer Titel",
-   "horizont": 7,
-   "aenderung": {
-    "w20": 0.75
-   },
-   "warum": "3–5 Sätze in einfachen Worten: was geändert wird, welches Problem es löst, welche Testzahlen dafür sprechen, was dagegen spricht",
-   "erwartung": "1–2 Sätze, was sich dadurch an der Liste ändert"
-  }
+  ]
  }
 }
