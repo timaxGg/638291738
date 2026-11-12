@@ -1,36 +1,36 @@
 {
  "version": 2,
- "generated": "2026-11-12T07:06:34+01:00",
+ "generated": "2026-11-12T12:41:00+01:00",
  "dataAsOf": "2026-11-12",
  "indices": [
   {
    "n": "DAX",
-   "v": 26662.77,
-   "c": 1.2,
+   "v": 26875.32,
+   "c": 0.8,
    "s": "Europa"
   },
   {
    "n": "MDAX",
-   "v": 31074.69,
-   "c": 0.13,
+   "v": 31136.39,
+   "c": 0.2,
    "s": "Europa"
   },
   {
    "n": "Euro Stoxx 50",
-   "v": 6393.39,
-   "c": 1.03,
+   "v": 6416.31,
+   "c": 0.36,
    "s": "Europa"
   },
   {
    "n": "FTSE 100",
-   "v": 10835.47,
-   "c": 0.78,
+   "v": 10870.07,
+   "c": 0.32,
    "s": "Europa"
   },
   {
    "n": "CAC 40",
-   "v": 8332.87,
-   "c": 0.66,
+   "v": 8392.44,
+   "c": 0.71,
    "s": "Europa"
   },
   {
@@ -55,32 +55,32 @@
  "sectors": [
   {
    "n": "Technologie",
-   "c": 2.71,
+   "c": -0.64,
    "p": "Europa"
   },
   {
    "n": "Gesundheit",
-   "c": -0.13,
+   "c": 1.08,
    "p": "Europa"
   },
   {
    "n": "Banken",
-   "c": 0.71,
+   "c": 0.03,
    "p": "Europa"
   },
   {
    "n": "Energie",
-   "c": 2.65,
+   "c": 0.63,
    "p": "Europa"
   },
   {
    "n": "Autos",
-   "c": 0.19,
+   "c": 0.28,
    "p": "Europa"
   },
   {
    "n": "Industrie",
-   "c": 1.24,
+   "c": 0.99,
    "p": "Europa"
   },
   {
@@ -323,8 +323,9 @@
     "Konjunkturabhängigkeit"
    ],
    "news": [
-    "ny496951525",
-    "ny1087574427"
+    "ny448005163",
+    "ny1765579477",
+    "ny496951525"
    ],
    "warn": 0,
    "warnGrund": "",
@@ -434,6 +435,8 @@
     "Nur ein Land"
    ],
    "news": [
+    "ny1765579477",
+    "n8746073",
     "ny1758414106"
    ],
    "warn": 0,
@@ -1394,6 +1397,69 @@
  ],
  "news": [
   {
+   "id": "ny1765579477",
+   "imp": 2,
+   "kind": [
+    "Rekord",
+    ""
+   ],
+   "cat": "Deutschland",
+   "t": "DAX erstmals über 27.000 Punkten",
+   "sum": "Der deutsche Leitindex hat am Donnerstagvormittag eine neue Bestmarke erreicht.",
+   "body": [
+    "Rückenwind kommt von der Erholung der Tech-Werte und den zuletzt gefallenen Ölpreisen. Auf Rekordniveau steigt allerdings auch die Gefahr von Gewinnmitnahmen."
+   ],
+   "back": "Wirkt jetzt: Betrifft DAX-ETFs und große deutsche Werte direkt.",
+   "stocks": [
+    "EXS1.DE",
+    "SIE.DE"
+   ],
+   "u": "https://de.finance.yahoo.com/nachrichten/neuer-rekord-deutscher-aktienindex-springt-102030943.html?.tsrc=rss",
+   "q": "Yahoo Finanzen"
+  },
+  {
+   "id": "ny448005163",
+   "imp": 2,
+   "kind": [
+    "Zahlen",
+    ""
+   ],
+   "cat": "Industrie",
+   "t": "Siemens: Rekordjahr, aber Gewinn gesunken",
+   "sum": "Siemens meldet ein Geschäftsjahr mit Bestwerten, unter dem Strich bleibt wegen eines Sondereffekts weniger übrig.",
+   "body": [
+    "Der Konzern setzt auf Digitalisierung und Künstliche Intelligenz und will das Tempo erhöhen. Sorgen um die Führung beim Partner Nvidia sieht die Konzernspitze gelassen.",
+    "Die Aktie bewegt sich Richtung Rekordhoch."
+   ],
+   "back": "Wirkt jetzt: Zahlen und Ausblick prägen den Kurs heute.",
+   "stocks": [
+    "SIE.DE"
+   ],
+   "u": "https://de.finance.yahoo.com/nachrichten/siemens-rekordjahr-weniger-gewinn-060004288.html?.tsrc=rss",
+   "q": "Yahoo Finanzen"
+  },
+  {
+   "id": "n8746073",
+   "imp": 2,
+   "kind": [
+    "Geopolitik",
+    "warn"
+   ],
+   "cat": "Rohstoffe",
+   "t": "Explosionen an zwei Öltankern in der Straße von Hormus",
+   "sum": "Laut iranischen Revolutionsgarden wurden zwei Tanker in der wichtigen Meerenge beschädigt; der Ölpreis drehte daraufhin ins Plus.",
+   "body": [
+    "Durch die Straße von Hormus läuft ein großer Teil des weltweiten Öltransports. Eine Zuspitzung könnte den zuletzt starken Rückgang des Ölpreises schnell umkehren und Aktienmärkte belasten."
+   ],
+   "back": "Wirkt jetzt: Ölpreis reagiert sofort, weitere Folgen hängen von der Lage vor Ort ab.",
+   "stocks": [
+    "EXS1.DE",
+    "SIE.DE"
+   ],
+   "u": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQcDQ2cWxyeTFpazFaX1ZNM2RoS0t2ZVpEa0JpMElTZVFMUElROEF5c20tMlU0dEszWFlEdkhfR2VOb3hEQmo3MjRtdVlSaEhkZnpKXzExbE5QcXItQ3Z6REoyY1Fpak9IUUplYWp6NTQ2UjBiNVk1WDN0MmJjaFRkOHNLdDYxMU9xOWhuMnVaTlNiVXJNTlhLYV9EZEpnd1oxYmF0cG82b2VkMURkYnkzZkZBX0hhWHM?oc=5",
+   "q": "Reuters"
+  },
+  {
    "id": "n143745654",
    "imp": 3,
    "kind": [
@@ -1547,29 +1613,9 @@
    ],
    "u": "https://de.finance.yahoo.com/nachrichten/trennung-mutterkonzern-healthineers-streicht-siemens-060519987.html?.tsrc=rss",
    "q": "Yahoo Finanzen"
-  },
-  {
-   "id": "ny1087574427",
-   "imp": 1,
-   "kind": [
-    "Branchenrisiko",
-    "warn"
-   ],
-   "cat": "Energie",
-   "t": "Offshore-Windbranche warnt vor Jobverlusten",
-   "sum": "Niedersachsens Ministerpräsident sieht fast jeden zweiten Offshore-Arbeitsplatz gefährdet, falls der Ausbau weiter stockt.",
-   "body": [
-    "Die Warnung richtet sich an die Bundesregierung. Betroffen wären vor allem Zulieferer der Windkraft; Siemens ist hier nur noch indirekt beteiligt."
-   ],
-   "back": "Wirkt bald: Hängt von politischen Entscheidungen ab.",
-   "stocks": [
-    "SIE.DE"
-   ],
-   "u": "https://de.finance.yahoo.com/nachrichten/lies-fast-zweite-offshore-job-131524165.html?.tsrc=rss",
-   "q": "Yahoo Finanzen"
   }
  ],
- "telegram": "**Guten Morgen!** DAX gestern +1,2 %, Nasdaq 100 +2,3 %.\n**Nvidia:** Bericht über mögliche Ablösung von Chef Huang, Aktie nachbörslich −8 %, Nasdaq-Futures im Minus.\n**SAP:** JPMorgan stuft hoch, Kursziel 275 €.\n**Apple** auf 52-Wochen-Hoch.\n**Euro** bei rund 1,108 $, tiefster Stand seit Mai 2025.\nÖl weiter schwach, das entlastet.\nHeute im Blick: Reaktion der Tech-Werte und des VIX auf Nvidia.",
+ "telegram": "**Mittags-Update:** DAX springt erstmals über 27.000 Punkte, neuer Rekord.\n**Siemens:** Rekordumsatz im Geschäftsjahr, Gewinn wegen Sondereffekt niedriger; Aktie nahe Rekordhoch.\n**Öl:** Explosionen an zwei Tankern in der Straße von Hormus, Ölpreis dreht nach oben.\nNvidia-Unsicherheit bleibt Thema für US-Tech.",
  "kurz": [
   {
    "s": "SAP",
@@ -1672,39 +1718,22 @@
    ]
   },
   {
-   "s": "IS3Q.DE",
-   "n": "MSCI World Qualität",
-   "text": "Der Qualitäts-ETF stieg gestern gut 1 % und liegt über drei Monate leicht im Plus. Qualitätsfirmen sind bei KI-Skepsis gefragt.",
+   "s": "MUV2.DE",
+   "n": "Münchener Rück",
+   "text": "Münchener Rück legte heute rund 1,6 % zu und liegt über vier Wochen gut 8 % im Plus. Der Kurs nähert sich damit dem 3-Monats-Hoch.",
    "h": "lang",
    "warn": 0,
-   "ausblick": "Rechnerisch liegt die Mitte bei etwa 84 €, Spanne 80 bis 88 €. Die geringe Schwankung spricht für einen ruhigen Verlauf.",
+   "ausblick": "Rechnerisch liegt die Mitte für drei Monate bei etwa 623 €, mit einer Spanne von rund 568 bis 683 €. Getragen wird das vor allem vom Aufwärtstrend; ob er sich fortsetzt, hängt auch am Widerstand nahe dem 3-Monats-Hoch und an der Schadenlage.",
    "richtung": "steigend",
    "zuversicht": "mittel",
-   "horizont": "3–6 Monate",
-   "halten": "Solide Unternehmen und geringe Schwankung passen zu einem langen Horizont. Dagegen spricht die enge Kopplung an den US-Markt.",
+   "horizont": "2–3 Monate",
+   "halten": "Als Versicherer mit vergleichsweise ruhigem Verlauf passt der Wert eher zu längeren Zeiträumen. Dagegen spricht, dass nach dem starken Anstieg der letzten Wochen eine Pause wahrscheinlicher wird.",
    "signale": [
-    "Rückfall unter etwa 80 €",
-    "Steigender VIX"
+    "Rückfall unter etwa 568 €",
+    "Klarer Ausbruch über das 3-Monats-Hoch",
+    "Meldungen über große Schadenereignisse"
    ],
-   "muster": "Der ETF lief zuletzt eng mit dem S&P 500 und gegenläufig zum VIX. Ein nervöserer Markt könnte bremsen; das ist unsicher.",
-   "quellen": []
-  },
-  {
-   "s": "RHM.DE",
-   "n": "Rheinmetall",
-   "text": "Rheinmetall fiel gestern um fast 7 % und liegt über drei Monate rund 32 % im Minus. Der Abwärtstrend ist deutlich.",
-   "h": "spekulativ",
-   "warn": 2,
-   "ausblick": "Die Rechnung zeigt eine sehr breite Spanne von etwa 519 bis 865 €. Ob sich der Kurs fängt, hängt stark von Nachrichten zu Rüstungsausgaben und Konflikten ab.",
-   "richtung": "fallend",
-   "zuversicht": "niedrig",
-   "horizont": "4–8 Wochen",
-   "halten": "Langfristig bleibt das Thema Verteidigung relevant, aktuell überwiegt aber der starke Abwärtstrend mit hoher Schwankung. Das spricht eher für Vorsicht.",
-   "signale": [
-    "Stabilisierung nahe dem 3-Monats-Tief",
-    "Neue Aufträge oder politische Signale"
-   ],
-   "muster": "Der Wert ist stark überverkauft (RSI 24) und nahe am 3-Monats-Tief, wo Käufer zuletzt stützten. Eine Gegenbewegung ist möglich, aber unsicher.",
+   "muster": "Die Nähe zum 3-Monats-Hoch kann bremsen, die oft starke Jahresend-Saison eher helfen. Beides ist nur ein unsicherer Hinweis.",
    "quellen": []
   }
  ],
