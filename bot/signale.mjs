@@ -334,6 +334,26 @@ function einstiegStat(W){const ab=new Date(Date.now()-365*864e5).toISOString().s
     if(o.n)Object.assign(r,{faelle:o.n,erreicht:Math.round(o.treffer/o.n*100),medTage:med(o.tage),wartenAvg:o.warten.length?+mean(o.warten).toFixed(2):null,sofortAvg:o.sofort.length?+mean(o.sofort).toFixed(2):null});
     out[k]=r}
   return out}
+/* ---------- Ausstieg: Wann verkaufen? Fester Tag gegen mitlaufenden Gewinnschutz, im Rückblick (1 Jahr, Schlusskurse, nach Kosten) ---------- */
+const AUS_REGELN=[["fest3","nach 3 Tagen verkaufen"],["fest7","nach 7 Tagen verkaufen"],["s1","Gewinnschutz 1 Pkt."],["s2","Gewinnschutz 2 Pkt."],["s3","Gewinnschutz 3 Pkt."],["s5","Gewinnschutz 5 Pkt."],["n2","2 % unter Höchstkurs"],["n3","3 % unter Höchstkurs"],["n5","5 % unter Höchstkurs"],["z2","bei +2 % mitnehmen, sonst nach 7 Tagen"],["z4","bei +4 % mitnehmen, sonst nach 7 Tagen"]];
+function ausstiegStat(W){const ab=new Date(Date.now()-365*864e5).toISOString().slice(0,10),MAX=15,out={};
+  const sim=(C,i,r)=>{const k=C[i];if(r[0]==="f"){const H=+r.slice(4);return i+H<C.length?[(C[i+H]/k-1)*100,H]:null}
+    if(r[0]==="z"){if(i+7>=C.length)return null;const g=+r.slice(1);for(let j=i+1;j<=i+7;j++){const ch=(C[j]/k-1)*100;if(ch>=g)return [ch,j-i]}return [(C[i+7]/k-1)*100,7]}
+    if(i+MAX>=C.length)return null;const d=+r.slice(1);let ref=0,hoch=k;
+    for(let j=i+1;j<=i+MAX;j++){const ch=(C[j]/k-1)*100;
+      if(r[0]==="s"){ref=Math.max(ref,ch);const lv=Math.max(0,ref-d);if(lv>0?ch<=lv:ch<0)return [ch,j-i]} // genau wie der Gewinnschutz in der App (Schutzlinie nie unter 0)
+      else{hoch=Math.max(hoch,C[j]);if(C[j]<=hoch*(1-d/100))return [ch,j-i]}}
+    return [(C[i+MAX]/k-1)*100,MAX]};
+  for(const k of Object.keys(ZUST))out[k]={perfekt:[],...Object.fromEntries(AUS_REGELN.map(([r])=>[r,{e:[],t:[]}]))};
+  for(const w of W)for(let i=60;i<w.C.length-1;i++){if(w.bars[i][0]<ab)continue;const z=zustand(w,i);if(!z)continue;const o=out[z.z];
+    for(const [r] of AUS_REGELN){const x=sim(w.C,i,r);if(x){o[r].e.push(x[0]-2*KOSTEN);o[r].t.push(x[1])}}
+    if(i+7<w.C.length)o.perfekt.push((Math.max(...w.C.slice(i+1,i+8))/w.C[i]-1)*100-2*KOSTEN)} // Verkauf genau am Höchststand – geht nur im Nachhinein
+  const med=a=>{const b=[...a].sort((x,y)=>x-y);return b[Math.floor(b.length/2)]};
+  for(const [k,o] of Object.entries(out)){const r={regeln:{}};
+    for(const [id,name] of AUS_REGELN){const a=o[id].e;if(a.length<30)continue;r.regeln[id]={name,n:a.length,avg:+mean(a).toFixed(2),plus:Math.round(a.filter(x=>x>0).length/a.length*100),tage:med(o[id].t)}}
+    if(o.perfekt.length)r.perfekt=+mean(o.perfekt).toFixed(2);
+    const b=Object.entries(r.regeln).sort((x,y)=>y[1].avg-x[1].avg)[0];if(b)r.best=b[0];out[k]=r}
+  return out}
 /* ---------- Uhrzeit: zu welcher Tageszeit war der Kurs in den letzten ~60 Tagen meist am günstigsten? ---------- */
 const uhrB=sek=>{const z=teile("Europe/Berlin",new Date(sek*1000));return String(Math.floor(z.min/60)).padStart(2,"0")+":"+String(z.min%60).padStart(2,"0")};
 async function tageszeit(s){const r=await fetch(`https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(s)}?range=60d&interval=30m`,{headers:{"user-agent":"Mozilla/5.0 (compatible; AktienHelfer/1.0)"}});
@@ -408,7 +428,7 @@ export async function lauf(ctx){SF=ctx.P(".state/beste.json");if(!ST)ST=lade();a
   // Test einmal am Tag (ändert sich im Tagesverlauf nicht)
   if(!ST.test||((ST.test.d!==heute||ST.test.version!==MO.version||ST.test.k!==kKey||ST.test.werte<WB.length*.95)&&vollst))ST.test={d:heute,version:MO.version,k:kKey,von:new Date(Date.now()-365*864e5).toISOString().slice(0,10),werte:WB.length,h:test(WB)};
   if(!ST.muster||((ST.muster.d!==heute||(ST.muster.n||0)<WB.length*.95)&&vollst))ST.muster={d:heute,n:WB.length,m:musterSpeicher(WB)};
-  if(!ST.einstieg||((ST.einstieg.d!==heute||ST.einstieg.k!==kKey||(ST.einstieg.n||0)<WB.length*.95)&&vollst))ST.einstieg={d:heute,k:kKey,n:WB.length,s:einstiegStat(WB)};
+  if(!ST.einstieg||((!ST.einstieg.aus||ST.einstieg.d!==heute||ST.einstieg.k!==kKey||(ST.einstieg.n||0)<WB.length*.95)&&vollst))ST.einstieg={d:heute,k:kKey,n:WB.length,s:einstiegStat(WB),aus:ausstiegStat(WB)};
   const jetzt=W.filter(w=>Date.now()-Date.parse(w.bars[w.bars.length-1][0])<6*864e5);// ohne veraltete Werte
   const fakten=(w,H)=>{const i=w.C.length-1,C=w.C,p=w.h.p&&Date.now()-(w.h.mt||0)<3*864e5?w.h.p:C[i],sd=w.R.sd[i],ch=k=>i>=k?+((p/C[i-k]-1)*100).toFixed(1):null;
     const heuteBar=w.bars[i][0]===teile(regionVon(w.s)==="eu"?"Europe/Berlin":"America/New_York",new Date(w.h.mt||Date.now())).date,vt=heuteBar?C[i-1]:C[i];
@@ -515,7 +535,7 @@ export async function lauf(ctx){SF=ctx.P(".state/beste.json");if(!ST)ST=lade();a
     weitere:Object.fromEntries(HORIZONTE.map(H=>[H,rang[H].filter(w=>!listen[H].some(x=>x.s===w.s)).slice(0,WEITERE).map(w=>{const f=fakten(w,H);return {s:f.s,n:f.n,typ:f.typ,cur:f.cur,p:f.p,dp:f.dp,mt:f.mt,sess:f.sess,sparkD:f.sparkD.slice(-30),einstieg:f.einstieg&&Object.assign({},f.einstieg,{heute:undefined,zeit:f.einstieg.zeit?{tage:f.einstieg.zeit.tage,best:f.einstieg.zeit.best,billig:f.einstieg.zeit.billig}:null}),spark:f.spark.slice(-30),noetig:f.noetig,typBew:f.typBew,wochen4:f.wochen4,monate3:f.monate3,trend:f.trend,rsi:f.rsi,rang:rang[H].indexOf(w)+1}})])),
     modell:{version:MO.version,params:M,standard:STANDARD,param:PARAM,verlauf:MO.verlauf.slice(-10).reverse()},vorschlag:ST.vorschlag&&(ST.vorschlag.status==='offen'||Date.now()-(ST.vorschlag.entschieden||0)<3*864e5)?ST.vorschlag:null,pruefung,
     muster:{info:MUSTER.map(m=>({id:m.id,n:m.n,t:m.t})),speicher:ST.muster?ST.muster.m:null},
-    einstiegInfo:{zust:ZUST,stat:ST.einstieg?ST.einstieg.s:null,halte:Object.fromEntries(Object.keys(ZUST).map(z=>[z,halteTage(z)]))},
+    einstiegInfo:{zust:ZUST,stat:ST.einstieg?ST.einstieg.s:null,aus:ST.einstieg&&ST.einstieg.aus||null,halte:Object.fromEntries(Object.keys(ZUST).map(z=>[z,halteTage(z)]))},
     einstiegTop:eTop.map((x,i)=>{const f=fakten(x.w,3);return {s:f.s,n:f.n,typ:f.typ,cur:f.cur,p:f.p,dp:f.dp,mt:f.mt,sess:f.sess,rang:i+1,wochen4:f.wochen4,tage5:f.tage5,trend:f.trend,rsi:f.rsi,typBew:f.typBew,noetig:f.noetig,sdTag:f.sdTag,spark:f.spark.slice(-30),sparkD:f.sparkD.slice(-30),einstieg:f.einstieg&&Object.assign({},f.einstieg,{heute:undefined})}}),
     meldungen:MELDUNGEN,
     meine,schutz:Object.keys(schutzApp).length&&process.env.SYNC_PASSWORD?await verschluesseln(schutzApp,process.env.SYNC_PASSWORD):null,
