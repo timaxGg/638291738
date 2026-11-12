@@ -1,116 +1,116 @@
 {
  "version": 2,
- "generated": "2026-11-11T12:40:44+01:00",
- "dataAsOf": "2026-11-11",
+ "generated": "2026-11-12T07:06:34+01:00",
+ "dataAsOf": "2026-11-12",
  "indices": [
   {
    "n": "DAX",
-   "v": 26525.07,
-   "c": 0.67,
+   "v": 26662.77,
+   "c": 1.2,
    "s": "Europa"
   },
   {
    "n": "MDAX",
-   "v": 31016.5,
-   "c": -0.06,
+   "v": 31074.69,
+   "c": 0.13,
    "s": "Europa"
   },
   {
    "n": "Euro Stoxx 50",
-   "v": 6370.49,
-   "c": 0.67,
+   "v": 6393.39,
+   "c": 1.03,
    "s": "Europa"
   },
   {
    "n": "FTSE 100",
-   "v": 10789.59,
-   "c": 0.35,
+   "v": 10835.47,
+   "c": 0.78,
    "s": "Europa"
   },
   {
    "n": "CAC 40",
-   "v": 8307.13,
-   "c": 0.34,
+   "v": 8332.87,
+   "c": 0.66,
    "s": "Europa"
   },
   {
    "n": "S&P 500",
-   "v": 749.92,
-   "c": -0.37,
+   "v": 759.81,
+   "c": 1.32,
    "s": "USA, über SPY"
   },
   {
    "n": "Nasdaq 100",
-   "v": 674.76,
-   "c": -0.68,
+   "v": 690.38,
+   "c": 2.31,
    "s": "USA, über QQQ"
   },
   {
    "n": "Dow Jones",
-   "v": 521.73,
-   "c": -0.31,
+   "v": 524.44,
+   "c": 0.52,
    "s": "USA, über DIA"
   }
  ],
  "sectors": [
   {
    "n": "Technologie",
-   "c": 2.21,
+   "c": 2.71,
    "p": "Europa"
   },
   {
    "n": "Gesundheit",
-   "c": -0.3,
+   "c": -0.13,
    "p": "Europa"
   },
   {
    "n": "Banken",
-   "c": -0.05,
+   "c": 0.71,
    "p": "Europa"
   },
   {
    "n": "Energie",
-   "c": 2.47,
+   "c": 2.65,
    "p": "Europa"
   },
   {
    "n": "Autos",
-   "c": 0.13,
+   "c": 0.19,
    "p": "Europa"
   },
   {
    "n": "Industrie",
-   "c": 0.6,
+   "c": 1.24,
    "p": "Europa"
   },
   {
    "n": "Technologie",
-   "c": -1.15,
+   "c": 3.23,
    "p": "USA"
   },
   {
    "n": "Gesundheit",
-   "c": 0.29,
+   "c": 0.04,
    "p": "USA"
   },
   {
    "n": "Finanzen",
-   "c": 0.52,
+   "c": 0.58,
    "p": "USA"
   },
   {
    "n": "Energie",
-   "c": 0.44,
+   "c": 1.86,
    "p": "USA"
   },
   {
    "n": "Konsum",
-   "c": 0.03,
+   "c": -0.05,
    "p": "USA"
   },
   {
    "n": "Industrie",
-   "c": -0.09,
+   "c": 1.33,
    "p": "USA"
   }
  ],
@@ -120,6 +120,7 @@
    "s": "URTH",
    "n": "MSCI World ETF",
    "closes": [
+    205.97999572753906,
     203.86000061035156,
     204.82000732421875,
     199.6699981689453,
@@ -183,51 +184,47 @@
     210.42999267578125,
     211.2100067138672,
     211.50999450683594,
-    210.3800048828125,
-    209.69000244140625
+    210.3800048828125
    ],
    "cur": "USD",
    "cat": "Weltaktien breit",
    "h": "lang",
    "bias": -0.5,
-   "why": "Der Welt-ETF hat in den letzten Wochen leicht nachgegeben und liegt nahe dem 3-Monats-Tief. Gestern belasteten hohe US-Inflationsdaten vor allem die großen US-Technologiewerte, die im Index stark gewichtet sind.",
-   "ausblick": "Die Rechnung sieht für die nächsten drei Monate eine breite Spanne um einen leicht höheren Mittelwert; Zinssorgen in den USA sprechen eher für eine Seitwärtsphase. Die Jahresend-Saison war historisch oft freundlich, das ist aber kein Muss.",
+   "why": "Der MSCI World ETF legte gestern rund 1 % zu, liegt über vier Wochen aber leicht im Minus. Heute drohen Belastungen durch die Nvidia-Meldung, ein schwacher Euro stützt dagegen den Wert in Euro.",
+   "ausblick": "Rechnerisch liegt die Mitte für die nächsten drei Monate bei etwa 206 $, also leicht unter dem aktuellen Niveau, mit einer Spanne von rund 193 bis 221 $. Treiber sind vor allem die großen US-Tech-Werte und die Stimmung rund um KI; die Unsicherheit ist entsprechend.",
    "richtung": "seitwärts",
    "zuversicht": "niedrig",
-   "horizont": "6–12 Monate",
-   "halten": "Als breit gestreuter Basisbaustein passt der ETF vor allem für einen langen Zeitraum; das Depot liegt rund 2 % im Plus. Dagegen spricht kurzfristig der hohe US-Tech-Anteil, der bei Zinssorgen zuerst leidet.",
+   "horizont": "2–3 Monate",
+   "halten": "Breite Streuung über viele Länder spricht für ein langfristiges Halten; die Position liegt seit Kauf rund 3 % im Plus. Dagegen spricht kurzfristig die hohe Tech-Gewichtung bei unruhiger Lage.",
    "signale": [
-    "Fällt der Kurs deutlich unter das jüngste 3-Monats-Tief, wäre die Unterstützung gebrochen",
-    "Nächste US-Inflations- und Fed-Signale",
-    "Erholung der US-Technologiewerte"
+    "Schlusskurs unter etwa 200 $ wäre ein Zeichen für weitere Schwäche",
+    "Klarheit bei Nvidia könnte die Unsicherheit verringern",
+    "Deutliche Euro-Erholung drückt den Wert in Euro"
    ],
-   "muster": "Die Nähe zum 3-Monats-Tief kann als Halt wirken, die Jahresend-Saison war früher oft positiv – beides sind unsichere Hinweise, keine Gewissheit.",
+   "muster": "Der Wert liegt nahe am 3-Monats-Hoch, wo es zuletzt hakte; zugleich waren November und Dezember früher oft gute Monate. Beides ist nur ein unsicherer Hinweis.",
    "pro": [
-    "Sehr breite Streuung über Länder und Branchen",
-    "Jahresend-Saison historisch oft freundlich"
+    "Sehr breite Streuung",
+    "Saisonal oft starkes Jahresende"
    ],
    "con": [
-    "Hoher Anteil teurer US-Tech-Werte",
-    "Zinssorgen nach Inflationsdaten"
+    "Hohe Abhängigkeit von US-Tech",
+    "Nvidia-Unsicherheit"
    ],
    "news": [
-    "n8737568",
-    "ny1984145623"
+    "n143745654",
+    "ny1167702738",
+    "ny1758414106"
    ],
    "warn": 1,
-   "warnGrund": "Heiße US-Inflation verstärkt Zinssorgen.",
+   "warnGrund": "Die Nachrichtenlage um Nvidia kann große Tech-Werte im Index belasten.",
    "quellen": [
     {
-     "t": "Wall St ends lower as hot inflation data, Fed comments heighten rate worries - Reuters",
-     "u": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQSEE5eGJXT1lYRVFJMUpWb2VCTENjZ2hBNWk0QWl5QVZBNmJ4TFBodVUtRVRzV0JubVE0NFJYRFlmYkpuc0tlbTBValFhV0ppcGdYNEZERXV4ZnhLZUJKTF9fUzZEeHM3cDRwdmlMdUVIUWlERHprb3lKakQ1S1gzSmI5LVZYWWx2cTBjVC1sVEc1OG8tOS0ta0k5VQ?oc=5"
+     "t": "Nasdaq 100 Futures Drop As Reports Relating To Jensen Huang’s Ousting Outweigh CoreWeave’s Strong Outlook —  NVDA, TSLA, SNDK, CAPR, CRWV In Focus",
+     "u": "https://finnhub.io/api/news?id=d7e64c7d1c923e54529848fa5f0a9c68b37f6ea780e8006c16005e87309242b6"
     },
     {
-     "t": "Devisen: Eurokurs gibt nach US-Verbraucherpreisdaten deutlich nach",
-     "u": "https://de.finance.yahoo.com/nachrichten/devisen-eurokurs-gibt-us-verbraucherpreisdaten-160758591.html?.tsrc=rss"
-    },
-    {
-     "t": "Another Year Of Resilience: 3 Calls For The Global Economy In 2027",
-     "u": "https://finnhub.io/api/news?id=63e8baff81961734cbdda67c95f7303a91959867be15af16890f1186e3215b11"
+     "t": "Devisen: Euro fällt auf den tiefsten Stand seit Mai 2025",
+     "u": "https://de.finance.yahoo.com/nachrichten/devisen-euro-f%C3%A4llt-tiefsten-stand-153237046.html?.tsrc=rss"
     }
    ]
   },
@@ -235,6 +232,7 @@
    "s": "SIE.DE",
    "n": "Siemens",
    "closes": [
+    271.54998779296875,
     271,
     263.6499938964844,
     273.25,
@@ -298,35 +296,35 @@
     282.29998779296875,
     284,
     284.1000061035156,
-    281.95001220703125,
-    280.25
+    281.95001220703125
    ],
    "cur": "EUR",
    "cat": "Industrie / Technik",
    "h": "lang",
    "bias": 0,
-   "why": "Siemens bewegt sich seit Wochen seitwärts mit leichtem Minus über drei Monate. Die Meldungen drehen sich um die Trennung von Healthineers, die den Namen Siemens ablegt.",
-   "ausblick": "Ohne starke Impulse ist eine Seitwärtsbewegung am wahrscheinlichsten; die Rechnung lässt eine breite Spanne nach oben und unten. Der Konzernumbau kann langfristig helfen, wirkt aber kaum kurzfristig.",
+   "why": "Siemens stieg gestern um rund 2 % und bewegt sich seit Wochen seitwärts. Die Abspaltung von Healthineers schreitet voran, die Warnungen aus der Windbranche betreffen den Konzern nur indirekt.",
+   "ausblick": "Die Rechnung sieht für drei Monate eine Mitte um 279 € bei einer breiten Spanne von etwa 243 bis 321 €. Wichtig bleiben Industrienachfrage und der Umbau des Konzerns; die Richtung ist offen.",
    "richtung": "seitwärts",
-   "zuversicht": "niedrig",
-   "horizont": "3–6 Monate",
-   "halten": "Für einen mittleren bis langen Zeitraum spricht die Konzentration auf Industrie und Digitalisierung; das Depot liegt rund 3 % im Plus. Dagegen sprechen die deutliche Schwankung und die Abhängigkeit vom US-Markt.",
+   "zuversicht": "mittel",
+   "horizont": "2–3 Monate",
+   "halten": "Für ein Halten sprechen der Konzernumbau Richtung Software und Automatisierung und das Plus von rund 5 % seit Kauf; eher ein Wert für längere Zeiträume. Dagegen spricht die Abhängigkeit vom Gesamtmarkt.",
    "signale": [
-    "Kurs fällt unter die untere Spanne der Prognose",
-    "Neue Zahlen oder Ausblick zum Geschäftsjahr",
-    "Fortschritt bei der Healthineers-Trennung"
+    "Rutscht der Kurs deutlich unter 260 €, kippt das Bild",
+    "Neue Details zur Healthineers-Trennung",
+    "Schwäche am US-Markt, mit dem Siemens zuletzt eng lief"
    ],
-   "muster": "Siemens lief zuletzt eher mit dem S&P 500 und leicht gegenläufig zum Ölpreis; ein schwacher US-Markt könnte daher bremsen. Diese Zusammenhänge sind unsicher.",
+   "muster": "Siemens lief zuletzt recht eng mit dem S&P 500 und eher gegenläufig zum Ölpreis; fallendes Öl könnte also leicht helfen. Dieser Zusammenhang ist unsicher.",
    "pro": [
-    "Klarere Ausrichtung nach Healthineers-Abspaltung",
-    "Breites Industrie- und Softwaregeschäft"
+    "Klarer Fokus nach Konzernumbau",
+    "Saisonal oft gutes Jahresende"
    ],
    "con": [
-    "Schwacher Trend über drei Monate",
-    "Spürbare Schwankung"
+    "Seitwärtstrend ohne klare Richtung",
+    "Konjunkturabhängigkeit"
    ],
    "news": [
-    "ny496951525"
+    "ny496951525",
+    "ny1087574427"
    ],
    "warn": 0,
    "warnGrund": "",
@@ -336,8 +334,8 @@
      "u": "https://de.finance.yahoo.com/nachrichten/trennung-mutterkonzern-healthineers-streicht-siemens-060519987.html?.tsrc=rss"
     },
     {
-     "t": "Umbau im Aufsichtsrat von Healthineers - Siemens-Manager gehen",
-     "u": "https://de.finance.yahoo.com/nachrichten/umbau-aufsichtsrat-healthineers-siemens-manager-150512986.html?.tsrc=rss"
+     "t": "Lies: Fast jeder zweite Offshore-Job steht auf dem Spiel",
+     "u": "https://de.finance.yahoo.com/nachrichten/lies-fast-zweite-offshore-job-131524165.html?.tsrc=rss"
     }
    ]
   },
@@ -345,6 +343,7 @@
    "s": "EXS1.DE",
    "n": "iShares Core DAX ETF",
    "closes": [
+    217.10000610351562,
     216.39999389648438,
     212.60000610351562,
     217.5,
@@ -408,42 +407,49 @@
     217.10000610351562,
     217.8000030517578,
     216.85000610351562,
-    217.1999969482422,
-    217.5500030517578
+    217.1999969482422
    ],
    "cur": "EUR",
    "cat": "Deutsche Aktien breit",
    "h": "lang",
    "bias": 0,
-   "why": "Der DAX-ETF hat in vier Wochen gut 4 % zugelegt und liegt nahe dem 3-Monats-Hoch. Gestern hielt sich der DAX besser als die US-Börsen.",
-   "ausblick": "Ein beginnender Aufwärtstrend ist erkennbar, am 3-Monats-Hoch könnte es aber zunächst stocken. Die Rechnung sieht über drei Monate einen leicht höheren Mittelwert mit breiter Spanne.",
+   "why": "Der DAX-ETF gewann gestern gut 1 % und liegt über vier Wochen rund 5 % im Plus. Die weltweite Tech-Erholung und fallende Ölpreise stützten zuletzt.",
+   "ausblick": "Rechnerisch liegt die Mitte in drei Monaten bei etwa 225 €, die Spanne reicht von rund 209 bis 241 €. Die Nähe zum 3-Monats-Hoch kann bremsen, die Jahresend-Saison eher helfen.",
    "richtung": "steigend",
    "zuversicht": "mittel",
-   "horizont": "3–6 Monate",
-   "halten": "Für einen langen Zeitraum passt der breite DAX gut; das Depot liegt rund 2 % im Plus. Dagegen spricht, dass deutsche Exportwerte bei einem schwachen Welthandel oder US-Zinssorgen nachgeben können.",
+   "horizont": "2–3 Monate",
+   "halten": "Als breiter Deutschland-ETF eignet er sich eher für längere Zeiträume; seit Kauf liegt er rund 3 % im Plus. Dagegen spricht die Konzentration auf ein Land.",
    "signale": [
-    "Überwindet der Kurs das 3-Monats-Hoch, wäre das ein positives Zeichen",
-    "Rückfall unter den 50-Tage-Schnitt",
-    "Ölpreis und Lage im Nahen Osten"
+    "Nachhaltiger Ausbruch über das 3-Monats-Hoch",
+    "Rückfall unter etwa 210 €",
+    "Starke Ölpreis-Anstiege"
    ],
-   "muster": "Das goldene Kreuz und die Jahresend-Saison deuten eher nach oben, der Widerstand am 3-Monats-Hoch bremst – alles unsichere Hinweise.",
+   "muster": "Ein „Goldenes Kreuz“ und die Nähe zum 3-Monats-Hoch deuten auf intakten Aufwärtsschwung, aber auch auf möglichen Widerstand hin. Solche Muster sind unzuverlässig.",
    "pro": [
-    "Aufwärtstrend der letzten Wochen",
-    "Geringere Schwankung als Einzelaktien"
+    "Positiver Trend",
+    "Fallende Ölpreise entlasten"
    ],
    "con": [
-    "Widerstand nahe 3-Monats-Hoch",
-    "Abhängigkeit von Export und Weltkonjunktur"
+    "Nahe an einem Widerstand",
+    "Nur ein Land"
    ],
-   "news": [],
+   "news": [
+    "ny1758414106"
+   ],
    "warn": 0,
    "warnGrund": "",
-   "quellen": []
+   "quellen": [
+    {
+     "t": "Billige Tech-Aktien lösen Rally an den Börsen weltweit aus",
+     "u": "https://de.euronews.com/2026/11/10/billige-tech-aktien-losen-rally-an-den-borsen-weltweit-aus?.tsrc=rss"
+    }
+   ]
   },
   {
    "s": "EUNK.DE",
    "n": "iShares Core MSCI Europe ETF",
    "closes": [
+    107.22000122070312,
     107.05999755859375,
     105.5999984741211,
     106.73999786376953,
@@ -507,42 +513,50 @@
     106.69999694824219,
     106.83999633789062,
     107.08000183105469,
-    107.0199966430664,
-    107.16000366210938
+    107.0199966430664
    ],
    "cur": "EUR",
    "cat": "Europa-Aktien breit",
    "h": "lang",
    "bias": 0,
-   "why": "Der Europa-ETF hat sich in vier Wochen um knapp 4 % erholt und liegt nahe dem 3-Monats-Hoch. Europäische Börsen hielten sich zuletzt besser als die USA.",
-   "ausblick": "Wahrscheinlich ist eine ruhige, leicht steigende Entwicklung, solange Zinssorgen nicht nach Europa überschwappen. Die Rechnung zeigt eine vergleichsweise enge Spanne.",
+   "why": "Der Europa-ETF stieg gestern knapp 1 % und liegt über vier Wochen gut 4 % vorn. Defensive Schweizer Werte profitieren von der Vorsicht gegenüber KI-Aktien.",
+   "ausblick": "Die Rechnung sieht eine Mitte um 110 € in drei Monaten, Spanne etwa 105 bis 116 €. Nach vielen Plus-Tagen ist eine Verschnaufpause gut möglich.",
    "richtung": "steigend",
    "zuversicht": "mittel",
-   "horizont": "6–12 Monate",
-   "halten": "Als geringer schwankender Baustein passt der ETF für einen langen Zeitraum; seit dem Kauf am 9.11. liegt er gut 1 % im Plus. Dagegen spricht, dass ein Rückschlag am Widerstand kurzfristig möglich ist.",
+   "horizont": "2–3 Monate",
+   "halten": "Die breite Europa-Streuung mit vielen defensiven Werten passt zu einem langfristigen Horizont; die Position ist erst seit dem 9. November im Depot und knapp 2 % im Plus. Kurzfristig spricht die überkaufte Lage gegen große Sprünge.",
    "signale": [
-    "Ausbruch über das 3-Monats-Hoch",
-    "Steigender Ölpreis",
-    "Schwäche bei Banken oder Industrie"
+    "Rückfall unter etwa 105 €",
+    "RSI fällt deutlich zurück",
+    "Anhaltende Umschichtung in defensive Werte"
    ],
-   "muster": "Goldenes Kreuz und Jahresend-Saison sprechen eher für Rückenwind; ein Gegenlauf zum Ölpreis bestand zuletzt. Das ist unsicher.",
+   "muster": "Der RSI von 71 zeigt eine überkaufte Lage, das spricht kurzfristig eher für eine Pause. Wie lange diese dauert, ist unsicher.",
    "pro": [
-    "Breit gestreut, geringe Schwankung",
-    "Positiver Trend der letzten Wochen"
+    "Breite Streuung",
+    "Defensive Schwergewichte gefragt"
    ],
    "con": [
-    "Widerstand nahe 3-Monats-Hoch",
-    "Ölpreis als Risiko"
+    "Kurzfristig überkauft",
+    "Nahe am 3-Monats-Hoch"
    ],
-   "news": [],
+   "news": [
+    "ny308858001",
+    "ny1758414106"
+   ],
    "warn": 0,
    "warnGrund": "",
-   "quellen": []
+   "quellen": [
+    {
+     "t": "Ängste vor einer KI-Blase führen zu überraschender Hinwendung zu Schweizer Aktien",
+     "u": "https://de.beincrypto.com/ki-aktien-verkauf-investoren-wechseln-zu-schweizer-aktien/?.tsrc=rss"
+    }
+   ]
   },
   {
    "s": "XDEW.DE",
    "n": "Xtrackers S&P 500 Equal Weight ETF",
    "closes": [
+    110.08000183105469,
     109.87999725341797,
     108.66000366210938,
     109.18000030517578,
@@ -606,42 +620,42 @@
     106.30000305175781,
     107.0999984741211,
     107.05999755859375,
-    106.4000015258789,
-    106.37999725341797
+    106.4000015258789
    ],
    "cur": "EUR",
    "cat": "US-Aktien gleichgewichtet",
    "h": "lang",
-   "bias": -0.5,
-   "why": "Der gleichgewichtete S&P-500-ETF steigt seit Wochen ruhig und liegt nahe dem 3-Monats-Hoch. Er ist weniger von großen Tech-Werten abhängig als der normale S&P 500.",
-   "ausblick": "Die gleichmäßige Gewichtung dämpft die Wirkung der Tech-Schwäche; Zinssorgen belasten aber den ganzen US-Markt. Wahrscheinlich ist eine leicht steigende bis seitwärts laufende Entwicklung.",
+   "bias": -0.3,
+   "why": "Der gleichgewichtete S&P-500-ETF stieg gestern gut 1 % und liegt über drei Monate rund 5 % im Plus. Durch die gleiche Gewichtung trifft ihn die Nvidia-Unsicherheit weniger als den normalen Index.",
+   "ausblick": "Rechnerisch liegt die Mitte für drei Monate bei etwa 116 €, mit einer Spanne von 111 bis 121 €. Die geringe Schwankung spricht für einen ruhigeren Verlauf, Risiken kommen vor allem vom US-Gesamtmarkt.",
    "richtung": "steigend",
    "zuversicht": "mittel",
-   "horizont": "6–12 Monate",
-   "halten": "Für einen langen Zeitraum spricht die breite Verteilung über 500 US-Firmen; seit dem Kauf am 9.11. gut 1 % im Plus. Dagegen sprechen hohe US-Zinsen und Währungsschwankungen zum Dollar.",
+   "horizont": "2–3 Monate",
+   "halten": "Die gleichmäßige Verteilung auf 500 US-Firmen mindert das Klumpenrisiko und passt zu einem langen Horizont; seit Kauf am 9. November rund 2–3 % im Plus. Dagegen spricht die Abhängigkeit vom Dollar.",
    "signale": [
-    "Weiter steigende US-Inflation",
-    "Anstieg des VIX",
-    "Rückfall unter den 50-Tage-Schnitt"
+    "Stärkerer Euro würde den Wert in Euro drücken",
+    "Fällt der VIX-Index stark an, steigt das Risiko",
+    "Rückfall unter etwa 110 €"
    ],
-   "muster": "Der ETF lief zuletzt gegenläufig zum Angst-Barometer VIX und zum Ölpreis; steigende Unsicherheit könnte bremsen. Dies ist ein unsicherer Zusammenhang.",
+   "muster": "Der ETF lief zuletzt gegenläufig zum Angst-Barometer VIX; ein steigender VIX nach der Nvidia-Meldung könnte also bremsen. Das ist ein unsicherer Zusammenhang.",
    "pro": [
-    "Weniger Tech-Klumpenrisiko",
+    "Weniger abhängig von einzelnen Tech-Riesen",
     "Geringe Schwankung"
    ],
    "con": [
-    "US-Zinssorgen",
-    "Widerstand nahe 3-Monats-Hoch"
+    "Dollar-Risiko",
+    "US-Marktstimmung angespannt"
    ],
    "news": [
-    "n8737568"
+    "n143745654",
+    "ny1167702738"
    ],
-   "warn": 1,
-   "warnGrund": "Zinssorgen belasten den US-Markt.",
+   "warn": 0,
+   "warnGrund": "",
    "quellen": [
     {
-     "t": "Wall St ends lower as hot inflation data, Fed comments heighten rate worries - Reuters",
-     "u": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQSEE5eGJXT1lYRVFJMUpWb2VCTENjZ2hBNWk0QWl5QVZBNmJ4TFBodVUtRVRzV0JubVE0NFJYRFlmYkpuc0tlbTBValFhV0ppcGdYNEZERXV4ZnhLZUJKTF9fUzZEeHM3cDRwdmlMdUVIUWlERHprb3lKakQ1S1gzSmI5LVZYWWx2cTBjVC1sVEc1OG8tOS0ta0k5VQ?oc=5"
+     "t": "Nasdaq 100 Futures Drop As Reports Relating To Jensen Huang’s Ousting Outweigh CoreWeave’s Strong Outlook —  NVDA, TSLA, SNDK, CAPR, CRWV In Focus",
+     "u": "https://finnhub.io/api/news?id=d7e64c7d1c923e54529848fa5f0a9c68b37f6ea780e8006c16005e87309242b6"
     }
    ]
   },
@@ -649,6 +663,7 @@
    "s": "AAPL",
    "n": "Apple",
    "closes": [
+    355.6300048828125,
     348.510009765625,
     350.69000244140625,
     342.3699951171875,
@@ -712,43 +727,42 @@
     305.5899963378906,
     305.92999267578125,
     305.260009765625,
-    302.25,
-    304.9100036621094
+    302.25
    ],
    "cur": "USD",
    "cat": "Geräte / Dienste",
    "h": "lang",
-   "bias": -0.5,
-   "why": "Apple hat über drei Monate rund 14 % zugelegt und liegt nahe dem 3-Monats-Hoch. Gestern belasteten Zinssorgen die Tech-Werte.",
-   "ausblick": "Der mittelfristige Trend ist positiv, am Hoch könnte es aber stocken. Höhere Zinsen drücken die Bewertung großer Tech-Werte, ein starker Dollar kann das Auslandsgeschäft bremsen.",
-   "richtung": "seitwärts",
-   "zuversicht": "niedrig",
-   "horizont": "3–6 Monate",
-   "halten": "Für einen langen Zeitraum spricht das stabile Geschäft mit Geräten und Diensten; seit dem Kauf knapp 1 % im Plus. Dagegen sprechen die hohe Bewertung und die Zinsempfindlichkeit.",
+   "bias": 0.3,
+   "why": "Apple erreichte gestern ein 52-Wochen-Hoch und liegt über drei Monate deutlich im Plus. Anleger sehen die Aktie derzeit als ruhigeren Tech-Wert.",
+   "ausblick": "Die Rechnung setzt die Mitte für drei Monate bei rund 389 $, Spanne etwa 349 bis 434 $, vor allem wegen des starken Trends. Ob der Schwung hält, hängt von der Stimmung bei Tech-Werten ab.",
+   "richtung": "steigend",
+   "zuversicht": "mittel",
+   "horizont": "2–3 Monate",
+   "halten": "Starke Marke und stabiles Geschäft sprechen für einen längeren Horizont; seit Kauf am 9. November rund 3 % im Plus. Dagegen spricht die Fallhöhe auf Rekordniveau.",
    "signale": [
-    "Ausbruch über das 3-Monats-Hoch",
-    "Weitere schwache Tech-Tage nach Inflationsdaten",
-    "Meldungen zum Weihnachtsgeschäft"
+    "Rückfall unter etwa 350 $",
+    "Verschlechterung der Tech-Stimmung durch Nvidia",
+    "Euro-Erholung drückt den Wert in Euro"
    ],
-   "muster": "Widerstand am 3-Monats-Hoch und Jahresend-Saison halten sich etwa die Waage – ein unsicheres Bild.",
+   "muster": "Nahe am 3-Monats-Hoch haben Verkäufer zuletzt oft gebremst, ein Ausbruch könnte weiteren Schwung bringen. Beides ist unsicher.",
    "pro": [
-    "Starker Trend über drei Monate",
-    "Wachsendes Dienstegeschäft"
+    "Neues Jahreshoch",
+    "Gilt als sicherer Tech-Hafen"
    ],
    "con": [
-    "Zinssorgen belasten Tech",
-    "Widerstand am Hoch"
+    "Hohe Bewertung",
+    "Fallhöhe auf Rekordniveau"
    ],
    "news": [
-    "n8737568",
-    "ny1984145623"
+    "n143749495",
+    "ny1167702738"
    ],
-   "warn": 1,
-   "warnGrund": "Tech-Werte leiden unter Zinssorgen.",
+   "warn": 0,
+   "warnGrund": "",
    "quellen": [
     {
-     "t": "Wall St ends lower as hot inflation data, Fed comments heighten rate worries - Reuters",
-     "u": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQSEE5eGJXT1lYRVFJMUpWb2VCTENjZ2hBNWk0QWl5QVZBNmJ4TFBodVUtRVRzV0JubVE0NFJYRFlmYkpuc0tlbTBValFhV0ppcGdYNEZERXV4ZnhLZUJKTF9fUzZEeHM3cDRwdmlMdUVIUWlERHprb3lKakQ1S1gzSmI5LVZYWWx2cTBjVC1sVEc1OG8tOS0ta0k5VQ?oc=5"
+     "t": "Why Did AAPL, XERS, ZETA Stocks Jump To 52-Week Highs Today?",
+     "u": "https://finnhub.io/api/news?id=8c435e0fa2b9f12c1297e6722c5332b1f982622ae5a709c121e73820580ac3de"
     }
    ]
   },
@@ -756,6 +770,7 @@
    "s": "SAP.DE",
    "n": "SAP (Xetra)",
    "closes": [
+    209.9499969482422,
     211.64999389648438,
     210.75,
     215.75,
@@ -819,32 +834,31 @@
     179.5800018310547,
     180.13999938964844,
     175.3800048828125,
-    175.9600067138672,
-    180.6999969482422
+    175.9600067138672
    ],
    "cur": "EUR",
    "cat": "Software",
    "h": "lang",
-   "bias": 1.5,
-   "why": "SAP hat sich in drei Monaten um rund 16 % erholt. JPMorgan hat die Aktie hochgestuft und das Kursziel auf 275 Euro angehoben, weil KI in Unternehmen breiter genutzt werde.",
-   "ausblick": "Die Hochstufung kann kurzfristig Schwung bringen, der Trend ist positiv. Am 3-Monats-Hoch und bei allgemeinen Tech-Zinssorgen kann es aber wieder schwanken.",
+   "bias": 1,
+   "why": "JPMorgan hat SAP hochgestuft und das Kursziel auf 275 € angehoben. Die Aktie ist über drei Monate rund 20 % gestiegen.",
+   "ausblick": "Rechnerisch liegt die Mitte für drei Monate bei etwa 238 €, die Spanne bei rund 206 bis 274 €. Treiber ist die Erwartung, dass Firmen KI-Software stärker nutzen; die Schwankung ist aber erheblich.",
    "richtung": "steigend",
    "zuversicht": "mittel",
    "horizont": "3–6 Monate",
-   "halten": "Für einen langen Zeitraum spricht die starke Stellung bei Unternehmenssoftware und KI-Nutzung; seit dem Kauf am 10.11. etwa auf Kaufniveau. Dagegen sprechen die hohe Schwankung und Abhängigkeit von der Tech-Stimmung.",
+   "halten": "Das Cloud- und KI-Geschäft spricht für einen längeren Horizont; die Position liegt seit Kauf am 10. November fast unverändert. Dagegen sprechen die starke Schwankung und Zweifel an KI-Bewertungen.",
    "signale": [
-    "Weitere Analysten-Hochstufungen oder -Abstufungen",
-    "Rückfall unter den Kaufkurs",
-    "Schwäche bei US-Software"
+    "Rückfall unter etwa 205 €",
+    "Weitere Analysten-Änderungen",
+    "Breiter Abverkauf bei KI-Werten"
    ],
-   "muster": "Nähe zum 3-Monats-Hoch kann bremsen, die Jahresend-Saison war früher oft positiv – unsichere Hinweise.",
+   "muster": "Nahe am 3-Monats-Hoch kann es stocken, die Jahresend-Saison war früher oft freundlich. Beides sind nur unsichere Hinweise.",
    "pro": [
     "Hochstufung durch JPMorgan",
-    "Starker Trend über drei Monate"
+    "Starker Aufwärtstrend"
    ],
    "con": [
     "Hohe Schwankung",
-    "Tech-Zinssorgen"
+    "KI-Skepsis am Markt"
    ],
    "news": [
     "ny1910368211"
@@ -855,10 +869,6 @@
     {
      "t": "ANALYSE-FLASH: JPMorgan hebt SAP auf 'Overweight' - Ziel auf 275 Euro",
      "u": "https://de.finance.yahoo.com/nachrichten/analyse-flash-jpmorgan-hebt-sap-062003650.html?.tsrc=rss"
-    },
-    {
-     "t": "Neues Angebot von Redwood Software wird als SAP-Lösungserweiterung vertrieben.",
-     "u": "https://de.finance.yahoo.com/nachrichten/neues-angebot-redwood-software-sap-070000894.html?.tsrc=rss"
     }
    ]
   },
@@ -866,6 +876,7 @@
    "s": "EUNH.DE",
    "n": "iShares Core € Govt Bond ETF",
    "closes": [
+    105.86499786376953,
     106.30500030517578,
     106.18000030517578,
     106.29499816894531,
@@ -929,32 +940,31 @@
     107.05500030517578,
     107.20999908447266,
     107.7300033569336,
-    107.51499938964844,
-    107.45999908447266
+    107.51499938964844
    ],
    "cur": "EUR",
    "cat": "Staatsanleihen Euro",
    "h": "lang",
-   "bias": -0.5,
-   "why": "Der Euro-Staatsanleihen-ETF schwankt kaum, gab aber zuletzt etwas nach. Höhere US-Inflation dämpft Hoffnungen auf sinkende Zinsen, was Anleihekurse belastet.",
-   "ausblick": "Wahrscheinlich bleibt es bei einer ruhigen Seitwärtsbewegung mit kleinen Ausschlägen. Nach vielen Plus-Tagen ist eine Abkühlung möglich.",
+   "bias": 0,
+   "why": "Der Euro-Staatsanleihen-ETF bewegt sich ruhig und liegt über vier Wochen gut 1 % im Plus. Er dient im Depot als Stabilitätsanker.",
+   "ausblick": "Die Rechnung sieht eine Mitte um 105 € bei einer Spanne von 103 bis 108 €. Entscheidend sind Zinsentwicklung und Signale der EZB; große Sprünge sind selten.",
    "richtung": "seitwärts",
    "zuversicht": "mittel",
-   "horizont": "6–12 Monate",
-   "halten": "Als Stabilitätsbaustein passt der ETF für einen langen Zeitraum; seit dem Kauf am 10.11. etwa 0,7 % im Minus. Dagegen spricht, dass steigende Zinsen die Kurse drücken.",
+   "horizont": "3–6 Monate",
+   "halten": "Als ruhiger Gegenpol zu Aktien passt der ETF eher zu einem mittleren bis langen Horizont; seit Kauf liegt er leicht im Minus. Steigende Zinsen wären der Hauptgrund dagegen.",
    "signale": [
-    "Steigende Renditen in Europa",
-    "Signale der EZB",
-    "Inflationsdaten aus der Eurozone"
+    "Deutlich steigende Anleiherenditen",
+    "Neue Signale der EZB zu Zinssenkungen",
+    "Rückfall unter etwa 104 €"
    ],
-   "muster": "Überkauft-Signal und Nähe zum 3-Monats-Tief widersprechen sich; ein Gleichlauf mit Gold bestand zuletzt. Das Bild ist unsicher.",
+   "muster": "Der RSI zeigt eine überkaufte Lage, gleichzeitig liegt der Wert nahe einem 3-Monats-Tief der längeren Sicht. Die Signale widersprechen sich und sind unsicher.",
    "pro": [
-    "Sehr geringe Schwankung",
-    "Gegengewicht zu Aktien"
+    "Geringe Schwankung",
+    "Ausgleich zum Aktienrisiko"
    ],
    "con": [
-    "Zinssorgen belasten Anleihen",
-    "Überkauft nach vielen Plus-Tagen"
+    "Zinsänderungsrisiko",
+    "Wenig Ertragspotenzial"
    ],
    "news": [],
    "warn": 0,
@@ -965,6 +975,7 @@
    "s": "QIA.DE",
    "n": "Qiagen",
    "closes": [
+    45.23500061035156,
     45.119998931884766,
     45.20500183105469,
     45.27000045776367,
@@ -1028,32 +1039,31 @@
     37.06999969482422,
     37.290000915527344,
     37.65999984741211,
-    37.040000915527344,
-    37.07500076293945
+    37.040000915527344
    ],
    "cur": "EUR",
    "cat": "Diagnostik",
    "h": "lang",
    "bias": 0,
-   "why": "Qiagen ist in drei Monaten um rund 22 % gestiegen. Die Aktionäre haben einen neuen Manager in die Geschäftsführung gewählt.",
-   "ausblick": "Der Trend ist stark, die Aktie gilt aber als deutlich überkauft; eine Verschnaufpause ist wahrscheinlich. Die Rechnung zeigt dennoch einen höheren Mittelwert.",
-   "richtung": "seitwärts",
+   "why": "Qiagen ist über drei Monate rund 22 % gestiegen und liegt nahe dem 3-Monats-Hoch. Die Aktionäre haben kürzlich Jonathan Pratt in die Geschäftsführung gewählt.",
+   "ausblick": "Rechnerisch liegt die Mitte für drei Monate bei etwa 51 €, Spanne rund 45 bis 58 €, getragen vom starken Trend. Nach dem steilen Anstieg ist ein Rücksetzer möglich.",
+   "richtung": "steigend",
    "zuversicht": "niedrig",
-   "horizont": "4–8 Wochen",
-   "halten": "Für einen langen Zeitraum spricht das stabile Diagnostikgeschäft; seit dem Kauf am 10.11. etwa auf Kaufniveau. Dagegen spricht, dass nach so starkem Anstieg Rücksetzer häufig sind.",
+   "horizont": "2–3 Monate",
+   "halten": "Der Diagnostik-Spezialist passt eher zu einem mittleren bis langen Horizont; seit Kauf am 10. November nahezu unverändert. Dagegen spricht die überkaufte Lage nach dem schnellen Anstieg.",
    "signale": [
-    "Rückfall unter den Kaufkurs",
-    "Ausbruch über das 3-Monats-Hoch",
-    "Nächste Quartalszahlen"
+    "Rückfall unter etwa 45 €",
+    "Erste Aussagen der neuen Führung",
+    "RSI kühlt deutlich ab"
    ],
-   "muster": "Ein RSI von 90 deutet auf eine mögliche Abkühlung hin, der Widerstand am Hoch ebenso – unsicher, da starke Trends auch länger laufen können.",
+   "muster": "Ein RSI von 71 zeigt viele Plus-Tage in Folge, das spricht kurzfristig eher für eine Pause. Diese Deutung ist unsicher.",
    "pro": [
-    "Starker Aufwärtstrend",
-    "Defensives Geschäftsfeld"
+    "Starker Trend",
+    "Stabile Führung bestätigt"
    ],
    "con": [
-    "Stark überkauft",
-    "Widerstand am Hoch"
+    "Kurzfristig überkauft",
+    "Nahe am Widerstand"
    ],
    "news": [],
    "warn": 0,
@@ -1069,6 +1079,7 @@
    "s": "TSLA",
    "n": "Tesla",
    "closes": [
+    390.8399963378906,
     379.7799987792969,
     378.04998779296875,
     358.2200012207031,
@@ -1132,43 +1143,46 @@
     339.29998779296875,
     342.2699890136719,
     339.9599914550781,
-    327.510009765625,
-    332.80999755859375
+    327.510009765625
    ],
    "cur": "USD",
    "cat": "E-Autos",
    "h": "kurz",
-   "bias": 0.5,
-   "why": "Tesla hat über drei Monate rund 14 % gewonnen, schwankt aber sehr stark. Der Bau einer großen Solarfabrik in Texas hat begonnen.",
-   "ausblick": "Kurzfristig ist alles möglich, die Rechnung zeigt eine sehr breite Spanne. Das Solarprojekt wirkt erst in einigen Jahren, Zinssorgen belasten kurzfristig.",
+   "bias": -1,
+   "why": "Tesla stieg gestern fast 3 %, schwankt aber sehr stark. Die Nvidia-Meldung drückt heute auf die Nasdaq-Futures, Tesla steht dabei im Fokus.",
+   "ausblick": "Die Rechnung sieht eine Mitte um 406 $ bei sehr breiter Spanne von rund 356 bis 463 $. Spekulationen wie über eine Verbindung mit SpaceX treiben den Kurs, sind aber unsicher.",
    "richtung": "seitwärts",
    "zuversicht": "niedrig",
    "horizont": "4–8 Wochen",
-   "halten": "Tesla eignet sich wegen der hohen Schwankung eher für einen spekulativen kleinen Anteil; langfristig spricht der Ausbau im Energiegeschäft dafür. Dagegen sprechen die hohe Bewertung und starke Kursausschläge.",
+   "halten": "Für Anleger mit hoher Risikobereitschaft kann Tesla interessant sein, die starke Schwankung passt aber kaum zu einem ausgewogenen Profil. Viel hängt an Stimmung statt an Zahlen.",
    "signale": [
-    "Auslieferungszahlen",
-    "Kurs fällt unter die untere Spanne der Prognose",
-    "Zinssignale der Fed"
+    "Rückfall unter etwa 355 $",
+    "Weitere Berichte zu Nvidia und Tech-Stimmung",
+    "Konkrete Aussagen zu SpaceX-Plänen"
    ],
-   "muster": "Tesla lief zuletzt eher gegen den S&P 500 – ein ungewöhnlicher und sehr unsicherer Zusammenhang.",
+   "muster": "Tesla lief zuletzt eher gegenläufig zum S&P 500, was ungewöhnlich ist und nicht verlässlich bleiben muss. Saisonale Muster sind hier besonders unsicher.",
    "pro": [
-    "Ausbau des Energiegeschäfts",
-    "Positiver 3-Monats-Trend"
+    "Starker Dreimonatstrend",
+    "Hohe Aufmerksamkeit"
    ],
    "con": [
     "Sehr hohe Schwankung",
-    "Hohe Investitionskosten"
+    "Abhängig von Spekulation"
    ],
    "news": [
-    "n143708262",
-    "ny1984145623"
+    "n143745654",
+    "ny1167702738"
    ],
-   "warn": 0,
-   "warnGrund": "",
+   "warn": 1,
+   "warnGrund": "Die Tech-Stimmung ist durch die Nvidia-Berichte angespannt.",
    "quellen": [
     {
-     "t": "After Terafab Chips, Tesla’s $10 Billion Crystal Sun Solar Factory Breaks Ground",
-     "u": "https://finnhub.io/api/news?id=47e2fa664d85125368bd13c2b2ce9e585912525e2f9fdf3f41850e722f5577d6"
+     "t": "Nasdaq 100 Futures Drop As Reports Relating To Jensen Huang’s Ousting Outweigh CoreWeave’s Strong Outlook —  NVDA, TSLA, SNDK, CAPR, CRWV In Focus",
+     "u": "https://finnhub.io/api/news?id=d7e64c7d1c923e54529848fa5f0a9c68b37f6ea780e8006c16005e87309242b6"
+    },
+    {
+     "t": "If SpaceX and Tesla Merge, Here's What a $10,000 Investment in the Combined Company Could Be Worth by 2030",
+     "u": "https://finnhub.io/api/news?id=a75a2629a9ffebb96e61588087d9f7a4e9703a43edf3d7b2c946c59d49281891"
     }
    ]
   },
@@ -1176,6 +1190,7 @@
    "s": "^VIX",
    "n": "^VIX",
    "closes": [
+    17.489999771118164,
     19.459999084472656,
     19.920000076293945,
     25.639999389648438,
@@ -1239,44 +1254,39 @@
     15.84000015258789,
     15.1899995803833,
     14.25,
-    14.630000114440918,
-    14.550000190734863
+    14.630000114440918
    ],
    "cur": "USD",
    "cat": "Volatilitätsindex",
    "h": "kurz",
-   "bias": 0.5,
-   "why": "Das Angst-Barometer VIX liegt auf ruhigem Niveau, ist aber über drei Monate gestiegen. Heiße Inflationsdaten könnten die Nervosität wieder erhöhen.",
-   "ausblick": "Der VIX springt bei Schocks schnell an und fällt danach meist zurück. Geopolitik im Nahen Osten und Zinssorgen sind mögliche Auslöser für Anstiege.",
+   "bias": 2,
+   "why": "Das Angst-Barometer fiel gestern um rund 10 % auf etwa 14,6 Punkte. Die Nvidia-Meldung könnte die Nervosität heute wieder erhöhen.",
+   "ausblick": "Rechnerisch liegt die Mitte bei etwa 18 Punkten, die Spanne reicht von rund 12 bis 28. Der VIX steigt meist schnell bei Schocks und fällt in ruhigen Phasen langsam.",
    "richtung": "seitwärts",
    "zuversicht": "niedrig",
-   "horizont": "4–8 Wochen",
-   "halten": "Der VIX ist ein Messwert und nicht direkt kaufbar; er dient zur Einschätzung der Marktstimmung. Steigt er stark, deutet das auf Unruhe hin.",
+   "horizont": "2–4 Wochen",
+   "halten": "Der VIX ist ein Stimmungsmesser und keine Anlage für längere Zeiträume. Er hilft vor allem, das Risiko im übrigen Depot einzuschätzen.",
    "signale": [
-    "Anstieg über 20 Punkte",
-    "Neue Eskalation im Nahen Osten",
-    "Überraschende Fed-Aussagen"
+    "Anstieg über 20 Punkte zeigt deutliche Nervosität",
+    "Klarheit bei Nvidia",
+    "Starke Kursrückgänge an der Nasdaq"
    ],
    "muster": "",
    "pro": [
-    "Niedriger Stand zeigt ruhigen Markt"
+    "Niedriges Niveau zeigt ruhigen Markt"
    ],
    "con": [
-    "Zinssorgen und Geopolitik können Unruhe auslösen"
+    "Kann sprunghaft steigen"
    ],
    "news": [
-    "n8737568"
+    "n143745654"
    ],
    "warn": 1,
-   "warnGrund": "Zinssorgen und Lage am Golf erhöhen das Unruhe-Risiko.",
+   "warnGrund": "Die Nvidia-Unsicherheit kann die Schwankungen erhöhen.",
    "quellen": [
     {
-     "t": "Wall St ends lower as hot inflation data, Fed comments heighten rate worries - Reuters",
-     "u": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQSEE5eGJXT1lYRVFJMUpWb2VCTENjZ2hBNWk0QWl5QVZBNmJ4TFBodVUtRVRzV0JubVE0NFJYRFlmYkpuc0tlbTBValFhV0ppcGdYNEZERXV4ZnhLZUJKTF9fUzZEeHM3cDRwdmlMdUVIUWlERHprb3lKakQ1S1gzSmI5LVZYWWx2cTBjVC1sVEc1OG8tOS0ta0k5VQ?oc=5"
-    },
-    {
-     "t": "Oil rises from two-month low as Hormuz shipping attacks offset Iran truce hopes - Reuters",
-     "u": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNUDdYdlFvTWpsUDJOZkVpN1RNYmM1RlIwZUxzSGhrazVnMTJ1el9lT2lpc08yc2VrUjdyR0tSWjJIRVRMdXh2cmJDam5yY2d1QURuUFdvQkh1ZWJDdHFXbmZCejViSHhTYnl6YU1uMmEtS1NIcFU1dmhPQVZpN2R5Ykc1OVBrUXVhemRVa01TblQ5THN6eDBlOXl3Nm5qTEtKRjNDeVVraW1hRjUwZjQyclBwd1hCTlZvNkdaVVdlUDc?oc=5"
+     "t": "Nasdaq 100 Futures Drop As Reports Relating To Jensen Huang’s Ousting Outweigh CoreWeave’s Strong Outlook —  NVDA, TSLA, SNDK, CAPR, CRWV In Focus",
+     "u": "https://finnhub.io/api/news?id=d7e64c7d1c923e54529848fa5f0a9c68b37f6ea780e8006c16005e87309242b6"
     }
    ]
   },
@@ -1284,6 +1294,7 @@
    "s": "V",
    "n": "Visa",
    "closes": [
+    425.54998779296875,
     423,
     422.1600036621094,
     422.6499938964844,
@@ -1347,172 +1358,190 @@
     358.8399963378906,
     364.1499938964844,
     365.45001220703125,
-    359.4200134277344,
-    362.82000732421875
+    359.4200134277344
    ],
    "cur": "USD",
    "cat": "Zahlungsdienste",
    "h": "lang",
-   "bias": 0.5,
-   "why": "Visa ist in drei Monaten um rund 17 % gestiegen. Das Unternehmen meldet über 20 % Wachstum bei Zusatzdiensten.",
-   "ausblick": "Der Trend ist stabil, das Wachstum bei Diensten stützt. Neue Konkurrenz durch Stablecoins großer Banken ist ein langfristiges Thema, kurzfristig eher nicht.",
+   "bias": 0,
+   "why": "Visa liegt über drei Monate rund 18 % im Plus und nahe dem 3-Monats-Hoch. Unternehmensspezifische Nachrichten gab es zuletzt kaum.",
+   "ausblick": "Die Rechnung setzt die Mitte für drei Monate bei etwa 472 $, Spanne rund 425 bis 525 $. Treiber sind Konsumausgaben und Zahlungsvolumen; ein schwächerer Konsum wäre das Hauptrisiko.",
    "richtung": "steigend",
    "zuversicht": "mittel",
-   "horizont": "6–12 Monate",
-   "halten": "Für einen langen Zeitraum spricht das robuste Geschäftsmodell mit wachsenden Diensten. Dagegen sprechen eine bereits starke Kursentwicklung und neue Konkurrenz im Zahlungsverkehr.",
+   "horizont": "3–6 Monate",
+   "halten": "Das stabile Gebührenmodell spricht für einen langen Horizont. Dagegen sprechen die hohe Bewertung und mögliche Regulierung.",
    "signale": [
-    "Rückfall unter den 50-Tage-Schnitt",
-    "Nachrichten zu Stablecoins und Regulierung",
-    "Konsumdaten aus den USA"
+    "Rückfall unter etwa 425 $",
+    "Schwache US-Konsumdaten",
+    "Regulierungsnachrichten zu Kartengebühren"
    ],
-   "muster": "Visa lief zuletzt leicht mit dem Ölpreis – ein schwacher und unsicherer Zusammenhang.",
+   "muster": "Nahe am 3-Monats-Hoch kann es bremsen, die Jahresend-Saison mit hohen Konsumausgaben könnte helfen. Beides ist unsicher.",
    "pro": [
-    "Starker 3-Monats-Trend",
-    "Wachstum bei Zusatzdiensten"
+    "Stabiles Geschäftsmodell",
+    "Starker Trend"
    ],
    "con": [
-    "Neue Konkurrenz durch Stablecoins",
-    "Bereits deutlich gestiegen"
+    "Hohe Bewertung",
+    "Konsumabhängigkeit"
    ],
    "news": [
-    "n143708271",
-    "ny1984145623"
+    "ny1167702738"
    ],
    "warn": 0,
    "warnGrund": "",
-   "quellen": [
-    {
-     "t": "Visa’s Services Grow Over 20% as Company Pushes Beyond Payments",
-     "u": "https://finnhub.io/api/news?id=5eadb6c848507116b0bbdc49ee9f7a7382f1c118033c02f42d092ed3756b0dbf"
-    },
-    {
-     "t": "Goldman, Citi Commit $270M to Their Own Stablecoin: Can Tether and Circle Hold On?",
-     "u": "https://finnhub.io/api/news?id=bb399fad1cb3dc71403be6dc4631bd782cf91da8a8cd27a5ccf0d52f722c45ea"
-    }
-   ]
+   "quellen": []
   }
  ],
  "news": [
   {
-   "id": "n8737568",
+   "id": "n143745654",
    "imp": 3,
    "kind": [
-    "Belastet",
-    "down"
-   ],
-   "cat": "Markt USA",
-   "t": "Wall Street schließt nach heißen Inflationsdaten im Minus",
-   "sum": "Höher als erwartete US-Verbraucherpreise und Aussagen aus der Fed haben die Sorge vor länger hohen Zinsen verstärkt.",
-   "body": [
-    "Die großen US-Indizes gaben am Dienstag nach, der Nasdaq 100 stärker als der breite Markt. Auslöser waren Inflationszahlen über den Erwartungen.",
-    "Mehrere Fed-Vertreter äußerten sich vorsichtig zu weiteren Zinssenkungen. Das drückt vor allem auf hoch bewertete Technologiewerte."
-   ],
-   "back": "Wirkt jetzt: Zinssorgen bremsen US-Aktien und stützen den Dollar.",
-   "stocks": [
-    "URTH",
-    "XDEW.DE",
-    "AAPL"
-   ],
-   "u": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQSEE5eGJXT1lYRVFJMUpWb2VCTENjZ2hBNWk0QWl5QVZBNmJ4TFBodVUtRVRzV0JubVE0NFJYRFlmYkpuc0tlbTBValFhV0ppcGdYNEZERXV4ZnhLZUJKTF9fUzZEeHM3cDRwdmlMdUVIUWlERHprb3lKakQ1S1gzSmI5LVZYWWx2cTBjVC1sVEc1OG8tOS0ta0k5VQ?oc=5",
-   "q": "Reuters"
-  },
-  {
-   "id": "ny1984145623",
-   "imp": 2,
-   "kind": [
-    "Dollar stärker",
+    "Tech-Risiko",
     "warn"
    ],
-   "cat": "Devisen",
-   "t": "Euro verliert nach US-Preisdaten",
-   "sum": "Der Euro rutschte nach den US-Inflationszahlen auf rund 1,116 Dollar ab.",
+   "cat": "USA / Chips",
+   "t": "Nvidia: Berichte über mögliche Ablösung von Chef Jensen Huang",
+   "sum": "Laut einem Medienbericht berät der Nvidia-Verwaltungsrat über die Zukunft von Konzernchef Huang; Aktie und Nasdaq-Futures gaben nachbörslich nach.",
    "body": [
-    "Höhere Inflation spricht gegen schnelle US-Zinssenkungen, das macht den Dollar attraktiver.",
-    "Für Anleger im Euroraum heben sich US-Kursverluste dadurch teilweise auf, weil Dollar-Werte in Euro gerechnet mehr wert sind."
+    "Der Bericht ist bisher nicht vom Unternehmen bestätigt. Nachbörslich verlor die Nvidia-Aktie rund 8 %, die Futures auf den Nasdaq 100 drehten ins Minus.",
+    "Weil Nvidia im US-Markt und in Welt-ETFs stark gewichtet ist, kann eine längere Unsicherheit um die Führung auch breite Indizes belasten. Gute Zahlen anderer KI-Firmen wie CoreWeave gingen dabei unter."
    ],
-   "back": "Wirkt jetzt: Der stärkere Dollar federt Verluste bei US-Werten in Euro ab.",
+   "back": "Wirkt jetzt: Heute dürfte die Eröffnung an der Wall Street davon geprägt sein.",
    "stocks": [
+    "TSLA",
     "URTH",
-    "AAPL",
-    "V",
-    "TSLA"
+    "XDEW.DE",
+    "^VIX"
    ],
-   "u": "https://de.finance.yahoo.com/nachrichten/devisen-eurokurs-gibt-us-verbraucherpreisdaten-160758591.html?.tsrc=rss",
-   "q": "Yahoo Finanzen"
+   "u": "https://finnhub.io/api/news?id=d7e64c7d1c923e54529848fa5f0a9c68b37f6ea780e8006c16005e87309242b6",
+   "q": "Yahoo"
   },
   {
    "id": "ny1910368211",
-   "imp": 3,
+   "imp": 2,
    "kind": [
     "Hochstufung",
     "up"
    ],
    "cat": "Software",
-   "t": "JPMorgan stuft SAP hoch und hebt Kursziel deutlich",
+   "t": "JPMorgan stuft SAP hoch und hebt das Kursziel kräftig an",
    "sum": "Die US-Bank sieht SAP nun positiv und erhöht ihr Kursziel um 100 auf 275 Euro.",
    "body": [
-    "Begründet wird das damit, dass KI in Unternehmen aus der Testphase in den echten Einsatz übergeht – davon könne SAP mit seiner Unternehmenssoftware profitieren.",
-    "Analystenurteile können kurzfristig Schwung geben, sind aber keine Garantie; das neue Ziel liegt weit über dem aktuellen Kurs."
+    "Begründung: KI werde in Unternehmen zunehmend produktiv eingesetzt statt nur getestet, wovon SAP mit seiner Cloud-Software profitieren könne.",
+    "Analystenziele sind Einschätzungen und keine Garantie; sie können ebenso schnell wieder gesenkt werden."
    ],
-   "back": "Wirkt jetzt: Rückenwind für die SAP-Aktie zum Handelsstart möglich.",
+   "back": "Wirkt jetzt: Kann die Stimmung für SAP heute stützen.",
    "stocks": [
-    "SAP.DE"
+    "SAP.DE",
+    "SAP"
    ],
    "u": "https://de.finance.yahoo.com/nachrichten/analyse-flash-jpmorgan-hebt-sap-062003650.html?.tsrc=rss",
    "q": "Yahoo Finanzen"
   },
   {
-   "id": "n8739877",
+   "id": "n143749495",
    "imp": 2,
    "kind": [
-    "Unsicherheit",
-    "warn"
+    "Jahreshoch",
+    "up"
    ],
-   "cat": "Rohstoffe",
-   "t": "Ölpreis erholt sich vom Zwei-Monats-Tief",
-   "sum": "Angriffe auf Schiffe in der Straße von Hormus wiegen schwerer als Hoffnungen auf eine Waffenruhe mit dem Iran.",
+   "cat": "USA / Technik",
+   "t": "Apple erreicht ein neues 52-Wochen-Hoch",
+   "sum": "Die Apple-Aktie stieg am Mittwoch auf den höchsten Stand seit einem Jahr; Optionshändler sehen sie als vergleichsweise sicheren Tech-Wert.",
    "body": [
-    "Öl war zuletzt stark gefallen, nun zieht der Preis wieder etwas an. Brennende Tanker in der Region zeigen, dass die Lage angespannt bleibt.",
-    "Ein steigender Ölpreis kann Inflation und Zinssorgen weiter nähren; fallende Preise hatten die Börsen zuletzt eher gestützt."
+    "Getragen wurde der Anstieg von soliden Zahlen und angehobenen Kurszielen. Während andere KI-Werte schwankten, galt Apple zuletzt als ruhigerer Hafen.",
+    "Auf Rekordniveau ist die Fallhöhe bei Enttäuschungen größer."
    ],
-   "back": "Wirkt bald: Die Lage im Nahen Osten bleibt ein Risiko für Öl und Inflation.",
-   "stocks": [],
-   "u": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNUDdYdlFvTWpsUDJOZkVpN1RNYmM1RlIwZUxzSGhrazVnMTJ1el9lT2lpc08yc2VrUjdyR0tSWjJIRVRMdXh2cmJDam5yY2d1QURuUFdvQkh1ZWJDdHFXbmZCejViSHhTYnl6YU1uMmEtS1NIcFU1dmhPQVZpN2R5Ykc1OVBrUXVhemRVa01TblQ5THN6eDBlOXl3Nm5qTEtKRjNDeVVraW1hRjUwZjQyclBwd1hCTlZvNkdaVVdlUDc?oc=5",
-   "q": "Reuters"
+   "back": "Rückblick: Bewegung vom Vortag.",
+   "stocks": [
+    "AAPL"
+   ],
+   "u": "https://finnhub.io/api/news?id=8c435e0fa2b9f12c1297e6722c5332b1f982622ae5a709c121e73820580ac3de",
+   "q": "Yahoo"
   },
   {
-   "id": "ny16482036",
+   "id": "ny1167702738",
    "imp": 2,
    "kind": [
-    "Schwächer",
-    "down"
+    "Währung",
+    ""
    ],
-   "cat": "Rohstoffe",
-   "t": "Gold gibt nach Fed-Signalen nach",
-   "sum": "Strenge Töne aus der US-Notenbank und die Inflationsdaten haben den Goldpreis gedrückt.",
+   "cat": "Devisen",
+   "t": "Euro fällt auf tiefsten Stand seit Mai 2025",
+   "sum": "Der Euro rutschte am Mittwoch auf etwa 1,108 US-Dollar; der EZB-Referenzkurs lag bei 1,1127 Dollar.",
    "body": [
-    "Wenn Zinsen länger hoch bleiben, wird zinsloses Gold weniger attraktiv. Der Preis hielt sich zuletzt um gut 4.000 Dollar je Unze."
+    "Ein schwächerer Euro hebt für Anleger aus dem Euroraum den Wert von Dollar-Anlagen wie US-Aktien und Welt-ETFs etwas an.",
+    "Umgekehrt kann eine Erholung des Euro diese Gewinne wieder schmälern."
    ],
-   "back": "Wirkt jetzt: Gold bleibt vorerst unter Druck.",
-   "stocks": [],
-   "u": "https://de.finance.yahoo.com/nachrichten/goldpreis-gibt-falkenhafte-fed-signale-014229618.html?.tsrc=rss",
+   "back": "Wirkt jetzt: Beeinflusst die Euro-Werte aller Dollar-Positionen.",
+   "stocks": [
+    "URTH",
+    "AAPL",
+    "TSLA",
+    "V"
+   ],
+   "u": "https://de.finance.yahoo.com/nachrichten/devisen-euro-f%C3%A4llt-tiefsten-stand-153237046.html?.tsrc=rss",
+   "q": "Yahoo Finanzen"
+  },
+  {
+   "id": "ny1758414106",
+   "imp": 2,
+   "kind": [
+    "Erholung",
+    "up"
+   ],
+   "cat": "Weltmärkte",
+   "t": "Tech-Werte führen Erholung an den Börsen an",
+   "sum": "Nach den jüngsten Verlusten griffen Anleger bei Technologiewerten wieder zu; fallende Ölpreise halfen zusätzlich.",
+   "body": [
+    "US-Aktien legten am Dienstag deutlich zu, Europa folgte am Mittwoch mit einem DAX-Plus von gut 1 %.",
+    "Ob die Erholung trägt, ist angesichts der neuen Nvidia-Nachrichten offen."
+   ],
+   "back": "Rückblick: Erholung Anfang der Woche.",
+   "stocks": [
+    "EXS1.DE",
+    "URTH",
+    "EUNK.DE"
+   ],
+   "u": "https://de.euronews.com/2026/11/10/billige-tech-aktien-losen-rally-an-den-borsen-weltweit-aus?.tsrc=rss",
+   "q": "Yahoo Finanzen"
+  },
+  {
+   "id": "ny308858001",
+   "imp": 1,
+   "kind": [
+    "Umschichtung",
+    ""
+   ],
+   "cat": "Europa",
+   "t": "Sorge vor KI-Blase lenkt Geld in Schweizer Aktien",
+   "sum": "Defensive Schwergewichte wie Roche, Novartis und Nestlé haben Schweizer Aktien so stark vor die Eurozone gebracht wie seit 2020 nicht.",
+   "body": [
+    "Anleger suchen bei Zweifeln an hohen KI-Bewertungen eher stabile Geschäftsmodelle.",
+    "Für breite Europa-ETFs mit Schweiz-Anteil kann das stabilisierend wirken."
+   ],
+   "back": "Wirkt jetzt: Zeigt die vorsichtige Stimmung gegenüber Tech.",
+   "stocks": [
+    "EUNK.DE"
+   ],
+   "u": "https://de.beincrypto.com/ki-aktien-verkauf-investoren-wechseln-zu-schweizer-aktien/?.tsrc=rss",
    "q": "Yahoo Finanzen"
   },
   {
    "id": "ny496951525",
    "imp": 1,
    "kind": [
-    "Umbau",
+    "Umbenennung",
     ""
    ],
    "cat": "Industrie",
-   "t": "Healthineers trennt sich vom Namen Siemens",
-   "sum": "Nach der Abspaltung will die Medizintechnik-Tochter künftig nur noch Healthineers heißen, Siemens-Manager verlassen den Aufsichtsrat.",
+   "t": "Healthineers verzichtet künftig auf den Namen Siemens",
+   "sum": "Nach der Trennung vom Mutterkonzern will sich die Medizintechnik-Tochter nur noch Healthineers nennen.",
    "body": [
-    "Der Schritt zeigt, dass Siemens die Trennung von Healthineers vorantreibt und sich stärker auf Industrie und Digitalisierung konzentriert.",
-    "Unmittelbare Folgen für den Siemens-Kurs sind nicht zu erwarten."
+    "Der Schritt gehört zur Abspaltung, mit der Siemens sich stärker auf Industrie-Software und Automatisierung konzentriert."
    ],
-   "back": "Rückblick: Teil des laufenden Konzernumbaus bei Siemens.",
+   "back": "Wirkt bald: Formaler Schritt, kaum direkte Kurswirkung.",
    "stocks": [
     "SIE.DE"
    ],
@@ -1520,65 +1549,44 @@
    "q": "Yahoo Finanzen"
   },
   {
-   "id": "n143708262",
-   "imp": 2,
-   "kind": [
-    "Investition",
-    "up"
-   ],
-   "cat": "E-Autos / Energie",
-   "t": "Tesla beginnt Bau einer großen Solarfabrik in Texas",
-   "sum": "Für rund 10 Milliarden Dollar entsteht bei Houston ein Werk, das bis 2029 Solarmodule komplett selbst fertigen soll.",
-   "body": [
-    "Tesla baut damit sein Energiegeschäft neben den Autos weiter aus. Bis das Werk Umsatz bringt, vergehen allerdings noch Jahre, und die Kosten sind hoch."
-   ],
-   "back": "Wirkt bald: Langfristiges Projekt, kurzfristig kaum Einfluss auf Zahlen.",
-   "stocks": [
-    "TSLA"
-   ],
-   "u": "https://finnhub.io/api/news?id=47e2fa664d85125368bd13c2b2ce9e585912525e2f9fdf3f41850e722f5577d6",
-   "q": "Yahoo"
-  },
-  {
-   "id": "n143708271",
+   "id": "ny1087574427",
    "imp": 1,
    "kind": [
-    "Wachstum",
-    "up"
+    "Branchenrisiko",
+    "warn"
    ],
-   "cat": "Zahlungsdienste",
-   "t": "Visa wächst mit Zusatzdiensten über 20 Prozent",
-   "sum": "Visa baut Dienste rund um Zahlungen, Banking und Sicherheit aus und wächst dort deutlich schneller als im Kerngeschäft.",
+   "cat": "Energie",
+   "t": "Offshore-Windbranche warnt vor Jobverlusten",
+   "sum": "Niedersachsens Ministerpräsident sieht fast jeden zweiten Offshore-Arbeitsplatz gefährdet, falls der Ausbau weiter stockt.",
    "body": [
-    "Zusatzdienste machen Visa unabhängiger vom reinen Kartenzahlungsvolumen. Gleichzeitig wächst Konkurrenz, etwa durch neue Stablecoin-Projekte großer Banken."
+    "Die Warnung richtet sich an die Bundesregierung. Betroffen wären vor allem Zulieferer der Windkraft; Siemens ist hier nur noch indirekt beteiligt."
    ],
-   "back": "Wirkt bald: Stützt die Wachstumsgeschichte, ändert aber kurzfristig wenig.",
+   "back": "Wirkt bald: Hängt von politischen Entscheidungen ab.",
    "stocks": [
-    "V"
+    "SIE.DE"
    ],
-   "u": "https://finnhub.io/api/news?id=5eadb6c848507116b0bbdc49ee9f7a7382f1c118033c02f42d092ed3756b0dbf",
-   "q": "Yahoo"
+   "u": "https://de.finance.yahoo.com/nachrichten/lies-fast-zweite-offshore-job-131524165.html?.tsrc=rss",
+   "q": "Yahoo Finanzen"
   }
  ],
- "telegram": "Mittag: DAX und Euro Stoxx 50 je rund +0,7 %, MDAX kaum verändert.\nSAP auf Xetra gut +2,5 % nach der JPMorgan-Hochstufung, europäische Tech- und Energiewerte vorn.\nSiemens leicht im Minus, Healthineers-Umbau im Blick.\nOffen: Nahost-Lage und Ölpreis bleiben ein Unsicherheitsfaktor.",
+ "telegram": "**Guten Morgen!** DAX gestern +1,2 %, Nasdaq 100 +2,3 %.\n**Nvidia:** Bericht über mögliche Ablösung von Chef Huang, Aktie nachbörslich −8 %, Nasdaq-Futures im Minus.\n**SAP:** JPMorgan stuft hoch, Kursziel 275 €.\n**Apple** auf 52-Wochen-Hoch.\n**Euro** bei rund 1,108 $, tiefster Stand seit Mai 2025.\nÖl weiter schwach, das entlastet.\nHeute im Blick: Reaktion der Tech-Werte und des VIX auf Nvidia.",
  "kurz": [
   {
    "s": "SAP",
    "n": "SAP (USA, $)",
-   "text": "Die US-Notierung von SAP fiel gestern um 1,6 %, mitgezogen von der Tech-Schwäche. Die Hochstufung durch JPMorgan kam erst danach.",
+   "text": "Die US-Notierung von SAP folgt der deutschen Aktie, zusätzlich wirkt der Wechselkurs. Die JPMorgan-Hochstufung stützt die Stimmung.",
    "h": "lang",
    "warn": 0,
-   "ausblick": "Der Trend ist positiv, die Hochstufung könnte Schwung geben. Der Dollarkurs beeinflusst diese Notierung zusätzlich.",
+   "ausblick": "Rechnerisch liegt die Mitte für drei Monate bei etwa 254 $, Spanne 222 bis 292 $. Die Richtung hängt an der KI-Stimmung und am Euro-Dollar-Kurs.",
    "richtung": "steigend",
    "zuversicht": "mittel",
    "horizont": "3–6 Monate",
-   "halten": "Für einen langen Zeitraum spricht die starke Stellung im Softwaremarkt; für Euro-Anleger ist die Xetra-Notierung meist näher. Dagegen sprechen Schwankung und Währungseffekt.",
+   "halten": "Inhaltlich wie die Xetra-Aktie, zusätzlich mit Dollar-Risiko; eher für längere Zeiträume. Gegen diese Variante spricht für Euro-Anleger das Währungsrisiko.",
    "signale": [
-    "Reaktion auf die JPMorgan-Hochstufung",
-    "Dollarkurs",
-    "Stimmung bei US-Software"
+    "Rückfall unter etwa 222 $",
+    "Breite Schwäche bei KI-Werten"
    ],
-   "muster": "Der Wert lief zuletzt gegen den VIX: steigende Unruhe könnte belasten – unsicher.",
+   "muster": "Der Wert lief zuletzt gegenläufig zum VIX; steigende Nervosität könnte also belasten. Das ist unsicher.",
    "quellen": [
     {
      "t": "ANALYSE-FLASH: JPMorgan hebt SAP auf 'Overweight' - Ziel auf 275 Euro",
@@ -1589,116 +1597,114 @@
   {
    "s": "SPY",
    "n": "S&P 500 ETF",
-   "text": "Der S&P 500 schloss 0,4 % tiefer, belastet durch heiße Inflationsdaten. Der Index liegt nahe dem 3-Monats-Tief.",
+   "text": "Der S&P-500-ETF stieg gestern gut 1 %, liegt über vier Wochen aber leicht im Minus. Die Nvidia-Meldung belastet heute die Futures.",
    "h": "lang",
    "warn": 1,
-   "ausblick": "Zinssorgen sprechen kurzfristig für eine Seitwärts- bis Abwärtsphase. Die Rechnung zeigt dennoch einen leicht höheren Mittelwert über drei Monate.",
+   "ausblick": "Rechnerisch liegt die Mitte bei etwa 767 $, Spanne 713 bis 824 $. Die hohe Gewichtung großer Tech-Werte macht den Index anfällig für KI-Nachrichten.",
    "richtung": "seitwärts",
    "zuversicht": "niedrig",
-   "horizont": "3–6 Monate",
-   "halten": "Für einen langen Zeitraum ist der breite US-Markt ein üblicher Baustein. Dagegen spricht kurzfristig der Abwärtstrend mit Todeskreuz.",
+   "horizont": "2–3 Monate",
+   "halten": "Breiter US-Markt, der sich für lange Zeiträume eignet. Kurzfristig sprechen die Tech-Konzentration und die Nvidia-Unsicherheit dagegen.",
    "signale": [
-    "Bruch des 3-Monats-Tiefs",
-    "Nächste Inflationsdaten",
-    "Fed-Aussagen"
+    "Rückfall unter etwa 715 $",
+    "Neues Rekordhoch des Index"
    ],
-   "muster": "Todeskreuz und Nähe zum Tief sind Warnzeichen, die Jahresend-Saison eher ein Gegengewicht – unsicher.",
+   "muster": "Nähe zum 3-Monats-Hoch kann bremsen, saisonal war das Jahresende oft gut. Beides ist unsicher.",
    "quellen": [
     {
-     "t": "Wall St ends lower as hot inflation data, Fed comments heighten rate worries - Reuters",
-     "u": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQSEE5eGJXT1lYRVFJMUpWb2VCTENjZ2hBNWk0QWl5QVZBNmJ4TFBodVUtRVRzV0JubVE0NFJYRFlmYkpuc0tlbTBValFhV0ppcGdYNEZERXV4ZnhLZUJKTF9fUzZEeHM3cDRwdmlMdUVIUWlERHprb3lKakQ1S1gzSmI5LVZYWWx2cTBjVC1sVEc1OG8tOS0ta0k5VQ?oc=5"
+     "t": "Nasdaq 100 Futures Drop As Reports Relating To Jensen Huang’s Ousting Outweigh CoreWeave’s Strong Outlook —  NVDA, TSLA, SNDK, CAPR, CRWV In Focus",
+     "u": "https://finnhub.io/api/news?id=d7e64c7d1c923e54529848fa5f0a9c68b37f6ea780e8006c16005e87309242b6"
+    },
+    {
+     "t": "S&amp;P 500 liegt nur 2,5% unter Rekordhoch, trotz Crash am Aktienmarkt",
+     "u": "https://de.beincrypto.com/sp-500-nahe-rekordhoch-trotz-aktienmarkt-crash/?.tsrc=rss"
     }
    ]
   },
   {
    "s": "4GLD.DE",
    "n": "Xetra-Gold",
-   "text": "Xetra-Gold fiel gestern um 1,8 %. Strengere Signale der Fed machen zinsloses Gold weniger attraktiv.",
+   "text": "Xetra-Gold liegt über drei Monate knapp 6 % im Minus und bewegte sich gestern kaum. Zentralbanken kaufen weiter Gold, der Preis gab aber zuletzt nach.",
    "h": "lang",
-   "warn": 1,
-   "ausblick": "Solange Zinssorgen anhalten, bleibt Gold eher unter Druck. Geopolitische Spannungen können aber jederzeit stützen.",
+   "warn": 0,
+   "ausblick": "Rechnerisch liegt die Mitte bei etwa 113 €, die Spanne bei 102 bis 124 €. Zentralbank-Käufe stützen, ein starker Dollar und Risikofreude bremsen.",
    "richtung": "seitwärts",
    "zuversicht": "niedrig",
    "horizont": "3–6 Monate",
-   "halten": "Gold kann langfristig als Absicherung dienen. Dagegen sprechen der aktuelle Abwärtstrend und keine laufenden Erträge.",
+   "halten": "Gold dient eher als langfristige Absicherung gegen Krisen. Dagegen sprechen der aktuelle Abwärtstrend und fehlende laufende Erträge.",
    "signale": [
-    "Fed-Zinsaussichten",
-    "Dollarkurs",
-    "Eskalation im Nahen Osten"
+    "Rückfall unter etwa 102 €",
+    "Neue Daten zu Zentralbank-Käufen"
    ],
-   "muster": "Der Wert folgt eng dem Goldpreis und lief leicht gegen Öl – unsicher.",
+   "muster": "",
    "quellen": [
     {
-     "t": "Goldpreis gibt nach: Falkenhafte Fed-Signale und US-Inflationsdaten belasten Notierungen",
-     "u": "https://de.finance.yahoo.com/nachrichten/goldpreis-gibt-falkenhafte-fed-signale-014229618.html?.tsrc=rss"
-    },
-    {
-     "t": "Gold stabilisiert sich nach Kursrutsch nahe 4.035 Dollar – Fed-Zinserwartungen belasten",
-     "u": "https://de.finance.yahoo.com/nachrichten/gold-stabilisiert-kursrutsch-nahe-4-012746409.html?.tsrc=rss"
+     "t": "Singapur eröffnet Tresor für 500 Tonnen Gold für Zentralbanken: Kaufen diese weiterhin?",
+     "u": "https://de.beincrypto.com/singapur-gold-tresor-zentralbanken-kaufen/?.tsrc=rss"
     }
    ]
   },
   {
    "s": "BZ=F",
    "n": "Öl (Brent)",
-   "text": "Brent-Öl erholte sich um rund 1 % vom Zwei-Monats-Tief. Angriffe auf Schiffe am Golf überwiegen Hoffnungen auf Entspannung.",
-   "h": "nicht kaufbar",
-   "warn": 1,
-   "ausblick": "Der Ölpreis bleibt stark von der Lage im Nahen Osten abhängig. Nach dem starken Rückgang ist eine Erholung möglich, aber sehr unsicher.",
+   "text": "Brent-Öl ist über vier Wochen fast 14 % gefallen und gab gestern weiter nach. Das entlastet Aktienmärkte und Inflation.",
+   "h": "spekulativ",
+   "warn": 0,
+   "ausblick": "Die Rechnung zeigt eine sehr breite Spanne von etwa 74 bis 117 $. Spannungen im Nahen Osten können den Preis jederzeit schnell nach oben treiben.",
    "richtung": "seitwärts",
    "zuversicht": "niedrig",
    "horizont": "4–8 Wochen",
-   "halten": "Öl ist hier ein Marktindikator und nicht direkt als Anlage gedacht. Steigende Preise können Inflation und Zinsen beeinflussen.",
+   "halten": "Öl eignet sich wegen der starken Schwankung kaum für ein ausgewogenes Depot. Für einen Rückprall spricht die überverkaufte Lage, dagegen der klare Abwärtstrend.",
    "signale": [
-    "Neue Angriffe oder Waffenruhe am Golf",
-    "Lagerdaten aus den USA"
+    "Neue Eskalation im Nahen Osten",
+    "Stabilisierung nach dem starken Rückgang"
    ],
-   "muster": "Überverkauft (RSI 27) – eine Gegenbewegung ist möglich, aber unsicher.",
+   "muster": "Ein RSI von 21 zeigt eine stark überverkaufte Lage, oft folgt eine Gegenbewegung. Darauf ist kein Verlass.",
    "quellen": [
     {
-     "t": "Oil rises from two-month low as Hormuz shipping attacks offset Iran truce hopes - Reuters",
-     "u": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNUDdYdlFvTWpsUDJOZkVpN1RNYmM1RlIwZUxzSGhrazVnMTJ1el9lT2lpc08yc2VrUjdyR0tSWjJIRVRMdXh2cmJDam5yY2d1QURuUFdvQkh1ZWJDdHFXbmZCejViSHhTYnl6YU1uMmEtS1NIcFU1dmhPQVZpN2R5Ykc1OVBrUXVhemRVa01TblQ5THN6eDBlOXl3Nm5qTEtKRjNDeVVraW1hRjUwZjQyclBwd1hCTlZvNkdaVVdlUDc?oc=5"
+     "t": "Billige Tech-Aktien lösen Rally an den Börsen weltweit aus",
+     "u": "https://de.euronews.com/2026/11/10/billige-tech-aktien-losen-rally-an-den-borsen-weltweit-aus?.tsrc=rss"
     },
     {
-     "t": "Tankers continue to burn in the Middle East despite hopes for de-escalation - Reuters",
-     "u": "https://news.google.com/rss/articles/CBMiswFBVV95cUxObk1HVHlrMXF2OXBza19vMDdFUENMek40em9sQmVNLXdWOFduMEJlVU4ycmVzeE1MYWt0YV9FRDR1OTVSc05jWFQ5QnJ1bjlZSGk4bXhwUEk2cGhBeTBlMkI5VEkzbHF4YlNKdkpYdFYzWUtua1RqWEh2VFR2TkppS3hsQlBrb1hHLTJBSzh6ZngyNXc5bk9XTWNJbWlaSWlxZDlwcGl1WTdEWFhOZ2RZSVRxMA?oc=5"
+     "t": "Saudi Arabia intercepts Houthi missiles, drones; group denies targeting Mecca - Reuters",
+     "u": "https://news.google.com/rss/articles/CBMizwFBVV95cUxNa0VablB0SWViZWpCRFg4bC0yX2ZTM19HNmFFVUdqVVlwbWRuRjdpSnNXZ3liU04zeTYyZWJPSlhLeEVRTUlMS0N2SnlPdEpINzVHUTJjRXJjd3RKdEZMLS14czdZSlpjcWlJWm95bFpTNHgxblNSVlFyLWhsQ0JncVFZRGRmQ0p6cDZQRGRtNlh6LWxnVXlLRkJyelFzdTFoM285d2tQZTJvS1BkYkRzLVZwUERKc2pHbVBqOUZDSmFRbGJ4TmpmQVExbnEzOTQ?oc=5"
     }
    ]
   },
   {
    "s": "IS3Q.DE",
    "n": "MSCI World Qualität",
-   "text": "Der Qualitäts-ETF legte leicht zu und liegt nahe dem 3-Monats-Hoch. Er schwankt weniger als der breite Markt.",
+   "text": "Der Qualitäts-ETF stieg gestern gut 1 % und liegt über drei Monate leicht im Plus. Qualitätsfirmen sind bei KI-Skepsis gefragt.",
    "h": "lang",
    "warn": 0,
-   "ausblick": "Qualitätsfirmen halten sich in unruhigen Phasen oft besser. Wahrscheinlich ist eine ruhige Seitwärts- bis leichte Aufwärtsentwicklung.",
-   "richtung": "seitwärts",
+   "ausblick": "Rechnerisch liegt die Mitte bei etwa 84 €, Spanne 80 bis 88 €. Die geringe Schwankung spricht für einen ruhigen Verlauf.",
+   "richtung": "steigend",
    "zuversicht": "mittel",
-   "horizont": "6–12 Monate",
-   "halten": "Für einen langen Zeitraum spricht die defensive Ausrichtung. Dagegen spricht, dass er in starken Aufschwüngen hinterherhinken kann.",
+   "horizont": "3–6 Monate",
+   "halten": "Solide Unternehmen und geringe Schwankung passen zu einem langen Horizont. Dagegen spricht die enge Kopplung an den US-Markt.",
    "signale": [
-    "Ausbruch über das 3-Monats-Hoch",
-    "Anstieg des VIX"
+    "Rückfall unter etwa 80 €",
+    "Steigender VIX"
    ],
-   "muster": "Gegenläufig zum VIX und Öl – steigende Unruhe könnte bremsen; unsicher.",
+   "muster": "Der ETF lief zuletzt eng mit dem S&P 500 und gegenläufig zum VIX. Ein nervöserer Markt könnte bremsen; das ist unsicher.",
    "quellen": []
   },
   {
    "s": "RHM.DE",
    "n": "Rheinmetall",
-   "text": "Rheinmetall hat in drei Monaten rund 25 % verloren und gilt als überverkauft. Gestern gab es eine leichte Erholung.",
+   "text": "Rheinmetall fiel gestern um fast 7 % und liegt über drei Monate rund 32 % im Minus. Der Abwärtstrend ist deutlich.",
    "h": "spekulativ",
-   "warn": 1,
-   "ausblick": "Nach dem starken Rückgang ist eine Gegenbewegung möglich, der Trend bleibt aber abwärts. Hoffnungen auf Entspannung in Konflikten können weiter belasten.",
-   "richtung": "seitwärts",
+   "warn": 2,
+   "ausblick": "Die Rechnung zeigt eine sehr breite Spanne von etwa 519 bis 865 €. Ob sich der Kurs fängt, hängt stark von Nachrichten zu Rüstungsausgaben und Konflikten ab.",
+   "richtung": "fallend",
    "zuversicht": "niedrig",
    "horizont": "4–8 Wochen",
-   "halten": "Langfristig sprechen hohe Verteidigungsausgaben dafür. Dagegen sprechen der klare Abwärtstrend und die sehr hohe Schwankung.",
+   "halten": "Langfristig bleibt das Thema Verteidigung relevant, aktuell überwiegt aber der starke Abwärtstrend mit hoher Schwankung. Das spricht eher für Vorsicht.",
    "signale": [
-    "Nachrichten zu Waffenruhen oder Rüstungsbudgets",
-    "Stabilisierung über mehrere Tage"
+    "Stabilisierung nahe dem 3-Monats-Tief",
+    "Neue Aufträge oder politische Signale"
    ],
-   "muster": "Überverkauft (RSI 27) und Jahresend-Saison könnten stützen, der Trend spricht dagegen – unsicher.",
+   "muster": "Der Wert ist stark überverkauft (RSI 24) und nahe am 3-Monats-Tief, wo Käufer zuletzt stützten. Eine Gegenbewegung ist möglich, aber unsicher.",
    "quellen": []
   }
  ],
