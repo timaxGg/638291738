@@ -293,6 +293,10 @@ async function bewegung(ctx){ST.bew=ST.bew||{};const heute=new Date().toISOStrin
 export async function schnell(ctx){SF=ctx.P(".state/beste.json");if(!ST)ST=lade();if(Date.now()-(ST.schnellT||0)<50e3)return;ST.schnellT=Date.now();if(!MD)MD=await meinDepot(ctx);if(!MD||!MD.depot.length)return;
   for(const s of [...new Set(MD.depot.map(d=>d.s))]){const h=ST.hist[s];if(!h||!h.bars||!offen(regionVon(s)))continue;try{const y=await yahoo(s,"5d");h.bars=zusammen(h.bars,y.bars.map(b=>[b[0],b[4]])).slice(-560);h.p=y.p;h.mt=y.mt;h.lt=Date.now()}catch(e){}}
   const out={};await schutz(ctx,null,out);await bewegung(ctx);speichere()}
+async function halteEnde(ctx){if(!MD)return;ST.halteMeld=ST.halteMeld||{};const z=teile("Europe/Berlin");
+  for(const x of MD.depot){if(!x.bis||ST.halteMeld[x.id]===x.bis||z.date<x.bis)continue;const zt=ST.intra&&ST.intra[x.s]&&ST.intra[x.s].r,uhr=zt&&zt.teuer?zt.teuer.t:(regionVon(x.s)==="eu"?"10:00":"16:00"),[hh,mm]=uhr.split(":").map(Number);
+    if(z.date===x.bis&&z.min<hh*60+mm)continue;const h=ST.hist[x.s];if(!h||!(h.p>0))continue;ST.halteMeld[x.id]=x.bis;const ch=(h.p/x.k-1)*100;
+    await melde(ctx,"schutz",`⏰ <b>Haltedauer endet: ${ctx.esc(x.n||x.s)}</b>\nGeplant war Halten bis ${x.bis.split("-").reverse().join(".")}. Jetzt ${pz(ch)} seit Kauf (Kurs ${dez(h.p)} ${CS[h.cur]||h.cur||""}).\nVerkaufen prüfen. Länger halten nur mit neuem Grund.${link(ctx,x.s)}`)}}
 async function okKnopf(cb,ctx,id){const st=ST.sch&&ST.sch[id],x=MD&&MD.depot.find(d=>d.id===id);
   if(!st||!x){if(ctx.tg)await ctx.tg("answerCallbackQuery",{callback_query_id:cb.id,text:"Position nicht mehr gefunden"});return}
   const h=ST.hist[x.s],p=h&&h.p||x.k,ch=(p/x.k-1)*100;st.ref=ch;st.al=ch<0?ch:null;st.okT=Date.now();const lv=linie(ch,x.nl>0?x.nl:.5,false);
@@ -337,13 +341,16 @@ async function tageszeit(s){const r=await fetch(`https://query1.finance.yahoo.co
   const B={};let n=0;for(const bars of tage.values()){if(bars.length<6)continue;n++;const o=bars[0].o;let jm=0;bars.forEach((b,k)=>{if(b.l<bars[jm].l)jm=k});
     bars.forEach((b,k)=>{const x=B[b.t]=B[b.t]||{t:b.t,sum:0,n:0,tief:0};x.sum+=(b.c/o-1)*100;x.n++;if(k===jm)x.tief++})}
   if(n<15)return null;const b=Object.values(B).filter(x=>x.n>=n*.6).sort((a,b)=>a.t<b.t?-1:1).map(x=>({t:x.t,avg:+(x.sum/x.n).toFixed(2),tief:Math.round(x.tief/n*100)}));
-  const best=[...b].sort((a,c)=>c.tief-a.tief)[0],billig=[...b].sort((a,c)=>a.avg-c.avg)[0];return {tage:n,b,best,billig}}
+  const best=[...b].sort((a,c)=>c.tief-a.tief)[0],billig=[...b].sort((a,c)=>a.avg-c.avg)[0],teuer=[...b].sort((a,c)=>c.avg-a.avg)[0];return {tage:n,b,best,billig,teuer}}
 const WTG=["So.","Mo.","Di.","Mi.","Do.","Fr.","Sa."];
 function fenster(s,jetzt=Date.now()){const zt=ST.intra&&ST.intra[s]&&ST.intra[s].r&&ST.intra[s].r.best,t=zt?zt.t:(regionVon(s)==="eu"?"09:30":"16:00"),[hh,mm]=t.split(":").map(Number);
   const z=teile("Europe/Berlin",new Date(jetzt)),off=Date.UTC(...z.date.split("-").map((v,i)=>i===1?+v-1:+v),Math.floor(z.min/60),z.min%60)-Math.floor(jetzt/6e4)*6e4; // Abstand Berlin–UTC
   for(let k=0;k<8;k++){const d=new Date(Date.parse(z.date+"T00:00:00Z")+k*864e5),wd=d.getUTCDay();if(wd===0||wd===6)continue;const start=Date.UTC(d.getUTCFullYear(),d.getUTCMonth(),d.getUTCDate(),hh,mm)-off;
     if(jetzt<start+30*6e4)return {start,t,jetzt:jetzt>=start,tag:k===0?"heute":k===1?"morgen":WTG[wd]+" "+d.getUTCDate()+"."+(d.getUTCMonth()+1)+".",bis:(()=>{const x=hh*60+mm+30;return String(Math.floor(x/60)).padStart(2,"0")+":"+String(x%60).padStart(2,"0")})()}}
   return null}
+function halteTage(z){const st=ST.einstieg&&ST.einstieg.s&&ST.einstieg.s[z];if(!st||!st[3]||!st[7]||!st[3].n||!st[7].n)return 3;return st[7].avg>st[3].avg?7:3}
+function plusHandelstage(ts,n){const d=new Date(ts);let k=0;while(k<n){d.setUTCDate(d.getUTCDate()+1);const wd=d.getUTCDay();if(wd&&wd!==6)k++}return d}
+const tagKurz=d=>`${WTG[d.getUTCDay()]} ${d.getUTCDate()}.${d.getUTCMonth()+1}.`;
 function einstieg(w,p){const i=w.C.length-1,z=zustand(w,i);if(!z)return null;const st=ST.einstieg&&ST.einstieg.s&&ST.einstieg.s[z.z];
   return {z:z.z,n:ZUST[z.z].n,t:ZUST[z.z].t,ab20:+((p/w.R.s20[i]-1)*100).toFixed(1),vomHoch:z.vomHoch,rsi:w.R.rsi[i]!=null?+w.R.rsi[i].toFixed(0):null,
     ziel:z.ziel?r6(z.ziel):null,zielAbst:z.ziel?+((z.ziel/p-1)*100).toFixed(1):null,s20:r6(w.R.s20[i]),stat:st||null,
@@ -472,12 +479,13 @@ export async function lauf(ctx){SF=ctx.P(".state/beste.json");if(!ST)ST=lade();a
   if(ctx.send){ST.eAlt=ST.eAlt||{};ST.eTag=ST.eTag||{};const beob=[...((MD&&MD.merk)||[]),...[3,7].flatMap(H=>rang[H].slice(0,TOP).map(w=>({s:w.s,n:w.n,top:H})))];const gesehen=new Set();for(const m of beob){if(gesehen.has(m.s))continue;gesehen.add(m.s);const w=W.find(y=>y.s===m.s);if(!w)continue;const e=fakten(w,3).einstieg;if(!e)continue;
     const vor=ST.eAlt[m.s];ST.eAlt[m.s]=e.z;if(vor&&vor!==e.z&&(e.z==="guenstig"||e.z==="wende")&&ST.eTag[m.s]!==heute&&!((MD&&MD.depot)||[]).some(d=>d.s===m.s)&&(ST.eTag[m.s]=heute))
       {const fe=e.fenster;ST.geplant=ST.geplant||{};if(fe&&!fe.jetzt)ST.geplant[m.s]={start:fe.start,n:m.n||m.s,top:m.top,t:fe.t};
-      await melde(ctx,"einstieg",`${fe&&!fe.jetzt?`📅 <b>Vorankündigung: ${ctx.esc(m.n||m.s)}</b>${m.top?` (Top ${TOP}, ${m.top} Tage)`:" (gemerkt)"}\nWird günstig. <b>Einstieg erst ${fe.tag} ${fe.t}–${fe.bis} Uhr</b>, dann kommt eine zweite Nachricht, ob es noch gilt.`:`🟢 <b>Jetzt einsteigen: ${ctx.esc(m.n||m.s)}</b>${m.top?` (Top ${TOP}, ${m.top} Tage)`:" (gemerkt)"}\n${e.n}. ${e.t}`}\nKurs ${pz(e.ab20)} zum 20-Tage-Schnitt, ${pz(e.vomHoch)} unter dem 10-Tage-Hoch, RSI ${e.rsi}.${e.stat&&e.stat[3]&&e.stat[3].n?`\nIm Rückblick brachte ein Kauf in diesem Zustand in 3 Tagen Ø ${pz(e.stat[3].avg)} (${e.stat[3].plus} % im Plus).`:""}\n<i>Keine Anlageberatung.</i>${link(ctx,m.s)}`)}}
+      await melde(ctx,"einstieg",`${fe&&!fe.jetzt?`📅 <b>Vorankündigung: ${ctx.esc(m.n||m.s)}</b>${m.top?` (Top ${TOP}, ${m.top} Tage)`:" (gemerkt)"}\nWird günstig. <b>Einstieg erst ${fe.tag} ${fe.t}–${fe.bis} Uhr</b>, dann kommt eine zweite Nachricht, ob es noch gilt.\n⏳ Halten danach ca. ${halteTage(e.z)} Handelstage, bis etwa ${tagKurz(plusHandelstage(fe.start,halteTage(e.z)))}.`:`🟢 <b>Jetzt einsteigen: ${ctx.esc(m.n||m.s)}</b>${m.top?` (Top ${TOP}, ${m.top} Tage)`:" (gemerkt)"}\n${e.n}. ${e.t}`}\nKurs ${pz(e.ab20)} zum 20-Tage-Schnitt, ${pz(e.vomHoch)} unter dem 10-Tage-Hoch, RSI ${e.rsi}.${e.stat&&e.stat[3]&&e.stat[3].n?`\nIm Rückblick brachte ein Kauf in diesem Zustand in 3 Tagen Ø ${pz(e.stat[3].avg)} (${e.stat[3].plus} % im Plus).`:""}\n<i>Keine Anlageberatung.</i>${link(ctx,m.s)}`)}}
     for(const s of Object.keys(ST.eAlt))if(!gesehen.has(s))delete ST.eAlt[s];for(const k of ["standVor","hoch"])if(ST[k]&&MD)for(const id of Object.keys(ST[k]))if(!MD.depot.some(d=>d.id===id))delete ST[k][id];for(const s of Object.keys(ST.eTag))if(ST.eTag[s]!==heute)delete ST.eTag[s]}
   // Angekündigte Einstiege: zur angekündigten Uhrzeit bestätigen (gilt noch) oder absagen
   if(ST.geplant)for(const [sy,g] of Object.entries(ST.geplant)){if(Date.now()<g.start)continue;delete ST.geplant[sy];if(Date.now()>g.start+90*6e4)continue;
     const w=W.find(y=>y.s===sy);if(!w)continue;const f=fakten(w,3),e=f.einstieg,gilt=e&&(e.z==="guenstig"||e.z==="wende");
-    await melde(ctx,"einstieg",gilt?`🟢 <b>Jetzt einsteigen: ${ctx.esc(g.n)}</b> (wie angekündigt)\nKurs ${dez(f.p)} ${CS[f.cur]||f.cur} · ${e.n} · ${pz(e.vomHoch)} vom 10-Tage-Hoch · heute ${pz(f.dp)}\nGünstigste halbe Stunde: ${g.t} Uhr.\n<i>Keine Anlageberatung.</i>${link(ctx,sy)}`
+    const ht=e?halteTage(e.z):3,zt2=ST.intra&&ST.intra[sy]&&ST.intra[sy].r;
+    await melde(ctx,"einstieg",gilt?`🟢 <b>Jetzt einsteigen: ${ctx.esc(g.n)}</b> (wie angekündigt)\nKurs ${dez(f.p)} ${CS[f.cur]||f.cur} · ${e.n} · ${pz(e.vomHoch)} vom 10-Tage-Hoch · heute ${pz(f.dp)}\nGünstigste halbe Stunde: ${g.t} Uhr.\n⏳ Halten: bis etwa ${tagKurz(plusHandelstage(Date.now(),ht))} (${ht} Handelstage)${zt2&&zt2.teuer?`, dann am ehesten gegen ${zt2.teuer.t} Uhr verkaufen`:""}. Früher raus, wenn dein Ziel (${pz(NOETIG[ht]||NOETIG[3],1)}) erreicht ist oder der Schutz auslöst.\n<i>Keine Anlageberatung.</i>${link(ctx,sy)}`
       :`❌ <b>Abgesagt: ${ctx.esc(g.n)}</b>\nDer angekündigte Einstieg gilt nicht mehr: ${e?e.n:"keine Daten"}. Kurs ${dez(f.p)} ${CS[f.cur]||f.cur}, heute ${pz(f.dp)}.${link(ctx,sy)}`,{direkt:true})}
   // Neu in den Top 5 (Rechnung, 3 und 7 Tage): höchstens einmal pro Stunde je Zeitraum
   ST.topAlt=ST.topAlt||{};ST.topT=ST.topT||{};if(vollst)for(const H of [3,7]){const jetztTop=rang[H].slice(0,TOP).map(w=>w.s),alt=ST.topAlt[H]||[],neu=jetztTop.filter(s=>!alt.includes(s));
@@ -491,7 +499,7 @@ export async function lauf(ctx){SF=ctx.P(".state/beste.json");if(!ST)ST=lade();a
 
   const meine={},schutzApp={};
   if(MD){for(const x of [...(MD.depot||[]),...(MD.merk||[])]){const w=W.find(y=>y.s===x.s);if(w&&!meine[x.s])meine[x.s]=fakten(w,7)}
-    await schutz(ctx,W,schutzApp);await bewegung(ctx);ST.app_schutz=schutzApp}
+    await schutz(ctx,W,schutzApp);await bewegung(ctx);await halteEnde(ctx);ST.app_schutz=schutzApp}
   ST.eTopS=eTop.map(x=>x.w.s);
   // Telegram: beste Einstiege aus allen Werten, höchstens stündlich und nur wenn sich die Top 5 geändert haben
   {const z=teile("Europe/Berlin"),t5=eTop.slice(0,5).map(x=>x.w.s),key=t5.join(",");
@@ -505,7 +513,7 @@ export async function lauf(ctx){SF=ctx.P(".state/beste.json");if(!ST)ST=lade();a
     weitere:Object.fromEntries(HORIZONTE.map(H=>[H,rang[H].filter(w=>!listen[H].some(x=>x.s===w.s)).slice(0,WEITERE).map(w=>{const f=fakten(w,H);return {s:f.s,n:f.n,typ:f.typ,cur:f.cur,p:f.p,dp:f.dp,mt:f.mt,sess:f.sess,sparkD:f.sparkD.slice(-30),einstieg:f.einstieg&&Object.assign({},f.einstieg,{heute:undefined,zeit:f.einstieg.zeit?{tage:f.einstieg.zeit.tage,best:f.einstieg.zeit.best,billig:f.einstieg.zeit.billig}:null}),spark:f.spark.slice(-30),noetig:f.noetig,typBew:f.typBew,wochen4:f.wochen4,monate3:f.monate3,trend:f.trend,rsi:f.rsi,rang:rang[H].indexOf(w)+1}})])),
     modell:{version:MO.version,params:M,standard:STANDARD,param:PARAM,verlauf:MO.verlauf.slice(-10).reverse()},vorschlag:ST.vorschlag&&(ST.vorschlag.status==='offen'||Date.now()-(ST.vorschlag.entschieden||0)<3*864e5)?ST.vorschlag:null,pruefung,
     muster:{info:MUSTER.map(m=>({id:m.id,n:m.n,t:m.t})),speicher:ST.muster?ST.muster.m:null},
-    einstiegInfo:{zust:ZUST,stat:ST.einstieg?ST.einstieg.s:null},
+    einstiegInfo:{zust:ZUST,stat:ST.einstieg?ST.einstieg.s:null,halte:Object.fromEntries(Object.keys(ZUST).map(z=>[z,halteTage(z)]))},
     einstiegTop:eTop.map((x,i)=>{const f=fakten(x.w,3);return {s:f.s,n:f.n,typ:f.typ,cur:f.cur,p:f.p,dp:f.dp,mt:f.mt,sess:f.sess,rang:i+1,wochen4:f.wochen4,tage5:f.tage5,trend:f.trend,rsi:f.rsi,typBew:f.typBew,noetig:f.noetig,sdTag:f.sdTag,spark:f.spark.slice(-30),sparkD:f.sparkD.slice(-30),einstieg:f.einstieg&&Object.assign({},f.einstieg,{heute:undefined})}}),
     meldungen:MELDUNGEN,
     meine,schutz:Object.keys(schutzApp).length&&process.env.SYNC_PASSWORD?await verschluesseln(schutzApp,process.env.SYNC_PASSWORD):null,
