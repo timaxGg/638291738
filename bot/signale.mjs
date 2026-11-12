@@ -8,12 +8,14 @@ import fs from "node:fs";
 import {verschluesseln,entschluesseln} from "./krypto.mjs";
 
 let KOSTEN=0.15;           // % je Kauf bzw. Verkauf, wird bei jedem Lauf aus deinen Einstellungen (Gebühr, Einsatz, Spread) berechnet
-let STEUER=.26375,ZIEL_TAG=1,NOETIG={}; // Steuer auf Gewinne, dein Ziel pro Handelstag in %, nötiger Anstieg je Zeitraum
+let FREI_REST=0,STEUER=.26375,ZIEL_TAG=1,NOETIG={}; // Steuer auf Gewinne, dein Ziel pro Handelstag in %, nötiger Anstieg je Zeitraum
 export const KOSTEN_STD={gebuehr:1,einsatz:1000,spread:.1,steuer:26.375};
 // Wie viel muss ein Wert in H Handelstagen steigen, damit nach Kosten und Steuern dein Ziel übrig bleibt?
 const zielH=H=>(Math.pow(1+ZIEL_TAG/100,H)-1)*100,noetig=H=>2*KOSTEN+zielH(H)/(1-STEUER);
 function setzeKosten(md){const k=Object.assign({},KOSTEN_STD,(md&&md.kosten)||{}),z=(md&&md.ziel)||{wert:1,je:"tag"},t={tag:1,woche:5,monat:21}[z.je]||1;
-  KOSTEN=(k.einsatz>0?k.gebuehr/k.einsatz*100:0)+(k.spread||0)/2;STEUER=Math.min(.6,Math.max(0,(k.steuer||0)/100));ZIEL_TAG=(Math.pow(1+(+z.wert||0)/100,1/t)-1)*100;
+  KOSTEN=(k.einsatz>0?k.gebuehr/k.einsatz*100:0)+(k.spread||0)/2;STEUER=Math.min(.6,Math.max(0,(k.steuer||0)/100));
+  // Freistellungsauftrag: solange der Rest-Freibetrag den erwarteten Gewinn eines Trades abdeckt, fällt keine Steuer an
+  const jahr=String(new Date().getFullYear()),verbraucht=((md&&md.verkauft)||[]).filter(v=>String(new Date(v.t).getFullYear())===jahr).reduce((a,v)=>a+Math.max(0,v.vorSt||0),0),rest=Math.max(0,(+k.frei||0)-verbraucht);ZIEL_TAG=(Math.pow(1+(+z.wert||0)/100,1/t)-1)*100;if(rest>0&&rest>=k.einsatz*zielH(7)/100)STEUER=0;FREI_REST=rest;
   for(const H of HORIZONTE)NOETIG[H]=+noetig(H).toFixed(2);return {kosten:k,ziel:z}}
 const TOP=5;               // so viele Werte zeigt die App je Zeitraum
 const KAND=10;             // so viele Kandidaten bekommt die KI je Zeitraum
@@ -261,7 +263,7 @@ async function melde(ctx,art,text,o={}){if(!ctx.send||!an(art))return false;cons
 /* ---------- Eigenes Depot der Top-Aktien-App ---------- */
 // Die App speichert Merkliste und übernommene Aktien verschlüsselt (Sync-Passwort der Haupt-App) in data/top.enc.
 async function meinDepot(ctx){const PASS=process.env.SYNC_PASSWORD||"",f=ctx.P("data/top.enc");if(!PASS||!fs.existsSync(f))return null;
-  try{const d=await entschluesseln(fs.readFileSync(f,"utf8"),PASS);delete ctx.B.err.topdepot;return {depot:Array.isArray(d.depot)?d.depot:[],merk:Array.isArray(d.merk)?d.merk:[],kosten:d.kosten,ziel:d.ziel,notify:d.notify||{}}}
+  try{const d=await entschluesseln(fs.readFileSync(f,"utf8"),PASS);delete ctx.B.err.topdepot;return {depot:Array.isArray(d.depot)?d.depot:[],merk:Array.isArray(d.merk)?d.merk:[],kosten:d.kosten,ziel:d.ziel,notify:d.notify||{},verkauft:Array.isArray(d.verkauft)?d.verkauft:[]}}
   catch(e){ctx.B.err.topdepot="Top-Aktien-Depot nicht lesbar. Stimmt das Sync-Passwort?";return null}}
 const linie=(ref,abst,erste)=>{const t=ref-abst;return erste&&t<0?-.5:Math.max(0,t)};
 async function schutz(ctx,W,out){ST.sch=ST.sch||{};const da=new Set();
@@ -507,7 +509,7 @@ export async function lauf(ctx){SF=ctx.P(".state/beste.json");if(!ST)ST=lade();a
       ST.geplant=ST.geplant||{};for(const x of eTop.slice(0,5)){const f=fenster(x.w.s);if(f&&!f.jetzt&&!ST.geplant[x.w.s])ST.geplant[x.w.s]={start:f.start,n:x.w.n,t:f.t}}
       const fe0=fenster(eTop[0].w.s),vorschau=eTop.slice(0,5).every(x=>{const f=fenster(x.w.s);return f&&!f.jetzt&&f.tag!=="heute"});
       await melde(ctx,"einstieg",`${vorschau?`📅 <b>Vorschau: beste Einstiege für ${fe0?fe0.tag:"den nächsten Handelstag"}</b>`:`⏱️ <b>Beste Einstiege</b>`} (aus ${W.length} Werten)\n${eTop.slice(0,5).map((x,i)=>{const f=fakten(x.w,3),e=f.einstieg,zt=ST.intra&&ST.intra[f.s]&&ST.intra[f.s].r;return `${i+1}. 🟢 <b>${ctx.esc(f.n)}</b> ${dez(f.p)} ${CS[f.cur]||f.cur} · ${e.n} · ${pz(e.vomHoch)} vom 10-Tage-Hoch · 4 Wo. ${pz(f.wochen4)}${zt&&zt.best?` · ${(fe=>fe?(fe.jetzt?"<b>jetzt</b>":`Einstieg ${fe.tag} ${fe.t} Uhr`):"")(fenster(f.s))}`:""}`}).join("\n")}${vorschau?"\nZur Uhrzeit kommt je Wert eine Nachricht, ob es dann noch gilt.":""}\n<i>Regel-Einschätzung aus Kursdaten, keine Anlageberatung.</i>${link(ctx,"")}`)}}
-  ST.app={v:2,t:Date.now(),top:TOP,kosten:KOSTEN,kostenRT:+(2*KOSTEN).toFixed(2),steuer:+(STEUER*100).toFixed(2),zielTag:+ZIEL_TAG.toFixed(3),noetig:NOETIG,kostenEin:KZ.kosten,horizonte:HORIZONTE,test:ST.test,werte:W.length,
+  ST.app={v:2,t:Date.now(),top:TOP,kosten:KOSTEN,kostenRT:+(2*KOSTEN).toFixed(2),steuer:+(STEUER*100).toFixed(2),freiRest:Math.round(FREI_REST),zielTag:+ZIEL_TAG.toFixed(3),noetig:NOETIG,kostenEin:KZ.kosten,horizonte:HORIZONTE,test:ST.test,werte:W.length,
     ki:kiHeute?{id:ki.id,erstellt:ki.erstellt,slot:ki.slot,markt:ki.markt||"",marktQuellen:Array.isArray(ki.marktQuellen)?ki.marktQuellen.slice(0,4):[],aussortiert:Array.isArray(ki.aussortiert)?ki.aussortiert.slice(0,12):[]}:null,
     aktien:W.filter(w=>w.typ!=="e").length,etfs:W.filter(w=>w.typ==="e").length,
     weitere:Object.fromEntries(HORIZONTE.map(H=>[H,rang[H].filter(w=>!listen[H].some(x=>x.s===w.s)).slice(0,WEITERE).map(w=>{const f=fakten(w,H);return {s:f.s,n:f.n,typ:f.typ,cur:f.cur,p:f.p,dp:f.dp,mt:f.mt,sess:f.sess,sparkD:f.sparkD.slice(-30),einstieg:f.einstieg&&Object.assign({},f.einstieg,{heute:undefined,zeit:f.einstieg.zeit?{tage:f.einstieg.zeit.tage,best:f.einstieg.zeit.best,billig:f.einstieg.zeit.billig}:null}),spark:f.spark.slice(-30),noetig:f.noetig,typBew:f.typBew,wochen4:f.wochen4,monate3:f.monate3,trend:f.trend,rsi:f.rsi,rang:rang[H].indexOf(w)+1}})])),
