@@ -358,19 +358,22 @@ function ausstiegStat(W){const ab=new Date(Date.now()-365*864e5).toISOString().s
   return out}
 /* ---------- Uhrzeit: zu welcher Tageszeit war der Kurs in den letzten ~60 Tagen meist am günstigsten? ---------- */
 const uhrB=sek=>{const z=teile("Europe/Berlin",new Date(sek*1000));return String(Math.floor(z.min/60)).padStart(2,"0")+":"+String(z.min%60).padStart(2,"0")};
-async function tageszeit(s){const r=await fetch(`https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(s)}?range=60d&interval=30m`,{headers:{"user-agent":"Mozilla/5.0 (compatible; AktienHelfer/1.0)"}});
+async function tageszeit(s){const r=await fetch(`https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(s)}?range=60d&interval=5m`,{headers:{"user-agent":"Mozilla/5.0 (compatible; AktienHelfer/1.0)"}});
   if(!r.ok){const e=new Error("Yahoo "+r.status);e.status=r.status;throw e}const j=await r.json(),res=j&&j.chart&&j.chart.result&&j.chart.result[0];if(!res||!res.timestamp)return null;
   const q=(res.indicators.quote||[])[0]||{},tz=(res.meta||{}).exchangeTimezoneName||"UTC",tage=new Map();
   for(let i=0;i<res.timestamp.length;i++){const ts=res.timestamp[i],o=q.open[i],l=q.low[i],c=q.close[i];if(!(o>0&&l>0&&c>0))continue;const d=teile(tz,new Date(ts*1000)).date;if(!tage.has(d))tage.set(d,[]);tage.get(d).push({t:uhrB(ts),o,l,c})}
-  const B={};let n=0;for(const bars of tage.values()){if(bars.length<6)continue;n++;const o=bars[0].o;let jm=0;bars.forEach((b,k)=>{if(b.l<bars[jm].l)jm=k});
+  const B={};let n=0;for(const bars of tage.values()){if(bars.length<30)continue;n++;const o=bars[0].o;let jm=0;bars.forEach((b,k)=>{if(b.l<bars[jm].l)jm=k});
     bars.forEach((b,k)=>{const x=B[b.t]=B[b.t]||{t:b.t,sum:0,n:0,tief:0};x.sum+=(b.c/o-1)*100;x.n++;if(k===jm)x.tief++})}
   if(n<15)return null;const b=Object.values(B).filter(x=>x.n>=n*.6).sort((a,b)=>a.t<b.t?-1:1).map(x=>({t:x.t,avg:+(x.sum/x.n).toFixed(2),tief:Math.round(x.tief/n*100)}));
-  const best=[...b].sort((a,c)=>c.tief-a.tief)[0],billig=[...b].sort((a,c)=>a.avg-c.avg)[0],teuer=[...b].sort((a,c)=>c.avg-a.avg)[0];return {tage:n,b,best,billig,teuer}}
+  // 5-Minuten-Daten, ausgewertet in gleitenden 15-Minuten-Fenstern: genauer als 30 Minuten, aber nicht so zufällig wie einzelne 5 Minuten
+  const M=15,k=M/5,plus=(t,m)=>{const [h,mi]=t.split(":").map(Number),z=h*60+mi+m;return String(Math.floor(z/60)%24).padStart(2,"0")+":"+String(z%60).padStart(2,"0")},F=[];
+  for(let i=0;i+k<=b.length;i++){const g=b.slice(i,i+k);if(plus(g[0].t,M-5)!==g[k-1].t)continue;F.push({t:g[0].t,bis:plus(g[0].t,M),avg:+mean(g.map(x=>x.avg)).toFixed(2),tief:g.reduce((a,x)=>a+x.tief,0)})}
+  if(!F.length)return null;const best=[...F].sort((a,c)=>c.tief-a.tief)[0],billig=[...F].sort((a,c)=>a.avg-c.avg)[0],teuer=[...F].sort((a,c)=>c.avg-a.avg)[0];return {tage:n,m:M,b,best,billig,teuer}}
 const WTG=["So.","Mo.","Di.","Mi.","Do.","Fr.","Sa."];
 function fenster(s,jetzt=Date.now()){const zt=ST.intra&&ST.intra[s]&&ST.intra[s].r&&ST.intra[s].r.best,t=zt?zt.t:(regionVon(s)==="eu"?"09:30":"16:00"),[hh,mm]=t.split(":").map(Number);
   const z=teile("Europe/Berlin",new Date(jetzt)),off=Date.UTC(...z.date.split("-").map((v,i)=>i===1?+v-1:+v),Math.floor(z.min/60),z.min%60)-Math.floor(jetzt/6e4)*6e4; // Abstand Berlin–UTC
   for(let k=0;k<8;k++){const d=new Date(Date.parse(z.date+"T00:00:00Z")+k*864e5),wd=d.getUTCDay();if(wd===0||wd===6)continue;const start=Date.UTC(d.getUTCFullYear(),d.getUTCMonth(),d.getUTCDate(),hh,mm)-off;
-    if(jetzt<start+30*6e4)return {start,t,jetzt:jetzt>=start,tag:k===0?"heute":k===1?"morgen":WTG[wd]+" "+d.getUTCDate()+"."+(d.getUTCMonth()+1)+".",bis:(()=>{const x=hh*60+mm+30;return String(Math.floor(x/60)).padStart(2,"0")+":"+String(x%60).padStart(2,"0")})()}}
+    const len=(ST.intra&&ST.intra[s]&&ST.intra[s].r&&ST.intra[s].r.m)||30;if(jetzt<start+len*6e4)return {start,t,jetzt:jetzt>=start,tag:k===0?"heute":k===1?"morgen":WTG[wd]+" "+d.getUTCDate()+"."+(d.getUTCMonth()+1)+".",bis:zt&&zt.bis?zt.bis:(()=>{const x=hh*60+mm+len;return String(Math.floor(x/60)).padStart(2,"0")+":"+String(x%60).padStart(2,"0")})()}}
   return null}
 function halteTage(z){const st=ST.einstieg&&ST.einstieg.s&&ST.einstieg.s[z];if(!st||!st[3]||!st[7]||!st[3].n||!st[7].n)return 3;return st[7].avg>st[3].avg?7:3}
 function plusHandelstage(ts,n){const d=new Date(ts);let k=0;while(k<n){d.setUTCDate(d.getUTCDate()+1);const wd=d.getUTCDay();if(wd&&wd!==6)k++}return d}
@@ -441,7 +444,7 @@ export async function lauf(ctx){SF=ctx.P(".state/beste.json");if(!ST)ST=lade();a
       spark:C.slice(-60).map(x=>+(+x).toPrecision(5)),sparkD:w.bars.slice(-60).map(b=>b[0].slice(5)),muster:H?musterAktiv(w,H,ST.muster&&ST.muster.m):undefined,einstieg:einstieg(w,p),vomHoch10:w.R.dd[i]!=null?+((Math.exp(w.R.dd[i]*sd)-1)*100).toFixed(1):null}};
   const rangVorab={};for(const H of HORIZONTE)rangVorab[H]=jetzt.filter(w=>w.P[H][w.C.length-1]!=null).sort((a,b)=>b.P[H][b.C.length-1]-a.P[H][a.C.length-1]);
   {ST.intra=ST.intra||{};const kand=[...new Set([...(ST.eTopS||[]).slice(0,15),...((MD&&MD.depot)||[]).map(x=>x.s),...((MD&&MD.merk)||[]).map(x=>x.s),...HORIZONTE.flatMap(H=>rangVorab[H].slice(0,15).map(w=>w.s)),
-      ...(readJSON(ctx.P("data/beste.json"),{listen:{}}).listen?Object.values(readJSON(ctx.P("data/beste.json"),{listen:{}}).listen).flat().map(x=>x&&x.s).filter(Boolean):[])])].filter(s=>!(ST.intra[s]&&ST.intra[s].d===heute)).slice(0,20);
+      ...(readJSON(ctx.P("data/beste.json"),{listen:{}}).listen?Object.values(readJSON(ctx.P("data/beste.json"),{listen:{}}).listen).flat().map(x=>x&&x.s).filter(Boolean):[])])].filter(s=>!(ST.intra[s]&&ST.intra[s].d===heute&&(!ST.intra[s].r||ST.intra[s].r.m))).slice(0,20);
     await parallel(kand,4,async s=>{try{ST.intra[s]={d:heute,r:await tageszeit(s)}}catch(e){if(e.status===429)throw e;ST.intra[s]={d:heute,r:null}}});
     for(const s of Object.keys(ST.intra))if(!L.some(w=>w.s===s))delete ST.intra[s]}
   const rang={};for(const H of HORIZONTE)rang[H]=jetzt.filter(w=>w.P[H][w.C.length-1]!=null).sort((a,b)=>b.P[H][b.C.length-1]-a.P[H][a.C.length-1]);
@@ -509,7 +512,7 @@ export async function lauf(ctx){SF=ctx.P(".state/beste.json");if(!ST)ST=lade();a
   if(ST.geplant)for(const [sy,g] of Object.entries(ST.geplant)){if(Date.now()<g.start)continue;delete ST.geplant[sy];if(Date.now()>g.start+90*6e4)continue;
     const w=W.find(y=>y.s===sy);if(!w)continue;const f=fakten(w,3),e=f.einstieg,gilt=e&&(e.z==="guenstig"||e.z==="wende");
     const ht=e?halteTage(e.z):3,zt2=ST.intra&&ST.intra[sy]&&ST.intra[sy].r;
-    await melde(ctx,"einstieg",gilt?`🟢 <b>Jetzt einsteigen: ${ctx.esc(g.n)}</b> (wie angekündigt)\nKurs ${dez(f.p)} ${CS[f.cur]||f.cur} · ${e.n} · ${pz(e.vomHoch)} vom 10-Tage-Hoch · heute ${pz(f.dp)}\nGünstigste halbe Stunde: ${g.t} Uhr.\n⏳ Halten: bis etwa ${tagKurz(plusHandelstage(Date.now(),ht))} (${ht} Handelstage)${zt2&&zt2.teuer?`, dann am ehesten gegen ${zt2.teuer.t} Uhr verkaufen`:""}. Früher raus, wenn dein Ziel (${pz(NOETIG[ht]||NOETIG[3],1)}) erreicht ist oder der Schutz auslöst.\n<i>Keine Anlageberatung.</i>${link(ctx,sy)}`
+    await melde(ctx,"einstieg",gilt?`🟢 <b>Jetzt einsteigen: ${ctx.esc(g.n)}</b> (wie angekündigt)\nKurs ${dez(f.p)} ${CS[f.cur]||f.cur} · ${e.n} · ${pz(e.vomHoch)} vom 10-Tage-Hoch · heute ${pz(f.dp)}\nGünstigste halbe Stunde: ${g.t} Uhr.\n⏳ Halten: bis etwa ${tagKurz(plusHandelstage(Date.now(),ht))} (${ht} Handelstage)${zt2&&zt2.teuer?`, dann am ehesten gegen ${zt2.teuer.t}${zt2.teuer.bis?"–"+zt2.teuer.bis:""} Uhr verkaufen`:""}. Früher raus, wenn dein Ziel (${pz(NOETIG[ht]||NOETIG[3],1)}) erreicht ist oder der Schutz auslöst.\n<i>Keine Anlageberatung.</i>${link(ctx,sy)}`
       :`❌ <b>Abgesagt: ${ctx.esc(g.n)}</b>\nDer angekündigte Einstieg gilt nicht mehr: ${e?e.n:"keine Daten"}. Kurs ${dez(f.p)} ${CS[f.cur]||f.cur}, heute ${pz(f.dp)}.${link(ctx,sy)}`,{direkt:true})}
   // Neu in den Top 5 (Rechnung, 3 und 7 Tage): höchstens einmal pro Stunde je Zeitraum
   ST.topAlt=ST.topAlt||{};ST.topT=ST.topT||{};if(vollst)for(const H of [3,7]){const jetztTop=rang[H].slice(0,TOP).map(w=>w.s),alt=ST.topAlt[H]||[],neu=jetztTop.filter(s=>!alt.includes(s));
@@ -530,7 +533,7 @@ export async function lauf(ctx){SF=ctx.P(".state/beste.json");if(!ST)ST=lade();a
     if(vollst&&t5.length&&key!==ST.eTopMeld&&Date.now()-(ST.eTopT||0)>36e5&&!["Sat","Sun"].includes(z.wd)&&z.min>=9*60&&z.min<22*60){ST.eTopMeld=key;ST.eTopT=Date.now();
       ST.geplant=ST.geplant||{};for(const x of eTop.slice(0,5)){const f=fenster(x.w.s);if(f&&!f.jetzt&&!ST.geplant[x.w.s])ST.geplant[x.w.s]={start:f.start,n:x.w.n,t:f.t}}
       const fe0=fenster(eTop[0].w.s),vorschau=eTop.slice(0,5).every(x=>{const f=fenster(x.w.s);return f&&!f.jetzt&&f.tag!=="heute"});
-      await melde(ctx,"einstieg",`${vorschau?`📅 <b>Vorschau: beste Einstiege für ${fe0?fe0.tag:"den nächsten Handelstag"}</b>`:`⏱️ <b>Beste Einstiege</b>`} (aus ${W.length} Werten)\n${eTop.slice(0,5).map((x,i)=>{const f=fakten(x.w,3),e=f.einstieg,zt=ST.intra&&ST.intra[f.s]&&ST.intra[f.s].r;return `${i+1}. 🟢 <b>${ctx.esc(f.n)}</b> ${dez(f.p)} ${CS[f.cur]||f.cur} · ${e.n} · ${pz(e.vomHoch)} vom 10-Tage-Hoch · 4 Wo. ${pz(f.wochen4)}${zt&&zt.best?` · ${(fe=>fe?(fe.jetzt?"<b>jetzt</b>":`Einstieg ${fe.tag} ${fe.t} Uhr`):"")(fenster(f.s))}`:""}`}).join("\n")}${vorschau?"\nZur Uhrzeit kommt je Wert eine Nachricht, ob es dann noch gilt.":""}\n<i>Regel-Einschätzung aus Kursdaten, keine Anlageberatung.</i>${link(ctx,"")}`)}}
+      await melde(ctx,"einstieg",`${vorschau?`📅 <b>Vorschau: beste Einstiege für ${fe0?fe0.tag:"den nächsten Handelstag"}</b>`:`⏱️ <b>Beste Einstiege</b>`} (aus ${W.length} Werten)\n${eTop.slice(0,5).map((x,i)=>{const f=fakten(x.w,3),e=f.einstieg,zt=ST.intra&&ST.intra[f.s]&&ST.intra[f.s].r;return `${i+1}. 🟢 <b>${ctx.esc(f.n)}</b> ${dez(f.p)} ${CS[f.cur]||f.cur} · ${e.n} · ${pz(e.vomHoch)} vom 10-Tage-Hoch · 4 Wo. ${pz(f.wochen4)}${zt&&zt.best?` · ${(fe=>fe?(fe.jetzt?"<b>jetzt</b>":`Einstieg ${fe.tag} ${fe.t}–${fe.bis} Uhr`):"")(fenster(f.s))}`:""}`}).join("\n")}${vorschau?"\nZur Uhrzeit kommt je Wert eine Nachricht, ob es dann noch gilt.":""}\n<i>Regel-Einschätzung aus Kursdaten, keine Anlageberatung.</i>${link(ctx,"")}`)}}
   ST.app={v:2,t:Date.now(),top:TOP,kosten:KOSTEN,kostenRT:+(2*KOSTEN).toFixed(2),steuer:+(STEUER*100).toFixed(2),freiRest:Math.round(FREI_REST),zielTag:+ZIEL_TAG.toFixed(3),noetig:NOETIG,kostenEin:KZ.kosten,horizonte:HORIZONTE,test:ST.test,werte:W.length,
     ki:kiHeute?{id:ki.id,erstellt:ki.erstellt,slot:ki.slot,markt:ki.markt||"",marktQuellen:Array.isArray(ki.marktQuellen)?ki.marktQuellen.slice(0,4):[],aussortiert:Array.isArray(ki.aussortiert)?ki.aussortiert.slice(0,12):[]}:null,
     aktien:W.filter(w=>w.typ!=="e").length,etfs:W.filter(w=>w.typ==="e").length,
