@@ -1,9 +1,9 @@
 {
- "id": "b-2026-11-14-morgens",
+ "id": "b-2026-11-14-abends",
  "datum": "2026-11-14",
- "slot": "morgens",
- "erstellt": "2026-11-14T06:23:31Z",
- "markt": "Die Wall Street beendete die Woche uneinheitlich: Am Freitag gab der S&P 500 0,4 % und der Nasdaq 0,9 % nach, während der Dow leicht zulegte; auf Wochensicht stehen bei allen drei Indizes Gewinne von rund 2 bis 2,5 %. Belastend waren der Ausverkauf bei Chipwerten nach dem Rücktritt von Nvidia-Chef Jensen Huang und eine zehnjährige US-Rendite um 5,15 %, weil die Erzeugerpreise erneut hoch ausfielen und eine Zinserhöhung im Dezember als fast sicher gilt. Der DAX hielt sich nach seinem Rekord nahezu unverändert und legte in der Woche um 3,6 % zu.",
+ "slot": "abends",
+ "erstellt": "2026-11-14T18:16:21Z",
+ "markt": "Die Wall Street beendete die Woche uneinheitlich: Am Freitag gab der S&P 500 0,4 % und der Nasdaq 0,9 % nach, während der Dow leicht zulegte; auf Wochensicht stehen bei allen drei Indizes Gewinne von rund 2 bis 2,5 %. Belastend waren der Ausverkauf bei Chipwerten nach dem Rücktritt von Nvidia-Chef Jensen Huang und eine zehnjährige US-Rendite um 5,15 %, weil die Erzeugerpreise erneut hoch ausfielen und eine Zinserhöhung im Dezember als fast sicher gilt. Der DAX hielt sich nach seinem Rekord nahezu unverändert und legte in der Woche um 3,6 % zu. Am Wochenende wird nicht gehandelt; seit dem Morgen gab es zu den ausgewählten Werten keine neuen kursrelevanten Meldungen, die Einschätzungen beruhen weiter auf den Freitagsschlusskursen.",
  "marktQuellen": [
   {
    "t": "Stock market today: Dow rises, S&P 500 and Nasdaq slip to cap volatile week, Nvidia stock plunge deepens",
@@ -666,14 +666,14 @@
    "grund": "Träger Wert (übliche Bewegung 2,0 %) mit RSI 75, Evercore sieht das Kursziel bei 227 US-Dollar unter dem aktuellen Kurs."
   },
   {
+   "s": "HEI.DE",
+   "h": 3,
+   "grund": "Am Freitag 1,25 % im Minus und 2,7 % unter dem 10-Tage-Hoch, auf Sicht von sechs Monaten noch im Minus; ohne frischen Auslöser hinter den gewählten Werten."
+  },
+  {
    "s": "GEHC",
    "h": 3,
    "grund": "3,3 % unter dem 10-Tage-Hoch und kaum Bewegung in fünf Tagen, ohne neuen kurzfristigen Impuls."
-  },
-  {
-   "s": "CPAY",
-   "h": 3,
-   "grund": "RSI 74 und übliche Drei-Tage-Bewegung von 2,6 % nur wenig über der Hürde."
   },
   {
    "s": "BRK-B",
@@ -696,11 +696,6 @@
    "grund": "Übliche Sieben-Tage-Bewegung von 4,1 % liegt knapp unter der Hürde von 4,12 %."
   },
   {
-   "s": "HEN3.DE",
-   "h": 7,
-   "grund": "Übliche Bewegung von 3,2 % unter der Hürde, nach der Rally auf die finalen Zahlen fehlt ein neuer Auslöser."
-  },
-  {
    "s": "TECH",
    "h": 30,
    "grund": "Laufende Übernahme durch Merck KGaA, der Kurs klebt am Angebotspreis."
@@ -721,9 +716,9 @@
    "grund": "Kurs bereits nahe am Jefferies-Ziel, Lieferprobleme in Nashik belasten das vierte Quartal."
   },
   {
-   "s": "DB1.DE",
+   "s": "AI.PA",
    "h": 30,
-   "grund": "Keine aktuellen Meldungen gefunden und übliche Bewegung von 6,7 % weit unter der 30-Tage-Hürde."
+   "grund": "RSI 82 zeigt Überhitzung, und die übliche 30-Tage-Bewegung von 5,7 % liegt weit unter der Hürde von 17,44 %."
   }
  ]
 }
