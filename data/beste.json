@@ -1,9 +1,9 @@
 {
- "id": "b-2026-11-14-abends",
- "datum": "2026-11-14",
- "slot": "abends",
- "erstellt": "2026-11-14T18:16:21Z",
- "markt": "Die Wall Street beendete die Woche uneinheitlich: Am Freitag gab der S&P 500 0,4 % und der Nasdaq 0,9 % nach, während der Dow leicht zulegte; auf Wochensicht stehen bei allen drei Indizes Gewinne von rund 2 bis 2,5 %. Belastend waren der Ausverkauf bei Chipwerten nach dem Rücktritt von Nvidia-Chef Jensen Huang und eine zehnjährige US-Rendite um 5,15 %, weil die Erzeugerpreise erneut hoch ausfielen und eine Zinserhöhung im Dezember als fast sicher gilt. Der DAX hielt sich nach seinem Rekord nahezu unverändert und legte in der Woche um 3,6 % zu. Am Wochenende wird nicht gehandelt; seit dem Morgen gab es zu den ausgewählten Werten keine neuen kursrelevanten Meldungen, die Einschätzungen beruhen weiter auf den Freitagsschlusskursen.",
+ "id": "b-2026-11-15-morgens",
+ "datum": "2026-11-15",
+ "slot": "morgens",
+ "erstellt": "2026-11-15T06:17:54Z",
+ "markt": "Am Wochenende wird nicht gehandelt, Grundlage sind die Schlusskurse vom Freitag: Die Wall Street beendete die Woche uneinheitlich mit Schwäche bei Technologiewerten, während der DAX nach seinem Rekord kaum verändert schloss. Steigende US-Renditen und die Erwartung einer Zinserhöhung im Dezember bleiben der wichtigste Gegenwind, besonders für hoch bewertete Werte. Seit Freitagabend gab es zu den ausgewählten Werten keine neuen kursrelevanten Meldungen; die Einschätzungen vom Vorabend gelten deshalb weitgehend fort.",
  "marktQuellen": [
   {
    "t": "Stock market today: Dow rises, S&P 500 and Nasdaq slip to cap volatile week, Nvidia stock plunge deepens",
@@ -23,7 +23,7 @@
    {
     "s": "BAYN.DE",
     "einschaetzung": "Chancen überwiegen leicht, aber kurzfristig schon gut gelaufen",
-    "warum": "Bayer steht in der Rechnung für drei Tage ganz oben: plus 27 % in vier Wochen, plus 16 % in drei Monaten, Aufwärtstrend und nur knapp 1 % unter dem 10-Tage-Hoch. Den Schub lieferten ein Quartal mit angehobenem Ausblick für den operativen Gewinn und die US-Zulassung des Gerinnungshemmers Sunharbo am 9. November, nachdem China das Mittel schon Ende Oktober freigegeben hatte. UBS und Goldman Sachs hoben ihre Kursziele auf 66 Euro, Jefferies bleibt dagegen mit 48,50 Euro skeptisch. Der RSI von 75 zeigt, dass viel Zuversicht schon im Kurs steckt, und die fünf Tage sind mit +0,5 % fast flach.",
+    "warum": "Bayer steht in der Rechnung für drei Tage ganz oben: plus 27 % in vier Wochen, plus 18 % in drei Monaten, Aufwärtstrend und nur knapp 1 % unter dem 10-Tage-Hoch. Den Schub lieferten ein Quartal mit angehobenem Ausblick für den operativen Gewinn und die US-Zulassung des Gerinnungshemmers Sunharbo am 9. November, nachdem China das Mittel schon Ende Oktober freigegeben hatte. UBS und Goldman Sachs hoben ihre Kursziele auf 66 Euro, Jefferies bleibt dagegen mit 48,50 Euro skeptisch. Ende Oktober wies zudem eine Jury in Missouri eine Roundup-Klage ab, der große Glyphosat-Vergleich braucht aber noch die Zustimmung eines Gerichts. Der RSI von 75 zeigt, dass viel Zuversicht schon im Kurs steckt, und die fünf Tage liegen mit +1,7 % nur leicht im Plus.",
     "ausblick": "Am wahrscheinlichsten ist eine Seitwärtsphase nahe dem Hoch mit Ausschlägen in beide Richtungen; die übliche Drei-Tage-Bewegung von 3,4 % liegt über der Hürde von 1,92 %, ein Anstieg darüber ist also möglich, aber nicht zu erwarten. Neue Impulse könnten von weiteren Kurszielanhebungen oder einer Nachricht zum Glyphosat-Vergleich kommen. Ohne neue Meldung droht nach dem starken Lauf eher eine Verschnaufpause.",
     "szenarien": {
      "gut": "Weitere Analysten heben ihre Ziele nach der US-Zulassung an und der DAX bleibt stabil.",
@@ -65,13 +65,19 @@
       "u": "https://de.finance.yahoo.com/nachrichten/aktie-fokus-bayer-us-zulassung-081204880.html?.tsrc=rss",
       "q": "dpa-AFX/Yahoo Finanzen",
       "d": "2026-11-10"
+     },
+     {
+      "t": "Bayer-Aktie: Diese Story hatte niemand erwartet",
+      "u": "https://www.boerse-express.com/news/articles/bayer-aktie--961469",
+      "q": "Börse Express",
+      "d": "2026-11-10"
      }
     ]
    },
    {
     "s": "FISV",
     "einschaetzung": "Sehr schwankungsfreudig mit Rückenwind vom Sparprogramm, aber spekulativ.",
-    "warum": "Fiserv ist in vier Wochen um 34 % gestiegen und schloss die Woche nur 0,2 % unter dem 10-Tage-Hoch, der RSI liegt bei 75. Anfang November verdoppelte der Konzern sein Sparziel auf 1 Mrd. US-Dollar und kündigte Aktienrückkäufe von 500 Mio. US-Dollar für das vierte Quartal an, obwohl das Quartal selbst schwach war. Zudem bereitet Fiserv den Verkauf eines Debit-Netzwerks vor. Dass Finanzinvestoren die Gespräche mit Global Payments abgebrochen haben, nimmt der Übernahmefantasie im Sektor etwas Schwung; neue Firmenmeldungen gab es seit gestern nicht.",
+    "warum": "Fiserv ist in vier Wochen um 34 % gestiegen und schloss die Woche nur 0,2 % unter dem 10-Tage-Hoch, der RSI liegt bei 75. Anfang November verdoppelte der Konzern sein Sparziel auf 1 Mrd. US-Dollar und kündigte Aktienrückkäufe von 500 Mio. US-Dollar für das vierte Quartal an, obwohl das Quartal selbst schwach war. Zudem bereitet Fiserv den Verkauf eines Debit-Netzwerks vor. Dass Finanzinvestoren die Gespräche mit Global Payments abgebrochen haben, nimmt der Übernahmefantasie im Sektor etwas Schwung; neue Firmenmeldungen gab es seit Freitag nicht.",
     "ausblick": "Die übliche Drei-Tage-Bewegung von 4,6 % ist deutlich größer als die Hürde von 1,92 %, die Aktie bewegt sich also stark, in beide Richtungen. Getragen von den Rückkäufen kann der Trend weiterlaufen, nach +34 % ist ein Rücksetzer aber genauso plausibel. Die Unsicherheit ist hoch.",
     "szenarien": {
      "gut": "Neue Details zum Netzwerk-Verkauf oder zu Rückkäufen halten das Kaufinteresse hoch.",
@@ -113,7 +119,7 @@
    {
     "s": "ROP",
     "einschaetzung": "Erholung nach starken Zahlen intakt, kurzfristig aber schon viel gelaufen.",
-    "warum": "Roper ist in vier Wochen um 25 % und in drei Monaten um 17 % gestiegen, der Trend zeigt aufwärts, der RSI liegt bei 71 und der Kurs 2,5 % unter dem 10-Tage-Hoch. Auslöser waren die Zahlen vom 22. Oktober mit einem Gewinn über den Erwartungen und der zweiten Prognoseanhebung in drei Monaten. Vorher war die Aktie wegen der Sorge, KI könne Branchensoftware verdrängen, deutlich günstiger bewertet, ein Teil der Erholung ist also Neubewertung. Neue Firmenmeldungen gab es seit gestern nicht; die Schwäche bei Technologiewerten am Freitag ist ein Gegenwind.",
+    "warum": "Roper ist in vier Wochen um 25 % und in drei Monaten um 17 % gestiegen, der Trend zeigt aufwärts, der RSI liegt bei 71 und der Kurs 2,5 % unter dem 10-Tage-Hoch. Auslöser waren die Zahlen vom 22. Oktober mit einem Gewinn über den Erwartungen und der zweiten Prognoseanhebung in drei Monaten. Vorher war die Aktie wegen der Sorge, KI könne Branchensoftware verdrängen, deutlich günstiger bewertet, ein Teil der Erholung ist also Neubewertung. Neue Firmenmeldungen gab es seit Freitag nicht; die Schwäche bei Technologiewerten am Freitag ist ein Gegenwind.",
     "ausblick": "Die übliche Sieben-Tage-Bewegung von 5,4 % liegt über der Hürde von 4,12 %, die nötige Steigerung ist also erreichbar. Nach dem schnellen Anstieg ist aber auch eine Seitwärtsphase wahrscheinlich, weil ohne neuen Termin der Impuls fehlt. Realistisch, aber eher mit Glück im Gesamtmarkt.",
     "szenarien": {
      "gut": "Die Neubewertung von Branchensoftware geht weiter und Roper markiert ein neues Hoch.",
@@ -125,7 +131,7 @@
      "Aktienrückkäufe"
     ],
     "risiken": [
-     "RSI 72 nach +26 % in vier Wochen",
+     "RSI 71 nach +25 % in vier Wochen",
      "KI-Sorgen um Branchensoftware",
      "Schwaches Zählergeschäft Neptune"
     ],
@@ -149,7 +155,7 @@
    {
     "s": "ALLE",
     "einschaetzung": "Stabiler Aufwärtstrend, neue Konferenzaussagen stützen eher als dass sie bremsen.",
-    "warum": "Allegion hat in vier Wochen 23 % zugelegt, die fünf Tage sind mit +3,6 % positiv und der Abstand zum 10-Tage-Hoch beträgt nur 0,4 %, der RSI liegt bei 70. Im Oktober übertraf der Konzern die Erwartungen und hob die Jahresprognose an. Auf der Baird-Konferenz am 12. November sagte das Management, das US-Geschäft mit Nichtwohngebäuden wachse wieder, elektronische Schlösser seien der stärkste Treiber und Rechenzentren das am schnellsten wachsende Segment. Wohnungsbau und Europa bleiben schwach; neue Firmenmeldungen gab es seit gestern nicht.",
+    "warum": "Allegion hat in vier Wochen 23 % zugelegt, die fünf Tage sind mit +3,6 % positiv und der Abstand zum 10-Tage-Hoch beträgt nur 0,4 %, der RSI liegt bei 70. Im Oktober übertraf der Konzern die Erwartungen und hob die Jahresprognose an. Auf der Baird-Konferenz am 12. November sagte das Management, das US-Geschäft mit Nichtwohngebäuden wachse wieder, elektronische Schlösser seien der stärkste Treiber und Rechenzentren das am schnellsten wachsende Segment. Wohnungsbau und Europa bleiben schwach; neue Firmenmeldungen gab es seit Freitag nicht.",
     "ausblick": "Die übliche Sieben-Tage-Bewegung von 5,2 % liegt über der Hürde von 4,12 %. Der Trend ist intakt und durch angehobene Prognosen gestützt, ein neuer Impuls fehlt aber bis zur nächsten Zahlenvorlage. Die nötige Steigerung ist realistisch, aber nur bei anhaltend freundlicher Stimmung für Industriewerte.",
     "szenarien": {
      "gut": "Die Konferenz-Botschaft zieht weitere Käufer an und der Kurs markiert ein neues Hoch.",
@@ -185,10 +191,10 @@
    {
     "s": "HAS",
     "einschaetzung": "Starker Trend mit fundamentaler Stütze, Rückschlagrisiko nach dem Lauf aber spürbar.",
-    "warum": "Hasbro zählt mit +22 % in vier Wochen und +29 % in drei Monaten zu den stärksten Werten, der Trend ist aufwärts. Am Freitag notierte die Aktie 2,8 % unter dem 10-Tage-Hoch, die fünf Tage sind mit +1,4 % positiv und der RSI ist auf 68 abgekühlt. Hinter dem Lauf stehen deutlich gestiegene Gewinne, das Wachstum bei Magic: The Gathering und eine angehobene Jahresprognose; für 2027 sind mehrere große Magic-Sets angekündigt. Neue Firmenmeldungen gab es seit gestern nicht, Spielzeugpreise steigen laut Branchenberichten vor Weihnachten so stark wie lange nicht.",
+    "warum": "Hasbro zählt mit +22 % in vier Wochen und +29 % in drei Monaten zu den stärksten Werten, der Trend ist aufwärts. Am Freitag notierte die Aktie 2,8 % unter dem 10-Tage-Hoch, die fünf Tage sind mit +1,4 % positiv und der RSI ist auf 68 abgekühlt. Hinter dem Lauf stehen deutlich gestiegene Gewinne, das Wachstum bei Magic: The Gathering und eine angehobene Jahresprognose; für 2027 sind mehrere große Magic-Sets angekündigt. Neue Firmenmeldungen gab es seit Freitag nicht, Spielzeugpreise steigen laut Branchenberichten vor Weihnachten so stark wie lange nicht.",
     "ausblick": "Die übliche Drei-Tage-Bewegung von 3,4 % liegt über der Hürde von 1,92 %, nach der leichten Abkühlung ist ein neuer Anlauf Richtung Hoch denkbar. Ohne neue Nachricht hängt viel an der Stimmung im Gesamtmarkt. Das Muster „Abkühlung nach Übertreibung“ war im Rückblick nur leicht positiv und ist kein verlässlicher Grund.",
     "szenarien": {
-     "gut": "Der Rücksetzer von gestern wird als Einstiegschance genutzt und die Aktie läuft zurück Richtung Hoch.",
+     "gut": "Der jüngste Rücksetzer wird als Einstiegschance genutzt und die Aktie läuft zurück Richtung Hoch.",
      "schlecht": "Weitere Gewinnmitnahmen nach dem starken Monat oder ein schwacher Gesamtmarkt wegen steigender Zinsen drücken den Kurs."
     },
     "treiber": [
@@ -223,10 +229,10 @@
    {
     "s": "HAS",
     "einschaetzung": "Chancen überwiegen leicht, Hürde aber hoch",
-    "warum": "Hasbro zählt mit +22 % in vier Wochen und +29 % in drei Monaten zu den stärksten Werten, der Trend ist aufwärts. Am Freitag notierte die Aktie 2,8 % unter dem 10-Tage-Hoch, die fünf Tage sind mit +1,4 % positiv und der RSI ist auf 68 abgekühlt. Hinter dem Lauf stehen deutlich gestiegene Gewinne, das Wachstum bei Magic: The Gathering und eine angehobene Jahresprognose; für 2027 sind mehrere große Magic-Sets angekündigt. Neue Firmenmeldungen gab es seit gestern nicht, Spielzeugpreise steigen laut Branchenberichten vor Weihnachten so stark wie lange nicht.",
+    "warum": "Hasbro zählt mit +22 % in vier Wochen und +29 % in drei Monaten zu den stärksten Werten, der Trend ist aufwärts. Am Freitag notierte die Aktie 2,8 % unter dem 10-Tage-Hoch, die fünf Tage sind mit +1,4 % positiv und der RSI ist auf 68 abgekühlt. Hinter dem Lauf stehen deutlich gestiegene Gewinne, das Wachstum bei Magic: The Gathering und eine angehobene Jahresprognose; für 2027 sind mehrere große Magic-Sets angekündigt. Neue Firmenmeldungen gab es seit Freitag nicht, Spielzeugpreise steigen laut Branchenberichten vor Weihnachten so stark wie lange nicht.",
     "ausblick": "Für sieben Tage liegt die übliche Bewegung von 5,1 % knapp über der Hürde von 4,12 %. Nach der Abkühlung des RSI auf 68 hat die Aktie wieder etwas Luft, der Trend ist intakt. Ein Anstieg über die Hürde ist möglich, aber eher das gute Szenario als der Normalfall.",
     "szenarien": {
-     "gut": "Der Rücksetzer von gestern wird als Einstiegschance genutzt und die Aktie läuft zurück Richtung Hoch.",
+     "gut": "Der jüngste Rücksetzer wird als Einstiegschance genutzt und die Aktie läuft zurück Richtung Hoch.",
      "schlecht": "Weitere Gewinnmitnahmen nach dem starken Monat oder ein schwacher Gesamtmarkt wegen steigender Zinsen drücken den Kurs."
     },
     "treiber": [
@@ -259,8 +265,8 @@
    {
     "s": "BAYN.DE",
     "einschaetzung": "Trend intakt, Hürde für sieben Tage aber anspruchsvoll",
-    "warum": "Bayer steht in der Rechnung für drei Tage ganz oben: plus 27 % in vier Wochen, plus 16 % in drei Monaten, Aufwärtstrend und nur knapp 1 % unter dem 10-Tage-Hoch. Den Schub lieferten ein Quartal mit angehobenem Ausblick für den operativen Gewinn und die US-Zulassung des Gerinnungshemmers Sunharbo am 9. November, nachdem China das Mittel schon Ende Oktober freigegeben hatte. UBS und Goldman Sachs hoben ihre Kursziele auf 66 Euro, Jefferies bleibt dagegen mit 48,50 Euro skeptisch. Der RSI von 75 zeigt, dass viel Zuversicht schon im Kurs steckt, und die fünf Tage sind mit +0,5 % fast flach.",
-    "ausblick": "Die übliche Sieben-Tage-Bewegung von 5,3 % liegt über der Hürde von 4,12 %, ein solcher Anstieg wäre aber eher das obere Ende des Üblichen. Die Fundamentaldaten haben sich mit Zulassung und Prognose verbessert, kurzfristig ist davon aber schon viel eingepreist. Wahrscheinlich ist eine Konsolidierung, ein weiterer Schub bräuchte eine neue Nachricht.",
+    "warum": "Bayer steht in der Rechnung für drei Tage ganz oben: plus 27 % in vier Wochen, plus 18 % in drei Monaten, Aufwärtstrend und nur knapp 1 % unter dem 10-Tage-Hoch. Den Schub lieferten ein Quartal mit angehobenem Ausblick für den operativen Gewinn und die US-Zulassung des Gerinnungshemmers Sunharbo am 9. November, nachdem China das Mittel schon Ende Oktober freigegeben hatte. UBS und Goldman Sachs hoben ihre Kursziele auf 66 Euro, Jefferies bleibt dagegen mit 48,50 Euro skeptisch. Ende Oktober wies zudem eine Jury in Missouri eine Roundup-Klage ab, der große Glyphosat-Vergleich braucht aber noch die Zustimmung eines Gerichts. Der RSI von 75 zeigt, dass viel Zuversicht schon im Kurs steckt, und die fünf Tage liegen mit +1,7 % nur leicht im Plus.",
+    "ausblick": "Die übliche Sieben-Tage-Bewegung von 5,2 % liegt über der Hürde von 4,12 %, ein solcher Anstieg wäre aber eher das obere Ende des Üblichen. Die Fundamentaldaten haben sich mit Zulassung und Prognose verbessert, kurzfristig ist davon aber schon viel eingepreist. Wahrscheinlich ist eine Konsolidierung, ein weiterer Schub bräuchte eine neue Nachricht.",
     "szenarien": {
      "gut": "Weitere Analysten heben ihre Ziele nach der US-Zulassung an und der DAX bleibt stabil.",
      "schlecht": "Ein Rückschlag im Glyphosat-Streit oder Gewinnmitnahmen nach dem überhitzten Lauf drücken den Kurs."
@@ -301,13 +307,19 @@
       "u": "https://de.finance.yahoo.com/nachrichten/aktie-fokus-bayer-us-zulassung-081204880.html?.tsrc=rss",
       "q": "dpa-AFX/Yahoo Finanzen",
       "d": "2026-11-10"
+     },
+     {
+      "t": "Bayer-Aktie: Diese Story hatte niemand erwartet",
+      "u": "https://www.boerse-express.com/news/articles/bayer-aktie--961469",
+      "q": "Börse Express",
+      "d": "2026-11-10"
      }
     ]
    },
    {
     "s": "FISV",
     "einschaetzung": "Sehr schwankungsfreudig mit Rückenwind vom Sparprogramm, aber spekulativ.",
-    "warum": "Fiserv ist in vier Wochen um 34 % gestiegen und schloss die Woche nur 0,2 % unter dem 10-Tage-Hoch, der RSI liegt bei 75. Anfang November verdoppelte der Konzern sein Sparziel auf 1 Mrd. US-Dollar und kündigte Aktienrückkäufe von 500 Mio. US-Dollar für das vierte Quartal an, obwohl das Quartal selbst schwach war. Zudem bereitet Fiserv den Verkauf eines Debit-Netzwerks vor. Dass Finanzinvestoren die Gespräche mit Global Payments abgebrochen haben, nimmt der Übernahmefantasie im Sektor etwas Schwung; neue Firmenmeldungen gab es seit gestern nicht.",
+    "warum": "Fiserv ist in vier Wochen um 34 % gestiegen und schloss die Woche nur 0,2 % unter dem 10-Tage-Hoch, der RSI liegt bei 75. Anfang November verdoppelte der Konzern sein Sparziel auf 1 Mrd. US-Dollar und kündigte Aktienrückkäufe von 500 Mio. US-Dollar für das vierte Quartal an, obwohl das Quartal selbst schwach war. Zudem bereitet Fiserv den Verkauf eines Debit-Netzwerks vor. Dass Finanzinvestoren die Gespräche mit Global Payments abgebrochen haben, nimmt der Übernahmefantasie im Sektor etwas Schwung; neue Firmenmeldungen gab es seit Freitag nicht.",
     "ausblick": "Für sieben Tage ist die übliche Bewegung von 7 % groß genug, um die Hürde von 4,12 % zu schaffen. Die Rückkäufe ab dem vierten Quartal stützen, die Bewertung über dem mittleren Analystenziel und der überhitzte RSI bremsen. Ein Ergebnis in beide Richtungen ist ähnlich wahrscheinlich.",
     "szenarien": {
      "gut": "Neue Details zum Netzwerk-Verkauf oder zu Rückkäufen halten das Kaufinteresse hoch.",
@@ -349,7 +361,7 @@
    {
     "s": "ROP",
     "einschaetzung": "Erholung nach starken Zahlen intakt, kurzfristig aber schon viel gelaufen.",
-    "warum": "Roper ist in vier Wochen um 25 % und in drei Monaten um 17 % gestiegen, der Trend zeigt aufwärts, der RSI liegt bei 71 und der Kurs 2,5 % unter dem 10-Tage-Hoch. Auslöser waren die Zahlen vom 22. Oktober mit einem Gewinn über den Erwartungen und der zweiten Prognoseanhebung in drei Monaten. Vorher war die Aktie wegen der Sorge, KI könne Branchensoftware verdrängen, deutlich günstiger bewertet, ein Teil der Erholung ist also Neubewertung. Neue Firmenmeldungen gab es seit gestern nicht; die Schwäche bei Technologiewerten am Freitag ist ein Gegenwind.",
+    "warum": "Roper ist in vier Wochen um 25 % und in drei Monaten um 17 % gestiegen, der Trend zeigt aufwärts, der RSI liegt bei 71 und der Kurs 2,5 % unter dem 10-Tage-Hoch. Auslöser waren die Zahlen vom 22. Oktober mit einem Gewinn über den Erwartungen und der zweiten Prognoseanhebung in drei Monaten. Vorher war die Aktie wegen der Sorge, KI könne Branchensoftware verdrängen, deutlich günstiger bewertet, ein Teil der Erholung ist also Neubewertung. Neue Firmenmeldungen gab es seit Freitag nicht; die Schwäche bei Technologiewerten am Freitag ist ein Gegenwind.",
     "ausblick": "Die übliche Sieben-Tage-Bewegung von 5,4 % liegt über der Hürde von 4,12 %. Wenn sich die Technologiewerte stabilisieren, kann die Neubewertung weiterlaufen; hält der Ausverkauf bei Tech an, könnte auch Roper als Softwarewert mitgezogen werden. Das Muster „Abkühlung nach Übertreibung“ war im Rückblick nur leicht positiv.",
     "szenarien": {
      "gut": "Die Neubewertung von Branchensoftware geht weiter und Roper markiert ein neues Hoch.",
@@ -361,7 +373,7 @@
      "Aktienrückkäufe"
     ],
     "risiken": [
-     "RSI 72 nach +26 % in vier Wochen",
+     "RSI 71 nach +25 % in vier Wochen",
      "KI-Sorgen um Branchensoftware",
      "Schwaches Zählergeschäft Neptune"
     ],
@@ -385,7 +397,7 @@
    {
     "s": "ALLE",
     "einschaetzung": "Stabiler Aufwärtstrend, neue Konferenzaussagen stützen eher als dass sie bremsen.",
-    "warum": "Allegion hat in vier Wochen 23 % zugelegt, die fünf Tage sind mit +3,6 % positiv und der Abstand zum 10-Tage-Hoch beträgt nur 0,4 %, der RSI liegt bei 70. Im Oktober übertraf der Konzern die Erwartungen und hob die Jahresprognose an. Auf der Baird-Konferenz am 12. November sagte das Management, das US-Geschäft mit Nichtwohngebäuden wachse wieder, elektronische Schlösser seien der stärkste Treiber und Rechenzentren das am schnellsten wachsende Segment. Wohnungsbau und Europa bleiben schwach; neue Firmenmeldungen gab es seit gestern nicht.",
+    "warum": "Allegion hat in vier Wochen 23 % zugelegt, die fünf Tage sind mit +3,6 % positiv und der Abstand zum 10-Tage-Hoch beträgt nur 0,4 %, der RSI liegt bei 70. Im Oktober übertraf der Konzern die Erwartungen und hob die Jahresprognose an. Auf der Baird-Konferenz am 12. November sagte das Management, das US-Geschäft mit Nichtwohngebäuden wachse wieder, elektronische Schlösser seien der stärkste Treiber und Rechenzentren das am schnellsten wachsende Segment. Wohnungsbau und Europa bleiben schwach; neue Firmenmeldungen gab es seit Freitag nicht.",
     "ausblick": "Für sieben Tage liegt die übliche Bewegung von 5,2 % über der Hürde von 4,12 %. Der Trend ist intakt und die Aktie notiert praktisch am Hoch, was für weiteren Schwung spricht. Ohne neuen Auslöser ist aber auch eine Pause nach dem Lauf möglich.",
     "szenarien": {
      "gut": "Die Konferenz-Botschaft zieht weitere Käufer an und der Kurs markiert ein neues Hoch.",
@@ -423,8 +435,8 @@
    {
     "s": "MCK",
     "einschaetzung": "Langfristiger Aufwärtstrend mit starkem Geschäft, hohe Bewertung.",
-    "warum": "McKesson steigt seit Monaten (drei Monate +32 %) und notiert am 10-Tage-Hoch, der RSI liegt bei 75. Der Umsatz wuchs im Quartal um 8 % auf rund 111 Mrd. US-Dollar, getragen von GLP-1-Abnehmmitteln und dem Onkologie-Geschäft, die Gewinnprognose wurde angehoben. Schwächer lief das Medizinbedarfs-Geschäft, das abgespalten werden soll. Erkannte Muster waren im Rückblick nur leicht positiv bzw. ohne klaren Vorteil; neue Firmenmeldungen seit gestern gab es nicht.",
-    "ausblick": "Die übliche 30-Tage-Bewegung von 9,4 % liegt unter der Hürde von 17,44 %, die nötige Steigerung ist unwahrscheinlich. Wahrscheinlich setzt sich der Trend gemächlich fort, getragen von der starken Geschäftslage und der Umschichtung in defensive Gesundheitswerte. Rücksetzer nach dem RSI von 74 sind möglich.",
+    "warum": "McKesson steigt seit Monaten (drei Monate +32 %) und notiert am 10-Tage-Hoch, der RSI liegt bei 75. Der Umsatz wuchs im Quartal um 8 % auf rund 111 Mrd. US-Dollar, getragen von GLP-1-Abnehmmitteln und dem Onkologie-Geschäft, die Gewinnprognose wurde angehoben. Schwächer lief das Medizinbedarfs-Geschäft, das abgespalten werden soll. Erkannte Muster waren im Rückblick nur leicht positiv bzw. ohne klaren Vorteil; neue Firmenmeldungen seit Freitag gab es nicht.",
+    "ausblick": "Die übliche 30-Tage-Bewegung von 9,5 % liegt unter der Hürde von 17,44 %, die nötige Steigerung ist unwahrscheinlich. Wahrscheinlich setzt sich der Trend gemächlich fort, getragen von der starken Geschäftslage und der Umschichtung in defensive Gesundheitswerte. Rücksetzer nach dem RSI von 75 sind möglich.",
     "szenarien": {
      "gut": "Weiter starke Nachfrage nach Spezialmedikamenten und Fortschritte bei der Abspaltung.",
      "schlecht": "Politischer Druck auf Arzneimittelpreise oder Rotation aus Gesundheitswerten."
@@ -436,7 +448,7 @@
     ],
     "risiken": [
      "Hohe Bewertung",
-     "RSI 74",
+     "RSI 75",
      "Medizinbedarf schwach"
     ],
     "termine": [
@@ -468,7 +480,7 @@
     "s": "MTD",
     "einschaetzung": "Fundamental gut unterlegt, die 30-Tage-Hürde ist aber sehr hoch.",
     "warum": "Mettler-Toledo hat die Jahresprognose zum dritten Mal angehoben, das Laborgeschäft und China erholen sich. Barclays hob das Kursziel auf 1.900 US-Dollar, JP Morgan auf 1.840 US-Dollar. Die Aktie stieg in drei Monaten um 25 %, liegt 1,3 % unter dem 10-Tage-Hoch und der RSI von 64 ist nicht überhitzt. Diese Woche präsentierte sich das Management auf Konferenzen von UBS und Stifel ohne neue Zahlen; das Muster „Ausbruch aus ruhiger Seitwärtsphase“ zeigte im Rückblick keinen klaren Vorteil.",
-    "ausblick": "Die übliche 30-Tage-Bewegung von 8,7 % liegt weit unter der Hürde von 17,44 %; ein Anstieg in dieser Größe ist unwahrscheinlich. Wahrscheinlicher ist ein moderater weiterer Anstieg im Trend. Die Auswahl beruht auf solider Geschäftslage, nicht auf der Erwartung, die Hürde sicher zu erreichen.",
+    "ausblick": "Die übliche 30-Tage-Bewegung von 8,6 % liegt weit unter der Hürde von 17,44 %; ein Anstieg in dieser Größe ist unwahrscheinlich. Wahrscheinlicher ist ein moderater weiterer Anstieg im Trend. Die Auswahl beruht auf solider Geschäftslage, nicht auf der Erwartung, die Hürde sicher zu erreichen.",
     "szenarien": {
      "gut": "Weitere Analysten heben Ziele und der Lab-Sektor bleibt gefragt.",
      "schlecht": "Steigende Zinsen drücken auf hoch bewertete Qualitätswerte."
@@ -561,7 +573,7 @@
    {
     "s": "HNR1.DE",
     "einschaetzung": "Solide Gewinnlage, aber Analysten warnen vor dem Ende des Preiszyklus.",
-    "warum": "Hannover Rück ist in drei Monaten um 20 % gestiegen, hat in den letzten fünf Tagen aber 2,2 % abgegeben und liegt 3,1 % unter dem 10-Tage-Hoch; der RSI von 65 ist nicht überhitzt. Im dritten Quartal lag der Gewinn über den Erwartungen, nach neun Monaten stieg er auf 2,1 Mrd. Euro, und das Jahresziel von mindestens 2,7 Mrd. Euro wurde bestätigt. Weil die Großschäden deutlich unter Budget lagen, will der Konzern überschüssigen Spielraum eher in Reserven stecken. JPMorgan stufte die Aktie Anfang November auf „Underweight“ mit Ziel 270 Euro ab, weil die Preise in der Rückversicherung sinken.",
+    "warum": "Hannover Rück ist in drei Monaten um 20 % gestiegen, hat in den letzten fünf Tagen 2,3 % zugelegt und liegt 2,2 % unter dem 10-Tage-Hoch; der RSI von 67 ist nicht überhitzt. Im dritten Quartal lag der Gewinn über den Erwartungen, nach neun Monaten stieg er auf 2,1 Mrd. Euro, und das Jahresziel von mindestens 2,7 Mrd. Euro wurde bestätigt. Weil die Großschäden deutlich unter Budget lagen, will der Konzern überschüssigen Spielraum eher in Reserven stecken. JPMorgan stufte die Aktie Anfang November auf „Underweight“ mit Ziel 270 Euro ab, weil die Preise in der Rückversicherung sinken.",
     "ausblick": "Die übliche 30-Tage-Bewegung von 6,8 % liegt weit unter der Hürde von 17,44 %, die nötige Steigerung ist unrealistisch. Wahrscheinlich bleibt die Aktie im Aufwärtstrend, aber mit begrenztem Tempo, solange die Preisrunde zum Jahreswechsel offen ist. Für Unruhe könnten Nachrichten zu sinkenden Rückversicherungspreisen sorgen.",
     "szenarien": {
      "gut": "Ruhige Schadenssaison und stabile Preise in der Erneuerungsrunde stützen den Kurs.",
