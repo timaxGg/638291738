@@ -1,9 +1,9 @@
 {
- "id": "b-2026-11-15-morgens",
+ "id": "b-2026-11-15-abends",
  "datum": "2026-11-15",
- "slot": "morgens",
- "erstellt": "2026-11-15T06:17:54Z",
- "markt": "Am Wochenende wird nicht gehandelt, Grundlage sind die Schlusskurse vom Freitag: Die Wall Street beendete die Woche uneinheitlich mit Schwäche bei Technologiewerten, während der DAX nach seinem Rekord kaum verändert schloss. Steigende US-Renditen und die Erwartung einer Zinserhöhung im Dezember bleiben der wichtigste Gegenwind, besonders für hoch bewertete Werte. Seit Freitagabend gab es zu den ausgewählten Werten keine neuen kursrelevanten Meldungen; die Einschätzungen vom Vorabend gelten deshalb weitgehend fort.",
+ "slot": "abends",
+ "erstellt": "2026-11-15T19:15:51+01:00",
+ "markt": "Am Sonntag wird nicht gehandelt, Grundlage bleiben die Schlusskurse vom Freitag: Die Wall Street schloss eine schwankungsreiche Woche uneinheitlich mit Schwäche bei Technologiewerten, der DAX legte nach seinem Rekord eine Pause ein. Steigende US-Renditen und die Sorge vor einer Zinserhöhung im Dezember bleiben der wichtigste Gegenwind. Auch bis zum Sonntagabend fanden sich zu den ausgewählten Werten keine neuen kursrelevanten Meldungen, die Einschätzungen vom Morgen gelten daher unverändert; wie der Markt am Montag startet, ist offen.",
  "marktQuellen": [
   {
    "t": "Stock market today: Dow rises, S&P 500 and Nasdaq slip to cap volatile week, Nvidia stock plunge deepens",
