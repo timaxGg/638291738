@@ -1,8 +1,8 @@
 {
- "id": "b-2026-11-15-abends",
- "datum": "2026-11-15",
- "slot": "abends",
- "erstellt": "2026-11-15T17:40:45.384Z",
+ "id": "b-2026-11-16-morgens",
+ "datum": "2026-11-16",
+ "slot": "morgens",
+ "erstellt": "2026-11-16T05:40:42.624Z",
  "_anleitung": "Siehe trading/KI-AUFGABE.md. Kurz: Für jeden Zeitraum (3, 7, 30 Handelstage) aus den kandidaten genau 5 Werte auswählen und begründen, mit echter Websuche und Quellen-Links. Nur Werte aus der jeweiligen Kandidatenliste. Keine Zahlen erfinden. Ergebnis als data/beste.json.",
  "kostenUndZiel": {
   "kostenHinUndZurueck": 0.3,
@@ -18,10 +18,10 @@
  "methode": {
   "text": "Aktien und ETFs gemischt (typ a = Aktie, e = ETF). Rangliste nach risikobereinigtem Kursanstieg (Anstieg geteilt durch normale Schwankung) plus Trend, abzüglich Überhitzung (RSI über 75). rechenRang 1 = beste Punktzahl.",
   "test": {
-   "d": "2026-11-15",
+   "d": "2026-11-16",
    "version": 1,
    "k": "[0.15000000000000002,0.26375,0.3968378704429121]",
-   "von": "2025-11-15",
+   "von": "2025-11-16",
    "werte": 234,
    "h": {
     "3": {
@@ -737,7 +737,7 @@
      "fenster": {
       "t": "09:00",
       "bis": "09:15",
-      "tag": "morgen",
+      "tag": "heute",
       "jetzt": false,
       "start": 1794816000000
      },
@@ -1277,7 +1277,7 @@
      "fenster": {
       "t": "15:30",
       "bis": "15:45",
-      "tag": "morgen",
+      "tag": "heute",
       "jetzt": false,
       "start": 1794839400000
      },
@@ -1831,7 +1831,7 @@
      "fenster": {
       "t": "15:30",
       "bis": "15:45",
-      "tag": "morgen",
+      "tag": "heute",
       "jetzt": false,
       "start": 1794839400000
      },
@@ -2371,7 +2371,7 @@
      "fenster": {
       "t": "15:30",
       "bis": "15:45",
-      "tag": "morgen",
+      "tag": "heute",
       "jetzt": false,
       "start": 1794839400000
      },
@@ -2911,7 +2911,7 @@
      "fenster": {
       "t": "15:30",
       "bis": "15:45",
-      "tag": "morgen",
+      "tag": "heute",
       "jetzt": false,
       "start": 1794839400000
      },
@@ -3460,7 +3460,7 @@
      "fenster": {
       "t": "15:30",
       "bis": "15:45",
-      "tag": "morgen",
+      "tag": "heute",
       "jetzt": false,
       "start": 1794839400000
      },
@@ -4014,7 +4014,7 @@
      "fenster": {
       "t": "15:30",
       "bis": "15:45",
-      "tag": "morgen",
+      "tag": "heute",
       "jetzt": false,
       "start": 1794839400000
      },
@@ -4554,7 +4554,7 @@
      "fenster": {
       "t": "15:30",
       "bis": "15:45",
-      "tag": "morgen",
+      "tag": "heute",
       "jetzt": false,
       "start": 1794839400000
      },
@@ -5214,7 +5214,7 @@
      "fenster": {
       "t": "09:00",
       "bis": "09:15",
-      "tag": "morgen",
+      "tag": "heute",
       "jetzt": false,
       "start": 1794816000000
      },
@@ -5781,7 +5781,7 @@
      "fenster": {
       "t": "15:30",
       "bis": "15:45",
-      "tag": "morgen",
+      "tag": "heute",
       "jetzt": false,
       "start": 1794839400000
      },
@@ -6332,7 +6332,7 @@
      "fenster": {
       "t": "15:30",
       "bis": "15:45",
-      "tag": "morgen",
+      "tag": "heute",
       "jetzt": false,
       "start": 1794839400000
      },
@@ -6872,7 +6872,7 @@
      "fenster": {
       "t": "15:30",
       "bis": "15:45",
-      "tag": "morgen",
+      "tag": "heute",
       "jetzt": false,
       "start": 1794839400000
      },
@@ -7532,7 +7532,7 @@
      "fenster": {
       "t": "09:00",
       "bis": "09:15",
-      "tag": "morgen",
+      "tag": "heute",
       "jetzt": false,
       "start": 1794816000000
      },
@@ -8072,7 +8072,7 @@
      "fenster": {
       "t": "15:30",
       "bis": "15:45",
-      "tag": "morgen",
+      "tag": "heute",
       "jetzt": false,
       "start": 1794839400000
      },
@@ -8626,7 +8626,7 @@
      "fenster": {
       "t": "15:30",
       "bis": "15:45",
-      "tag": "morgen",
+      "tag": "heute",
       "jetzt": false,
       "start": 1794839400000
      },
@@ -9166,7 +9166,7 @@
      "fenster": {
       "t": "15:30",
       "bis": "15:45",
-      "tag": "morgen",
+      "tag": "heute",
       "jetzt": false,
       "start": 1794839400000
      },
@@ -9706,7 +9706,7 @@
      "fenster": {
       "t": "15:30",
       "bis": "15:45",
-      "tag": "morgen",
+      "tag": "heute",
       "jetzt": false,
       "start": 1794839400000
      },
@@ -10260,7 +10260,7 @@
      "fenster": {
       "t": "15:30",
       "bis": "15:45",
-      "tag": "morgen",
+      "tag": "heute",
       "jetzt": false,
       "start": 1794839400000
      },
@@ -10934,7 +10934,7 @@
      "fenster": {
       "t": "09:00",
       "bis": "09:15",
-      "tag": "morgen",
+      "tag": "heute",
       "jetzt": false,
       "start": 1794816000000
      },
@@ -11488,7 +11488,7 @@
      "fenster": {
       "t": "15:30",
       "bis": "15:45",
-      "tag": "morgen",
+      "tag": "heute",
       "jetzt": false,
       "start": 1794839400000
      },
@@ -12025,7 +12025,7 @@
      "fenster": {
       "t": "15:30",
       "bis": "15:45",
-      "tag": "morgen",
+      "tag": "heute",
       "jetzt": false,
       "start": 1794839400000
      },
@@ -12565,7 +12565,7 @@
      "fenster": {
       "t": "15:30",
       "bis": "15:45",
-      "tag": "morgen",
+      "tag": "heute",
       "jetzt": false,
       "start": 1794839400000
      },
@@ -13239,7 +13239,7 @@
      "fenster": {
       "t": "09:00",
       "bis": "09:15",
-      "tag": "morgen",
+      "tag": "heute",
       "jetzt": false,
       "start": 1794816000000
      },
@@ -13806,7 +13806,7 @@
      "fenster": {
       "t": "15:30",
       "bis": "15:45",
-      "tag": "morgen",
+      "tag": "heute",
       "jetzt": false,
       "start": 1794839400000
      },
@@ -13930,17 +13930,17 @@
       "b": [
        {
         "t": "09:00",
-        "avg": 0.14,
-        "tief": 58
+        "avg": 0.13,
+        "tief": 61
        },
        {
         "t": "09:10",
-        "avg": 0.15,
+        "avg": 0.14,
         "tief": 0
        },
        {
         "t": "10:20",
-        "avg": 0.21,
+        "avg": 0.22,
         "tief": 0
        },
        {
@@ -13955,37 +13955,37 @@
        },
        {
         "t": "12:55",
-        "avg": 0.33,
+        "avg": 0.32,
         "tief": 0
        },
        {
         "t": "13:00",
-        "avg": 0.34,
+        "avg": 0.33,
         "tief": 3
        },
        {
         "t": "14:30",
-        "avg": 0.22,
+        "avg": 0.21,
         "tief": 0
        },
        {
         "t": "14:35",
-        "avg": 0.35,
+        "avg": 0.34,
         "tief": 0
        },
        {
         "t": "15:15",
-        "avg": 0.27,
+        "avg": 0.26,
         "tief": 0
        },
        {
         "t": "15:25",
-        "avg": 0.23,
+        "avg": 0.22,
         "tief": 0
        },
        {
         "t": "15:30",
-        "avg": 0.14,
+        "avg": 0.13,
         "tief": 0
        },
        {
@@ -13995,7 +13995,7 @@
        },
        {
         "t": "15:40",
-        "avg": 0.32,
+        "avg": 0.31,
         "tief": 0
        },
        {
@@ -14005,12 +14005,12 @@
        },
        {
         "t": "15:55",
-        "avg": 0.08,
+        "avg": 0.07,
         "tief": 0
        },
        {
         "t": "16:00",
-        "avg": 0.33,
+        "avg": 0.32,
         "tief": 0
        },
        {
@@ -14020,7 +14020,7 @@
        },
        {
         "t": "16:10",
-        "avg": 0.09,
+        "avg": 0.08,
         "tief": 0
        },
        {
@@ -14030,7 +14030,7 @@
        },
        {
         "t": "16:25",
-        "avg": 0.2,
+        "avg": 0.19,
         "tief": 0
        },
        {
@@ -14050,12 +14050,12 @@
        },
        {
         "t": "17:05",
-        "avg": 0.1,
+        "avg": 0.09,
         "tief": 3
        },
        {
         "t": "17:10",
-        "avg": 0.21,
+        "avg": 0.2,
         "tief": 0
        },
        {
@@ -14065,7 +14065,7 @@
        },
        {
         "t": "17:20",
-        "avg": 0.19,
+        "avg": 0.18,
         "tief": 0
        },
        {
@@ -14077,26 +14077,26 @@
       "best": {
        "t": "17:15",
        "bis": "17:30",
-       "avg": 0.21,
+       "avg": 0.2,
        "tief": 9
       },
       "billig": {
        "t": "17:00",
        "bis": "17:15",
-       "avg": 0.14,
+       "avg": 0.13,
        "tief": 3
       },
       "teuer": {
        "t": "15:35",
        "bis": "15:50",
-       "avg": 0.26,
+       "avg": 0.25,
        "tief": 3
       }
      },
      "fenster": {
       "t": "17:15",
       "bis": "17:30",
-      "tag": "morgen",
+      "tag": "heute",
       "jetzt": false,
       "start": 1794845700000
      },
@@ -14234,12 +14234,12 @@
       "b": [
        {
         "t": "15:30",
-        "avg": 0.08,
+        "avg": 0.07,
         "tief": 27
        },
        {
         "t": "15:35",
-        "avg": 0.18,
+        "avg": 0.17,
         "tief": 3
        },
        {
@@ -14254,7 +14254,7 @@
        },
        {
         "t": "15:50",
-        "avg": 0.09,
+        "avg": 0.08,
         "tief": 2
        },
        {
@@ -14269,22 +14269,22 @@
        },
        {
         "t": "16:05",
-        "avg": 0.02,
+        "avg": 0.01,
         "tief": 3
        },
        {
         "t": "16:10",
-        "avg": 0.04,
+        "avg": 0.03,
         "tief": 3
        },
        {
         "t": "16:15",
-        "avg": 0.07,
+        "avg": 0.06,
         "tief": 7
        },
        {
         "t": "16:20",
-        "avg": 0.06,
+        "avg": 0.05,
         "tief": 0
        },
        {
@@ -14294,57 +14294,57 @@
        },
        {
         "t": "16:30",
-        "avg": 0.01,
-        "tief": 2
-       },
-       {
-        "t": "16:35",
-        "avg": -0.01,
-        "tief": 2
-       },
-       {
-        "t": "16:40",
-        "avg": -0.01,
-        "tief": 2
-       },
-       {
-        "t": "16:45",
-        "avg": 0.03,
-        "tief": 0
-       },
-       {
-        "t": "16:50",
         "avg": 0,
         "tief": 2
        },
        {
-        "t": "16:55",
-        "avg": 0.05,
+        "t": "16:35",
+        "avg": -0.02,
         "tief": 2
        },
        {
-        "t": "17:00",
+        "t": "16:40",
+        "avg": -0.02,
+        "tief": 2
+       },
+       {
+        "t": "16:45",
         "avg": 0.02,
         "tief": 0
        },
        {
+        "t": "16:50",
+        "avg": -0.01,
+        "tief": 2
+       },
+       {
+        "t": "16:55",
+        "avg": 0.04,
+        "tief": 2
+       },
+       {
+        "t": "17:00",
+        "avg": 0.01,
+        "tief": 0
+       },
+       {
         "t": "17:05",
-        "avg": 0.05,
+        "avg": 0.04,
         "tief": 0
        },
        {
         "t": "17:10",
-        "avg": 0.07,
+        "avg": 0.06,
         "tief": 3
        },
        {
         "t": "17:15",
-        "avg": 0.12,
+        "avg": 0.11,
         "tief": 0
        },
        {
         "t": "17:20",
-        "avg": 0.13,
+        "avg": 0.12,
         "tief": 0
        },
        {
@@ -14354,17 +14354,17 @@
        },
        {
         "t": "17:30",
-        "avg": 0.12,
+        "avg": 0.11,
         "tief": 0
        },
        {
         "t": "17:35",
-        "avg": 0.18,
+        "avg": 0.17,
         "tief": 0
        },
        {
         "t": "17:40",
-        "avg": 0.18,
+        "avg": 0.17,
         "tief": 0
        },
        {
@@ -14384,7 +14384,7 @@
        },
        {
         "t": "18:00",
-        "avg": 0.18,
+        "avg": 0.17,
         "tief": 0
        },
        {
@@ -14394,12 +14394,12 @@
        },
        {
         "t": "18:10",
-        "avg": 0.22,
+        "avg": 0.21,
         "tief": 0
        },
        {
         "t": "18:15",
-        "avg": 0.2,
+        "avg": 0.19,
         "tief": 0
        },
        {
@@ -14409,7 +14409,7 @@
        },
        {
         "t": "18:25",
-        "avg": 0.21,
+        "avg": 0.2,
         "tief": 2
        },
        {
@@ -14419,7 +14419,7 @@
        },
        {
         "t": "18:35",
-        "avg": 0.18,
+        "avg": 0.17,
         "tief": 0
        },
        {
@@ -14429,7 +14429,7 @@
        },
        {
         "t": "18:45",
-        "avg": 0.18,
+        "avg": 0.17,
         "tief": 0
        },
        {
@@ -14444,22 +14444,22 @@
        },
        {
         "t": "19:00",
-        "avg": 0.19,
+        "avg": 0.18,
         "tief": 0
        },
        {
         "t": "19:05",
-        "avg": 0.2,
+        "avg": 0.19,
         "tief": 0
        },
        {
         "t": "19:10",
-        "avg": 0.2,
+        "avg": 0.19,
         "tief": 0
        },
        {
         "t": "19:15",
-        "avg": 0.2,
+        "avg": 0.19,
         "tief": 0
        },
        {
@@ -14474,7 +14474,7 @@
        },
        {
         "t": "19:30",
-        "avg": 0.19,
+        "avg": 0.18,
         "tief": 2
        },
        {
@@ -14494,17 +14494,17 @@
        },
        {
         "t": "19:50",
-        "avg": 0.16,
+        "avg": 0.15,
         "tief": 0
        },
        {
         "t": "19:55",
-        "avg": 0.17,
+        "avg": 0.16,
         "tief": 0
        },
        {
         "t": "20:00",
-        "avg": 0.2,
+        "avg": 0.19,
         "tief": 0
        },
        {
@@ -14514,17 +14514,17 @@
        },
        {
         "t": "20:10",
-        "avg": 0.29,
+        "avg": 0.28,
         "tief": 0
        },
        {
         "t": "20:15",
-        "avg": 0.31,
+        "avg": 0.3,
         "tief": 0
        },
        {
         "t": "20:20",
-        "avg": 0.3,
+        "avg": 0.29,
         "tief": 0
        },
        {
@@ -14534,7 +14534,7 @@
        },
        {
         "t": "20:30",
-        "avg": 0.3,
+        "avg": 0.29,
         "tief": 0
        },
        {
@@ -14544,17 +14544,17 @@
        },
        {
         "t": "20:40",
-        "avg": 0.3,
+        "avg": 0.29,
         "tief": 0
        },
        {
         "t": "20:45",
-        "avg": 0.31,
+        "avg": 0.3,
         "tief": 3
        },
        {
         "t": "20:50",
-        "avg": 0.29,
+        "avg": 0.28,
         "tief": 0
        },
        {
@@ -14574,13 +14574,13 @@
        },
        {
         "t": "21:10",
-        "avg": 0.3,
+        "avg": 0.29,
         "tief": 0
        },
        {
         "t": "21:15",
-        "avg": 0.28,
-        "tief": 2
+        "avg": 0.27,
+        "tief": 0
        },
        {
         "t": "21:20",
@@ -14594,12 +14594,12 @@
        },
        {
         "t": "21:30",
-        "avg": 0.28,
-        "tief": 0
+        "avg": 0.27,
+        "tief": 2
        },
        {
         "t": "21:35",
-        "avg": 0.28,
+        "avg": 0.27,
         "tief": 0
        },
        {
@@ -14609,7 +14609,7 @@
        },
        {
         "t": "21:45",
-        "avg": 0.27,
+        "avg": 0.26,
         "tief": 0
        },
        {
@@ -14619,25 +14619,25 @@
        },
        {
         "t": "21:55",
-        "avg": 0.2,
+        "avg": 0.19,
         "tief": 3
        }
       ],
       "best": {
        "t": "15:30",
        "bis": "15:45",
-       "avg": 0.14,
+       "avg": 0.13,
        "tief": 35
       },
       "billig": {
        "t": "16:25",
        "bis": "16:40",
-       "avg": 0,
+       "avg": -0.01,
        "tief": 4
       },
       "teuer": {
-       "t": "20:10",
-       "bis": "20:25",
+       "t": "20:15",
+       "bis": "20:30",
        "avg": 0.3,
        "tief": 0
       }
@@ -14645,7 +14645,7 @@
      "fenster": {
       "t": "15:30",
       "bis": "15:45",
-      "tag": "morgen",
+      "tag": "heute",
       "jetzt": false,
       "start": 1794839400000
      },
@@ -15199,7 +15199,7 @@
      "fenster": {
       "t": "15:30",
       "bis": "15:45",
-      "tag": "morgen",
+      "tag": "heute",
       "jetzt": false,
       "start": 1794839400000
      },
@@ -15328,17 +15328,17 @@
       "b": [
        {
         "t": "15:30",
-        "avg": 0.22,
+        "avg": 0.21,
         "tief": 20
        },
        {
         "t": "15:35",
-        "avg": 0.13,
+        "avg": 0.12,
         "tief": 5
        },
        {
         "t": "15:40",
-        "avg": 0.1,
+        "avg": 0.09,
         "tief": 2
        },
        {
@@ -15348,42 +15348,42 @@
        },
        {
         "t": "15:50",
-        "avg": 0.04,
-        "tief": 0
-       },
-       {
-        "t": "15:55",
-        "avg": 0.01,
-        "tief": 2
-       },
-       {
-        "t": "16:00",
-        "avg": -0.06,
-        "tief": 7
-       },
-       {
-        "t": "16:05",
-        "avg": -0.05,
-        "tief": 0
-       },
-       {
-        "t": "16:10",
-        "avg": -0.04,
-        "tief": 0
-       },
-       {
-        "t": "16:15",
-        "avg": 0.02,
-        "tief": 2
-       },
-       {
-        "t": "16:20",
         "avg": 0.03,
         "tief": 0
        },
        {
+        "t": "15:55",
+        "avg": 0,
+        "tief": 2
+       },
+       {
+        "t": "16:00",
+        "avg": -0.07,
+        "tief": 7
+       },
+       {
+        "t": "16:05",
+        "avg": -0.06,
+        "tief": 0
+       },
+       {
+        "t": "16:10",
+        "avg": -0.05,
+        "tief": 0
+       },
+       {
+        "t": "16:15",
+        "avg": 0.01,
+        "tief": 2
+       },
+       {
+        "t": "16:20",
+        "avg": 0.02,
+        "tief": 0
+       },
+       {
         "t": "16:25",
-        "avg": -0.03,
+        "avg": -0.04,
         "tief": 2
        },
        {
@@ -15393,12 +15393,12 @@
        },
        {
         "t": "16:35",
-        "avg": -0.02,
+        "avg": -0.03,
         "tief": 3
        },
        {
         "t": "16:40",
-        "avg": -0.03,
+        "avg": -0.04,
         "tief": 0
        },
        {
@@ -15408,22 +15408,22 @@
        },
        {
         "t": "16:50",
-        "avg": -0.04,
+        "avg": -0.05,
         "tief": 2
        },
        {
         "t": "16:55",
-        "avg": -0.03,
+        "avg": -0.04,
         "tief": 0
        },
        {
         "t": "17:00",
-        "avg": -0.03,
+        "avg": -0.04,
         "tief": 2
        },
        {
         "t": "17:05",
-        "avg": 0,
+        "avg": -0.01,
         "tief": 0
        },
        {
@@ -15433,37 +15433,37 @@
        },
        {
         "t": "17:15",
-        "avg": -0.01,
+        "avg": -0.02,
         "tief": 0
        },
        {
         "t": "17:20",
-        "avg": 0,
+        "avg": -0.01,
         "tief": 0
        },
        {
         "t": "17:25",
-        "avg": 0,
+        "avg": -0.01,
         "tief": 2
        },
        {
         "t": "17:30",
-        "avg": -0.01,
+        "avg": -0.02,
         "tief": 0
        },
        {
         "t": "17:35",
-        "avg": -0.01,
+        "avg": -0.02,
         "tief": 0
        },
        {
         "t": "17:40",
-        "avg": 0.01,
+        "avg": 0,
         "tief": 2
        },
        {
         "t": "17:45",
-        "avg": 0,
+        "avg": -0.01,
         "tief": 0
        },
        {
@@ -15483,12 +15483,12 @@
        },
        {
         "t": "18:05",
-        "avg": 0.01,
+        "avg": 0,
         "tief": 2
        },
        {
         "t": "18:10",
-        "avg": 0.01,
+        "avg": 0,
         "tief": 0
        },
        {
@@ -15503,7 +15503,7 @@
        },
        {
         "t": "18:25",
-        "avg": 0.03,
+        "avg": 0.02,
         "tief": 0
        },
        {
@@ -15513,27 +15513,27 @@
        },
        {
         "t": "18:35",
-        "avg": 0,
-        "tief": 0
-       },
-       {
-        "t": "18:40",
-        "avg": 0,
-        "tief": 0
-       },
-       {
-        "t": "18:45",
         "avg": -0.01,
         "tief": 0
        },
        {
+        "t": "18:40",
+        "avg": -0.01,
+        "tief": 0
+       },
+       {
+        "t": "18:45",
+        "avg": -0.02,
+        "tief": 0
+       },
+       {
         "t": "18:50",
-        "avg": 0.01,
+        "avg": 0,
         "tief": 0
        },
        {
         "t": "18:55",
-        "avg": 0.02,
+        "avg": 0.01,
         "tief": 0
        },
        {
@@ -15543,7 +15543,7 @@
        },
        {
         "t": "19:05",
-        "avg": 0.01,
+        "avg": 0,
         "tief": 2
        },
        {
@@ -15553,27 +15553,27 @@
        },
        {
         "t": "19:15",
-        "avg": 0.01,
+        "avg": 0,
         "tief": 0
        },
        {
         "t": "19:20",
-        "avg": 0.01,
+        "avg": 0,
         "tief": 0
        },
        {
         "t": "19:25",
-        "avg": 0.01,
+        "avg": 0,
         "tief": 0
        },
        {
         "t": "19:30",
-        "avg": 0.03,
+        "avg": 0.02,
         "tief": 0
        },
        {
         "t": "19:35",
-        "avg": 0,
+        "avg": -0.01,
         "tief": 3
        },
        {
@@ -15583,17 +15583,17 @@
        },
        {
         "t": "19:45",
-        "avg": 0.01,
+        "avg": 0,
         "tief": 0
        },
        {
         "t": "19:50",
-        "avg": 0.01,
+        "avg": 0,
         "tief": 0
        },
        {
         "t": "19:55",
-        "avg": 0.02,
+        "avg": 0.01,
         "tief": 0
        },
        {
@@ -15618,17 +15618,17 @@
        },
        {
         "t": "20:20",
-        "avg": 0.02,
+        "avg": 0.01,
         "tief": 0
        },
        {
         "t": "20:25",
-        "avg": 0.03,
+        "avg": 0.02,
         "tief": 0
        },
        {
         "t": "20:30",
-        "avg": 0.03,
+        "avg": 0.02,
         "tief": 0
        },
        {
@@ -15638,62 +15638,62 @@
        },
        {
         "t": "20:40",
-        "avg": 0.03,
-        "tief": 2
-       },
-       {
-        "t": "20:45",
-        "avg": 0,
-        "tief": 2
-       },
-       {
-        "t": "20:50",
         "avg": 0.02,
         "tief": 2
        },
        {
+        "t": "20:45",
+        "avg": -0.01,
+        "tief": 2
+       },
+       {
+        "t": "20:50",
+        "avg": 0.01,
+        "tief": 2
+       },
+       {
         "t": "20:55",
-        "avg": 0.04,
+        "avg": 0.03,
         "tief": 2
        },
        {
         "t": "21:00",
-        "avg": 0.07,
-        "tief": 0
-       },
-       {
-        "t": "21:05",
         "avg": 0.06,
         "tief": 0
        },
        {
-        "t": "21:10",
+        "t": "21:05",
         "avg": 0.05,
+        "tief": 0
+       },
+       {
+        "t": "21:10",
+        "avg": 0.04,
         "tief": 0
        },
        {
         "t": "21:15",
-        "avg": 0.07,
+        "avg": 0.06,
         "tief": 0
        },
        {
         "t": "21:20",
-        "avg": 0.08,
+        "avg": 0.07,
         "tief": 0
        },
        {
         "t": "21:25",
-        "avg": 0.05,
+        "avg": 0.04,
         "tief": 0
        },
        {
         "t": "21:30",
-        "avg": 0.07,
+        "avg": 0.06,
         "tief": 3
        },
        {
         "t": "21:35",
-        "avg": 0.08,
+        "avg": 0.07,
         "tief": 0
        },
        {
@@ -15703,43 +15703,43 @@
        },
        {
         "t": "21:45",
-        "avg": 0.1,
+        "avg": 0.09,
         "tief": 2
        },
        {
         "t": "21:50",
-        "avg": 0.11,
+        "avg": 0.1,
         "tief": 5
        },
        {
         "t": "21:55",
-        "avg": 0.14,
+        "avg": 0.13,
         "tief": 7
        }
       ],
       "best": {
        "t": "15:30",
        "bis": "15:45",
-       "avg": 0.15,
+       "avg": 0.14,
        "tief": 27
       },
       "billig": {
        "t": "16:00",
        "bis": "16:15",
-       "avg": -0.05,
+       "avg": -0.06,
        "tief": 7
       },
       "teuer": {
        "t": "15:30",
        "bis": "15:45",
-       "avg": 0.15,
+       "avg": 0.14,
        "tief": 27
       }
      },
      "fenster": {
       "t": "15:30",
       "bis": "15:45",
-      "tag": "morgen",
+      "tag": "heute",
       "jetzt": false,
       "start": 1794839400000
      },
@@ -16399,7 +16399,7 @@
      "fenster": {
       "t": "09:00",
       "bis": "09:15",
-      "tag": "morgen",
+      "tag": "heute",
       "jetzt": false,
       "start": 1794816000000
      },
@@ -16538,12 +16538,12 @@
        },
        {
         "t": "09:10",
-        "avg": 0.16,
+        "avg": 0.15,
         "tief": 2
        },
        {
         "t": "09:15",
-        "avg": 0.13,
+        "avg": 0.12,
         "tief": 0
        },
        {
@@ -16563,7 +16563,7 @@
        },
        {
         "t": "09:35",
-        "avg": 0.13,
+        "avg": 0.12,
         "tief": 0
        },
        {
@@ -16578,12 +16578,12 @@
        },
        {
         "t": "09:50",
-        "avg": 0.11,
+        "avg": 0.1,
         "tief": 2
        },
        {
         "t": "09:55",
-        "avg": 0.1,
+        "avg": 0.09,
         "tief": 0
        },
        {
@@ -16633,7 +16633,7 @@
        },
        {
         "t": "10:45",
-        "avg": 0.12,
+        "avg": 0.11,
         "tief": 2
        },
        {
@@ -16653,7 +16653,7 @@
        },
        {
         "t": "11:05",
-        "avg": 0.11,
+        "avg": 0.1,
         "tief": 0
        },
        {
@@ -16663,7 +16663,7 @@
        },
        {
         "t": "11:15",
-        "avg": 0.13,
+        "avg": 0.12,
         "tief": 0
        },
        {
@@ -16678,7 +16678,7 @@
        },
        {
         "t": "11:30",
-        "avg": 0.13,
+        "avg": 0.12,
         "tief": 2
        },
        {
@@ -16708,7 +16708,7 @@
        },
        {
         "t": "12:00",
-        "avg": 0.13,
+        "avg": 0.12,
         "tief": 0
        },
        {
@@ -16733,7 +16733,7 @@
        },
        {
         "t": "12:25",
-        "avg": 0.13,
+        "avg": 0.12,
         "tief": 0
        },
        {
@@ -16808,7 +16808,7 @@
        },
        {
         "t": "13:40",
-        "avg": 0.19,
+        "avg": 0.18,
         "tief": 0
        },
        {
@@ -16818,7 +16818,7 @@
        },
        {
         "t": "13:50",
-        "avg": 0.21,
+        "avg": 0.2,
         "tief": 0
        },
        {
@@ -16828,7 +16828,7 @@
        },
        {
         "t": "14:00",
-        "avg": 0.2,
+        "avg": 0.19,
         "tief": 2
        },
        {
@@ -16838,17 +16838,17 @@
        },
        {
         "t": "14:10",
-        "avg": 0.21,
+        "avg": 0.2,
         "tief": 0
        },
        {
         "t": "14:15",
-        "avg": 0.22,
+        "avg": 0.21,
         "tief": 0
        },
        {
         "t": "14:20",
-        "avg": 0.23,
+        "avg": 0.22,
         "tief": 0
        },
        {
@@ -16858,17 +16858,17 @@
        },
        {
         "t": "14:30",
-        "avg": 0.26,
+        "avg": 0.25,
         "tief": 0
        },
        {
         "t": "14:35",
-        "avg": 0.26,
+        "avg": 0.25,
         "tief": 0
        },
        {
         "t": "14:40",
-        "avg": 0.26,
+        "avg": 0.25,
         "tief": 0
        },
        {
@@ -16893,12 +16893,12 @@
        },
        {
         "t": "15:05",
-        "avg": 0.27,
+        "avg": 0.26,
         "tief": 0
        },
        {
         "t": "15:10",
-        "avg": 0.25,
+        "avg": 0.24,
         "tief": 0
        },
        {
@@ -16913,7 +16913,7 @@
        },
        {
         "t": "15:25",
-        "avg": 0.27,
+        "avg": 0.26,
         "tief": 2
        },
        {
@@ -16933,7 +16933,7 @@
        },
        {
         "t": "15:45",
-        "avg": 0.24,
+        "avg": 0.23,
         "tief": 0
        },
        {
@@ -16943,7 +16943,7 @@
        },
        {
         "t": "15:55",
-        "avg": 0.23,
+        "avg": 0.22,
         "tief": 0
        },
        {
@@ -16968,7 +16968,7 @@
        },
        {
         "t": "16:20",
-        "avg": 0.24,
+        "avg": 0.23,
         "tief": 0
        },
        {
@@ -17003,12 +17003,12 @@
        },
        {
         "t": "16:55",
-        "avg": 0.23,
+        "avg": 0.22,
         "tief": 0
        },
        {
         "t": "17:00",
-        "avg": 0.22,
+        "avg": 0.21,
         "tief": 2
        },
        {
@@ -17018,7 +17018,7 @@
        },
        {
         "t": "17:10",
-        "avg": 0.23,
+        "avg": 0.22,
         "tief": 0
        },
        {
@@ -17028,12 +17028,12 @@
        },
        {
         "t": "17:20",
-        "avg": 0.22,
+        "avg": 0.21,
         "tief": 5
        },
        {
         "t": "17:25",
-        "avg": 0.22,
+        "avg": 0.21,
         "tief": 2
        }
       ],
@@ -17046,12 +17046,12 @@
       "billig": {
        "t": "09:45",
        "bis": "10:00",
-       "avg": 0.1,
+       "avg": 0.09,
        "tief": 4
       },
       "teuer": {
-       "t": "14:40",
-       "bis": "14:55",
+       "t": "14:45",
+       "bis": "15:00",
        "avg": 0.27,
        "tief": 0
       }
@@ -17059,7 +17059,7 @@
      "fenster": {
       "t": "09:00",
       "bis": "09:15",
-      "tag": "morgen",
+      "tag": "heute",
       "jetzt": false,
       "start": 1794816000000
      },
@@ -17107,6 +17107,13 @@
   "FISV": {
    "meldungen": [
     {
+     "t": "Visa And Mastercard Stocks Face A Stablecoin Test Investors Should Watch",
+     "u": "https://finnhub.io/api/news?id=3ff5f6aaf07f679bc358e7386b43bd80ce7fef28e2ea9cb228939184ae429003",
+     "q": "Yahoo",
+     "d": "2026-11-16",
+     "z": "Stablecoins are moving from crypto corners into boardrooms as banks, SoFi, Visa, Mastercard and major processors race to wire digital dollars directly into everyday payments. That shift could reshape how money flows, where fees land and whi"
+    },
+    {
      "t": "US Fintech Weekly: Coinbase Secures Federal Trust Charter, While Hot CPI Pressures Rate-Sensitive Lenders",
      "u": "https://finnhub.io/api/news?id=29f6512362b8d1a84ffc9adb41cd9ce11c44436aba293920164922677ea463ea",
      "q": "Yahoo",
@@ -17133,13 +17140,6 @@
      "q": "Benzinga",
      "d": "2026-11-13",
      "z": "-13F Filing"
-    },
-    {
-     "t": "What Could Go Wrong With Mastercard Stock?",
-     "u": "https://finnhub.io/api/news?id=2f48bb545f141ec68e45de0a3fe982c36fab8f2cf52e7cdc76687b3f0e290feb",
-     "q": "Yahoo",
-     "d": "2026-11-13",
-     "z": "For questions about this article or underlying research, email help@trefis.com."
     }
    ],
    "quartalszahlen": null
@@ -17199,13 +17199,6 @@
      "q": "Yahoo",
      "d": "2026-11-12",
      "z": "Why Is Water Recycling Becoming an Investment Opportunity? Water recycling stocks offer exposure to companies that treat used water so it can serve another purpose, from industrial cooling and manufacturing to irrigation and, with appropria"
-    },
-    {
-     "t": "Premarket Movers: S&P 500 Gainers and Losers Before the Open",
-     "u": "https://finnhub.io/api/news?id=c09138144e8c1cdf7225034bb359afd42c3a5e6c43f58819bd723539075a999f",
-     "q": "ChartMill",
-     "d": "2026-11-09",
-     "z": "Premarket trading shows sharp S&P 500 moves, with IFF, NRG and UAL among top gainers, while AKAM and NVDA lead the losers before the opening bell."
     }
    ],
    "quartalszahlen": null
@@ -17239,13 +17232,6 @@
      "q": "Yahoo",
      "d": "2026-11-12",
      "z": "POWL's Q4 earnings may benefit from strong utility and data center demand and a robust backlog, but rising costs and margin pressures remain concerns."
-    },
-    {
-     "t": "EnerSys Gears Up to Report Q2 Earnings: Here's What to Expect",
-     "u": "https://finnhub.io/api/news?id=9f945259ecf3e0516f4f20e0e47725753d1d8d7699ffb715afb2e1d1eafb040b",
-     "q": "Yahoo",
-     "d": "2026-11-09",
-     "z": "ENS expects higher Q2 fiscal 2027 earnings, driven by data center demand, defense applications and operational efficiencies, but rising costs pose challenges."
     }
    ],
    "quartalszahlen": null
@@ -17554,20 +17540,6 @@
      "q": "Yahoo",
      "d": "2026-11-10",
      "z": "Humacyte, Inc. (HUMA) delivered earnings and revenue surprises of +22.22% and +19.54%, respectively, for the quarter ended September 2026. Do the numbers hold clues to what lies ahead for the stock?"
-    },
-    {
-     "t": "TECH Q1 Earnings & Revenues Beat, Merck KGaA Merger Deal Advances",
-     "u": "https://finnhub.io/api/news?id=959ccc9928a7eaad70f6b76033f477950a932fba10e1657f5fcf93bbd33932f9",
-     "q": "Yahoo",
-     "d": "2026-11-09",
-     "z": "Bio-Techne's Q1 fiscal 2027 earnings and revenues beat estimates, driven by Protein Sciences growth, as its merger with Merck KGaA moves closer to completion."
-    },
-    {
-     "t": "Roivant Sciences Ltd. (ROIV) Reports Q2 Loss, Tops Revenue Estimates",
-     "u": "https://finnhub.io/api/news?id=b0fb0f2ecd22495ddcdc387d326f2f99ac8fb003fdab58d1be49173962ae0b52",
-     "q": "Yahoo",
-     "d": "2026-11-09",
-     "z": "Montes Archimedes Acquisition (ROIV) delivered earnings and revenue surprises of +53.66% and +1,252.37%, respectively, for the quarter ended September 2026. Do the numbers hold clues to what lies ahead for the stock?"
     }
    ],
    "quartalszahlen": null
@@ -17613,7 +17585,36 @@
    "quartalszahlen": null
   },
   "NA9.DE": {
-   "meldungen": [],
+   "meldungen": [
+    {
+     "t": "Nagarro legt ungeprüfte Zahlen für das dritte Quartal 2026 vor und verzeichnet in den ersten neun Monaten 2026 ein Umsatzwachstum von 2,7 % in konstanter Währung",
+     "u": "https://de.finance.yahoo.com/nachrichten/nagarro-legt-ungepr%C3%BCfte-zahlen-f%C3%BCr-094200605.html?.tsrc=rss",
+     "q": "Yahoo Finanzen",
+     "d": "2026-11-13",
+     "z": "Nagarro, ein weltweit führendes Unternehmen für KI-native Entwicklung und Transformation, hat seine ungeprüften Finanzzahlen für die ersten neun Monate sowie das dritte Quartal 2026 vorgelegt und seine Quartalsmitteilung für das dritte Quar"
+    },
+    {
+     "t": "INDEX-MONITOR: Procredit ersetzt Nagarro im SDax",
+     "u": "https://de.finance.yahoo.com/nachrichten/index-monitor-procredit-ersetzt-nagarro-035017612.html?.tsrc=rss",
+     "q": "Yahoo Finanzen",
+     "d": "2026-10-14",
+     "z": "Die Procredit Holding  profitiert von der Übernahme des IT-Dienstleisters Nagarro  durch den indischen Konzern Persistent . Dieser hält inzwischen gut 94 Prozent der Anteile. Die Untergrenze des Anteils nicht in festen Händen befindlicher A"
+    },
+    {
+     "t": "Persistent sichert sich eine starke Mehrheitsbeteiligung",
+     "u": "https://de.finance.yahoo.com/nachrichten/persistent-sichert-starke-mehrheitsbeteiligung-095100742.html?.tsrc=rss",
+     "q": "Yahoo Finanzen",
+     "d": "2026-10-10",
+     "z": "Die Galaxy Germany Holding SE (der „Bieter\"), eine hundertprozentige direkte Tochtergesellschaft der Persistent Systems Limited (zusammen „Persistent\"), gab heute die endgültigen Ergebnisse ihres freiwilligen öffentlichen Übernahmeangebots "
+    },
+    {
+     "t": "INDEX-MONITOR: Procredit ersetzt Nagarro im SDax ab 14. Oktober",
+     "u": "https://de.finance.yahoo.com/nachrichten/index-monitor-procredit-ersetzt-nagarro-182035123.html?.tsrc=rss",
+     "q": "Yahoo Finanzen",
+     "d": "2026-10-09",
+     "z": "Die Procredit Holding  profitiert von der Übernahme des IT-Dienstleisters Nagarro  durch den indischen Konzern Persistent . Dieser hält inzwischen gut 94 Prozent der Anteile. Die Untergrenze des Anteils nicht in festen Händen befindlicher A"
+    }
+   ],
    "quartalszahlen": null
   },
   "MTD": {
@@ -17761,419 +17762,6 @@
     }
    ],
    "quartalszahlen": null
-  }
- },
- "_bisherHeute": {
-  "BAYN.DE": {
-   "einschaetzung": "Chancen überwiegen leicht, aber kurzfristig schon gut gelaufen",
-   "warum": "Bayer steht in der Rechnung für drei Tage ganz oben: plus 27 % in vier Wochen, plus 18 % in drei Monaten, Aufwärtstrend und nur knapp 1 % unter dem 10-Tage-Hoch. Den Schub lieferten ein Quartal mit angehobenem Ausblick für den operativen Gewinn und die US-Zulassung des Gerinnungshemmers Sunharbo am 9. November, nachdem China das Mittel schon Ende Oktober freigegeben hatte. UBS und Goldman Sachs hoben ihre Kursziele auf 66 Euro, Jefferies bleibt dagegen mit 48,50 Euro skeptisch. Ende Oktober wies zudem eine Jury in Missouri eine Roundup-Klage ab, der große Glyphosat-Vergleich braucht aber noch die Zustimmung eines Gerichts. Der RSI von 75 zeigt, dass viel Zuversicht schon im Kurs steckt, und die fünf Tage liegen mit +1,7 % nur leicht im Plus.",
-   "ausblick": "Am wahrscheinlichsten ist eine Seitwärtsphase nahe dem Hoch mit Ausschlägen in beide Richtungen; die übliche Drei-Tage-Bewegung von 3,4 % liegt über der Hürde von 1,92 %, ein Anstieg darüber ist also möglich, aber nicht zu erwarten. Neue Impulse könnten von weiteren Kurszielanhebungen oder einer Nachricht zum Glyphosat-Vergleich kommen. Ohne neue Meldung droht nach dem starken Lauf eher eine Verschnaufpause.",
-   "szenarien": {
-    "gut": "Weitere Analysten heben ihre Ziele nach der US-Zulassung an und der DAX bleibt stabil.",
-    "schlecht": "Ein Rückschlag im Glyphosat-Streit oder Gewinnmitnahmen nach dem überhitzten Lauf drücken den Kurs."
-   },
-   "treiber": [
-    "US-Zulassung von Sunharbo",
-    "Angehobener Ausblick 2026",
-    "Kurszielanhebungen von UBS und Goldman"
-   ],
-   "risiken": [
-    "RSI 75 nach +27 % in vier Wochen",
-    "Glyphosat-Vergleich vor Gericht noch nicht genehmigt",
-    "Jefferies mit Ziel deutlich unter Kurs"
-   ],
-   "termine": [],
-   "quellen": [
-    {
-     "t": "Bayer erhält US-Freigabe für Blockbuster-Hoffnung Sunharbo",
-     "u": "https://www.boersen-zeitung.de/unternehmen-branchen/bayer-erhaelt-us-freigabe-fuer-blockbuster-hoffnung-sunharbo",
-     "q": "Börsen-Zeitung",
-     "d": "2026-11-09"
-    },
-    {
-     "t": "Bayer Aktie: UBS und Goldman wollen jetzt 66 Euro sehen",
-     "u": "https://www.finanztrends.de/news/bayer-aktie-ubs-goldman-wollen-jetzt-66-euro-sehen/",
-     "q": "Finanztrends",
-     "d": "2026-11-07"
-    },
-    {
-     "t": "Bayer Aktie: Gewinnmitnahmen nach starker Woche",
-     "u": "https://www.finanztrends.de/news/bayer-aktie-gewinnmitnahmen-nach-starker-woche/",
-     "q": "Finanztrends",
-     "d": "2026-11-08"
-    },
-    {
-     "t": "AKTIE IM FOKUS: Bayer nach US-Zulassung weiter gefragt",
-     "u": "https://de.finance.yahoo.com/nachrichten/aktie-fokus-bayer-us-zulassung-081204880.html?.tsrc=rss",
-     "q": "dpa-AFX/Yahoo Finanzen",
-     "d": "2026-11-10"
-    },
-    {
-     "t": "Bayer-Aktie: Diese Story hatte niemand erwartet",
-     "u": "https://www.boerse-express.com/news/articles/bayer-aktie--961469",
-     "q": "Börse Express",
-     "d": "2026-11-10"
-    }
-   ]
-  },
-  "FISV": {
-   "einschaetzung": "Sehr schwankungsfreudig mit Rückenwind vom Sparprogramm, aber spekulativ.",
-   "warum": "Fiserv ist in vier Wochen um 34 % gestiegen und schloss die Woche nur 0,2 % unter dem 10-Tage-Hoch, der RSI liegt bei 75. Anfang November verdoppelte der Konzern sein Sparziel auf 1 Mrd. US-Dollar und kündigte Aktienrückkäufe von 500 Mio. US-Dollar für das vierte Quartal an, obwohl das Quartal selbst schwach war. Zudem bereitet Fiserv den Verkauf eines Debit-Netzwerks vor. Dass Finanzinvestoren die Gespräche mit Global Payments abgebrochen haben, nimmt der Übernahmefantasie im Sektor etwas Schwung; neue Firmenmeldungen gab es seit Freitag nicht.",
-   "ausblick": "Die übliche Drei-Tage-Bewegung von 4,6 % ist deutlich größer als die Hürde von 1,92 %, die Aktie bewegt sich also stark, in beide Richtungen. Getragen von den Rückkäufen kann der Trend weiterlaufen, nach +34 % ist ein Rücksetzer aber genauso plausibel. Die Unsicherheit ist hoch.",
-   "szenarien": {
-    "gut": "Neue Details zum Netzwerk-Verkauf oder zu Rückkäufen halten das Kaufinteresse hoch.",
-    "schlecht": "Die Übernahmefantasie im Sektor verfliegt nach dem Global-Payments-Abbruch und Anleger nehmen Gewinne mit."
-   },
-   "treiber": [
-    "Sparziel auf 1 Mrd. US-Dollar verdoppelt",
-    "Aktienrückkäufe ab dem vierten Quartal",
-    "Möglicher Verkauf eines Debit-Netzwerks"
-   ],
-   "risiken": [
-    "Organischer Umsatz stagniert",
-    "Kurs laut TIKR über dem mittleren Analystenziel",
-    "Übernahmefantasie im Sektor schwindet"
-   ],
-   "termine": [],
-   "quellen": [
-    {
-     "t": "Fiserv Soars 26% in a Week on a $1 Billion Savings Plan: Buybacks Return “Earlier Than Anticipated”",
-     "u": "https://www.tikr.com/blog/fiserv-soars-26-in-a-week-on-a-1-billion-savings-plan-buybacks-return-earlier-than-anticipated",
-     "q": "TIKR",
-     "d": "2026-11-09"
-    },
-    {
-     "t": "Fiserv preps debit network sale",
-     "u": "https://www.paymentsdive.com/news/fiserv-preps-debit-network-sale/874395/",
-     "q": "Payments Dive",
-     "d": "2026-11-11"
-    },
-    {
-     "t": "GPN Stock On Track For Its Worst Day In About 19 Months As Private Equity Firms Reportedly Abandon Takeover Talks",
-     "u": "https://finance.yahoo.com/markets/stocks/articles/gpn-stock-track-worst-day-191826785.html",
-     "q": "Yahoo Finance/Stocktwits",
-     "d": "2026-11-12"
-    }
-   ]
-  },
-  "ROP": {
-   "einschaetzung": "Erholung nach starken Zahlen intakt, kurzfristig aber schon viel gelaufen.",
-   "warum": "Roper ist in vier Wochen um 25 % und in drei Monaten um 17 % gestiegen, der Trend zeigt aufwärts, der RSI liegt bei 71 und der Kurs 2,5 % unter dem 10-Tage-Hoch. Auslöser waren die Zahlen vom 22. Oktober mit einem Gewinn über den Erwartungen und der zweiten Prognoseanhebung in drei Monaten. Vorher war die Aktie wegen der Sorge, KI könne Branchensoftware verdrängen, deutlich günstiger bewertet, ein Teil der Erholung ist also Neubewertung. Neue Firmenmeldungen gab es seit Freitag nicht; die Schwäche bei Technologiewerten am Freitag ist ein Gegenwind.",
-   "ausblick": "Die übliche Sieben-Tage-Bewegung von 5,4 % liegt über der Hürde von 4,12 %, die nötige Steigerung ist also erreichbar. Nach dem schnellen Anstieg ist aber auch eine Seitwärtsphase wahrscheinlich, weil ohne neuen Termin der Impuls fehlt. Realistisch, aber eher mit Glück im Gesamtmarkt.",
-   "szenarien": {
-    "gut": "Die Neubewertung von Branchensoftware geht weiter und Roper markiert ein neues Hoch.",
-    "schlecht": "Neue KI-Sorgen um Softwarewerte oder steigende Zinsen lösen Gewinnmitnahmen aus."
-   },
-   "treiber": [
-    "Zweimal angehobene Jahresprognose",
-    "Neubewertung nach vorherigem Abschlag",
-    "Aktienrückkäufe"
-   ],
-   "risiken": [
-    "RSI 71 nach +25 % in vier Wochen",
-    "KI-Sorgen um Branchensoftware",
-    "Schwaches Zählergeschäft Neptune"
-   ],
-   "termine": [],
-   "quellen": [
-    {
-     "t": "Roper Technologies Soars 9.2% on Earnings Beat and Guidance Raise",
-     "u": "https://www.tikr.com/blog/roper-technologies-soars-9-2-on-earnings-beat-and-guidance-raise-exceeded-our-expectations?.tsrc=rss",
-     "q": "TIKR",
-     "d": "2026-10-22"
-    },
-    {
-     "t": "How Investors Are Reacting To Roper Technologies (ROP) Raised Earnings Guidance",
-     "u": "https://www.webull.com/news/15859159016446976",
-     "q": "Simply Wall St/Webull",
-     "d": "2026-11-03"
-    }
-   ]
-  },
-  "ALLE": {
-   "einschaetzung": "Stabiler Aufwärtstrend, neue Konferenzaussagen stützen eher als dass sie bremsen.",
-   "warum": "Allegion hat in vier Wochen 23 % zugelegt, die fünf Tage sind mit +3,6 % positiv und der Abstand zum 10-Tage-Hoch beträgt nur 0,4 %, der RSI liegt bei 70. Im Oktober übertraf der Konzern die Erwartungen und hob die Jahresprognose an. Auf der Baird-Konferenz am 12. November sagte das Management, das US-Geschäft mit Nichtwohngebäuden wachse wieder, elektronische Schlösser seien der stärkste Treiber und Rechenzentren das am schnellsten wachsende Segment. Wohnungsbau und Europa bleiben schwach; neue Firmenmeldungen gab es seit Freitag nicht.",
-   "ausblick": "Die übliche Sieben-Tage-Bewegung von 5,2 % liegt über der Hürde von 4,12 %. Der Trend ist intakt und durch angehobene Prognosen gestützt, ein neuer Impuls fehlt aber bis zur nächsten Zahlenvorlage. Die nötige Steigerung ist realistisch, aber nur bei anhaltend freundlicher Stimmung für Industriewerte.",
-   "szenarien": {
-    "gut": "Die Konferenz-Botschaft zieht weitere Käufer an und der Kurs markiert ein neues Hoch.",
-    "schlecht": "Enttäuschung über fehlende 2027-Prognose oder Schwäche bei Industriewerten."
-   },
-   "treiber": [
-    "Positive Aussagen zur Nachfrage bei Nichtwohngebäuden",
-    "Wachstum bei elektronischen Schlössern",
-    "Angehobene Jahresprognose"
-   ],
-   "risiken": [
-    "Wohnungsbau und Europa schwach",
-    "Keine formale Prognose für 2027",
-    "RSI nahe 70"
-   ],
-   "termine": [],
-   "quellen": [
-    {
-     "t": "Allegion at Baird 2026 Global Industrial Conference: growth leans on electronics",
-     "u": "https://www.investing.com/news/transcripts/allegion-at-baird-2026-global-industrial-conference-growth-leans-on-electronics-93CH-5023099",
-     "q": "Investing.com",
-     "d": "2026-11-12"
-    },
-    {
-     "t": "Allegion plc (ALLE) Presents at Baird 2026 Global Industrial Conference 2026 Transcript",
-     "u": "https://finnhub.io/api/news?id=957696fc79744c8bc22305ab681d86fa9600033d5ca21e6038f59c28f675c3cf",
-     "q": "SeekingAlpha",
-     "d": "2026-11-12"
-    }
-   ]
-  },
-  "HAS": {
-   "einschaetzung": "Starker Trend mit fundamentaler Stütze, Rückschlagrisiko nach dem Lauf aber spürbar.",
-   "warum": "Hasbro zählt mit +22 % in vier Wochen und +29 % in drei Monaten zu den stärksten Werten, der Trend ist aufwärts. Am Freitag notierte die Aktie 2,8 % unter dem 10-Tage-Hoch, die fünf Tage sind mit +1,4 % positiv und der RSI ist auf 68 abgekühlt. Hinter dem Lauf stehen deutlich gestiegene Gewinne, das Wachstum bei Magic: The Gathering und eine angehobene Jahresprognose; für 2027 sind mehrere große Magic-Sets angekündigt. Neue Firmenmeldungen gab es seit Freitag nicht, Spielzeugpreise steigen laut Branchenberichten vor Weihnachten so stark wie lange nicht.",
-   "ausblick": "Die übliche Drei-Tage-Bewegung von 3,4 % liegt über der Hürde von 1,92 %, nach der leichten Abkühlung ist ein neuer Anlauf Richtung Hoch denkbar. Ohne neue Nachricht hängt viel an der Stimmung im Gesamtmarkt. Das Muster „Abkühlung nach Übertreibung“ war im Rückblick nur leicht positiv und ist kein verlässlicher Grund.",
-   "szenarien": {
-    "gut": "Der jüngste Rücksetzer wird als Einstiegschance genutzt und die Aktie läuft zurück Richtung Hoch.",
-    "schlecht": "Weitere Gewinnmitnahmen nach dem starken Monat oder ein schwacher Gesamtmarkt wegen steigender Zinsen drücken den Kurs."
-   },
-   "treiber": [
-    "Starker Gewinntrend und angehobene Prognose",
-    "Magic: The Gathering als Wachstumstreiber",
-    "Weihnachtsgeschäft als Branchenthema"
-   ],
-   "risiken": [
-    "Mögliche Gewinnmitnahmen nach +22 % in vier Wochen",
-    "US-Rendite über 5 % belastet den Gesamtmarkt",
-    "Keine frischen Firmenmeldungen als Auslöser"
-   ],
-   "termine": [],
-   "quellen": [
-    {
-     "t": "HAS Stock Up 29% in a Month: Time to Lock in Gains or Stay Invested?",
-     "u": "https://finnhub.io/api/news?id=d44af88f90ccfbe3e093215b9d135b0a385770ec98de184ea4159ab10621ed60",
-     "q": "Yahoo",
-     "d": "2026-11-11"
-    },
-    {
-     "t": "Hasbro's 2027 Magic Pipeline: Can New Sets Extend the Growth Run?",
-     "u": "https://finnhub.io/api/news?id=98914b208282b543bb07aae0cc37401abd774cf56f6a0d5c2874fa8683be9267",
-     "q": "Yahoo",
-     "d": "2026-11-12"
-    }
-   ]
-  },
-  "MCK": {
-   "einschaetzung": "Langfristiger Aufwärtstrend mit starkem Geschäft, hohe Bewertung.",
-   "warum": "McKesson steigt seit Monaten (drei Monate +32 %) und notiert am 10-Tage-Hoch, der RSI liegt bei 75. Der Umsatz wuchs im Quartal um 8 % auf rund 111 Mrd. US-Dollar, getragen von GLP-1-Abnehmmitteln und dem Onkologie-Geschäft, die Gewinnprognose wurde angehoben. Schwächer lief das Medizinbedarfs-Geschäft, das abgespalten werden soll. Erkannte Muster waren im Rückblick nur leicht positiv bzw. ohne klaren Vorteil; neue Firmenmeldungen seit Freitag gab es nicht.",
-   "ausblick": "Die übliche 30-Tage-Bewegung von 9,5 % liegt unter der Hürde von 17,44 %, die nötige Steigerung ist unwahrscheinlich. Wahrscheinlich setzt sich der Trend gemächlich fort, getragen von der starken Geschäftslage und der Umschichtung in defensive Gesundheitswerte. Rücksetzer nach dem RSI von 75 sind möglich.",
-   "szenarien": {
-    "gut": "Weiter starke Nachfrage nach Spezialmedikamenten und Fortschritte bei der Abspaltung.",
-    "schlecht": "Politischer Druck auf Arzneimittelpreise oder Rotation aus Gesundheitswerten."
-   },
-   "treiber": [
-    "GLP-1-Nachfrage",
-    "Onkologie-Wachstum",
-    "Geplante Abspaltung"
-   ],
-   "risiken": [
-    "Hohe Bewertung",
-    "RSI 75",
-    "Medizinbedarf schwach"
-   ],
-   "termine": [
-    "8.–9.12.2026: Fed-Zinsentscheid"
-   ],
-   "quellen": [
-    {
-     "t": "McKesson Revenue Grows 8% to $111 Billion as Specialty Segments Expand",
-     "u": "https://www.panabee.com/news/mckesson-earnings-q2-2027",
-     "q": "Panabee",
-     "d": "2026-11-04"
-    },
-    {
-     "t": "Sales of Pharmaceuticals, GLP-1s Send McKesson Shares to New Highs",
-     "u": "https://finnhub.io/api/news?id=518a5b94b7d31b5b2049c0b5f19ed80f79e1924c58704a18fe50c554ef62e58e",
-     "q": "Yahoo",
-     "d": "2026-11-11"
-    },
-    {
-     "t": "Here is What to Know Beyond Why McKesson Corporation (MCK) is a Trending Stock",
-     "u": "https://finnhub.io/api/news?id=f1e7369dd420924baa020162162509c01137088ec609f61c6de7196fade171f0",
-     "q": "Yahoo",
-     "d": "2026-11-11"
-    }
-   ]
-  },
-  "MTD": {
-   "einschaetzung": "Fundamental gut unterlegt, die 30-Tage-Hürde ist aber sehr hoch.",
-   "warum": "Mettler-Toledo hat die Jahresprognose zum dritten Mal angehoben, das Laborgeschäft und China erholen sich. Barclays hob das Kursziel auf 1.900 US-Dollar, JP Morgan auf 1.840 US-Dollar. Die Aktie stieg in drei Monaten um 25 %, liegt 1,3 % unter dem 10-Tage-Hoch und der RSI von 64 ist nicht überhitzt. Diese Woche präsentierte sich das Management auf Konferenzen von UBS und Stifel ohne neue Zahlen; das Muster „Ausbruch aus ruhiger Seitwärtsphase“ zeigte im Rückblick keinen klaren Vorteil.",
-   "ausblick": "Die übliche 30-Tage-Bewegung von 8,6 % liegt weit unter der Hürde von 17,44 %; ein Anstieg in dieser Größe ist unwahrscheinlich. Wahrscheinlicher ist ein moderater weiterer Anstieg im Trend. Die Auswahl beruht auf solider Geschäftslage, nicht auf der Erwartung, die Hürde sicher zu erreichen.",
-   "szenarien": {
-    "gut": "Weitere Analysten heben Ziele und der Lab-Sektor bleibt gefragt.",
-    "schlecht": "Steigende Zinsen drücken auf hoch bewertete Qualitätswerte."
-   },
-   "treiber": [
-    "Dreimal angehobene Prognose",
-    "Erholung in China und im Laborgeschäft",
-    "Kurszielanhebungen"
-   ],
-   "risiken": [
-    "Hohe Bewertung",
-    "30-Tage-Hürde weit über üblicher Bewegung",
-    "Zinsanstieg"
-   ],
-   "termine": [
-    "8.–9.12.2026: Fed-Zinsentscheid"
-   ],
-   "quellen": [
-    {
-     "t": "Mettler-Toledo raises guidance for a third time as lab and China recovery broadens",
-     "u": "https://finviz.com/news/418548/mettler-toledo-raises-guidance-for-a-third-time-as-lab-and-china-recovery-broadens-but-earnings-growth-is-holding-in-a-low-teens-band",
-     "q": "Earnings Whispers/Finviz",
-     "d": "2026-11-06"
-    },
-    {
-     "t": "Barclays Maintains Overweight on Mettler-Toledo Intl, Raises Price Target to $1900",
-     "u": "https://finnhub.io/api/news?id=d789279bc21a9b256e9e748263167377cdd1dd3e2df618c3a5b721ecb4d90593",
-     "q": "Benzinga",
-     "d": "2026-11-09"
-    },
-    {
-     "t": "JP Morgan Maintains Neutral on Mettler-Toledo Intl, Raises Price Target to $1840",
-     "u": "https://finnhub.io/api/news?id=4b6f5fd27f9bc3104b0c4ba5ad4faf6cae053ab3ab9285fc2fcaf1147eaacf27",
-     "q": "Benzinga",
-     "d": "2026-11-10"
-    },
-    {
-     "t": "Mettler-Toledo International Inc. (MTD) Presents at Stifel 2026 Healthcare Conference 2026 Transcript",
-     "u": "https://finnhub.io/api/news?id=5b664918e1d44fab05d5f42711f75c3f5dfd8f05db9d7a6608b6a4eefa2496af",
-     "q": "SeekingAlpha",
-     "d": "2026-11-12"
-    }
-   ]
-  },
-  "CAH": {
-   "einschaetzung": "Starkes Geschäft und angehobene Prognose, kurzfristig aber überhitzt.",
-   "warum": "Cardinal Health ist in drei Monaten um 23 % gestiegen und notiert am 10-Tage-Hoch, der RSI von 79 zeigt eine deutliche Überhitzung. Am 5. November meldete der Konzern ein starkes erstes Geschäftsquartal mit 28 % mehr bereinigtem Gewinn je Aktie und hob die Jahresprognose auf 12,80 bis 13,00 US-Dollar an. Treiber ist das Pharma- und Spezialmedikamentengeschäft, während das Medizinprodukte-Geschäft weniger verdiente. Argus hob das Kursziel auf 309 US-Dollar.",
-   "ausblick": "Die übliche 30-Tage-Bewegung von 8,1 % liegt weit unter der Hürde von 17,44 %, die nötige Steigerung ist unwahrscheinlich. Wahrscheinlich ist ein weiterer, aber gemächlicherer Anstieg oder nach dem hohen RSI zunächst eine Pause. Die Wahl beruht auf der soliden Geschäftslage, nicht auf einem schnellen Sprung.",
-   "szenarien": {
-    "gut": "Weitere Analysten heben Ziele an und Anleger bleiben in defensiven Gesundheitswerten.",
-    "schlecht": "Gewinnmitnahmen nach der Überhitzung oder politischer Druck auf Arzneimittelpreise."
-   },
-   "treiber": [
-    "Angehobene Jahresprognose",
-    "Wachstum bei Spezialmedikamenten",
-    "Kurszielanhebung durch Argus"
-   ],
-   "risiken": [
-    "RSI 79 überhitzt",
-    "Schwaches Medizinprodukte-Geschäft",
-    "30-Tage-Hürde weit über üblicher Bewegung"
-   ],
-   "termine": [
-    "8.–9.12.2026: Fed-Zinsentscheid"
-   ],
-   "quellen": [
-    {
-     "t": "Cardinal Health Reports First Quarter Fiscal Year 2027 Results and Raises Outlook",
-     "u": "https://finviz.com/news/416625/cardinal-health-reports-first-quarter-fiscal-year-2027-results-and-raises-outlook",
-     "q": "PR Newswire/Finviz",
-     "d": "2026-11-05"
-    },
-    {
-     "t": "Argus Research Maintains Buy on Cardinal Health, Raises Price Target to $309",
-     "u": "https://finnhub.io/api/news?id=33c19bf8cc431430f7136e1fba40a39836f4100e055f7aba00edf3999157a8f4",
-     "q": "Benzinga",
-     "d": "2026-11-12"
-    },
-    {
-     "t": "Cardinal Health Board of Directors Approves Quarterly Dividend",
-     "u": "https://finnhub.io/api/news?id=57ff314efdb627ab4dc9b3d45595c344397c104fc327339e006487e640eaa7e8",
-     "q": "Yahoo",
-     "d": "2026-11-11"
-    }
-   ]
-  },
-  "HNR1.DE": {
-   "einschaetzung": "Solide Gewinnlage, aber Analysten warnen vor dem Ende des Preiszyklus.",
-   "warum": "Hannover Rück ist in drei Monaten um 20 % gestiegen, hat in den letzten fünf Tagen 2,3 % zugelegt und liegt 2,2 % unter dem 10-Tage-Hoch; der RSI von 67 ist nicht überhitzt. Im dritten Quartal lag der Gewinn über den Erwartungen, nach neun Monaten stieg er auf 2,1 Mrd. Euro, und das Jahresziel von mindestens 2,7 Mrd. Euro wurde bestätigt. Weil die Großschäden deutlich unter Budget lagen, will der Konzern überschüssigen Spielraum eher in Reserven stecken. JPMorgan stufte die Aktie Anfang November auf „Underweight“ mit Ziel 270 Euro ab, weil die Preise in der Rückversicherung sinken.",
-   "ausblick": "Die übliche 30-Tage-Bewegung von 6,8 % liegt weit unter der Hürde von 17,44 %, die nötige Steigerung ist unrealistisch. Wahrscheinlich bleibt die Aktie im Aufwärtstrend, aber mit begrenztem Tempo, solange die Preisrunde zum Jahreswechsel offen ist. Für Unruhe könnten Nachrichten zu sinkenden Rückversicherungspreisen sorgen.",
-   "szenarien": {
-    "gut": "Ruhige Schadenssaison und stabile Preise in der Erneuerungsrunde stützen den Kurs.",
-    "schlecht": "Deutlich sinkende Preise zum Jahreswechsel oder ein Großschaden belasten."
-   },
-   "treiber": [
-    "Gewinn über Erwartungen, Jahresziel bestätigt",
-    "Großschäden unter Budget",
-    "Aufwärtstrend intakt"
-   ],
-   "risiken": [
-    "Sinkende Rückversicherungspreise",
-    "JPMorgan-Abstufung mit Ziel unter Kurs",
-    "30-Tage-Hürde weit über üblicher Bewegung"
-   ],
-   "termine": [
-    "8.–9.12.2026: Fed-Zinsentscheid"
-   ],
-   "quellen": [
-    {
-     "t": "Hannover Rück bekräftigt Gewinnziel von 2,7 Mrd. Euro",
-     "u": "https://www.boersen-zeitung.de/banken-finanzen/hannover-rueck-bekraeftigt-gewinnziel-von-27-mrd-euro",
-     "q": "Börsen-Zeitung",
-     "d": "2026-11-09"
-    },
-    {
-     "t": "ANALYSE-FLASH: JPMorgan senkt Hannover Rück auf 'Underweight' - Ziel 270 Euro",
-     "u": "https://de.finance.yahoo.com/nachrichten/analyse-flash-jpmorgan-senkt-hannover-063502311.html?.tsrc=rss",
-     "q": "dpa-AFX/Yahoo Finanzen",
-     "d": "2026-11-06"
-    },
-    {
-     "t": "ROUNDUP: Hannover Rück will Rekordgewinn zugunsten von Reserven deckeln",
-     "u": "https://de.finance.yahoo.com/nachrichten/roundup-hannover-r%C3%BCck-will-rekordgewinn-100133942.html?.tsrc=rss",
-     "q": "dpa-AFX/Yahoo Finanzen",
-     "d": "2026-11-09"
-    }
-   ]
-  },
-  "BRK-B": {
-   "einschaetzung": "Ruhiger, stetiger Trend, für eine große Bewegung aber zu träge.",
-   "warum": "Berkshire steigt stetig (drei Monate +19 %, fünf Tage +3,9 %) und schloss die Woche am 10-Tage-Hoch, der RSI von 81 zeigt allerdings eine kurzfristige Überhitzung. Im dritten Quartal kaufte der Konzern verstärkt eigene Aktien zurück, der operative Gewinn sank vor allem wegen Geico. Am Montag, 16. November, endet die Frist für die Quartalsübersicht der Beteiligungen (13F), die Aufmerksamkeit bringen kann. Bei fallenden Technologiewerten wie am Freitag gilt der Wert als sicherer Hafen.",
-   "ausblick": "Die übliche 30-Tage-Bewegung von 5 % liegt weit unter der Hürde von 17,44 %, die nötige Steigerung ist sehr unwahrscheinlich. Wahrscheinlich ist eine ruhige Fortsetzung des Trends, nach dem überhitzten RSI auch eine Seitwärtsphase. Der Wert dient eher als stabiler Baustein.",
-   "szenarien": {
-    "gut": "Anhaltende Marktunruhe treibt Anleger in defensive Qualitätswerte.",
-    "schlecht": "Abkühlung nach der Überhitzung oder schwache Versicherungssparte."
-   },
-   "treiber": [
-    "Aktienrückkäufe",
-    "Sicherer Hafen in unruhigen Märkten",
-    "13F-Veröffentlichung"
-   ],
-   "risiken": [
-    "RSI 81 überhitzt",
-    "Operativer Gewinn gesunken",
-    "Träge Bewegung"
-   ],
-   "termine": [
-    "16.11.2026: Frist für die 13F-Meldung der Beteiligungen",
-    "8.–9.12.2026: Fed-Zinsentscheid"
-   ],
-   "quellen": [
-    {
-     "t": "Berkshire Hathaway accelerates stock buybacks, operating profit falls",
-     "u": "https://gvwire.com/2026/11/07/berkshire-hathaway-accelerates-stock-buybacks-operating-profit-falls/",
-     "q": "GV Wire (Reuters)",
-     "d": "2026-11-07"
-    },
-    {
-     "t": "Berkshire Kept Buying Back Stock as Shares Hit Records",
-     "u": "https://www.fool.com/investing/2026/11/09/berkshire-kept-buying-back-stock-as-shares-hit-records-heres-what-the-price-it-paid-tells-you/",
-     "q": "The Motley Fool",
-     "d": "2026-11-09"
-    },
-    {
-     "t": "Famous Investors Face a Nov. 16 Holdings Deadline While Recent Filings Fill In the Gap",
-     "u": "https://lifestyle.middletownlifemagazine.com/story/825084/famous-investors-face-a-nov-16-holdings-deadline-while-recent-filings-fill-in-the-gap/",
-     "q": "Middletown Life",
-     "d": "2026-11-12"
-    }
-   ]
   }
  },
  "format": {
