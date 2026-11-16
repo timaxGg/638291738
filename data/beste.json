@@ -1,21 +1,27 @@
 {
- "id": "b-2026-11-15-abends",
- "datum": "2026-11-15",
- "slot": "abends",
- "erstellt": "2026-11-15T19:15:51+01:00",
- "markt": "Am Sonntag wird nicht gehandelt, Grundlage bleiben die Schlusskurse vom Freitag: Die Wall Street schloss eine schwankungsreiche Woche uneinheitlich mit Schwäche bei Technologiewerten, der DAX legte nach seinem Rekord eine Pause ein. Steigende US-Renditen und die Sorge vor einer Zinserhöhung im Dezember bleiben der wichtigste Gegenwind. Auch bis zum Sonntagabend fanden sich zu den ausgewählten Werten keine neuen kursrelevanten Meldungen, die Einschätzungen vom Morgen gelten daher unverändert; wie der Markt am Montag startet, ist offen.",
+ "id": "b-2026-11-16-morgens",
+ "datum": "2026-11-16",
+ "slot": "morgens",
+ "erstellt": "2026-11-16T07:17:00+01:00",
+ "markt": "Zum Wochenstart deutet der DAX-Future im frühen Handel nur leichte Gewinne an, nachdem der Index am Freitag nach seinem Rekord eine Pause einlegte und die Wall Street mit Schwäche bei Technologiewerten uneinheitlich schloss. Die Woche wird von den Nvidia-Zahlen am Dienstagabend, den US-Einzelhandelsumsätzen am Dienstag und dem Fed-Protokoll am Mittwoch geprägt; laut Wochenausblick preist der Markt eine Zinserhöhung im Dezember zu rund 89 % ein. Zu den ausgewählten Werten gab es übers Wochenende keine neuen kursrelevanten Firmenmeldungen, die Unsicherheit liegt diese Woche eher beim Gesamtmarkt.",
  "marktQuellen": [
   {
-   "t": "Stock market today: Dow rises, S&P 500 and Nasdaq slip to cap volatile week, Nvidia stock plunge deepens",
-   "u": "https://finance.yahoo.com/markets/live/stock-market-today-friday-november-13-dow-sp-500-nasdaq-nvidia-ppi-141451558.html",
-   "q": "Yahoo Finance",
-   "d": "2026-11-13"
+   "t": "EUREX/DAX-Futures im Frühhandel wenig verändert",
+   "u": "https://www.finanzen.net/nachricht/aktien/eurex-dax-futures-im-fruehhandel-wenig-veraendert-16067407",
+   "q": "Dow Jones/finanzen.net",
+   "d": "2026-11-16"
   },
   {
-   "t": "ROUNDUP/Aktien Frankfurt Schluss: Dax trotzt Nasdaq-Schwäche - Pause nach Rekord",
-   "u": "https://www.onvista.de/news/2026/11-13-roundup-aktien-frankfurt-schluss-dax-trotzt-nasdaq-schwaeche-pause-nach-rekord-0-10-26576248",
-   "q": "dpa-AFX/onvista",
-   "d": "2026-11-13"
+   "t": "DER AKTIONÄR Wochenradar: 16. bis 22. November 2026",
+   "u": "https://www.deraktionaer.de/artikel/maerkte-forex-zinsen/der-aktionaer-wochenradar-16-bis-22-november-2026-20442753.html",
+   "q": "Der Aktionär",
+   "d": "2026-11-15"
+  },
+  {
+   "t": "TAGESVORSCHAU: Termine am 16. November 2026",
+   "u": "https://www.boerse.de/nachrichten/TAGESVORSCHAU-Termine-am-16-November-2026/38719671",
+   "q": "dpa-AFX/boerse.de",
+   "d": "2026-11-16"
   }
  ],
  "listen": {
@@ -24,7 +30,7 @@
     "s": "BAYN.DE",
     "einschaetzung": "Chancen überwiegen leicht, aber kurzfristig schon gut gelaufen",
     "warum": "Bayer steht in der Rechnung für drei Tage ganz oben: plus 27 % in vier Wochen, plus 18 % in drei Monaten, Aufwärtstrend und nur knapp 1 % unter dem 10-Tage-Hoch. Den Schub lieferten ein Quartal mit angehobenem Ausblick für den operativen Gewinn und die US-Zulassung des Gerinnungshemmers Sunharbo am 9. November, nachdem China das Mittel schon Ende Oktober freigegeben hatte. UBS und Goldman Sachs hoben ihre Kursziele auf 66 Euro, Jefferies bleibt dagegen mit 48,50 Euro skeptisch. Ende Oktober wies zudem eine Jury in Missouri eine Roundup-Klage ab, der große Glyphosat-Vergleich braucht aber noch die Zustimmung eines Gerichts. Der RSI von 75 zeigt, dass viel Zuversicht schon im Kurs steckt, und die fünf Tage liegen mit +1,7 % nur leicht im Plus.",
-    "ausblick": "Am wahrscheinlichsten ist eine Seitwärtsphase nahe dem Hoch mit Ausschlägen in beide Richtungen; die übliche Drei-Tage-Bewegung von 3,4 % liegt über der Hürde von 1,92 %, ein Anstieg darüber ist also möglich, aber nicht zu erwarten. Neue Impulse könnten von weiteren Kurszielanhebungen oder einer Nachricht zum Glyphosat-Vergleich kommen. Ohne neue Meldung droht nach dem starken Lauf eher eine Verschnaufpause.",
+    "ausblick": "Am wahrscheinlichsten ist eine Seitwärtsphase nahe dem Hoch mit Ausschlägen in beide Richtungen; die übliche Drei-Tage-Bewegung von 3,4 % liegt über der Hürde von 1,92 %, ein Anstieg darüber ist also möglich, aber nicht zu erwarten. Neue Impulse könnten von weiteren Kurszielanhebungen oder einer Nachricht zum Glyphosat-Vergleich kommen. Ohne neue Meldung droht nach dem starken Lauf eher eine Verschnaufpause. Die Nvidia-Zahlen am Dienstagabend können die Stimmung am Gesamtmarkt kurzfristig drehen.",
     "szenarien": {
      "gut": "Weitere Analysten heben ihre Ziele nach der US-Zulassung an und der DAX bleibt stabil.",
      "schlecht": "Ein Rückschlag im Glyphosat-Streit oder Gewinnmitnahmen nach dem überhitzten Lauf drücken den Kurs."
@@ -39,7 +45,11 @@
      "Glyphosat-Vergleich vor Gericht noch nicht genehmigt",
      "Jefferies mit Ziel deutlich unter Kurs"
     ],
-    "termine": [],
+    "termine": [
+     "17.11.2026: US-Einzelhandelsumsätze Oktober",
+     "17.11.2026: Nvidia-Quartalszahlen nach US-Börsenschluss",
+     "18.11.2026: Protokoll der Fed-Sitzung vom 28. Oktober"
+    ],
     "zuversicht": "mittel",
     "quellen": [
      {
@@ -77,8 +87,8 @@
    {
     "s": "FISV",
     "einschaetzung": "Sehr schwankungsfreudig mit Rückenwind vom Sparprogramm, aber spekulativ.",
-    "warum": "Fiserv ist in vier Wochen um 34 % gestiegen und schloss die Woche nur 0,2 % unter dem 10-Tage-Hoch, der RSI liegt bei 75. Anfang November verdoppelte der Konzern sein Sparziel auf 1 Mrd. US-Dollar und kündigte Aktienrückkäufe von 500 Mio. US-Dollar für das vierte Quartal an, obwohl das Quartal selbst schwach war. Zudem bereitet Fiserv den Verkauf eines Debit-Netzwerks vor. Dass Finanzinvestoren die Gespräche mit Global Payments abgebrochen haben, nimmt der Übernahmefantasie im Sektor etwas Schwung; neue Firmenmeldungen gab es seit Freitag nicht.",
-    "ausblick": "Die übliche Drei-Tage-Bewegung von 4,6 % ist deutlich größer als die Hürde von 1,92 %, die Aktie bewegt sich also stark, in beide Richtungen. Getragen von den Rückkäufen kann der Trend weiterlaufen, nach +34 % ist ein Rücksetzer aber genauso plausibel. Die Unsicherheit ist hoch.",
+    "warum": "Fiserv ist in vier Wochen um 34 % gestiegen und schloss die Woche nur 0,2 % unter dem 10-Tage-Hoch, der RSI liegt bei 75. Anfang November verdoppelte der Konzern sein Sparziel auf 1 Mrd. US-Dollar und kündigte Aktienrückkäufe von 500 Mio. US-Dollar für das vierte Quartal an, obwohl das Quartal selbst schwach war. Zudem bereitet Fiserv den Verkauf eines Debit-Netzwerks vor. Dass Finanzinvestoren die Gespräche mit Global Payments abgebrochen haben, nimmt der Übernahmefantasie im Sektor etwas Schwung; übers Wochenende gab es keine neuen Firmenmeldungen.",
+    "ausblick": "Die übliche Drei-Tage-Bewegung von 4,6 % ist deutlich größer als die Hürde von 1,92 %, die Aktie bewegt sich also stark, in beide Richtungen. Getragen von den Rückkäufen kann der Trend weiterlaufen, nach +34 % ist ein Rücksetzer aber genauso plausibel. Die Unsicherheit ist hoch. Die Nvidia-Zahlen am Dienstagabend können die Stimmung am Gesamtmarkt kurzfristig drehen.",
     "szenarien": {
      "gut": "Neue Details zum Netzwerk-Verkauf oder zu Rückkäufen halten das Kaufinteresse hoch.",
      "schlecht": "Die Übernahmefantasie im Sektor verfliegt nach dem Global-Payments-Abbruch und Anleger nehmen Gewinne mit."
@@ -93,7 +103,11 @@
      "Kurs laut TIKR über dem mittleren Analystenziel",
      "Übernahmefantasie im Sektor schwindet"
     ],
-    "termine": [],
+    "termine": [
+     "17.11.2026: US-Einzelhandelsumsätze Oktober",
+     "17.11.2026: Nvidia-Quartalszahlen nach US-Börsenschluss",
+     "18.11.2026: Protokoll der Fed-Sitzung vom 28. Oktober"
+    ],
     "zuversicht": "niedrig",
     "quellen": [
      {
@@ -119,8 +133,8 @@
    {
     "s": "ROP",
     "einschaetzung": "Erholung nach starken Zahlen intakt, kurzfristig aber schon viel gelaufen.",
-    "warum": "Roper ist in vier Wochen um 25 % und in drei Monaten um 17 % gestiegen, der Trend zeigt aufwärts, der RSI liegt bei 71 und der Kurs 2,5 % unter dem 10-Tage-Hoch. Auslöser waren die Zahlen vom 22. Oktober mit einem Gewinn über den Erwartungen und der zweiten Prognoseanhebung in drei Monaten. Vorher war die Aktie wegen der Sorge, KI könne Branchensoftware verdrängen, deutlich günstiger bewertet, ein Teil der Erholung ist also Neubewertung. Neue Firmenmeldungen gab es seit Freitag nicht; die Schwäche bei Technologiewerten am Freitag ist ein Gegenwind.",
-    "ausblick": "Die übliche Sieben-Tage-Bewegung von 5,4 % liegt über der Hürde von 4,12 %, die nötige Steigerung ist also erreichbar. Nach dem schnellen Anstieg ist aber auch eine Seitwärtsphase wahrscheinlich, weil ohne neuen Termin der Impuls fehlt. Realistisch, aber eher mit Glück im Gesamtmarkt.",
+    "warum": "Roper ist in vier Wochen um 25 % und in drei Monaten um 17 % gestiegen, der Trend zeigt aufwärts, der RSI liegt bei 71 und der Kurs 2,5 % unter dem 10-Tage-Hoch. Auslöser waren die Zahlen vom 22. Oktober mit einem Gewinn über den Erwartungen und der zweiten Prognoseanhebung in drei Monaten. Vorher war die Aktie wegen der Sorge, KI könne Branchensoftware verdrängen, deutlich günstiger bewertet, ein Teil der Erholung ist also Neubewertung. Übers Wochenende gab es keine neuen Firmenmeldungen; die Schwäche bei Technologiewerten am Freitag ist ein Gegenwind.",
+    "ausblick": "Die übliche Drei-Tage-Bewegung von 3,6 % liegt über der Hürde von 1,92 %, die nötige Steigerung ist also erreichbar. Als Softwarewert hängt Roper diese Woche auch an der Stimmung rund um die Nvidia-Zahlen am Dienstagabend. Ohne eigenen Termin ist eine Seitwärtsphase ebenso wahrscheinlich wie ein neuer Anlauf zum Hoch.",
     "szenarien": {
      "gut": "Die Neubewertung von Branchensoftware geht weiter und Roper markiert ein neues Hoch.",
      "schlecht": "Neue KI-Sorgen um Softwarewerte oder steigende Zinsen lösen Gewinnmitnahmen aus."
@@ -135,7 +149,11 @@
      "KI-Sorgen um Branchensoftware",
      "Schwaches Zählergeschäft Neptune"
     ],
-    "termine": [],
+    "termine": [
+     "17.11.2026: US-Einzelhandelsumsätze Oktober",
+     "17.11.2026: Nvidia-Quartalszahlen nach US-Börsenschluss",
+     "18.11.2026: Protokoll der Fed-Sitzung vom 28. Oktober"
+    ],
     "zuversicht": "niedrig",
     "quellen": [
      {
@@ -155,8 +173,8 @@
    {
     "s": "ALLE",
     "einschaetzung": "Stabiler Aufwärtstrend, neue Konferenzaussagen stützen eher als dass sie bremsen.",
-    "warum": "Allegion hat in vier Wochen 23 % zugelegt, die fünf Tage sind mit +3,6 % positiv und der Abstand zum 10-Tage-Hoch beträgt nur 0,4 %, der RSI liegt bei 70. Im Oktober übertraf der Konzern die Erwartungen und hob die Jahresprognose an. Auf der Baird-Konferenz am 12. November sagte das Management, das US-Geschäft mit Nichtwohngebäuden wachse wieder, elektronische Schlösser seien der stärkste Treiber und Rechenzentren das am schnellsten wachsende Segment. Wohnungsbau und Europa bleiben schwach; neue Firmenmeldungen gab es seit Freitag nicht.",
-    "ausblick": "Die übliche Sieben-Tage-Bewegung von 5,2 % liegt über der Hürde von 4,12 %. Der Trend ist intakt und durch angehobene Prognosen gestützt, ein neuer Impuls fehlt aber bis zur nächsten Zahlenvorlage. Die nötige Steigerung ist realistisch, aber nur bei anhaltend freundlicher Stimmung für Industriewerte.",
+    "warum": "Allegion hat in vier Wochen 23 % zugelegt, die fünf Tage sind mit +3,6 % positiv und der Abstand zum 10-Tage-Hoch beträgt nur 0,4 %, der RSI liegt bei 70. Im Oktober übertraf der Konzern die Erwartungen und hob die Jahresprognose an. Auf der Baird-Konferenz am 12. November sagte das Management, das US-Geschäft mit Nichtwohngebäuden wachse wieder, elektronische Schlösser seien der stärkste Treiber und Rechenzentren das am schnellsten wachsende Segment. Wohnungsbau und Europa bleiben schwach; übers Wochenende gab es keine neuen Firmenmeldungen.",
+    "ausblick": "Die übliche Sieben-Tage-Bewegung von 5,2 % liegt über der Hürde von 4,12 %. Der Trend ist intakt und durch angehobene Prognosen gestützt, ein neuer Impuls fehlt aber bis zur nächsten Zahlenvorlage. Die nötige Steigerung ist realistisch, aber nur bei anhaltend freundlicher Stimmung für Industriewerte. Die Nvidia-Zahlen am Dienstagabend können die Stimmung am Gesamtmarkt kurzfristig drehen.",
     "szenarien": {
      "gut": "Die Konferenz-Botschaft zieht weitere Käufer an und der Kurs markiert ein neues Hoch.",
      "schlecht": "Enttäuschung über fehlende 2027-Prognose oder Schwäche bei Industriewerten."
@@ -171,7 +189,11 @@
      "Keine formale Prognose für 2027",
      "RSI nahe 70"
     ],
-    "termine": [],
+    "termine": [
+     "17.11.2026: US-Einzelhandelsumsätze Oktober",
+     "17.11.2026: Nvidia-Quartalszahlen nach US-Börsenschluss",
+     "18.11.2026: Protokoll der Fed-Sitzung vom 28. Oktober"
+    ],
     "zuversicht": "mittel",
     "quellen": [
      {
@@ -191,8 +213,8 @@
    {
     "s": "HAS",
     "einschaetzung": "Starker Trend mit fundamentaler Stütze, Rückschlagrisiko nach dem Lauf aber spürbar.",
-    "warum": "Hasbro zählt mit +22 % in vier Wochen und +29 % in drei Monaten zu den stärksten Werten, der Trend ist aufwärts. Am Freitag notierte die Aktie 2,8 % unter dem 10-Tage-Hoch, die fünf Tage sind mit +1,4 % positiv und der RSI ist auf 68 abgekühlt. Hinter dem Lauf stehen deutlich gestiegene Gewinne, das Wachstum bei Magic: The Gathering und eine angehobene Jahresprognose; für 2027 sind mehrere große Magic-Sets angekündigt. Neue Firmenmeldungen gab es seit Freitag nicht, Spielzeugpreise steigen laut Branchenberichten vor Weihnachten so stark wie lange nicht.",
-    "ausblick": "Die übliche Drei-Tage-Bewegung von 3,4 % liegt über der Hürde von 1,92 %, nach der leichten Abkühlung ist ein neuer Anlauf Richtung Hoch denkbar. Ohne neue Nachricht hängt viel an der Stimmung im Gesamtmarkt. Das Muster „Abkühlung nach Übertreibung“ war im Rückblick nur leicht positiv und ist kein verlässlicher Grund.",
+    "warum": "Hasbro zählt mit +22 % in vier Wochen und +29 % in drei Monaten zu den stärksten Werten, der Trend ist aufwärts. Am Freitag notierte die Aktie 2,8 % unter dem 10-Tage-Hoch, die fünf Tage sind mit +1,4 % positiv und der RSI ist auf 68 abgekühlt. Hinter dem Lauf stehen deutlich gestiegene Gewinne, das Wachstum bei Magic: The Gathering und eine angehobene Jahresprognose; für 2027 sind mehrere große Magic-Sets angekündigt. Übers Wochenende gab es keine neuen Firmenmeldungen, Spielzeugpreise steigen laut Branchenberichten vor Weihnachten so stark wie lange nicht.",
+    "ausblick": "Die übliche Drei-Tage-Bewegung von 3,4 % liegt über der Hürde von 1,92 %, nach der leichten Abkühlung ist ein neuer Anlauf Richtung Hoch denkbar. Ohne neue Nachricht hängt viel an der Stimmung im Gesamtmarkt. Das Muster „Abkühlung nach Übertreibung“ war im Rückblick nur leicht positiv und ist kein verlässlicher Grund. Die Nvidia-Zahlen am Dienstagabend können die Stimmung am Gesamtmarkt kurzfristig drehen.",
     "szenarien": {
      "gut": "Der jüngste Rücksetzer wird als Einstiegschance genutzt und die Aktie läuft zurück Richtung Hoch.",
      "schlecht": "Weitere Gewinnmitnahmen nach dem starken Monat oder ein schwacher Gesamtmarkt wegen steigender Zinsen drücken den Kurs."
@@ -207,7 +229,11 @@
      "US-Rendite über 5 % belastet den Gesamtmarkt",
      "Keine frischen Firmenmeldungen als Auslöser"
     ],
-    "termine": [],
+    "termine": [
+     "17.11.2026: US-Einzelhandelsumsätze Oktober",
+     "17.11.2026: Nvidia-Quartalszahlen nach US-Börsenschluss",
+     "18.11.2026: Protokoll der Fed-Sitzung vom 28. Oktober"
+    ],
     "zuversicht": "mittel",
     "quellen": [
      {
@@ -229,8 +255,8 @@
    {
     "s": "HAS",
     "einschaetzung": "Chancen überwiegen leicht, Hürde aber hoch",
-    "warum": "Hasbro zählt mit +22 % in vier Wochen und +29 % in drei Monaten zu den stärksten Werten, der Trend ist aufwärts. Am Freitag notierte die Aktie 2,8 % unter dem 10-Tage-Hoch, die fünf Tage sind mit +1,4 % positiv und der RSI ist auf 68 abgekühlt. Hinter dem Lauf stehen deutlich gestiegene Gewinne, das Wachstum bei Magic: The Gathering und eine angehobene Jahresprognose; für 2027 sind mehrere große Magic-Sets angekündigt. Neue Firmenmeldungen gab es seit Freitag nicht, Spielzeugpreise steigen laut Branchenberichten vor Weihnachten so stark wie lange nicht.",
-    "ausblick": "Für sieben Tage liegt die übliche Bewegung von 5,1 % knapp über der Hürde von 4,12 %. Nach der Abkühlung des RSI auf 68 hat die Aktie wieder etwas Luft, der Trend ist intakt. Ein Anstieg über die Hürde ist möglich, aber eher das gute Szenario als der Normalfall.",
+    "warum": "Hasbro zählt mit +22 % in vier Wochen und +29 % in drei Monaten zu den stärksten Werten, der Trend ist aufwärts. Am Freitag notierte die Aktie 2,8 % unter dem 10-Tage-Hoch, die fünf Tage sind mit +1,4 % positiv und der RSI ist auf 68 abgekühlt. Hinter dem Lauf stehen deutlich gestiegene Gewinne, das Wachstum bei Magic: The Gathering und eine angehobene Jahresprognose; für 2027 sind mehrere große Magic-Sets angekündigt. Übers Wochenende gab es keine neuen Firmenmeldungen, Spielzeugpreise steigen laut Branchenberichten vor Weihnachten so stark wie lange nicht.",
+    "ausblick": "Für sieben Tage liegt die übliche Bewegung von 5,1 % knapp über der Hürde von 4,12 %. Nach der Abkühlung des RSI auf 68 hat die Aktie wieder etwas Luft, der Trend ist intakt. Ein Anstieg über die Hürde ist möglich, aber eher das gute Szenario als der Normalfall. In den Zeitraum fallen die Nvidia-Zahlen und das Fed-Protokoll, die den Gesamtmarkt in beide Richtungen bewegen können.",
     "szenarien": {
      "gut": "Der jüngste Rücksetzer wird als Einstiegschance genutzt und die Aktie läuft zurück Richtung Hoch.",
      "schlecht": "Weitere Gewinnmitnahmen nach dem starken Monat oder ein schwacher Gesamtmarkt wegen steigender Zinsen drücken den Kurs."
@@ -245,7 +271,11 @@
      "US-Rendite über 5 % belastet den Gesamtmarkt",
      "Keine frischen Firmenmeldungen als Auslöser"
     ],
-    "termine": [],
+    "termine": [
+     "17.11.2026: US-Einzelhandelsumsätze Oktober",
+     "17.11.2026: Nvidia-Quartalszahlen nach US-Börsenschluss",
+     "18.11.2026: Protokoll der Fed-Sitzung vom 28. Oktober"
+    ],
     "zuversicht": "niedrig",
     "quellen": [
      {
@@ -266,7 +296,7 @@
     "s": "BAYN.DE",
     "einschaetzung": "Trend intakt, Hürde für sieben Tage aber anspruchsvoll",
     "warum": "Bayer steht in der Rechnung für drei Tage ganz oben: plus 27 % in vier Wochen, plus 18 % in drei Monaten, Aufwärtstrend und nur knapp 1 % unter dem 10-Tage-Hoch. Den Schub lieferten ein Quartal mit angehobenem Ausblick für den operativen Gewinn und die US-Zulassung des Gerinnungshemmers Sunharbo am 9. November, nachdem China das Mittel schon Ende Oktober freigegeben hatte. UBS und Goldman Sachs hoben ihre Kursziele auf 66 Euro, Jefferies bleibt dagegen mit 48,50 Euro skeptisch. Ende Oktober wies zudem eine Jury in Missouri eine Roundup-Klage ab, der große Glyphosat-Vergleich braucht aber noch die Zustimmung eines Gerichts. Der RSI von 75 zeigt, dass viel Zuversicht schon im Kurs steckt, und die fünf Tage liegen mit +1,7 % nur leicht im Plus.",
-    "ausblick": "Die übliche Sieben-Tage-Bewegung von 5,2 % liegt über der Hürde von 4,12 %, ein solcher Anstieg wäre aber eher das obere Ende des Üblichen. Die Fundamentaldaten haben sich mit Zulassung und Prognose verbessert, kurzfristig ist davon aber schon viel eingepreist. Wahrscheinlich ist eine Konsolidierung, ein weiterer Schub bräuchte eine neue Nachricht.",
+    "ausblick": "Die übliche Sieben-Tage-Bewegung von 5,2 % liegt über der Hürde von 4,12 %, ein solcher Anstieg wäre aber eher das obere Ende des Üblichen. Die Fundamentaldaten haben sich mit Zulassung und Prognose verbessert, kurzfristig ist davon aber schon viel eingepreist. Wahrscheinlich ist eine Konsolidierung, ein weiterer Schub bräuchte eine neue Nachricht. In den Zeitraum fallen die Nvidia-Zahlen und das Fed-Protokoll, die den Gesamtmarkt in beide Richtungen bewegen können.",
     "szenarien": {
      "gut": "Weitere Analysten heben ihre Ziele nach der US-Zulassung an und der DAX bleibt stabil.",
      "schlecht": "Ein Rückschlag im Glyphosat-Streit oder Gewinnmitnahmen nach dem überhitzten Lauf drücken den Kurs."
@@ -281,7 +311,11 @@
      "Glyphosat-Vergleich vor Gericht noch nicht genehmigt",
      "Jefferies mit Ziel deutlich unter Kurs"
     ],
-    "termine": [],
+    "termine": [
+     "17.11.2026: US-Einzelhandelsumsätze Oktober",
+     "17.11.2026: Nvidia-Quartalszahlen nach US-Börsenschluss",
+     "18.11.2026: Protokoll der Fed-Sitzung vom 28. Oktober"
+    ],
     "zuversicht": "niedrig",
     "quellen": [
      {
@@ -319,8 +353,8 @@
    {
     "s": "FISV",
     "einschaetzung": "Sehr schwankungsfreudig mit Rückenwind vom Sparprogramm, aber spekulativ.",
-    "warum": "Fiserv ist in vier Wochen um 34 % gestiegen und schloss die Woche nur 0,2 % unter dem 10-Tage-Hoch, der RSI liegt bei 75. Anfang November verdoppelte der Konzern sein Sparziel auf 1 Mrd. US-Dollar und kündigte Aktienrückkäufe von 500 Mio. US-Dollar für das vierte Quartal an, obwohl das Quartal selbst schwach war. Zudem bereitet Fiserv den Verkauf eines Debit-Netzwerks vor. Dass Finanzinvestoren die Gespräche mit Global Payments abgebrochen haben, nimmt der Übernahmefantasie im Sektor etwas Schwung; neue Firmenmeldungen gab es seit Freitag nicht.",
-    "ausblick": "Für sieben Tage ist die übliche Bewegung von 7 % groß genug, um die Hürde von 4,12 % zu schaffen. Die Rückkäufe ab dem vierten Quartal stützen, die Bewertung über dem mittleren Analystenziel und der überhitzte RSI bremsen. Ein Ergebnis in beide Richtungen ist ähnlich wahrscheinlich.",
+    "warum": "Fiserv ist in vier Wochen um 34 % gestiegen und schloss die Woche nur 0,2 % unter dem 10-Tage-Hoch, der RSI liegt bei 75. Anfang November verdoppelte der Konzern sein Sparziel auf 1 Mrd. US-Dollar und kündigte Aktienrückkäufe von 500 Mio. US-Dollar für das vierte Quartal an, obwohl das Quartal selbst schwach war. Zudem bereitet Fiserv den Verkauf eines Debit-Netzwerks vor. Dass Finanzinvestoren die Gespräche mit Global Payments abgebrochen haben, nimmt der Übernahmefantasie im Sektor etwas Schwung; übers Wochenende gab es keine neuen Firmenmeldungen.",
+    "ausblick": "Für sieben Tage ist die übliche Bewegung von 7 % groß genug, um die Hürde von 4,12 % zu schaffen. Die Rückkäufe ab dem vierten Quartal stützen, die Bewertung über dem mittleren Analystenziel und der überhitzte RSI bremsen. Ein Ergebnis in beide Richtungen ist ähnlich wahrscheinlich. In den Zeitraum fallen die Nvidia-Zahlen und das Fed-Protokoll, die den Gesamtmarkt in beide Richtungen bewegen können.",
     "szenarien": {
      "gut": "Neue Details zum Netzwerk-Verkauf oder zu Rückkäufen halten das Kaufinteresse hoch.",
      "schlecht": "Die Übernahmefantasie im Sektor verfliegt nach dem Global-Payments-Abbruch und Anleger nehmen Gewinne mit."
@@ -335,7 +369,11 @@
      "Kurs laut TIKR über dem mittleren Analystenziel",
      "Übernahmefantasie im Sektor schwindet"
     ],
-    "termine": [],
+    "termine": [
+     "17.11.2026: US-Einzelhandelsumsätze Oktober",
+     "17.11.2026: Nvidia-Quartalszahlen nach US-Börsenschluss",
+     "18.11.2026: Protokoll der Fed-Sitzung vom 28. Oktober"
+    ],
     "zuversicht": "niedrig",
     "quellen": [
      {
@@ -361,8 +399,8 @@
    {
     "s": "ROP",
     "einschaetzung": "Erholung nach starken Zahlen intakt, kurzfristig aber schon viel gelaufen.",
-    "warum": "Roper ist in vier Wochen um 25 % und in drei Monaten um 17 % gestiegen, der Trend zeigt aufwärts, der RSI liegt bei 71 und der Kurs 2,5 % unter dem 10-Tage-Hoch. Auslöser waren die Zahlen vom 22. Oktober mit einem Gewinn über den Erwartungen und der zweiten Prognoseanhebung in drei Monaten. Vorher war die Aktie wegen der Sorge, KI könne Branchensoftware verdrängen, deutlich günstiger bewertet, ein Teil der Erholung ist also Neubewertung. Neue Firmenmeldungen gab es seit Freitag nicht; die Schwäche bei Technologiewerten am Freitag ist ein Gegenwind.",
-    "ausblick": "Die übliche Sieben-Tage-Bewegung von 5,4 % liegt über der Hürde von 4,12 %. Wenn sich die Technologiewerte stabilisieren, kann die Neubewertung weiterlaufen; hält der Ausverkauf bei Tech an, könnte auch Roper als Softwarewert mitgezogen werden. Das Muster „Abkühlung nach Übertreibung“ war im Rückblick nur leicht positiv.",
+    "warum": "Roper ist in vier Wochen um 25 % und in drei Monaten um 17 % gestiegen, der Trend zeigt aufwärts, der RSI liegt bei 71 und der Kurs 2,5 % unter dem 10-Tage-Hoch. Auslöser waren die Zahlen vom 22. Oktober mit einem Gewinn über den Erwartungen und der zweiten Prognoseanhebung in drei Monaten. Vorher war die Aktie wegen der Sorge, KI könne Branchensoftware verdrängen, deutlich günstiger bewertet, ein Teil der Erholung ist also Neubewertung. Übers Wochenende gab es keine neuen Firmenmeldungen; die Schwäche bei Technologiewerten am Freitag ist ein Gegenwind.",
+    "ausblick": "Die übliche Sieben-Tage-Bewegung von 5,4 % liegt über der Hürde von 4,12 %. Wenn sich die Technologiewerte stabilisieren, kann die Neubewertung weiterlaufen; hält der Ausverkauf bei Tech an, könnte auch Roper als Softwarewert mitgezogen werden. Das Muster „Abkühlung nach Übertreibung“ war im Rückblick nur leicht positiv. In den Zeitraum fallen die Nvidia-Zahlen und das Fed-Protokoll, die den Gesamtmarkt in beide Richtungen bewegen können.",
     "szenarien": {
      "gut": "Die Neubewertung von Branchensoftware geht weiter und Roper markiert ein neues Hoch.",
      "schlecht": "Neue KI-Sorgen um Softwarewerte oder steigende Zinsen lösen Gewinnmitnahmen aus."
@@ -377,7 +415,11 @@
      "KI-Sorgen um Branchensoftware",
      "Schwaches Zählergeschäft Neptune"
     ],
-    "termine": [],
+    "termine": [
+     "17.11.2026: US-Einzelhandelsumsätze Oktober",
+     "17.11.2026: Nvidia-Quartalszahlen nach US-Börsenschluss",
+     "18.11.2026: Protokoll der Fed-Sitzung vom 28. Oktober"
+    ],
     "zuversicht": "niedrig",
     "quellen": [
      {
@@ -397,8 +439,8 @@
    {
     "s": "ALLE",
     "einschaetzung": "Stabiler Aufwärtstrend, neue Konferenzaussagen stützen eher als dass sie bremsen.",
-    "warum": "Allegion hat in vier Wochen 23 % zugelegt, die fünf Tage sind mit +3,6 % positiv und der Abstand zum 10-Tage-Hoch beträgt nur 0,4 %, der RSI liegt bei 70. Im Oktober übertraf der Konzern die Erwartungen und hob die Jahresprognose an. Auf der Baird-Konferenz am 12. November sagte das Management, das US-Geschäft mit Nichtwohngebäuden wachse wieder, elektronische Schlösser seien der stärkste Treiber und Rechenzentren das am schnellsten wachsende Segment. Wohnungsbau und Europa bleiben schwach; neue Firmenmeldungen gab es seit Freitag nicht.",
-    "ausblick": "Für sieben Tage liegt die übliche Bewegung von 5,2 % über der Hürde von 4,12 %. Der Trend ist intakt und die Aktie notiert praktisch am Hoch, was für weiteren Schwung spricht. Ohne neuen Auslöser ist aber auch eine Pause nach dem Lauf möglich.",
+    "warum": "Allegion hat in vier Wochen 23 % zugelegt, die fünf Tage sind mit +3,6 % positiv und der Abstand zum 10-Tage-Hoch beträgt nur 0,4 %, der RSI liegt bei 70. Im Oktober übertraf der Konzern die Erwartungen und hob die Jahresprognose an. Auf der Baird-Konferenz am 12. November sagte das Management, das US-Geschäft mit Nichtwohngebäuden wachse wieder, elektronische Schlösser seien der stärkste Treiber und Rechenzentren das am schnellsten wachsende Segment. Wohnungsbau und Europa bleiben schwach; übers Wochenende gab es keine neuen Firmenmeldungen.",
+    "ausblick": "Für sieben Tage liegt die übliche Bewegung von 5,2 % über der Hürde von 4,12 %. Der Trend ist intakt und die Aktie notiert praktisch am Hoch, was für weiteren Schwung spricht. Ohne neuen Auslöser ist aber auch eine Pause nach dem Lauf möglich. In den Zeitraum fallen die Nvidia-Zahlen und das Fed-Protokoll, die den Gesamtmarkt in beide Richtungen bewegen können.",
     "szenarien": {
      "gut": "Die Konferenz-Botschaft zieht weitere Käufer an und der Kurs markiert ein neues Hoch.",
      "schlecht": "Enttäuschung über fehlende 2027-Prognose oder Schwäche bei Industriewerten."
@@ -413,7 +455,11 @@
      "Keine formale Prognose für 2027",
      "RSI nahe 70"
     ],
-    "termine": [],
+    "termine": [
+     "17.11.2026: US-Einzelhandelsumsätze Oktober",
+     "17.11.2026: Nvidia-Quartalszahlen nach US-Börsenschluss",
+     "18.11.2026: Protokoll der Fed-Sitzung vom 28. Oktober"
+    ],
     "zuversicht": "mittel",
     "quellen": [
      {
@@ -435,7 +481,7 @@
    {
     "s": "MCK",
     "einschaetzung": "Langfristiger Aufwärtstrend mit starkem Geschäft, hohe Bewertung.",
-    "warum": "McKesson steigt seit Monaten (drei Monate +32 %) und notiert am 10-Tage-Hoch, der RSI liegt bei 75. Der Umsatz wuchs im Quartal um 8 % auf rund 111 Mrd. US-Dollar, getragen von GLP-1-Abnehmmitteln und dem Onkologie-Geschäft, die Gewinnprognose wurde angehoben. Schwächer lief das Medizinbedarfs-Geschäft, das abgespalten werden soll. Erkannte Muster waren im Rückblick nur leicht positiv bzw. ohne klaren Vorteil; neue Firmenmeldungen seit Freitag gab es nicht.",
+    "warum": "McKesson steigt seit Monaten (drei Monate +32 %) und notiert am 10-Tage-Hoch, der RSI liegt bei 75. Der Umsatz wuchs im Quartal um 8 % auf rund 111 Mrd. US-Dollar, getragen von GLP-1-Abnehmmitteln und dem Onkologie-Geschäft, die Gewinnprognose wurde angehoben. Schwächer lief das Medizinbedarfs-Geschäft, das abgespalten werden soll. Erkannte Muster waren im Rückblick nur leicht positiv bzw. ohne klaren Vorteil; übers Wochenende gab es keine neuen Firmenmeldungen.",
     "ausblick": "Die übliche 30-Tage-Bewegung von 9,5 % liegt unter der Hürde von 17,44 %, die nötige Steigerung ist unwahrscheinlich. Wahrscheinlich setzt sich der Trend gemächlich fort, getragen von der starken Geschäftslage und der Umschichtung in defensive Gesundheitswerte. Rücksetzer nach dem RSI von 75 sind möglich.",
     "szenarien": {
      "gut": "Weiter starke Nachfrage nach Spezialmedikamenten und Fortschritte bei der Abspaltung.",
@@ -617,7 +663,7 @@
    {
     "s": "BRK-B",
     "einschaetzung": "Ruhiger, stetiger Trend, für eine große Bewegung aber zu träge.",
-    "warum": "Berkshire steigt stetig (drei Monate +19 %, fünf Tage +3,9 %) und schloss die Woche am 10-Tage-Hoch, der RSI von 81 zeigt allerdings eine kurzfristige Überhitzung. Im dritten Quartal kaufte der Konzern verstärkt eigene Aktien zurück, der operative Gewinn sank vor allem wegen Geico. Am Montag, 16. November, endet die Frist für die Quartalsübersicht der Beteiligungen (13F), die Aufmerksamkeit bringen kann. Bei fallenden Technologiewerten wie am Freitag gilt der Wert als sicherer Hafen.",
+    "warum": "Berkshire steigt stetig (drei Monate +19 %, fünf Tage +3,9 %) und schloss die Woche am 10-Tage-Hoch, der RSI von 81 zeigt allerdings eine kurzfristige Überhitzung. Im dritten Quartal kaufte der Konzern verstärkt eigene Aktien zurück, der operative Gewinn sank vor allem wegen Geico. Heute, am 16. November, endet die Frist für die Quartalsübersicht der Beteiligungen (13F), die Aufmerksamkeit bringen kann. Bei fallenden Technologiewerten wie am Freitag gilt der Wert als sicherer Hafen.",
     "ausblick": "Die übliche 30-Tage-Bewegung von 5 % liegt weit unter der Hürde von 17,44 %, die nötige Steigerung ist sehr unwahrscheinlich. Wahrscheinlich ist eine ruhige Fortsetzung des Trends, nach dem überhitzten RSI auch eine Seitwärtsphase. Der Wert dient eher als stabiler Baustein.",
     "szenarien": {
      "gut": "Anhaltende Marktunruhe treibt Anleger in defensive Qualitätswerte.",
