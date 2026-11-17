@@ -1,116 +1,116 @@
 {
  "version": 2,
- "generated": "2026-11-16T07:05:00+01:00",
- "dataAsOf": "2026-11-16",
+ "generated": "2026-11-17T07:06:50+01:00",
+ "dataAsOf": "2026-11-17",
  "indices": [
   {
    "n": "DAX",
-   "v": 26749.95,
-   "c": -0.08,
+   "v": 26598.64,
+   "c": -0.57,
    "s": "Europa"
   },
   {
    "n": "MDAX",
-   "v": 30699.96,
-   "c": -0.51,
+   "v": 30528.26,
+   "c": -0.56,
    "s": "Europa"
   },
   {
    "n": "Euro Stoxx 50",
-   "v": 6386.86,
-   "c": -0.19,
+   "v": 6348.35,
+   "c": -0.6,
    "s": "Europa"
   },
   {
    "n": "FTSE 100",
-   "v": 10902.56,
-   "c": 0.36,
+   "v": 10881.55,
+   "c": -0.19,
    "s": "Europa"
   },
   {
    "n": "CAC 40",
-   "v": 8368.91,
-   "c": 0.09,
+   "v": 8352,
+   "c": -0.2,
    "s": "Europa"
   },
   {
    "n": "S&P 500",
-   "v": 754.37,
-   "c": -0.36,
+   "v": 739.95,
+   "c": -1.91,
    "s": "USA, über SPY"
   },
   {
    "n": "Nasdaq 100",
-   "v": 679.89,
-   "c": -1.2,
+   "v": 661.75,
+   "c": -2.67,
    "s": "USA, über QQQ"
   },
   {
    "n": "Dow Jones",
-   "v": 523.15,
-   "c": 0.13,
+   "v": 515.68,
+   "c": -1.43,
    "s": "USA, über DIA"
   }
  ],
  "sectors": [
   {
    "n": "Technologie",
-   "c": -1.28,
+   "c": -1.18,
    "p": "Europa"
   },
   {
    "n": "Gesundheit",
-   "c": -0.03,
+   "c": 0.9,
    "p": "Europa"
   },
   {
    "n": "Banken",
-   "c": -0.11,
+   "c": -0.22,
    "p": "Europa"
   },
   {
    "n": "Energie",
-   "c": 0.94,
+   "c": -0.77,
    "p": "Europa"
   },
   {
    "n": "Autos",
-   "c": 0.01,
+   "c": -1.14,
    "p": "Europa"
   },
   {
    "n": "Industrie",
-   "c": -0.59,
+   "c": -0.47,
    "p": "Europa"
   },
   {
    "n": "Technologie",
-   "c": -2.01,
+   "c": -3.24,
    "p": "USA"
   },
   {
    "n": "Gesundheit",
-   "c": 0.54,
+   "c": -0.51,
    "p": "USA"
   },
   {
    "n": "Finanzen",
-   "c": 0.81,
+   "c": -0.85,
    "p": "USA"
   },
   {
    "n": "Energie",
-   "c": 0.98,
+   "c": -1.96,
    "p": "USA"
   },
   {
    "n": "Konsum",
-   "c": -0.4,
+   "c": -1.53,
    "p": "USA"
   },
   {
    "n": "Industrie",
-   "c": -0.39,
+   "c": -1.85,
    "p": "USA"
   }
  ],
@@ -120,6 +120,7 @@
    "s": "URTH",
    "n": "MSCI World ETF",
    "closes": [
+    200.86000061035156,
     204.55999755859375,
     205.11000061035156,
     205.97999572753906,
@@ -183,52 +184,53 @@
     207.8300018310547,
     209.22000122070312,
     208.74000549316406,
-    210.42999267578125,
-    211.2100067138672
+    210.42999267578125
    ],
    "cur": "USD",
    "cat": "Weltaktien breit",
    "h": "lang",
-   "bias": -0.3,
-   "why": "Der MSCI World gab am Freitag leicht nach und liegt über vier Wochen rund 1 % im Minus. Tech-Schwäche vor den Nvidia-Zahlen und Spannungen am Golf belasten.",
-   "ausblick": "Rechnerisch liegt die Mitte für drei Monate bei etwa 204 $, Spanne rund 191 bis 219 $. Wichtig werden die Nvidia-Zahlen und die Lage am Golf; die oft freundliche Jahresendphase könnte stützen. Das ist unsicher.",
+   "bias": -0.5,
+   "why": "Der MSCI World fiel gestern um 1,8 % auf rund 201 $, getrieben von schwachen US-Tech-Werten. Damit liegt er knapp über dem tiefsten Stand der letzten drei Monate.",
+   "ausblick": "Rechnerisch liegt die Mitte für drei Monate bei etwa 199 $, die Spanne reicht von rund 185 bis 214 $. Zinssorgen und die KI-Debatte belasten, saisonal sind November und Dezember aber oft freundlich. Die Unsicherheit ist derzeit erhöht.",
    "richtung": "seitwärts",
-   "zuversicht": "mittel",
+   "zuversicht": "niedrig",
    "horizont": "2–3 Monate",
-   "halten": "Mit gut 2 % Plus seit Kauf und breiter Streuung passt der Wert vor allem für lange Zeiträume. Kurzfristig drücken Tech-Schwäche und Geopolitik.",
+   "halten": "Als breit gestreuter Weltindex passt der Wert vor allem für lange Zeiträume; seit Kauf liegt er knapp im Plus (+0,6 %). Dagegen spricht kurzfristig der Abwärtstrend und die hohe US-Tech-Gewichtung.",
    "signale": [
-    "Rückfall unter etwa 191 $",
+    "Schluss unter etwa 199,6 $ (3-Monats-Tief)",
     "Reaktion auf die Nvidia-Zahlen",
-    "Weitere Eskalation am Golf"
+    "Erwartung einer US-Zinserhöhung"
    ],
-   "muster": "Der Kurs liegt nahe am 3-Monats-Tief, wo Käufer zuletzt stützten; zudem war die Jahresendphase oft gut. Ein schwächerer Euro wirkt rechnerisch positiv. Alles unsicher.",
+   "muster": "Der Kurs ist nahe einer Unterstützung, und Jahresend-Monate waren oft positiv. Beides sind unsichere Hinweise, kein verlässliches Signal.",
    "pro": [
-    "Sehr breite Streuung",
-    "Jahresendphase historisch oft freundlich"
+    "Sehr breite Streuung über viele Länder",
+    "Schwacher Euro stützt den Wert in Euro gerechnet"
    ],
    "con": [
     "Hoher Anteil an US-Tech-Werten",
-    "Geopolitische Risiken"
+    "Abwärtstrend seit vier Wochen (−3,2 %)"
    ],
    "news": [
-    "n8764367",
-    "n8762438",
-    "ny1211078130"
+    "ny2008040565",
+    "ny842240668",
+    "ny1084740323",
+    "ny1168852474",
+    "n8768024"
    ],
    "warn": 1,
-   "warnGrund": "Unsicherheit bei KI-Werten und am Golf.",
+   "warnGrund": "Breiter Ausverkauf und Zinssorgen belasten Aktien weltweit.",
    "quellen": [
     {
-     "t": "Asian shares fall before Nvidia earnings, Anthropic IPO test tech rally - Reuters",
-     "u": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPa3g3MVMxZ2lSN1ZpTmpaWkdYR25ZdDZ4M3BELXQ3ZC1PZDhtNTVjYmpQdHlJZUFtLWxiUkFLbXhUVHM0OHNScEUyTWFHUU5MMmZYb0EyVW51dXd1OWJFak1NbVFwazhlVzBIcHB3TENzRG1IZ2FvVFlpS0xubFBadXlPYw?oc=5"
+     "t": "Aktien, Gold und Asien verlieren 2,2 Billionen USD: Die fünf wichtigsten Auslöser des Crashs",
+     "u": "https://de.beincrypto.com/markt-crash-2-billionen-5-faktoren/?.tsrc=rss"
     },
     {
-     "t": "Anti-Houthi forces retreat in Yemen as Iran strikes Bahrain - Reuters",
-     "u": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOdTFBcWR1YzJhai1UdGgzMHpvdm40VExxeXFqM0NtbU9YVmNSNXpNeDlXTGllRXFtczhIUzVsaFFWdVV5TGxESWdneGlXbER1Qlg2b2VhQ2lqMmxVaEd4U01nZmNXcFY2bmNhSTdIN0VycE84MWJDRXdZOGxMRGo0U1k1UjhiamFNQ1JIQmp1MUdxNlZGRm1UanBvaENxR3V2N25NdFVOaWpXX1E?oc=5"
+     "t": "Wall Street vor Nvidia-Zahlen und inmitten von KI-Sorgen richtungslos",
+     "u": "https://de.finance.yahoo.com/nachrichten/wall-street-nvidia-zahlen-inmitten-010312941.html?.tsrc=rss"
     },
     {
-     "t": "Devisen: Euro fällt weiter zurück",
-     "u": "https://de.finance.yahoo.com/nachrichten/devisen-euro-f%C3%A4llt-zur%C3%BCck-200210193.html?.tsrc=rss"
+     "t": "Gold verharrt nahe 14-Monats-Tief: Fed-Zinserwartungen und Tech-Ausverkauf belasten",
+     "u": "https://de.finance.yahoo.com/nachrichten/gold-verharrt-nahe-14-monats-020906305.html?.tsrc=rss"
     }
    ]
   },
@@ -305,28 +307,32 @@
    "cur": "EUR",
    "cat": "Industrie / Technik",
    "h": "lang",
-   "bias": 0.3,
-   "why": "Siemens gab am Freitag knapp 1 % nach, liegt über vier Wochen aber rund 5 % im Plus. JPMorgan bestätigte die positive Einstufung mit Kursziel 345 Euro.",
-   "ausblick": "Rechnerisch liegt die Mitte für drei Monate bei etwa 284 €, Spanne rund 247 bis 327 €. Gute Geschäftszahlen sprechen für Stabilität; ein möglicher Engpass bei Speicherchips ist ein Risiko für die Industrie. Unsicher.",
+   "bias": 0,
+   "why": "Siemens gab gestern 2,5 % auf 279 € nach, nach einem starken Lauf in den Wochen davor. JPMorgan bleibt mit Kursziel 345 € positiv.",
+   "ausblick": "Rechnerisch liegt die Mitte für drei Monate bei rund 273 €, mit einer weiten Spanne von etwa 237 bis 315 €. Positive Analystenstimmen und günstigeres Öl helfen, eine schwächere Weltkonjunktur und Chip-Engpässe sind Risiken.",
    "richtung": "seitwärts",
    "zuversicht": "mittel",
    "horizont": "2–3 Monate",
-   "halten": "Mit rund 6 % Plus seit Kauf und solider Analystenstimmung eher ein Wert für mittlere bis lange Zeiträume. Dagegen stehen Lieferketten-Risiken.",
+   "halten": "Siemens passt eher für mittlere bis lange Zeiträume; seit Kauf liegt der Wert rund 3,4 % im Plus. Dagegen sprechen die recht hohen Schwankungen und die Abhängigkeit von der Industriekonjunktur.",
    "signale": [
-    "Rückfall unter etwa 247 €",
-    "Meldungen zu Chip-Engpässen",
-    "Neue Analystenurteile"
+    "Rückfall unter etwa 256 € (3-Monats-Tief)",
+    "Neues Hoch über rund 290 €",
+    "Meldungen zu Engpässen bei Speicherchips"
    ],
-   "muster": "Die Jahresendphase war für Aktien oft freundlich. Das ist kein verlässliches Signal.",
+   "muster": "Der Wert lief zuletzt eher gegenläufig zum Ölpreis; fallendes Öl könnte also leicht stützen. Das ist ein unsicherer Zusammenhang.",
    "pro": [
-    "Analysten weiter positiv",
-    "Gute jüngste Geschäftszahlen"
+    "JPMorgan bestätigt positive Einschätzung",
+    "Günstigere Energiepreise"
    ],
    "con": [
-    "Mögliche Lieferengpässe bei Chips",
-    "Schwankung um 28 % pro Jahr"
+    "Mögliche Chip-Engpässe in der Industrie",
+    "Hohe Schwankungen"
    ],
-   "news": [],
+   "news": [
+    "n8768541",
+    "n8768024",
+    "ny989832039"
+   ],
    "warn": 0,
    "warnGrund": "",
    "quellen": [
@@ -335,8 +341,12 @@
      "u": "https://de.finance.yahoo.com/nachrichten/analyse-flash-jpmorgan-bel%C3%A4sst-siemens-200505797.html?.tsrc=rss"
     },
     {
-     "t": "Besuch bei Siemens: Der Industrie droht der nächste Lieferketten-Schock",
-     "u": "https://www.businessinsider.de/wirtschaft/siemens-chips-lieferketten/?.tsrc=rss"
+     "t": "KI frisst die Chips: Der Industrie droht der nächste Lieferketten-Schock",
+     "u": "https://www.businessinsider.de/wirtschaft/ki-frisst-die-chips-der-industrie-drohen-neue-engpaesse/?.tsrc=rss"
+    },
+    {
+     "t": "Oil slips on supply surplus outlook despite Gulf tensions - Reuters",
+     "u": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPQm40d1ZiR2k1S1RxaFdvQzJVYmRJUE1rcnNLZkEyRkZzbk5KZjlqWl9sZW9MUFB2OHpwdGZzT3duNzVnMnNaMEJMYkFKWndKTWE1OWNtd0hLcWRtSmVVYU5JaTBlNXZuT2t0V1AzVHdXVEhPMWt5QnhXakxpWkxiQk50ZEt0UGtXT3RpeXdiNEY0UXBqeXk2RGVHYURMNzJzNm13Zldtbm8tQQ?oc=5"
     }
    ]
   },
@@ -414,40 +424,40 @@
    "cat": "Deutsche Aktien breit",
    "h": "lang",
    "bias": -0.2,
-   "why": "Der DAX-ETF lag am Freitag kaum verändert, nachdem der DAX in der Woche kurz über 27.000 Punkte gestiegen war. Über vier Wochen steht ein Plus von gut 5 %.",
-   "ausblick": "Rechnerisch liegt die Mitte für drei Monate bei etwa 225 €, Spanne rund 210 bis 242 €. Nach dem Rekord kann es zu Pausen kommen; Golf-Lage und KI-Stimmung sind die Treiber. Unsicher.",
+   "why": "Der DAX-ETF verlor gestern 0,5 % und hielt sich damit besser als die US-Börsen. Er notiert nahe dem Hoch der letzten drei Monate.",
+   "ausblick": "Rechnerisch liegt die Mitte für drei Monate bei etwa 224 €, Spanne rund 208 bis 240 €. Günstiges Öl und ein schwacher Euro helfen deutschen Exporteuren, ein weltweiter Abverkauf würde aber auch hier belasten.",
    "richtung": "seitwärts",
    "zuversicht": "mittel",
    "horizont": "2–3 Monate",
-   "halten": "Mit knapp 4 % Plus seit Kauf und breiter Streuung über deutsche Großkonzerne passt der Wert eher für längere Zeiträume. Dagegen spricht die Abhängigkeit von einem Land.",
+   "halten": "Als breiter Index passt der ETF eher für lange Zeiträume; seit Kauf rund 3,1 % im Plus. Dagegen spricht die Nähe zum Widerstand und die Abhängigkeit von wenigen Großwerten.",
    "signale": [
-    "Stabiler Ausbruch über das Rekordhoch",
-    "Rückfall unter etwa 210 €",
-    "Eskalation am Golf"
+    "Überschreiten von etwa 221 € (3-Monats-Hoch)",
+    "Rückfall unter rund 208 €",
+    "Stärkere Verluste an der Wall Street"
    ],
-   "muster": "Der Kurs liegt nahe am 3-Monats-Hoch, wo Verkäufer zuletzt bremsten; die Jahresendphase war oft freundlich. Unsicher.",
+   "muster": "Der Kurs liegt an einem Widerstand; gelingt der Sprung darüber, könnte es weitergehen. Der Zusammenhang mit Öl ist eher gegenläufig. Alles unsicher.",
    "pro": [
-    "Breite Streuung über DAX-Konzerne",
-    "Positiver Trend über vier Wochen"
+    "Hielt sich gestern besser als US-Börsen",
+    "Schwacher Euro hilft Exporteuren"
    ],
    "con": [
     "Nahe am Widerstand",
-    "Nur ein Land"
+    "Ansteckung durch US-Verluste möglich"
    ],
    "news": [
-    "n8762438",
-    "n8764367"
+    "ny2008040565",
+    "n8768541"
    ],
    "warn": 1,
-   "warnGrund": "Geopolitische Spannungen könnten die Stimmung drücken.",
+   "warnGrund": "Der weltweite Ausverkauf kann auch den DAX erfassen.",
    "quellen": [
     {
-     "t": "Neuer Rekord: Deutscher Aktienindex springt kurzzeitig über 27.000 Punkte",
-     "u": "https://de.finance.yahoo.com/nachrichten/neuer-rekord-deutscher-aktienindex-springt-102030943.html?.tsrc=rss"
+     "t": "Aktien, Gold und Asien verlieren 2,2 Billionen USD: Die fünf wichtigsten Auslöser des Crashs",
+     "u": "https://de.beincrypto.com/markt-crash-2-billionen-5-faktoren/?.tsrc=rss"
     },
     {
-     "t": "Anti-Houthi forces retreat in Yemen as Iran strikes Bahrain - Reuters",
-     "u": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOdTFBcWR1YzJhai1UdGgzMHpvdm40VExxeXFqM0NtbU9YVmNSNXpNeDlXTGllRXFtczhIUzVsaFFWdVV5TGxESWdneGlXbER1Qlg2b2VhQ2lqMmxVaEd4U01nZmNXcFY2bmNhSTdIN0VycE84MWJDRXdZOGxMRGo0U1k1UjhiamFNQ1JIQmp1MUdxNlZGRm1UanBvaENxR3V2N25NdFVOaWpXX1E?oc=5"
+     "t": "Oil slips on supply surplus outlook despite Gulf tensions - Reuters",
+     "u": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPQm40d1ZiR2k1S1RxaFdvQzJVYmRJUE1rcnNLZkEyRkZzbk5KZjlqWl9sZW9MUFB2OHpwdGZzT3duNzVnMnNaMEJMYkFKWndKTWE1OWNtd0hLcWRtSmVVYU5JaTBlNXZuT2t0V1AzVHdXVEhPMWt5QnhXakxpWkxiQk50ZEt0UGtXT3RpeXdiNEY0UXBqeXk2RGVHYURMNzJzNm13Zldtbm8tQQ?oc=5"
     }
    ]
   },
@@ -525,35 +535,40 @@
    "cat": "Europa-Aktien breit",
    "h": "lang",
    "bias": -0.2,
-   "why": "Der Europa-ETF lag am Freitag kaum verändert und über vier Wochen rund 4 % im Plus. Energiewerte stützten, Technologie belastete.",
-   "ausblick": "Rechnerisch liegt die Mitte für drei Monate bei etwa 111 €, Spanne rund 105 bis 116 €. Die Golf-Lage und der schwache Euro sind Treiber; die geringe Schwankung spricht für ruhigen Verlauf. Unsicher.",
+   "why": "Der Europa-ETF gab gestern nur 0,2 % nach und steht nahe seinem 3-Monats-Hoch. Gesundheitswerte stützten, Tech und Autos belasteten.",
+   "ausblick": "Rechnerisch liegt die Mitte für drei Monate bei rund 110 €, Spanne etwa 105 bis 116 €. Europa ist weniger tech-lastig als die USA, das hilft in der aktuellen KI-Debatte. Ein breiter Abverkauf würde trotzdem durchschlagen.",
    "richtung": "seitwärts",
    "zuversicht": "mittel",
    "horizont": "2–3 Monate",
-   "halten": "Seit dem Kauf am 9. November rund 2 % im Plus; mit geringer Schwankung passt der Wert eher für lange Zeiträume. Dagegen sprechen kurzfristige geopolitische Risiken.",
+   "halten": "Breit gestreut und eher für lange Zeiträume geeignet; seit Kauf am 9. November rund 1,8 % im Plus. Dagegen spricht kurzfristig die Nähe zum Widerstand.",
    "signale": [
-    "Rückfall unter etwa 105 €",
-    "Ausbruch über das 3-Monats-Hoch",
-    "Eskalation am Golf"
+    "Überschreiten von etwa 108,3 € (3-Monats-Hoch)",
+    "Rückfall unter rund 104,6 €",
+    "Weitere Eskalation am Golf"
    ],
-   "muster": "Der Kurs liegt nahe am 3-Monats-Hoch, wo zuletzt gebremst wurde; die Jahresendphase war oft gut. Unsicher.",
+   "muster": "Der Wert ist nahe einem Widerstand und lief zuletzt eher gegenläufig zum Ölpreis. Beides sind unsichere Hinweise.",
    "pro": [
-    "Breite Streuung über Europa",
-    "Geringe Schwankung"
+    "Geringer Tech-Anteil",
+    "Niedrige Schwankung"
    ],
    "con": [
     "Nahe am Widerstand",
-    "Geopolitische Risiken"
+    "Abhängig von der Weltbörsen-Stimmung"
    ],
    "news": [
-    "n8762438"
+    "ny2008040565",
+    "n8768541"
    ],
    "warn": 0,
    "warnGrund": "",
    "quellen": [
     {
-     "t": "Ängste vor einer KI-Blase führen zu überraschender Hinwendung zu Schweizer Aktien",
-     "u": "https://de.beincrypto.com/ki-aktien-verkauf-investoren-wechseln-zu-schweizer-aktien/?.tsrc=rss"
+     "t": "Aktien, Gold und Asien verlieren 2,2 Billionen USD: Die fünf wichtigsten Auslöser des Crashs",
+     "u": "https://de.beincrypto.com/markt-crash-2-billionen-5-faktoren/?.tsrc=rss"
+    },
+    {
+     "t": "Oil slips on supply surplus outlook despite Gulf tensions - Reuters",
+     "u": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPQm40d1ZiR2k1S1RxaFdvQzJVYmRJUE1rcnNLZkEyRkZzbk5KZjlqWl9sZW9MUFB2OHpwdGZzT3duNzVnMnNaMEJMYkFKWndKTWE1OWNtd0hLcWRtSmVVYU5JaTBlNXZuT2t0V1AzVHdXVEhPMWt5QnhXakxpWkxiQk50ZEt0UGtXT3RpeXdiNEY0UXBqeXk2RGVHYURMNzJzNm13Zldtbm8tQQ?oc=5"
     }
    ]
   },
@@ -631,36 +646,40 @@
    "cat": "US-Aktien gleichgewichtet",
    "h": "lang",
    "bias": -0.2,
-   "why": "Der gleichgewichtete S&P-500-ETF gab am Freitag rund 0,5 % nach, liegt über vier Wochen aber knapp 5 % im Plus. Er ist weniger von Tech-Riesen abhängig.",
-   "ausblick": "Rechnerisch liegt die Mitte für drei Monate bei etwa 116 €, Spanne rund 111 bis 121 €. Die Nvidia-Zahlen und der Dollar-Kurs sind Treiber; die geringe Schwankung dämpft Ausschläge. Unsicher.",
-   "richtung": "steigend",
+   "why": "Der gleichgewichtete S&P-500-ETF blieb gestern in Euro fast unverändert. Der schwächere Euro glich die US-Verluste teilweise aus.",
+   "ausblick": "Rechnerisch liegt die Mitte für drei Monate bei etwa 116 €, Spanne rund 111 bis 121 €. Die Gleichgewichtung dämpft das Tech-Risiko, Zinssorgen in den USA bleiben aber ein Gegenwind.",
+   "richtung": "seitwärts",
    "zuversicht": "mittel",
    "horizont": "2–3 Monate",
-   "halten": "Seit dem Kauf am 9. November knapp 3 % im Plus; als breite US-Streuung passt er eher für lange Zeiträume. Dagegen steht das Dollar-Risiko.",
+   "halten": "Passt eher für lange Zeiträume; seit Kauf rund 2,7 % im Plus. Dagegen spricht, dass ein stärkerer Euro den Wert in Euro wieder drücken könnte.",
    "signale": [
-    "Rückfall unter etwa 111 €",
-    "Deutlicher Euro-Anstieg",
-    "Breiter Abverkauf nach Nvidia-Zahlen"
+    "Überschreiten von etwa 112,3 € (3-Monats-Hoch)",
+    "Rückfall unter rund 111 €",
+    "Starke Erholung des Euro"
    ],
-   "muster": "Der Kurs liegt nahe am 3-Monats-Hoch, wo zuletzt gebremst wurde; die Jahresendphase war oft gut. Unsicher.",
+   "muster": "Der Wert lief zuletzt mit dem S&P 500 und gegenläufig zum VIX; steigende Nervosität könnte belasten. Unsicher.",
    "pro": [
-    "Geringere Abhängigkeit von Tech-Riesen",
-    "Sehr geringe Schwankung"
+    "Weniger abhängig von großen Tech-Werten",
+    "Schwacher Euro stützt"
    ],
    "con": [
-    "Dollar-Risiko",
+    "US-Zinssorgen",
     "Nahe am Widerstand"
    ],
    "news": [
-    "n8764367",
-    "ny1211078130"
+    "ny2008040565",
+    "ny1168852474"
    ],
-   "warn": 0,
-   "warnGrund": "",
+   "warn": 1,
+   "warnGrund": "Deutliche Verluste an der Wall Street.",
    "quellen": [
     {
-     "t": "Devisen: Euro fällt weiter zurück",
-     "u": "https://de.finance.yahoo.com/nachrichten/devisen-euro-f%C3%A4llt-zur%C3%BCck-200210193.html?.tsrc=rss"
+     "t": "Aktien, Gold und Asien verlieren 2,2 Billionen USD: Die fünf wichtigsten Auslöser des Crashs",
+     "u": "https://de.beincrypto.com/markt-crash-2-billionen-5-faktoren/?.tsrc=rss"
+    },
+    {
+     "t": "Devisen: Mehrtägige Talfahrt drückt Euro auf tiefsten Stand seit April 2025",
+     "u": "https://de.finance.yahoo.com/nachrichten/devisen-mehrt%C3%A4gige-talfahrt-dr%C3%BCckt-euro-200003919.html?.tsrc=rss"
     }
    ]
   },
@@ -668,6 +687,7 @@
    "s": "AAPL",
    "n": "Apple",
    "closes": [
+    352.7799987792969,
     356.2699890136719,
     354.8800048828125,
     355.6300048828125,
@@ -731,46 +751,52 @@
     311.29998779296875,
     316.8299865722656,
     310.0299987792969,
-    305.5899963378906,
-    305.92999267578125
+    305.5899963378906
    ],
    "cur": "USD",
    "cat": "Geräte / Dienste",
    "h": "lang",
-   "bias": 0.2,
-   "why": "Apple legte am Freitag leicht zu und erreichte zuletzt ein 52-Wochen-Hoch nach guten Zahlen. Über drei Monate steht ein Plus von rund 16 %.",
-   "ausblick": "Rechnerisch liegt die Mitte für drei Monate bei etwa 391 $, Spanne rund 351 bis 436 $. Die allgemeine Tech-Stimmung nach den Nvidia-Zahlen dürfte mitbestimmen. Unsicher.",
-   "richtung": "steigend",
-   "zuversicht": "mittel",
-   "horizont": "3–6 Monate",
-   "halten": "Seit dem Kauf am 9. November knapp 3 % im Plus; als etablierter Konzern eher für mittlere bis lange Zeiträume. Dagegen spricht die Abhängigkeit von der Tech-Stimmung.",
+   "bias": -0.5,
+   "why": "Apple verlor gestern rund 1 % auf etwa 353 $, deutlich weniger als der Nasdaq 100. Die Aktie notiert weiter nahe ihrem 3-Monats-Hoch.",
+   "ausblick": "Rechnerisch liegt die Mitte für drei Monate bei rund 385 $, Spanne etwa 345 bis 430 $. Der starke Trend der letzten Monate spricht dafür, der Tech-Ausverkauf und US-China-Spannungen dagegen.",
+   "richtung": "seitwärts",
+   "zuversicht": "niedrig",
+   "horizont": "2–3 Monate",
+   "halten": "Apple passt eher für lange Zeiträume; seit Kauf rund 1,9 % im Plus. Dagegen sprechen die Stimmung bei Tech-Werten und Risiken aus dem China-Geschäft.",
    "signale": [
-    "Rückfall unter etwa 351 $",
-    "Schwache Reaktion auf Nvidia-Zahlen",
-    "Neues Hoch über dem Widerstand"
+    "Rückfall unter etwa 345 $",
+    "Reaktion auf die Nvidia-Zahlen",
+    "Neue Handelsregeln mit China"
    ],
-   "muster": "Der Kurs liegt nahe am 3-Monats-Hoch, wo Verkäufer zuletzt bremsten; die Jahresendphase war oft gut. Unsicher.",
+   "muster": "Der Kurs ist nahe einem Widerstand; ohne Ausbruch könnte er seitwärts laufen. Unsicherer Hinweis.",
    "pro": [
-    "Starke jüngste Zahlen",
-    "Positiver Trend"
+    "Hielt sich besser als der Tech-Sektor",
+    "Starker Trend über drei Monate (+15 %)"
    ],
    "con": [
-    "Nahe am Widerstand",
-    "Tech-Werte derzeit unter Druck"
+    "Tech-Ausverkauf",
+    "Spannungen mit China"
    ],
    "news": [
-    "n8764367"
+    "ny2008040565",
+    "ny842240668",
+    "ny1168852474",
+    "n8768024"
    ],
-   "warn": 0,
-   "warnGrund": "",
+   "warn": 1,
+   "warnGrund": "Ausverkauf bei US-Tech-Werten.",
    "quellen": [
     {
-     "t": "Why Did AAPL, ZETA, FROG Stocks Jump To 52-Week Highs Last Week?c",
-     "u": "https://finnhub.io/api/news?id=8b48e1399bc39d1446b143d24c47761f70c36a0966e4b37ec967749f418b26bd"
+     "t": "Aktien, Gold und Asien verlieren 2,2 Billionen USD: Die fünf wichtigsten Auslöser des Crashs",
+     "u": "https://de.beincrypto.com/markt-crash-2-billionen-5-faktoren/?.tsrc=rss"
     },
     {
-     "t": "Asian shares fall before Nvidia earnings, Anthropic IPO test tech rally - Reuters",
-     "u": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPa3g3MVMxZ2lSN1ZpTmpaWkdYR25ZdDZ4M3BELXQ3ZC1PZDhtNTVjYmpQdHlJZUFtLWxiUkFLbXhUVHM0OHNScEUyTWFHUU5MMmZYb0EyVW51dXd1OWJFak1NbVFwazhlVzBIcHB3TENzRG1IZ2FvVFlpS0xubFBadXlPYw?oc=5"
+     "t": "Wall Street vor Nvidia-Zahlen und inmitten von KI-Sorgen richtungslos",
+     "u": "https://de.finance.yahoo.com/nachrichten/wall-street-nvidia-zahlen-inmitten-010312941.html?.tsrc=rss"
+    },
+    {
+     "t": "US to curb China's access to AI chips as Trump heads to Asia - Reuters",
+     "u": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPOFRscFU2Tnd4dkpNWURqN2NDcEg1eHBNUW9VTTd5YkRBNlA2eVJkV0xsWHpqNExCek4xTUY0VlU5TjJYM1ZJaWE3YkVNZndhUE5CamYyZlh3WGhRUHhUVzhDRW1IUkVTXzBBQ1hXMTkzM0tiNF9DZGpZcUlTb0xQOFBsVEM1VDhnV0taSlpYYTNsQUpyMnlKQzNSenU3alBia0ZJR1QyQ2hSX3g5bG1yX3d3dTBublY1?oc=5"
     }
    ]
   },
@@ -847,30 +873,30 @@
    "cur": "EUR",
    "cat": "Software",
    "h": "lang",
-   "bias": 0.5,
-   "why": "SAP legte am Freitag leicht zu und liegt über drei Monate fast 19 % im Plus. Rückenwind gab die Hochstufung durch JPMorgan mit Kursziel 275 Euro.",
-   "ausblick": "Rechnerisch liegt die Mitte für drei Monate bei etwa 238 €, Spanne rund 207 bis 274 €. Treiber sind die KI-Stimmung und die Nvidia-Zahlen in dieser Woche. Unsicher.",
+   "bias": 0,
+   "why": "SAP schloss gestern unverändert bei rund 213 € und liegt nahe dem 3-Monats-Hoch. Die JPMorgan-Hochstufung stützt weiter.",
+   "ausblick": "Rechnerisch liegt die Mitte für drei Monate bei rund 237 €, Spanne etwa 206 bis 273 €. Treiber sind die KI-Stimmung und Analystenzuversicht; die Nvidia-Zahlen können die Stimmung in beide Richtungen drehen.",
    "richtung": "steigend",
    "zuversicht": "mittel",
    "horizont": "3–6 Monate",
-   "halten": "Seit dem Kauf am 10. November gut 1 % im Plus; mit positivem Analystenbild eher für mittlere bis lange Zeiträume. Dagegen spricht die Abhängigkeit von der KI-Stimmung.",
+   "halten": "SAP passt eher für mittlere bis lange Zeiträume; seit Kauf rund 1,3 % im Plus. Dagegen sprechen hohe Schwankungen und die Abhängigkeit von der KI-Stimmung.",
    "signale": [
-    "Rückfall unter etwa 207 €",
-    "Kippende KI-Stimmung nach Nvidia-Zahlen",
-    "Ausbruch über das 3-Monats-Hoch"
+    "Überschreiten von etwa 216 € (3-Monats-Hoch)",
+    "Rückfall unter rund 206 €",
+    "Reaktion auf die Nvidia-Zahlen"
    ],
-   "muster": "Der Kurs liegt nahe am 3-Monats-Hoch, wo zuletzt gebremst wurde; die Jahresendphase war oft gut. Unsicher.",
+   "muster": "Der Kurs liegt an einem Widerstand, und Jahresend-Monate waren oft gut. Beides ist unsicher.",
    "pro": [
-    "Analysten-Hochstufung",
-    "Starker Trend"
+    "JPMorgan-Hochstufung mit Ziel 275 €",
+    "Starker Trend über drei Monate (+19 %)"
    ],
    "con": [
-    "Schwankung um 28 % pro Jahr",
-    "Abhängig vom KI-Thema"
+    "KI-Sorgen am Markt",
+    "Hohe Schwankungen"
    ],
    "news": [
-    "ny1910368211",
-    "n8764367"
+    "ny842240668",
+    "ny1910368211"
    ],
    "warn": 0,
    "warnGrund": "",
@@ -880,8 +906,8 @@
      "u": "https://de.finance.yahoo.com/nachrichten/analyse-flash-jpmorgan-hebt-sap-062003650.html?.tsrc=rss"
     },
     {
-     "t": "Asian shares fall before Nvidia earnings, Anthropic IPO test tech rally - Reuters",
-     "u": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPa3g3MVMxZ2lSN1ZpTmpaWkdYR25ZdDZ4M3BELXQ3ZC1PZDhtNTVjYmpQdHlJZUFtLWxiUkFLbXhUVHM0OHNScEUyTWFHUU5MMmZYb0EyVW51dXd1OWJFak1NbVFwazhlVzBIcHB3TENzRG1IZ2FvVFlpS0xubFBadXlPYw?oc=5"
+     "t": "Wall Street vor Nvidia-Zahlen und inmitten von KI-Sorgen richtungslos",
+     "u": "https://de.finance.yahoo.com/nachrichten/wall-street-nvidia-zahlen-inmitten-010312941.html?.tsrc=rss"
     }
    ]
   },
@@ -958,30 +984,38 @@
    "cur": "EUR",
    "cat": "Staatsanleihen Euro",
    "h": "lang",
-   "bias": 0,
-   "why": "Der Euro-Staatsanleihen-ETF gab am Freitag leicht nach und liegt seitwärts. Die Schwankung ist sehr gering.",
-   "ausblick": "Rechnerisch liegt die Mitte für drei Monate bei etwa 105 €, Spanne rund 103 bis 108 €. Treiber sind Zinserwartungen an die EZB. Unsicher.",
+   "bias": -0.2,
+   "why": "Der Euro-Staatsanleihen-ETF fiel leicht auf rund 105,5 €. Er liegt nahe dem tiefsten Stand der letzten drei Monate.",
+   "ausblick": "Rechnerisch liegt die Mitte für drei Monate bei rund 105 €, Spanne etwa 103 bis 107 €. Steigende Zinserwartungen in den USA drücken, die schwächere Konjunktur in Europa könnte stützen.",
    "richtung": "seitwärts",
    "zuversicht": "mittel",
-   "horizont": "3–6 Monate",
-   "halten": "Seit dem Kauf am 10. November rund 1 % im Minus; als ruhiger Baustein eher für lange Zeiträume. Dagegen spricht, dass steigende Zinsen die Kurse drücken.",
+   "horizont": "2–3 Monate",
+   "halten": "Der ETF dient eher als ruhiger Baustein für mittlere bis lange Zeiträume; seit Kauf liegt er rund 1,2 % im Minus. Dagegen sprechen weiter steigende Zinsen.",
    "signale": [
-    "Rückfall unter etwa 103 €",
-    "Neue Signale der EZB zu Zinsen"
+    "Rückfall unter etwa 104 € (3-Monats-Tief)",
+    "Signale der EZB zu den Zinsen",
+    "Weiter steigende US-Renditen"
    ],
-   "muster": "Der Kurs liegt nahe am 3-Monats-Tief, wo zuletzt Käufer stützten. Hält die Marke nicht, kann es weiter fallen. Unsicher.",
+   "muster": "Der Kurs ist nahe einer Unterstützung und lief zuletzt etwas mit Gold. Beides unsicher.",
    "pro": [
     "Sehr geringe Schwankung",
-    "Ausgleich zu Aktien"
+    "Ausgleich zu Aktien im Depot"
    ],
    "con": [
-    "Nahe am 3-Monats-Tief",
-    "Zinsrisiko"
+    "Zinssorgen drücken Kurse",
+    "Nahe am 3-Monats-Tief"
    ],
-   "news": [],
-   "warn": 0,
-   "warnGrund": "",
-   "quellen": []
+   "news": [
+    "ny1084740323"
+   ],
+   "warn": 1,
+   "warnGrund": "Erwartete Zinserhöhungen belasten Anleihen.",
+   "quellen": [
+    {
+     "t": "Gold verharrt nahe 14-Monats-Tief: Fed-Zinserwartungen und Tech-Ausverkauf belasten",
+     "u": "https://de.finance.yahoo.com/nachrichten/gold-verharrt-nahe-14-monats-020906305.html?.tsrc=rss"
+    }
+   ]
   },
   {
    "s": "QIA.DE",
@@ -1057,39 +1091,36 @@
    "cat": "Diagnostik",
    "h": "lang",
    "bias": 0,
-   "why": "Qiagen lag am Freitag kaum verändert, ist über drei Monate aber gut 22 % gestiegen. Die Aktionäre bestätigten zuletzt einen neuen Geschäftsführer.",
-   "ausblick": "Rechnerisch liegt die Mitte für drei Monate bei etwa 51 €, Spanne rund 45 bis 58 €. Nach dem starken Anstieg sind Pausen möglich. Unsicher.",
+   "why": "Qiagen blieb gestern stabil bei rund 45 € und liegt am 3-Monats-Hoch. Über drei Monate hat die Aktie gut 22 % gewonnen.",
+   "ausblick": "Rechnerisch liegt die Mitte für drei Monate bei rund 51 €, Spanne etwa 45 bis 58 €. Gesundheitswerte waren zuletzt gefragt, nach dem starken Anstieg ist aber auch eine Pause möglich.",
    "richtung": "seitwärts",
-   "zuversicht": "niedrig",
+   "zuversicht": "mittel",
    "horizont": "2–3 Monate",
-   "halten": "Seit dem Kauf am 10. November kaum verändert; eher für mittlere bis lange Zeiträume. Nach dem starken Lauf ist das Rückschlagrisiko erhöht.",
+   "halten": "Qiagen passt eher für mittlere bis lange Zeiträume; seit Kauf leicht im Plus (+0,4 %). Dagegen spricht, dass der Kurs seit Wochen kaum noch vorankommt.",
    "signale": [
-    "Rückfall unter etwa 45 €",
-    "Ausbruch über das 3-Monats-Hoch"
+    "Rückfall unter etwa 44,9 €",
+    "Ausbruch über rund 45,4 €",
+    "Neue Unternehmensmeldungen"
    ],
-   "muster": "Der Kurs liegt nahe am 3-Monats-Hoch, wo zuletzt gebremst wurde; die Jahresendphase war oft gut. Unsicher.",
+   "muster": "Der Kurs liegt an einem Widerstand und bewegt sich seit Wochen eng; ein Ausbruch in eine Richtung ist offen. Unsicher.",
    "pro": [
-    "Starker Trend",
-    "Führung geklärt"
+    "Gesundheitswerte in Europa gefragt",
+    "Geringe Schwankung zuletzt"
    ],
    "con": [
-    "Nahe am Widerstand",
-    "Starker Lauf bereits erfolgt"
+    "Kein neuer Antrieb aus Meldungen",
+    "Nahe am Widerstand"
    ],
    "news": [],
    "warn": 0,
    "warnGrund": "",
-   "quellen": [
-    {
-     "t": "QIAGEN-Aktionäre stimmen der Berufung von Jonathan M. Pratt in die Geschäftsführung mit überwältigender Mehrheit zu",
-     "u": "https://de.finance.yahoo.com/nachrichten/qiagen-aktion%C3%A4re-stimmen-berufung-jonathan-150000551.html?.tsrc=rss"
-    }
-   ]
+   "quellen": []
   },
   {
    "s": "TSLA",
    "n": "Tesla",
    "closes": [
+    379.739990234375,
     390.2200012207031,
     397.45001220703125,
     390.8399963378906,
@@ -1153,46 +1184,47 @@
     345.1300048828125,
     351.1199951171875,
     336.8699951171875,
-    339.29998779296875,
-    342.2699890136719
+    339.29998779296875
    ],
    "cur": "USD",
    "cat": "E-Autos",
-   "h": "spekulativ",
+   "h": "kurz",
    "bias": -0.5,
-   "why": "Tesla verlor am Freitag knapp 2 %, liegt über drei Monate aber rund 14 % im Plus. Die Aktie schwankt stark und reagiert empfindlich auf die KI-Stimmung.",
-   "ausblick": "Rechnerisch liegt die Mitte für drei Monate bei etwa 396 $, Spanne rund 348 bis 452 $. Die Nvidia-Zahlen und der Anthropic-Börsengang dürften die Stimmung beeinflussen. Sehr unsicher.",
+   "why": "Tesla fiel gestern um 2,7 % auf rund 380 $. Berichte über eine mögliche Verbindung mit SpaceX sorgen für Gesprächsstoff, sind aber unbestätigt.",
+   "ausblick": "Rechnerisch liegt die Mitte für drei Monate bei rund 406 $, mit einer sehr weiten Spanne von etwa 321 bis 513 $. Spekulation und Tech-Stimmung treiben den Kurs stark, die Richtung ist offen.",
    "richtung": "seitwärts",
    "zuversicht": "niedrig",
    "horizont": "4–8 Wochen",
-   "halten": "Die starke Schwankung von rund 47 % pro Jahr macht den Wert spekulativ; er passt eher für lange Zeiträume mit Bereitschaft zu großen Ausschlägen. Kurzfristig belastet die Tech-Unsicherheit.",
+   "halten": "Wegen der hohen Schwankungen eher ein spekulativer Wert. Für lange Zeiträume spricht die Marktstellung, dagegen die starke Abhängigkeit von Stimmung und Nachrichten.",
    "signale": [
-    "Rückfall unter etwa 348 $",
-    "Reaktion auf Nvidia-Zahlen",
-    "Stimmung bei KI-Werten"
+    "Rückfall unter etwa 337 $ (3-Monats-Tief)",
+    "Bestätigung oder Dementi zu SpaceX",
+    "Reaktion auf die Nvidia-Zahlen"
    ],
-   "muster": "Die Aktie lief zuletzt gegenläufig zu Gold und DAX; die Jahresendphase war oft gut. Unsicher.",
+   "muster": "Der Wert lief zuletzt gegenläufig zu Gold. Das ist ein schwacher und unsicherer Zusammenhang.",
    "pro": [
-    "Positiver Trend über drei Monate"
+    "Mögliche Fantasie durch SpaceX-Pläne",
+    "Starker Trend über drei Monate (+12 %)"
    ],
    "con": [
-    "Sehr starke Schwankung",
-    "Abhängig von der KI-Stimmung"
+    "Sehr hohe Schwankungen",
+    "Tech-Ausverkauf"
    ],
    "news": [
-    "n8764367",
-    "n8761832"
+    "ny2008040565",
+    "ny842240668",
+    "ny1168852474"
    ],
    "warn": 1,
-   "warnGrund": "Tech-Werte vor wichtigen KI-Terminen unter Druck.",
+   "warnGrund": "Hohe Schwankung bei angeschlagener Tech-Stimmung.",
    "quellen": [
     {
-     "t": "Asian shares fall before Nvidia earnings, Anthropic IPO test tech rally - Reuters",
-     "u": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPa3g3MVMxZ2lSN1ZpTmpaWkdYR25ZdDZ4M3BELXQ3ZC1PZDhtNTVjYmpQdHlJZUFtLWxiUkFLbXhUVHM0OHNScEUyTWFHUU5MMmZYb0EyVW51dXd1OWJFak1NbVFwazhlVzBIcHB3TENzRG1IZ2FvVFlpS0xubFBadXlPYw?oc=5"
+     "t": "Cathie Wood’s $2.2 Billion Bet on Elon Musk Could Soon Become One Giant Stock",
+     "u": "https://finnhub.io/api/news?id=ba50c4c565e261c1b8885654b63d18f60a5b41667cd8e048e07f6c94852f39e9"
     },
     {
-     "t": "3 big things we're watching in the stock market in the week ahead",
-     "u": "https://www.cnbc.com/investingclub/2026/11/15/3-big-things-were-watching-in-the-stock-market-in-the-week-ahead.html"
+     "t": "Aktien, Gold und Asien verlieren 2,2 Billionen USD: Die fünf wichtigsten Auslöser des Crashs",
+     "u": "https://de.beincrypto.com/markt-crash-2-billionen-5-faktoren/?.tsrc=rss"
     }
    ]
   },
@@ -1200,6 +1232,7 @@
    "s": "^VIX",
    "n": "^VIX",
    "closes": [
+    22.90999984741211,
     19.299999237060547,
     18.700000762939453,
     17.489999771118164,
@@ -1263,47 +1296,45 @@
     15.130000114440918,
     16.010000228881836,
     14.890000343322754,
-    15.84000015258789,
-    15.1899995803833
+    15.84000015258789
    ],
    "cur": "USD",
    "cat": "Volatilitätsindex",
-   "h": "nicht kaufbar",
+   "h": "kurz",
    "bias": 1,
-   "why": "Das Angst-Barometer VIX stieg am Freitag um gut 3 % auf rund 15. Das ist ein moderates Niveau, aber über drei Monate deutlich gestiegen.",
-   "ausblick": "Rechnerisch liegt die Mitte für drei Monate bei etwa 20, Spanne rund 13 bis 32. Golf-Konflikt und KI-Termine können für Ausschläge sorgen. Sehr unsicher.",
-   "richtung": "steigend",
+   "why": "Das Angst-Barometer stieg gestern um fast 19 % auf knapp 23 Punkte. Das zeigt deutlich mehr Nervosität am Markt.",
+   "ausblick": "Rechnerisch reicht die Spanne für drei Monate von rund 12 bis 62 Punkten. Bleiben KI- und Zinssorgen, bleibt der VIX erhöht; beruhigt sich der Markt, fällt er oft schnell zurück.",
+   "richtung": "seitwärts",
    "zuversicht": "niedrig",
-   "horizont": "4–8 Wochen",
-   "halten": "Der VIX ist ein Messwert für die Nervosität am Markt und nicht direkt kaufbar.",
+   "horizont": "2–4 Wochen",
+   "halten": "Der VIX ist kein Anlagewert, sondern ein Stimmungsmesser. Er hilft einzuschätzen, wie unruhig die Börsen gerade sind.",
    "signale": [
-    "Anstieg über 20 als Zeichen wachsender Nervosität",
-    "Eskalation am Golf",
-    "Reaktion auf Nvidia-Zahlen"
+    "Anstieg über 28 Punkte (3-Monats-Hoch)",
+    "Rückgang unter 18 Punkte",
+    "Reaktion auf die Nvidia-Zahlen"
    ],
-   "muster": "Der VIX lief zuletzt gleichläufig zu DAX und Euro-Kurs. Unsicher.",
+   "muster": "",
    "pro": [
-    "Zeigt früh, wenn Anleger nervös werden"
+    "Zeigt frühzeitig steigende Nervosität"
    ],
    "con": [
     "Nicht direkt investierbar",
-    "Sehr starke Schwankungen"
+    "Extrem hohe Schwankungen"
    ],
    "news": [
-    "n8762438",
-    "n8762539",
-    "n8764367"
+    "ny2008040565",
+    "ny842240668"
    ],
-   "warn": 1,
-   "warnGrund": "Geopolitik und KI-Termine erhöhen die Nervosität.",
+   "warn": 2,
+   "warnGrund": "Deutlicher Anstieg der Nervosität am Markt.",
    "quellen": [
     {
-     "t": "Anti-Houthi forces retreat in Yemen as Iran strikes Bahrain - Reuters",
-     "u": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOdTFBcWR1YzJhai1UdGgzMHpvdm40VExxeXFqM0NtbU9YVmNSNXpNeDlXTGllRXFtczhIUzVsaFFWdVV5TGxESWdneGlXbER1Qlg2b2VhQ2lqMmxVaEd4U01nZmNXcFY2bmNhSTdIN0VycE84MWJDRXdZOGxMRGo0U1k1UjhiamFNQ1JIQmp1MUdxNlZGRm1UanBvaENxR3V2N25NdFVOaWpXX1E?oc=5"
+     "t": "Aktien, Gold und Asien verlieren 2,2 Billionen USD: Die fünf wichtigsten Auslöser des Crashs",
+     "u": "https://de.beincrypto.com/markt-crash-2-billionen-5-faktoren/?.tsrc=rss"
     },
     {
-     "t": "Asian shares fall before Nvidia earnings, Anthropic IPO test tech rally - Reuters",
-     "u": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPa3g3MVMxZ2lSN1ZpTmpaWkdYR25ZdDZ4M3BELXQ3ZC1PZDhtNTVjYmpQdHlJZUFtLWxiUkFLbXhUVHM0OHNScEUyTWFHUU5MMmZYb0EyVW51dXd1OWJFak1NbVFwazhlVzBIcHB3TENzRG1IZ2FvVFlpS0xubFBadXlPYw?oc=5"
+     "t": "Wall Street vor Nvidia-Zahlen und inmitten von KI-Sorgen richtungslos",
+     "u": "https://de.finance.yahoo.com/nachrichten/wall-street-nvidia-zahlen-inmitten-010312941.html?.tsrc=rss"
     }
    ]
   },
@@ -1311,6 +1342,7 @@
    "s": "V",
    "n": "Visa",
    "closes": [
+    426.4599914550781,
     425.760009765625,
     420.30999755859375,
     425.54998779296875,
@@ -1374,252 +1406,256 @@
     365.7300109863281,
     365.5400085449219,
     364.25,
-    358.8399963378906,
-    364.1499938964844
+    358.8399963378906
    ],
    "cur": "USD",
    "cat": "Zahlungsdienste",
    "h": "lang",
-   "bias": 0.2,
-   "why": "Visa stieg am Freitag gut 1 % und liegt über drei Monate fast 17 % im Plus. Neue Bezahlangebote wie mit Samsung in Asien stützen das Bild.",
-   "ausblick": "Rechnerisch liegt die Mitte für drei Monate bei etwa 469 $, Spanne rund 421 bis 521 $. Ein Thema bleiben Stablecoins als mögliche Konkurrenz. Unsicher.",
+   "bias": 0,
+   "why": "Visa blieb gestern stabil bei rund 426 $, trotz schwacher US-Börsen. Die Aktie liegt nahe ihrem 3-Monats-Hoch.",
+   "ausblick": "Rechnerisch liegt die Mitte für drei Monate bei rund 473 $, Spanne etwa 426 bis 525 $. Der starke Trend spricht dafür, eine schwächere US-Konjunktur und hohe Zinsen dagegen.",
    "richtung": "steigend",
    "zuversicht": "mittel",
    "horizont": "3–6 Monate",
-   "halten": "Stabiles Geschäftsmodell, eher für mittlere bis lange Zeiträume. Dagegen stehen neue digitale Zahlungswege als Wettbewerb.",
+   "halten": "Visa passt eher für lange Zeiträume, das Geschäft ist wenig von der KI-Debatte abhängig. Dagegen spricht die Nähe zum Widerstand.",
    "signale": [
-    "Rückfall unter etwa 421 $",
-    "Fortschritte bei Stablecoin-Zahlungen"
+    "Rückfall unter etwa 400 $",
+    "Überschreiten von rund 437 $ (3-Monats-Hoch)",
+    "Daten zum US-Konsum"
    ],
-   "muster": "Der Kurs liegt nahe am 3-Monats-Hoch, wo zuletzt gebremst wurde; die Jahresendphase war oft gut. Unsicher.",
+   "muster": "Der Kurs liegt an einem Widerstand, saisonal sind November und Dezember oft gut. Beides unsicher.",
    "pro": [
-    "Starker Trend",
-    "Neue Partnerschaften"
+    "Stabil im Ausverkauf",
+    "Starker Trend über drei Monate (+19 %)"
    ],
    "con": [
-    "Wettbewerb durch Stablecoins",
-    "Nahe am Widerstand"
+    "Nahe am Widerstand",
+    "Ein großer Fonds hat Anteile reduziert"
    ],
-   "news": [],
+   "news": [
+    "ny2008040565",
+    "ny1168852474"
+   ],
    "warn": 0,
    "warnGrund": "",
    "quellen": [
     {
-     "t": "Visa and Samsung Bring Scan to Pay to Mobile Devices Across Asia Pacific with Samsung Wallet",
-     "u": "https://finnhub.io/api/news?id=616b1d3a5152d13643773ce1c24a744b6bd9c0d0d15ab4d8a6add553ddb093aa"
+     "t": "Top British Hedge Fund Loads Up on Martin Marietta Stock, Trims Stake in Visa",
+     "u": "https://finnhub.io/api/news?id=22bed5a22313dbfcce6bec9c99e6f68cb9841d82add58a46532a3fa61581d081"
     },
     {
-     "t": "Visa And Mastercard Stocks Face A Stablecoin Test Investors Should Watch",
-     "u": "https://finnhub.io/api/news?id=3ff5f6aaf07f679bc358e7386b43bd80ce7fef28e2ea9cb228939184ae429003"
+     "t": "UQPAY Deploys Visa Payment Passkey, Advancing the Next Generation of Agentic Payment Experience",
+     "u": "https://finnhub.io/api/news?id=f7b2de1d133fb09e3158bd9399ce8462034c1aba5a0fde3afd25b24bc2c9b93c"
     }
    ]
   }
  ],
  "news": [
   {
-   "id": "n8764367",
+   "id": "ny2008040565",
    "imp": 3,
    "kind": [
-    "KI-Werte",
-    "warn"
+    "Ausverkauf",
+    "down"
    ],
    "cat": "Märkte",
-   "t": "Asiens Börsen schwächer vor Nvidia-Zahlen",
-   "sum": "Asiatische Aktien starten mit Verlusten in die Woche, weil Anleger vor den Nvidia-Zahlen und dem geplanten Anthropic-Börsengang vorsichtig sind.",
+   "t": "Breiter Ausverkauf an den Weltbörsen",
+   "sum": "Aktien, Edelmetalle und asiatische Börsen fielen gleichzeitig, rund 2,2 Billionen Dollar Börsenwert gingen an einem Tag verloren.",
    "body": [
-    "Beide Ereignisse gelten als Prüfstein dafür, ob die hohen Erwartungen an KI-Werte gerechtfertigt sind.",
-    "Schon am Freitag hatten Tech-Werte in den USA deutlich nachgegeben (Nasdaq 100 rund −1,2 %)."
+    "In den USA traf es vor allem Technologiewerte: Der Nasdaq 100 verlor rund 2,7 %, der S&P 500 knapp 1,9 %.",
+    "Europa hielt sich mit etwa −0,6 % beim DAX besser. Das Angst-Barometer VIX sprang um fast 19 % auf rund 23 Punkte."
    ],
-   "back": "Wirkt bald: Die Nvidia-Zahlen in dieser Woche dürften die Stimmung bei Tech-Werten und breiten Indizes prägen.",
+   "back": "Wirkt jetzt: Die erhöhte Nervosität dürfte die Kurse in den nächsten Tagen schwanken lassen.",
    "stocks": [
     "URTH",
     "XDEW.DE",
     "AAPL",
-    "SAP.DE",
     "TSLA",
-    "^VIX"
+    "^VIX",
+    "EXS1.DE",
+    "EUNK.DE",
+    "V"
    ],
-   "u": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPa3g3MVMxZ2lSN1ZpTmpaWkdYR25ZdDZ4M3BELXQ3ZC1PZDhtNTVjYmpQdHlJZUFtLWxiUkFLbXhUVHM0OHNScEUyTWFHUU5MMmZYb0EyVW51dXd1OWJFak1NbVFwazhlVzBIcHB3TENzRG1IZ2FvVFlpS0xubFBadXlPYw?oc=5",
-   "q": "Reuters"
+   "u": "https://de.beincrypto.com/markt-crash-2-billionen-5-faktoren/?.tsrc=rss",
+   "q": "Yahoo Finanzen"
   },
   {
-   "id": "n8761832",
-   "imp": 2,
-   "kind": [
-    "Termine",
-    ""
-   ],
-   "cat": "Märkte",
-   "t": "Wichtige Woche für das KI-Thema",
-   "sum": "Diese Woche stehen die Nvidia-Zahlen und der Anthropic-Börsengang im Mittelpunkt.",
-   "body": [
-    "Beobachter sehen die Woche als richtungsweisend für KI-Aktien.",
-    "Fallen die Signale enttäuschend aus, könnten gerade hoch bewertete Tech-Werte unter Druck geraten."
-   ],
-   "back": "Wirkt bald: Ergebnisse und Börsengang im Laufe der Woche.",
-   "stocks": [
-    "TSLA",
-    "AAPL",
-    "SAP.DE",
-    "URTH"
-   ],
-   "u": "https://www.cnbc.com/investingclub/2026/11/15/3-big-things-were-watching-in-the-stock-market-in-the-week-ahead.html",
-   "q": "CNBC"
-  },
-  {
-   "id": "n8762438",
+   "id": "ny842240668",
    "imp": 3,
    "kind": [
-    "Geopolitik",
+    "KI-Sorgen",
     "warn"
    ],
-   "cat": "Rohstoffe",
-   "t": "Iran greift Bahrain an, Lage im Jemen verschiebt sich",
-   "sum": "Iran hat erneut Bahrain angegriffen, während sich Gegner der Huthis im Jemen zurückziehen.",
+   "cat": "Märkte",
+   "t": "Wall Street wartet auf Nvidia-Zahlen",
+   "sum": "Nach den deutlichen Verlusten zeigen sich die US-Terminkontrakte kaum verändert, Anleger warten auf die Nvidia-Zahlen.",
    "body": [
-    "Der Konflikt am Golf weitet sich damit weiter aus.",
-    "Für Ölpreis, Angst-Barometer VIX und die Stimmung an den Börsen bleibt das ein Risiko."
+    "Zweifel, ob die hohen Erwartungen an KI-Geschäfte erfüllt werden, belasten Tech-Werte seit Tagen.",
+    "Die Nvidia-Zahlen in dieser Woche gelten als wichtiger Prüfstein für die gesamte Branche."
    ],
-   "back": "Wirkt jetzt: Mögliche Reaktion beim Ölpreis und beim VIX zum Wochenstart.",
+   "back": "Wirkt bald: Die Reaktion auf die Nvidia-Zahlen kann die Richtung bei Tech-Werten und breiten Indizes vorgeben.",
    "stocks": [
-    "BZ=F",
-    "^VIX",
     "URTH",
-    "EXS1.DE",
-    "EUNK.DE"
-   ],
-   "u": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOdTFBcWR1YzJhai1UdGgzMHpvdm40VExxeXFqM0NtbU9YVmNSNXpNeDlXTGllRXFtczhIUzVsaFFWdVV5TGxESWdneGlXbER1Qlg2b2VhQ2lqMmxVaEd4U01nZmNXcFY2bmNhSTdIN0VycE84MWJDRXdZOGxMRGo0U1k1UjhiamFNQ1JIQmp1MUdxNlZGRm1UanBvaENxR3V2N25NdFVOaWpXX1E?oc=5",
-   "q": "Reuters"
-  },
-  {
-   "id": "n8762539",
-   "imp": 2,
-   "kind": [
-    "Geopolitik",
-    "warn"
-   ],
-   "cat": "Rohstoffe",
-   "t": "Huthis melden Raketen auf Riad",
-   "sum": "Die Huthis geben an, ballistische Raketen in Richtung Flughafen und Finanzviertel von Riad abgefeuert zu haben.",
-   "body": [
-    "Ein Angriff auf Saudi-Arabien würde den Konflikt auf den größten Ölexporteur der Region ausdehnen.",
-    "Bestätigte Schäden gibt es in der Meldung nicht."
-   ],
-   "back": "Wirkt jetzt: Erhöht kurzfristig die Unsicherheit am Ölmarkt.",
-   "stocks": [
-    "BZ=F",
+    "AAPL",
+    "TSLA",
+    "SAP.DE",
     "^VIX"
    ],
-   "u": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOZ2NSdXVjeDlTU0lLeTAtMGs5RmdHaW0wTVhVbzUwempOYUdlNVB3NXprMGZqYksyVjhLUU1OV250QlczemJOT2tXcVFIZEJYb0dwblVCblExbnFmZkVyeGZnZ0NJY3Z3a3NTcmxUQ21tR0ZsQVdhTTNRNWJaZW5pOEk4RDNEMXN3aExOaEE0QVNzaXV3UTM3ZjlNa2hDenRtajR2aGVGT3RQR0NOSnY1VHQ3czdCSkJWSUgxaFFYNThEUlBBMVpn?oc=5",
-   "q": "Reuters"
+   "u": "https://de.finance.yahoo.com/nachrichten/wall-street-nvidia-zahlen-inmitten-010312941.html?.tsrc=rss",
+   "q": "Yahoo Finanzen"
   },
   {
-   "id": "n8764165",
+   "id": "ny1084740323",
+   "imp": 2,
+   "kind": [
+    "Zinsen",
+    "down"
+   ],
+   "cat": "Zinsen",
+   "t": "Gold nahe 14-Monats-Tief, Zinserhöhung erwartet",
+   "sum": "Der Goldpreis bleibt schwach, weil Anleger mit einer weiteren Zinserhöhung der US-Notenbank rechnen.",
+   "body": [
+    "Hohe Inflation in den USA und Renditen von über 5 % bei US-Staatsanleihen machen zinslose Anlagen wie Gold weniger attraktiv.",
+    "Steigende Zinsen drücken auch auf Anleihekurse und auf hoch bewertete Aktien."
+   ],
+   "back": "Wirkt jetzt: Solange Zinserhöhungen erwartet werden, bleiben Gold und Anleihen unter Druck.",
+   "stocks": [
+    "EUNH.DE",
+    "URTH"
+   ],
+   "u": "https://de.finance.yahoo.com/nachrichten/gold-verharrt-nahe-14-monats-020906305.html?.tsrc=rss",
+   "q": "Yahoo Finanzen"
+  },
+  {
+   "id": "ny1168852474",
+   "imp": 2,
+   "kind": [
+    "Euro schwach",
+    "warn"
+   ],
+   "cat": "Devisen",
+   "t": "Euro auf tiefstem Stand seit April 2025",
+   "sum": "Der Euro fiel nach mehreren Verlusttagen auf rund 1,10 Dollar.",
+   "body": [
+    "Grund ist vor allem der Zinsabstand: In den USA werden eher höhere Zinsen erwartet als in der Eurozone.",
+    "Für Anleger aus dem Euroraum werden Dollar-Werte dadurch rechnerisch etwas mehr wert, was Kursverluste in Dollar teils abfedert."
+   ],
+   "back": "Wirkt jetzt: Der Wechselkurs beeinflusst den Euro-Wert aller US-Positionen im Depot.",
+   "stocks": [
+    "URTH",
+    "AAPL",
+    "TSLA",
+    "V",
+    "XDEW.DE"
+   ],
+   "u": "https://de.finance.yahoo.com/nachrichten/devisen-mehrt%C3%A4gige-talfahrt-dr%C3%BCckt-euro-200003919.html?.tsrc=rss",
+   "q": "Yahoo Finanzen"
+  },
+  {
+   "id": "n8768541",
    "imp": 2,
    "kind": [
     "Öl",
     "down"
    ],
    "cat": "Rohstoffe",
-   "t": "Ölpreise fallen wegen erwartetem Überangebot",
-   "sum": "Der Ölpreis gibt nach, weil Marktteilnehmer mit einem kommenden Überangebot rechnen.",
+   "t": "Öl gibt trotz Spannungen am Golf nach",
+   "sum": "Brent wird billiger, weil ein Überangebot erwartet wird, obwohl die Lage am Golf angespannt bleibt.",
    "body": [
-    "Das wirkt den Sorgen um die Golf-Region entgegen.",
-    "Brent liegt über vier Wochen bereits rund 13 % im Minus."
+    "Iran hat Ziele in Bahrain angegriffen, die USA verurteilten die Angriffe. Der Ölpreis reagierte bisher kaum darauf.",
+    "Brent liegt rund 16 % unter dem Stand von vor vier Wochen. Niedrigere Energiepreise entlasten tendenziell europäische Industriewerte."
    ],
-   "back": "Wirkt jetzt: Drückt auf den Ölpreis, trotz geopolitischer Risiken.",
+   "back": "Wirkt bald: Eine weitere Eskalation am Golf könnte den Ölpreis schnell wieder steigen lassen.",
    "stocks": [
-    "BZ=F"
+    "SIE.DE",
+    "EXS1.DE",
+    "EUNK.DE"
    ],
-   "u": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNSXlabl9ocWtiOEZLcnc2SGNVSEh2bjltWURkWU1RSDVTejZWMEtNYTR4QW9sT19DQy05SVhHVmphTEtIQXdtVzlUS25Vdk1oS0hjdWZ0MHpUb01NQUp4dzlBcE55anIwR0hKVmhCUDRsT3V3ek9jTURVYkcySDNBM1B0RmJ3emdUaHpPVWpENENfZ2JGRHB3MlJuekVfUWlFa2lfUQ?oc=5",
+   "u": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPQm40d1ZiR2k1S1RxaFdvQzJVYmRJUE1rcnNLZkEyRkZzbk5KZjlqWl9sZW9MUFB2OHpwdGZzT3duNzVnMnNaMEJMYkFKWndKTWE1OWNtd0hLcWRtSmVVYU5JaTBlNXZuT2t0V1AzVHdXVEhPMWt5QnhXakxpWkxiQk50ZEt0UGtXT3RpeXdiNEY0UXBqeXk2RGVHYURMNzJzNm13Zldtbm8tQQ?oc=5",
    "q": "Reuters"
   },
   {
-   "id": "ny1211078130",
+   "id": "n8768024",
    "imp": 2,
    "kind": [
-    "Währung",
+    "Chips",
     "warn"
    ],
-   "cat": "Devisen",
-   "t": "Euro auf tiefstem Stand seit April 2025",
-   "sum": "Der Euro fiel am Freitag auf etwa 1,10 Dollar, den niedrigsten Wert seit April 2025.",
+   "cat": "Politik",
+   "t": "USA wollen Chinas Zugang zu KI-Chips weiter begrenzen",
+   "sum": "Die US-Regierung plant strengere Regeln für den Export von KI-Chips nach China.",
    "body": [
-    "Für Anleger in Euro steigen damit die Werte von Dollar-Anlagen rechnerisch etwas.",
-    "Umgekehrt kann ein starker Dollar US-Firmen mit viel Auslandsgeschäft belasten."
+    "Das kann das China-Geschäft von Chip- und Technologiekonzernen belasten und die Spannungen im Handel erhöhen.",
+    "Zugleich warnen Branchenbeobachter vor Engpässen bei Speicherchips, die auch die Industrie treffen könnten."
    ],
-   "back": "Rückblick: Bewegung vom Freitag, wirkt auf Dollar-Werte im Depot.",
+   "back": "Wirkt bald: Konkrete Regeln und mögliche Gegenreaktionen Chinas sind noch offen.",
    "stocks": [
     "URTH",
-    "XDEW.DE",
     "AAPL",
-    "V"
+    "SIE.DE"
    ],
-   "u": "https://de.finance.yahoo.com/nachrichten/devisen-euro-f%C3%A4llt-zur%C3%BCck-200210193.html?.tsrc=rss",
+   "u": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPOFRscFU2Tnd4dkpNWURqN2NDcEg1eHBNUW9VTTd5YkRBNlA2eVJkV0xsWHpqNExCek4xTUY0VlU5TjJYM1ZJaWE3YkVNZndhUE5CamYyZlh3WGhRUHhUVzhDRW1IUkVTXzBBQ1hXMTkzM0tiNF9DZGpZcUlTb0xQOFBsVEM1VDhnV0taSlpYYTNsQUpyMnlKQzNSenU3alBia0ZJR1QyQ2hSX3g5bG1yX3d3dTBublY1?oc=5",
+   "q": "Reuters"
+  },
+  {
+   "id": "ny989832039",
+   "imp": 1,
+   "kind": [
+    "Analysten",
+    "up"
+   ],
+   "cat": "Unternehmen",
+   "t": "JPMorgan bleibt positiv für Siemens",
+   "sum": "Die US-Bank sieht Siemens weiter positiv und nennt ein Kursziel von 345 Euro.",
+   "body": [
+    "Nach einem Gespräch mit der Finanzchefin lobt die Bank die jüngsten Geschäftszahlen."
+   ],
+   "back": "Rückblick: Die Einschätzung stützt die Stimmung, ändert aber kurzfristig wenig am Marktumfeld.",
+   "stocks": [
+    "SIE.DE"
+   ],
+   "u": "https://de.finance.yahoo.com/nachrichten/analyse-flash-jpmorgan-bel%C3%A4sst-siemens-200505797.html?.tsrc=rss",
    "q": "Yahoo Finanzen"
   },
   {
    "id": "ny1910368211",
-   "imp": 2,
+   "imp": 1,
    "kind": [
     "Analysten",
     "up"
    ],
    "cat": "Unternehmen",
    "t": "JPMorgan stuft SAP hoch",
-   "sum": "JPMorgan hat SAP auf „Overweight“ hochgestuft und das Kursziel auf 275 Euro angehoben.",
+   "sum": "JPMorgan sieht SAP jetzt positiv und hebt das Kursziel deutlich auf 275 Euro an.",
    "body": [
-    "Begründung: KI werde in Unternehmen zunehmend produktiv eingesetzt, wovon SAP profitieren könne.",
-    "Analystenurteile sind Einschätzungen, keine Garantie."
+    "Begründung: KI werde in Unternehmen zunehmend produktiv genutzt, davon könne SAP profitieren."
    ],
-   "back": "Rückblick: Hatte die Aktie zuletzt gestützt.",
+   "back": "Rückblick: Die Hochstufung hat die Aktie zuletzt gestützt.",
    "stocks": [
-    "SAP.DE",
-    "SAP"
+    "SAP.DE"
    ],
    "u": "https://de.finance.yahoo.com/nachrichten/analyse-flash-jpmorgan-hebt-sap-062003650.html?.tsrc=rss",
    "q": "Yahoo Finanzen"
-  },
-  {
-   "id": "ny476885151",
-   "imp": 1,
-   "kind": [
-    "Gold",
-    ""
-   ],
-   "cat": "Rohstoffe",
-   "t": "Gold fängt sich nach 13-Monats-Tief",
-   "sum": "Gold ist wieder über 3.900 Dollar je Unze gestiegen, nachdem es zuvor ein 13-Monats-Tief erreicht hatte.",
-   "body": [
-    "Steigende US-Anleiherenditen belasteten das Edelmetall zuletzt.",
-    "Auf Wochensicht blieb ein Minus."
-   ],
-   "back": "Rückblick: Erholung vom Freitag, Trend weiter schwach.",
-   "stocks": [
-    "4GLD.DE"
-   ],
-   "u": "https://de.finance.yahoo.com/nachrichten/gold-stabilisiert-%C3%BC-3-900-013344106.html?.tsrc=rss",
-   "q": "Yahoo Finanzen"
   }
  ],
- "telegram": "**Morgen-Briefing Montag**\nVor der Woche: Asiens Börsen schwächer, Anleger warten auf **Nvidia-Zahlen** und den **Anthropic-Börsengang**.\n**Golf:** Iran greift Bahrain an, Huthis melden Raketen auf Riad – Risiko für Öl und Stimmung.\n**Öl:** Brent fällt trotzdem, erwartetes Überangebot drückt.\n**Euro** bei rund 1,10 $, tiefster Stand seit April 2025.\nDepot: SAP gestützt durch JPMorgan-Hochstufung, Tesla zuletzt −1,8 %, VIX +3 %.",
+ "telegram": "**Morgen-Briefing Dienstag**\nWall Street gestern deutlich im Minus: **Nasdaq 100 −2,7 %**, S&P 500 −1,9 %, DAX −0,6 %.\n**VIX** springt auf rund 23 – die Nervosität steigt.\n**Zinsen:** Markt erwartet weitere US-Zinserhöhung, Gold nahe 14-Monats-Tief.\n**Euro** bei rund 1,10 $, tiefster Stand seit April 2025.\nHeute im Blick: Warten auf die **Nvidia-Zahlen** diese Woche.\nDepot: Tesla −2,7 %, Siemens −2,5 %, MSCI World nahe 3-Monats-Tief; SAP und Visa stabil.",
  "kurz": [
   {
    "s": "SAP",
    "n": "SAP (USA, $)",
-   "text": "Die US-Notierung von SAP legte am Freitag leicht zu. Sie folgt der Xetra-Aktie und dem Euro-Dollar-Kurs.",
+   "text": "Die US-Notierung von SAP gab gestern 0,5 % nach. Sie folgt der Xetra-Aktie und dem Euro-Dollar-Kurs.",
    "h": "lang",
    "warn": 0,
-   "ausblick": "Rechnerisch liegt die Mitte für drei Monate bei etwa 253 $, Spanne rund 221 bis 290 $. Treiber sind KI-Stimmung und Wechselkurs. Unsicher.",
+   "ausblick": "Rechnerisch liegt die Mitte für drei Monate bei rund 252 $, Spanne etwa 220 bis 288 $. Treiber sind KI-Stimmung und Wechselkurs. Unsicher.",
    "richtung": "steigend",
    "zuversicht": "mittel",
    "horizont": "3–6 Monate",
    "halten": "Inhaltlich wie die Xetra-Aktie, eher für längere Zeiträume. Für Euro-Anleger kommt das Dollar-Risiko hinzu.",
    "signale": [
-    "Rückfall unter etwa 221 $",
-    "Kippende KI-Stimmung nach Nvidia-Zahlen"
+    "Rückfall unter etwa 220 $",
+    "Reaktion auf die Nvidia-Zahlen"
    ],
-   "muster": "Der Wert lief zuletzt gegenläufig zum VIX; mehr Nervosität könnte belasten. Unsicher.",
+   "muster": "Der Wert lief zuletzt gegenläufig zum VIX; die gestiegene Nervosität könnte belasten. Unsicher.",
    "quellen": [
     {
      "t": "ANALYSE-FLASH: JPMorgan hebt SAP auf 'Overweight' - Ziel auf 275 Euro",
@@ -1630,91 +1666,101 @@
   {
    "s": "SPY",
    "n": "S&P 500 ETF",
-   "text": "Der S&P 500 gab am Freitag rund 0,4 % nach, belastet von Tech-Werten. Über vier Wochen steht ein kleines Minus.",
+   "text": "Der S&P 500 fiel gestern um 1,9 %, vor allem wegen Tech-Werten. Er liegt nun nahe dem tiefsten Stand der letzten drei Monate.",
    "h": "lang",
    "warn": 1,
-   "ausblick": "Rechnerisch liegt die Mitte für drei Monate bei etwa 757 $, Spanne rund 704 bis 813 $. Die Nvidia-Zahlen dürften die Richtung prägen. Unsicher.",
+   "ausblick": "Rechnerisch liegt die Mitte für drei Monate bei rund 737 $, Spanne etwa 684 bis 794 $. Zinssorgen und KI-Zweifel belasten, die Nvidia-Zahlen könnten Klarheit bringen.",
    "richtung": "seitwärts",
-   "zuversicht": "mittel",
+   "zuversicht": "niedrig",
    "horizont": "2–3 Monate",
-   "halten": "Breite US-Streuung, vor allem für lange Zeiträume. Kurzfristig hängt viel an der KI-Stimmung.",
+   "halten": "Als breiter US-Index eher für lange Zeiträume geeignet. Kurzfristig sprechen Abwärtstrend und Zinssorgen dagegen.",
    "signale": [
-    "Rückfall unter etwa 704 $",
-    "Reaktion auf Nvidia-Zahlen"
+    "Rückfall unter das 3-Monats-Tief",
+    "Reaktion auf die Nvidia-Zahlen",
+    "Signale der US-Notenbank"
    ],
-   "muster": "Der Kurs liegt nahe am 3-Monats-Tief, wo zuletzt Käufer stützten; die Jahresendphase war oft gut. Unsicher.",
+   "muster": "Nahe einer Unterstützung, und Jahresend-Monate waren oft freundlich. Beides unsicher.",
    "quellen": [
     {
-     "t": "Asian shares fall before Nvidia earnings, Anthropic IPO test tech rally - Reuters",
-     "u": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPa3g3MVMxZ2lSN1ZpTmpaWkdYR25ZdDZ4M3BELXQ3ZC1PZDhtNTVjYmpQdHlJZUFtLWxiUkFLbXhUVHM0OHNScEUyTWFHUU5MMmZYb0EyVW51dXd1OWJFak1NbVFwazhlVzBIcHB3TENzRG1IZ2FvVFlpS0xubFBadXlPYw?oc=5"
+     "t": "Aktien, Gold und Asien verlieren 2,2 Billionen USD: Die fünf wichtigsten Auslöser des Crashs",
+     "u": "https://de.beincrypto.com/markt-crash-2-billionen-5-faktoren/?.tsrc=rss"
+    },
+    {
+     "t": "Wall Street vor Nvidia-Zahlen und inmitten von KI-Sorgen richtungslos",
+     "u": "https://de.finance.yahoo.com/nachrichten/wall-street-nvidia-zahlen-inmitten-010312941.html?.tsrc=rss"
     }
    ]
   },
   {
    "s": "4GLD.DE",
    "n": "Xetra-Gold",
-   "text": "Xetra-Gold legte am Freitag knapp 0,7 % zu, nachdem Gold ein 13-Monats-Tief erreicht hatte. Über vier Wochen steht ein Minus von fast 5 %.",
+   "text": "Gold gab gestern weiter nach und liegt nahe einem 14-Monats-Tief. Erwartete Zinserhöhungen in den USA machen zinslose Anlagen unattraktiver.",
    "h": "lang",
    "warn": 1,
-   "ausblick": "Rechnerisch liegt die Mitte für drei Monate bei etwa 109 €, Spanne rund 98 bis 121 €. Steigende US-Renditen belasten, Golf-Spannungen könnten stützen. Unsicher.",
+   "ausblick": "Rechnerisch liegt die Mitte für drei Monate bei rund 108 €, Spanne etwa 98 bis 120 €. Solange Zinserhöhungen erwartet werden, bleibt Gegenwind; Spannungen am Golf könnten stützen.",
    "richtung": "seitwärts",
    "zuversicht": "niedrig",
    "horizont": "2–3 Monate",
-   "halten": "Gold dient eher als Absicherung über lange Zeiträume. Der aktuelle Abwärtstrend spricht kurzfristig dagegen.",
+   "halten": "Gold dient eher als langfristige Absicherung. Kurzfristig sprechen Abwärtstrend und hohe Zinsen dagegen.",
    "signale": [
-    "Rückfall unter etwa 98 €",
-    "Weiter steigende US-Renditen"
+    "Rückfall unter das 3-Monats-Tief",
+    "Entscheidung der US-Notenbank",
+    "Eskalation am Golf"
    ],
-   "muster": "Der Kurs liegt nahe am 3-Monats-Tief, wo Käufer zuletzt stützten. Hält die Marke nicht, kann es weiter fallen. Unsicher.",
+   "muster": "Der Kurs ist nahe einer Unterstützung und lief zuletzt gegenläufig zum DAX. Unsicher.",
    "quellen": [
     {
-     "t": "Gold stabilisiert sich über 3.900 Dollar nach 13-Monats-Tief – Wochenminus bleibt bestehen",
-     "u": "https://de.finance.yahoo.com/nachrichten/gold-stabilisiert-%C3%BC-3-900-013344106.html?.tsrc=rss"
+     "t": "Gold verharrt nahe 14-Monats-Tief: Fed-Zinserwartungen und Tech-Ausverkauf belasten",
+     "u": "https://de.finance.yahoo.com/nachrichten/gold-verharrt-nahe-14-monats-020906305.html?.tsrc=rss"
+    },
+    {
+     "t": "Gold erlebt das schwächste Jahr seit 2015: Was spricht aktuell für die 5%-Treasury gegenüber Gold?",
+     "u": "https://de.beincrypto.com/goldpreis-us-staatsanleihen-fed-zinserhoehung/?.tsrc=rss"
     }
    ]
   },
   {
    "s": "MUV2.DE",
    "n": "Münchener Rück",
-   "text": "Münchener Rück stieg am Freitag knapp 1 % und liegt über vier Wochen fast 9 % im Plus. Der Trend ist klar aufwärts.",
+   "text": "Münchener Rück blieb gestern stabil und liegt nahe dem 3-Monats-Hoch. Über vier Wochen stieg die Aktie um rund 9 %.",
    "h": "lang",
    "warn": 0,
-   "ausblick": "Rechnerisch liegt die Mitte für drei Monate bei etwa 642 €, Spanne rund 583 bis 706 €. Nach dem starken Lauf sind Pausen möglich. Unsicher.",
+   "ausblick": "Rechnerisch liegt die Mitte für drei Monate bei rund 642 €, Spanne etwa 584 bis 707 €. Höhere Zinsen helfen Versicherern bei der Kapitalanlage, große Schadenereignisse sind ein Risiko.",
    "richtung": "steigend",
    "zuversicht": "mittel",
    "horizont": "3–6 Monate",
-   "halten": "Solider Versicherer, eher für lange Zeiträume. Nach dem kräftigen Anstieg ist das Rückschlagrisiko erhöht.",
+   "halten": "Eher für lange Zeiträume geeignet, mit vergleichsweise ruhigem Verlauf. Dagegen spricht die Nähe zum Widerstand nach dem starken Anstieg.",
    "signale": [
-    "Rückfall unter etwa 583 €",
-    "Ausbruch über das 3-Monats-Hoch"
+    "Rückfall unter etwa 584 €",
+    "Meldungen zu großen Schadenereignissen"
    ],
-   "muster": "Der Kurs liegt nahe am 3-Monats-Hoch, wo zuletzt gebremst wurde; die Jahresendphase war oft gut. Unsicher.",
+   "muster": "Der Kurs liegt an einem Widerstand, saisonal sind die letzten Monate oft gut. Unsicher.",
    "quellen": []
   },
   {
    "s": "BZ=F",
    "n": "Öl (Brent)",
-   "text": "Brent verlor am Freitag rund 1 % und liegt über vier Wochen etwa 13 % im Minus. Erwartetes Überangebot drückt, der Golf-Konflikt bleibt Gegenkraft.",
+   "text": "Brent fiel gestern um 1 %, weil ein Überangebot erwartet wird. Die Spannungen am Golf haben den Preis bisher kaum gestützt.",
    "h": "spekulativ",
-   "warn": 2,
-   "ausblick": "Rechnerisch liegt die Mitte für drei Monate bei etwa 97 $, Spanne rund 77 bis 122 $. Überangebot und Golf-Konflikt ziehen in entgegengesetzte Richtungen. Sehr unsicher.",
+   "warn": 1,
+   "ausblick": "Rechnerisch reicht die Spanne für drei Monate von rund 73 bis 116 $. Überangebot drückt, eine Eskalation am Golf könnte den Preis schnell steigen lassen. Sehr unsicher.",
    "richtung": "seitwärts",
    "zuversicht": "niedrig",
    "horizont": "4–8 Wochen",
-   "halten": "Öl schwankt sehr stark und eignet sich eher für spekulative, kurze Zeiträume.",
+   "halten": "Öl ist stark schwankend und eher für kurze, spekulative Zeiträume. Dagegen sprechen der Abwärtstrend und politische Risiken.",
    "signale": [
-    "Eskalation mit Angriffen auf Ölanlagen",
-    "Rückfall unter etwa 77 $"
+    "Weitere Angriffe am Golf",
+    "Beschlüsse der Förderländer"
    ],
-   "muster": "Der Kurs gilt als überverkauft (RSI 28); danach gab es oft eine Erholung. Unsicher.",
+   "muster": "Überverkauft nach vielen Minus-Tagen, oft folgt eine Erholung; gleichzeitig deutet ein Todeskreuz auf weiteren Abwärtstrend. Die Signale widersprechen sich, also unsicher.",
    "quellen": [
     {
-     "t": "Oil prices fall on expectations of coming supply surplus - Reuters",
-     "u": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNSXlabl9ocWtiOEZLcnc2SGNVSEh2bjltWURkWU1RSDVTejZWMEtNYTR4QW9sT19DQy05SVhHVmphTEtIQXdtVzlUS25Vdk1oS0hjdWZ0MHpUb01NQUp4dzlBcE55anIwR0hKVmhCUDRsT3V3ek9jTURVYkcySDNBM1B0RmJ3emdUaHpPVWpENENfZ2JGRHB3MlJuekVfUWlFa2lfUQ?oc=5"
+     "t": "Oil slips on supply surplus outlook despite Gulf tensions - Reuters",
+     "u": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPQm40d1ZiR2k1S1RxaFdvQzJVYmRJUE1rcnNLZkEyRkZzbk5KZjlqWl9sZW9MUFB2OHpwdGZzT3duNzVnMnNaMEJMYkFKWndKTWE1OWNtd0hLcWRtSmVVYU5JaTBlNXZuT2t0V1AzVHdXVEhPMWt5QnhXakxpWkxiQk50ZEt0UGtXT3RpeXdiNEY0UXBqeXk2RGVHYURMNzJzNm13Zldtbm8tQQ?oc=5"
     },
     {
-     "t": "Anti-Houthi forces retreat in Yemen as Iran strikes Bahrain - Reuters",
-     "u": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOdTFBcWR1YzJhai1UdGgzMHpvdm40VExxeXFqM0NtbU9YVmNSNXpNeDlXTGllRXFtczhIUzVsaFFWdVV5TGxESWdneGlXbER1Qlg2b2VhQ2lqMmxVaEd4U01nZmNXcFY2bmNhSTdIN0VycE84MWJDRXdZOGxMRGo0U1k1UjhiamFNQ1JIQmp1MUdxNlZGRm1UanBvaENxR3V2N25NdFVOaWpXX1E?oc=5"
+     "t": "US condemns Iranian strikes in Bahrain as Rubio holds call with Bahraini counterpart - Reuters",
+     "u": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPQUI4WnRjazloVU5KUTR5MndXU19SVjNiQzRib2JHSC1ZOTFFVE5kdUlweUZjNkJrZzNheVc0bUlJY3UzRGtoanF1NDV4eGdTUnZIOEh4QUZ1MEF1NWt5M2Y3UmtZdnVRN3QwZzg1NTlGQWxsMlFjNzE4c0t6VnVTaUNPTFRZUWxnMVRMUHRZV18tMWttdm80V21kSFgzVUhxdEpUYk9MZElPZXJyTVN3LWVBM2VJTXpmdzlINTFZcTVER1pXV0ZnMHFsWEI?oc=5"
     }
    ]
   }
