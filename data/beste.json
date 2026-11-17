@@ -1,176 +1,63 @@
 {
- "id": "b-2026-11-17-morgens",
+ "id": "b-2026-11-17-abends",
  "datum": "2026-11-17",
- "slot": "morgens",
- "erstellt": "2026-11-17T07:19:15+01:00",
- "markt": "Der DAX-Future notierte heute früh rund 0,5 % tiefer bei etwa 26.560 Punkten, nachdem Dax und Wall Street schon am Montag wegen Technologie-Schwäche und hoher Anleiherenditen (zehnjährige US-Rendite um 5,15 %) nachgegeben hatten. Im Mittelpunkt stehen die Nvidia-Zahlen heute Abend nach dem Rücktritt von Jensen Huang als Chef, das Fed-Protokoll am Mittwoch und der geplante Anthropic-Börsengang; laut Reuters preist der Markt eine Zinserhöhung im Dezember ein. Kurzfristige Prognosen sind in diesem Umfeld besonders unsicher.",
+ "slot": "abends",
+ "erstellt": "2026-11-17T18:18:14Z",
+ "markt": "Der DAX schloss heute laut dpa-AFX rund 2 % tiefer knapp über 26.000 Punkten, belastet von Deutscher Bank und SAP, neuen US-Exportgrenzen für KI-Chips und erneuten Rufen eines Fed-Mitglieds nach Zinserhöhungen. Auch an der Wall Street gaben Dow, S&P 500 und Nasdaq vor den Nvidia-Zahlen nach US-Börsenschluss deutlich nach, die ersten unter Interims-Chefin Colette Kress. Die Reaktion auf diese Zahlen und das Fed-Protokoll am Mittwoch dürften die kurzfristige Richtung prägen, Prognosen sind entsprechend unsicher.",
  "marktQuellen": [
   {
-   "t": "EUREX/DAX-Futures im Frühhandel leichter",
-   "u": "https://www.finanzen.at/nachrichten/aktien/eurex-dax-futures-im-fruehhandel-leichter-1036771750",
-   "q": "Dow Jones/finanzen.at",
+   "t": "ROUNDUP 2/Aktien Frankfurt Schluss: Verluste - Nervosität vor Nvidia-Zahlen",
+   "u": "https://www.ariva.de/news/roundup-2-aktien-frankfurt-schluss-verluste-nervositaet-12210850",
+   "q": "dpa-AFX/ARIVA.DE",
    "d": "2026-11-17"
   },
   {
-   "t": "S&P 500, Nasdaq futures fall ahead of Nvidia earnings, Anthropic IPO",
-   "u": "https://finance.yahoo.com/markets/stocks/articles/p-500-nasdaq-futures-slide-104351968.html",
-   "q": "Reuters/Yahoo Finance",
-   "d": "2026-11-16"
+   "t": "Stock market today: Dow, S&P 500, Nasdaq losses pick up in countdown to Nvidia earnings",
+   "u": "https://finance.yahoo.com/markets/live/stock-market-today-tuesday-november-17-dow-sp-500-nasdaq-nvidia-earnings-retail-sales-143848454.html",
+   "q": "Yahoo Finance",
+   "d": "2026-11-17"
   },
   {
-   "t": "ROUNDUP/Aktien Frankfurt Schluss: Tech-Schwäche macht Dax zu schaffen",
-   "u": "https://www.ariva.de/news/roundup-aktien-frankfurt-schluss-tech-schwaeche-macht-dax-zu-12209139",
-   "q": "dpa-AFX/ARIVA.DE",
-   "d": "2026-11-16"
+   "t": "Aktien Frankfurt Schluss: Klare Verluste - Nervosität vor Nvidia-Zahlen",
+   "u": "https://www.finanzen.at/nachrichten/aktien/aktien-frankfurt-schluss-klare-verluste-nervositat-vor-nvidia-zahlen-1036774780",
+   "q": "dpa-AFX/finanzen.at",
+   "d": "2026-11-17"
   }
  ],
  "listen": {
   "3": [
    {
-    "s": "ROP",
-    "einschaetzung": "Trend intakt, kurzfristig aber schon weit gelaufen.",
-    "warum": "Roper hat in vier Wochen 26 % und in drei Monaten knapp 18 % gewonnen, der Trend zeigt aufwärts und der Kurs liegt nur 1,7 % unter dem 10-Tage-Hoch; die letzten fünf Tage brachten +2,6 %. Auslöser waren die Oktober-Zahlen mit einem Gewinn über den Erwartungen und einer erneut angehobenen Prognose. Ein Teil des Anstiegs ist Erholung von der Sorge, KI könne Branchensoftware verdrängen. Mit einer üblichen Drei-Tage-Bewegung von 3,6 % liegt die nötige Hürde von 1,92 % im Bereich des Möglichen. Seit gestern Abend fanden sich keine neuen Firmenmeldungen.",
-    "ausblick": "Am wahrscheinlichsten ist eine Seitwärts- bis leicht steigende Bewegung, weil kein eigener Termin ansteht und der RSI von 72 eher auf Verschnaufen hindeutet. Entscheidend sind die Nvidia-Zahlen heute Abend: Eine Beruhigung bei Technologiewerten könnte Software mitziehen, ein Ausverkauf würde auch Roper treffen. Die nötigen 1,92 % sind realistisch, aber keineswegs sicher.",
-    "szenarien": {
-     "gut": "Die Nvidia-Zahlen beruhigen den Technologiesektor und Software bleibt gefragt.",
-     "schlecht": "Ein neuer Abverkauf bei Technologiewerten oder steigende Anleiherenditen lösen Gewinnmitnahmen aus."
-    },
-    "treiber": [
-     "Rückenwind aus angehobener Jahresprognose",
-     "Erholung bei Branchensoftware"
-    ],
-    "risiken": [
-     "RSI 72, Kurs stark gelaufen",
-     "Technologie-Stimmung vor Nvidia-Zahlen nervös"
-    ],
-    "termine": [
-     "17.11.2026: Nvidia-Quartalszahlen nach US-Börsenschluss",
-     "18.11.2026: Protokoll der Fed-Sitzung",
-     "Diese Woche: geplanter Börsengang von Anthropic"
-    ],
-    "zuversicht": "mittel",
-    "quellen": [
-     {
-      "t": "Roper Technologies Soars 9.2% on Earnings Beat and Guidance Raise",
-      "u": "https://www.tikr.com/blog/roper-technologies-soars-9-2-on-earnings-beat-and-guidance-raise-exceeded-our-expectations?.tsrc=rss",
-      "q": "TIKR",
-      "d": "2026-10-22"
-     },
-     {
-      "t": "How Investors Are Reacting To Roper Technologies (ROP) Raised Earnings Guidance",
-      "u": "https://www.webull.com/news/15859159016446976",
-      "q": "Simply Wall St/Webull",
-      "d": "2026-11-03"
-     }
-    ]
-   },
-   {
-    "s": "ALLE",
-    "einschaetzung": "Chancen überwiegen leicht, ruhiger Trend.",
-    "warum": "Allegion stieg in vier Wochen um 23 % und in drei Monaten um 18 %, die fünf Tage sind mit +0,2 % fast unverändert und der Kurs liegt nur 0,9 % unter dem 10-Tage-Hoch. Der RSI von 68 ist hoch, aber nicht extrem. Auf der Baird-Konferenz am 12. November betonte das Management die Erholung im US-Nichtwohnbau, das Wachstum elektronischer Schlösser und Rechenzentren als schnellstes Segment. Die übliche Drei-Tage-Bewegung von 3,4 % liegt über der Hürde von 1,92 %. Seit gestern Abend gab es keine neuen Firmenmeldungen.",
-    "ausblick": "Nach der kurzen Pause ist eine Fortsetzung des Aufwärtstrends möglich, weil die Konferenzaussagen positiv waren und keine Zahlen anstehen. Allerdings fehlt ein frischer Auslöser, die Bewegung hängt also stark an der Gesamtstimmung. Die nötige Steigerung ist realistisch, aber eher knapp.",
-    "szenarien": {
-     "gut": "Die Marktstimmung stabilisiert sich und Industriewerte mit Rechenzentrums-Bezug bleiben gefragt.",
-     "schlecht": "Schwächere US-Bau- oder Konjunkturdaten bremsen den Industriesektor."
-    },
-    "treiber": [
-     "Elektronische Schlösser und Rechenzentren",
-     "Positive Aussagen auf der Baird-Konferenz"
-    ],
-    "risiken": [
-     "Kein eigener Auslöser im Zeitraum",
-     "Wohnungsbau weiter schwach"
-    ],
-    "termine": [
-     "17.11.2026: Nvidia-Quartalszahlen nach US-Börsenschluss",
-     "18.11.2026: Protokoll der Fed-Sitzung",
-     "Diese Woche: geplanter Börsengang von Anthropic"
-    ],
-    "zuversicht": "mittel",
-    "quellen": [
-     {
-      "t": "Allegion at Baird 2026 Global Industrial Conference: growth leans on electronics",
-      "u": "https://www.investing.com/news/transcripts/allegion-at-baird-2026-global-industrial-conference-growth-leans-on-electronics-93CH-5023099",
-      "q": "Investing.com",
-      "d": "2026-11-12"
-     },
-     {
-      "t": "Allegion plc (ALLE) Presents at Baird 2026 Global Industrial Conference 2026 Transcript",
-      "u": "https://finnhub.io/api/news?id=957696fc79744c8bc22305ab681d86fa9600033d5ca21e6038f59c28f675c3cf",
-      "q": "SeekingAlpha",
-      "d": "2026-11-12"
-     }
-    ]
-   },
-   {
-    "s": "HAS",
-    "einschaetzung": "Trend intakt, kurze Abkühlung bietet Chance und Risiko.",
-    "warum": "Hasbro hat in vier Wochen 23 % und in drei Monaten 29 % zugelegt, die fünf Tage sind mit +0,1 % flach und der Kurs liegt 2,4 % unter dem 10-Tage-Hoch, der RSI ist auf 69 abgekühlt. Grundlage sind deutlich gestiegene Gewinne, das starke Magic-Geschäft und eine angehobene Prognose; für 2027 sind mehrere große Magic-Sets angekündigt. Wells Fargo hob das Kursziel gestern auf 115 US-Dollar an, bleibt aber neutral, und das Ziel liegt unter dem aktuellen Kurs. Das erkannte Muster „Abkühlung nach Übertreibung“ war im Rückblick nur leicht positiv und ist kein verlässliches Signal.",
-    "ausblick": "Wahrscheinlich bleibt die Aktie in einer Spanne, bis Weihnachtsgeschäft und Konsumdaten neue Impulse liefern. Die übliche Drei-Tage-Bewegung von 3,4 % macht die Hürde von 1,92 % erreichbar, die Richtung ist aber offen. Dass ein Analyst trotz Anhebung unter dem Kurs liegt, zeigt, dass die Bewertung schon viel vorwegnimmt.",
-    "szenarien": {
-     "gut": "Gute Signale zum Weihnachtsgeschäft und ein ruhiger Gesamtmarkt bringen Käufer zurück.",
-     "schlecht": "Schwache Konsumdaten oder Bewertungssorgen führen zu weiteren Gewinnmitnahmen."
-    },
-    "treiber": [
-     "Magic: The Gathering wächst stark",
-     "Angehobene Jahresprognose"
-    ],
-    "risiken": [
-     "Kursziel von Wells Fargo unter aktuellem Kurs",
-     "Abhängigkeit vom Weihnachtsgeschäft"
-    ],
-    "termine": [
-     "17.11.2026: Nvidia-Quartalszahlen nach US-Börsenschluss",
-     "18.11.2026: Protokoll der Fed-Sitzung",
-     "Diese Woche: geplanter Börsengang von Anthropic"
-    ],
-    "zuversicht": "mittel",
-    "quellen": [
-     {
-      "t": "HAS Stock Up 29% in a Month: Time to Lock in Gains or Stay Invested?",
-      "u": "https://finnhub.io/api/news?id=d44af88f90ccfbe3e093215b9d135b0a385770ec98de184ea4159ab10621ed60",
-      "q": "Yahoo",
-      "d": "2026-11-11"
-     },
-     {
-      "t": "Hasbro's 2027 Magic Pipeline: Can New Sets Extend the Growth Run?",
-      "u": "https://finnhub.io/api/news?id=98914b208282b543bb07aae0cc37401abd774cf56f6a0d5c2874fa8683be9267",
-      "q": "Yahoo",
-      "d": "2026-11-12"
-     },
-     {
-      "t": "Wells Fargo Maintains Equal-Weight on Hasbro, Raises Price Target to $115",
-      "u": "https://finnhub.io/api/news?id=22509b6b134431cbaa433e2dda6e2f9b9bb6bdc2fbec343757b7c643cc6e208e",
-      "q": "Benzinga",
-      "d": "2026-11-16"
-     }
-    ]
-   },
-   {
     "s": "BAYN.DE",
     "einschaetzung": "Starke Nachrichtenlage, aber kurzfristig überdehnt.",
-    "warum": "Bayer ist in vier Wochen um 28 % und in sechs Monaten um 56 % gestiegen, der Kurs liegt nur 1 % unter dem 10-Tage-Hoch und der RSI von 75 zeigt eine Überhitzung. Treiber sind die US-Zulassung des Schlaganfallmittels Sunharbo, angehobene Jahresziele nach dem dritten Quartal und Fortschritte bei den Glyphosat-Klagen. Die Deutsche Bank hob ihr Kursziel auf 65 Euro, Jefferies bleibt dagegen bei „Halten“ mit 48,50 Euro, die Analysten sind also gespalten. Der Versand von Sunharbo in den USA soll laut Börse Express Mitte bis Ende November beginnen.",
-    "ausblick": "Kurzfristig kann der Marktstart von Sunharbo die Aufmerksamkeit hochhalten, nach dem starken Lauf ist aber auch ein Rücksetzer plausibel. Die übliche Drei-Tage-Bewegung von 3,4 % liegt über der Hürde von 1,92 %, die Richtung ist bei einem RSI von 75 jedoch unsicher. Der schwache DAX-Start heute früh spricht eher für einen holprigen Beginn.",
+    "warum": "Bayer ist in vier Wochen um 29 % und in sechs Monaten um rund 65 % gestiegen; heute gab der Kurs mit dem schwachen DAX nach, über fünf Tage steht ein Minus von 1,6 %, der Abstand zum 10-Tage-Hoch beträgt 1,8 % und der RSI ist auf 70 gesunken. Treiber bleiben die US-Zulassung des Gerinnungshemmers Sunharbo, die angehobene Prognose und Fortschritte bei den Glyphosat-Klagen. Die Deutsche Bank sieht das Kursziel bei 65 Euro, Jefferies bleibt bei „Halten“, die Analysten sind also gespalten. Als nächster großer Auslöser gilt laut Börse Express die Gerichtsentscheidung in Missouri zum geplanten Roundup-Vergleich.",
+    "ausblick": "Der leichte Rücksetzer kühlt die Überhitzung etwas ab, ohne dass sich an der Nachrichtenlage etwas verschlechtert hat. Die übliche Bewegung (3,4 % in drei, 5,3 % in sieben Tagen) liegt über den Hürden, die Richtung bleibt aber offen und hängt stark an der Marktstimmung nach den Nvidia-Zahlen. Eine Gerichtsentscheidung zum Glyphosat-Vergleich könnte den Kurs in beide Richtungen deutlich bewegen.",
     "szenarien": {
-     "gut": "Positive Meldungen zum US-Marktstart von Sunharbo oder weitere Kurszielanhebungen.",
-     "schlecht": "Gewinnmitnahmen nach dem Lauf oder neue Rückschläge bei den Glyphosat-Verfahren."
+     "gut": "Positive Signale zum Roundup-Vergleich oder zum US-Marktstart von Sunharbo bei beruhigtem Gesamtmarkt.",
+     "schlecht": "Weitere Gewinnmitnahmen im schwachen Markt oder ein Rückschlag vor Gericht."
     },
     "treiber": [
      "US-Marktstart von Sunharbo",
-     "Angehobene Jahresprognose"
+     "Angehobene Jahresprognose",
+     "Mögliche Gerichtsentscheidung zum Roundup-Vergleich"
     ],
     "risiken": [
-     "RSI 75, Kurs weit über dem Durchschnitt",
-     "Glyphosat-Vergleich braucht noch Gerichtszustimmung"
+     "Starker Lauf, Gewinnmitnahmen möglich",
+     "Glyphosat-Vergleich braucht noch Gerichtszustimmung",
+     "Fünf-Tage-Bilanz leicht negativ"
     ],
     "termine": [
      "Mitte bis Ende November: Versandstart von Sunharbo in den USA",
      "17.11.2026: Nvidia-Quartalszahlen nach US-Börsenschluss",
-     "18.11.2026: Protokoll der Fed-Sitzung",
-     "Diese Woche: geplanter Börsengang von Anthropic"
+     "18.11.2026: Protokoll der Fed-Sitzung"
     ],
     "zuversicht": "niedrig",
     "quellen": [
+     {
+      "t": "Bayer-Aktie: Das ist entscheidend!",
+      "u": "https://www.boerse-express.com/news/articles/bayer-aktie-das-ist-entscheidend-963989",
+      "q": "Börse Express",
+      "d": "2026-11-17"
+     },
      {
       "t": "Bayer Aktie: Jefferies rührt das Kursziel nicht an",
       "u": "https://www.boerse-express.com/news/articles/bayer-aktie-jefferies-ruehrt-das-kursziel-nicht-an-963745",
@@ -192,10 +79,99 @@
     ]
    },
    {
+    "s": "SAN.PA",
+    "einschaetzung": "Solider Trend mit guter Nachrichtenlage, kurzfristig aber träge.",
+    "warum": "Sanofi ist in vier Wochen um 17,6 % gestiegen und hat zuletzt ein neues 52-Wochen-Hoch erreicht; über fünf Tage steht ein kleines Plus von 0,7 %, heute fiel die Aktie mit dem Markt um rund 2 %. Rückenwind kommt vom starken dritten Quartal: Laut ad-hoc-news wuchs Dupixent um 35 % und Sanofi hob die Jahresziele an. Morningstar sieht den fairen Wert bei 107 Euro und damit deutlich über dem aktuellen Kurs. Neu ist eine Forschungs- und Lizenzpartnerschaft mit dem Biotech Seawolf, die aber kurzfristig kaum kursrelevant sein dürfte.",
+    "ausblick": "Pharma gilt in nervösen Märkten als vergleichsweise defensiv, das kann Sanofi in den nächsten Tagen stützen. Die übliche Drei-Tage-Bewegung von 2,5 % liegt nur knapp über der Hürde von 1,92 %, über sieben Tage liegt sie mit 3,8 % sogar unter 4,12 %. Die nötige Steigerung ist über drei Tage möglich, aber knapp, über sieben Tage eher ehrgeizig.",
+    "szenarien": {
+     "gut": "Anleger schichten nach den Nvidia-Zahlen in defensive Pharmawerte um.",
+     "schlecht": "Ein breiter Ausverkauf erfasst auch defensive Werte oder es gibt Rückschläge in der Pipeline."
+    },
+    "treiber": [
+     "Dupixent-Wachstum und angehobene Prognose",
+     "Defensive Branche in nervösem Markt"
+    ],
+    "risiken": [
+     "Übliche Bewegung nur knapp über der Hürde",
+     "RSI 72 nach starkem Lauf",
+     "Patentabläufe in den 2030er Jahren"
+    ],
+    "termine": [
+     "17.11.2026: Nvidia-Quartalszahlen nach US-Börsenschluss",
+     "18.11.2026: Protokoll der Fed-Sitzung"
+    ],
+    "zuversicht": "niedrig",
+    "quellen": [
+     {
+      "t": "Sanofi-Aktie: Morningstar sieht fairen Wert bei 107 Euro",
+      "u": "https://www.ad-hoc-news.de/boerse/news/corporate-news/sanofi-aktie-morningstar-sieht-fairen-wert-bei-107-euro/70491435",
+      "q": "ad-hoc-news.de",
+      "d": "2026-11-11"
+     },
+     {
+      "t": "ROUNDUP/Dank Dupixent: Sanofi hebt Prognose an - Quartal übertrifft Erwartungen",
+      "u": "https://de.finance.yahoo.com/nachrichten/roundup-dank-dupixent-sanofi-hebt-083555573.html?.tsrc=rss",
+      "q": "dpa-AFX/Yahoo Finanzen",
+      "d": "2026-10-30"
+     },
+     {
+      "t": "Seawolf surfaces with $100M, $1.2B Sanofi pact for redosable DNA medicines",
+      "u": "https://www.biospace.com/business/seawolf-surfaces-with-100m-1-2b-sanofi-pact-for-redosable-dna-medicines",
+      "q": "BioSpace",
+      "d": "2026-11-16"
+     }
+    ]
+   },
+   {
+    "s": "PHIA.AS",
+    "einschaetzung": "Erholung mit Analysten-Rückenwind, aber schon weit gelaufen.",
+    "warum": "Philips hat in vier Wochen 17,5 % und in drei Monaten fast 16 % zugelegt, über fünf Tage steht ein kleines Plus von 0,4 % und der Kurs liegt nur 1,3 % unter dem 10-Tage-Hoch. Der RSI von 74 zeigt, dass die Aktie schon recht heiß gelaufen ist. Anfang November überzeugten die Quartalszahlen mit besserer Marge, dazu kam eine grundsätzliche Einigung mit dem US-Justizministerium im langen Rechtsstreit um zurückgerufene Atemgeräte. Barclays hob das Kursziel auf 35 Euro und lobt die Patientenüberwachung, die schneller als der Markt wachse.",
+    "ausblick": "Die verbesserte Nachrichtenlage spricht für einen intakten Trend, ein neuer Auslöser ist in den nächsten Tagen aber nicht bekannt. Die übliche Bewegung von 2,5 % in drei Tagen liegt knapp über der Hürde, über sieben Tage liegt sie mit 3,8 % unter den nötigen 4,12 %. Eine Fortsetzung ist möglich, die volle Steigerung aber unsicher.",
+    "szenarien": {
+     "gut": "Weitere Kurszielanhebungen und ein ruhiger Gesamtmarkt halten den Aufwärtstrend am Laufen.",
+     "schlecht": "Gewinnmitnahmen nach RSI 74 oder neue Kosten aus dem Respironics-Rückruf."
+    },
+    "treiber": [
+     "Bessere Marge im dritten Quartal",
+     "Einigung mit dem US-Justizministerium",
+     "Kurszielanhebung durch Barclays"
+    ],
+    "risiken": [
+     "RSI 74, schon weit gelaufen",
+     "Weitere Rückstellungen für den Rückruf",
+     "Übliche Bewegung nahe an der Hürde"
+    ],
+    "termine": [
+     "17.11.2026: Nvidia-Quartalszahlen nach US-Börsenschluss",
+     "18.11.2026: Protokoll der Fed-Sitzung"
+    ],
+    "zuversicht": "niedrig",
+    "quellen": [
+     {
+      "t": "Philips-Aktie: Barclays hebt Kursziel auf 35 Euro",
+      "u": "https://www.ad-hoc-news.de/boerse/news/corporate-news/philips-aktie-barclays-hebt-kursziel-auf-35-euro/70505451",
+      "q": "ad-hoc-news.de",
+      "d": "2026-11-13"
+     },
+     {
+      "t": "AKTIE IM FOKUS: Philips nach Zahlen und Einigung in den USA gefragt",
+      "u": "https://de.finance.yahoo.com/nachrichten/aktie-fokus-philips-zahlen-einigung-101210092.html?.tsrc=rss",
+      "q": "dpa-AFX/Yahoo Finanzen",
+      "d": "2026-11-03"
+     },
+     {
+      "t": "Philips: Robustes Neugeschäft und bessere Marge - Weitere Rückstellung",
+      "u": "https://de.finance.yahoo.com/nachrichten/philips-robustes-neugesch%C3%A4ft-bessere-marge-080027462.html?.tsrc=rss",
+      "q": "dpa-AFX/Yahoo Finanzen",
+      "d": "2026-11-03"
+     }
+    ]
+   },
+   {
     "s": "FISV",
     "einschaetzung": "Erholung läuft, kurzfristig aber anfällig.",
-    "warum": "Fiserv hat in vier Wochen 33 % zugelegt, liegt aber auf Sicht von fünf Tagen mit −0,3 % leicht im Minus und 0,9 % unter dem 10-Tage-Hoch; der RSI von 73 ist hoch. Nach den Zahlen vom 3. November stieg die Aktie zeitweise um 12 %, weil der Gewinn je Aktie über den Erwartungen lag, das Sparziel auf 1 Mrd. US-Dollar verdoppelt und ein Rückkauf von 500 Mio. US-Dollar im vierten Quartal angekündigt wurde. Auf der Citi-Konferenz kündigte der neue Chef an, eines der zwei Debitnetze zu verkaufen oder einzustellen. Baird hob das Kursziel gestern auf 85 US-Dollar.",
-    "ausblick": "Die übliche Drei-Tage-Bewegung von 4,6 % ist hoch, die Hürde von 1,92 % also erreichbar, aber in beide Richtungen. Der laufende Aktienrückkauf kann stützen, gleichzeitig ist der Umsatz zuletzt gesunken und die Erholung noch jung. Ohne frischen Termin hängt die Richtung stark an der Marktstimmung.",
+    "warum": "Fiserv hat in vier Wochen knapp 30 % und in drei Monaten gut 18 % zugelegt, liegt auf Sicht von fünf Tagen aber 1 % im Minus und 1,9 % unter dem 10-Tage-Hoch; der RSI ist auf 70 gesunken. Nach den Zahlen vom 3. November stieg die Aktie zeitweise um 12 %, weil der Gewinn je Aktie über den Erwartungen lag, das Sparziel auf 1 Mrd. US-Dollar verdoppelt und ein Rückkauf von 500 Mio. US-Dollar angekündigt wurde. Der neue Chef will eines der beiden Debitnetze verkaufen oder einstellen, Baird hob das Kursziel auf 85 US-Dollar. Seit heute früh fanden sich keine neuen Firmenmeldungen, der Rücksetzer passt zum schwachen US-Markt.",
+    "ausblick": "Die übliche Bewegung ist hoch (4,6 % in drei, 7 % in sieben Tagen), die Hürden sind also erreichbar, aber genauso schnell geht es abwärts. Der laufende Rückkauf kann stützen, die Erholung ist aber jung und der Umsatz zuletzt gesunken. Ohne eigenen Termin hängt die Richtung stark an der Reaktion des Gesamtmarkts auf Nvidia.",
     "szenarien": {
      "gut": "Weitere Analysten-Anhebungen und der Aktienrückkauf stützen die Erholung.",
      "schlecht": "Ein schwacher Gesamtmarkt oder Zweifel an der Wende lassen die Aktie nach dem starken Lauf zurückfallen."
@@ -206,12 +182,12 @@
     ],
     "risiken": [
      "Umsatz leicht rückläufig",
-     "Hohe Schwankung, RSI 73"
+     "Hohe Schwankung",
+     "Schwacher US-Gesamtmarkt"
     ],
     "termine": [
      "17.11.2026: Nvidia-Quartalszahlen nach US-Börsenschluss",
-     "18.11.2026: Protokoll der Fed-Sitzung",
-     "Diese Woche: geplanter Börsengang von Anthropic"
+     "18.11.2026: Protokoll der Fed-Sitzung"
     ],
     "zuversicht": "niedrig",
     "quellen": [
@@ -234,79 +210,85 @@
       "d": "2026-11-16"
      }
     ]
+   },
+   {
+    "s": "ALLE",
+    "einschaetzung": "Chancen überwiegen leicht, ruhiger Trend.",
+    "warum": "Allegion hat in vier Wochen 20,5 % und in drei Monaten 16,4 % zugelegt; auf Sicht von fünf Tagen ist der Kurs mit −0,1 % praktisch unverändert und liegt 1,8 % unter dem 10-Tage-Hoch, der RSI von 65 ist nicht überhitzt. Auf der Baird-Konferenz am 12. November betonte das Management die Erholung im US-Nichtwohnbau, das Wachstum elektronischer Schlösser und Rechenzentren als schnellstes Segment. Der leicht negative Fünf-Tage-Wert erklärt sich eher durch den schwachen Gesamtmarkt als durch eine Firmenmeldung. Seit heute früh gab es keine neuen Unternehmensnachrichten.",
+    "ausblick": "Der Trend ist intakt, ein eigener Auslöser fehlt aber, deshalb dürfte die Richtung in den nächsten Tagen vor allem von der Reaktion auf die Nvidia-Zahlen und dem Fed-Protokoll abhängen. Die übliche Drei-Tage-Bewegung von 3,4 % liegt über der Hürde von 1,92 %, über sieben Tage liegt die übliche Bewegung mit 5,2 % knapp über 4,12 %. Die nötige Steigerung ist möglich, aber keineswegs sicher.",
+    "szenarien": {
+     "gut": "Die Marktstimmung stabilisiert sich und Industriewerte mit Rechenzentrums-Bezug bleiben gefragt.",
+     "schlecht": "Schwächere US-Bau- oder Konjunkturdaten bremsen den Industriesektor."
+    },
+    "treiber": [
+     "Elektronische Schlösser und Rechenzentren",
+     "Positive Aussagen auf der Baird-Konferenz"
+    ],
+    "risiken": [
+     "Kein eigener Auslöser im Zeitraum",
+     "Breiter Ausverkauf an den Börsen",
+     "Wohnungsbau weiter schwach"
+    ],
+    "termine": [
+     "17.11.2026: Nvidia-Quartalszahlen nach US-Börsenschluss",
+     "18.11.2026: Protokoll der Fed-Sitzung"
+    ],
+    "zuversicht": "niedrig",
+    "quellen": [
+     {
+      "t": "Allegion at Baird 2026 Global Industrial Conference: growth leans on electronics",
+      "u": "https://www.investing.com/news/transcripts/allegion-at-baird-2026-global-industrial-conference-growth-leans-on-electronics-93CH-5023099",
+      "q": "Investing.com",
+      "d": "2026-11-12"
+     },
+     {
+      "t": "Allegion plc (ALLE) Presents at Baird 2026 Global Industrial Conference 2026 Transcript",
+      "u": "https://finnhub.io/api/news?id=957696fc79744c8bc22305ab681d86fa9600033d5ca21e6038f59c28f675c3cf",
+      "q": "SeekingAlpha",
+      "d": "2026-11-12"
+     },
+     {
+      "t": "Stock market today: Dow, S&P 500, Nasdaq losses pick up in countdown to Nvidia earnings",
+      "u": "https://finance.yahoo.com/markets/live/stock-market-today-tuesday-november-17-dow-sp-500-nasdaq-nvidia-earnings-retail-sales-143848454.html",
+      "q": "Yahoo Finance",
+      "d": "2026-11-17"
+     }
+    ]
    }
   ],
   "7": [
    {
-    "s": "HAS",
-    "einschaetzung": "Trend intakt, Chancen überwiegen leicht.",
-    "warum": "Hasbro gehört mit +29 % in drei Monaten zu den stärksten Werten, der Trend zeigt aufwärts und die fünf Tage sind mit +0,1 % flach, also eher Pause als Trendbruch. Gewinnwachstum, das starke Magic-Geschäft und eine angehobene Prognose tragen den Lauf. Wells Fargo hob das Kursziel auf 115 US-Dollar, bleibt aber neutral und liegt unter dem Kurs. Die übliche Sieben-Tage-Bewegung von 5,1 % liegt über der Hürde von 4,12 %.",
-    "ausblick": "Über sieben Tage kann die Aktie den Aufwärtstrend fortsetzen, wenn der Gesamtmarkt nach Nvidia-Zahlen und Fed-Protokoll ruhiger wird. Die nötigen 4,12 % sind aber nur knapp unter der üblichen Bewegung und damit alles andere als sicher. Rund um Thanksgiving und Black Friday können Konsumthemen die Aktie zusätzlich bewegen.",
-    "szenarien": {
-     "gut": "Positive Signale zum Weihnachtsgeschäft und ein stabiler Markt.",
-     "schlecht": "Schwache Konsumdaten oder Bewertungssorgen lösen Gewinnmitnahmen aus."
-    },
-    "treiber": [
-     "Magic-Wachstum und 2027er Set-Pipeline",
-     "Angehobene Prognose"
-    ],
-    "risiken": [
-     "Analystenziel unter Kurs",
-     "Konsumschwäche"
-    ],
-    "termine": [
-     "17.11.2026: Nvidia-Quartalszahlen nach US-Börsenschluss",
-     "18.11.2026: Protokoll der Fed-Sitzung",
-     "Diese Woche: geplanter Börsengang von Anthropic",
-     "27.11.2026: Black Friday in den USA"
-    ],
-    "zuversicht": "mittel",
-    "quellen": [
-     {
-      "t": "HAS Stock Up 29% in a Month: Time to Lock in Gains or Stay Invested?",
-      "u": "https://finnhub.io/api/news?id=d44af88f90ccfbe3e093215b9d135b0a385770ec98de184ea4159ab10621ed60",
-      "q": "Yahoo",
-      "d": "2026-11-11"
-     },
-     {
-      "t": "Hasbro's 2027 Magic Pipeline: Can New Sets Extend the Growth Run?",
-      "u": "https://finnhub.io/api/news?id=98914b208282b543bb07aae0cc37401abd774cf56f6a0d5c2874fa8683be9267",
-      "q": "Yahoo",
-      "d": "2026-11-12"
-     },
-     {
-      "t": "Wells Fargo Maintains Equal-Weight on Hasbro, Raises Price Target to $115",
-      "u": "https://finnhub.io/api/news?id=22509b6b134431cbaa433e2dda6e2f9b9bb6bdc2fbec343757b7c643cc6e208e",
-      "q": "Benzinga",
-      "d": "2026-11-16"
-     }
-    ]
-   },
-   {
     "s": "BAYN.DE",
-    "einschaetzung": "Gute Nachrichtenlage, nach dem Lauf aber erhöhtes Rücksetzrisiko.",
-    "warum": "Bayer ist in vier Wochen um 28 % gestiegen und notiert nahe dem Hoch, der RSI von 75 zeigt Überhitzung. Treiber sind die US-Zulassung von Sunharbo, die angehobene Jahresprognose und Fortschritte bei den Glyphosat-Verfahren. Die Deutsche Bank sieht 65 Euro, Jefferies nur 48,50 Euro, die Meinungen gehen also weit auseinander. Die übliche Sieben-Tage-Bewegung von 5,2 % liegt über der Hürde von 4,12 %.",
-    "ausblick": "Der US-Marktstart von Sunharbo fällt in den Zeitraum und kann Aufmerksamkeit bringen, harte Verkaufszahlen wird es so früh aber noch nicht geben. Nach dem steilen Anstieg ist ein Rücksetzer ebenso plausibel wie eine Fortsetzung. Die nötige Steigerung ist möglich, aber unsicher.",
+    "einschaetzung": "Starke Nachrichtenlage, aber kurzfristig überdehnt.",
+    "warum": "Bayer ist in vier Wochen um 29 % und in sechs Monaten um rund 65 % gestiegen; heute gab der Kurs mit dem schwachen DAX nach, über fünf Tage steht ein Minus von 1,6 %, der Abstand zum 10-Tage-Hoch beträgt 1,8 % und der RSI ist auf 70 gesunken. Treiber bleiben die US-Zulassung des Gerinnungshemmers Sunharbo, die angehobene Prognose und Fortschritte bei den Glyphosat-Klagen. Die Deutsche Bank sieht das Kursziel bei 65 Euro, Jefferies bleibt bei „Halten“, die Analysten sind also gespalten. Als nächster großer Auslöser gilt laut Börse Express die Gerichtsentscheidung in Missouri zum geplanten Roundup-Vergleich.",
+    "ausblick": "Der leichte Rücksetzer kühlt die Überhitzung etwas ab, ohne dass sich an der Nachrichtenlage etwas verschlechtert hat. Die übliche Bewegung (3,4 % in drei, 5,3 % in sieben Tagen) liegt über den Hürden, die Richtung bleibt aber offen und hängt stark an der Marktstimmung nach den Nvidia-Zahlen. Eine Gerichtsentscheidung zum Glyphosat-Vergleich könnte den Kurs in beide Richtungen deutlich bewegen.",
     "szenarien": {
-     "gut": "Weitere Kurszielanhebungen und ruhige Nachrichten aus den Glyphosat-Verfahren.",
-     "schlecht": "Gewinnmitnahmen oder ein Rückschlag beim Glyphosat-Vergleich."
+     "gut": "Positive Signale zum Roundup-Vergleich oder zum US-Marktstart von Sunharbo bei beruhigtem Gesamtmarkt.",
+     "schlecht": "Weitere Gewinnmitnahmen im schwachen Markt oder ein Rückschlag vor Gericht."
     },
     "treiber": [
-     "Marktstart Sunharbo",
-     "Angehobene Jahresziele"
+     "US-Marktstart von Sunharbo",
+     "Angehobene Jahresprognose",
+     "Mögliche Gerichtsentscheidung zum Roundup-Vergleich"
     ],
     "risiken": [
-     "RSI 75 nach steilem Lauf",
-     "Analysten uneinig"
+     "Starker Lauf, Gewinnmitnahmen möglich",
+     "Glyphosat-Vergleich braucht noch Gerichtszustimmung",
+     "Fünf-Tage-Bilanz leicht negativ"
     ],
     "termine": [
      "Mitte bis Ende November: Versandstart von Sunharbo in den USA",
      "17.11.2026: Nvidia-Quartalszahlen nach US-Börsenschluss",
-     "18.11.2026: Protokoll der Fed-Sitzung",
-     "Diese Woche: geplanter Börsengang von Anthropic"
+     "18.11.2026: Protokoll der Fed-Sitzung"
     ],
-    "zuversicht": "niedrig",
+    "zuversicht": "mittel",
     "quellen": [
+     {
+      "t": "Bayer-Aktie: Das ist entscheidend!",
+      "u": "https://www.boerse-express.com/news/articles/bayer-aktie-das-ist-entscheidend-963989",
+      "q": "Börse Express",
+      "d": "2026-11-17"
+     },
      {
       "t": "Bayer Aktie: Jefferies rührt das Kursziel nicht an",
       "u": "https://www.boerse-express.com/news/articles/bayer-aktie-jefferies-ruehrt-das-kursziel-nicht-an-963745",
@@ -328,104 +310,73 @@
     ]
    },
    {
-    "s": "ROP",
-    "einschaetzung": "Trend intakt, aber hoch bewertet nach dem Lauf.",
-    "warum": "Roper ist in vier Wochen um 26 % gestiegen, der Trend zeigt aufwärts und der Kurs liegt 1,7 % unter dem 10-Tage-Hoch. Die Oktober-Zahlen lagen über den Erwartungen und die Prognose wurde erneut angehoben. Der Kurs erholt sich damit von der Sorge um KI-Konkurrenz für Branchensoftware. Die übliche Sieben-Tage-Bewegung von 5,4 % liegt über der Hürde von 4,12 %.",
-    "ausblick": "Die Aktie dürfte der Stimmung bei Software folgen, die diese Woche stark von Nvidia und dem Anthropic-Börsengang geprägt wird. Bleibt die Stimmung stabil, ist eine Fortsetzung plausibel; der RSI von 72 spricht aber für eine mögliche Pause. Die nötige Steigerung ist erreichbar, aber nicht wahrscheinlich gesichert.",
+    "s": "PHIA.AS",
+    "einschaetzung": "Erholung mit Analysten-Rückenwind, aber schon weit gelaufen.",
+    "warum": "Philips hat in vier Wochen 17,5 % und in drei Monaten fast 16 % zugelegt, über fünf Tage steht ein kleines Plus von 0,4 % und der Kurs liegt nur 1,3 % unter dem 10-Tage-Hoch. Der RSI von 74 zeigt, dass die Aktie schon recht heiß gelaufen ist. Anfang November überzeugten die Quartalszahlen mit besserer Marge, dazu kam eine grundsätzliche Einigung mit dem US-Justizministerium im langen Rechtsstreit um zurückgerufene Atemgeräte. Barclays hob das Kursziel auf 35 Euro und lobt die Patientenüberwachung, die schneller als der Markt wachse.",
+    "ausblick": "Die verbesserte Nachrichtenlage spricht für einen intakten Trend, ein neuer Auslöser ist in den nächsten Tagen aber nicht bekannt. Die übliche Bewegung von 2,5 % in drei Tagen liegt knapp über der Hürde, über sieben Tage liegt sie mit 3,8 % unter den nötigen 4,12 %. Eine Fortsetzung ist möglich, die volle Steigerung aber unsicher.",
     "szenarien": {
-     "gut": "Software bleibt gefragt und der Markt beruhigt sich nach Nvidia.",
-     "schlecht": "Neue Sorgen, KI verdränge Branchensoftware, oder ein breiter Tech-Abverkauf."
+     "gut": "Weitere Kurszielanhebungen und ein ruhiger Gesamtmarkt halten den Aufwärtstrend am Laufen.",
+     "schlecht": "Gewinnmitnahmen nach RSI 74 oder neue Kosten aus dem Respironics-Rückruf."
     },
     "treiber": [
-     "Angehobene Jahresprognose",
-     "Erholung bei Software"
+     "Bessere Marge im dritten Quartal",
+     "Einigung mit dem US-Justizministerium",
+     "Kurszielanhebung durch Barclays"
     ],
     "risiken": [
-     "RSI 72",
-     "KI-Sorgen können zurückkehren"
+     "RSI 74, schon weit gelaufen",
+     "Weitere Rückstellungen für den Rückruf",
+     "Übliche Bewegung nahe an der Hürde"
     ],
     "termine": [
      "17.11.2026: Nvidia-Quartalszahlen nach US-Börsenschluss",
-     "18.11.2026: Protokoll der Fed-Sitzung",
-     "Diese Woche: geplanter Börsengang von Anthropic"
+     "18.11.2026: Protokoll der Fed-Sitzung"
     ],
-    "zuversicht": "mittel",
+    "zuversicht": "niedrig",
     "quellen": [
      {
-      "t": "Roper Technologies Soars 9.2% on Earnings Beat and Guidance Raise",
-      "u": "https://www.tikr.com/blog/roper-technologies-soars-9-2-on-earnings-beat-and-guidance-raise-exceeded-our-expectations?.tsrc=rss",
-      "q": "TIKR",
-      "d": "2026-10-22"
+      "t": "Philips-Aktie: Barclays hebt Kursziel auf 35 Euro",
+      "u": "https://www.ad-hoc-news.de/boerse/news/corporate-news/philips-aktie-barclays-hebt-kursziel-auf-35-euro/70505451",
+      "q": "ad-hoc-news.de",
+      "d": "2026-11-13"
      },
      {
-      "t": "How Investors Are Reacting To Roper Technologies (ROP) Raised Earnings Guidance",
-      "u": "https://www.webull.com/news/15859159016446976",
-      "q": "Simply Wall St/Webull",
+      "t": "AKTIE IM FOKUS: Philips nach Zahlen und Einigung in den USA gefragt",
+      "u": "https://de.finance.yahoo.com/nachrichten/aktie-fokus-philips-zahlen-einigung-101210092.html?.tsrc=rss",
+      "q": "dpa-AFX/Yahoo Finanzen",
+      "d": "2026-11-03"
+     },
+     {
+      "t": "Philips: Robustes Neugeschäft und bessere Marge - Weitere Rückstellung",
+      "u": "https://de.finance.yahoo.com/nachrichten/philips-robustes-neugesch%C3%A4ft-bessere-marge-080027462.html?.tsrc=rss",
+      "q": "dpa-AFX/Yahoo Finanzen",
       "d": "2026-11-03"
      }
     ]
    },
    {
-    "s": "ALLE",
-    "einschaetzung": "Ruhiger Aufwärtstrend, Chancen überwiegen leicht.",
-    "warum": "Allegion hat in vier Wochen 23 % zugelegt und liegt nur 0,9 % unter dem 10-Tage-Hoch, die fünf Tage sind fast unverändert. Das Management zeigte sich auf der Baird-Konferenz zuversichtlich zu Nichtwohnbau, elektronischen Schlössern und Rechenzentren. Der RSI von 68 ist hoch, aber nicht überhitzt. Die übliche Sieben-Tage-Bewegung von 5,2 % liegt über der Hürde von 4,12 %.",
-    "ausblick": "Ohne eigene Termine hängt die Entwicklung an Industrie- und Konjunkturstimmung. Eine Fortsetzung des Trends ist plausibel, die nötigen 4,12 % sind aber nur bei gutem Marktumfeld realistisch.",
+    "s": "FISV",
+    "einschaetzung": "Erholung läuft, kurzfristig aber anfällig.",
+    "warum": "Fiserv hat in vier Wochen knapp 30 % und in drei Monaten gut 18 % zugelegt, liegt auf Sicht von fünf Tagen aber 1 % im Minus und 1,9 % unter dem 10-Tage-Hoch; der RSI ist auf 70 gesunken. Nach den Zahlen vom 3. November stieg die Aktie zeitweise um 12 %, weil der Gewinn je Aktie über den Erwartungen lag, das Sparziel auf 1 Mrd. US-Dollar verdoppelt und ein Rückkauf von 500 Mio. US-Dollar angekündigt wurde. Der neue Chef will eines der beiden Debitnetze verkaufen oder einstellen, Baird hob das Kursziel auf 85 US-Dollar. Seit heute früh fanden sich keine neuen Firmenmeldungen, der Rücksetzer passt zum schwachen US-Markt.",
+    "ausblick": "Die übliche Bewegung ist hoch (4,6 % in drei, 7 % in sieben Tagen), die Hürden sind also erreichbar, aber genauso schnell geht es abwärts. Der laufende Rückkauf kann stützen, die Erholung ist aber jung und der Umsatz zuletzt gesunken. Ohne eigenen Termin hängt die Richtung stark an der Reaktion des Gesamtmarkts auf Nvidia.",
     "szenarien": {
-     "gut": "Stabile Konjunkturdaten und anhaltendes Interesse an Rechenzentrums-Zulieferern.",
-     "schlecht": "Höhere Zinsen oder schwache Baudaten bremsen Industriewerte."
+     "gut": "Weitere Analysten-Anhebungen und der Aktienrückkauf stützen die Erholung.",
+     "schlecht": "Ein schwacher Gesamtmarkt oder Zweifel an der Wende lassen die Aktie nach dem starken Lauf zurückfallen."
     },
     "treiber": [
-     "Elektronische Schlösser",
-     "Rechenzentren"
+     "Aktienrückkauf im vierten Quartal",
+     "Neues Sparprogramm und Kurszielanhebungen"
     ],
     "risiken": [
-     "Kein eigener Auslöser",
-     "Zinsanstieg belastet Bau"
+     "Umsatz leicht rückläufig",
+     "Hohe Schwankung",
+     "Schwacher US-Gesamtmarkt"
     ],
     "termine": [
      "17.11.2026: Nvidia-Quartalszahlen nach US-Börsenschluss",
-     "18.11.2026: Protokoll der Fed-Sitzung",
-     "Diese Woche: geplanter Börsengang von Anthropic"
+     "18.11.2026: Protokoll der Fed-Sitzung"
     ],
     "zuversicht": "mittel",
-    "quellen": [
-     {
-      "t": "Allegion at Baird 2026 Global Industrial Conference: growth leans on electronics",
-      "u": "https://www.investing.com/news/transcripts/allegion-at-baird-2026-global-industrial-conference-growth-leans-on-electronics-93CH-5023099",
-      "q": "Investing.com",
-      "d": "2026-11-12"
-     },
-     {
-      "t": "Allegion plc (ALLE) Presents at Baird 2026 Global Industrial Conference 2026 Transcript",
-      "u": "https://finnhub.io/api/news?id=957696fc79744c8bc22305ab681d86fa9600033d5ca21e6038f59c28f675c3cf",
-      "q": "SeekingAlpha",
-      "d": "2026-11-12"
-     }
-    ]
-   },
-   {
-    "s": "FISV",
-    "einschaetzung": "Spekulative Erholung mit hoher Schwankung.",
-    "warum": "Fiserv ist in vier Wochen um 33 % gestiegen, nachdem die Quartalszahlen besser als befürchtet ausfielen, das Sparziel verdoppelt und ein Aktienrückkauf von 500 Mio. US-Dollar angekündigt wurde. Der neue Chef will eines der zwei Debitnetze verkaufen oder einstellen und mehr als ein Dutzend kleiner Geschäfte schließen. Die fünf Tage sind mit −0,3 % leicht negativ, der RSI liegt bei 73. Mit einer üblichen Sieben-Tage-Bewegung von 7 % ist die Hürde von 4,12 % gut erreichbar, aber auch Verluste in ähnlicher Größe sind möglich.",
-    "ausblick": "Der Rückkauf im laufenden Quartal und Kurszielanhebungen wie von Baird können die Erholung tragen. Gleichzeitig ist der Umsatz rückläufig und die Wende noch nicht bewiesen, sodass Rücksetzer jederzeit möglich sind. Die nötige Steigerung ist realistisch, die Unsicherheit aber hoch.",
-    "szenarien": {
-     "gut": "Weitere positive Analystenstimmen und Fortschritte beim Umbau.",
-     "schlecht": "Zweifel an der Wende oder ein schwacher Gesamtmarkt kehren den Lauf um."
-    },
-    "treiber": [
-     "Aktienrückkauf",
-     "Sparprogramm und Portfolio-Bereinigung"
-    ],
-    "risiken": [
-     "Umsatz rückläufig",
-     "Hohe Schwankung"
-    ],
-    "termine": [
-     "17.11.2026: Nvidia-Quartalszahlen nach US-Börsenschluss",
-     "18.11.2026: Protokoll der Fed-Sitzung",
-     "Diese Woche: geplanter Börsengang von Anthropic"
-    ],
-    "zuversicht": "niedrig",
     "quellen": [
      {
       "t": "Fiserv preps debit network sale",
@@ -446,13 +397,101 @@
       "d": "2026-11-16"
      }
     ]
+   },
+   {
+    "s": "ALLE",
+    "einschaetzung": "Chancen überwiegen leicht, ruhiger Trend.",
+    "warum": "Allegion hat in vier Wochen 20,5 % und in drei Monaten 16,4 % zugelegt; auf Sicht von fünf Tagen ist der Kurs mit −0,1 % praktisch unverändert und liegt 1,8 % unter dem 10-Tage-Hoch, der RSI von 65 ist nicht überhitzt. Auf der Baird-Konferenz am 12. November betonte das Management die Erholung im US-Nichtwohnbau, das Wachstum elektronischer Schlösser und Rechenzentren als schnellstes Segment. Der leicht negative Fünf-Tage-Wert erklärt sich eher durch den schwachen Gesamtmarkt als durch eine Firmenmeldung. Seit heute früh gab es keine neuen Unternehmensnachrichten.",
+    "ausblick": "Der Trend ist intakt, ein eigener Auslöser fehlt aber, deshalb dürfte die Richtung in den nächsten Tagen vor allem von der Reaktion auf die Nvidia-Zahlen und dem Fed-Protokoll abhängen. Die übliche Drei-Tage-Bewegung von 3,4 % liegt über der Hürde von 1,92 %, über sieben Tage liegt die übliche Bewegung mit 5,2 % knapp über 4,12 %. Die nötige Steigerung ist möglich, aber keineswegs sicher.",
+    "szenarien": {
+     "gut": "Die Marktstimmung stabilisiert sich und Industriewerte mit Rechenzentrums-Bezug bleiben gefragt.",
+     "schlecht": "Schwächere US-Bau- oder Konjunkturdaten bremsen den Industriesektor."
+    },
+    "treiber": [
+     "Elektronische Schlösser und Rechenzentren",
+     "Positive Aussagen auf der Baird-Konferenz"
+    ],
+    "risiken": [
+     "Kein eigener Auslöser im Zeitraum",
+     "Breiter Ausverkauf an den Börsen",
+     "Wohnungsbau weiter schwach"
+    ],
+    "termine": [
+     "17.11.2026: Nvidia-Quartalszahlen nach US-Börsenschluss",
+     "18.11.2026: Protokoll der Fed-Sitzung"
+    ],
+    "zuversicht": "mittel",
+    "quellen": [
+     {
+      "t": "Allegion at Baird 2026 Global Industrial Conference: growth leans on electronics",
+      "u": "https://www.investing.com/news/transcripts/allegion-at-baird-2026-global-industrial-conference-growth-leans-on-electronics-93CH-5023099",
+      "q": "Investing.com",
+      "d": "2026-11-12"
+     },
+     {
+      "t": "Allegion plc (ALLE) Presents at Baird 2026 Global Industrial Conference 2026 Transcript",
+      "u": "https://finnhub.io/api/news?id=957696fc79744c8bc22305ab681d86fa9600033d5ca21e6038f59c28f675c3cf",
+      "q": "SeekingAlpha",
+      "d": "2026-11-12"
+     },
+     {
+      "t": "Stock market today: Dow, S&P 500, Nasdaq losses pick up in countdown to Nvidia earnings",
+      "u": "https://finance.yahoo.com/markets/live/stock-market-today-tuesday-november-17-dow-sp-500-nasdaq-nvidia-earnings-retail-sales-143848454.html",
+      "q": "Yahoo Finance",
+      "d": "2026-11-17"
+     }
+    ]
+   },
+   {
+    "s": "SAN.PA",
+    "einschaetzung": "Solider Trend mit guter Nachrichtenlage, kurzfristig aber träge.",
+    "warum": "Sanofi ist in vier Wochen um 17,6 % gestiegen und hat zuletzt ein neues 52-Wochen-Hoch erreicht; über fünf Tage steht ein kleines Plus von 0,7 %, heute fiel die Aktie mit dem Markt um rund 2 %. Rückenwind kommt vom starken dritten Quartal: Laut ad-hoc-news wuchs Dupixent um 35 % und Sanofi hob die Jahresziele an. Morningstar sieht den fairen Wert bei 107 Euro und damit deutlich über dem aktuellen Kurs. Neu ist eine Forschungs- und Lizenzpartnerschaft mit dem Biotech Seawolf, die aber kurzfristig kaum kursrelevant sein dürfte.",
+    "ausblick": "Pharma gilt in nervösen Märkten als vergleichsweise defensiv, das kann Sanofi in den nächsten Tagen stützen. Die übliche Drei-Tage-Bewegung von 2,5 % liegt nur knapp über der Hürde von 1,92 %, über sieben Tage liegt sie mit 3,8 % sogar unter 4,12 %. Die nötige Steigerung ist über drei Tage möglich, aber knapp, über sieben Tage eher ehrgeizig.",
+    "szenarien": {
+     "gut": "Anleger schichten nach den Nvidia-Zahlen in defensive Pharmawerte um.",
+     "schlecht": "Ein breiter Ausverkauf erfasst auch defensive Werte oder es gibt Rückschläge in der Pipeline."
+    },
+    "treiber": [
+     "Dupixent-Wachstum und angehobene Prognose",
+     "Defensive Branche in nervösem Markt"
+    ],
+    "risiken": [
+     "Übliche Bewegung nur knapp über der Hürde",
+     "RSI 72 nach starkem Lauf",
+     "Patentabläufe in den 2030er Jahren"
+    ],
+    "termine": [
+     "17.11.2026: Nvidia-Quartalszahlen nach US-Börsenschluss",
+     "18.11.2026: Protokoll der Fed-Sitzung"
+    ],
+    "zuversicht": "niedrig",
+    "quellen": [
+     {
+      "t": "Sanofi-Aktie: Morningstar sieht fairen Wert bei 107 Euro",
+      "u": "https://www.ad-hoc-news.de/boerse/news/corporate-news/sanofi-aktie-morningstar-sieht-fairen-wert-bei-107-euro/70491435",
+      "q": "ad-hoc-news.de",
+      "d": "2026-11-11"
+     },
+     {
+      "t": "ROUNDUP/Dank Dupixent: Sanofi hebt Prognose an - Quartal übertrifft Erwartungen",
+      "u": "https://de.finance.yahoo.com/nachrichten/roundup-dank-dupixent-sanofi-hebt-083555573.html?.tsrc=rss",
+      "q": "dpa-AFX/Yahoo Finanzen",
+      "d": "2026-10-30"
+     },
+     {
+      "t": "Seawolf surfaces with $100M, $1.2B Sanofi pact for redosable DNA medicines",
+      "u": "https://www.biospace.com/business/seawolf-surfaces-with-100m-1-2b-sanofi-pact-for-redosable-dna-medicines",
+      "q": "BioSpace",
+      "d": "2026-11-16"
+     }
+    ]
    }
   ],
   "30": [
    {
     "s": "MCK",
     "einschaetzung": "Starker Trend, Hürde über 30 Tage aber sehr hoch.",
-    "warum": "McKesson steigt seit Monaten (drei Monate +29 %, fünf Tage +4,3 %) und notiert am 10-Tage-Hoch, der RSI liegt bei 75. Der Umsatz wuchs im Quartal um 8 % auf rund 111 Mrd. US-Dollar, getragen von GLP-1-Abnehmmitteln und Onkologie, die Gewinnprognose wurde angehoben. Schwächer lief das Medizinbedarfs-Geschäft, das abgespalten werden soll. Das Muster „Ausbruch aus Seitwärtsphase“ zeigte im Rückblick keinen klaren Vorteil; seit gestern Abend gab es keine neuen Meldungen.",
+    "warum": "McKesson steigt seit Monaten (drei Monate +25 %, vier Wochen +6,4 %, fünf Tage +1,2 %) und notiert knapp unter dem 10-Tage-Hoch, der RSI liegt bei 71. Der Umsatz wuchs im Quartal um 8 % auf rund 111 Mrd. US-Dollar, getragen von GLP-1-Abnehmmitteln und Onkologie, die Gewinnprognose wurde angehoben. Schwächer lief das Medizinbedarfs-Geschäft, das abgespalten werden soll. Seit heute früh gab es keine neuen Firmenmeldungen.",
     "ausblick": "Die Geschäftslage spricht für einen intakten Trend, die übliche 30-Tage-Bewegung von 9,4 % liegt aber deutlich unter der Hürde von 17,44 %. Eine so große Steigerung wäre nur bei einem außergewöhnlichen Impuls realistisch. Wahrscheinlicher ist ein weiterer, aber kleinerer Anstieg oder eine Konsolidierung nach dem Lauf.",
     "szenarien": {
      "gut": "Weiter starke Nachfrage nach GLP-1-Mitteln und Fortschritte bei der Abspaltung.",
@@ -464,12 +503,13 @@
     ],
     "risiken": [
      "Hürde von 17,44 % weit über üblicher Bewegung",
-     "RSI 75"
+     "RSI 71 nach langem Lauf"
     ],
     "termine": [
+     "18.11.2026: Protokoll der Fed-Sitzung",
      "Dezember 2026: Fed-Zinsentscheid (Markt rechnet laut Reuters mit einer Erhöhung)"
     ],
-    "zuversicht": "mittel",
+    "zuversicht": "niedrig",
     "quellen": [
      {
       "t": "McKesson Revenue Grows 8% to $111 Billion as Specialty Segments Expand",
@@ -494,7 +534,7 @@
    {
     "s": "CAH",
     "einschaetzung": "Gute Geschäftslage, kurzfristig überhitzt.",
-    "warum": "Cardinal Health ist in drei Monaten um 24 % gestiegen und notiert am 10-Tage-Hoch, der RSI von 80 zeigt deutliche Überhitzung. Am 5. November meldete der Konzern ein starkes Quartal und hob die Jahresprognose an, getragen vom Pharma- und Spezialmedikamentengeschäft. Argus hob das Kursziel auf 309 US-Dollar. Seit gestern Abend fanden sich keine neuen Firmenmeldungen.",
+    "warum": "Cardinal Health ist in drei Monaten um 21,5 % gestiegen, legte in fünf Tagen weitere 2 % zu und notiert nahe am 10-Tage-Hoch, der RSI von 77 zeigt Überhitzung. Am 5. November meldete der Konzern ein starkes Quartal und hob die Jahresprognose an, getragen vom Pharma- und Spezialmedikamentengeschäft. Neu ist heute eine Kurszielanhebung von Wells Fargo auf 321 US-Dollar bei „Overweight“, zuvor hatte Argus auf 309 US-Dollar erhöht.",
     "ausblick": "Die Branche profitiert von defensiver Nachfrage in einem nervösen Markt, die nötigen 17,44 % liegen aber mehr als doppelt so hoch wie die übliche 30-Tage-Bewegung von 8,1 %. Nach dem überhitzten Lauf ist zunächst eher eine Pause zu erwarten. Realistisch ist allenfalls ein moderater Zugewinn.",
     "szenarien": {
      "gut": "Anhaltende Rotation in defensive Gesundheitswerte.",
@@ -505,13 +545,14 @@
      "Spezialmedikamente"
     ],
     "risiken": [
-     "RSI 80",
+     "RSI 77",
      "Hürde weit über üblicher Bewegung"
     ],
     "termine": [
+     "18.11.2026: Protokoll der Fed-Sitzung",
      "Dezember 2026: Fed-Zinsentscheid (Markt rechnet laut Reuters mit einer Erhöhung)"
     ],
-    "zuversicht": "mittel",
+    "zuversicht": "niedrig",
     "quellen": [
      {
       "t": "Cardinal Health Reports First Quarter Fiscal Year 2027 Results and Raises Outlook",
@@ -530,13 +571,19 @@
       "u": "https://finnhub.io/api/news?id=57ff314efdb627ab4dc9b3d45595c344397c104fc327339e006487e640eaa7e8",
       "q": "Yahoo",
       "d": "2026-11-11"
+     },
+     {
+      "t": "Wells Fargo Maintains Overweight on Cardinal Health, Raises Price Target to $321",
+      "u": "https://finnhub.io/api/news?id=f023d7ff59995ecc556b546e6fbd7d2567a93d88bb603463a17eb42f835ac0d2",
+      "q": "Benzinga",
+      "d": "2026-11-17"
      }
     ]
    },
    {
     "s": "MTD",
     "einschaetzung": "Solide Lage, kurze Schwäche als möglicher Einstieg.",
-    "warum": "Mettler-Toledo hat die Jahresprognose zum dritten Mal angehoben, Laborgeschäft und China erholen sich. Barclays hob das Kursziel auf 1.900 US-Dollar, JP Morgan auf 1.840 US-Dollar bei neutraler Einstufung. Die Aktie stieg in drei Monaten um 24 %, gab in den letzten fünf Tagen 2 % nach und liegt ebenso weit unter dem 10-Tage-Hoch, der RSI von 61 ist nicht überhitzt. Neue Meldungen seit gestern Abend gab es keine.",
+    "warum": "Mettler-Toledo hat die Jahresprognose zum dritten Mal angehoben, Laborgeschäft und China erholen sich. Barclays hob das Kursziel auf 1.900 US-Dollar, JP Morgan auf 1.840 US-Dollar bei neutraler Einstufung. Die Aktie stieg in drei Monaten um fast 23 %, gab in den letzten fünf Tagen 1,8 % nach und liegt 2,4 % unter dem 10-Tage-Hoch; der RSI von 59 ist nicht überhitzt. Neue Firmenmeldungen gab es heute keine, die Schwäche folgt dem Gesamtmarkt.",
     "ausblick": "Die Abkühlung ohne schlechte Nachricht spricht eher für eine Pause als einen Trendbruch. Die übliche 30-Tage-Bewegung von 8,7 % liegt aber deutlich unter der Hürde von 17,44 %, die volle Steigerung ist also unwahrscheinlich. Ein moderater Anstieg Richtung Analystenziele ist plausibler.",
     "szenarien": {
      "gut": "Weitere Zeichen der Erholung im Laborgeschäft und in China.",
@@ -551,9 +598,10 @@
      "China-Abhängigkeit"
     ],
     "termine": [
+     "18.11.2026: Protokoll der Fed-Sitzung",
      "Dezember 2026: Fed-Zinsentscheid (Markt rechnet laut Reuters mit einer Erhöhung)"
     ],
-    "zuversicht": "mittel",
+    "zuversicht": "niedrig",
     "quellen": [
      {
       "t": "Mettler-Toledo raises guidance for a third time as lab and China recovery broadens",
@@ -582,52 +630,10 @@
     ]
    },
    {
-    "s": "HNR1.DE",
-    "einschaetzung": "Stabil, aber mit gemischten Analysten-Signalen.",
-    "warum": "Hannover Rück ist in drei Monaten um 20 % gestiegen, hat in fünf Tagen 2,7 % zugelegt und liegt 2,2 % unter dem 10-Tage-Hoch; der RSI von 67 ist nicht überhitzt. Nach neun Monaten stieg der Gewinn auf 2,1 Mrd. Euro, das Jahresziel von mindestens 2,7 Mrd. Euro wurde bestätigt. Überschüssigen Spielraum will der Konzern eher in Reserven stecken. JPMorgan stufte die Aktie Anfang November auf „Underweight“ mit Ziel 270 Euro ab, sinkende Rückversicherungspreise bleiben ein Thema.",
-    "ausblick": "In den nächsten Wochen laufen die Vertragserneuerungen zum Jahreswechsel, deren Preise die Stimmung bestimmen. Die übliche 30-Tage-Bewegung von 6,8 % liegt weit unter der Hürde von 17,44 %, eine solche Steigerung ist bei diesem ruhigen Wert sehr unwahrscheinlich. Eher ist eine stabile, leicht steigende Entwicklung zu erwarten.",
-    "szenarien": {
-     "gut": "Die Erneuerungsrunde zum 1. Januar fällt besser aus als befürchtet.",
-     "schlecht": "Stärker fallende Preise in der Rückversicherung oder ein großer Schaden."
-    },
-    "treiber": [
-     "Bestätigtes Rekordziel",
-     "Hohe Reserven"
-    ],
-    "risiken": [
-     "Fallende Rückversicherungspreise",
-     "Abstufung durch JPMorgan"
-    ],
-    "termine": [
-     "Dezember 2026: Fed-Zinsentscheid (Markt rechnet laut Reuters mit einer Erhöhung)"
-    ],
-    "zuversicht": "niedrig",
-    "quellen": [
-     {
-      "t": "Hannover Rück bekräftigt Gewinnziel von 2,7 Mrd. Euro",
-      "u": "https://www.boersen-zeitung.de/banken-finanzen/hannover-rueck-bekraeftigt-gewinnziel-von-27-mrd-euro",
-      "q": "Börsen-Zeitung",
-      "d": "2026-11-09"
-     },
-     {
-      "t": "ANALYSE-FLASH: JPMorgan senkt Hannover Rück auf 'Underweight' - Ziel 270 Euro",
-      "u": "https://de.finance.yahoo.com/nachrichten/analyse-flash-jpmorgan-senkt-hannover-063502311.html?.tsrc=rss",
-      "q": "dpa-AFX/Yahoo Finanzen",
-      "d": "2026-11-06"
-     },
-     {
-      "t": "ROUNDUP: Hannover Rück will Rekordgewinn zugunsten von Reserven deckeln",
-      "u": "https://de.finance.yahoo.com/nachrichten/roundup-hannover-r%C3%BCck-will-rekordgewinn-100133942.html?.tsrc=rss",
-      "q": "dpa-AFX/Yahoo Finanzen",
-      "d": "2026-11-09"
-     }
-    ]
-   },
-   {
     "s": "BRK-B",
     "einschaetzung": "Defensiver Anker, aber träge für die Hürde.",
-    "warum": "Berkshire steigt stetig (drei Monate +20 %, fünf Tage +3,1 %) und notiert am 10-Tage-Hoch, der RSI von 81 zeigt kurzfristige Überhitzung. Die gestern veröffentlichte Beteiligungsübersicht zeigt einen neuen Anteil an Bending Spoons, einen fast verdoppelten Lennar-Anteil und weitere Verkäufe bei Bank of America; unterm Strich wurden mehr Aktien verkauft als gekauft. Gleichzeitig kaufte Berkshire im Quartal für rund 9,6 Mrd. US-Dollar eigene Aktien zurück. In nervösen Technologie-Phasen gilt der Wert als sicherer Hafen.",
-    "ausblick": "Die Rolle als defensiver Wert kann bei anhaltender Tech-Schwäche weiter Käufer anziehen, der starke Rückkauf stützt. Die übliche 30-Tage-Bewegung von 4,9 % liegt aber weit unter der Hürde von 17,44 %, die Steigerung ist praktisch nicht realistisch. Der Wert eignet sich eher als Stabilitätsanker als für hohe Kurzfrist-Gewinne.",
+    "warum": "Berkshire steigt stetig (drei Monate +17 %, vier Wochen +9,3 %, fünf Tage +1,2 %) und notiert nahe am 10-Tage-Hoch, der RSI von 77 zeigt kurzfristige Überhitzung. Die jüngste Beteiligungsübersicht zeigt einen neuen Anteil an Bending Spoons, einen fast verdoppelten Lennar-Anteil und weitere Verkäufe bei Bank of America. Gleichzeitig kaufte Berkshire im Quartal für rund 9,6 Mrd. US-Dollar eigene Aktien zurück. Heute gab die Aktie mit −0,4 % weniger nach als der breite US-Markt, was die Rolle als sicherer Hafen unterstreicht.",
+    "ausblick": "Bei anhaltender Tech-Schwäche kann Berkshire weiter Käufer anziehen, der starke Rückkauf stützt. Die übliche 30-Tage-Bewegung von 4,8 % liegt aber weit unter der Hürde von 17,44 %, die Steigerung ist praktisch nicht realistisch. Der Wert eignet sich eher als Stabilitätsanker als für hohe Gewinne.",
     "szenarien": {
      "gut": "Anhaltende Unsicherheit bei Technologiewerten lenkt Geld in defensive Qualität.",
      "schlecht": "Eine Erholung bei Tech lässt Anleger aus defensiven Werten umschichten."
@@ -637,10 +643,11 @@
      "Sicherer-Hafen-Funktion"
     ],
     "risiken": [
-     "RSI 81",
+     "RSI 77",
      "Sehr träge Bewegung"
     ],
     "termine": [
+     "18.11.2026: Protokoll der Fed-Sitzung",
      "Dezember 2026: Fed-Zinsentscheid (Markt rechnet laut Reuters mit einer Erhöhung)"
     ],
     "zuversicht": "niedrig",
@@ -662,6 +669,61 @@
       "u": "https://247wallst.com/investing/2026/11/16/warren-buffetts-berkshire-just-revealed-a-new-stock-and-sold-more-bank-of-america-heres-what-a-68-year-old-with-400-shares-owns/",
       "q": "24/7 Wall St.",
       "d": "2026-11-16"
+     },
+     {
+      "t": "Stock market today: Dow, S&P 500, Nasdaq losses pick up in countdown to Nvidia earnings",
+      "u": "https://finance.yahoo.com/markets/live/stock-market-today-tuesday-november-17-dow-sp-500-nasdaq-nvidia-earnings-retail-sales-143848454.html",
+      "q": "Yahoo Finance",
+      "d": "2026-11-17"
+     }
+    ]
+   },
+   {
+    "s": "HNR1.DE",
+    "einschaetzung": "Stabil, aber mit gemischten Analysten-Signalen.",
+    "warum": "Hannover Rück ist in drei Monaten um 16,6 % gestiegen, über fünf Tage fast unverändert und liegt nach dem heutigen Minus 3,1 % unter dem 10-Tage-Hoch; der RSI von 62 ist nicht überhitzt. Nach neun Monaten stieg der Gewinn auf 2,1 Mrd. Euro, das Jahresziel von mindestens 2,7 Mrd. Euro wurde bestätigt, überschüssigen Spielraum will der Konzern eher in Reserven stecken. JPMorgan stufte die Aktie Anfang November auf „Underweight“ mit Ziel 270 Euro ab, sinkende Rückversicherungspreise bleiben ein Thema. Seit heute früh gab es keine neuen Firmenmeldungen.",
+    "ausblick": "In den nächsten Wochen laufen die Vertragserneuerungen zum Jahreswechsel, deren Preise die Stimmung bestimmen. Die übliche 30-Tage-Bewegung von 6,9 % liegt weit unter der Hürde von 17,44 %, eine solche Steigerung ist bei diesem ruhigen Wert sehr unwahrscheinlich. Eher ist eine stabile, leicht steigende Entwicklung zu erwarten.",
+    "szenarien": {
+     "gut": "Die Erneuerungsrunde zum 1. Januar fällt besser aus als befürchtet.",
+     "schlecht": "Stärker fallende Preise in der Rückversicherung oder ein großer Schaden."
+    },
+    "treiber": [
+     "Bestätigtes Rekordziel",
+     "Hohe Reserven"
+    ],
+    "risiken": [
+     "Fallende Rückversicherungspreise",
+     "Abstufung durch JPMorgan"
+    ],
+    "termine": [
+     "18.11.2026: Protokoll der Fed-Sitzung",
+     "Dezember 2026: Fed-Zinsentscheid (Markt rechnet laut Reuters mit einer Erhöhung)"
+    ],
+    "zuversicht": "niedrig",
+    "quellen": [
+     {
+      "t": "Hannover Rück bekräftigt Gewinnziel von 2,7 Mrd. Euro",
+      "u": "https://www.boersen-zeitung.de/banken-finanzen/hannover-rueck-bekraeftigt-gewinnziel-von-27-mrd-euro",
+      "q": "Börsen-Zeitung",
+      "d": "2026-11-09"
+     },
+     {
+      "t": "ANALYSE-FLASH: JPMorgan senkt Hannover Rück auf 'Underweight' - Ziel 270 Euro",
+      "u": "https://de.finance.yahoo.com/nachrichten/analyse-flash-jpmorgan-senkt-hannover-063502311.html?.tsrc=rss",
+      "q": "dpa-AFX/Yahoo Finanzen",
+      "d": "2026-11-06"
+     },
+     {
+      "t": "ROUNDUP: Hannover Rück will Rekordgewinn zugunsten von Reserven deckeln",
+      "u": "https://de.finance.yahoo.com/nachrichten/roundup-hannover-r%C3%BCck-will-rekordgewinn-100133942.html?.tsrc=rss",
+      "q": "dpa-AFX/Yahoo Finanzen",
+      "d": "2026-11-09"
+     },
+     {
+      "t": "ROUNDUP 2/Aktien Frankfurt Schluss: Verluste - Nervosität vor Nvidia-Zahlen",
+      "u": "https://www.ariva.de/news/roundup-2-aktien-frankfurt-schluss-verluste-nervositaet-12210850",
+      "q": "dpa-AFX/ARIVA.DE",
+      "d": "2026-11-17"
      }
     ]
    }
@@ -669,9 +731,24 @@
  },
  "aussortiert": [
   {
+   "s": "LHA.DE",
+   "h": 3,
+   "grund": "Die Mediation mit den Piloten ist heute ohne Einigung beendet worden, neue Streiks können den Kurs kurzfristig belasten."
+  },
+  {
    "s": "PNR",
    "h": 3,
-   "grund": "Trendbruch: 5 % unter dem 10-Tage-Hoch und fünf Tage mit −2,5 %, ohne erkennbaren neuen Auslöser."
+   "grund": "Trendbruch: 6 % unter dem 10-Tage-Hoch und fünf Tage mit −2,7 %, ohne erkennbaren neuen Auslöser."
+  },
+  {
+   "s": "MSI",
+   "h": 3,
+   "grund": "Übliche Drei-Tage-Bewegung von 2,0 % liegt kaum über der Hürde von 1,92 %."
+  },
+  {
+   "s": "HEI.DE",
+   "h": 3,
+   "grund": "Fünf Tage mit −2,6 % und eine leichte Kurszielsenkung durch Jefferies, kein frischer Auslöser für eine schnelle Erholung."
   },
   {
    "s": "SPG",
@@ -679,44 +756,29 @@
    "grund": "Träger Wert mit üblicher Bewegung von 2,0 %, kaum über der Hürde von 1,92 %."
   },
   {
-   "s": "FTV",
-   "h": 3,
-   "grund": "Übliche Bewegung von 2,7 % nur knapp über der Hürde und Analysten laut Meldung eher zurückhaltend."
-  },
-  {
-   "s": "EXR",
-   "h": 3,
-   "grund": "Träger Wert (übliche Bewegung 2,2 %) mit negativer Fünf-Tage-Bilanz."
-  },
-  {
-   "s": "MSCI",
-   "h": 3,
-   "grund": "Übliche Bewegung von 2,9 % und kein frischer Auslöser; die Debatte um Index-Ausschlüsse ist kein klarer Treiber."
+   "s": "AI.PA",
+   "h": 7,
+   "grund": "Übliche Sieben-Tage-Bewegung von 2,8 % liegt deutlich unter der Hürde von 4,12 %."
   },
   {
    "s": "BRK-B",
    "h": 7,
-   "grund": "Übliche Sieben-Tage-Bewegung von 2,4 % liegt weit unter der Hürde von 4,12 %."
+   "grund": "Übliche Sieben-Tage-Bewegung von 2,3 % liegt weit unter der Hürde von 4,12 %."
   },
   {
    "s": "VLTO",
    "h": 7,
-   "grund": "RSI 82 und übliche Bewegung von 3,6 % unter der Hürde von 4,12 %."
-  },
-  {
-   "s": "VTRS",
-   "h": 7,
-   "grund": "Übliche Bewegung nur knapp über der Hürde, dazu belastet der Produktionsstopp im Werk Nashik."
-  },
-  {
-   "s": "CINF",
-   "h": 7,
-   "grund": "Übliche Sieben-Tage-Bewegung von 3,1 % liegt unter der Hürde von 4,12 %."
+   "grund": "RSI 77 und übliche Bewegung von 3,6 % unter der Hürde von 4,12 %."
   },
   {
    "s": "IBE.MC",
    "h": 7,
-   "grund": "Zuletzt 2,4 % im Minus, RSI 83 und übliche Bewegung von 2,3 % weit unter der Hürde."
+   "grund": "3,5 % unter dem 10-Tage-Hoch, negative Fünf-Tage-Bilanz und übliche Bewegung von 2,5 % weit unter der Hürde."
+  },
+  {
+   "s": "LHA.DE",
+   "h": 7,
+   "grund": "Drohende Pilotenstreiks nach gescheiterter Mediation machen den Zeitraum besonders riskant."
   },
   {
    "s": "TECH",
@@ -724,24 +786,24 @@
    "grund": "Laufende Übernahme durch Merck KGaA, der Kurs klebt am Angebotspreis."
   },
   {
+   "s": "QIA.DE",
+   "h": 30,
+   "grund": "Übernahmeangebot von EQT über 46,50 Euro begrenzt den Spielraum nach oben, der Kurs liegt schon knapp darunter."
+  },
+  {
    "s": "NA9.DE",
    "h": 30,
    "grund": "Nach der Mehrheitsübernahme durch Persistent kaum Kursfantasie, Trend abwärts."
   },
   {
-   "s": "IBE.MC",
-   "h": 30,
-   "grund": "RSI 83 und steigende Zinsen belasten Versorger."
-  },
-  {
    "s": "VLTO",
    "h": 30,
-   "grund": "RSI 82 zeigt Überhitzung nach +20 % in vier Wochen."
+   "grund": "RSI 77 zeigt Überhitzung nach fast 18 % in vier Wochen."
   },
   {
-   "s": "VTRS",
+   "s": "HEN3.DE",
    "h": 30,
-   "grund": "Produktionsstopp im Werk Nashik kostet auch im vierten Quartal Umsatz."
+   "grund": "RSI 77 nach starker Rally, und laut Unternehmen steigen die Materialkosten deutlich."
   }
  ]
 }
