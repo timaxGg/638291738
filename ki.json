@@ -1,36 +1,36 @@
 {
  "version": 2,
- "generated": "2026-11-17T07:06:50+01:00",
+ "generated": "2026-11-17T12:41:17+01:00",
  "dataAsOf": "2026-11-17",
  "indices": [
   {
    "n": "DAX",
-   "v": 26598.64,
-   "c": -0.57,
+   "v": 26397.95,
+   "c": -0.76,
    "s": "Europa"
   },
   {
    "n": "MDAX",
-   "v": 30528.26,
-   "c": -0.56,
+   "v": 30258.75,
+   "c": -0.88,
    "s": "Europa"
   },
   {
    "n": "Euro Stoxx 50",
-   "v": 6348.35,
-   "c": -0.6,
+   "v": 6293.34,
+   "c": -0.87,
    "s": "Europa"
   },
   {
    "n": "FTSE 100",
-   "v": 10881.55,
-   "c": -0.19,
+   "v": 10809.51,
+   "c": -0.66,
    "s": "Europa"
   },
   {
    "n": "CAC 40",
-   "v": 8352,
-   "c": -0.2,
+   "v": 8291.33,
+   "c": -0.73,
    "s": "Europa"
   },
   {
@@ -55,32 +55,32 @@
  "sectors": [
   {
    "n": "Technologie",
-   "c": -1.18,
+   "c": -2.1,
    "p": "Europa"
   },
   {
    "n": "Gesundheit",
-   "c": 0.9,
+   "c": -0.58,
    "p": "Europa"
   },
   {
    "n": "Banken",
-   "c": -0.22,
+   "c": -0.49,
    "p": "Europa"
   },
   {
    "n": "Energie",
-   "c": -0.77,
+   "c": -0.2,
    "p": "Europa"
   },
   {
    "n": "Autos",
-   "c": -1.14,
+   "c": -1.58,
    "p": "Europa"
   },
   {
    "n": "Industrie",
-   "c": -0.47,
+   "c": -0.88,
    "p": "Europa"
   },
   {
@@ -1636,9 +1636,30 @@
    ],
    "u": "https://de.finance.yahoo.com/nachrichten/analyse-flash-jpmorgan-hebt-sap-062003650.html?.tsrc=rss",
    "q": "Yahoo Finanzen"
+  },
+  {
+   "id": "n8769673",
+   "imp": 2,
+   "kind": [
+    "Golf-Konflikt",
+    "warn"
+   ],
+   "cat": "Politik",
+   "t": "Iran greift US-Radar in Bahrain an",
+   "sum": "Bahrain meldet abgefangene iranische Luftangriffe, Irans Revolutionsgarden sprechen von einem Angriff auf eine US-Radaranlage.",
+   "body": [
+    "Die Spannungen am Golf nehmen damit weiter zu.",
+    "Am Ölmarkt wirkte sich das bisher kaum aus, weil sich die Exporte aus der Region erholen."
+   ],
+   "back": "Wirkt bald: Eine weitere Eskalation könnte Ölpreis und Nervosität an den Börsen schnell steigen lassen.",
+   "stocks": [
+    "^VIX"
+   ],
+   "u": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNVXAzM1RQRHF5amo0TVJ3VVV4d0d4cnNHVUhFSE41QnlpSGJ4UEhXc1ZIeUhKRzlzcVRRYWhxajZiNF84MWlPb29LazZhT2g5MnJUZlZZREF6N1FLTjZOYWFQZnZjLWdCMzN5OVZIcWVJWkc2RGVrZmRxT0l5LV83YUdlakdRaFd4SDI0MURvUFVQdXh6cUktbmJyeExSRmp1NVZlWWJ6ZHVCVUdUZEd2Z1NMLUNCcU9SSTIxMGRQMnNUX1Rtckp6ZVRn?oc=5",
+   "q": "Reuters"
   }
  ],
- "telegram": "**Morgen-Briefing Dienstag**\nWall Street gestern deutlich im Minus: **Nasdaq 100 −2,7 %**, S&P 500 −1,9 %, DAX −0,6 %.\n**VIX** springt auf rund 23 – die Nervosität steigt.\n**Zinsen:** Markt erwartet weitere US-Zinserhöhung, Gold nahe 14-Monats-Tief.\n**Euro** bei rund 1,10 $, tiefster Stand seit April 2025.\nHeute im Blick: Warten auf die **Nvidia-Zahlen** diese Woche.\nDepot: Tesla −2,7 %, Siemens −2,5 %, MSCI World nahe 3-Monats-Tief; SAP und Visa stabil.",
+ "telegram": "**Mittags-Update**\nEuropa weiter schwächer: **DAX −0,8 %**, Euro Stoxx 50 −0,9 %.\n**Golf:** Iran greift laut Revolutionsgarden US-Radar in Bahrain an – Öl reagiert bisher kaum.\nWeiter im Blick: die **Nvidia-Zahlen** als Richtungsgeber für Tech.",
  "kurz": [
   {
    "s": "SAP",
