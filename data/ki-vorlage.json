@@ -1,118 +1,118 @@
 {
  "version": 2,
  "generated": "§FILL: aktuelle Uhrzeit als ISO-Zeitstempel mit +01:00 bzw. +02:00§",
- "dataAsOf": "2026-11-18",
- "_slot": "mittag",
+ "dataAsOf": "2026-11-19",
+ "_slot": "morgen",
  "_anleitung": "Ersetze jeden §FILL…§-Platzhalter durch passenden Inhalt im richtigen JSON-Typ (Text, Zahl oder Liste). Alles andere unverändert lassen. Felder mit _ am Anfang danach löschen. Deutsch, kurz, sachlich, in eigenen Worten. Blick nach vorn ehrlich mit Unsicherheit, als Abwägung, keine Anweisungen zum Kaufen oder Verkaufen.",
  "indices": [
   {
    "n": "DAX",
-   "v": 26090.9,
-   "c": 0.17,
+   "v": 25736.24,
+   "c": -1.19,
    "s": "Europa"
   },
   {
    "n": "MDAX",
-   "v": 30142.65,
-   "c": -0.02,
+   "v": 29878.63,
+   "c": -0.89,
    "s": "Europa"
   },
   {
    "n": "Euro Stoxx 50",
-   "v": 6229.21,
-   "c": 0.28,
+   "v": 6154.39,
+   "c": -0.93,
    "s": "Europa"
   },
   {
    "n": "FTSE 100",
-   "v": 10654.91,
-   "c": -0.33,
+   "v": 10551.17,
+   "c": -1.3,
    "s": "Europa"
   },
   {
    "n": "CAC 40",
-   "v": 8224.49,
-   "c": 0.09,
+   "v": 8146.83,
+   "c": -0.85,
    "s": "Europa"
   },
   {
    "n": "S&P 500",
-   "v": 732.44,
-   "c": -1.01,
+   "v": 730.2,
+   "c": -0.31,
    "s": "USA, über SPY"
   },
   {
    "n": "Nasdaq 100",
-   "v": 656.95,
-   "c": -0.73,
+   "v": 659.51,
+   "c": 0.39,
    "s": "USA, über QQQ"
   },
   {
    "n": "Dow Jones",
-   "v": 507.31,
-   "c": -1.62,
+   "v": 501.73,
+   "c": -1.1,
    "s": "USA, über DIA"
   }
  ],
  "sectors": [
   {
    "n": "Technologie",
-   "c": 1.34,
+   "c": -0.35,
    "p": "Europa"
   },
   {
    "n": "Gesundheit",
-   "c": 0.24,
+   "c": -0.65,
    "p": "Europa"
   },
   {
    "n": "Banken",
-   "c": -0.05,
+   "c": -2.03,
    "p": "Europa"
   },
   {
    "n": "Energie",
-   "c": -0.79,
+   "c": -2.09,
    "p": "Europa"
   },
   {
    "n": "Autos",
-   "c": 0.15,
+   "c": 0.16,
    "p": "Europa"
   },
   {
    "n": "Industrie",
-   "c": 0.52,
+   "c": -0.85,
    "p": "Europa"
   },
   {
    "n": "Technologie",
-   "c": -0.91,
+   "c": 0.34,
    "p": "USA"
   },
   {
    "n": "Gesundheit",
-   "c": -1.41,
+   "c": -2.2,
    "p": "USA"
   },
   {
    "n": "Finanzen",
-   "c": -1.91,
+   "c": -1.14,
    "p": "USA"
   },
   {
    "n": "Energie",
-   "c": -0.52,
+   "c": -3.27,
    "p": "USA"
   },
   {
    "n": "Konsum",
-   "c": -0.89,
+   "c": 1.79,
    "p": "USA"
   },
   {
    "n": "Industrie",
-   "c": -0.55,
+   "c": -0.05,
    "p": "USA"
   }
  ],
@@ -122,6 +122,7 @@
    "s": "URTH",
    "n": "MSCI World ETF",
    "closes": [
+    197.72000122070312,
     198.72999572753906,
     200.86000061035156,
     204.55999755859375,
@@ -185,54 +186,88 @@
     208.47999572753906,
     209.07000732421875,
     207.8300018310547,
-    209.22000122070312,
-    208.74000549316406
+    209.22000122070312
    ],
    "cur": "USD",
    "cat": "Weltaktien breit",
-   "h": "lang",
-   "bias": -0.5,
-   "why": "Der weltweite Aktien-ETF hat in vier Wochen knapp 5 % verloren, vor allem wegen schwacher US-Technologiewerte. Die Nervosität am Markt ist gestiegen, der VIX zog zuletzt deutlich an.",
-   "ausblick": "Kurzfristig hängt viel an den Nvidia-Zahlen und der Zinsentwicklung in den USA. Die rechnerische Spanne für die nächsten rund drei Monate reicht von etwa 183 bis 211 USD, die Mitte liegt bei rund 196 USD. Das ist sehr unsicher und kein fester Wert.",
-   "richtung": "seitwärts",
-   "zuversicht": "niedrig",
-   "horizont": "2–3 Monate",
-   "halten": "Als breit gestreuter Basiswert passt der ETF eher zu einem langen Zeitraum, in dem kurze Rücksetzer meist ausgeglichen wurden. Du liegst rund 0,5 % unter dem Kaufkurs; dagegen spricht nur, wenn du das Geld in den nächsten Monaten brauchst.",
-   "signale": [
-    "Reaktion auf die Nvidia-Zahlen",
-    "Kurs fällt Richtung 183 USD (unteres Ende der Spanne)",
-    "VIX beruhigt sich wieder deutlich"
-   ],
-   "muster": "Laut Auswertung liegt der Wert nahe einer Unterstützungszone, und das Jahresende war historisch oft freundlich. Beides sind unsichere Hinweise, keine Gewissheit.",
-   "pro": [
-    "Sehr breite Streuung über viele Länder und Branchen",
-    "Jahresende war historisch oft stark"
-   ],
-   "con": [
-    "Hoher Anteil von US-Tech, der gerade unter Druck steht",
-    "Erhöhte Nervosität am Markt"
-   ],
-   "news": [
-    "n8770313",
-    "n8771891"
-   ],
-   "warn": 1,
-   "warnGrund": "Steigende Marktnervosität vor wichtigen Tech-Zahlen.",
-   "quellen": [
-    {
-     "t": "Wall Street ends lower ahead of Nvidia results, focus turns to Anthropic debut - Reuters",
-     "u": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOemNySVhGbms1VkxVYXFsTFdtdVh1MjNQQk16Y1ZfNGFHMFhDRWUtZldZRzJzSWxpNlBLWVpTenJnU2FHZndaVUlEclFtQVNvTzJBWTNpM1p0N3dmWjlyMEFKbkowZkpSanhVcEVLUjZfOWxNcW5OZVFuLTNFNF93ZDd4b0wxX1VzNlJPODdqc0xob1ZrR0xuQkJ6bExvNDdQMk5saFVSdkVBZw?oc=5"
+   "h": "§FILL: \"kurz\" oder \"lang\"§",
+   "bias": "§FILL: Zahl −3 bis +3: Wirkung der heutigen Nachrichten auf den Kurs in %§",
+   "why": "§FILL: 2–3 Sätze zur aktuellen Lage, sachlich§",
+   "ausblick": "§FILL: 2–3 Sätze: wie es in den nächsten Wochen bis Monaten am wahrscheinlichsten weitergeht und warum (Treiber, anstehende Termine, was _fakten.prognose sagt). Ehrlich mit der Unsicherheit§",
+   "richtung": "§FILL: \"steigend\", \"seitwärts\" oder \"fallend\": die wahrscheinlichste Richtung im Zeitraum horizont§",
+   "zuversicht": "§FILL: \"niedrig\", \"mittel\" oder \"hoch\": wie sicher diese Richtung ist (bei starken Schwankungen oder widersprüchlichen Meldungen eher niedrig)§",
+   "horizont": "§FILL: Zeitraum, für den der Ausblick gilt, z. B. \"4–8 Wochen\" oder \"6–12 Monate\"§",
+   "halten": "§FILL: 1–2 Sätze Abwägung: Was spricht dafür, investiert zu bleiben, und für welchen Zeitraum passt dieser Wert eher (kurz, mittel, lang), was dagegen. Wenn _fakten.depot vorhanden ist, darauf eingehen. Keine Anweisung zum Kaufen oder Verkaufen, sondern Gründe zum Abwägen§",
+   "signale": "§FILL: Liste mit 2–3 kurzen Punkten: woran man merkt, dass sich das Bild ändert (z. B. Kurs unter einer Marke aus _fakten.prognose, ein Termin, eine Meldungslage)§",
+   "muster": "§FILL: 1–2 Sätze: was die erkannten Muster (_fakten.muster) und Zusammenhänge (_fakten.zusammenhaenge, z. B. Öl, Dollar, Gesamtmarkt) für diesen Wert bedeuten könnten. Ausdrücklich als unsicher kennzeichnen. Leerer Text, wenn es keine gibt§",
+   "pro": "§FILL: Liste mit 1–3 kurzen Punkten dafür§",
+   "con": "§FILL: Liste mit 1–3 kurzen Punkten dagegen§",
+   "news": "§FILL: Liste der news-ids, die diese Aktie betreffen§",
+   "warn": "§FILL: Zahl 0–3: Gefahr aus der Nachrichtenlage (0 = nichts Besonderes, 1 = leicht negativ, 2 = deutlich negativ, 3 = ernst, z. B. Gewinnwarnung, Klage, angekündigte Kürzungen)§",
+   "warnGrund": "§FILL: 1 kurzer Satz zum Warn-Grund oder leerer Text§",
+   "quellen": "§FILL: Liste {t,u} der Meldungen aus _rohnews, auf die sich why/pro/con/warn stützen (Titel und Link übernehmen). Leere Liste, wenn nur Kursdaten genutzt wurden§",
+   "_fakten": {
+    "waehrung": "USD",
+    "region": "USA",
+    "trend": "down",
+    "vierWochen": -4.1,
+    "dreiMonate": -5.5,
+    "schwankung": 14,
+    "heute": -0.51,
+    "prognose": {
+     "tage": 63,
+     "von": 181.25,
+     "mitte": 194.68,
+     "bis": 209.12,
+     "zusammensetzung": [
+      {
+       "teil": "Trend 3 Monate (abgeschwächt)",
+       "prozent": -2.7
+      },
+      {
+       "teil": "Langfrist-Durchschnitt",
+       "prozent": 1.7
+      },
+      {
+       "teil": "Gegenbewegung nach starker Bewegung",
+       "prozent": 0,
+       "vorsicht": true
+      },
+      {
+       "teil": "Bekannte Muster",
+       "prozent": 0,
+       "vorsicht": true
+      },
+      {
+       "teil": "Marktumfeld",
+       "prozent": 0,
+       "vorsicht": true
+      },
+      {
+       "teil": "Nachrichten des Tages",
+       "prozent": -0.5
+      }
+     ],
+     "hinweis": "mitte ist rein rechnerisch; Teile mit vorsicht (Muster, Marktumfeld) sind unsicher"
     },
-    {
-     "t": "Wall Street's fear gauge is surging again and this time it's not just about AI jitters",
-     "u": "https://www.cnbc.com/2026/11/17/wall-streets-fear-gauge-is-surging-again-and-this-time-its-not-just-about-ai-jitters.html"
+    "muster": [
+     "Nahe am 3-Monats-Tief: Hier haben Käufer zuletzt gestützt (Unterstützung). Hält die Marke nicht, kann es weiter fallen.",
+     "Jahresend-Rallye: November und Dezember waren für Aktien in der Vergangenheit oft gute Monate."
+    ],
+    "zusammenhaenge": [],
+    "anlegerTyp": "ausgewogen",
+    "depot": {
+     "kaufkurs": 199.67,
+     "seitKaufProzent": -1,
+     "seit": ""
     }
-   ]
+   }
   },
   {
    "s": "SIE.DE",
    "n": "Siemens",
    "closes": [
+    269.79998779296875,
     272.54998779296875,
     279.3999938964844,
     281.70001220703125,
@@ -296,59 +331,91 @@
     280.6000061035156,
     280.3500061035156,
     276,
-    276.6499938964844,
-    275.79998779296875
+    276.6499938964844
    ],
    "cur": "EUR",
    "cat": "Industrie / Technik",
-   "h": "lang",
-   "bias": 0.3,
-   "why": "Siemens gab zuletzt mit dem Gesamtmarkt etwa 1 % nach, liegt aber in vier Wochen rund 4 % im Plus. JPMorgan bleibt positiv und lobt die jüngsten Zahlen.",
-   "ausblick": "Rückenwind kommt von guten Zahlen und günstigerem Öl, Gegenwind von möglichen Engpässen bei Speicherchips und der allgemeinen Marktschwäche. Die rechnerische Mitte für rund drei Monate liegt bei etwa 271 Euro, die Spanne ist mit 236 bis 312 Euro breit.",
-   "richtung": "seitwärts",
-   "zuversicht": "mittel",
-   "horizont": "2–3 Monate",
-   "halten": "Mit rund 2 % Plus seit Kauf und positiver Analystenstimmung spricht einiges für einen mittel- bis langfristigen Blick. Dagegen sprechen die hohe Abhängigkeit vom US-Markt und mögliche Lieferprobleme.",
-   "signale": [
-    "Kurs fällt unter etwa 256 Euro (3-Monats-Tief)",
-    "Meldungen zu Chip-Engpässen in der Industrie",
-    "Stärkere Erholung an der Wall Street"
-   ],
-   "muster": "Siemens läuft auffällig eng mit dem S&P 500 und profitiert tendenziell von fallendem Öl. Diese Zusammenhänge sind statistisch und können sich jederzeit ändern.",
-   "pro": [
-    "Analysten bestätigen positives Bild",
-    "Fallender Ölpreis entlastet Kosten"
-   ],
-   "con": [
-    "Mögliche Engpässe bei Speicherchips",
-    "Starke Kopplung an die US-Börse"
-   ],
-   "news": [
-    "ny989832039",
-    "ny1101138140",
-    "n8773351"
-   ],
-   "warn": 1,
-   "warnGrund": "Warnung vor Speicherchip-Engpässen in der Industrie.",
-   "quellen": [
-    {
-     "t": "ANALYSE-FLASH: JPMorgan belässt Siemens auf 'Overweight' - Ziel 345 Euro",
-     "u": "https://de.finance.yahoo.com/nachrichten/analyse-flash-jpmorgan-bel%C3%A4sst-siemens-200505797.html?.tsrc=rss"
+   "h": "§FILL: \"kurz\" oder \"lang\"§",
+   "bias": "§FILL: Zahl −3 bis +3: Wirkung der heutigen Nachrichten auf den Kurs in %§",
+   "why": "§FILL: 2–3 Sätze zur aktuellen Lage, sachlich§",
+   "ausblick": "§FILL: 2–3 Sätze: wie es in den nächsten Wochen bis Monaten am wahrscheinlichsten weitergeht und warum (Treiber, anstehende Termine, was _fakten.prognose sagt). Ehrlich mit der Unsicherheit§",
+   "richtung": "§FILL: \"steigend\", \"seitwärts\" oder \"fallend\": die wahrscheinlichste Richtung im Zeitraum horizont§",
+   "zuversicht": "§FILL: \"niedrig\", \"mittel\" oder \"hoch\": wie sicher diese Richtung ist (bei starken Schwankungen oder widersprüchlichen Meldungen eher niedrig)§",
+   "horizont": "§FILL: Zeitraum, für den der Ausblick gilt, z. B. \"4–8 Wochen\" oder \"6–12 Monate\"§",
+   "halten": "§FILL: 1–2 Sätze Abwägung: Was spricht dafür, investiert zu bleiben, und für welchen Zeitraum passt dieser Wert eher (kurz, mittel, lang), was dagegen. Wenn _fakten.depot vorhanden ist, darauf eingehen. Keine Anweisung zum Kaufen oder Verkaufen, sondern Gründe zum Abwägen§",
+   "signale": "§FILL: Liste mit 2–3 kurzen Punkten: woran man merkt, dass sich das Bild ändert (z. B. Kurs unter einer Marke aus _fakten.prognose, ein Termin, eine Meldungslage)§",
+   "muster": "§FILL: 1–2 Sätze: was die erkannten Muster (_fakten.muster) und Zusammenhänge (_fakten.zusammenhaenge, z. B. Öl, Dollar, Gesamtmarkt) für diesen Wert bedeuten könnten. Ausdrücklich als unsicher kennzeichnen. Leerer Text, wenn es keine gibt§",
+   "pro": "§FILL: Liste mit 1–3 kurzen Punkten dafür§",
+   "con": "§FILL: Liste mit 1–3 kurzen Punkten dagegen§",
+   "news": "§FILL: Liste der news-ids, die diese Aktie betreffen§",
+   "warn": "§FILL: Zahl 0–3: Gefahr aus der Nachrichtenlage (0 = nichts Besonderes, 1 = leicht negativ, 2 = deutlich negativ, 3 = ernst, z. B. Gewinnwarnung, Klage, angekündigte Kürzungen)§",
+   "warnGrund": "§FILL: 1 kurzer Satz zum Warn-Grund oder leerer Text§",
+   "quellen": "§FILL: Liste {t,u} der Meldungen aus _rohnews, auf die sich why/pro/con/warn stützen (Titel und Link übernehmen). Leere Liste, wenn nur Kursdaten genutzt wurden§",
+   "_fakten": {
+    "waehrung": "EUR",
+    "region": "Europa",
+    "trend": "up",
+    "vierWochen": -0.3,
+    "dreiMonate": -3.8,
+    "schwankung": 28,
+    "heute": -1.41,
+    "prognose": {
+     "tage": 63,
+     "von": 231.2,
+     "mitte": 266.24,
+     "bis": 306.59,
+     "zusammensetzung": [
+      {
+       "teil": "Trend 3 Monate (abgeschwächt)",
+       "prozent": -1.9
+      },
+      {
+       "teil": "Langfrist-Durchschnitt",
+       "prozent": 1.7
+      },
+      {
+       "teil": "Gegenbewegung nach starker Bewegung",
+       "prozent": 0,
+       "vorsicht": true
+      },
+      {
+       "teil": "Bekannte Muster",
+       "prozent": 0,
+       "vorsicht": true
+      },
+      {
+       "teil": "Marktumfeld",
+       "prozent": 0,
+       "vorsicht": true
+      },
+      {
+       "teil": "Nachrichten des Tages",
+       "prozent": 0.3
+      }
+     ],
+     "hinweis": "mitte ist rein rechnerisch; Teile mit vorsicht (Muster, Marktumfeld) sind unsicher"
     },
-    {
-     "t": "KI frisst die Chips: Der Industrie droht der nächste Lieferketten-Schock",
-     "u": "https://www.businessinsider.de/wirtschaft/ki-frisst-die-chips-der-industrie-drohen-neue-engpaesse/?.tsrc=rss"
-    },
-    {
-     "t": "Oil prices fall as higher US crude stocks temper supply risks - Reuters",
-     "u": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQbmp3REJQam1xdjkyMkpCN1JlSkotTnJNM0JEWDVFNmJqZ2FHbmNIN2E0V2twa2N3djBLTXlNNVJvcDJmZVNXMlBlQnk2VG1FTThnX0hQbVRqS2dKbVVBdXl6MWR5ZHo0S2VneWt2bUdwVjE4TnNxaHFLN0hHNU9IUVljVnNXLWJTeHdORFFJX3BfQXhPTThEbGFYQXhYaGNneHRHcVRGS2NyOFhxTzVN?oc=5"
+    "muster": [
+     "Jahresend-Rallye: November und Dezember waren für Aktien in der Vergangenheit oft gute Monate."
+    ],
+    "zusammenhaenge": [
+     "S&P 500: Gleichlauf 0.51, Beta 0.96",
+     "Öl (Brent): Gleichlauf -0.39, Beta -0.23",
+     "Angst-Barometer (VIX): Gleichlauf -0.36, Beta -0.06"
+    ],
+    "anlegerTyp": "ausgewogen",
+    "depot": {
+     "kaufkurs": 263.65,
+     "seitKaufProzent": 0.9,
+     "seit": ""
     }
-   ]
+   }
   },
   {
    "s": "EXS1.DE",
    "n": "iShares Core DAX ETF",
    "closes": [
+    214.60000610351562,
     219.1999969482422,
     220.39999389648438,
     220.6999969482422,
@@ -412,54 +479,91 @@
     215.1999969482422,
     215.5,
     214.10000610351562,
-    215.10000610351562,
-    215.4499969482422
+    215.10000610351562
    ],
    "cur": "EUR",
    "cat": "Deutsche Aktien breit",
-   "h": "lang",
-   "bias": -0.2,
-   "why": "Der DAX fiel zuletzt um rund 2 %, nachdem er kurz zuvor noch über 27.000 Punkte gestiegen war. Belastet haben vor allem Technologiewerte wie SAP.",
-   "ausblick": "Der DAX folgt derzeit stark der Stimmung in den USA, wichtig sind daher Nvidia-Zahlen und Zinssignale. Die rechnerische Spanne für drei Monate liegt bei etwa 202 bis 234 Euro, die Mitte bei rund 217 Euro.",
-   "richtung": "seitwärts",
-   "zuversicht": "niedrig",
-   "horizont": "2–3 Monate",
-   "halten": "Als breiter Deutschland-ETF eignet sich der Wert eher für einen langen Zeitraum. Du liegst knapp 1 % im Plus; dagegen spricht die hohe Abhängigkeit von wenigen großen Werten.",
-   "signale": [
-    "Kurs fällt unter etwa 204 Euro",
-    "Neuer Anlauf über das letzte Hoch bei rund 221 Euro",
-    "Weitere Warnungen zu Lieferketten"
-   ],
-   "muster": "Der ETF liegt nahe einer Zone, an der Verkäufer zuletzt gebremst haben; das Jahresende war früher oft gut. Beides ist unsicher.",
-   "pro": [
-    "Breit über deutsche Großkonzerne gestreut",
-    "Günstigeres Öl hilft der Industrie"
-   ],
-   "con": [
-    "Starker Tech-Rücksetzer bei SAP",
-    "Hohe Abhängigkeit von der US-Stimmung"
-   ],
-   "news": [
-    "n8771891",
-    "ny1101138140"
-   ],
-   "warn": 1,
-   "warnGrund": "Deutlicher Tagesverlust und steigende Marktnervosität.",
-   "quellen": [
-    {
-     "t": "Wall Street's fear gauge is surging again and this time it's not just about AI jitters",
-     "u": "https://www.cnbc.com/2026/11/17/wall-streets-fear-gauge-is-surging-again-and-this-time-its-not-just-about-ai-jitters.html"
+   "h": "§FILL: \"kurz\" oder \"lang\"§",
+   "bias": "§FILL: Zahl −3 bis +3: Wirkung der heutigen Nachrichten auf den Kurs in %§",
+   "why": "§FILL: 2–3 Sätze zur aktuellen Lage, sachlich§",
+   "ausblick": "§FILL: 2–3 Sätze: wie es in den nächsten Wochen bis Monaten am wahrscheinlichsten weitergeht und warum (Treiber, anstehende Termine, was _fakten.prognose sagt). Ehrlich mit der Unsicherheit§",
+   "richtung": "§FILL: \"steigend\", \"seitwärts\" oder \"fallend\": die wahrscheinlichste Richtung im Zeitraum horizont§",
+   "zuversicht": "§FILL: \"niedrig\", \"mittel\" oder \"hoch\": wie sicher diese Richtung ist (bei starken Schwankungen oder widersprüchlichen Meldungen eher niedrig)§",
+   "horizont": "§FILL: Zeitraum, für den der Ausblick gilt, z. B. \"4–8 Wochen\" oder \"6–12 Monate\"§",
+   "halten": "§FILL: 1–2 Sätze Abwägung: Was spricht dafür, investiert zu bleiben, und für welchen Zeitraum passt dieser Wert eher (kurz, mittel, lang), was dagegen. Wenn _fakten.depot vorhanden ist, darauf eingehen. Keine Anweisung zum Kaufen oder Verkaufen, sondern Gründe zum Abwägen§",
+   "signale": "§FILL: Liste mit 2–3 kurzen Punkten: woran man merkt, dass sich das Bild ändert (z. B. Kurs unter einer Marke aus _fakten.prognose, ein Termin, eine Meldungslage)§",
+   "muster": "§FILL: 1–2 Sätze: was die erkannten Muster (_fakten.muster) und Zusammenhänge (_fakten.zusammenhaenge, z. B. Öl, Dollar, Gesamtmarkt) für diesen Wert bedeuten könnten. Ausdrücklich als unsicher kennzeichnen. Leerer Text, wenn es keine gibt§",
+   "pro": "§FILL: Liste mit 1–3 kurzen Punkten dafür§",
+   "con": "§FILL: Liste mit 1–3 kurzen Punkten dagegen§",
+   "news": "§FILL: Liste der news-ids, die diese Aktie betreffen§",
+   "warn": "§FILL: Zahl 0–3: Gefahr aus der Nachrichtenlage (0 = nichts Besonderes, 1 = leicht negativ, 2 = deutlich negativ, 3 = ernst, z. B. Gewinnwarnung, Klage, angekündigte Kürzungen)§",
+   "warnGrund": "§FILL: 1 kurzer Satz zum Warn-Grund oder leerer Text§",
+   "quellen": "§FILL: Liste {t,u} der Meldungen aus _rohnews, auf die sich why/pro/con/warn stützen (Titel und Link übernehmen). Leere Liste, wenn nur Kursdaten genutzt wurden§",
+   "_fakten": {
+    "waehrung": "EUR",
+    "region": "Europa",
+    "trend": "up",
+    "vierWochen": 0.2,
+    "dreiMonate": -1.4,
+    "schwankung": 15,
+    "heute": -1.21,
+    "prognose": {
+     "tage": 63,
+     "von": 198.3,
+     "mitte": 213.68,
+     "bis": 230.25,
+     "zusammensetzung": [
+      {
+       "teil": "Trend 3 Monate (abgeschwächt)",
+       "prozent": -0.7
+      },
+      {
+       "teil": "Langfrist-Durchschnitt",
+       "prozent": 1.7
+      },
+      {
+       "teil": "Gegenbewegung nach starker Bewegung",
+       "prozent": 0,
+       "vorsicht": true
+      },
+      {
+       "teil": "Bekannte Muster",
+       "prozent": 0,
+       "vorsicht": true
+      },
+      {
+       "teil": "Marktumfeld",
+       "prozent": 0,
+       "vorsicht": true
+      },
+      {
+       "teil": "Nachrichten des Tages",
+       "prozent": -0.2
+      }
+     ],
+     "hinweis": "mitte ist rein rechnerisch; Teile mit vorsicht (Muster, Marktumfeld) sind unsicher"
     },
-    {
-     "t": "KI frisst die Chips: Der Industrie droht der nächste Lieferketten-Schock",
-     "u": "https://www.businessinsider.de/wirtschaft/ki-frisst-die-chips-der-industrie-drohen-neue-engpaesse/?.tsrc=rss"
+    "muster": [
+     "Jahresend-Rallye: November und Dezember waren für Aktien in der Vergangenheit oft gute Monate."
+    ],
+    "zusammenhaenge": [
+     "S&P 500: Gleichlauf 0.46, Beta 0.46",
+     "Gold: Gleichlauf 0.38, Beta 0.27",
+     "Öl (Brent): Gleichlauf -0.37, Beta -0.12"
+    ],
+    "anlegerTyp": "ausgewogen",
+    "depot": {
+     "kaufkurs": 212.6,
+     "seitKaufProzent": -0.3,
+     "seit": ""
     }
-   ]
+   }
   },
   {
    "s": "EUNK.DE",
    "n": "iShares Core MSCI Europe ETF",
    "closes": [
+    106.0199966430664,
     107.95999908447266,
     108.16000366210938,
     108.27999877929688,
@@ -523,52 +627,91 @@
     106.27999877929688,
     106.31999969482422,
     105.66000366210938,
-    105.80000305175781,
-    105.94000244140625
+    105.80000305175781
    ],
    "cur": "EUR",
    "cat": "Europa-Aktien breit",
-   "h": "lang",
-   "bias": -0.2,
-   "why": "Europas Aktien gaben zuletzt rund 1,8 % nach, liegen aber in vier Wochen noch leicht im Plus. Defensive Branchen hielten sich besser als Technologie.",
-   "ausblick": "Europa ist weniger von US-Tech abhängig, was in der aktuellen Umschichtung helfen kann. Die rechnerische Spanne für drei Monate reicht von etwa 102 bis 114 Euro, Mitte rund 108 Euro.",
-   "richtung": "seitwärts",
-   "zuversicht": "mittel",
-   "horizont": "2–3 Monate",
-   "halten": "Sehr breite Streuung über Europa spricht für einen langen Zeitraum. Du liegst seit dem Kauf am 9. November etwa bei null; kurzfristig bleibt der Markt schwankungsanfällig.",
-   "signale": [
-    "Kurs fällt unter etwa 102 Euro",
-    "Anhaltende Umschichtung in defensive Branchen",
-    "VIX bleibt dauerhaft hoch"
-   ],
-   "muster": "Der ETF bewegt sich teils mit dem S&P 500 und eher gegenläufig zu Öl. Diese Muster sind unsicher.",
-   "pro": [
-    "Viele defensive Branchen enthalten",
-    "Geringe Schwankung"
-   ],
-   "con": [
-    "Europa leidet mit, wenn die Wall Street fällt"
-   ],
-   "news": [
-    "n8771891"
-   ],
-   "warn": 1,
-   "warnGrund": "Erhöhte Nervosität an den Märkten.",
-   "quellen": [
-    {
-     "t": "Wall Street's fear gauge is surging again and this time it's not just about AI jitters",
-     "u": "https://www.cnbc.com/2026/11/17/wall-streets-fear-gauge-is-surging-again-and-this-time-its-not-just-about-ai-jitters.html"
+   "h": "§FILL: \"kurz\" oder \"lang\"§",
+   "bias": "§FILL: Zahl −3 bis +3: Wirkung der heutigen Nachrichten auf den Kurs in %§",
+   "why": "§FILL: 2–3 Sätze zur aktuellen Lage, sachlich§",
+   "ausblick": "§FILL: 2–3 Sätze: wie es in den nächsten Wochen bis Monaten am wahrscheinlichsten weitergeht und warum (Treiber, anstehende Termine, was _fakten.prognose sagt). Ehrlich mit der Unsicherheit§",
+   "richtung": "§FILL: \"steigend\", \"seitwärts\" oder \"fallend\": die wahrscheinlichste Richtung im Zeitraum horizont§",
+   "zuversicht": "§FILL: \"niedrig\", \"mittel\" oder \"hoch\": wie sicher diese Richtung ist (bei starken Schwankungen oder widersprüchlichen Meldungen eher niedrig)§",
+   "horizont": "§FILL: Zeitraum, für den der Ausblick gilt, z. B. \"4–8 Wochen\" oder \"6–12 Monate\"§",
+   "halten": "§FILL: 1–2 Sätze Abwägung: Was spricht dafür, investiert zu bleiben, und für welchen Zeitraum passt dieser Wert eher (kurz, mittel, lang), was dagegen. Wenn _fakten.depot vorhanden ist, darauf eingehen. Keine Anweisung zum Kaufen oder Verkaufen, sondern Gründe zum Abwägen§",
+   "signale": "§FILL: Liste mit 2–3 kurzen Punkten: woran man merkt, dass sich das Bild ändert (z. B. Kurs unter einer Marke aus _fakten.prognose, ein Termin, eine Meldungslage)§",
+   "muster": "§FILL: 1–2 Sätze: was die erkannten Muster (_fakten.muster) und Zusammenhänge (_fakten.zusammenhaenge, z. B. Öl, Dollar, Gesamtmarkt) für diesen Wert bedeuten könnten. Ausdrücklich als unsicher kennzeichnen. Leerer Text, wenn es keine gibt§",
+   "pro": "§FILL: Liste mit 1–3 kurzen Punkten dafür§",
+   "con": "§FILL: Liste mit 1–3 kurzen Punkten dagegen§",
+   "news": "§FILL: Liste der news-ids, die diese Aktie betreffen§",
+   "warn": "§FILL: Zahl 0–3: Gefahr aus der Nachrichtenlage (0 = nichts Besonderes, 1 = leicht negativ, 2 = deutlich negativ, 3 = ernst, z. B. Gewinnwarnung, Klage, angekündigte Kürzungen)§",
+   "warnGrund": "§FILL: 1 kurzer Satz zum Warn-Grund oder leerer Text§",
+   "quellen": "§FILL: Liste {t,u} der Meldungen aus _rohnews, auf die sich why/pro/con/warn stützen (Titel und Link übernehmen). Leere Liste, wenn nur Kursdaten genutzt wurden§",
+   "_fakten": {
+    "waehrung": "EUR",
+    "region": "Europa",
+    "trend": "up",
+    "vierWochen": 0,
+    "dreiMonate": -0.9,
+    "schwankung": 11,
+    "heute": -1.09,
+    "prognose": {
+     "tage": 63,
+     "von": 100.19,
+     "mitte": 105.98,
+     "bis": 112.1,
+     "zusammensetzung": [
+      {
+       "teil": "Trend 3 Monate (abgeschwächt)",
+       "prozent": -0.4
+      },
+      {
+       "teil": "Langfrist-Durchschnitt",
+       "prozent": 1.7
+      },
+      {
+       "teil": "Gegenbewegung nach starker Bewegung",
+       "prozent": 0,
+       "vorsicht": true
+      },
+      {
+       "teil": "Bekannte Muster",
+       "prozent": 0,
+       "vorsicht": true
+      },
+      {
+       "teil": "Marktumfeld",
+       "prozent": 0,
+       "vorsicht": true
+      },
+      {
+       "teil": "Nachrichten des Tages",
+       "prozent": -0.2
+      }
+     ],
+     "hinweis": "mitte ist rein rechnerisch; Teile mit vorsicht (Muster, Marktumfeld) sind unsicher"
     },
-    {
-     "t": "A generational flight from tech to defensive stocks is underway. How we’re capitalizing",
-     "u": "https://www.cnbc.com/investingclub/2026/11/17/a-generational-flight-from-tech-to-defensive-stocks-is-underway-how-were-capitalizing.html"
+    "muster": [
+     "Jahresend-Rallye: November und Dezember waren für Aktien in der Vergangenheit oft gute Monate."
+    ],
+    "zusammenhaenge": [
+     "S&P 500: Gleichlauf 0.47, Beta 0.35",
+     "Öl (Brent): Gleichlauf -0.38, Beta -0.09",
+     "Gold: Gleichlauf 0.37, Beta 0.2"
+    ],
+    "anlegerTyp": "ausgewogen",
+    "depot": {
+     "kaufkurs": 106.06,
+     "seitKaufProzent": -1.1,
+     "seit": "2026-11-09"
     }
-   ]
+   }
   },
   {
    "s": "XDEW.DE",
    "n": "Xtrackers S&P 500 Equal Weight ETF",
    "closes": [
+    109.81999969482422,
     111.68000030517578,
     111.69999694824219,
     112.30000305175781,
@@ -632,48 +775,92 @@
     105.69999694824219,
     105.77999877929688,
     105.66000366210938,
-    106.23999786376953,
-    106.12000274658203
+    106.23999786376953
    ],
    "cur": "EUR",
    "cat": "US-Aktien gleichgewichtet",
-   "h": "lang",
-   "bias": -0.2,
-   "why": "Der gleichgewichtete US-ETF fiel zuletzt um rund 1,7 %. Da große Tech-Konzerne hier weniger Gewicht haben, war er zuletzt etwas stabiler als der klassische S&P 500.",
-   "ausblick": "Wenn Anleger weiter von Tech in andere Branchen umschichten, kann das dem ETF relativ helfen. Die rechnerische Spanne für drei Monate liegt bei etwa 108 bis 119 Euro; der aktuelle Kurs von rund 106 Euro liegt sogar darunter, was die Unsicherheit zeigt.",
-   "richtung": "seitwärts",
-   "zuversicht": "niedrig",
-   "horizont": "2–3 Monate",
-   "halten": "Der ETF eignet sich als breiter US-Baustein eher für einen langen Zeitraum. Die Angaben zum Depot zeigen etwa 1 % Plus seit Kauf; Gegenwind kommt von Dollar-Schwankungen und der US-Stimmung.",
-   "signale": [
-    "Kurs fällt unter etwa 102 Euro (3-Monats-Tief)",
-    "Reaktion der US-Börsen auf die Nvidia-Zahlen"
-   ],
-   "muster": "Der ETF reagiert spürbar auf den VIX: Steigt die Angst, fällt er eher. Ein unsicherer, statistischer Zusammenhang.",
-   "pro": [
-    "Weniger abhängig von einzelnen Tech-Riesen",
-    "Geringe Schwankung"
-   ],
-   "con": [
-    "US-Markt insgesamt nervös",
-    "Währungsrisiko Dollar"
-   ],
-   "news": [
-    "n8770313"
-   ],
-   "warn": 1,
-   "warnGrund": "US-Börsen schwächer vor wichtigen Zahlen.",
-   "quellen": [
-    {
-     "t": "Wall Street ends lower ahead of Nvidia results, focus turns to Anthropic debut - Reuters",
-     "u": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOemNySVhGbms1VkxVYXFsTFdtdVh1MjNQQk16Y1ZfNGFHMFhDRWUtZldZRzJzSWxpNlBLWVpTenJnU2FHZndaVUlEclFtQVNvTzJBWTNpM1p0N3dmWjlyMEFKbkowZkpSanhVcEVLUjZfOWxNcW5OZVFuLTNFNF93ZDd4b0wxX1VzNlJPODdqc0xob1ZrR0xuQkJ6bExvNDdQMk5saFVSdkVBZw?oc=5"
+   "h": "§FILL: \"kurz\" oder \"lang\"§",
+   "bias": "§FILL: Zahl −3 bis +3: Wirkung der heutigen Nachrichten auf den Kurs in %§",
+   "why": "§FILL: 2–3 Sätze zur aktuellen Lage, sachlich§",
+   "ausblick": "§FILL: 2–3 Sätze: wie es in den nächsten Wochen bis Monaten am wahrscheinlichsten weitergeht und warum (Treiber, anstehende Termine, was _fakten.prognose sagt). Ehrlich mit der Unsicherheit§",
+   "richtung": "§FILL: \"steigend\", \"seitwärts\" oder \"fallend\": die wahrscheinlichste Richtung im Zeitraum horizont§",
+   "zuversicht": "§FILL: \"niedrig\", \"mittel\" oder \"hoch\": wie sicher diese Richtung ist (bei starken Schwankungen oder widersprüchlichen Meldungen eher niedrig)§",
+   "horizont": "§FILL: Zeitraum, für den der Ausblick gilt, z. B. \"4–8 Wochen\" oder \"6–12 Monate\"§",
+   "halten": "§FILL: 1–2 Sätze Abwägung: Was spricht dafür, investiert zu bleiben, und für welchen Zeitraum passt dieser Wert eher (kurz, mittel, lang), was dagegen. Wenn _fakten.depot vorhanden ist, darauf eingehen. Keine Anweisung zum Kaufen oder Verkaufen, sondern Gründe zum Abwägen§",
+   "signale": "§FILL: Liste mit 2–3 kurzen Punkten: woran man merkt, dass sich das Bild ändert (z. B. Kurs unter einer Marke aus _fakten.prognose, ein Termin, eine Meldungslage)§",
+   "muster": "§FILL: 1–2 Sätze: was die erkannten Muster (_fakten.muster) und Zusammenhänge (_fakten.zusammenhaenge, z. B. Öl, Dollar, Gesamtmarkt) für diesen Wert bedeuten könnten. Ausdrücklich als unsicher kennzeichnen. Leerer Text, wenn es keine gibt§",
+   "pro": "§FILL: Liste mit 1–3 kurzen Punkten dafür§",
+   "con": "§FILL: Liste mit 1–3 kurzen Punkten dagegen§",
+   "news": "§FILL: Liste der news-ids, die diese Aktie betreffen§",
+   "warn": "§FILL: Zahl 0–3: Gefahr aus der Nachrichtenlage (0 = nichts Besonderes, 1 = leicht negativ, 2 = deutlich negativ, 3 = ernst, z. B. Gewinnwarnung, Klage, angekündigte Kürzungen)§",
+   "warnGrund": "§FILL: 1 kurzer Satz zum Warn-Grund oder leerer Text§",
+   "quellen": "§FILL: Liste {t,u} der Meldungen aus _rohnews, auf die sich why/pro/con/warn stützen (Titel und Link übernehmen). Leere Liste, wenn nur Kursdaten genutzt wurden§",
+   "_fakten": {
+    "waehrung": "EUR",
+    "region": "Europa",
+    "trend": "up",
+    "vierWochen": 1.9,
+    "dreiMonate": 3.2,
+    "schwankung": 9,
+    "heute": -0.13,
+    "prognose": {
+     "tage": 63,
+     "von": 108.02,
+     "mitte": 113.06,
+     "bis": 118.33,
+     "zusammensetzung": [
+      {
+       "teil": "Trend 3 Monate (abgeschwächt)",
+       "prozent": 1.6
+      },
+      {
+       "teil": "Langfrist-Durchschnitt",
+       "prozent": 1.7
+      },
+      {
+       "teil": "Gegenbewegung nach starker Bewegung",
+       "prozent": 0,
+       "vorsicht": true
+      },
+      {
+       "teil": "Bekannte Muster",
+       "prozent": 0,
+       "vorsicht": true
+      },
+      {
+       "teil": "Marktumfeld",
+       "prozent": 0,
+       "vorsicht": true
+      },
+      {
+       "teil": "Nachrichten des Tages",
+       "prozent": -0.2
+      }
+     ],
+     "hinweis": "mitte ist rein rechnerisch; Teile mit vorsicht (Muster, Marktumfeld) sind unsicher"
+    },
+    "muster": [
+     "Nahe am 3-Monats-Hoch: Hier haben Verkäufer zuletzt gebremst (Widerstand). Wird die Marke überschritten, kann es weiter steigen.",
+     "Jahresend-Rallye: November und Dezember waren für Aktien in der Vergangenheit oft gute Monate."
+    ],
+    "zusammenhaenge": [
+     "S&P 500: Gleichlauf 0.54, Beta 0.33",
+     "Angst-Barometer (VIX): Gleichlauf -0.49, Beta -0.03",
+     "Öl (Brent): Gleichlauf -0.33, Beta -0.06"
+    ],
+    "anlegerTyp": "ausgewogen",
+    "depot": {
+     "kaufkurs": 108.78,
+     "seitKaufProzent": 0.8,
+     "seit": "2026-11-09"
     }
-   ]
+   }
   },
   {
    "s": "AAPL",
    "n": "Apple",
    "closes": [
+    352.45001220703125,
     351.9100036621094,
     352.7799987792969,
     356.2699890136719,
@@ -737,53 +924,88 @@
     310.3399963378906,
     309.3500061035156,
     311.29998779296875,
-    316.8299865722656,
-    310.0299987792969
+    316.8299865722656
    ],
    "cur": "USD",
    "cat": "Geräte / Dienste",
-   "h": "lang",
-   "bias": -0.3,
-   "why": "Apple hielt sich zuletzt mit einem kleinen Minus besser als viele Tech-Werte und liegt in drei Monaten deutlich im Plus. Die allgemeine Flucht aus Technologieaktien belastet aber auch hier.",
-   "ausblick": "Die Stimmung bei Tech hängt kurzfristig stark an den Nvidia-Zahlen. Der Kurs liegt zuletzt bei rund 310 USD und damit unter der rechnerischen Spanne, was zeigt, wie unsicher diese Werte gerade sind.",
-   "richtung": "seitwärts",
-   "zuversicht": "niedrig",
-   "horizont": "2–3 Monate",
-   "halten": "Apple passt eher zu einem langen Zeitraum, weil das Geschäft breit aufgestellt ist. Die Depotdaten zeigen rund 1,7 % Plus; dagegen spricht die Umschichtung weg von Tech.",
-   "signale": [
-    "Kurs fällt deutlich unter 309 USD (3-Monats-Tief)",
-    "Stimmung nach den Nvidia-Zahlen"
-   ],
-   "muster": "Laut Auswertung nahe einer Widerstandszone, dazu das oft freundliche Jahresende. Die Kursdaten deuten aber eher auf Schwäche; beides unsicher.",
-   "pro": [
-    "Starkes Plus über drei Monate",
-    "Stabiler als viele Tech-Werte"
-   ],
-   "con": [
-    "Umschichtung weg von Technologie",
-    "Erhöhte Marktnervosität"
-   ],
-   "news": [
-    "n8770313",
-    "n8771893"
-   ],
-   "warn": 1,
-   "warnGrund": "Tech-Werte allgemein unter Druck.",
-   "quellen": [
-    {
-     "t": "Wall Street ends lower ahead of Nvidia results, focus turns to Anthropic debut - Reuters",
-     "u": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOemNySVhGbms1VkxVYXFsTFdtdVh1MjNQQk16Y1ZfNGFHMFhDRWUtZldZRzJzSWxpNlBLWVpTenJnU2FHZndaVUlEclFtQVNvTzJBWTNpM1p0N3dmWjlyMEFKbkowZkpSanhVcEVLUjZfOWxNcW5OZVFuLTNFNF93ZDd4b0wxX1VzNlJPODdqc0xob1ZrR0xuQkJ6bExvNDdQMk5saFVSdkVBZw?oc=5"
+   "h": "§FILL: \"kurz\" oder \"lang\"§",
+   "bias": "§FILL: Zahl −3 bis +3: Wirkung der heutigen Nachrichten auf den Kurs in %§",
+   "why": "§FILL: 2–3 Sätze zur aktuellen Lage, sachlich§",
+   "ausblick": "§FILL: 2–3 Sätze: wie es in den nächsten Wochen bis Monaten am wahrscheinlichsten weitergeht und warum (Treiber, anstehende Termine, was _fakten.prognose sagt). Ehrlich mit der Unsicherheit§",
+   "richtung": "§FILL: \"steigend\", \"seitwärts\" oder \"fallend\": die wahrscheinlichste Richtung im Zeitraum horizont§",
+   "zuversicht": "§FILL: \"niedrig\", \"mittel\" oder \"hoch\": wie sicher diese Richtung ist (bei starken Schwankungen oder widersprüchlichen Meldungen eher niedrig)§",
+   "horizont": "§FILL: Zeitraum, für den der Ausblick gilt, z. B. \"4–8 Wochen\" oder \"6–12 Monate\"§",
+   "halten": "§FILL: 1–2 Sätze Abwägung: Was spricht dafür, investiert zu bleiben, und für welchen Zeitraum passt dieser Wert eher (kurz, mittel, lang), was dagegen. Wenn _fakten.depot vorhanden ist, darauf eingehen. Keine Anweisung zum Kaufen oder Verkaufen, sondern Gründe zum Abwägen§",
+   "signale": "§FILL: Liste mit 2–3 kurzen Punkten: woran man merkt, dass sich das Bild ändert (z. B. Kurs unter einer Marke aus _fakten.prognose, ein Termin, eine Meldungslage)§",
+   "muster": "§FILL: 1–2 Sätze: was die erkannten Muster (_fakten.muster) und Zusammenhänge (_fakten.zusammenhaenge, z. B. Öl, Dollar, Gesamtmarkt) für diesen Wert bedeuten könnten. Ausdrücklich als unsicher kennzeichnen. Leerer Text, wenn es keine gibt§",
+   "pro": "§FILL: Liste mit 1–3 kurzen Punkten dafür§",
+   "con": "§FILL: Liste mit 1–3 kurzen Punkten dagegen§",
+   "news": "§FILL: Liste der news-ids, die diese Aktie betreffen§",
+   "warn": "§FILL: Zahl 0–3: Gefahr aus der Nachrichtenlage (0 = nichts Besonderes, 1 = leicht negativ, 2 = deutlich negativ, 3 = ernst, z. B. Gewinnwarnung, Klage, angekündigte Kürzungen)§",
+   "warnGrund": "§FILL: 1 kurzer Satz zum Warn-Grund oder leerer Text§",
+   "quellen": "§FILL: Liste {t,u} der Meldungen aus _rohnews, auf die sich why/pro/con/warn stützen (Titel und Link übernehmen). Leere Liste, wenn nur Kursdaten genutzt wurden§",
+   "_fakten": {
+    "waehrung": "USD",
+    "region": "USA",
+    "trend": "up",
+    "vierWochen": 1.2,
+    "dreiMonate": 11.2,
+    "schwankung": 21,
+    "heute": 0.15,
+    "prognose": {
+     "tage": 63,
+     "von": 338.01,
+     "mitte": 376.33,
+     "bis": 418.98,
+     "zusammensetzung": [
+      {
+       "teil": "Trend 3 Monate (abgeschwächt)",
+       "prozent": 5.3
+      },
+      {
+       "teil": "Langfrist-Durchschnitt",
+       "prozent": 1.7
+      },
+      {
+       "teil": "Gegenbewegung nach starker Bewegung",
+       "prozent": 0,
+       "vorsicht": true
+      },
+      {
+       "teil": "Bekannte Muster",
+       "prozent": 0,
+       "vorsicht": true
+      },
+      {
+       "teil": "Marktumfeld",
+       "prozent": 0,
+       "vorsicht": true
+      },
+      {
+       "teil": "Nachrichten des Tages",
+       "prozent": -0.3
+      }
+     ],
+     "hinweis": "mitte ist rein rechnerisch; Teile mit vorsicht (Muster, Marktumfeld) sind unsicher"
     },
-    {
-     "t": "A generational flight from tech to defensive stocks is underway. How we’re capitalizing",
-     "u": "https://www.cnbc.com/investingclub/2026/11/17/a-generational-flight-from-tech-to-defensive-stocks-is-underway-how-were-capitalizing.html"
+    "muster": [
+     "Nahe am 3-Monats-Hoch: Hier haben Verkäufer zuletzt gebremst (Widerstand). Wird die Marke überschritten, kann es weiter steigen.",
+     "Jahresend-Rallye: November und Dezember waren für Aktien in der Vergangenheit oft gute Monate."
+    ],
+    "zusammenhaenge": [],
+    "anlegerTyp": "ausgewogen",
+    "depot": {
+     "kaufkurs": 346.1518,
+     "seitKaufProzent": 1.8,
+     "seit": "2026-11-09"
     }
-   ]
+   }
   },
   {
    "s": "SAP.DE",
    "n": "SAP (Xetra)",
    "closes": [
+    201.5,
     213.39999389648438,
     213.4499969482422,
     212.5500030517578,
@@ -847,54 +1069,87 @@
     187.1999969482422,
     188.1199951171875,
     185.63999938964844,
-    185.89999389648438,
-    182.5
+    185.89999389648438
    ],
    "cur": "EUR",
    "cat": "Software",
-   "h": "lang",
-   "bias": 0.5,
-   "why": "SAP fiel zuletzt um über 5 % und war damit einer der schwächsten Werte im DAX. Gleichzeitig hat JPMorgan die Aktie hochgestuft und das Kursziel auf 275 Euro angehoben.",
-   "ausblick": "Kurzfristig dominiert die Schwäche bei Software- und KI-Werten, mittelfristig könnte der Einsatz von KI in Unternehmen SAP helfen. Der Kurs liegt mit rund 182 Euro knapp unter der rechnerischen Spanne von 185 bis 250 Euro, das spricht für hohe Unsicherheit.",
-   "richtung": "seitwärts",
-   "zuversicht": "niedrig",
-   "horizont": "2–3 Monate",
-   "halten": "Für einen langen Zeitraum spricht die starke Marktstellung und die positive Analystenstimmung. Du liegst rund 4 % unter dem Kaufkurs; dagegen spricht, dass Tech-Werte gerade stark schwanken.",
-   "signale": [
-    "Kurs fällt unter etwa 177 Euro (3-Monats-Tief)",
-    "Weitere Analysten folgen JPMorgan",
-    "Stimmung nach den Nvidia-Zahlen"
-   ],
-   "muster": "Das Jahresende war historisch oft freundlich. Ein schwacher, unsicherer Hinweis.",
-   "pro": [
-    "Hochstufung durch JPMorgan",
-    "KI kommt in Unternehmen in den Einsatz"
-   ],
-   "con": [
-    "Starker Kursrückgang zuletzt",
-    "Umschichtung weg von Tech"
-   ],
-   "news": [
-    "ny1910368211",
-    "n8771893"
-   ],
-   "warn": 2,
-   "warnGrund": "Kräftiger Kursverlust von über 5 % an einem Tag.",
-   "quellen": [
-    {
-     "t": "ANALYSE-FLASH: JPMorgan hebt SAP auf 'Overweight' - Ziel auf 275 Euro",
-     "u": "https://de.finance.yahoo.com/nachrichten/analyse-flash-jpmorgan-hebt-sap-062003650.html?.tsrc=rss"
+   "h": "§FILL: \"kurz\" oder \"lang\"§",
+   "bias": "§FILL: Zahl −3 bis +3: Wirkung der heutigen Nachrichten auf den Kurs in %§",
+   "why": "§FILL: 2–3 Sätze zur aktuellen Lage, sachlich§",
+   "ausblick": "§FILL: 2–3 Sätze: wie es in den nächsten Wochen bis Monaten am wahrscheinlichsten weitergeht und warum (Treiber, anstehende Termine, was _fakten.prognose sagt). Ehrlich mit der Unsicherheit§",
+   "richtung": "§FILL: \"steigend\", \"seitwärts\" oder \"fallend\": die wahrscheinlichste Richtung im Zeitraum horizont§",
+   "zuversicht": "§FILL: \"niedrig\", \"mittel\" oder \"hoch\": wie sicher diese Richtung ist (bei starken Schwankungen oder widersprüchlichen Meldungen eher niedrig)§",
+   "horizont": "§FILL: Zeitraum, für den der Ausblick gilt, z. B. \"4–8 Wochen\" oder \"6–12 Monate\"§",
+   "halten": "§FILL: 1–2 Sätze Abwägung: Was spricht dafür, investiert zu bleiben, und für welchen Zeitraum passt dieser Wert eher (kurz, mittel, lang), was dagegen. Wenn _fakten.depot vorhanden ist, darauf eingehen. Keine Anweisung zum Kaufen oder Verkaufen, sondern Gründe zum Abwägen§",
+   "signale": "§FILL: Liste mit 2–3 kurzen Punkten: woran man merkt, dass sich das Bild ändert (z. B. Kurs unter einer Marke aus _fakten.prognose, ein Termin, eine Meldungslage)§",
+   "muster": "§FILL: 1–2 Sätze: was die erkannten Muster (_fakten.muster) und Zusammenhänge (_fakten.zusammenhaenge, z. B. Öl, Dollar, Gesamtmarkt) für diesen Wert bedeuten könnten. Ausdrücklich als unsicher kennzeichnen. Leerer Text, wenn es keine gibt§",
+   "pro": "§FILL: Liste mit 1–3 kurzen Punkten dafür§",
+   "con": "§FILL: Liste mit 1–3 kurzen Punkten dagegen§",
+   "news": "§FILL: Liste der news-ids, die diese Aktie betreffen§",
+   "warn": "§FILL: Zahl 0–3: Gefahr aus der Nachrichtenlage (0 = nichts Besonderes, 1 = leicht negativ, 2 = deutlich negativ, 3 = ernst, z. B. Gewinnwarnung, Klage, angekündigte Kürzungen)§",
+   "warnGrund": "§FILL: 1 kurzer Satz zum Warn-Grund oder leerer Text§",
+   "quellen": "§FILL: Liste {t,u} der Meldungen aus _rohnews, auf die sich why/pro/con/warn stützen (Titel und Link übernehmen). Leere Liste, wenn nur Kursdaten genutzt wurden§",
+   "_fakten": {
+    "waehrung": "EUR",
+    "region": "Europa",
+    "trend": "flat",
+    "vierWochen": -7.1,
+    "dreiMonate": 4.3,
+    "schwankung": 31,
+    "heute": -3.76,
+    "prognose": {
+     "tage": 63,
+     "von": 173.38,
+     "mitte": 202.32,
+     "bis": 236.08,
+     "zusammensetzung": [
+      {
+       "teil": "Trend 3 Monate (abgeschwächt)",
+       "prozent": 2.1
+      },
+      {
+       "teil": "Langfrist-Durchschnitt",
+       "prozent": 1.7
+      },
+      {
+       "teil": "Gegenbewegung nach starker Bewegung",
+       "prozent": 0,
+       "vorsicht": true
+      },
+      {
+       "teil": "Bekannte Muster",
+       "prozent": 0,
+       "vorsicht": true
+      },
+      {
+       "teil": "Marktumfeld",
+       "prozent": 0,
+       "vorsicht": true
+      },
+      {
+       "teil": "Nachrichten des Tages",
+       "prozent": 0.5
+      }
+     ],
+     "hinweis": "mitte ist rein rechnerisch; Teile mit vorsicht (Muster, Marktumfeld) sind unsicher"
     },
-    {
-     "t": "A generational flight from tech to defensive stocks is underway. How we’re capitalizing",
-     "u": "https://www.cnbc.com/investingclub/2026/11/17/a-generational-flight-from-tech-to-defensive-stocks-is-underway-how-were-capitalizing.html"
+    "muster": [
+     "Jahresend-Rallye: November und Dezember waren für Aktien in der Vergangenheit oft gute Monate."
+    ],
+    "zusammenhaenge": [],
+    "anlegerTyp": "ausgewogen",
+    "depot": {
+     "kaufkurs": 210.6231,
+     "seitKaufProzent": -7.9,
+     "seit": "2026-11-10"
     }
-   ]
+   }
   },
   {
    "s": "EUNH.DE",
    "n": "iShares Core € Govt Bond ETF",
    "closes": [
+    105.49500274658203,
     105.31999969482422,
     105.45999908447266,
     105.7699966430664,
@@ -958,51 +1213,86 @@
     106.83999633789062,
     106.81500244140625,
     106.7750015258789,
-    106.7750015258789,
-    106.7249984741211
+    106.7750015258789
    ],
    "cur": "EUR",
    "cat": "Staatsanleihen Euro",
-   "h": "lang",
-   "bias": 0,
-   "why": "Der Anleihen-ETF legte zuletzt leicht zu, während Aktien fielen. Er schwankt sehr wenig und dient im Depot als Puffer.",
-   "ausblick": "Anleihen profitieren, wenn Anleger Sicherheit suchen, leiden aber unter steigenden Zinsen. Die rechnerische Spanne für drei Monate liegt eng bei etwa 103 bis 108 Euro.",
-   "richtung": "seitwärts",
-   "zuversicht": "mittel",
-   "horizont": "2–3 Monate",
-   "halten": "Als Stabilitätsbaustein passt der ETF zu einem mittleren bis langen Zeitraum. Du liegst rund 1 % unter dem Kaufkurs; dagegen sprechen mögliche Zinserhöhungen.",
-   "signale": [
-    "Kurs fällt unter etwa 103 Euro",
-    "Signale der EZB oder Fed zu Zinserhöhungen"
-   ],
-   "muster": "Laut Auswertung nahe einer Unterstützungszone. Ein unsicherer Hinweis.",
-   "pro": [
-    "Geringe Schwankung",
-    "Gegengewicht zu Aktien"
-   ],
-   "con": [
-    "Steigende Zinsen drücken Anleihekurse"
-   ],
-   "news": [
-    "n8771893"
-   ],
-   "warn": 0,
-   "warnGrund": "",
-   "quellen": [
-    {
-     "t": "A generational flight from tech to defensive stocks is underway. How we’re capitalizing",
-     "u": "https://www.cnbc.com/investingclub/2026/11/17/a-generational-flight-from-tech-to-defensive-stocks-is-underway-how-were-capitalizing.html"
+   "h": "§FILL: \"kurz\" oder \"lang\"§",
+   "bias": "§FILL: Zahl −3 bis +3: Wirkung der heutigen Nachrichten auf den Kurs in %§",
+   "why": "§FILL: 2–3 Sätze zur aktuellen Lage, sachlich§",
+   "ausblick": "§FILL: 2–3 Sätze: wie es in den nächsten Wochen bis Monaten am wahrscheinlichsten weitergeht und warum (Treiber, anstehende Termine, was _fakten.prognose sagt). Ehrlich mit der Unsicherheit§",
+   "richtung": "§FILL: \"steigend\", \"seitwärts\" oder \"fallend\": die wahrscheinlichste Richtung im Zeitraum horizont§",
+   "zuversicht": "§FILL: \"niedrig\", \"mittel\" oder \"hoch\": wie sicher diese Richtung ist (bei starken Schwankungen oder widersprüchlichen Meldungen eher niedrig)§",
+   "horizont": "§FILL: Zeitraum, für den der Ausblick gilt, z. B. \"4–8 Wochen\" oder \"6–12 Monate\"§",
+   "halten": "§FILL: 1–2 Sätze Abwägung: Was spricht dafür, investiert zu bleiben, und für welchen Zeitraum passt dieser Wert eher (kurz, mittel, lang), was dagegen. Wenn _fakten.depot vorhanden ist, darauf eingehen. Keine Anweisung zum Kaufen oder Verkaufen, sondern Gründe zum Abwägen§",
+   "signale": "§FILL: Liste mit 2–3 kurzen Punkten: woran man merkt, dass sich das Bild ändert (z. B. Kurs unter einer Marke aus _fakten.prognose, ein Termin, eine Meldungslage)§",
+   "muster": "§FILL: 1–2 Sätze: was die erkannten Muster (_fakten.muster) und Zusammenhänge (_fakten.zusammenhaenge, z. B. Öl, Dollar, Gesamtmarkt) für diesen Wert bedeuten könnten. Ausdrücklich als unsicher kennzeichnen. Leerer Text, wenn es keine gibt§",
+   "pro": "§FILL: Liste mit 1–3 kurzen Punkten dafür§",
+   "con": "§FILL: Liste mit 1–3 kurzen Punkten dagegen§",
+   "news": "§FILL: Liste der news-ids, die diese Aktie betreffen§",
+   "warn": "§FILL: Zahl 0–3: Gefahr aus der Nachrichtenlage (0 = nichts Besonderes, 1 = leicht negativ, 2 = deutlich negativ, 3 = ernst, z. B. Gewinnwarnung, Klage, angekündigte Kürzungen)§",
+   "warnGrund": "§FILL: 1 kurzer Satz zum Warn-Grund oder leerer Text§",
+   "quellen": "§FILL: Liste {t,u} der Meldungen aus _rohnews, auf die sich why/pro/con/warn stützen (Titel und Link übernehmen). Leere Liste, wenn nur Kursdaten genutzt wurden§",
+   "_fakten": {
+    "waehrung": "EUR",
+    "region": "Europa",
+    "trend": "flat",
+    "vierWochen": 0.9,
+    "dreiMonate": -1.1,
+    "schwankung": 4,
+    "heute": 0.07,
+    "prognose": {
+     "tage": 63,
+     "von": 103.41,
+     "mitte": 105.64,
+     "bis": 107.92,
+     "zusammensetzung": [
+      {
+       "teil": "Trend 3 Monate (abgeschwächt)",
+       "prozent": -0.5
+      },
+      {
+       "teil": "Langfrist-Durchschnitt",
+       "prozent": 0.6
+      },
+      {
+       "teil": "Gegenbewegung nach starker Bewegung",
+       "prozent": 0,
+       "vorsicht": true
+      },
+      {
+       "teil": "Bekannte Muster",
+       "prozent": 0,
+       "vorsicht": true
+      },
+      {
+       "teil": "Marktumfeld",
+       "prozent": 0,
+       "vorsicht": true
+      }
+     ],
+     "hinweis": "mitte ist rein rechnerisch; Teile mit vorsicht (Muster, Marktumfeld) sind unsicher"
     },
-    {
-     "t": "Werden die Goldkurse nach der erwarteten Zinserhöhung der Fed im Dezember steigen?",
-     "u": "https://de.beincrypto.com/goldpreis-ausblick-fed-dezember-zinserhoehung/?.tsrc=rss"
+    "muster": [
+     "Nahe am 3-Monats-Tief: Hier haben Käufer zuletzt gestützt (Unterstützung). Hält die Marke nicht, kann es weiter fallen."
+    ],
+    "zusammenhaenge": [
+     "Gold: Gleichlauf 0.39, Beta 0.08",
+     "Öl (Brent): Gleichlauf -0.37, Beta -0.03"
+    ],
+    "anlegerTyp": "ausgewogen",
+    "depot": {
+     "kaufkurs": 106.585,
+     "seitKaufProzent": -1,
+     "seit": "2026-11-10"
     }
-   ]
+   }
   },
   {
    "s": "QIA.DE",
    "n": "Qiagen",
    "closes": [
+    45.20000076293945,
     45.310001373291016,
     45.29999923706055,
     45.2400016784668,
@@ -1066,45 +1356,84 @@
     36.404998779296875,
     37.564998626708984,
     38.73500061035156,
-    37.59000015258789,
-    36.834999084472656
+    37.59000015258789
    ],
    "cur": "EUR",
    "cat": "Diagnostik",
-   "h": "lang",
-   "bias": 0,
-   "why": "Qiagen bewegte sich zuletzt kaum. Die Aktionäre haben einen neuen Manager in die Geschäftsführung gewählt, sonst gibt es keine frischen Meldungen.",
-   "ausblick": "Ohne neue Nachrichten dürfte die Aktie vor allem der allgemeinen Stimmung im Gesundheitssektor folgen. Die Kursdaten und die rechnerische Spanne passen gerade nicht gut zusammen, daher ist der Ausblick sehr unsicher.",
-   "richtung": "seitwärts",
-   "zuversicht": "niedrig",
-   "horizont": "2–3 Monate",
-   "halten": "Diagnostik ist eher ein defensiver Bereich und passt zu einem mittleren bis langen Zeitraum. Die Depotdaten zeigen etwa null seit Kauf; dagegen spricht die geringe Nachrichtenlage.",
-   "signale": [
-    "Neue Quartalszahlen oder Prognose",
-    "Deutlicher Kursrutsch unter 36 Euro"
-   ],
-   "muster": "Laut Auswertung nahe einer Widerstandszone; das Jahresende war oft freundlich. Unsichere Hinweise.",
-   "pro": [
-    "Defensive Branche",
-    "Neue Führung bestätigt"
-   ],
-   "con": [
-    "Wenig Kursimpulse"
-   ],
-   "news": [],
-   "warn": 0,
-   "warnGrund": "",
-   "quellen": [
-    {
-     "t": "QIAGEN-Aktionäre stimmen der Berufung von Jonathan M. Pratt in die Geschäftsführung mit überwältigender Mehrheit zu",
-     "u": "https://de.finance.yahoo.com/nachrichten/qiagen-aktion%C3%A4re-stimmen-berufung-jonathan-150000551.html?.tsrc=rss"
+   "h": "§FILL: \"kurz\" oder \"lang\"§",
+   "bias": "§FILL: Zahl −3 bis +3: Wirkung der heutigen Nachrichten auf den Kurs in %§",
+   "why": "§FILL: 2–3 Sätze zur aktuellen Lage, sachlich§",
+   "ausblick": "§FILL: 2–3 Sätze: wie es in den nächsten Wochen bis Monaten am wahrscheinlichsten weitergeht und warum (Treiber, anstehende Termine, was _fakten.prognose sagt). Ehrlich mit der Unsicherheit§",
+   "richtung": "§FILL: \"steigend\", \"seitwärts\" oder \"fallend\": die wahrscheinlichste Richtung im Zeitraum horizont§",
+   "zuversicht": "§FILL: \"niedrig\", \"mittel\" oder \"hoch\": wie sicher diese Richtung ist (bei starken Schwankungen oder widersprüchlichen Meldungen eher niedrig)§",
+   "horizont": "§FILL: Zeitraum, für den der Ausblick gilt, z. B. \"4–8 Wochen\" oder \"6–12 Monate\"§",
+   "halten": "§FILL: 1–2 Sätze Abwägung: Was spricht dafür, investiert zu bleiben, und für welchen Zeitraum passt dieser Wert eher (kurz, mittel, lang), was dagegen. Wenn _fakten.depot vorhanden ist, darauf eingehen. Keine Anweisung zum Kaufen oder Verkaufen, sondern Gründe zum Abwägen§",
+   "signale": "§FILL: Liste mit 2–3 kurzen Punkten: woran man merkt, dass sich das Bild ändert (z. B. Kurs unter einer Marke aus _fakten.prognose, ein Termin, eine Meldungslage)§",
+   "muster": "§FILL: 1–2 Sätze: was die erkannten Muster (_fakten.muster) und Zusammenhänge (_fakten.zusammenhaenge, z. B. Öl, Dollar, Gesamtmarkt) für diesen Wert bedeuten könnten. Ausdrücklich als unsicher kennzeichnen. Leerer Text, wenn es keine gibt§",
+   "pro": "§FILL: Liste mit 1–3 kurzen Punkten dafür§",
+   "con": "§FILL: Liste mit 1–3 kurzen Punkten dagegen§",
+   "news": "§FILL: Liste der news-ids, die diese Aktie betreffen§",
+   "warn": "§FILL: Zahl 0–3: Gefahr aus der Nachrichtenlage (0 = nichts Besonderes, 1 = leicht negativ, 2 = deutlich negativ, 3 = ernst, z. B. Gewinnwarnung, Klage, angekündigte Kürzungen)§",
+   "warnGrund": "§FILL: 1 kurzer Satz zum Warn-Grund oder leerer Text§",
+   "quellen": "§FILL: Liste {t,u} der Meldungen aus _rohnews, auf die sich why/pro/con/warn stützen (Titel und Link übernehmen). Leere Liste, wenn nur Kursdaten genutzt wurden§",
+   "_fakten": {
+    "waehrung": "EUR",
+    "region": "Europa",
+    "trend": "up",
+    "vierWochen": 5.6,
+    "dreiMonate": 20.2,
+    "schwankung": 25,
+    "heute": 0,
+    "prognose": {
+     "tage": 63,
+     "von": 44.45,
+     "mitte": 50.27,
+     "bis": 56.84,
+     "zusammensetzung": [
+      {
+       "teil": "Trend 3 Monate (abgeschwächt)",
+       "prozent": 9.3
+      },
+      {
+       "teil": "Langfrist-Durchschnitt",
+       "prozent": 1.7
+      },
+      {
+       "teil": "Gegenbewegung nach starker Bewegung",
+       "prozent": 0,
+       "vorsicht": true
+      },
+      {
+       "teil": "Bekannte Muster",
+       "prozent": 0,
+       "vorsicht": true
+      },
+      {
+       "teil": "Marktumfeld",
+       "prozent": 0,
+       "vorsicht": true
+      }
+     ],
+     "hinweis": "mitte ist rein rechnerisch; Teile mit vorsicht (Muster, Marktumfeld) sind unsicher"
+    },
+    "muster": [
+     "Nahe am 3-Monats-Hoch: Hier haben Verkäufer zuletzt gebremst (Widerstand). Wird die Marke überschritten, kann es weiter steigen.",
+     "Jahresend-Rallye: November und Dezember waren für Aktien in der Vergangenheit oft gute Monate."
+    ],
+    "zusammenhaenge": [],
+    "anlegerTyp": "ausgewogen",
+    "depot": {
+     "kaufkurs": 45.1483,
+     "seitKaufProzent": 0.1,
+     "seit": "2026-11-10"
     }
-   ]
+   }
   },
   {
    "s": "TSLA",
    "n": "Tesla",
    "closes": [
+    383.7200012207031,
     380.1099853515625,
     379.739990234375,
     390.2200012207031,
@@ -1168,52 +1497,84 @@
     348.95001220703125,
     362.8599853515625,
     345.1300048828125,
-    351.1199951171875,
-    336.8699951171875
+    351.1199951171875
    ],
    "cur": "USD",
    "cat": "E-Autos",
-   "h": "kurz",
-   "bias": -0.5,
-   "why": "Tesla schwankt stark und liegt in vier Wochen leicht im Minus. Musk betont, dass schon viel Erfolg der Robotaxi-Pläne im Kurs steckt.",
-   "ausblick": "Die Aktie reagiert besonders stark auf die Stimmung bei Tech und KI. Die rechnerische Spanne für drei Monate ist sehr breit, der aktuelle Kurs liegt am unteren Ende.",
-   "richtung": "seitwärts",
-   "zuversicht": "niedrig",
-   "horizont": "4–8 Wochen",
-   "halten": "Wegen der hohen Schwankung passt Tesla eher zu Anlegern mit viel Geduld und Risikobereitschaft. Dagegen spricht die hohe Bewertung.",
-   "signale": [
-    "Kurs fällt unter 337 USD",
-    "Neuigkeiten zu Robotaxis",
-    "Stimmung nach den Nvidia-Zahlen"
-   ],
-   "muster": "Laut Auswertung eher gegenläufig zu Gold; das Jahresende war oft freundlich. Beides sehr unsicher.",
-   "pro": [
-    "Große Zukunftspläne bei Robotaxis"
-   ],
-   "con": [
-    "Sehr hohe Schwankung",
-    "Viel Erfolg schon eingepreist"
-   ],
-   "news": [
-    "n8770313"
-   ],
-   "warn": 1,
-   "warnGrund": "Hohe Bewertung bei nervösem Markt.",
-   "quellen": [
-    {
-     "t": "“Of Course,” Musk Says When Told Tesla’s $1.6 Trillion Already Prices In Moderate Cybercab Success.",
-     "u": "https://finnhub.io/api/news?id=83f727138aa08f124bedafd2f1644c6d89251fd465f53edc96ce3bafd195e05f"
+   "h": "§FILL: \"kurz\" oder \"lang\"§",
+   "bias": "§FILL: Zahl −3 bis +3: Wirkung der heutigen Nachrichten auf den Kurs in %§",
+   "why": "§FILL: 2–3 Sätze zur aktuellen Lage, sachlich§",
+   "ausblick": "§FILL: 2–3 Sätze: wie es in den nächsten Wochen bis Monaten am wahrscheinlichsten weitergeht und warum (Treiber, anstehende Termine, was _fakten.prognose sagt). Ehrlich mit der Unsicherheit§",
+   "richtung": "§FILL: \"steigend\", \"seitwärts\" oder \"fallend\": die wahrscheinlichste Richtung im Zeitraum horizont§",
+   "zuversicht": "§FILL: \"niedrig\", \"mittel\" oder \"hoch\": wie sicher diese Richtung ist (bei starken Schwankungen oder widersprüchlichen Meldungen eher niedrig)§",
+   "horizont": "§FILL: Zeitraum, für den der Ausblick gilt, z. B. \"4–8 Wochen\" oder \"6–12 Monate\"§",
+   "halten": "§FILL: 1–2 Sätze Abwägung: Was spricht dafür, investiert zu bleiben, und für welchen Zeitraum passt dieser Wert eher (kurz, mittel, lang), was dagegen. Wenn _fakten.depot vorhanden ist, darauf eingehen. Keine Anweisung zum Kaufen oder Verkaufen, sondern Gründe zum Abwägen§",
+   "signale": "§FILL: Liste mit 2–3 kurzen Punkten: woran man merkt, dass sich das Bild ändert (z. B. Kurs unter einer Marke aus _fakten.prognose, ein Termin, eine Meldungslage)§",
+   "muster": "§FILL: 1–2 Sätze: was die erkannten Muster (_fakten.muster) und Zusammenhänge (_fakten.zusammenhaenge, z. B. Öl, Dollar, Gesamtmarkt) für diesen Wert bedeuten könnten. Ausdrücklich als unsicher kennzeichnen. Leerer Text, wenn es keine gibt§",
+   "pro": "§FILL: Liste mit 1–3 kurzen Punkten dafür§",
+   "con": "§FILL: Liste mit 1–3 kurzen Punkten dagegen§",
+   "news": "§FILL: Liste der news-ids, die diese Aktie betreffen§",
+   "warn": "§FILL: Zahl 0–3: Gefahr aus der Nachrichtenlage (0 = nichts Besonderes, 1 = leicht negativ, 2 = deutlich negativ, 3 = ernst, z. B. Gewinnwarnung, Klage, angekündigte Kürzungen)§",
+   "warnGrund": "§FILL: 1 kurzer Satz zum Warn-Grund oder leerer Text§",
+   "quellen": "§FILL: Liste {t,u} der Meldungen aus _rohnews, auf die sich why/pro/con/warn stützen (Titel und Link übernehmen). Leere Liste, wenn nur Kursdaten genutzt wurden§",
+   "_fakten": {
+    "waehrung": "USD",
+    "region": "USA",
+    "trend": "flat",
+    "vierWochen": 2.4,
+    "dreiMonate": 9.3,
+    "schwankung": 46,
+    "heute": 0.95,
+    "prognose": {
+     "tage": 20,
+     "von": 341.56,
+     "mitte": 389.14,
+     "bis": 443.35,
+     "zusammensetzung": [
+      {
+       "teil": "Trend 3 Monate (abgeschwächt)",
+       "prozent": 1.4
+      },
+      {
+       "teil": "Langfrist-Durchschnitt",
+       "prozent": 0.5
+      },
+      {
+       "teil": "Gegenbewegung nach starker Bewegung",
+       "prozent": 0,
+       "vorsicht": true
+      },
+      {
+       "teil": "Bekannte Muster",
+       "prozent": 0,
+       "vorsicht": true
+      },
+      {
+       "teil": "Marktumfeld",
+       "prozent": 0,
+       "vorsicht": true
+      },
+      {
+       "teil": "Nachrichten des Tages",
+       "prozent": -0.5
+      }
+     ],
+     "hinweis": "mitte ist rein rechnerisch; Teile mit vorsicht (Muster, Marktumfeld) sind unsicher"
     },
-    {
-     "t": "Wall Street ends lower ahead of Nvidia results, focus turns to Anthropic debut - Reuters",
-     "u": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOemNySVhGbms1VkxVYXFsTFdtdVh1MjNQQk16Y1ZfNGFHMFhDRWUtZldZRzJzSWxpNlBLWVpTenJnU2FHZndaVUlEclFtQVNvTzJBWTNpM1p0N3dmWjlyMEFKbkowZkpSanhVcEVLUjZfOWxNcW5OZVFuLTNFNF93ZDd4b0wxX1VzNlJPODdqc0xob1ZrR0xuQkJ6bExvNDdQMk5saFVSdkVBZw?oc=5"
-    }
-   ]
+    "muster": [
+     "Jahresend-Rallye: November und Dezember waren für Aktien in der Vergangenheit oft gute Monate."
+    ],
+    "zusammenhaenge": [
+     "Gold: Gleichlauf -0.3, Beta -0.65"
+    ],
+    "anlegerTyp": "ausgewogen"
+   }
   },
   {
    "s": "^VIX",
    "n": "^VIX",
    "closes": [
+    24.559999465942383,
     25.459999084472656,
     22.90999984741211,
     19.299999237060547,
@@ -1277,47 +1638,80 @@
     15.449999809265137,
     15.850000381469727,
     15.130000114440918,
-    16.010000228881836,
-    14.890000343322754
+    16.010000228881836
    ],
    "cur": "USD",
    "cat": "Volatilitätsindex",
-   "h": "kurz",
-   "bias": 1,
-   "why": "Das Angst-Barometer ist zuletzt um rund 11 % gestiegen und in vier Wochen um über 50 %. Anleger sichern sich so stark ab wie seit April nicht mehr.",
-   "ausblick": "Die Nvidia-Zahlen und Zinssignale könnten den VIX weiter treiben oder deutlich beruhigen. Der VIX fällt nach Spitzen meist wieder, der Zeitpunkt ist aber offen.",
-   "richtung": "seitwärts",
-   "zuversicht": "niedrig",
-   "horizont": "4–8 Wochen",
-   "halten": "Der VIX ist kein Anlageziel, sondern ein Stimmungsanzeiger. Ein hoher Wert bedeutet stärkere Schwankungen im Depot.",
-   "signale": [
-    "VIX fällt wieder deutlich",
-    "Weitere Anstiege nach den Nvidia-Zahlen"
-   ],
-   "muster": "",
-   "pro": [
-    "Zeigt früh, wenn der Markt nervös wird"
-   ],
-   "con": [
-    "Nicht direkt investierbar",
-    "Sehr sprunghaft"
-   ],
-   "news": [
-    "n8771891"
-   ],
-   "warn": 2,
-   "warnGrund": "Angst am Markt so hoch wie seit April nicht mehr.",
-   "quellen": [
-    {
-     "t": "Wall Street's fear gauge is surging again and this time it's not just about AI jitters",
-     "u": "https://www.cnbc.com/2026/11/17/wall-streets-fear-gauge-is-surging-again-and-this-time-its-not-just-about-ai-jitters.html"
-    }
-   ]
+   "h": "§FILL: \"kurz\" oder \"lang\"§",
+   "bias": "§FILL: Zahl −3 bis +3: Wirkung der heutigen Nachrichten auf den Kurs in %§",
+   "why": "§FILL: 2–3 Sätze zur aktuellen Lage, sachlich§",
+   "ausblick": "§FILL: 2–3 Sätze: wie es in den nächsten Wochen bis Monaten am wahrscheinlichsten weitergeht und warum (Treiber, anstehende Termine, was _fakten.prognose sagt). Ehrlich mit der Unsicherheit§",
+   "richtung": "§FILL: \"steigend\", \"seitwärts\" oder \"fallend\": die wahrscheinlichste Richtung im Zeitraum horizont§",
+   "zuversicht": "§FILL: \"niedrig\", \"mittel\" oder \"hoch\": wie sicher diese Richtung ist (bei starken Schwankungen oder widersprüchlichen Meldungen eher niedrig)§",
+   "horizont": "§FILL: Zeitraum, für den der Ausblick gilt, z. B. \"4–8 Wochen\" oder \"6–12 Monate\"§",
+   "halten": "§FILL: 1–2 Sätze Abwägung: Was spricht dafür, investiert zu bleiben, und für welchen Zeitraum passt dieser Wert eher (kurz, mittel, lang), was dagegen. Wenn _fakten.depot vorhanden ist, darauf eingehen. Keine Anweisung zum Kaufen oder Verkaufen, sondern Gründe zum Abwägen§",
+   "signale": "§FILL: Liste mit 2–3 kurzen Punkten: woran man merkt, dass sich das Bild ändert (z. B. Kurs unter einer Marke aus _fakten.prognose, ein Termin, eine Meldungslage)§",
+   "muster": "§FILL: 1–2 Sätze: was die erkannten Muster (_fakten.muster) und Zusammenhänge (_fakten.zusammenhaenge, z. B. Öl, Dollar, Gesamtmarkt) für diesen Wert bedeuten könnten. Ausdrücklich als unsicher kennzeichnen. Leerer Text, wenn es keine gibt§",
+   "pro": "§FILL: Liste mit 1–3 kurzen Punkten dafür§",
+   "con": "§FILL: Liste mit 1–3 kurzen Punkten dagegen§",
+   "news": "§FILL: Liste der news-ids, die diese Aktie betreffen§",
+   "warn": "§FILL: Zahl 0–3: Gefahr aus der Nachrichtenlage (0 = nichts Besonderes, 1 = leicht negativ, 2 = deutlich negativ, 3 = ernst, z. B. Gewinnwarnung, Klage, angekündigte Kürzungen)§",
+   "warnGrund": "§FILL: 1 kurzer Satz zum Warn-Grund oder leerer Text§",
+   "quellen": "§FILL: Liste {t,u} der Meldungen aus _rohnews, auf die sich why/pro/con/warn stützen (Titel und Link übernehmen). Leere Liste, wenn nur Kursdaten genutzt wurden§",
+   "_fakten": {
+    "waehrung": "USD",
+    "region": "USA",
+    "trend": "up",
+    "vierWochen": 29.1,
+    "dreiMonate": 53.4,
+    "schwankung": 161,
+    "heute": -3.54,
+    "prognose": {
+     "tage": 20,
+     "von": 16.81,
+     "mitte": 26.49,
+     "bis": 41.75,
+     "zusammensetzung": [
+      {
+       "teil": "Trend 3 Monate (abgeschwächt)",
+       "prozent": 6.8
+      },
+      {
+       "teil": "Langfrist-Durchschnitt",
+       "prozent": 0
+      },
+      {
+       "teil": "Gegenbewegung nach starker Bewegung",
+       "prozent": 0,
+       "vorsicht": true
+      },
+      {
+       "teil": "Bekannte Muster",
+       "prozent": 0,
+       "vorsicht": true
+      },
+      {
+       "teil": "Marktumfeld",
+       "prozent": 0,
+       "vorsicht": true
+      },
+      {
+       "teil": "Nachrichten des Tages",
+       "prozent": 1
+      }
+     ],
+     "hinweis": "mitte ist rein rechnerisch; Teile mit vorsicht (Muster, Marktumfeld) sind unsicher"
+    },
+    "muster": [],
+    "zusammenhaenge": [],
+    "anlegerTyp": "ausgewogen"
+   }
   },
   {
    "s": "V",
    "n": "Visa",
    "closes": [
+    415.2200012207031,
     416.7699890136719,
     426.4599914550781,
     425.760009765625,
@@ -1381,230 +1775,81 @@
     382.4100036621094,
     371.0400085449219,
     365.7300109863281,
-    365.5400085449219,
-    364.25
+    365.5400085449219
    ],
    "cur": "USD",
    "cat": "Zahlungsdienste",
-   "h": "lang",
-   "bias": -0.3,
-   "why": "Visa fiel zuletzt um gut 2 % und nähert sich dem Tief der letzten drei Monate. Ein langer Streit um Gebühren mit Händlern könnte die Bedingungen an der Kasse verändern.",
-   "ausblick": "Kurzfristig belastet die allgemeine Marktschwäche, mittelfristig hängt viel an Konsum und Regulierung. Der Kurs liegt unter der rechnerischen Spanne, die Unsicherheit ist entsprechend hoch.",
-   "richtung": "seitwärts",
-   "zuversicht": "niedrig",
-   "horizont": "2–3 Monate",
-   "halten": "Visa passt mit stabilem Geschäftsmodell eher zu einem langen Zeitraum. Dagegen spricht das Risiko neuer Gebührenregeln.",
-   "signale": [
-    "Kurs fällt unter etwa 359 USD (3-Monats-Tief)",
-    "Entscheidung im Gebührenstreit"
-   ],
-   "muster": "Das Jahresende war historisch oft freundlich; ein Zusammenhang mit Öl ist schwach. Beides unsicher.",
-   "pro": [
-    "Stabiles Geschäftsmodell"
-   ],
-   "con": [
-    "Mögliche neue Gebührenregeln",
-    "Kurs nahe 3-Monats-Tief"
-   ],
-   "news": [
-    "n8770313"
-   ],
-   "warn": 1,
-   "warnGrund": "Gebührenstreit könnte Einnahmen schmälern.",
-   "quellen": [
-    {
-     "t": "Visa and Mastercard's 21-Year Fight Could Change What Happens at Checkout",
-     "u": "https://finnhub.io/api/news?id=67c1d3f839d9866966f7ff7eea4b1b39cb5af0fd172f1bd93c6414a6075e55e9"
+   "h": "§FILL: \"kurz\" oder \"lang\"§",
+   "bias": "§FILL: Zahl −3 bis +3: Wirkung der heutigen Nachrichten auf den Kurs in %§",
+   "why": "§FILL: 2–3 Sätze zur aktuellen Lage, sachlich§",
+   "ausblick": "§FILL: 2–3 Sätze: wie es in den nächsten Wochen bis Monaten am wahrscheinlichsten weitergeht und warum (Treiber, anstehende Termine, was _fakten.prognose sagt). Ehrlich mit der Unsicherheit§",
+   "richtung": "§FILL: \"steigend\", \"seitwärts\" oder \"fallend\": die wahrscheinlichste Richtung im Zeitraum horizont§",
+   "zuversicht": "§FILL: \"niedrig\", \"mittel\" oder \"hoch\": wie sicher diese Richtung ist (bei starken Schwankungen oder widersprüchlichen Meldungen eher niedrig)§",
+   "horizont": "§FILL: Zeitraum, für den der Ausblick gilt, z. B. \"4–8 Wochen\" oder \"6–12 Monate\"§",
+   "halten": "§FILL: 1–2 Sätze Abwägung: Was spricht dafür, investiert zu bleiben, und für welchen Zeitraum passt dieser Wert eher (kurz, mittel, lang), was dagegen. Wenn _fakten.depot vorhanden ist, darauf eingehen. Keine Anweisung zum Kaufen oder Verkaufen, sondern Gründe zum Abwägen§",
+   "signale": "§FILL: Liste mit 2–3 kurzen Punkten: woran man merkt, dass sich das Bild ändert (z. B. Kurs unter einer Marke aus _fakten.prognose, ein Termin, eine Meldungslage)§",
+   "muster": "§FILL: 1–2 Sätze: was die erkannten Muster (_fakten.muster) und Zusammenhänge (_fakten.zusammenhaenge, z. B. Öl, Dollar, Gesamtmarkt) für diesen Wert bedeuten könnten. Ausdrücklich als unsicher kennzeichnen. Leerer Text, wenn es keine gibt§",
+   "pro": "§FILL: Liste mit 1–3 kurzen Punkten dafür§",
+   "con": "§FILL: Liste mit 1–3 kurzen Punkten dagegen§",
+   "news": "§FILL: Liste der news-ids, die diese Aktie betreffen§",
+   "warn": "§FILL: Zahl 0–3: Gefahr aus der Nachrichtenlage (0 = nichts Besonderes, 1 = leicht negativ, 2 = deutlich negativ, 3 = ernst, z. B. Gewinnwarnung, Klage, angekündigte Kürzungen)§",
+   "warnGrund": "§FILL: 1 kurzer Satz zum Warn-Grund oder leerer Text§",
+   "quellen": "§FILL: Liste {t,u} der Meldungen aus _rohnews, auf die sich why/pro/con/warn stützen (Titel und Link übernehmen). Leere Liste, wenn nur Kursdaten genutzt wurden§",
+   "_fakten": {
+    "waehrung": "USD",
+    "region": "USA",
+    "trend": "up",
+    "vierWochen": 0.2,
+    "dreiMonate": 13.6,
+    "schwankung": 21,
+    "heute": -0.37,
+    "prognose": {
+     "tage": 63,
+     "von": 402.43,
+     "mitte": 447.86,
+     "bis": 498.42,
+     "zusammensetzung": [
+      {
+       "teil": "Trend 3 Monate (abgeschwächt)",
+       "prozent": 6.4
+      },
+      {
+       "teil": "Langfrist-Durchschnitt",
+       "prozent": 1.7
+      },
+      {
+       "teil": "Gegenbewegung nach starker Bewegung",
+       "prozent": 0,
+       "vorsicht": true
+      },
+      {
+       "teil": "Bekannte Muster",
+       "prozent": 0,
+       "vorsicht": true
+      },
+      {
+       "teil": "Marktumfeld",
+       "prozent": 0,
+       "vorsicht": true
+      },
+      {
+       "teil": "Nachrichten des Tages",
+       "prozent": -0.3
+      }
+     ],
+     "hinweis": "mitte ist rein rechnerisch; Teile mit vorsicht (Muster, Marktumfeld) sind unsicher"
     },
-    {
-     "t": "Wall Street ends lower ahead of Nvidia results, focus turns to Anthropic debut - Reuters",
-     "u": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOemNySVhGbms1VkxVYXFsTFdtdVh1MjNQQk16Y1ZfNGFHMFhDRWUtZldZRzJzSWxpNlBLWVpTenJnU2FHZndaVUlEclFtQVNvTzJBWTNpM1p0N3dmWjlyMEFKbkowZkpSanhVcEVLUjZfOWxNcW5OZVFuLTNFNF93ZDd4b0wxX1VzNlJPODdqc0xob1ZrR0xuQkJ6bExvNDdQMk5saFVSdkVBZw?oc=5"
-    }
-   ]
+    "muster": [
+     "Jahresend-Rallye: November und Dezember waren für Aktien in der Vergangenheit oft gute Monate."
+    ],
+    "zusammenhaenge": [
+     "Öl (Brent): Gleichlauf 0.35, Beta 0.16"
+    ],
+    "anlegerTyp": "ausgewogen"
+   }
   }
  ],
- "news": [
-  {
-   "id": "n8770313",
-   "imp": 3,
-   "kind": [
-    "Nervosität",
-    "down"
-   ],
-   "cat": "Märkte",
-   "t": "US-Börsen schwächer vor Nvidia-Zahlen",
-   "sum": "Die Wall Street schloss erneut im Minus, weil Anleger vor den Quartalszahlen von Nvidia und dem Börsengang von Anthropic vorsichtig bleiben.",
-   "body": [
-    "Die Zahlen des Chipkonzerns gelten als Stimmungstest für das ganze KI-Thema. Fallen sie schwächer aus als erhofft, könnten Technologiewerte weiter unter Druck geraten.",
-    "Zusätzlich lenkt der geplante Börsengang von Anthropic Kapital und Aufmerksamkeit, was kurzfristig zu Umschichtungen führen kann."
-   ],
-   "back": "Wirkt bald: Die Reaktion auf die Nvidia-Zahlen dürfte die Richtung der nächsten Tage prägen.",
-   "stocks": [
-    "URTH",
-    "XDEW.DE",
-    "AAPL",
-    "TSLA",
-    "V"
-   ],
-   "u": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOemNySVhGbms1VkxVYXFsTFdtdVh1MjNQQk16Y1ZfNGFHMFhDRWUtZldZRzJzSWxpNlBLWVpTenJnU2FHZndaVUlEclFtQVNvTzJBWTNpM1p0N3dmWjlyMEFKbkowZkpSanhVcEVLUjZfOWxNcW5OZVFuLTNFNF93ZDd4b0wxX1VzNlJPODdqc0xob1ZrR0xuQkJ6bExvNDdQMk5saFVSdkVBZw?oc=5",
-   "q": "Reuters"
-  },
-  {
-   "id": "n8771891",
-   "imp": 2,
-   "kind": [
-    "Angst steigt",
-    "warn"
-   ],
-   "cat": "Märkte",
-   "t": "Angst-Barometer VIX steigt den vierten Tag in Folge",
-   "sum": "Die Absicherung gegen Kursverluste ist so gefragt wie seit April nicht mehr.",
-   "body": [
-    "Der VIX legte zuletzt an vier Tagen hintereinander zu. Laut Bericht geht es dabei nicht nur um KI-Sorgen, sondern um eine breitere Unsicherheit.",
-    "Ein hoher VIX bedeutet meist stärkere Kursschwankungen, nach oben wie nach unten."
-   ],
-   "back": "Wirkt jetzt: Erhöhte Schwankungen sind in den nächsten Tagen wahrscheinlich.",
-   "stocks": [
-    "^VIX",
-    "URTH",
-    "EXS1.DE",
-    "EUNK.DE"
-   ],
-   "u": "https://www.cnbc.com/2026/11/17/wall-streets-fear-gauge-is-surging-again-and-this-time-its-not-just-about-ai-jitters.html",
-   "q": "CNBC"
-  },
-  {
-   "id": "ny1910368211",
-   "imp": 3,
-   "kind": [
-    "Hochstufung",
-    "up"
-   ],
-   "cat": "Unternehmen",
-   "t": "JPMorgan stuft SAP hoch",
-   "sum": "Die US-Bank sieht SAP nun positiv und hebt das Kursziel deutlich auf 275 Euro an.",
-   "body": [
-    "Begründet wird das damit, dass KI in Unternehmen von Tests in den echten Einsatz übergeht, wovon SAP profitieren könne.",
-    "Der Kurs fiel zuletzt trotzdem kräftig, weil der gesamte Technologiesektor unter Druck stand."
-   ],
-   "back": "Wirkt bald: Die Einschätzung kann den Kurs stützen, sobald sich die Stimmung bei Tech-Werten beruhigt.",
-   "stocks": [
-    "SAP.DE"
-   ],
-   "u": "https://de.finance.yahoo.com/nachrichten/analyse-flash-jpmorgan-hebt-sap-062003650.html?.tsrc=rss",
-   "q": "Yahoo Finanzen"
-  },
-  {
-   "id": "ny989832039",
-   "imp": 2,
-   "kind": [
-    "Analyst positiv",
-    "up"
-   ],
-   "cat": "Unternehmen",
-   "t": "JPMorgan bleibt bei Siemens optimistisch",
-   "sum": "Die Bank bestätigt ihre positive Einstufung für Siemens mit einem Kursziel von 345 Euro.",
-   "body": [
-    "Nach einem Gespräch mit der Finanzchefin lobte die Bank die jüngsten Geschäftszahlen.",
-    "Das Kursziel liegt deutlich über dem aktuellen Kurs, ist aber keine Garantie."
-   ],
-   "back": "Wirkt jetzt: Stützt die Stimmung für die Aktie.",
-   "stocks": [
-    "SIE.DE"
-   ],
-   "u": "https://de.finance.yahoo.com/nachrichten/analyse-flash-jpmorgan-bel%C3%A4sst-siemens-200505797.html?.tsrc=rss",
-   "q": "Yahoo Finanzen"
-  },
-  {
-   "id": "ny1101138140",
-   "imp": 2,
-   "kind": [
-    "Lieferketten",
-    "warn"
-   ],
-   "cat": "Wirtschaft",
-   "t": "Speicherchips könnten für die Industrie knapp werden",
-   "sum": "Weil KI-Rechenzentren sehr viele Speicherchips binden, droht anderen Branchen ein Engpass.",
-   "body": [
-    "Industrie- und Autohersteller könnten dadurch Probleme bei der Beschaffung bekommen, ähnlich wie bei der Chipkrise nach der Pandemie.",
-    "Noch ist das eine Warnung und kein akuter Mangel."
-   ],
-   "back": "Wirkt bald: Ein Engpass würde sich erst über Monate in Produktion und Gewinnen zeigen.",
-   "stocks": [
-    "SIE.DE",
-    "EXS1.DE"
-   ],
-   "u": "https://www.businessinsider.de/wirtschaft/ki-frisst-die-chips-der-industrie-drohen-neue-engpaesse/?.tsrc=rss",
-   "q": "Yahoo Finanzen"
-  },
-  {
-   "id": "n8771893",
-   "imp": 2,
-   "kind": [
-    "Umschichtung",
-    ""
-   ],
-   "cat": "Märkte",
-   "t": "Anleger schichten von Tech in defensive Werte um",
-   "sum": "Ein Kommentar sieht eine breite Verlagerung von Technologieaktien hin zu stabileren Branchen.",
-   "body": [
-    "Gemeint sind etwa Gesundheit, Versorger oder Konsumgüter, die weniger stark auf Konjunktur und KI-Erwartungen reagieren.",
-    "Für ein Depot heißt das vor allem: Breite Streuung dämpft solche Verschiebungen."
-   ],
-   "back": "Wirkt jetzt: Erklärt, warum Tech-Werte zuletzt schwächer liefen als der Rest.",
-   "stocks": [
-    "SAP.DE",
-    "AAPL",
-    "EUNH.DE"
-   ],
-   "u": "https://www.cnbc.com/investingclub/2026/11/17/a-generational-flight-from-tech-to-defensive-stocks-is-underway-how-were-capitalizing.html",
-   "q": "CNBC"
-  },
-  {
-   "id": "ny1583475774",
-   "imp": 2,
-   "kind": [
-    "Gold fällt",
-    "down"
-   ],
-   "cat": "Rohstoffe",
-   "t": "Gold und Silber auf Jahrestief",
-   "sum": "Ein starker Dollar, hohe US-Zinsen und die Erwartung einer weiteren Zinserhöhung drücken die Edelmetalle.",
-   "body": [
-    "Gold steuert damit auf den größten Jahresverlust seit 2015 zu.",
-    "Steigende Zinsen machen zinslose Anlagen wie Gold weniger attraktiv."
-   ],
-   "back": "Wirkt jetzt: Der Druck auf Gold hält an, solange Dollar und Zinsen hoch bleiben.",
-   "stocks": [
-    "4GLD.DE"
-   ],
-   "u": "https://de.euronews.com/2026/11/17/starker-dollar-druckt-gold-und-silberpreise-auf-tief-seit-uber-einem-jahr?.tsrc=rss",
-   "q": "Yahoo Finanzen"
-  },
-  {
-   "id": "n8773351",
-   "imp": 1,
-   "kind": [
-    "Öl billiger",
-    "down"
-   ],
-   "cat": "Rohstoffe",
-   "t": "Ölpreis gibt weiter nach",
-   "sum": "Höhere US-Lagerbestände dämpfen die Sorge vor Lieferausfällen.",
-   "body": [
-    "Trotz Spannungen am Golf überwiegt beim Öl derzeit das Bild eines gut versorgten Marktes.",
-    "Günstigeres Öl entlastet tendenziell Industrie und Verbraucher."
-   ],
-   "back": "Wirkt jetzt: Sinkende Energiekosten sind ein kleiner Lichtblick für Europas Industrie.",
-   "stocks": [
-    "BZ=F",
-    "SIE.DE"
-   ],
-   "u": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQbmp3REJQam1xdjkyMkpCN1JlSkotTnJNM0JEWDVFNmJqZ2FHbmNIN2E0V2twa2N3djBLTXlNNVJvcDJmZVNXMlBlQnk2VG1FTThnX0hQbVRqS2dKbVVBdXl6MWR5ZHo0S2VneWt2bUdwVjE4TnNxaHFLN0hHNU9IUVljVnNXLWJTeHdORFFJX3BfQXhPTThEbGFYQXhYaGNneHRHcVRGS2NyOFhxTzVN?oc=5",
-   "q": "Reuters"
-  }
- ],
- "_news_hinweis": "Behalte die news-Liste. Ergänze nur wirklich neue wichtige Meldungen aus _rohnews im selben Format, höchstens 10 insgesamt (älteste raus).",
+ "news": "§FILL: Liste der 4–8 wichtigsten Meldungen aus _rohnews im Format {id,imp(1-3),kind:[Text,\"down\"|\"up\"|\"warn\"|\"\"],cat,t,sum(1 Satz),body:[1-3 Absätze],back(\"Rückblick: …\" oder \"Wirkt jetzt: …\" oder \"Wirkt bald: …\"),stocks:[Kürzel],u,q}§",
  "_rohnews": [
   {
    "id": "ny1101138140",
@@ -1727,258 +1972,572 @@
    "z": "Wirtschafts- und Finanztermine bis Donnerstag, den 19. November"
   },
   {
-   "id": "n143909260",
-   "t": "Samsung Electronics (KOSE:A005930) Nears Rare Multi Year DRAM Supply Deal",
+   "id": "ny1758414106",
+   "t": "Billige Tech-Aktien lösen Rally an den Börsen weltweit aus",
+   "q": "Yahoo Finanzen",
+   "u": "https://de.euronews.com/2026/11/10/billige-tech-aktien-losen-rally-an-den-borsen-weltweit-aus?.tsrc=rss",
+   "sym": [
+    "^GDAXI"
+   ],
+   "z": "Am Dienstag legten US-Aktien deutlich zu. Technologiewerte führten die Erholung an, Anleger nutzten gefallene Kurse; sinkende Ölpreise hellten die Stimmung weiter auf.View on euronews"
+  },
+  {
+   "id": "ny1388636670",
+   "t": "Die Dividende dieser deutschen Aktie wird 2027 explodieren!",
+   "q": "Yahoo Finanzen",
+   "u": "https://www.aktienwelt360.de/2026/11/08/die-dividende-dieser-deutschen-aktie-wird-2027-explodieren/?.tsrc=rss",
+   "sym": [
+    "^GDAXI"
+   ],
+   "z": "Siemens Energy ist bislang nicht als starker Dividendenwert in Erscheinung treten. Doch 2027 könnte die Gewinnausschüttung explodieren. Der Artikel Die Dividende dieser deutschen Aktie wird 2027 explodieren! ist zuerst e"
+  },
+  {
+   "id": "ny502928496",
+   "t": "Wie tief fallen S&amp;P-500-Korrekturen in der Regel, und wo liegt das Minus 2026?",
+   "q": "Yahoo Finanzen",
+   "u": "https://de.beincrypto.com/sp-500-dritter-ruecksetzer-2026-bilello/?.tsrc=rss",
+   "sym": [
+    "^GSPC"
+   ],
+   "z": "Charlie Bilello sagt, dieser S&amp;P 500-Rücksetzer ist seit 2009 der 34., der über 5 % liegt, und ein früherer Einbruch im Jahr 2026 war stärker."
+  },
+  {
+   "id": "ny1378689273",
+   "t": "Goldman: S&amp;P 500 steigt bis Ende 2027 auf 8.700 Punkte – aber langsamer als zuletzt",
+   "q": "Yahoo Finanzen",
+   "u": "https://de.finance.yahoo.com/nachrichten/goldman-s-p-500-steigt-135122275.html?.tsrc=rss",
+   "sym": [
+    "^GSPC"
+   ],
+   "z": "Investing.com - Plus 17 % in gut einem Jahr: Goldman Sachs traut dem S&amp;P 500 bis Ende 2027 einen Anstieg auf 8.700 Punkte zu. Das Tempo der vergangenen Jahre dürfte der Markt allerdings nicht halten, denn das Gewinnw"
+  },
+  {
+   "id": "ny308858001",
+   "t": "Ängste vor einer KI-Blase führen zu überraschender Hinwendung zu Schweizer Aktien",
+   "q": "Yahoo Finanzen",
+   "u": "https://de.beincrypto.com/ki-aktien-verkauf-investoren-wechseln-zu-schweizer-aktien/?.tsrc=rss",
+   "sym": [
+    "^STOXX50E"
+   ],
+   "z": "Roche, Novartis und Nestlé verschaffen Schweizer Aktien den größten Vorsprung gegenüber Eurozonen-Pendants seit März 2020."
+  },
+  {
+   "id": "ny1719897137",
+   "t": "Deusche-Börse-Konkurrent LSE hebt Ziele erneut an - Milliardenzukauf in den USA",
+   "q": "Yahoo Finanzen",
+   "u": "https://de.finance.yahoo.com/nachrichten/deusche-b%C3%B6rse-konkurrent-lse-hebt-070249913.html?.tsrc=rss",
+   "sym": [
+    "^STOXX50E"
+   ],
+   "z": "Der Börsenbetreiber und Finanzdatenanbieter London Stock Exchange (LSE)  hat dank guter Geschäfte die Prognosen für das laufende Jahr erneut erhöht. Bei den um Währungseffekte bereinigten Erlösen peilt der Deutsche-Börse"
+  },
+  {
+   "id": "ny931438576",
+   "t": "Gold fällt in Richtung 3.700 USD: Schiff warnt, Fed riskiert Finanzkrise im Kampf gegen Inflation",
+   "q": "Yahoo Finanzen",
+   "u": "https://de.beincrypto.com/gold-14-monatstief-schiff-fed/?.tsrc=rss",
+   "sym": [
+    "GC=F"
+   ],
+   "z": "Gold fiel unter 3.800 USD, ein 14-Monats-Tief, da die Fed-Zinserhöhungs-Erwartungen stiegen. Peter Schiff sagt: „Die Fed kann ohne Krise nicht straffen.\""
+  },
+  {
+   "id": "ny1109876905",
+   "t": "Fed-Protokolle: Größere Zinserhöhung war vor steigender Inflation möglich",
+   "q": "Yahoo Finanzen",
+   "u": "https://de.beincrypto.com/fed-protokoll-zinsanhebung-dezember/?.tsrc=rss",
+   "sym": [
+    "GC=F"
+   ],
+   "z": "Das Fed-Protokoll zeigt, einige Offizielle schlugen im Oktober einen größeren Zinsschritt vor. Trader setzen dennoch auf 0,25%-Erhöhung."
+  },
+  {
+   "id": "ny1908206020",
+   "t": "Devisen: Euro wieder im Abwärtstrend - tiefster Stand seit April 2025",
+   "q": "Yahoo Finanzen",
+   "u": "https://de.finance.yahoo.com/nachrichten/devisen-euro-abw%C3%A4rtstrend-tiefster-stand-203120258.html?.tsrc=rss",
+   "sym": [
+    "BTC-EUR"
+   ],
+   "z": "Der vortags noch stabilisierte Euro  hat am Mittwoch seinen Abwärtstrend wieder aufgenommen. Mit 1,0966 US-Dollar notierte die Gemeinschaftswährung im New Yorker Handel auf dem niedrigsten Niveau seit April 2025. Die Eur"
+  },
+  {
+   "id": "ny1449375514",
+   "t": "Devisen: Euro setzt Abwärtstrend zum US-Dollar fort",
+   "q": "Yahoo Finanzen",
+   "u": "https://de.finance.yahoo.com/nachrichten/devisen-euro-setzt-abw%C3%A4rtstrend-us-155011152.html?.tsrc=rss",
+   "sym": [
+    "BTC-EUR"
+   ],
+   "z": "Der Euro  hat am Mittwoch nachgegeben und seinen jüngsten Abwärtstrend fortgesetzt. Am Nachmittag wurde die Gemeinschaftswährung zu 1,0980 US-Dollar gehandelt. Zeitweise erreichte der Euro mit 1,0968 Dollar den niedrigst"
+  },
+  {
+   "id": "ny1610546760",
+   "t": "Warum Elvis Presley trotz seines Welterfolgs kaum Geld hinterließ",
+   "q": "Yahoo Finanzen",
+   "u": "https://de.finance.yahoo.com/nachrichten/elvis-presleys-schuldenberg-star-geld-143000917.html?.tsrc=rss",
+   "sym": [
+    "EURUSD=X"
+   ],
+   "z": "Wie der „King of Rock and Roll“ Elvis Presley reich wurde, wofür er sein Geld ausgab – und warum er eigentlich Millionen mehr auf dem Konto hätte haben müssen."
+  },
+  {
+   "id": "ny1727677179",
+   "t": "Ihr wollt ein Konto bei einer der beliebtesten Banken? Bei C24 werdet ihr sogar mit einer Prämie belohnt",
+   "q": "Yahoo Finanzen",
+   "u": "https://www.businessinsider.de/insider-picks/finanztipps/konto-bei-c24-mit-praemie-zurecht-eine-der-beliebtesten-banken/?.tsrc=rss",
+   "sym": [
+    "EURUSD=X"
+   ],
+   "z": "Bei C24 gibt es gerade eine spannende Neukundenaktion: Jetzt könnt ihr euch 75 Euro Wechselprämie für das C24-Konto sichern. So geht's!"
+  },
+  {
+   "id": "n143927468",
+   "t": "Corning CEO on working with Steve Jobs to make screens for the first iPhone",
    "q": "Yahoo",
-   "u": "https://finnhub.io/api/news?id=ccc7d49b91e7ab64f53d995302b83bbacc8ee41be2ae277cfd3862f09001462f",
+   "u": "https://finnhub.io/api/news?id=054c6dfe215f2e7ce92a4b71e774ca443836d80663a994e4b3a4d81e8085b7d8",
    "sym": [
     "AAPL"
    ],
-   "z": "Samsung Electronics (KOSE:A005930) is reportedly close to a rare multi-year DRAM supply deal with Apple in November 2026. The prospective agreement would secure DRAM shipments for future Apple devices as AI hardware dema"
+   "z": "“Steve has a unique combination of being challenging but still convincing you you can do a thing.” At the F500 Innovation Forum, Corning CEO Wendell Weeks reflected on working with Apple cofounder Steve Jobs."
   },
   {
-   "id": "n143909261",
-   "t": "Market Chatter: Korea Regulator Cites Customer Complaints, Orders Apple, Google, Alibaba, OpenAI to Designate Legal Representatives by January",
+   "id": "n143922091",
+   "t": "Alphabet vs. Apple: Which Warren Buffett Stock Is the Better Buy?",
    "q": "Yahoo",
-   "u": "https://finnhub.io/api/news?id=7cf4597fbe2b5036eddf12decfa852c866f7306e1d55d597b7d16c9e02c4b461",
+   "u": "https://finnhub.io/api/news?id=46a902c47b68144cede499af2d96270b76bd0d295e65c60202e236e6975c45f5",
    "sym": [
     "AAPL"
    ],
-   "z": "South Korea's antitrust regulator will require major overseas platforms, including Apple (AAPL), Alp"
+   "z": "Both are major positions in the Berkshire Hathaway portfolio."
   },
   {
-   "id": "n143907255",
-   "t": "Tesla Is Now Taking Cybercab Orders. Here's Where I Think the Stock Will Be in 2030.",
+   "id": "n143927945",
+   "t": "Tesla And SpaceX ‘Better Together’? Musk Leans Yes — But Says Performance Must Drive His TSLA Pay",
    "q": "Yahoo",
-   "u": "https://finnhub.io/api/news?id=cf3e024e96951c7253acf55b66e317b375ca33be90e07137aee60a8221f86ac8",
+   "u": "https://finnhub.io/api/news?id=fc1d03b0a7664c65560ce164bc79d219b36fa39c5e6273b49dc7bb41f2cc82ea",
    "sym": [
     "TSLA"
    ],
-   "z": "The robotaxi finally has a price. But how much profit is the stock already counting on?"
+   "z": "If a merger triggered a change in control, Tesla’s valuation alone would determine whether Musk earned additional shares."
   },
   {
-   "id": "n143898303",
-   "t": "Tesla-SpaceX Merger Is 'Almost Inconceivable' to Avoid, Says Elon Musk Biographer — 'You'll Know More' on Dec. 3",
+   "id": "n143928898",
+   "t": "Elon Musk Says Nvidia Made a ‘Mistake’ by Parting Ways With  Jensen Huang: Calls Ex-CEO ‘Michael Jordan Perhaps at His Peak Level’",
    "q": "Yahoo",
-   "u": "https://finnhub.io/api/news?id=4e133e03fffca2d5b48e06b89a91d5bff29243691db1368da222ca24eb7dfc8b",
+   "u": "https://finnhub.io/api/news?id=e0cf6b002e45a6d483cbd515818b6bc2e12537247cae97741941463744848d70",
    "sym": [
     "TSLA"
    ],
-   "z": "A merger between Tesla Inc. and Space Exploration Technologies Corp. is expected to materialize in the near future as the two entities collaborate to construct a chip fabrication plant named “Terra Fab,” according to Wal"
+   "z": "Elon Musk compared former Nvidia Corp. (NASDAQ:NVDA) CEO Jensen Huang to legendary NBA player Michael Jordan and said the company made a mistake parting ways with him. Musk Says Huang Isn’t ‘Disloyal’ Speaking with Andre"
   },
   {
-   "id": "n143909306",
-   "t": "Lianlian DigiTech and Visa Advance Trusted B2B Agentic Commerce for Small and Medium-Sized Businesses",
+   "id": "n143925664",
+   "t": "Visa Unveils Next Generation of Subscription Management Solutions with Visa Recurrent",
    "q": "Yahoo",
-   "u": "https://finnhub.io/api/news?id=b40ea26e16349d53a48d7e246b92de1611d119d9787474b7bf38f2fd2279962d",
+   "u": "https://finnhub.io/api/news?id=df70b40be1961f2aa2fa33d2c243fb90737c55a2405f8beee2fd83a3d7384e7c",
    "sym": [
     "V"
    ],
-   "z": "Lianlian DigiTech (HKEX: 2598) and Visa (NYSE: V), a global leader in digital payments, today announced the next phase of their collaboration to advance trusted B2B agentic commerce. The companies have completed their fi"
+   "z": "Visa, a world leader in digital payments, today announced Visa Recurrent, a new solution that connects consumers, financial institutions and participating merchants across the recurring payments lifecycle. It enables con"
   },
   {
-   "id": "n143909307",
-   "t": "iFAST Global Bank Expands Multi-Currency Visa Debit Card Access to Overseas Customers",
+   "id": "n143920241",
+   "t": "An $11 Billion Fund Dumps These 3 Stocks",
    "q": "Yahoo",
-   "u": "https://finnhub.io/api/news?id=1a3f2c4e29e633d215d3cbf98220726a2157d885859dfd63d67899dea9d27554",
+   "u": "https://finnhub.io/api/news?id=861eea016b8f7b4f50c80ef580c49c68abda131f40240ed7e7425dcd238b66c8",
    "sym": [
     "V"
    ],
-   "z": "The expansion brings multi-currency spending and virtual debit card access to iFAST Global Bank customers across seven overseas markets.Key facts: Launch: iFAST Global Bank is expanding virtual access to its Multi-Curren"
+   "z": "Key TakeawaysJunto Capital Management, which manages $10. 52 billion, sold out of Walmart, Visa and Moody’s in the third quarter, its latest 13F shows."
   },
   {
-   "id": "n8774493",
-   "t": "Five military officers injured in Jordan's helicopter crash, army says - Reuters",
+   "id": "n8778066",
+   "t": "Houthi missile threat towards Riyadh causes damage, Saudi-led coalition says - Reuters",
    "q": "Reuters",
-   "u": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQZlNsOHNTUlpqakhGa1lzZXpqM0Z0dXlSR1FoMG5McXIzUXQ0NWRLSHBpdTJBOHNzb2s4c2JCQ1p2aVZxd0xBMGtIYnRSUW90THB5Q1RGbjlXWlRMTXVwX2VhdXRZNmRCZlpTVEhLVEZ6N21tWlZlekxuRUY3YV80S3hCRzVkZDlPbkVpWG81ejl2N2dXQndWSjhMOUc3UjljZUswbVFSNWt4TndHX2dwYmVFbk9XYWxmLTlQblo0TDRFQklOSFpzMEExZw?oc=5",
+   "u": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOUUVVMURmUjNxMHVQNThNQkRiUElQbkhnNVJNdkdVejBqLVVIRU1hUl9DWDhpYlFVWUtFZlo5dGNOSnFqTFU5VE93bXdGY3NaOEVmSERoWlJNOWhQN25NN3E1bGF1MEprczBsWFlkOHBDTUVLM21CSFJydjFzUFFaM2ozQU8wSTdnSENadVQ2UTNmSWhOMFBHNE1ZaDB5MURkMFM0cHZuU1BySDl0ZlQ2aDBEUEdmNUE5MnNzTnl2T2VBaV9sWUQ2Zg?oc=5",
    "sym": [],
-   "z": "Five military officers injured in Jordan's helicopter crash, army says  Reuters"
+   "z": "Houthi missile threat towards Riyadh causes damage, Saudi-led coalition says  Reuters"
   },
   {
-   "id": "n8774179",
-   "t": "UAE's ADNOC L&S says one crew member missing after attack on its vessel in Hormuz - Reuters",
+   "id": "n8777966",
+   "t": "Islam forecast to soon exceed Christianity as world's biggest faith - Reuters",
    "q": "Reuters",
-   "u": "https://news.google.com/rss/articles/CBMixgFBVV95cUxOd0otMXozQUNrekhJLWlpdzg1WW8tcVJZVkhPVkNrTWNRNmY0MDBPLVZnWXNraWJ0X3drck5ST0RHMThaazY5Vmk2ZWVCZVY1UlltQjVOTU5MeEh1N2F4ck5TaVRQYk0yNjlYeERUNU1fQ2dOOEd6bjUzME44dGdiNkpUSEl5Tm5uT3JYZW5nMTdVZEZQVllVaVFScHRxM1BibUk2SXZiZWZoUjFnZEFjbWpoTFNHMk5kRElfWi1CQVhFTTFlT0E?oc=5",
+   "u": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPZzhzMHplMEVtRTFScDNDeERNU05DOVY1TXVIeDl3Uko3bkcyU3NLYlJPRTVITEIyNHg1TGtZVVJhOWVlUFNYU1hTUk5CaldhMW04UXM4MEJsNjJ2WG02bG56bGJjQW91b2dBUDlHSm5WMnpxbkp6WkFqbjBiUk1tLXczSm9FWEMzZE1YNDRCdU54ME1LS3B5YmhZNVBSeUZ4WXZwN2hvbTBvcjRsQUpCNjBjNDM?oc=5",
    "sym": [],
-   "z": "UAE's ADNOC L&S says one crew member missing after attack on its vessel in Hormuz  Reuters"
+   "z": "Islam forecast to soon exceed Christianity as world's biggest faith  Reuters"
   },
   {
-   "id": "n8774282",
-   "t": "UK inflation rises to one-year high but markets trim rate hike bets - Reuters",
+   "id": "n8777746",
+   "t": "Takeaways from Day 2 of Trump's Asia tour: Putin's handshake, fried chicken and high-stakes diplomacy - Reuters",
    "q": "Reuters",
-   "u": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1QVW9FYWgxOUQyeFFFdHRIdkVLWDZLem1MWFItOVZmQU1SODEtcEZ1Y3NsOGZXeUtNQVN5cElvSmVoNXFoZDFVZ0NlaHFmcmNuQ2w1SWJENDNNLWVVWHNNQUVXdnV0X1Z5M3E2bnJSSzRQd3FBR1FQMzh0dGRPdw?oc=5",
+   "u": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQZURieEZtR2ttUWZVdGRYNEF1UGYyNHBNZTlCXzlUUm5vRTB0RWVON2pJendGa3daSWVWMVhUMDh0RW1vdGphMGxWbUhWV3JjVUYxdzQwS0puNmtJYVdpNDk0UmVzZ045ellsZHhIT3hranMxM3pCTGYzRndWd2lvbEhVcWpYXzhmT0xjR2JFX3FMTjJJLUg0b0owS1VLalRMa0FoZUl0SWc1X1d1RTVZMWtmUmt5VnBvaVp2SzVXOA?oc=5",
    "sym": [],
-   "z": "UK inflation rises to one-year high but markets trim rate hike bets  Reuters"
+   "z": "Takeaways from Day 2 of Trump's Asia tour: Putin's handshake, fried chicken and high-stakes diplomacy  Reuters"
   },
   {
-   "id": "n8774389",
-   "t": "QatarEnergy's LNG expansion may leave it bigger but not less exposed - Reuters",
+   "id": "n8777747",
+   "t": "Trump says historic summit with Xi, Putin already a 'win' before event - Reuters",
    "q": "Reuters",
-   "u": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNaDhzZEk3LWh5X255cUFCZWFpNExoVzBXQk1idWhGakprTjQtQ0xMbkhPZjluaThIeFF5NjVVYWcxNzExaVNpdHNLX1oxRlM5ejhYaU8xS0FYbW00LVZxdDI2M2JXRktNRmRjcEx0TjhwQy1DV0lYWHhzZ29FR1RoejJxeEVSZXNGdDVNU0F6REFKcnk2M3BOOU4zdnhkWUFEZ3BFdUJEM2ZPMk00NjFjNURWSTRydw?oc=5",
+   "u": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQdzN3ZEpqNW0wZlBtajBvdU9pSzk1MG9RQ2NhVlBuaFMwaVZBWVhkLVNiMnZHTTBRS2J6Z2xkdWkxRERWakdCc0JBdGtUUlhVbHJlR2dMcVVTV0lCNWVGNi1XSG5zVTVrRW84V0JVZUhOVGhKT0FZMk1uRTd3anM1RFhPUWxWNFdQWFF2WjhhYVFCdnpPMGlLYThjMDExVC1fVFJfeFZ2ZXM?oc=5",
    "sym": [],
-   "z": "QatarEnergy's LNG expansion may leave it bigger but not less exposed  Reuters"
+   "z": "Trump says historic summit with Xi, Putin already a 'win' before event  Reuters"
   },
   {
-   "id": "n8774494",
-   "t": "After years on ice, Canada seeks trade-based reset with China, minister says - Reuters",
+   "id": "n8777964",
+   "t": "Saudi Arabia says danger has passed in three southern cities after alerts - Reuters",
    "q": "Reuters",
-   "u": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPcXducGZ4U2x6Qk1QdGVXckdCZDNGbE84S0VtRXhFelZmVW1IZXpCRzFpc21JdEpqdzdvUjk4MzN1dnN5N3VpRXpWbjN6MmNVZjRvQ1Itck1nZ1J2bXBvR1FoMk5JY0QwX1dKNzY0THVza09xUWU4TVJzSS1NUVgxQW1KOE5mc1N1OVQyYVVISkxZRnJwbC1EbG5STy15VGg2TWVMZm1kWk5BWWtzaEUxVlFmRQ?oc=5",
+   "u": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQWjhHY29idmhCTzZKZ0dYQ0thMzhWbFpCM1VEUUdVQWNWb1RHaG04anZ4Y21nN05IeGZ0eXpacEItMnlHYld1U2JHb2dnUEpxcmZwV2RwUDNkcmFMckVwbE5VWTByUjc5RjRIM3RFd3hLaUFNdlVMdDlHSHdfd0dlOGo4ZkFTWXhKVmNOd2xSaFBDd3JxQUlOUWV1YURybThsVExoeV83TUNiSHU1Slh5VFNoMVNaLThMb3U0d1k3TUhTQQ?oc=5",
    "sym": [],
-   "z": "After years on ice, Canada seeks trade-based reset with China, minister says  Reuters"
+   "z": "Saudi Arabia says danger has passed in three southern cities after alerts  Reuters"
   },
   {
-   "id": "n8774073",
-   "t": "Xi, Putin blast Western 'protectionism', sanctions as Trump lands in China - Reuters",
+   "id": "n8777965",
+   "t": "EXCLUSIVE: Orlen, QatarEnergy in talks on new LNG deal days after contract termination, sources say - Reuters",
    "q": "Reuters",
-   "u": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPb21UOHp4X2E2V05LRUhhUjhnSzI5b1NmNDRVQWhCb2RTV3gwQng0N3lKQ2lnV3JrbjB2cTBpSkNObTdwbXowR2d0UEt5NFp5blJtallNRjdFSjNoVDdxNkNXWFI4bmpETEV5TUs2OE16WW1lLTR0NkZCbEdXZF9OVDVycUFYV2p2aklNS3dR?oc=5",
+   "u": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNN09ma2xvQVVUbWJDcFlLNWNXVUZJQmk4YnJNRkZIODF5VkNxX1BMemVKR3FxYTNMeEM1MEtGemYtQ0NrY2QwbWlDbV9YcGVrX3VuaUtXX040X2xET1JqckxHSWdUdUhXTE1YVE1lMUZabWotTnBlM2NFMDZrSFRZOGR4RTllNm5sUzM5ZkEwUm9jc0tYajk4U0RYYWxqaXJodW5rN1hMcWZ1WEtTZE5FQWRXQ2dMWVZYSWk0OTBCX2VUWkNONHQ0NWJYeWQ?oc=5",
    "sym": [],
-   "z": "Xi, Putin blast Western 'protectionism', sanctions as Trump lands in China  Reuters"
+   "z": "EXCLUSIVE: Orlen, QatarEnergy in talks on new LNG deal days after contract termination, sources say  Reuters"
   },
   {
-   "id": "n8773351",
-   "t": "Oil prices fall as higher US crude stocks temper supply risks - Reuters",
+   "id": "n8775243",
+   "t": "Israel launches ground operation in central Gaza, dozens flee - Reuters",
    "q": "Reuters",
-   "u": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQbmp3REJQam1xdjkyMkpCN1JlSkotTnJNM0JEWDVFNmJqZ2FHbmNIN2E0V2twa2N3djBLTXlNNVJvcDJmZVNXMlBlQnk2VG1FTThnX0hQbVRqS2dKbVVBdXl6MWR5ZHo0S2VneWt2bUdwVjE4TnNxaHFLN0hHNU9IUVljVnNXLWJTeHdORFFJX3BfQXhPTThEbGFYQXhYaGNneHRHcVRGS2NyOFhxTzVN?oc=5",
+   "u": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPaVdVck4yZnVKU01QQ0Nrd1c2VXRReEloTk1IS0xKWjRkcUdrR3BiTlAyU2dQVm1POVg0MmM5anI0YWlIa0txYms3Sjh6QW9kRjU3bmk0ajlHZ3BZbHM5eHBqazVBbVRvYkt4NENBZ0VuU3NEREFaVGpEOXFyMkdPWEktNE41aUIzY2U3enZDX1dmTTZkQzJPNHh0WktQUV80M2ZTb2o0ZDBYUHR0YmIxRWlB?oc=5",
    "sym": [],
-   "z": "Oil prices fall as higher US crude stocks temper supply risks  Reuters"
+   "z": "Israel launches ground operation in central Gaza, dozens flee  Reuters"
   },
   {
-   "id": "n8773138",
-   "t": "Iran fires at Kuwait, widening strikes after US hit Iranian island - Reuters",
+   "id": "n8777853",
+   "t": "NEWSLETTER: Gulf conflict end date? Depends on who you ask - Reuters",
    "q": "Reuters",
-   "u": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNMEJSYmJOTF9ISXdkYWVNd0Z3RnJvQnRjSlhEVWJ4bWo1UVVvblNOUnczc0FtOUlSODM5UzRNOUF5T3lIYTNrRVZKNEZTaVFQcnMwaG9JSWdnNkJmRVVtcTluWmFEU1k0dFVVVDJ4SWlEcUNpWEo1aktKYzFGblgxTldZSGVNRjV3N3VyMVNFelYxQ1d4Zlo3LXdQN2E4RUFuNjB4UWdYX1FxQ3pERUdCenJ3?oc=5",
+   "u": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQMVFxRlJDQXZxWXZ2UkF2Z0FvempVZFlETlZURW9NQTZqV3NjQ2VuVDZ3SjdaYS1VNzRJTzN5TTJvNlI4Q3RIRW8tRTI1b29yWndaVFd5YVVMbHZuTUdHeGFwR3NlMGUtWnlveGtaaEV1MVJ0dDltU3R4V3VwZUZqMVBPby1oTllISWZBaUY2UzA2R0EtN2hXbV9VQk0?oc=5",
    "sym": [],
-   "z": "Iran fires at Kuwait, widening strikes after US hit Iranian island  Reuters"
+   "z": "NEWSLETTER: Gulf conflict end date? Depends on who you ask  Reuters"
   }
  ],
- "telegram": "§FILL: Kurzes Mittags-Update, höchstens 4 Zeilen: nur was sich seit dem Morgen geändert hat.§",
+ "telegram": "§FILL: Morgen-Briefing für Telegram, höchstens 8 kurze Zeilen: Lage, wichtigste 2–3 Meldungen, was heute ansteht, auffällige Bewegungen bei den beobachteten Aktien. **fett** erlaubt.§",
  "kurz": [
   {
    "s": "SAP",
    "n": "SAP (USA, $)",
-   "text": "Die US-Notierung von SAP fiel zuletzt um fast 5 %. Grund ist die breite Schwäche bei Tech-Werten trotz einer Hochstufung durch JPMorgan.",
-   "h": "lang",
-   "warn": 2,
-   "ausblick": "Es gilt dasselbe wie für SAP in Euro: kurzfristig Tech-Schwäche, mittelfristig Chancen durch KI-Nutzung in Unternehmen. Rechnerische Spanne etwa 201 bis 269 USD, sehr unsicher.",
-   "richtung": "seitwärts",
-   "zuversicht": "niedrig",
-   "horizont": "2–3 Monate",
-   "halten": "Eher für einen langen Zeitraum geeignet; zusätzlich besteht ein Dollar-Risiko. Dagegen spricht die aktuelle Schwankung.",
-   "signale": [
-    "Stimmung nach den Nvidia-Zahlen",
-    "Weitere Analysten-Einschätzungen"
-   ],
-   "muster": "Läuft teils mit dem S&P 500 und gegen den VIX. Unsicherer Zusammenhang.",
-   "quellen": [
-    {
-     "t": "ANALYSE-FLASH: JPMorgan hebt SAP auf 'Overweight' - Ziel auf 275 Euro",
-     "u": "https://de.finance.yahoo.com/nachrichten/analyse-flash-jpmorgan-hebt-sap-062003650.html?.tsrc=rss"
-    }
-   ]
+   "_fakten": {
+    "art": "etf",
+    "gruppe": "",
+    "waehrung": "USD",
+    "trend": "down",
+    "vierWochen": -12.4,
+    "dreiMonate": -2.2,
+    "schwankung": 30,
+    "heute": -5.28,
+    "prognose": {
+     "tage": 63,
+     "von": 182.06,
+     "mitte": 212.01,
+     "bis": 246.88,
+     "zusammensetzung": [
+      {
+       "teil": "Trend 3 Monate (abgeschwächt)",
+       "prozent": -1.1
+      },
+      {
+       "teil": "Langfrist-Durchschnitt",
+       "prozent": 1.7
+      },
+      {
+       "teil": "Gegenbewegung nach starker Bewegung",
+       "prozent": 0,
+       "vorsicht": true
+      },
+      {
+       "teil": "Bekannte Muster",
+       "prozent": 0,
+       "vorsicht": true
+      },
+      {
+       "teil": "Marktumfeld",
+       "prozent": 0,
+       "vorsicht": true
+      }
+     ],
+     "hinweis": "mitte ist rein rechnerisch; Teile mit vorsicht (Muster, Marktumfeld) sind unsicher"
+    },
+    "muster": [
+     "Nahe am 3-Monats-Tief: Hier haben Käufer zuletzt gestützt (Unterstützung). Hält die Marke nicht, kann es weiter fallen.",
+     "Jahresend-Rallye: November und Dezember waren für Aktien in der Vergangenheit oft gute Monate."
+    ],
+    "zusammenhaenge": [
+     "Angst-Barometer (VIX): Gleichlauf -0.42, Beta -0.08",
+     "S&P 500: Gleichlauf 0.4, Beta 0.81"
+    ],
+    "anlegerTyp": "ausgewogen"
+   },
+   "text": "§FILL: 2 kurze Sätze zur aktuellen Lage (bei Indizes/VIX/Wechselkurs: was die Bewegung bedeutet). Sachlich§",
+   "h": "§FILL: \"kurz\", \"lang\", \"spekulativ\" oder \"nicht kaufbar\"§",
+   "warn": "§FILL: Zahl 0–3 wie bei stocks§",
+   "ausblick": "§FILL: 2–3 Sätze: wie es in den nächsten Wochen bis Monaten am wahrscheinlichsten weitergeht und warum (Treiber, anstehende Termine, was _fakten.prognose sagt). Ehrlich mit der Unsicherheit§",
+   "richtung": "§FILL: \"steigend\", \"seitwärts\" oder \"fallend\": die wahrscheinlichste Richtung im Zeitraum horizont§",
+   "zuversicht": "§FILL: \"niedrig\", \"mittel\" oder \"hoch\": wie sicher diese Richtung ist (bei starken Schwankungen oder widersprüchlichen Meldungen eher niedrig)§",
+   "horizont": "§FILL: Zeitraum, für den der Ausblick gilt, z. B. \"4–8 Wochen\" oder \"6–12 Monate\"§",
+   "halten": "§FILL: 1–2 Sätze Abwägung: Was spricht dafür, investiert zu bleiben, und für welchen Zeitraum passt dieser Wert eher (kurz, mittel, lang), was dagegen. Wenn _fakten.depot vorhanden ist, darauf eingehen. Keine Anweisung zum Kaufen oder Verkaufen, sondern Gründe zum Abwägen§",
+   "signale": "§FILL: Liste mit 2–3 kurzen Punkten: woran man merkt, dass sich das Bild ändert (z. B. Kurs unter einer Marke aus _fakten.prognose, ein Termin, eine Meldungslage)§",
+   "muster": "§FILL: 1–2 Sätze: was die erkannten Muster (_fakten.muster) und Zusammenhänge (_fakten.zusammenhaenge, z. B. Öl, Dollar, Gesamtmarkt) für diesen Wert bedeuten könnten. Ausdrücklich als unsicher kennzeichnen. Leerer Text, wenn es keine gibt§",
+   "quellen": "§FILL: Liste {t,u} genutzter Meldungen aus _rohnews oder leere Liste§"
   },
   {
    "s": "SPY",
    "n": "S&P 500 ETF",
-   "text": "Der S&P 500 verlor zuletzt rund 1 % und liegt in vier Wochen gut 5 % im Minus. Das zeigt eine spürbare Vorsicht der Anleger vor wichtigen Tech-Zahlen.",
-   "h": "lang",
-   "warn": 1,
-   "ausblick": "Kurzfristig entscheiden Nvidia-Zahlen und Zinssignale. Goldman Sachs erwartet bis Ende 2027 weitere Gewinne, aber langsamer. Rechnerische Spanne etwa 676 bis 785 USD.",
-   "richtung": "seitwärts",
-   "zuversicht": "niedrig",
-   "horizont": "2–3 Monate",
-   "halten": "Als breiter US-Index eher für lange Zeiträume. Dagegen spricht die aktuelle Nervosität.",
-   "signale": [
-    "Kurs fällt Richtung 676 USD",
-    "VIX beruhigt sich"
-   ],
-   "muster": "Nahe einer Unterstützungszone, dazu oft freundliches Jahresende. Unsichere Hinweise.",
-   "quellen": [
-    {
-     "t": "Wall Street ends lower ahead of Nvidia results, focus turns to Anthropic debut - Reuters",
-     "u": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOemNySVhGbms1VkxVYXFsTFdtdVh1MjNQQk16Y1ZfNGFHMFhDRWUtZldZRzJzSWxpNlBLWVpTenJnU2FHZndaVUlEclFtQVNvTzJBWTNpM1p0N3dmWjlyMEFKbkowZkpSanhVcEVLUjZfOWxNcW5OZVFuLTNFNF93ZDd4b0wxX1VzNlJPODdqc0xob1ZrR0xuQkJ6bExvNDdQMk5saFVSdkVBZw?oc=5"
+   "_fakten": {
+    "art": "etf",
+    "gruppe": "",
+    "waehrung": "USD",
+    "trend": "down",
+    "vierWochen": -4.4,
+    "dreiMonate": -5.1,
+    "schwankung": 15,
+    "heute": -0.31,
+    "prognose": {
+     "tage": 63,
+     "von": 672.23,
+     "mitte": 724.23,
+     "bis": 780.25,
+     "zusammensetzung": [
+      {
+       "teil": "Trend 3 Monate (abgeschwächt)",
+       "prozent": -2.5
+      },
+      {
+       "teil": "Langfrist-Durchschnitt",
+       "prozent": 1.7
+      },
+      {
+       "teil": "Gegenbewegung nach starker Bewegung",
+       "prozent": 0,
+       "vorsicht": true
+      },
+      {
+       "teil": "Bekannte Muster",
+       "prozent": 0,
+       "vorsicht": true
+      },
+      {
+       "teil": "Marktumfeld",
+       "prozent": 0,
+       "vorsicht": true
+      }
+     ],
+     "hinweis": "mitte ist rein rechnerisch; Teile mit vorsicht (Muster, Marktumfeld) sind unsicher"
     },
-    {
-     "t": "Goldman: S&amp;P 500 steigt bis Ende 2027 auf 8.700 Punkte – aber langsamer als zuletzt",
-     "u": "https://de.finance.yahoo.com/nachrichten/goldman-s-p-500-steigt-135122275.html?.tsrc=rss"
-    }
-   ]
+    "muster": [
+     "Nahe am 3-Monats-Tief: Hier haben Käufer zuletzt gestützt (Unterstützung). Hält die Marke nicht, kann es weiter fallen.",
+     "Jahresend-Rallye: November und Dezember waren für Aktien in der Vergangenheit oft gute Monate."
+    ],
+    "zusammenhaenge": [],
+    "anlegerTyp": "ausgewogen"
+   },
+   "text": "§FILL: 2 kurze Sätze zur aktuellen Lage (bei Indizes/VIX/Wechselkurs: was die Bewegung bedeutet). Sachlich§",
+   "h": "§FILL: \"kurz\", \"lang\", \"spekulativ\" oder \"nicht kaufbar\"§",
+   "warn": "§FILL: Zahl 0–3 wie bei stocks§",
+   "ausblick": "§FILL: 2–3 Sätze: wie es in den nächsten Wochen bis Monaten am wahrscheinlichsten weitergeht und warum (Treiber, anstehende Termine, was _fakten.prognose sagt). Ehrlich mit der Unsicherheit§",
+   "richtung": "§FILL: \"steigend\", \"seitwärts\" oder \"fallend\": die wahrscheinlichste Richtung im Zeitraum horizont§",
+   "zuversicht": "§FILL: \"niedrig\", \"mittel\" oder \"hoch\": wie sicher diese Richtung ist (bei starken Schwankungen oder widersprüchlichen Meldungen eher niedrig)§",
+   "horizont": "§FILL: Zeitraum, für den der Ausblick gilt, z. B. \"4–8 Wochen\" oder \"6–12 Monate\"§",
+   "halten": "§FILL: 1–2 Sätze Abwägung: Was spricht dafür, investiert zu bleiben, und für welchen Zeitraum passt dieser Wert eher (kurz, mittel, lang), was dagegen. Wenn _fakten.depot vorhanden ist, darauf eingehen. Keine Anweisung zum Kaufen oder Verkaufen, sondern Gründe zum Abwägen§",
+   "signale": "§FILL: Liste mit 2–3 kurzen Punkten: woran man merkt, dass sich das Bild ändert (z. B. Kurs unter einer Marke aus _fakten.prognose, ein Termin, eine Meldungslage)§",
+   "muster": "§FILL: 1–2 Sätze: was die erkannten Muster (_fakten.muster) und Zusammenhänge (_fakten.zusammenhaenge, z. B. Öl, Dollar, Gesamtmarkt) für diesen Wert bedeuten könnten. Ausdrücklich als unsicher kennzeichnen. Leerer Text, wenn es keine gibt§",
+   "quellen": "§FILL: Liste {t,u} genutzter Meldungen aus _rohnews oder leere Liste§"
   },
   {
    "s": "4GLD.DE",
    "n": "Xetra-Gold",
-   "text": "Gold liegt in drei Monaten fast 7 % im Minus und nahe einem Jahrestief. Ein starker Dollar und hohe Zinsen drücken den Preis.",
-   "h": "lang",
-   "warn": 1,
-   "ausblick": "Solange Dollar und US-Zinsen hoch bleiben, fehlt Gold der Rückenwind. Eine erwartete Fed-Zinserhöhung im Dezember ist ein wichtiger Termin. Rechnerische Spanne etwa 99 bis 121 Euro.",
-   "richtung": "seitwärts",
-   "zuversicht": "niedrig",
-   "horizont": "2–3 Monate",
-   "halten": "Gold dient eher als langfristige Absicherung. Dagegen spricht der aktuelle Abwärtstrend.",
-   "signale": [
-    "Dollar schwächt sich ab",
-    "Fed-Entscheidung im Dezember"
-   ],
-   "muster": "Nahe einer Unterstützungszone; läuft eher gegen den DAX. Unsicher.",
-   "quellen": [
-    {
-     "t": "Starker Dollar drückt Gold- und Silberpreise auf Tief seit über einem Jahr",
-     "u": "https://de.euronews.com/2026/11/17/starker-dollar-druckt-gold-und-silberpreise-auf-tief-seit-uber-einem-jahr?.tsrc=rss"
+   "_fakten": {
+    "art": "alt",
+    "gruppe": "Gold",
+    "waehrung": "EUR",
+    "trend": "down",
+    "vierWochen": -7.6,
+    "dreiMonate": -11.4,
+    "schwankung": 20,
+    "heute": -2.96,
+    "prognose": {
+     "tage": 63,
+     "von": 93.35,
+     "mitte": 103.39,
+     "bis": 114.51,
+     "zusammensetzung": [
+      {
+       "teil": "Trend 3 Monate (abgeschwächt)",
+       "prozent": -5.7
+      },
+      {
+       "teil": "Langfrist-Durchschnitt",
+       "prozent": 0
+      },
+      {
+       "teil": "Gegenbewegung nach starker Bewegung",
+       "prozent": 0,
+       "vorsicht": true
+      },
+      {
+       "teil": "Bekannte Muster",
+       "prozent": 0,
+       "vorsicht": true
+      },
+      {
+       "teil": "Marktumfeld",
+       "prozent": 0,
+       "vorsicht": true
+      }
+     ],
+     "hinweis": "mitte ist rein rechnerisch; Teile mit vorsicht (Muster, Marktumfeld) sind unsicher"
     },
-    {
-     "t": "Werden die Goldkurse nach der erwarteten Zinserhöhung der Fed im Dezember steigen?",
-     "u": "https://de.beincrypto.com/goldpreis-ausblick-fed-dezember-zinserhoehung/?.tsrc=rss"
-    }
-   ]
+    "muster": [
+     "Nahe am 3-Monats-Tief: Hier haben Käufer zuletzt gestützt (Unterstützung). Hält die Marke nicht, kann es weiter fallen."
+    ],
+    "zusammenhaenge": [
+     "Gold: Gleichlauf 0.83, Beta 0.77",
+     "Öl (Brent): Gleichlauf -0.32, Beta -0.13"
+    ],
+    "anlegerTyp": "ausgewogen"
+   },
+   "text": "§FILL: 2 kurze Sätze zur aktuellen Lage (bei Indizes/VIX/Wechselkurs: was die Bewegung bedeutet). Sachlich§",
+   "h": "§FILL: \"kurz\", \"lang\", \"spekulativ\" oder \"nicht kaufbar\"§",
+   "warn": "§FILL: Zahl 0–3 wie bei stocks§",
+   "ausblick": "§FILL: 2–3 Sätze: wie es in den nächsten Wochen bis Monaten am wahrscheinlichsten weitergeht und warum (Treiber, anstehende Termine, was _fakten.prognose sagt). Ehrlich mit der Unsicherheit§",
+   "richtung": "§FILL: \"steigend\", \"seitwärts\" oder \"fallend\": die wahrscheinlichste Richtung im Zeitraum horizont§",
+   "zuversicht": "§FILL: \"niedrig\", \"mittel\" oder \"hoch\": wie sicher diese Richtung ist (bei starken Schwankungen oder widersprüchlichen Meldungen eher niedrig)§",
+   "horizont": "§FILL: Zeitraum, für den der Ausblick gilt, z. B. \"4–8 Wochen\" oder \"6–12 Monate\"§",
+   "halten": "§FILL: 1–2 Sätze Abwägung: Was spricht dafür, investiert zu bleiben, und für welchen Zeitraum passt dieser Wert eher (kurz, mittel, lang), was dagegen. Wenn _fakten.depot vorhanden ist, darauf eingehen. Keine Anweisung zum Kaufen oder Verkaufen, sondern Gründe zum Abwägen§",
+   "signale": "§FILL: Liste mit 2–3 kurzen Punkten: woran man merkt, dass sich das Bild ändert (z. B. Kurs unter einer Marke aus _fakten.prognose, ein Termin, eine Meldungslage)§",
+   "muster": "§FILL: 1–2 Sätze: was die erkannten Muster (_fakten.muster) und Zusammenhänge (_fakten.zusammenhaenge, z. B. Öl, Dollar, Gesamtmarkt) für diesen Wert bedeuten könnten. Ausdrücklich als unsicher kennzeichnen. Leerer Text, wenn es keine gibt§",
+   "quellen": "§FILL: Liste {t,u} genutzter Meldungen aus _rohnews oder leere Liste§"
   },
   {
    "s": "MUV2.DE",
    "n": "Münchener Rück",
-   "text": "Münchener Rück gab zuletzt rund 1,4 % nach, liegt aber in drei Monaten gut 11 % im Plus. Versicherer gelten als eher defensiv.",
-   "h": "lang",
-   "warn": 0,
-   "ausblick": "Die Umschichtung in defensive Werte kann helfen, Rücksetzer mit dem Gesamtmarkt bleiben möglich. Rechnerische Spanne etwa 568 bis 688 Euro.",
-   "richtung": "steigend",
-   "zuversicht": "mittel",
-   "horizont": "2–3 Monate",
-   "halten": "Passt eher zu einem langen Zeitraum. Dagegen spricht der bereits starke Anstieg.",
-   "signale": [
-    "Kurs fällt unter etwa 568 Euro",
-    "Große Schadensereignisse"
-   ],
-   "muster": "Nahe einer Widerstandszone, Jahresende oft freundlich. Unsicher.",
-   "quellen": [
-    {
-     "t": "A generational flight from tech to defensive stocks is underway. How we’re capitalizing",
-     "u": "https://www.cnbc.com/investingclub/2026/11/17/a-generational-flight-from-tech-to-defensive-stocks-is-underway-how-were-capitalizing.html"
-    }
-   ]
+   "_fakten": {
+    "art": "etf",
+    "gruppe": "",
+    "waehrung": "EUR",
+    "trend": "up",
+    "vierWochen": 5.5,
+    "dreiMonate": 13.1,
+    "schwankung": 19,
+    "heute": -0.21,
+    "prognose": {
+     "tage": 63,
+     "von": 571.59,
+     "mitte": 628.31,
+     "bis": 690.66,
+     "zusammensetzung": [
+      {
+       "teil": "Trend 3 Monate (abgeschwächt)",
+       "prozent": 6.1
+      },
+      {
+       "teil": "Langfrist-Durchschnitt",
+       "prozent": 1.7
+      },
+      {
+       "teil": "Gegenbewegung nach starker Bewegung",
+       "prozent": 0,
+       "vorsicht": true
+      },
+      {
+       "teil": "Bekannte Muster",
+       "prozent": 0,
+       "vorsicht": true
+      },
+      {
+       "teil": "Marktumfeld",
+       "prozent": 0,
+       "vorsicht": true
+      }
+     ],
+     "hinweis": "mitte ist rein rechnerisch; Teile mit vorsicht (Muster, Marktumfeld) sind unsicher"
+    },
+    "muster": [
+     "Nahe am 3-Monats-Hoch: Hier haben Verkäufer zuletzt gebremst (Widerstand). Wird die Marke überschritten, kann es weiter steigen.",
+     "Jahresend-Rallye: November und Dezember waren für Aktien in der Vergangenheit oft gute Monate."
+    ],
+    "zusammenhaenge": [],
+    "anlegerTyp": "ausgewogen"
+   },
+   "text": "§FILL: 2 kurze Sätze zur aktuellen Lage (bei Indizes/VIX/Wechselkurs: was die Bewegung bedeutet). Sachlich§",
+   "h": "§FILL: \"kurz\", \"lang\", \"spekulativ\" oder \"nicht kaufbar\"§",
+   "warn": "§FILL: Zahl 0–3 wie bei stocks§",
+   "ausblick": "§FILL: 2–3 Sätze: wie es in den nächsten Wochen bis Monaten am wahrscheinlichsten weitergeht und warum (Treiber, anstehende Termine, was _fakten.prognose sagt). Ehrlich mit der Unsicherheit§",
+   "richtung": "§FILL: \"steigend\", \"seitwärts\" oder \"fallend\": die wahrscheinlichste Richtung im Zeitraum horizont§",
+   "zuversicht": "§FILL: \"niedrig\", \"mittel\" oder \"hoch\": wie sicher diese Richtung ist (bei starken Schwankungen oder widersprüchlichen Meldungen eher niedrig)§",
+   "horizont": "§FILL: Zeitraum, für den der Ausblick gilt, z. B. \"4–8 Wochen\" oder \"6–12 Monate\"§",
+   "halten": "§FILL: 1–2 Sätze Abwägung: Was spricht dafür, investiert zu bleiben, und für welchen Zeitraum passt dieser Wert eher (kurz, mittel, lang), was dagegen. Wenn _fakten.depot vorhanden ist, darauf eingehen. Keine Anweisung zum Kaufen oder Verkaufen, sondern Gründe zum Abwägen§",
+   "signale": "§FILL: Liste mit 2–3 kurzen Punkten: woran man merkt, dass sich das Bild ändert (z. B. Kurs unter einer Marke aus _fakten.prognose, ein Termin, eine Meldungslage)§",
+   "muster": "§FILL: 1–2 Sätze: was die erkannten Muster (_fakten.muster) und Zusammenhänge (_fakten.zusammenhaenge, z. B. Öl, Dollar, Gesamtmarkt) für diesen Wert bedeuten könnten. Ausdrücklich als unsicher kennzeichnen. Leerer Text, wenn es keine gibt§",
+   "quellen": "§FILL: Liste {t,u} genutzter Meldungen aus _rohnews oder leere Liste§"
   },
   {
    "s": "BZ=F",
    "n": "Öl (Brent)",
-   "text": "Öl ist in vier Wochen um fast 15 % gefallen. Hohe US-Lagerbestände überwiegen derzeit die Sorgen wegen Spannungen am Golf.",
-   "h": "spekulativ",
-   "warn": 1,
-   "ausblick": "Nach dem starken Rückgang ist eine Gegenbewegung möglich, die Spannungen am Golf bleiben ein Risiko. Die Spanne ist mit etwa 74 bis 118 USD sehr breit.",
-   "richtung": "seitwärts",
-   "zuversicht": "niedrig",
-   "horizont": "4–8 Wochen",
-   "halten": "Öl schwankt stark und passt eher zu kurzen Zeiträumen. Dagegen spricht die hohe Unsicherheit.",
-   "signale": [
-    "Neue Angriffe am Golf",
-    "Weiter steigende US-Lagerbestände"
-   ],
-   "muster": "Überverkauft, was oft eine Erholung bringt; gleichzeitig ein Abwärtssignal der Durchschnitte. Widersprüchlich und unsicher.",
-   "quellen": [
-    {
-     "t": "Oil prices fall as higher US crude stocks temper supply risks - Reuters",
-     "u": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQbmp3REJQam1xdjkyMkpCN1JlSkotTnJNM0JEWDVFNmJqZ2FHbmNIN2E0V2twa2N3djBLTXlNNVJvcDJmZVNXMlBlQnk2VG1FTThnX0hQbVRqS2dKbVVBdXl6MWR5ZHo0S2VneWt2bUdwVjE4TnNxaHFLN0hHNU9IUVljVnNXLWJTeHdORFFJX3BfQXhPTThEbGFYQXhYaGNneHRHcVRGS2NyOFhxTzVN?oc=5"
+   "_fakten": {
+    "art": "roh",
+    "gruppe": "",
+    "waehrung": "USD",
+    "trend": "down",
+    "vierWochen": -21.1,
+    "dreiMonate": -2.6,
+    "schwankung": 47,
+    "heute": 0.1,
+    "prognose": {
+     "tage": 63,
+     "von": 69.51,
+     "mitte": 88.14,
+     "bis": 111.76,
+     "zusammensetzung": [
+      {
+       "teil": "Trend 3 Monate (abgeschwächt)",
+       "prozent": -1.3
+      },
+      {
+       "teil": "Langfrist-Durchschnitt",
+       "prozent": 0
+      },
+      {
+       "teil": "Gegenbewegung nach starker Bewegung",
+       "prozent": 0,
+       "vorsicht": true
+      },
+      {
+       "teil": "Bekannte Muster",
+       "prozent": 0,
+       "vorsicht": true
+      },
+      {
+       "teil": "Marktumfeld",
+       "prozent": 0,
+       "vorsicht": true
+      }
+     ],
+     "hinweis": "mitte ist rein rechnerisch; Teile mit vorsicht (Muster, Marktumfeld) sind unsicher"
     },
-    {
-     "t": "Bahrain says air defences intercepted Iranian attacks - Reuters",
-     "u": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNMEJSYmJOTF9ISXdkYWVNd0Z3RnJvQnRjSlhEVWJ4bWo1UVVvblNOUnczc0FtOUlSODM5UzRNOUF5T3lIYTNrRVZKNEZTaVFQcnMwaG9JSWdnNkJmRVVtcTluWmFEU1k0dFVVVDJ4SWlEcUNpWEo1aktKYzFGblgxTldZSGVNRjV3N3VyMVNFelYxQ1d4Zlo3LXdQN2E4RUFuNjB4UWdYX1FxQ3pERUdCenJ3?oc=5"
-    }
-   ]
+    "muster": [
+     "Überverkauft (RSI 20): Sehr viele Minus-Tage hintereinander. Danach erholt sich der Kurs oft etwas.",
+     "Todeskreuz: Der 20-Tage-Schnitt ist gerade unter den 50-Tage-Schnitt gefallen. Gilt als Zeichen für einen beginnenden Abwärtstrend.",
+     "Nahe am 3-Monats-Tief: Hier haben Käufer zuletzt gestützt (Unterstützung). Hält die Marke nicht, kann es weiter fallen."
+    ],
+    "zusammenhaenge": [],
+    "anlegerTyp": "ausgewogen"
+   },
+   "text": "§FILL: 2 kurze Sätze zur aktuellen Lage (bei Indizes/VIX/Wechselkurs: was die Bewegung bedeutet). Sachlich§",
+   "h": "§FILL: \"kurz\", \"lang\", \"spekulativ\" oder \"nicht kaufbar\"§",
+   "warn": "§FILL: Zahl 0–3 wie bei stocks§",
+   "ausblick": "§FILL: 2–3 Sätze: wie es in den nächsten Wochen bis Monaten am wahrscheinlichsten weitergeht und warum (Treiber, anstehende Termine, was _fakten.prognose sagt). Ehrlich mit der Unsicherheit§",
+   "richtung": "§FILL: \"steigend\", \"seitwärts\" oder \"fallend\": die wahrscheinlichste Richtung im Zeitraum horizont§",
+   "zuversicht": "§FILL: \"niedrig\", \"mittel\" oder \"hoch\": wie sicher diese Richtung ist (bei starken Schwankungen oder widersprüchlichen Meldungen eher niedrig)§",
+   "horizont": "§FILL: Zeitraum, für den der Ausblick gilt, z. B. \"4–8 Wochen\" oder \"6–12 Monate\"§",
+   "halten": "§FILL: 1–2 Sätze Abwägung: Was spricht dafür, investiert zu bleiben, und für welchen Zeitraum passt dieser Wert eher (kurz, mittel, lang), was dagegen. Wenn _fakten.depot vorhanden ist, darauf eingehen. Keine Anweisung zum Kaufen oder Verkaufen, sondern Gründe zum Abwägen§",
+   "signale": "§FILL: Liste mit 2–3 kurzen Punkten: woran man merkt, dass sich das Bild ändert (z. B. Kurs unter einer Marke aus _fakten.prognose, ein Termin, eine Meldungslage)§",
+   "muster": "§FILL: 1–2 Sätze: was die erkannten Muster (_fakten.muster) und Zusammenhänge (_fakten.zusammenhaenge, z. B. Öl, Dollar, Gesamtmarkt) für diesen Wert bedeuten könnten. Ausdrücklich als unsicher kennzeichnen. Leerer Text, wenn es keine gibt§",
+   "quellen": "§FILL: Liste {t,u} genutzter Meldungen aus _rohnews oder leere Liste§"
   }
  ],
  "model": {
