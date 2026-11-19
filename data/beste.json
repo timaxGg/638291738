@@ -1,53 +1,58 @@
 {
- "id": "b-2026-11-18-abends",
- "datum": "2026-11-18",
- "slot": "abends",
- "erstellt": "2026-11-18T18:19:11Z",
- "markt": "Der DAX schloss heute 1,2 % tiefer bei rund 25.736 Punkten und rutschte wieder unter 26.000 Punkte, nachdem die anfängliche Erleichterung über die Nvidia-Zahlen verflogen war und die Wall Street nachgab. Belastend wirken Zweifel an der KI-Euphorie, Zinsrisiken und politische Unsicherheit vor einem Gipfeltreffen von Trump, Xi und Putin; am Donnerstag steht zudem der Börsengang von Anthropic an. Defensive Werte aus Pharma, Medizintechnik und Konsumgütern führen die Kandidatenlisten an, kurzfristig bleibt die Richtung aber offen.",
+ "id": "b-2026-11-19-morgens",
+ "datum": "2026-11-19",
+ "slot": "morgens",
+ "erstellt": "2026-11-19T06:19:36Z",
+ "markt": "Der DAX schloss gestern 1,2 % tiefer bei 25.736 Punkten und dürfte laut IG leicht fester starten; an der Wall Street fiel der Dow um 1,1 %, während der Nasdaq dank einer Tech-Erholung zulegte und der S&P 500 seine Verlustserie verlängerte. Heute stehen der Börsengang von Anthropic, Walmart-Zahlen und das Treffen von Xi und Trump im Fokus, dazu kommen Sorgen über eine mögliche Zinsanhebung der US-Notenbank im Dezember. Defensive Werte aus Pharma, Medizintechnik und Konsumgütern führen die Kandidatenlisten an, kurzfristig bleibt die Richtung offen.",
  "marktQuellen": [
   {
-   "t": "ROUNDUP/Aktien Frankfurt Schluss: Dax rutscht wieder unter 26.000 Punkte",
-   "u": "https://www.finanzen.net/nachricht/aktien/roundup-aktien-frankfurt-schluss-dax-rutscht-wieder-unter-26-000-punkte-16074280",
-   "q": "dpa-AFX/finanzen.net",
+   "t": "DAX-Prognose: Fest, Gold schwach – Anthropic, Nvidia, Zalando, Siemens Energy, SAP, Walmart im Fokus",
+   "u": "https://www.deraktionaer.de/artikel/indizes/dax-prognose-fest-gold-schwach-anthropic-nvidia-zalando-siemens-energy-sap-walmart-im-fokus-20446154.html",
+   "q": "Der Aktionär",
+   "d": "2026-11-19"
+  },
+  {
+   "t": "Stock Market Recap — November 18, 2026: Nasdaq Rebounds, Dow Falls 561 Points",
+   "u": "https://www.alainguillot.com/stock-market-recap-november-18-2026/",
+   "q": "Alain Guillot",
    "d": "2026-11-18"
   },
   {
-   "t": "Dax erholt sich - Nvidia-Zahlen stützen Tech-Aktien",
-   "u": "https://de.marketscreener.com/boerse-nachrichten/dax-erholt-sich-nvidia-zahlen-stuetzen-tech-aktien-ce785eddd88bf024",
-   "q": "MarketScreener",
+   "t": "A fifth straight drop for the S&P 500 drags Wall Street to its longest losing streak since June",
+   "u": "https://www.bnnbloomberg.ca/markets/2026/11/18/us-futures-point-higher-led-by-rebound-for-nvidia/",
+   "q": "BNN Bloomberg (AP)",
    "d": "2026-11-18"
   },
   {
-   "t": "Wall Street Is Trading Chips for Chicken: Staples See Best Run Against Tech Since 2001",
-   "u": "https://finnhub.io/api/news?id=6054188fec1dbdcf5ba8505b603ec6f93a3f85c89020254c1c4dc0dfc54bdbe7",
-   "q": "Benzinga",
-   "d": "2026-11-17"
+   "t": "TAGESVORSCHAU: Termine am 19. November 2026",
+   "u": "https://www.finanzen.at/nachrichten/aktien/tagesvorschau-termine-am-19-november-2026-1036781408",
+   "q": "dpa-AFX/finanzen.at",
+   "d": "2026-11-19"
   }
  ],
  "listen": {
   "3": [
    {
     "s": "BAYN.DE",
-    "einschaetzung": "Gute Nachrichtenlage, nach dem Lauf aber anfällig für Rücksetzer.",
-    "warum": "Bayer liegt in vier Wochen 25,3 % und in drei Monaten 13,9 % im Plus, über fünf Tage aber 1,4 % im Minus und 2 % unter dem 10-Tage-Hoch; der RSI ist auf 69 abgekühlt. Heute hob Berenberg das Kursziel von 53,50 auf 62 Euro, beließ die Einstufung aber bei „Hold“. Stützend wirken weiter die US-Zulassung des Gerinnungshemmers Sunharbo und die angehobene Prognose. Der nächste große Auslöser bleibt laut Börse Express die Gerichtsentscheidung in Missouri zum Roundup-Vergleich.",
-    "ausblick": "Der schwache Gesamtmarkt (DAX heute −1,2 %) bremst, die leichte Abkühlung hat die Überhitzung aber etwas abgebaut. Die übliche Drei-Tage-Bewegung von 3,4 % liegt über der Hürde von 1,92 %, die Richtung ist jedoch offen. Eine Nachricht zum Glyphosat-Vergleich kann den Kurs in beide Richtungen stark bewegen. Das Muster „Abkühlung nach Übertreibung“ war im Rückblick nur leicht positiv und ist kein verlässlicher Grund.",
+    "einschaetzung": "Chancen überwiegen leicht, Rücksetzer aber im Gange.",
+    "warum": "Bayer liegt in vier Wochen 28,7 % und in drei Monaten 13,6 % im Plus, über fünf Tage aber 2 % im Minus und 1,6 % unter dem 10-Tage-Hoch; der RSI von 70 ist leicht erhöht. Mit einer üblichen Drei-Tage-Bewegung von 3,4 % ist die Hürde von 1,92 % rechnerisch erreichbar. Rückenwind geben die US-Zulassung des Gerinnungshemmers Sunharbo und der Glyphosat-Prozesserfolg Ende Oktober; Berenberg hob das Kursziel am Dienstag auf 62 Euro, blieb aber bei „Hold“. Eine neue Firmenmeldung seit gestern Abend fand sich nicht.",
+    "ausblick": "Am wahrscheinlichsten ist eine Seitwärtsbewegung mit leichter Erholung nach dem jüngsten Rücksetzer, denn die Nachrichtenlage bleibt freundlich. Ohne neuen Auslöser hängt der Kurs aber stark am Gesamtmarkt, der gestern deutlich nachgab. Die nötige Steigerung von 1,92 % ist bei der üblichen Bewegung realistisch, aber keineswegs sicher.",
     "szenarien": {
-     "gut": "Positive Signale zum Roundup-Vergleich oder ein beruhigter Gesamtmarkt.",
-     "schlecht": "Weitere Marktschwäche oder ein Rückschlag vor Gericht."
+     "gut": "Der DAX erholt sich und neue Fortschritte im Glyphosat-Streit oder beim Sunharbo-Start lenken den Blick wieder auf die Pharmasparte.",
+     "schlecht": "Weitere Gewinnmitnahmen nach dem starken Lauf und ein schwacher Gesamtmarkt drücken den Kurs unter das jüngste Tief."
     },
     "treiber": [
+     "Sunharbo-Zulassung in den USA",
      "Kurszielanhebung durch Berenberg",
-     "US-Marktstart von Sunharbo",
-     "Mögliche Gerichtsentscheidung zum Roundup-Vergleich"
+     "Fortschritte im Glyphosat-Streit"
     ],
     "risiken": [
-     "Schwacher Gesamtmarkt",
+     "Fünf-Tage-Bilanz negativ",
      "Analysten überwiegend nur neutral",
-     "Fünf-Tage-Bilanz negativ"
+     "Schwacher Gesamtmarkt"
     ],
     "termine": [
-     "18.11.2026: Protokoll der Fed-Sitzung (US-Abend)",
-     "19.11.2026: geplanter Börsengang von Anthropic (Marktstimmung Tech)"
+     "19.11.2026: Anthropic-Börsengang an der Nasdaq und Walmart-Quartalszahlen (Marktstimmung)"
     ],
     "zuversicht": "mittel",
     "quellen": [
@@ -58,88 +63,82 @@
       "d": "2026-11-18"
      },
      {
-      "t": "Bayer-Aktie: Das ist entscheidend!",
-      "u": "https://www.boerse-express.com/news/articles/bayer-aktie-das-ist-entscheidend-963989",
-      "q": "Börse Express",
-      "d": "2026-11-17"
-     },
-     {
-      "t": "Bayer Aktie: Jefferies rührt das Kursziel nicht an",
-      "u": "https://www.boerse-express.com/news/articles/bayer-aktie-jefferies-ruehrt-das-kursziel-nicht-an-963745",
-      "q": "Börse Express",
-      "d": "2026-11-17"
-     },
-     {
       "t": "ROUNDUP: Bayer darf Gerinnungshemmer Sunharbo auch in den USA verkaufen",
       "u": "https://de.finance.yahoo.com/nachrichten/roundup-bayer-darf-gerinnungshemmer-sunharbo-101933330.html?.tsrc=rss",
       "q": "dpa-AFX/Yahoo Finanzen",
       "d": "2026-11-10"
+     },
+     {
+      "t": "Bayer-Aktie: Das ist entscheidend!",
+      "u": "https://www.boerse-express.com/news/articles/bayer-aktie-das-ist-entscheidend-963989",
+      "q": "Börse Express",
+      "d": "2026-11-17"
      }
     ]
    },
    {
-    "s": "EW",
-    "einschaetzung": "Trend intakt, aber kein eigener Auslöser in Sicht.",
-    "warum": "Edwards Lifesciences hat in vier Wochen 19,2 % und in drei Monaten 15,9 % zugelegt, über fünf Tage ist der Kurs mit −0,4 % fast unverändert und liegt 1,7 % unter dem 10-Tage-Hoch; der RSI von 73 zeigt leichte Überhitzung. Anfang November übertraf der Herzklappen-Spezialist die Erwartungen und hob die Jahresziele an. Baird stufte danach auf „Outperform“ mit Kursziel 116 US-Dollar hoch. Eine neue Firmenmeldung seit heute früh fand sich nicht, ein Seeking-Alpha-Beitrag mahnt wegen der Bewertung zur Vorsicht.",
-    "ausblick": "Ohne Termin dürfte die Aktie mit dem Markt laufen, der heute nachgab. Die übliche Bewegung von 2,7 % liegt über der Hürde von 1,92 %, eine Steigerung in dieser Höhe ist möglich, aber eher knapp. Medizintechnik gilt als relativ defensiv, was bei Tech-Schwäche helfen kann.",
+    "s": "GEHC",
+    "einschaetzung": "Trend intakt, kurzfristig solide Ausgangslage.",
+    "warum": "GE HealthCare hat in vier Wochen 21,2 % und in drei Monaten 13,2 % zugelegt, über fünf Tage steht ein Plus von 1,3 % und der Kurs liegt nur 0,4 % unter dem 10-Tage-Hoch; der RSI von 67 ist nicht überhitzt. Grundlage ist das starke dritte Quartal, nach dem der Konzern laut Zacks die Gewinnprognose für 2026 auf 4,95 bis 5,05 US-Dollar je Aktie anhob. Gestern meldete das Unternehmen eine Erweiterung seines Forschungsnetzes für Photonenzähl-CT, ein Bewertungsbeitrag sieht die Aktie noch unter dem fairen Wert. Die übliche Drei-Tage-Bewegung von 3,3 % liegt klar über der Hürde.",
+    "ausblick": "Von den Drei-Tage-Kandidaten hat GE HealthCare die sauberste Kurslage: nahe am Hoch, positive Fünf-Tage-Bilanz und keine Überhitzung. Ein Anstieg über 1,92 % ist plausibel, wenn der US-Markt seine Verlustserie beendet. Gestern stieg die Aktie laut Kursdaten um 2,2 %, das kann aber auch Raum für Gewinnmitnahmen lassen.",
     "szenarien": {
-     "gut": "Der Markt stabilisiert sich und weitere Analysten heben ihre Ziele.",
-     "schlecht": "Gewinnmitnahmen nach dem starken Lauf oder Bewertungssorgen."
+     "gut": "Der US-Markt stabilisiert sich und Anleger bleiben in defensiven Gesundheitswerten mit angehobener Prognose.",
+     "schlecht": "Eine weitere Abwärtswelle an der Wall Street oder Gewinnmitnahmen nach dem Monatsplus von über 20 % bremsen den Lauf."
     },
     "treiber": [
-     "Angehobene Jahresziele",
-     "Freundliche Analystenstimmung"
+     "Angehobene Jahresprognose",
+     "Neue Produkt- und Forschungsmeldungen",
+     "Rotation in Gesundheitswerte"
     ],
     "risiken": [
-     "RSI 73 nach starkem Lauf",
-     "Bewertung bereits hoch"
+     "Starker Lauf in vier Wochen",
+     "Wall Street mit längster Verlustserie seit Juni"
     ],
     "termine": [
-     "18.11.2026: Protokoll der Fed-Sitzung (US-Abend)"
+     "19.11.2026: Anthropic-Börsengang an der Nasdaq und Walmart-Quartalszahlen (Marktstimmung)",
+     "19.11.2026: Philadelphia-Fed-Index und US-Arbeitsmarktdaten"
     ],
-    "zuversicht": "niedrig",
+    "zuversicht": "mittel",
     "quellen": [
      {
-      "t": "Edwards Lifesciences Aktie: Baird stuft auf Outperform hoch und hebt Kursziel auf 116 Dollar",
-      "u": "https://goldesel.de/aktien/news/edwards-lifesciences-aktie-baird-stuft-auf-outperform-hoch-und-hebt-kursziel-auf-116-dollar",
-      "q": "goldesel.de",
-      "d": "2026-11-05"
+      "t": "GEHC Q3 Earnings Beat Estimates on Strong Growth, '26 View Raised",
+      "u": "https://www.zacks.com/stock/news/3017511/gehc-q3-earnings-beat-estimates-on-strong-growth-26-view-raised",
+      "q": "Zacks",
+      "d": "2026-10-28"
      },
      {
-      "t": "Edwards Lifesciences beats and raises again, but TAVR share gains have plateaued",
-      "u": "https://finviz.com/news/416442/edwards-lifesciences-beats-and-raises-again-but-tavr-share-gains-have-plateaued-as-moderate-as-becomes-the-next-debate",
-      "q": "Earnings Whispers/Finviz",
-      "d": "2026-11-04"
+      "t": "GE HealthCare Expands Global Research Network for Photon-Counting CT",
+      "u": "https://finnhub.io/api/news?id=3bc5d0373dd59b4af30ef213022fd0101b3dbf9ad27d6dae93638356e87d272a",
+      "q": "Yahoo",
+      "d": "2026-11-18"
      },
      {
-      "t": "Edwards Lifesciences: Momentum Returns, But Valuation Warrants Caution",
-      "u": "https://finnhub.io/api/news?id=5d5efe5f0eaf48a5f1d9586887dd86d9c31d1b043528c5b23e9549beb6d0fc7a",
-      "q": "SeekingAlpha",
+      "t": "GE HealthCare (GEHC) Stock May Be Below Fair Value Following Raised Guidance",
+      "u": "https://finnhub.io/api/news?id=bc05b9380438c8f5d87d6b187809956acbda1327d75eaaa76cb1a2bd8a783ba1",
+      "q": "Yahoo/Simply Wall St",
       "d": "2026-11-18"
      }
     ]
    },
    {
     "s": "CLX",
-    "einschaetzung": "Starker Erholungslauf mit Branchen-Rückenwind, Analysten bleiben vorsichtig.",
-    "warum": "Clorox ist in vier Wochen um 27,9 % gestiegen, in drei Monaten nur um 3,3 %; über fünf Tage steht ein Plus von 1,5 % und der Kurs liegt 1,6 % unter dem 10-Tage-Hoch, der RSI von 73 zeigt Überhitzung. Auslöser waren Quartalszahlen am 10. November, bei denen der Gewinn je Aktie mit 1,55 US-Dollar deutlich über den Erwartungen lag; BNP Paribas und Deutsche Bank hoben danach ihre Kursziele (98 bzw. 99 US-Dollar). Dazu kommt eine Umschichtung in Basiskonsumgüter: Laut Benzinga liefen diese zuletzt so stark besser als Tech wie seit 2001 nicht. Heute bestätigte Clorox die Quartalsdividende von 1,25 US-Dollar.",
-    "ausblick": "Hält die Flucht aus Tech in defensive Werte an, kann Clorox weiter profitieren. Die übliche Drei-Tage-Bewegung von 3,7 % liegt klar über der Hürde von 1,92 %. Allerdings notiert die Aktie bereits über den genannten Analystenzielen, und die Gewinnprognose zielt nur auf das untere Ende der Spanne, was den Spielraum begrenzt.",
+    "einschaetzung": "Kurzfristig Rückenwind, aber deutlich überhitzt.",
+    "warum": "Clorox ist in vier Wochen um 27,9 % gestiegen, über drei Monate aber nur um 3,3 %; über fünf Tage steht ein Plus von 1,4 % und der Kurs liegt 1,6 % unter dem 10-Tage-Hoch, der RSI von 73 zeigt Überhitzung. Auslöser waren Quartalszahlen am 10. November, die deutlich über den Erwartungen lagen und mehrere Kurszielanhebungen brachten. Dazu kommt eine kräftige Umschichtung von Tech in Basiskonsumgüter, die laut Benzinga so ausgeprägt ist wie seit 2001 nicht. Seit gestern Abend gab es außer der bestätigten Dividende keine neue Meldung.",
+    "ausblick": "Solange die Rotation in defensive Konsumwerte anhält, hat Clorox mit einer üblichen Drei-Tage-Bewegung von 3,7 % gute Chancen, die Hürde zu überspringen. Erholt sich aber Tech nach dem Anthropic-Börsengang, könnte Geld aus Basiskonsumgütern abfließen. Die nötige Steigerung ist möglich, aber nach dem steilen Anstieg ist auch ein Rücksetzer gut denkbar.",
     "szenarien": {
-     "gut": "Weitere Tech-Schwäche lenkt Geld in Konsumgüter-Werte.",
-     "schlecht": "Eine Tech-Erholung, etwa nach dem Anthropic-Börsengang, löst Umschichtungen zurück aus."
+     "gut": "Die Umschichtung in Basiskonsumgüter hält an und gestern +1,6 % setzt sich fort.",
+     "schlecht": "Ein Rückfluss in Tech-Aktien nach dem Anthropic-Börsengang löst Gewinnmitnahmen bei Konsumwerten aus."
     },
     "treiber": [
      "Rotation in Basiskonsumgüter",
-     "Starkes Quartal über den Erwartungen"
+     "Starke Quartalszahlen"
     ],
     "risiken": [
-     "Kurs über den Analystenzielen",
-     "RSI 73",
-     "Kostendruck, Gewinnprognose am unteren Ende"
+     "RSI 73, Kurs über vielen Analystenzielen",
+     "Drei-Monats-Plus nur gering, Lauf sehr steil"
     ],
     "termine": [
-     "18.11.2026: Protokoll der Fed-Sitzung (US-Abend)",
-     "19.11.2026: geplanter Börsengang von Anthropic (Marktstimmung Tech)"
+     "19.11.2026: Anthropic-Börsengang an der Nasdaq und Walmart-Quartalszahlen (Marktstimmung)"
     ],
     "zuversicht": "niedrig",
     "quellen": [
@@ -164,144 +163,115 @@
     ]
    },
    {
-    "s": "VLTO",
-    "einschaetzung": "Solider Trend, für drei Tage eher knapp.",
-    "warum": "Veralto ist in vier Wochen um 16,7 % und in drei Monaten um 19,7 % gestiegen, über fünf Tage steht ein kleines Minus von 0,5 %, 1,7 % unter dem 10-Tage-Hoch; der RSI von 73 zeigt Überhitzung. Ende Oktober meldete der Wasser- und Messtechnikanbieter ein Umsatzplus und hob die Gewinnprognose für 2026 an. Das Management erwartet eine Beschleunigung des Kernwachstums im vierten Quartal. Neue Firmenmeldungen seit heute früh fanden sich nicht.",
-    "ausblick": "Ohne eigenen Termin läuft die Aktie wohl mit dem Markt. Die übliche Drei-Tage-Bewegung von 2,4 % liegt nur knapp über der Hürde von 1,92 %, die nötige Steigerung ist möglich, aber knapp. Eine Verschnaufpause ist ebenso plausibel.",
+    "s": "CMG",
+    "einschaetzung": "Erholung mit Schwung, aber spekulativ.",
+    "warum": "Chipotle hat in vier Wochen 31,4 % zugelegt, liegt über drei Monate aber noch 1,3 % im Minus; über fünf Tage steht ein Plus von 0,8 %, der Kurs notiert am 10-Tage-Hoch und der RSI liegt bei 67. Laut TIKR stieg die Aktie nach dem dritten Quartal kräftig, weil die Kundenzahl wieder wuchs und gerade Kunden mit geringerem Einkommen zurückkamen. Gestern legte der Kurs laut Kursdaten um 3,1 % zu; ein Zacks-Beitrag sieht in der Brisket-Neuauflage eine Chance, warnt aber vor steigenden Lebensmittelkosten. Mit 4,6 % hat Chipotle die größte übliche Drei-Tage-Bewegung der Liste.",
+    "ausblick": "Der Kurs ist auf Hoch und hat Schwung, deshalb ist die Hürde von 1,92 % in drei Tagen erreichbar. Das erkannte Muster „Abkühlung nach Übertreibung“ war im Rückblick nur leicht positiv und ist kein verlässlicher Hinweis. Wegen der großen Schwankung ist ein Rückschlag genauso möglich wie ein weiterer Anstieg.",
     "szenarien": {
-     "gut": "Anleger bleiben bei Qualitätswerten mit stabilen Erträgen.",
-     "schlecht": "Gewinnmitnahmen oder Umschichtung zurück in Technologie."
+     "gut": "Die Erholungsstory der Restaurantkette zieht weitere Käufer an und der Schwung vom Vortag hält an.",
+     "schlecht": "Gewinnmitnahmen nach dem Monatsplus von über 30 % oder Sorgen um Kosten und Margen."
     },
     "treiber": [
-     "Angehobene Gewinnprognose",
-     "Nachfrage nach Wasseraufbereitung"
+     "Wieder wachsende Kundenzahl",
+     "Neue Menüaktionen",
+     "Schwung am 10-Tage-Hoch"
     ],
     "risiken": [
-     "Übliche Bewegung nur knapp über der Hürde",
-     "RSI 73"
+     "Hohe Schwankung",
+     "Kostendruck bei Lebensmitteln",
+     "Drei-Monats-Bilanz noch negativ"
     ],
     "termine": [
-     "18.11.2026: Protokoll der Fed-Sitzung (US-Abend)"
+     "19.11.2026: Anthropic-Börsengang an der Nasdaq und Walmart-Quartalszahlen (Marktstimmung)"
     ],
     "zuversicht": "niedrig",
     "quellen": [
      {
-      "t": "Veralto rises after strong Q3 results and higher full-year guidance",
-      "u": "https://www.quiverquant.com/news/Veralto+rises+after+strong+Q3+results+and+higher+full-year+guidance",
-      "q": "Quiver Quantitative",
-      "d": "2026-10-30"
+      "t": "Chipotle Soars 16% in a Week as Traffic Grows Again",
+      "u": "https://www.tikr.com/blog/chipotle-soars-16-in-a-week-as-traffic-grows-again-lower-income-cohort-outperformed",
+      "q": "TIKR",
+      "d": "2026-11-07"
      },
      {
-      "t": "Reasons Why Investors Can Consider Buying Veralto Stock Now",
-      "u": "https://finnhub.io/api/news?id=5efcb294acbf26a87954468784a7933f99d0fab43af8b82dd450cd420bd56465",
-      "q": "Yahoo",
-      "d": "2026-11-12"
+      "t": "Can Brisket Help Chipotle Exit 2026 With 3%-4% Comp Growth?",
+      "u": "https://finnhub.io/api/news?id=7a9a52d75ba53e916823186af7059f9b8e7b7e38f349fbc4cf53325680e0b5c3",
+      "q": "Yahoo/Zacks",
+      "d": "2026-11-18"
+     },
+     {
+      "t": "A 7-Day Winning Streak Has Chipotle Mexican Grill Stock Up 27%",
+      "u": "https://www.trefis.com/stock/cmg/articles/623205/a-7-day-winning-streak-has-chipotle-mexican-grill-stock-up-27/2026-11-06",
+      "q": "Trefis",
+      "d": "2026-11-06"
      }
     ]
    },
    {
-    "s": "SAN.PA",
-    "einschaetzung": "Gute Nachrichtenlage, kurzfristig aber knapp an der Hürde.",
-    "warum": "Sanofi ist in vier Wochen um 17,2 % und in drei Monaten um 10,2 % gestiegen und erreichte vor vier Tagen ein 52-Wochen-Hoch; über fünf Tage steht ein Minus von 0,4 % und der Kurs liegt 2,3 % unter dem 10-Tage-Hoch, der RSI ist auf 70 gesunken. Rückenwind kommt vom starken dritten Quartal dank Dupixent und angehobenen Jahreszielen, Morningstar sieht den fairen Wert bei 107 Euro. Neue Firmenmeldungen seit heute früh fanden sich nicht. Das Muster „neues 52-Wochen-Hoch“ zeigte im Rückblick keinen klaren Vorteil.",
-    "ausblick": "Als defensiver Pharmawert kann Sanofi in einem nervösen Markt gefragt bleiben. Die übliche Drei-Tage-Bewegung von 2,5 % liegt nur knapp über der Hürde von 1,92 %, die Steigerung ist daher unsicher.",
+    "s": "EW",
+    "einschaetzung": "Gute Nachrichtenlage, aber kurzfristig wenig Antrieb.",
+    "warum": "Edwards Lifesciences liegt in vier Wochen 19 % und in drei Monaten 15,8 % im Plus, über fünf Tage mit −0,5 % fast unverändert und 1,8 % unter dem 10-Tage-Hoch; der RSI von 72 zeigt leichte Überhitzung. Anfang November übertraf der Herzklappen-Spezialist die Erwartungen und hob die Jahresziele an, Baird stufte danach auf „Outperform“ mit Kursziel 116 US-Dollar hoch. Ein Seeking-Alpha-Beitrag mahnt wegen der Bewertung zur Vorsicht. Neue Meldungen seit gestern Abend fanden sich nicht.",
+    "ausblick": "Die übliche Drei-Tage-Bewegung von 2,7 % liegt nur knapp über der Hürde von 1,92 %, ein klarer kurzfristiger Auslöser fehlt. Am wahrscheinlichsten ist ein Seitwärtspendeln knapp unter dem jüngsten Hoch. Die nötige Steigerung ist möglich, aber eher Glückssache.",
     "szenarien": {
-     "gut": "Der Markt bleibt nervös und Anleger setzen auf defensive Pharmawerte.",
-     "schlecht": "Rotation zurück in Technologie oder weitere Gewinnmitnahmen."
+     "gut": "Der Medizintechnik-Sektor bleibt gefragt und der Kurs nimmt das 10-Tage-Hoch wieder ins Visier.",
+     "schlecht": "Bewertungssorgen und ein schwacher US-Markt führen zu weiteren kleinen Abgaben."
     },
     "treiber": [
-     "Dupixent-Wachstum und angehobene Prognose",
-     "Defensive Branche"
+     "Angehobene Jahresziele",
+     "Analysten-Hochstufungen"
     ],
     "risiken": [
-     "Übliche Bewegung knapp über der Hürde",
-     "Leichte Abwärtstendenz über fünf Tage"
+     "Hohe Bewertung",
+     "Übliche Bewegung nur knapp über der Hürde"
     ],
     "termine": [
-     "18.11.2026: Protokoll der Fed-Sitzung (US-Abend)"
+     "19.11.2026: Anthropic-Börsengang an der Nasdaq und Walmart-Quartalszahlen (Marktstimmung)"
     ],
     "zuversicht": "niedrig",
     "quellen": [
      {
-      "t": "Sanofi-Aktie: Morningstar sieht fairen Wert bei 107 Euro",
-      "u": "https://www.ad-hoc-news.de/boerse/news/corporate-news/sanofi-aktie-morningstar-sieht-fairen-wert-bei-107-euro/70491435",
-      "q": "ad-hoc-news.de",
-      "d": "2026-11-11"
+      "t": "Edwards Lifesciences Aktie: Baird stuft auf Outperform hoch und hebt Kursziel auf 116 Dollar",
+      "u": "https://goldesel.de/aktien/news/edwards-lifesciences-aktie-baird-stuft-auf-outperform-hoch-und-hebt-kursziel-auf-116-dollar",
+      "q": "goldesel.de",
+      "d": "2026-11-05"
      },
      {
-      "t": "ROUNDUP/Dank Dupixent: Sanofi hebt Prognose an - Quartal übertrifft Erwartungen",
-      "u": "https://de.finance.yahoo.com/nachrichten/roundup-dank-dupixent-sanofi-hebt-083555573.html?.tsrc=rss",
-      "q": "dpa-AFX/Yahoo Finanzen",
-      "d": "2026-10-30"
+      "t": "Edwards Lifesciences beats and raises again, but TAVR share gains have plateaued",
+      "u": "https://finviz.com/news/416442/edwards-lifesciences-beats-and-raises-again-but-tavr-share-gains-have-plateaued-as-moderate-as-becomes-the-next-debate",
+      "q": "Earnings Whispers/Finviz",
+      "d": "2026-11-04"
      },
      {
-      "t": "Seawolf surfaces with $100M, $1.2B Sanofi pact for redosable DNA medicines",
-      "u": "https://www.biospace.com/business/seawolf-surfaces-with-100m-1-2b-sanofi-pact-for-redosable-dna-medicines",
-      "q": "BioSpace",
-      "d": "2026-11-16"
+      "t": "Edwards Lifesciences: Momentum Returns, But Valuation Warrants Caution",
+      "u": "https://finnhub.io/api/news?id=5d5efe5f0eaf48a5f1d9586887dd86d9c31d1b043528c5b23e9549beb6d0fc7a",
+      "q": "SeekingAlpha",
+      "d": "2026-11-18"
      }
     ]
    }
   ],
   "7": [
    {
-    "s": "VLTO",
-    "einschaetzung": "Intakter Aufwärtstrend, Hürde über sieben Tage erreichbar, aber nicht sicher.",
-    "warum": "Veralto zeigt mit +16,7 % in vier Wochen und +19,7 % in drei Monaten einen klaren Aufwärtstrend, liegt aber über fünf Tage leicht im Minus und 1,7 % unter dem 10-Tage-Hoch; RSI 73. Die angehobene Gewinnprognose nach dem dritten Quartal und die erwartete Beschleunigung des Kernwachstums stützen. Wasseraufbereitung gilt als stabiles Wachstumsfeld. Neue Meldungen seit heute früh gab es nicht.",
-    "ausblick": "Die übliche Sieben-Tage-Bewegung von 3,7 % liegt unter der Hürde von 4,12 %, die volle Steigerung ist also eher unwahrscheinlich. Am wahrscheinlichsten ist eine Seitwärts- bis leichte Aufwärtsbewegung mit dem Markt.",
-    "szenarien": {
-     "gut": "Defensive Qualitätswerte bleiben gefragt.",
-     "schlecht": "Rotation in Tech oder eine Konsolidierung nach dem starken Monat."
-    },
-    "treiber": [
-     "Angehobene Prognose",
-     "Stabiles Geschäftsmodell"
-    ],
-    "risiken": [
-     "Übliche Bewegung unter der Hürde",
-     "RSI 73"
-    ],
-    "termine": [
-     "18.11.2026: Protokoll der Fed-Sitzung (US-Abend)",
-     "26.11.2026: US-Börsen wegen Thanksgiving geschlossen"
-    ],
-    "zuversicht": "niedrig",
-    "quellen": [
-     {
-      "t": "Veralto rises after strong Q3 results and higher full-year guidance",
-      "u": "https://www.quiverquant.com/news/Veralto+rises+after+strong+Q3+results+and+higher+full-year+guidance",
-      "q": "Quiver Quantitative",
-      "d": "2026-10-30"
-     },
-     {
-      "t": "Reasons Why Investors Can Consider Buying Veralto Stock Now",
-      "u": "https://finnhub.io/api/news?id=5efcb294acbf26a87954468784a7933f99d0fab43af8b82dd450cd420bd56465",
-      "q": "Yahoo",
-      "d": "2026-11-12"
-     }
-    ]
-   },
-   {
     "s": "BAYN.DE",
-    "einschaetzung": "Viel Bewegung möglich, Richtung hängt an Nachrichten.",
-    "warum": "Bayer stieg in vier Wochen um 25,3 %, gab aber über fünf Tage 1,4 % ab und liegt 2 % unter dem 10-Tage-Hoch; der RSI ist auf 69 gefallen. Berenberg hob heute das Kursziel auf 62 Euro bei „Hold“, die Deutsche Bank sah zuletzt 65 Euro. Treiber sind die US-Zulassung von Sunharbo, die angehobene Prognose und Fortschritte im Glyphosat-Streit. Die übliche Sieben-Tage-Bewegung von 5,3 % ist die höchste unter den Kandidaten.",
-    "ausblick": "Mit 5,3 % üblicher Bewegung ist die Hürde von 4,12 % grundsätzlich erreichbar. Entscheidend dürften Signale zum Roundup-Vergleich sein, die den Kurs in beide Richtungen bewegen können. Der schwache Gesamtmarkt bleibt ein Gegenwind.",
+    "einschaetzung": "Beste Kombination aus Nachrichten und Bewegung, aber nicht ohne Risiko.",
+    "warum": "Bayer stieg in vier Wochen um 28,7 % und in sechs Monaten um 64 %, gab über fünf Tage aber 2 % ab und liegt 1,6 % unter dem 10-Tage-Hoch; RSI 70. Die übliche Sieben-Tage-Bewegung von 5,3 % liegt über der Hürde von 4,12 %. Treiber sind die US-Zulassung von Sunharbo und Fortschritte im Glyphosat-Streit; Berenberg hob das Kursziel auf 62 Euro bei „Hold“. Börse Express sieht eine anstehende Gerichtsentscheidung zum Vergleich als nächsten großen Auslöser.",
+    "ausblick": "Über sieben Tage ist ein neuer Anlauf auf das Hoch denkbar, wenn sich die Nachrichtenlage im Glyphosat-Streit weiter aufhellt. Ohne neuen Impuls dürfte der Kurs eher seitwärts pendeln. Die nötige Steigerung von 4,12 % ist mit der üblichen Bewegung erreichbar, aber nur bei positivem Rückenwind.",
     "szenarien": {
-     "gut": "Positive Gerichtsentscheidung oder guter Marktstart von Sunharbo.",
-     "schlecht": "Rückschlag vor Gericht oder anhaltende Marktschwäche."
+     "gut": "Ein günstiges Signal im Glyphosat-Verfahren oder ein guter Sunharbo-Start treibt den Kurs über das jüngste Hoch.",
+     "schlecht": "Ein Rückschlag vor Gericht oder fortgesetzte Gewinnmitnahmen drücken den Kurs deutlich unter das 10-Tage-Hoch."
     },
     "treiber": [
      "Glyphosat-Vergleich",
-     "Sunharbo-Start in den USA",
-     "Kurszielanhebung Berenberg"
+     "Sunharbo-Marktstart",
+     "Kurszielanhebung"
     ],
     "risiken": [
      "Gerichtsrisiko",
-     "Analysten überwiegend neutral"
+     "Analysten überwiegend neutral",
+     "Fünf-Tage-Bilanz negativ"
     ],
     "termine": [
-     "18.11.2026: Protokoll der Fed-Sitzung (US-Abend)",
-     "19.11.2026: geplanter Börsengang von Anthropic (Marktstimmung Tech)",
-     "26.11.2026: US-Börsen wegen Thanksgiving geschlossen"
+     "19.11.2026: Anthropic-Börsengang an der Nasdaq und Walmart-Quartalszahlen (Marktstimmung)",
+     "26.11.2026: US-Börsen wegen Thanksgiving geschlossen, 27.11. verkürzter Handel"
     ],
     "zuversicht": "mittel",
     "quellen": [
@@ -318,10 +288,10 @@
       "d": "2026-11-17"
      },
      {
-      "t": "Bayer Aktie: Jefferies rührt das Kursziel nicht an",
-      "u": "https://www.boerse-express.com/news/articles/bayer-aktie-jefferies-ruehrt-das-kursziel-nicht-an-963745",
-      "q": "Börse Express",
-      "d": "2026-11-17"
+      "t": "ROUNDUP: Bayer gewinnt Glyphosat-Prozess - Vergleichsbestreben gestärkt",
+      "u": "https://www.onvista.de/news/2026/10-30-roundup-bayer-gewinnt-glyphosat-prozess-vergleichsbestreben-gestaerkt-0-10-26570351",
+      "q": "dpa-AFX/onvista",
+      "d": "2026-10-30"
      },
      {
       "t": "ROUNDUP: Bayer darf Gerinnungshemmer Sunharbo auch in den USA verkaufen",
@@ -332,13 +302,94 @@
     ]
    },
    {
-    "s": "EW",
-    "einschaetzung": "Freundliches Bild, aber Hürde über sieben Tage ambitioniert.",
-    "warum": "Edwards Lifesciences liegt in vier Wochen 19,2 % im Plus, über fünf Tage leicht im Minus (−0,4 %) und 1,7 % unter dem 10-Tage-Hoch; RSI 73. Nach starken Quartalszahlen und angehobenen Zielen hoben Baird und Truist ihre Einstufungen bzw. Kursziele. Kritische Stimmen verweisen auf die hohe Bewertung und ein langsameres TAVR-Wachstum. Neue Meldungen seit heute früh gab es nicht.",
-    "ausblick": "Die übliche Sieben-Tage-Bewegung von 4,1 % liegt fast genau auf der Hürde von 4,12 %, die volle Steigerung ist also etwa ein Münzwurf oder schlechter. Ein ruhiger Markt würde den Trend stützen.",
+    "s": "GEHC",
+    "einschaetzung": "Trend intakt, Hürde erreichbar.",
+    "warum": "GE HealthCare legte in vier Wochen 21,2 % und in drei Monaten 13,2 % zu, ist über fünf Tage 1,3 % im Plus und nur 0,4 % unter dem 10-Tage-Hoch; RSI 67. Die übliche Sieben-Tage-Bewegung von 5 % liegt über der Hürde von 4,12 %. Das starke dritte Quartal mit angehobener Gewinnprognose trägt den Trend, dazu kommen laufende Produkt- und Forschungsmeldungen. Ein Beitrag auf Yahoo sieht die Aktie nach der Prognoseanhebung noch unter dem fairen Wert.",
+    "ausblick": "Am wahrscheinlichsten setzt sich der Aufwärtstrend in kleinen Schritten fort, solange der Gesamtmarkt nicht weiter abrutscht. Die nötige Steigerung von 4,12 % ist realistisch, setzt aber eine ruhige Marktlage voraus. Nach dem steilen Monatsplus sind Verschnaufpausen eingeplant.",
     "szenarien": {
-     "gut": "Weitere Kurszielanhebungen und eine Marktberuhigung.",
-     "schlecht": "Bewertungssorgen und Gewinnmitnahmen."
+     "gut": "Der Trend hält und weitere Analysten heben nach der Prognoseanhebung ihre Ziele an.",
+     "schlecht": "Eine längere Verlustserie an der Wall Street zieht auch defensive Gesundheitswerte nach unten."
+    },
+    "treiber": [
+     "Angehobene Prognose",
+     "Produktneuheiten",
+     "Defensive Branche"
+    ],
+    "risiken": [
+     "Starker Vorlauf",
+     "Schwacher US-Gesamtmarkt"
+    ],
+    "termine": [
+     "19.11.2026: Anthropic-Börsengang an der Nasdaq und Walmart-Quartalszahlen (Marktstimmung)",
+     "26.11.2026: US-Börsen wegen Thanksgiving geschlossen, 27.11. verkürzter Handel"
+    ],
+    "zuversicht": "mittel",
+    "quellen": [
+     {
+      "t": "GEHC Q3 Earnings Beat Estimates on Strong Growth, '26 View Raised",
+      "u": "https://www.zacks.com/stock/news/3017511/gehc-q3-earnings-beat-estimates-on-strong-growth-26-view-raised",
+      "q": "Zacks",
+      "d": "2026-10-28"
+     },
+     {
+      "t": "GE HealthCare (GEHC) Stock May Be Below Fair Value Following Raised Guidance",
+      "u": "https://finnhub.io/api/news?id=bc05b9380438c8f5d87d6b187809956acbda1327d75eaaa76cb1a2bd8a783ba1",
+      "q": "Yahoo/Simply Wall St",
+      "d": "2026-11-18"
+     },
+     {
+      "t": "GE HealthCare Expands Global Research Network for Photon-Counting CT",
+      "u": "https://finnhub.io/api/news?id=3bc5d0373dd59b4af30ef213022fd0101b3dbf9ad27d6dae93638356e87d272a",
+      "q": "Yahoo",
+      "d": "2026-11-18"
+     }
+    ]
+   },
+   {
+    "s": "PNR",
+    "einschaetzung": "Viel Bewegung, aber gemischte Geschäftslage.",
+    "warum": "Pentair stieg in vier Wochen um 29,3 % und in drei Monaten um 9,5 %, liegt über sechs Monate aber 3,5 % im Minus; über fünf Tage steht −1,4 % und der Kurs ist 2,6 % unter dem 10-Tage-Hoch, der RSI von 63 ist nicht überhitzt. Im dritten Quartal lag der Gewinn je Aktie laut Finviz über den Erwartungen, der Umsatz sank aber, vor allem im Poolgeschäft; die Jahresprognose wurde bestätigt und für das vierte Quartal Umsatzwachstum erwartet. Gestern stieg der Kurs laut Kursdaten um 2,2 %. Mit 6,2 % hat Pentair die größte übliche Sieben-Tage-Bewegung der Kandidaten.",
+    "ausblick": "Die große übliche Bewegung macht die Hürde von 4,12 % erreichbar, sie wirkt aber in beide Richtungen. Der kleine Rücksetzer der letzten Tage scheint eher eine Pause als ein Trendbruch, eine negative Firmenmeldung fand sich nicht. Am wahrscheinlichsten pendelt der Kurs um das jüngste Hoch.",
+    "szenarien": {
+     "gut": "Der Kurs knüpft an den gestrigen Anstieg an und die Erwartung auf Wachstum im vierten Quartal trägt.",
+     "schlecht": "Sorgen um das schwache Poolgeschäft und ein fallender Markt lassen den Kurs zurückfallen."
+    },
+    "treiber": [
+     "Erwartetes Umsatzwachstum im vierten Quartal",
+     "Hohe übliche Bewegung"
+    ],
+    "risiken": [
+     "Umsatzrückgang im Poolgeschäft",
+     "Fünf-Tage-Bilanz negativ"
+    ],
+    "termine": [
+     "19.11.2026: Anthropic-Börsengang an der Nasdaq und Walmart-Quartalszahlen (Marktstimmung)",
+     "26.11.2026: US-Börsen wegen Thanksgiving geschlossen, 27.11. verkürzter Handel"
+    ],
+    "zuversicht": "niedrig",
+    "quellen": [
+     {
+      "t": "Pentair reports Q3 earnings above estimates, maintains 2026 EPS outlook at $4.70",
+      "u": "https://finviz.com/news/408914/pentair-reports-q3-earnings-above-estimates-maintains-2026-eps-outlook-at-470",
+      "q": "Finviz",
+      "d": "2026-10-27"
+     },
+     {
+      "t": "Pentair Stock: Analyst Estimates & Ratings",
+      "u": "https://finnhub.io/api/news?id=fcd3f55524a7ef53da5390a7012b0ccac61ad8b5a6fbc88d164545f43205504d",
+      "q": "Yahoo/Barchart",
+      "d": "2026-11-18"
+     }
+    ]
+   },
+   {
+    "s": "EW",
+    "einschaetzung": "Solide, aber knapp an der Hürde.",
+    "warum": "Edwards Lifesciences liegt in vier Wochen 19 % im Plus, über fünf Tage leicht im Minus (−0,5 %) und 1,8 % unter dem 10-Tage-Hoch; RSI 72. Die übliche Sieben-Tage-Bewegung von 4,1 % entspricht etwa der Hürde von 4,12 %. Nach starken Zahlen und angehobenen Jahreszielen hob Baird auf „Outperform“; kritische Stimmen verweisen auf die hohe Bewertung und abflachende Marktanteilsgewinne bei TAVR. Neue Meldungen seit gestern Abend gab es nicht.",
+    "ausblick": "Der Trend ist intakt, ein kurzfristiger Auslöser fehlt aber. Wahrscheinlich ist eine ruhige Fortsetzung mit kleinen Schritten, die für die volle Hürde nur knapp reichen dürfte. Die nötige Steigerung ist möglich, aber eher am oberen Rand des Üblichen.",
+    "szenarien": {
+     "gut": "Weitere Analysten folgen Baird und der Kurs steigt über das 10-Tage-Hoch.",
+     "schlecht": "Bewertungssorgen führen zu einer längeren Verschnaufpause."
     },
     "treiber": [
      "Angehobene Jahresziele",
@@ -346,11 +397,11 @@
     ],
     "risiken": [
      "Hohe Bewertung",
-     "TAVR-Wachstum verlangsamt"
+     "Langsameres TAVR-Wachstum"
     ],
     "termine": [
-     "18.11.2026: Protokoll der Fed-Sitzung (US-Abend)",
-     "26.11.2026: US-Börsen wegen Thanksgiving geschlossen"
+     "19.11.2026: Anthropic-Börsengang an der Nasdaq und Walmart-Quartalszahlen (Marktstimmung)",
+     "26.11.2026: US-Börsen wegen Thanksgiving geschlossen, 27.11. verkürzter Handel"
     ],
     "zuversicht": "niedrig",
     "quellen": [
@@ -375,158 +426,72 @@
     ]
    },
    {
-    "s": "PHIA.AS",
-    "einschaetzung": "Erholung intakt, aber heiß gelaufen.",
-    "warum": "Philips hat in vier Wochen 16 % und in drei Monaten 17,4 % zugelegt, über fünf Tage ist der Kurs praktisch unverändert und liegt 1,2 % unter dem 10-Tage-Hoch; der RSI von 75 zeigt Überhitzung. Anfang November überzeugten die Quartalszahlen mit besserer Marge, dazu kam eine grundsätzliche Einigung mit dem US-Justizministerium zum Atemgeräte-Rückruf. Barclays hob das Kursziel auf 35 Euro. Neue Meldungen seit heute früh fanden sich nicht.",
-    "ausblick": "Die übliche Sieben-Tage-Bewegung von 3,8 % liegt unter der Hürde von 4,12 %, die volle Steigerung ist daher eher unwahrscheinlich. Der Trend spricht für leichte Fortsetzung, ein Rücksetzer nach RSI 75 ist aber genauso plausibel.",
+    "s": "VLTO",
+    "einschaetzung": "Stabiler Trend, aber eher träge.",
+    "warum": "Veralto führt die Sieben-Tage-Rechnung an: +16,3 % in vier Wochen, +19,3 % in drei Monaten und +43,3 % in sechs Monaten, über fünf Tage −0,8 % und 2 % unter dem 10-Tage-Hoch; RSI 71. Ende Oktober meldete der Wasser- und Messtechnikanbieter ein Umsatzplus und hob die Gewinnprognose für 2026 an. Ein Beitrag auf Yahoo zählt Veralto zu den Profiteuren alternder US-Wasserinfrastruktur und steigender Nachfrage durch KI-Rechenzentren. Neue Firmenmeldungen seit gestern Abend fanden sich nicht.",
+    "ausblick": "Die übliche Sieben-Tage-Bewegung von 3,7 % liegt unter der Hürde von 4,12 %, die nötige Steigerung ist also eher ambitioniert. Der Trend ist stabil, ein kurzfristiger Auslöser fehlt aber. Am wahrscheinlichsten ist ein ruhiges Pendeln nahe dem Hoch.",
     "szenarien": {
-     "gut": "Weitere Kurszielanhebungen und ein ruhiger Markt.",
-     "schlecht": "Gewinnmitnahmen oder neue Rückruf-Kosten."
+     "gut": "Der Infrastruktur-Trend zieht neue Anleger an und der Kurs markiert ein neues Hoch.",
+     "schlecht": "Die erhöhte Bewertung nach dem Halbjahresplus führt zu einer Konsolidierung."
     },
     "treiber": [
-     "Bessere Marge",
-     "Einigung in den USA",
-     "Barclays-Kursziel"
-    ],
-    "risiken": [
-     "RSI 75",
-     "Weitere Rückstellungen möglich",
-     "Übliche Bewegung unter der Hürde"
-    ],
-    "termine": [
-     "18.11.2026: Protokoll der Fed-Sitzung (US-Abend)",
-     "26.11.2026: US-Börsen wegen Thanksgiving geschlossen"
-    ],
-    "zuversicht": "niedrig",
-    "quellen": [
-     {
-      "t": "Philips-Aktie: Barclays hebt Kursziel auf 35 Euro",
-      "u": "https://www.ad-hoc-news.de/boerse/news/corporate-news/philips-aktie-barclays-hebt-kursziel-auf-35-euro/70505451",
-      "q": "ad-hoc-news.de",
-      "d": "2026-11-13"
-     },
-     {
-      "t": "AKTIE IM FOKUS: Philips nach Zahlen und Einigung in den USA gefragt",
-      "u": "https://de.finance.yahoo.com/nachrichten/aktie-fokus-philips-zahlen-einigung-101210092.html?.tsrc=rss",
-      "q": "dpa-AFX/Yahoo Finanzen",
-      "d": "2026-11-03"
-     },
-     {
-      "t": "Philips: Robustes Neugeschäft und bessere Marge - Weitere Rückstellung",
-      "u": "https://de.finance.yahoo.com/nachrichten/philips-robustes-neugesch%C3%A4ft-bessere-marge-080027462.html?.tsrc=rss",
-      "q": "dpa-AFX/Yahoo Finanzen",
-      "d": "2026-11-03"
-     }
-    ]
-   },
-   {
-    "s": "SAN.PA",
-    "einschaetzung": "Defensiver Trendwert, Hürde über sieben Tage knapp verfehlt.",
-    "warum": "Sanofi stieg in vier Wochen um 17,2 % und erreichte kürzlich ein 52-Wochen-Hoch, liegt nun aber 2,3 % darunter bei leicht negativer Fünf-Tage-Bilanz; RSI 70. Das starke Dupixent-Wachstum und die angehobenen Jahresziele stützen, Morningstar sieht den fairen Wert bei 107 Euro. Neue Meldungen seit heute früh fanden sich nicht.",
-    "ausblick": "Die übliche Sieben-Tage-Bewegung von 3,8 % liegt unter der Hürde von 4,12 %. In einem nervösen Markt kann Pharma gefragt bleiben, die volle Steigerung ist aber eher unwahrscheinlich.",
-    "szenarien": {
-     "gut": "Anhaltende Nachfrage nach defensiven Werten.",
-     "schlecht": "Rotation zurück in Tech oder Gewinnmitnahmen."
-    },
-    "treiber": [
-     "Dupixent-Wachstum",
-     "Angehobene Prognose"
+     "Angehobene Prognose",
+     "Thema Wasserinfrastruktur"
     ],
     "risiken": [
      "Übliche Bewegung unter der Hürde",
-     "Kurs unter dem jüngsten Hoch"
+     "RSI 71"
     ],
     "termine": [
-     "18.11.2026: Protokoll der Fed-Sitzung (US-Abend)",
-     "26.11.2026: US-Börsen wegen Thanksgiving geschlossen"
+     "19.11.2026: Anthropic-Börsengang an der Nasdaq und Walmart-Quartalszahlen (Marktstimmung)",
+     "26.11.2026: US-Börsen wegen Thanksgiving geschlossen, 27.11. verkürzter Handel"
     ],
     "zuversicht": "niedrig",
     "quellen": [
      {
-      "t": "Sanofi-Aktie: Morningstar sieht fairen Wert bei 107 Euro",
-      "u": "https://www.ad-hoc-news.de/boerse/news/corporate-news/sanofi-aktie-morningstar-sieht-fairen-wert-bei-107-euro/70491435",
-      "q": "ad-hoc-news.de",
-      "d": "2026-11-11"
-     },
-     {
-      "t": "ROUNDUP/Dank Dupixent: Sanofi hebt Prognose an - Quartal übertrifft Erwartungen",
-      "u": "https://de.finance.yahoo.com/nachrichten/roundup-dank-dupixent-sanofi-hebt-083555573.html?.tsrc=rss",
-      "q": "dpa-AFX/Yahoo Finanzen",
+      "t": "Veralto rises after strong Q3 results and higher full-year guidance",
+      "u": "https://www.quiverquant.com/news/Veralto+rises+after+strong+Q3+results+and+higher+full-year+guidance",
+      "q": "Quiver Quantitative",
       "d": "2026-10-30"
      },
      {
-      "t": "Seawolf surfaces with $100M, $1.2B Sanofi pact for redosable DNA medicines",
-      "u": "https://www.biospace.com/business/seawolf-surfaces-with-100m-1-2b-sanofi-pact-for-redosable-dna-medicines",
-      "q": "BioSpace",
-      "d": "2026-11-16"
+      "t": "3 Stocks in an Overlooked Corner of Infrastructure With Hundreds of Billions at Stake",
+      "u": "https://finnhub.io/api/news?id=33893b3de543aa0d6af4ccfe6f39bd9ba9c7bcd8d689724570d8c88d3d013dc5",
+      "q": "Yahoo",
+      "d": "2026-11-17"
+     },
+     {
+      "t": "Reasons Why Investors Can Consider Buying Veralto Stock Now",
+      "u": "https://finnhub.io/api/news?id=5efcb294acbf26a87954468784a7933f99d0fab43af8b82dd450cd420bd56465",
+      "q": "Yahoo/Zacks",
+      "d": "2026-11-12"
      }
     ]
    }
   ],
   "30": [
    {
-    "s": "VTRS",
-    "einschaetzung": "Neuer Wachstumsbaustein und Analysten-Rückenwind, aber schon weit gelaufen.",
-    "warum": "Viatris ist in drei Monaten um 23,9 % und in vier Wochen um 12,3 % gestiegen, über fünf Tage steht ein Minus von 1,6 %, 1,6 % unter dem 10-Tage-Hoch; RSI 66. Gestern schloss der Konzern die Übernahme von Pacira BioSciences ab, die laut Zacks rund 1,65 Mrd. US-Dollar kostet und sofort zum Ergebnis beitragen soll. Oppenheimer bestätigte heute „Outperform“ und hob das Kursziel von 25 auf 26 US-Dollar; der Analyst sieht die Aktie zu Unrecht nur als Generika-Wert bewertet. Mit 9,1 % hat Viatris die höchste übliche 30-Tage-Bewegung der gewählten Werte.",
-    "ausblick": "Die Integration von Pacira und Auftritte auf Konferenzen können für Aufmerksamkeit sorgen. Die übliche 30-Tage-Bewegung von 9,1 % liegt aber deutlich unter der Hürde von 17,44 %, die volle Steigerung ist unwahrscheinlich. Ein moderater weiterer Anstieg ist plausibler.",
-    "szenarien": {
-     "gut": "Positive Signale zur Pacira-Integration und weitere Kurszielanhebungen.",
-     "schlecht": "Integrationsprobleme oder Druck im Generikageschäft."
-    },
-    "treiber": [
-     "Abgeschlossene Pacira-Übernahme",
-     "Kurszielanhebung Oppenheimer"
-    ],
-    "risiken": [
-     "Integrationsrisiko",
-     "Hürde weit über üblicher Bewegung"
-    ],
-    "termine": [
-     "18.11.2026: Protokoll der Fed-Sitzung (US-Abend)",
-     "26.11.2026: US-Börsen wegen Thanksgiving geschlossen"
-    ],
-    "zuversicht": "mittel",
-    "quellen": [
-     {
-      "t": "Oppenheimer Maintains Outperform on Viatris, Raises Price Target to $26",
-      "u": "https://finnhub.io/api/news?id=051217ceb04510989b1cace5d87549cdb7c83d14bf19b7faa1b10158d362d379",
-      "q": "Benzinga",
-      "d": "2026-11-18"
-     },
-     {
-      "t": "Viatris Completes Acquisition of Pacira BioSciences",
-      "u": "https://finnhub.io/api/news?id=0d542b3c1347466b3d09a077fe12d07b62e8122216ff11575028b7ebc71137a8",
-      "q": "Yahoo",
-      "d": "2026-11-17"
-     },
-     {
-      "t": "Viatris to Buy Pacira for $1.65B to Expand Non-Opioid Pain Portfolio",
-      "u": "https://www.zacks.com/stock/news/3003812/viatris-to-buy-pacira-for-165b-to-expand-non-opioid-pain-portfolio",
-      "q": "Zacks",
-      "d": "2026-10-09"
-     }
-    ]
-   },
-   {
     "s": "MTD",
-    "einschaetzung": "Solide Lage, Schwäche eher marktbedingt.",
-    "warum": "Mettler-Toledo stieg in drei Monaten um 23,8 %, in vier Wochen um 3,4 %, über fünf Tage gab der Kurs 0,8 % nach und liegt 1,5 % unter dem 10-Tage-Hoch; der RSI von 62 ist nicht überhitzt. Der Laborgerätehersteller hob die Jahresprognose zum dritten Mal an, Labor- und China-Geschäft erholen sich. Barclays hob das Kursziel auf 1.900 US-Dollar, JP Morgan auf 1.840 US-Dollar bei neutraler Einstufung. Eine negative Firmenmeldung fand sich nicht.",
-    "ausblick": "Die Abkühlung ohne schlechte Nachricht spricht eher für eine Pause als einen Trendbruch. Die übliche 30-Tage-Bewegung von 8,7 % liegt deutlich unter der Hürde von 17,44 %, die volle Steigerung ist unwahrscheinlich.",
+    "einschaetzung": "Geschäftslage stark, Bewertung hoch.",
+    "warum": "Mettler-Toledo stieg in drei Monaten um 23,9 % und in sechs Monaten um 47,2 %, in vier Wochen um 3,5 %; über fünf Tage gab der Kurs 0,7 % nach und liegt 1,4 % unter dem 10-Tage-Hoch, der RSI von 62 ist nicht überhitzt. Der Laborgerätehersteller hob die Jahresprognose zum dritten Mal an, Labor- und China-Geschäft erholen sich. Barclays hob das Kursziel auf 1.900 US-Dollar, JP Morgan auf 1.840 US-Dollar bei neutraler Einstufung. Eine negative Firmenmeldung fand sich nicht.",
+    "ausblick": "Über 30 Tage spricht die Geschäftsdynamik für eine Fortsetzung des Trends, die Kursziele der Analysten liegen aber nur moderat über dem aktuellen Kurs. Die nötige Steigerung von 17,44 % liegt weit über der üblichen 30-Tage-Bewegung von 8,7 % und ist unrealistisch. Ein Plus im einstelligen Bereich wäre schon ein gutes Ergebnis.",
     "szenarien": {
-     "gut": "Weitere Erholung im Laborgeschäft und in China.",
-     "schlecht": "Schwächere Investitionen der Kunden oder hohe Bewertung belastet."
+     "gut": "Die Erholung im Laborgeschäft setzt sich fort und weitere Kurszielanhebungen folgen.",
+     "schlecht": "Ein Zinsschock im Dezember oder Schwäche in China belasten die hoch bewertete Aktie."
     },
     "treiber": [
      "Dritte Prognoseanhebung",
-     "Kurszielanhebungen"
+     "Kurszielanhebungen",
+     "Erholung im China-Geschäft"
     ],
     "risiken": [
      "Hohe Bewertung",
-     "China-Abhängigkeit"
+     "China-Abhängigkeit",
+     "Hürde weit über üblicher Bewegung"
     ],
     "termine": [
-     "18.11.2026: Protokoll der Fed-Sitzung (US-Abend)",
-     "Dezember 2026: Fed-Zinsentscheid"
+     "26.11.2026: US-Börsen wegen Thanksgiving geschlossen, 27.11. verkürzter Handel",
+     "Dezember 2026: Zinsentscheid der US-Notenbank (laut AP wird teils mit einer Anhebung gerechnet)"
     ],
     "zuversicht": "mittel",
     "quellen": [
@@ -547,35 +512,29 @@
       "u": "https://finnhub.io/api/news?id=4b6f5fd27f9bc3104b0c4ba5ad4faf6cae053ab3ab9285fc2fcaf1147eaacf27",
       "q": "Benzinga",
       "d": "2026-11-10"
-     },
-     {
-      "t": "Mettler-Toledo International Inc. (MTD) Presents at Stifel 2026 Healthcare Conference 2026 Transcript",
-      "u": "https://finnhub.io/api/news?id=5b664918e1d44fab05d5f42711f75c3f5dfd8f05db9d7a6608b6a4eefa2496af",
-      "q": "SeekingAlpha",
-      "d": "2026-11-12"
      }
     ]
    },
    {
     "s": "VLTO",
-    "einschaetzung": "Stetiger Qualitätswert mit Rückenwind aus der Prognose.",
-    "warum": "Veralto legte in drei Monaten 19,7 % und in vier Wochen 16,7 % zu, der Trend ist aufwärts, der RSI von 73 aber erhöht. Die nach dem dritten Quartal angehobene Gewinnprognose und die erwartete Wachstumsbeschleunigung im vierten Quartal sprechen für eine solide Geschäftslage. Die Nachfrage nach Wasseraufbereitung und Messtechnik gilt als stabil.",
-    "ausblick": "Über 30 Tage ist ein weiterer moderater Anstieg möglich, die übliche Bewegung von 7,6 % liegt aber weit unter der Hürde von 17,44 %. Nach dem starken Monat ist auch eine Konsolidierung plausibel.",
+    "einschaetzung": "Solides Geschäft, Trend klar aufwärts.",
+    "warum": "Veralto legte in drei Monaten 19,3 % und in sechs Monaten 43,3 % zu, der Trend ist aufwärts, der RSI von 71 aber erhöht. Die nach dem dritten Quartal angehobene Gewinnprognose und die erwartete Wachstumsbeschleunigung im vierten Quartal sprechen für eine solide Geschäftslage. Wasseraufbereitung und Messtechnik gelten als stabiles Wachstumsfeld, zuletzt auch mit Blick auf den Wasserbedarf von Rechenzentren. Über fünf Tage steht ein kleines Minus von 0,8 %.",
+    "ausblick": "Über 30 Tage spricht die Geschäftslage für eine Fortsetzung des Trends, nach dem steilen Halbjahresanstieg aber eher langsamer. Die nötige Steigerung von 17,44 % liegt weit über der üblichen Bewegung von 7,6 % und ist kaum realistisch.",
     "szenarien": {
-     "gut": "Qualitätswerte bleiben gefragt und das vierte Quartal bestätigt die Beschleunigung.",
-     "schlecht": "Konsolidierung nach dem Lauf oder Rotation in Wachstumswerte."
+     "gut": "Weitere Prognose- oder Kurszielanhebungen bestätigen den Trend.",
+     "schlecht": "Steigende Zinsen machen die hoch bewertete Qualitätsaktie weniger attraktiv."
     },
     "treiber": [
      "Angehobene Gewinnprognose",
-     "Stabile Nachfrage"
+     "Thema Wasserinfrastruktur"
     ],
     "risiken": [
-     "RSI 73",
+     "RSI 71",
      "Hürde weit über üblicher Bewegung"
     ],
     "termine": [
-     "18.11.2026: Protokoll der Fed-Sitzung (US-Abend)",
-     "Dezember 2026: Fed-Zinsentscheid"
+     "26.11.2026: US-Börsen wegen Thanksgiving geschlossen, 27.11. verkürzter Handel",
+     "Dezember 2026: Zinsentscheid der US-Notenbank (laut AP wird teils mit einer Anhebung gerechnet)"
     ],
     "zuversicht": "mittel",
     "quellen": [
@@ -586,34 +545,83 @@
       "d": "2026-10-30"
      },
      {
+      "t": "3 Stocks in an Overlooked Corner of Infrastructure With Hundreds of Billions at Stake",
+      "u": "https://finnhub.io/api/news?id=33893b3de543aa0d6af4ccfe6f39bd9ba9c7bcd8d689724570d8c88d3d013dc5",
+      "q": "Yahoo",
+      "d": "2026-11-17"
+     },
+     {
       "t": "Reasons Why Investors Can Consider Buying Veralto Stock Now",
       "u": "https://finnhub.io/api/news?id=5efcb294acbf26a87954468784a7933f99d0fab43af8b82dd450cd420bd56465",
-      "q": "Yahoo",
+      "q": "Yahoo/Zacks",
       "d": "2026-11-12"
      }
     ]
    },
    {
-    "s": "HEN3.DE",
-    "einschaetzung": "Starker Lauf, Kurs schon über den Analystenzielen.",
-    "warum": "Henkel stieg in drei Monaten um 15,1 % und in vier Wochen um 12,6 %, über fünf Tage steht ein kleines Plus von 0,3 % nahe dem 10-Tage-Hoch; der RSI von 74 zeigt Überhitzung. Nach dem dritten Quartal mit Umsatzplus durch höhere Preise bestätigte der Konzern die Jahresziele, warnte aber vor rund zehn Prozent höheren Materialkosten. Metzler und Goldman hoben ihre Kursziele auf 84 bzw. 85 Euro, blieben aber neutral, weil der Kurs schon darüber lag. Rückenwind kommt von der Umschichtung in defensive Konsumwerte.",
-    "ausblick": "Hält die Vorliebe für defensive Werte an, kann der Trend weiterlaufen. Die übliche 30-Tage-Bewegung von 6,5 % liegt aber weit unter der Hürde von 17,44 %, und der Kurs über den Analystenzielen begrenzt den Spielraum.",
+    "s": "HNR1.DE",
+    "einschaetzung": "Gute Ertragslage, Investorentag als Prüfstein.",
+    "warum": "Hannover Rück stieg in drei Monaten um 15,8 % und in sechs Monaten um 30,6 %, liegt aber 3,4 % unter dem 10-Tage-Hoch bei leicht negativer Fünf-Tage-Bilanz (−0,6 %); der RSI von 61 ist nicht überhitzt. Laut Börsen-Zeitung stieg der Neunmonatsgewinn um 6,9 % auf 2,1 Mrd. Euro, das Gewinnziel von mindestens 2,7 Mrd. Euro für 2026 wurde bestätigt. Belastend wirken sinkende Preise in der Rückversicherung, eine gesunkene Solvenzquote und Abstufungen durch JPMorgan Anfang November. Am 25. November will der Konzern auf einem Investorentag Ziele für 2027 nennen.",
+    "ausblick": "Der Investorentag am 25. November ist der wichtigste Termin im Zeitraum und kann den Kurs in beide Richtungen bewegen. Bleiben die Ziele für 2027 trotz Preisdruck ehrgeizig, ist eine Fortsetzung des Aufwärtstrends wahrscheinlich. Die nötige Steigerung von 17,44 % liegt aber weit über der üblichen Bewegung von 7 % und ist unrealistisch.",
     "szenarien": {
-     "gut": "Anhaltende Rotation in Konsumgüter und Entlastung bei Rohstoffkosten.",
-     "schlecht": "Rotation zurück in Tech oder Sorgen um steigende Materialkosten."
+     "gut": "Der Investorentag liefert überzeugende Ziele für 2027 und eine attraktive Dividendenaussicht.",
+     "schlecht": "Vorsichtige Ziele wegen sinkender Rückversicherungspreise enttäuschen die Anleger."
+    },
+    "treiber": [
+     "Investorentag mit Zielen für 2027",
+     "Bestätigtes Rekordgewinnziel"
+    ],
+    "risiken": [
+     "Sinkende Rückversicherungspreise",
+     "Analysten-Abstufungen",
+     "Gesunkene Solvenzquote"
+    ],
+    "termine": [
+     "25.11.2026: Investorentag von Hannover Rück mit Zielen für 2027",
+     "Dezember 2026: Zinsentscheid der US-Notenbank (laut AP wird teils mit einer Anhebung gerechnet)"
+    ],
+    "zuversicht": "mittel",
+    "quellen": [
+     {
+      "t": "Hannover Rück bekräftigt Gewinnziel von 2,7 Mrd. Euro",
+      "u": "https://www.boersen-zeitung.de/banken-finanzen/hannover-rueck-bekraeftigt-gewinnziel-von-27-mrd-euro",
+      "q": "Börsen-Zeitung",
+      "d": "2026-11-09"
+     },
+     {
+      "t": "ROUNDUP: Hannover Rück will Rekordgewinn zugunsten von Reserven deckeln",
+      "u": "https://de.finance.yahoo.com/nachrichten/roundup-hannover-r%C3%BCck-will-rekordgewinn-100133942.html?.tsrc=rss",
+      "q": "dpa-AFX/Yahoo Finanzen",
+      "d": "2026-11-09"
+     },
+     {
+      "t": "AKTIEN IM FOKUS: Abstufungen bremsen Rückversicherer im Dax aus",
+      "u": "https://de.finance.yahoo.com/nachrichten/aktien-fokus-abstufungen-bremsen-r%C3%BCckversicherer-112727837.html?.tsrc=rss",
+      "q": "dpa-AFX/Yahoo Finanzen",
+      "d": "2026-11-06"
+     }
+    ]
+   },
+   {
+    "s": "HEN3.DE",
+    "einschaetzung": "Defensiver Rückenwind, aber überhitzt.",
+    "warum": "Henkel stieg in drei Monaten um 16 % und in sechs Monaten um 33 %, in vier Wochen um 11,6 %; der Kurs notiert am 10-Tage-Hoch, der RSI von 77 zeigt aber deutliche Überhitzung. Nach dem dritten Quartal mit Umsatzplus durch höhere Preise bestätigte der Konzern die Jahresziele, warnte aber vor rund zehn Prozent höheren Materialkosten. Metzler und Goldman hoben ihre Kursziele, blieben aber neutral, weil der Kurs schon darüber lag. Rückenwind kommt von der Umschichtung in defensive Konsumwerte.",
+    "ausblick": "Über 30 Tage ist nach dem steilen Anstieg eine Verschnaufpause wahrscheinlicher als ein weiterer großer Sprung. Hält die Rotation in Konsumwerte an, kann der Trend aber weiterlaufen. Die nötige Steigerung von 17,44 % liegt weit über der üblichen Bewegung von 6,5 % und ist unrealistisch.",
+    "szenarien": {
+     "gut": "Die Umschichtung in defensive Konsumwerte hält bis zum Jahresende an.",
+     "schlecht": "Die Überhitzung baut sich über einen Rücksetzer ab, etwa wenn Anleger wieder in Tech umschichten."
     },
     "treiber": [
      "Defensive Rotation",
      "Bestätigte Jahresziele"
     ],
     "risiken": [
-     "Kurs über Analystenzielen",
-     "Steigende Materialkosten",
-     "RSI 74"
+     "RSI 77",
+     "Kurs über vielen Analystenzielen",
+     "Steigende Materialkosten"
     ],
     "termine": [
-     "18.11.2026: Protokoll der Fed-Sitzung (US-Abend)",
-     "Dezember 2026: Fed-Zinsentscheid"
+     "Dezember 2026: Zinsentscheid der US-Notenbank (laut AP wird teils mit einer Anhebung gerechnet)"
     ],
     "zuversicht": "niedrig",
     "quellen": [
@@ -626,37 +634,32 @@
      {
       "t": "ROUNDUP: Henkel erwartet deutlich steigende Materialpreise - Aktie gewinnt",
       "u": "https://de.finance.yahoo.com/nachrichten/roundup-henkel-erwartet-deutlich-steigende-095447797.html?.tsrc=rss",
-      "q": "Yahoo Finanzen",
-      "d": "2026-11-10"
-     },
-     {
-      "t": "AKTIE IM FOKUS: Henkel setzen nach finalen Zahlen Kursrally fort",
-      "u": "https://de.finance.yahoo.com/nachrichten/aktie-fokus-henkel-setzen-finalen-090337140.html?.tsrc=rss",
-      "q": "Yahoo Finanzen",
+      "q": "dpa-AFX/Yahoo Finanzen",
       "d": "2026-11-10"
      }
     ]
    },
    {
     "s": "BRK-B",
-    "einschaetzung": "Defensiver Anker, aber träge.",
-    "warum": "Berkshire stieg in drei Monaten um 14,3 % und in vier Wochen um 6,9 %, gab über fünf Tage aber 2 % ab und liegt 2,8 % unter dem 10-Tage-Hoch; RSI 62. Die Holding kaufte im Quartal in großem Umfang eigene Aktien zurück, die jüngste Beteiligungsübersicht zeigt eine neue Position und weitere Verkäufe bei Bank of America. Eine negative Firmenmeldung für den jüngsten Rückgang fand sich nicht, er folgt eher dem Markt.",
-    "ausblick": "Bei anhaltender Tech-Unsicherheit kann Berkshire als sicherer Hafen gefragt bleiben. Die übliche 30-Tage-Bewegung von 5,1 % liegt aber weit unter der Hürde von 17,44 %, die volle Steigerung ist praktisch nicht realistisch.",
+    "einschaetzung": "Ruhiger Anker, wenig Kursfantasie.",
+    "warum": "Berkshire stieg in drei Monaten um 13,9 % und in sechs Monaten um 21,1 %, gab über fünf Tage aber 2,3 % ab und liegt 3,1 % unter dem 10-Tage-Hoch; RSI 61. Gestern fiel die Aktie laut Kursdaten um 2,1 %, eine konkrete Firmenmeldung dazu fand sich nicht; der Rückgang passt zur schwachen Wall Street außerhalb des Tech-Sektors. Laut Reuters kaufte die Holding im Quartal verstärkt eigene Aktien zurück, der operative Gewinn sank. Das Muster „Abkühlung nach Übertreibung“ war im Rückblick leicht positiv, ist aber nur ein schwacher Hinweis.",
+    "ausblick": "Über 30 Tage dürfte Berkshire dem breiten Markt folgen, mit geringerer Schwankung. Die Aktienrückkäufe können Rücksetzer abfedern. Die nötige Steigerung von 17,44 % liegt mehr als dreimal über der üblichen Bewegung von 5,2 % und ist praktisch ausgeschlossen.",
     "szenarien": {
-     "gut": "Anhaltende Unsicherheit lenkt Geld in defensive Qualität.",
-     "schlecht": "Eine kräftige Tech-Erholung zieht Geld aus defensiven Werten ab."
+     "gut": "Der Markt stabilisiert sich und Rückkäufe stützen den Kurs.",
+     "schlecht": "Eine längere Marktkorrektur und sinkende operative Gewinne drücken weiter."
     },
     "treiber": [
-     "Aktienrückkauf",
+     "Aktienrückkäufe",
      "Sicherer-Hafen-Funktion"
     ],
     "risiken": [
      "Sehr träge Bewegung",
-     "Fünf-Tage-Bilanz negativ"
+     "Fünf-Tage-Bilanz negativ",
+     "Operativer Gewinn gesunken"
     ],
     "termine": [
-     "18.11.2026: Protokoll der Fed-Sitzung (US-Abend)",
-     "Dezember 2026: Fed-Zinsentscheid"
+     "26.11.2026: US-Börsen wegen Thanksgiving geschlossen, 27.11. verkürzter Handel",
+     "Dezember 2026: Zinsentscheid der US-Notenbank (laut AP wird teils mit einer Anhebung gerechnet)"
     ],
     "zuversicht": "niedrig",
     "quellen": [
@@ -665,12 +668,6 @@
       "u": "https://gvwire.com/2026/11/07/berkshire-hathaway-accelerates-stock-buybacks-operating-profit-falls/",
       "q": "GV Wire (Reuters)",
       "d": "2026-11-07"
-     },
-     {
-      "t": "Berkshire Kept Buying Back Stock as Shares Hit Records",
-      "u": "https://www.fool.com/investing/2026/11/09/berkshire-kept-buying-back-stock-as-shares-hit-records-heres-what-the-price-it-paid-tells-you/",
-      "q": "The Motley Fool",
-      "d": "2026-11-09"
      },
      {
       "t": "Warren Buffett's Berkshire Just Revealed a New Stock and Sold More Bank of America",
@@ -691,27 +688,32 @@
   {
    "s": "PNR",
    "h": 3,
-   "grund": "Keine frischen Firmenmeldungen und negative Fünf-Tage-Bilanz, kein klarer Auslöser für drei Tage."
+   "grund": "Negative Fünf-Tage-Bilanz und kein frischer Auslöser, eher ein Kandidat für sieben Tage."
   },
   {
-   "s": "CMG",
+   "s": "SAN.PA",
    "h": 3,
-   "grund": "Der Vier-Wochen-Sprung steht einem Drei-Monats-Minus gegenüber, ein Wettbewerber meldet stärkeres Wachstum, die Erholung wirkt unsicher."
-  },
-  {
-   "s": "GEHC",
-   "h": 3,
-   "grund": "Produktmeldungen ohne großen Kurseffekt, andere Werte boten eine klarere Nachrichtenlage."
+   "grund": "Übliche Drei-Tage-Bewegung von 2,5 % nur knapp über der Hürde, keine neuen Meldungen."
   },
   {
    "s": "PHIA.AS",
    "h": 3,
-   "grund": "RSI 75 und übliche Drei-Tage-Bewegung nur knapp über der Hürde, ohne neuen Auslöser."
+   "grund": "RSI 74 und übliche Bewegung nur knapp über der Hürde, ohne neuen Auslöser."
   },
   {
-   "s": "HEN3.DE",
+   "s": "VLTO",
+   "h": 3,
+   "grund": "Übliche Drei-Tage-Bewegung von 2,4 % kaum über der Hürde, leicht negative Fünf-Tage-Bilanz."
+  },
+  {
+   "s": "PHIA.AS",
    "h": 7,
-   "grund": "Übliche Sieben-Tage-Bewegung von 3,1 % liegt unter der Hürde, Kurs bereits über den Analystenzielen."
+   "grund": "RSI 74 und übliche Sieben-Tage-Bewegung unter der Hürde."
+  },
+  {
+   "s": "AI.PA",
+   "h": 7,
+   "grund": "Zu träge: übliche Sieben-Tage-Bewegung von 2,8 % deutlich unter der Hürde von 4,12 %."
   },
   {
    "s": "LHA.DE",
@@ -719,14 +721,9 @@
    "grund": "Drohende Piloten-Streiks nach gescheiterter Mediation."
   },
   {
-   "s": "MSI",
+   "s": "SAN.PA",
    "h": 7,
-   "grund": "Dividendenerhöhung bereits bekannt, übliche Bewegung von 3,1 % deutlich unter der Hürde."
-  },
-  {
-   "s": "VTRS",
-   "h": 7,
-   "grund": "Negative Fünf-Tage-Bilanz trotz guter Meldungen, eher ein 30-Tage-Thema."
+   "grund": "Übliche Bewegung von 3,8 % unter der Hürde, keine neuen Auslöser."
   },
   {
    "s": "BRK-B",
@@ -739,14 +736,14 @@
    "grund": "Übernahme durch Merck KGaA läuft, der Kurs ist an den Angebotspreis gebunden und hat kaum Spielraum."
   },
   {
-   "s": "QIA.DE",
-   "h": 30,
-   "grund": "Übernahmeangebot von EQT zu 46,50 Euro je Aktie begrenzt den Kursanstieg."
-  },
-  {
    "s": "NA9.DE",
    "h": 30,
-   "grund": "Abwärtstrend und Mehrheitsübernahme durch Persistent, kaum eigene Kursdynamik."
+   "grund": "Mehrheitsübernahme durch Persistent und Abwärtstrend, kaum eigene Kursdynamik."
+  },
+  {
+   "s": "QIA.DE",
+   "h": 30,
+   "grund": "Übernahmeangebot von EQT begrenzt den Kursanstieg."
   },
   {
    "s": "GME",
@@ -756,7 +753,7 @@
   {
    "s": "IBE.MC",
    "h": 30,
-   "grund": "Kurs 3,8 % unter dem 10-Tage-Hoch mit negativer Fünf-Tage-Bilanz, Analysten nur neutral."
+   "grund": "4 % unter dem 10-Tage-Hoch mit negativer Fünf-Tage-Bilanz, Analysten überwiegend nur neutral."
   }
  ]
 }
