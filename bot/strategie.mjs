@@ -43,11 +43,19 @@ export function auswahl(rank, k = 10, cap = 2) {
 export function signale(H) {
   const spy = H[SPY].c, st = H[STOXX] ? H[STOXX].c : [], g = H[GOLD] ? H[GOLD].c : [];
   return {
-    datum: last(H[SPY].d), spy: last(spy), spySma: sma(spy, 200), vol: vol21(spy),
+    datum: last(H[SPY].d), spy: last(spy), spySma: sma(spy, 200), vol: vol21(spy), tageUeber: tageUeber(spy),
     stoxx: last(st), stoxxSma: sma(st, 200), gold: last(g), goldSma: sma(g, 200), gold6: H[GOLD] ? rendite6(H[GOLD].a) : null,
   };
 }
 export const crash = S => S.spy < S.spySma;
+// Rückkehr erst, wenn der S&P 500 mindestens 2 Wochen (10 Handelstage) durchgehend über der Linie schließt
+// (eigene Ergänzung, nicht im 20-Jahres-Test geprüft)
+export const BESTAETIGUNG = 10;
+export function tageUeber(c) {
+  let n = 0;
+  for (let i = c.length - 1; i >= 199; i--) { const m = c.slice(i - 199, i + 1).reduce((a, b) => a + b, 0) / 200; if (c[i] > m) n++; else break; }
+  return n;
+}
 export const stufe = v => v == null ? 100 : v > 35 ? 50 : v > 25 ? 70 : 100;
 
 // Ausweich wählen: EU-Aktien -> Gold -> Geldmarkt
@@ -150,9 +158,9 @@ export function auswerten(Z, H, S) {
     if (Z.mode === "U" && c) {
       Z.mode = ausweich(S); Z.fallback = Z.mode === "E" ? auswahl(euRank) : []; Z.expo = 100;
       ev.push({t: "crash", text: `🚨 Crash-Signal: S&P 500 ${f2(S.spy)} unter 200-Tage-Linie ${f2(S.spySma)}. Alle Aktien verkaufen → ${MODUS[Z.mode]}.`});
-    } else if (Z.mode !== "U" && !c) {
+    } else if (Z.mode !== "U" && !c && S.tageUeber >= BESTAETIGUNG) {
       Z.mode = "U"; Z.fallback = [];
-      ev.push({t: "zurueck", text: `✅ Entwarnung: S&P 500 ${f2(S.spy)} wieder über der 200-Tage-Linie ${f2(S.spySma)}. Zurück zu den Top 10.`});
+      ev.push({t: "zurueck", text: `✅ Entwarnung: S&P 500 ${f2(S.spy)} seit ${S.tageUeber} Handelstagen über der 200-Tage-Linie ${f2(S.spySma)} – bestätigt. Zurück zu den Top 10.`});
     }
     if (Z.mode === "U") {
       const e = stufe(S.vol);

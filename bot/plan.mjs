@@ -19,7 +19,7 @@ const esc = s => String(s ?? "").replace(/[&<>]/g, c => ({"&": "&amp;", "<": "&l
 const eur = v => (+v).toLocaleString("de-DE", {minimumFractionDigits: 2, maximumFractionDigits: 2}) + " €";
 const NAME = Object.fromEntries([...UNIVERSUM.map(u => [u[0], {n: u[1], sec: u[2], reg: u[3], isin: ISIN[u[0]], art: "Aktie"}]), ...Object.entries(EXTRA).map(([s, x]) => [s, {n: x[0], sec: x[1], reg: x[2], isin: x[3], art: ART[s]}])]);
 const nm = s => (NAME[s] || {n: s}).n;
-const VERSION = 4; // erhöhen, wenn plan.json neue Felder bekommt → sofort neu berechnen
+const VERSION = 5; // erhöhen, wenn plan.json neue Felder bekommt → sofort neu berechnen
 const ZUSATZ = "🧪 <i>Zusatz-Hinweis – nicht im 20-Jahres-Test geprüft</i>";
 
 function zeit(d = new Date(), tz = "Europe/Berlin") {
@@ -275,14 +275,22 @@ function termine(d, Z) {
 }
 function abendHinweise(S, H, w, rank, preise) {
   const ab = (S.spy / S.spySma - 1) * 100, tag = new Date(S.datum + "T12:00:00Z").getUTCDay();
-  if (Z.mode !== "U" && ab >= 0 && tag !== 4) hinweis("spy-drueber", 3, `📈 <b>Markt-Radar:</b> S&amp;P 500 schließt heute ${ST.f1(ab)} % ÜBER seiner 200-Tage-Linie. Hält das bis Donnerstagabend, kommt das Signal zum Wiedereinstieg in die Top 10. Halte dich bereit.`, "vorwarnung");
+  // Markt-Radar im Crash-Modus: Zähler der Tage über der Linie (Rückkehr erst nach 10 Handelstagen)
+  if (Z.mode !== "U") {
+    const t = S.tageUeber || 0, vorher = Z.radarTage || 0, B10 = ST.BESTAETIGUNG;
+    if (t > 0 && (t === 1 || t === 5 || (t >= B10 && vorher < B10)))
+      send(t >= B10 ? `✅ <b>Markt-Radar:</b> S&amp;P 500 liegt seit ${t} Handelstagen über seiner 200-Tage-Linie – <b>2 Wochen bestätigt</b>. ${tag === 4 ? "Die Kaufaufträge kommen jetzt." : "Am Donnerstagabend kommen die Kaufaufträge für die Top 10. Halte dein Geld bereit."}` + link("status")
+        : `📈 <b>Markt-Radar:</b> S&amp;P 500 schließt ${ST.f1(ab)} % über seiner 200-Tage-Linie – Tag <b>${t} von ${B10}</b>. Erst nach 2 Wochen durchgehend darüber steigst du wieder in Aktien ein. Noch nichts tun.` + link("status"));
+    if (t === 0 && vorher >= 2) send(`↩️ <b>Markt-Radar:</b> S&amp;P 500 ist nach ${vorher} Tagen wieder unter die Linie gefallen. Zähler zurück auf 0 – du bleibst im ${ST.MODUS[Z.mode]}.`);
+    Z.radarTage = t; stateGeaendert = true;
+  } else Z.radarTage = 0;
   if (tag === 4 && !(Z.log || []).some(l => l.d === S.datum && ["crash", "zurueck"].includes(l.t))) {
     const top = (Z.picks || []).map(nm).slice(0, 10).join(", ");
     send(Z.mode === "U" ? `🗓️ <b>Donnerstags-Check ${S.datum}:</b> alles im Plan. S&amp;P 500 ${ST.f1(ab)} % über der Linie, Schwankung ${ST.f1(S.vol)} % → ${Z.expo} % investiert. Nichts zu tun.`
-      : `🗓️ <b>Donnerstags-Check ${S.datum}:</b> noch Crash-Modus (${ST.MODUS[Z.mode]}). S&amp;P 500 ${ST.f1(ab)} % unter der Linie – er muss um ca. ${ST.f1(S.spySma / S.spy * 100 - 100)} % steigen. Nächste Prüfung in einer Woche, Vorwarnung kommt vorher.\n\nBereit für den Wiedereinstieg: ${esc(top)}` + link("status"));
+      : `🗓️ <b>Donnerstags-Check ${S.datum}:</b> noch Crash-Modus (${ST.MODUS[Z.mode]}). ${ab >= 0 ? `S&amp;P 500 ${ST.f1(ab)} % über der Linie, seit ${S.tageUeber} von ${ST.BESTAETIGUNG} Tagen – noch nicht bestätigt.` : `S&amp;P 500 ${ST.f1(ab)} % unter der Linie – er muss um ca. ${ST.f1(S.spySma / S.spy * 100 - 100)} % steigen und dann 2 Wochen darüber bleiben.`} Nächste Prüfung in einer Woche, Vorwarnung kommt vorher.\n\nBereit für den Wiedereinstieg: ${esc(top)}` + link("status"));
   }
   if (Z.mode === "U" && ab >= 0 && ab < 2) hinweis("spy-nah", 5, `⚠️ <b>Vorwarnung:</b> S&amp;P 500 nur noch ${ST.f1(ab)} % über seiner 200-Tage-Linie. Fällt er am Donnerstag darunter, wird alles verkauft. Jetzt nichts tun.`, "vorwarnung");
-  if (Z.mode !== "U" && ab < 0 && ab > -2) hinweis("spy-zurueck", 5, `👀 S&amp;P 500 nur noch ${ST.f1(-ab)} % unter der 200-Tage-Linie – Rückkehr in die Top 10 könnte bald kommen (Entscheidung am Donnerstag).`, "vorwarnung");
+  if (Z.mode !== "U" && ab < 0 && ab > -2) hinweis("spy-zurueck", 5, `👀 S&amp;P 500 nur noch ${ST.f1(-ab)} % unter der 200-Tage-Linie – danach muss er 2 Wochen darüber bleiben, dann geht es zurück in die Top 10.`, "vorwarnung");
   if (Z.mode === "U" && S.vol > 22 && S.vol <= 25 && Z.expo === 100) hinweis("vol-nah", 5, `⚠️ Schwankung bei ${ST.f1(S.vol)} % – ab 25 % greift die Bremse (70 % investiert).`, "vorwarnung");
   if (Z.mode === "U" && Z.gold === 0) { const g = ST.goldPruefung(H, Z.picks); if (g.gold != null && g.aktien != null && g.gold > g.aktien) hinweis("gold-vorschau", 14, `🟡 Gold liegt gerade vorn (6 Monate: Gold ${ST.pc(g.gold)} vs. Aktien ${ST.pc(g.aktien)}). Bei der nächsten Gold-Prüfung kämen voraussichtlich 20 % Gold dazu. Jetzt nichts tun.`, "info") }
   // Zusatz-Hinweise zum echten Depot
@@ -317,7 +325,7 @@ async function tagsueber() {
     const r = R[s]; if (!r || [EURUSD, EURCHF].includes(s)) continue;
     const p = r.live || r.c.at(-1), prev = r.prev || r.c.at(-2), chg = prev ? (p / prev - 1) * 100 : 0;
     PLAN.preise[s] = {eur: euroPreis(s, p, fx), cur: p, w: waehrung(s), chg, live: new Date().toISOString()}; planGeaendert = true; PLAN.kurseVon = new Date().toISOString();
-    if (s === SPY && Z.mode !== "U" && PLAN.signale && p > PLAN.signale.spySma && z.wd === "Thu") hinweis("spy-do-live", 1, `🔔 <b>Markt-Radar:</b> S&amp;P 500 liegt gerade (${ST.f2(p)}) über seiner 200-Tage-Linie (${ST.f2(PLAN.signale.spySma)}). Schließt er heute Abend darüber, bekommst du nach Börsenschluss die Kaufaufträge für die Top 10. Halte dein Geld bereit.`, "vorwarnung");
+    if (s === SPY && Z.mode !== "U" && PLAN.signale && p > PLAN.signale.spySma && z.wd === "Thu" && (PLAN.signale.tageUeber || 0) >= ST.BESTAETIGUNG - 1) hinweis("spy-do-live", 1, `🔔 <b>Markt-Radar:</b> S&amp;P 500 ist seit 2 Wochen über seiner 200-Tage-Linie und liegt auch heute darüber. Schließt er heute Abend darüber, bekommst du nach Börsenschluss die Kaufaufträge für die Top 10. Halte dein Geld bereit.`, "vorwarnung");
     if (s === SPY && chg <= -3) hinweis("spy-tag", 1, `📉 S&amp;P 500 heute ${ST.f1(chg)} %. Laut Plan: nichts tun – entschieden wird Donnerstagabend an der 200-Tage-Linie.`, "info");
     if (s !== SPY && DEPOT && DEPOT.pos[s] && (chg <= -8 || chg >= 10)) hinweis("tag-" + s, 1, `${chg < 0 ? "📉" : "📈"} <b>${esc(nm(s))}</b> heute ${chg > 0 ? "+" : ""}${ST.f1(chg)} %. Laut Plan: halten, keine Einzel-Stopps.${chg >= 10 ? " Optional: bei starkem Übergewicht einen Teil sichern." : " Optional: News prüfen, ob sich am Unternehmen etwas Grundlegendes geändert hat."}`, "zusatz", true);
   }

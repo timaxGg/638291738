@@ -142,7 +142,9 @@ function radar() {
   const W = 300, H = 60, mn = Math.min(-8, ...r), mx = Math.max(3, ...r), y = v => H - 4 - (v - mn) / (mx - mn) * (H - 8);
   const pfad = r.map((v, i) => `${i ? "L" : "M"}${(i / Math.max(1, r.length - 1) * W).toFixed(1)},${y(v).toFixed(1)}`).join("");
   return `<div class="card"><div class="k" style="font-size:13px;font-weight:800;color:var(--warn);text-transform:uppercase;letter-spacing:.05em">📡 Markt-Radar: Wann wieder in Aktien?</div>
-   <div class="row"><div class="l"><div class="t">S&amp;P 500 zur 200-Tage-Linie</div><div class="s">${ab >= 0 ? "schon darüber – Donnerstagabend entscheidet" : `muss noch ca. ${pc(noetig)} steigen`} ${trend ? "· " + trend : ""}</div></div><div class="r"><span class="badge ${ab >= 0 ? "ok" : "x"}">${pc(ab)}</span></div></div>
+   <div class="row"><div class="l"><div class="t">S&amp;P 500 zur 200-Tage-Linie</div><div class="s">${ab >= 0 ? "darüber" : `muss noch ca. ${pc(noetig)} steigen`} ${trend ? "· " + trend : ""}</div></div><div class="r"><span class="badge ${ab >= 0 ? "ok" : "x"}">${pc(ab)}</span></div></div>
+   <div class="row"><div class="l"><div class="t">Tage über der Linie</div><div class="s">${(s.tageUeber || 0) >= 10 ? "2 Wochen bestätigt – Donnerstagabend kommen die Kaufaufträge" : "Wiedereinstieg erst nach 10 Handelstagen (2 Wochen) durchgehend darüber"}</div>
+     <div class="bar"><i style="width:${Math.min(100, (s.tageUeber || 0) * 10)}%;background:var(--gut)"></i></div></div><div class="r"><b>${Math.min(s.tageUeber || 0, 99)} / 10</b></div></div>
    <svg viewBox="0 0 ${W} ${H}" style="width:100%;height:auto;margin-top:6px" aria-label="Abstand zur Linie, 30 Tage"><line x1="0" x2="${W}" y1="${y(0)}" y2="${y(0)}" stroke="#e34948" stroke-dasharray="4 3"/><path d="${pfad}" fill="none" stroke="#0b0b0b" stroke-width="2"/></svg>
    <div class="small mut">Abstand der letzten 30 Tage · rote Linie = Einstiegsschwelle</div>
    <div class="small" style="margin-top:6px">Nächste Entscheidung: <b>${datum(PLAN.termine.donnerstag)}</b> nach US-Börsenschluss. Der Bot meldet sich vorher, sobald es knapp wird – die Kaufliste mit ISIN steht unter „Auswahl“.</div></div>`;
@@ -161,7 +163,7 @@ function jetzt() {
     G: `Gold letzte 12 Monate: ${pc(r.gold1J * 100)}. Schwankt stark, keine Garantie.`,
     E: `Ø der EU-Auswahl, letzte 12 Monate: ${pc(r.euMom * 100, 0)}. Vergangenheit, keine Garantie.`,
     U: `Ø der Top 10, letzte 12 Monate: ${pc(r.top10Mom * 100, 0)}. Im 20-Jahres-Test brachte der Plan Ø +16,9 % pro Jahr (einzelne Jahre zwischen −11 % und +54 %).`}[m];
-  const weiter = m === "U" ? `Behalten bis zum Jahreswechsel – jeden Donnerstag prüft der Bot den Crash-Schutz.` : `Sobald der S&P 500 an einem Donnerstag wieder über seiner 200-Tage-Linie schließt, wechselst du in die Top 10 (der Bot sagt Bescheid).`;
+  const weiter = m === "U" ? `Behalten bis zum Jahreswechsel – jeden Donnerstag prüft der Bot den Crash-Schutz.` : `Erst wenn der S&P 500 2 Wochen durchgehend über seiner 200-Tage-Linie liegt, wechselst du in die Top 10 (der Bot sagt Bescheid).`;
   return `<div class="card jetzt"><div class="k">👉 Jetzt anlegen in</div><p style="margin:2px 0 6px"><b>Empfehlung laut Plan:</b> ${emp}</p>${zeilen}<div class="small mut" style="margin-top:4px">Tipp: ISIN antippen = kopieren → in Trade Republic auf die Lupe und einfügen.</div><p class="small">${erw}</p><p class="small">${weiter}${PLAN.picksVorlaeufig ? ` Am ${datum(PLAN.termine.jahreswechsel)} wird die Jahresauswahl neu berechnet.` : ""}</p>${gesamt > 0 ? "" : `<button class="btn kl" data-go="depot" style="margin-top:8px">Betrag eintragen → Stückzahlen</button>`}</div>`;
 }
 function sig(t, s, v, cls, extra, fill, mark, mark2) {
@@ -209,7 +211,7 @@ R.liste = () => {
   const zeile = (r, i) => `<div class="row"><div class="l"><div class="t">${i + 1}. ${esc(r.n)}</div><div class="s">${kennung(r.s)}</div><div class="s">${esc(r.sec)} · ${r.reg}${(PLAN.preise[r.s] || {}).chg != null ? ` · heute <span class="${PLAN.preise[r.s].chg >= 0 ? "pos" : "neg"}">${pc(PLAN.preise[r.s].chg)}</span>` : ""}</div></div><div class="r">${pc(r.mom * 100, 0)}<div>${r.pick ? '<span class="badge ok">Top 10</span>' : r.fb ? '<span class="badge ok">EU-Ausweich</span>' : ""}</div></div></div>`;
   const r = PLAN.renditen || {};
   let h = `<div class="hero m-${m}"><div class="k">${m === "U" ? "Jetzt gekauft" : "Gerade NICHT kaufen – Crash-Modus"}</div><div class="v">Top 10 ${PLAN.picksYear || ""}${PLAN.picksVorlaeufig ? " (vorläufig)" : ""}</div>
-   <p>${m === "U" ? "Diese 10 Aktien sind laut Plan im Depot, je gleicher Betrag." : "Diese 10 kaufst du erst, wenn der S&amp;P 500 wieder über seiner 200-Tage-Linie ist. Bis dahin: siehe Status."}</p></div>
+   <p>${m === "U" ? "Diese 10 Aktien sind laut Plan im Depot, je gleicher Betrag." : "Diese 10 kaufst du erst, wenn der S&amp;P 500 2 Wochen durchgehend über seiner 200-Tage-Linie liegt. Bis dahin: siehe Status."}</p></div>
    <div class="card"><div class="row"><div class="l"><div class="t">Ø Rendite der Top 10</div><div class="s">letzte 12 Monate ohne letzten Monat, in €</div></div><div class="r"><b>${pc(r.top10Mom * 100, 0)}</b></div></div>
    <div class="row"><div class="l"><div class="t">Was du erwarten kannst</div><div class="s">Ø im 20-Jahres-Test, einzelne Jahre −11 % bis +54 %</div></div><div class="r"><b>+16,9 %/Jahr</b></div></div>
    <div class="small mut" style="margin-top:6px">Die Prozentzahl bei jeder Aktie ist ihr Anstieg der letzten 12 Monate (ohne letzten Monat) – danach wird ausgewählt. Keine Garantie für die Zukunft.</div></div>`;
@@ -230,7 +232,7 @@ R.regeln = () => `<div class="hero m-U"><div class="k">20 Jahre getestet (2006�
 <tr><td>Gold</td><td>Jan/Apr/Jul/Okt + Stichtag: Aktien (Ø 6 Monate) schwächer als Gold (€) → 20 % Gold, sonst 0 %. Im Crash-Modus ausgesetzt.</td></tr>
 <tr><td>Crash-Schutz</td><td>Donnerstag: S&amp;P 500 schließt unter 200-Tage-Linie → Freitag alle Aktien verkaufen.</td></tr>
 <tr><td>Ausweich</td><td>1. EU-Top-10 (STOXX 600 über Linie) → 2. Gold (über Linie) → 3. Geldmarkt (XEON). Nur beim Ausstieg und am Stichtag gewählt.</td></tr>
-<tr><td>Rückkehr</td><td>S&amp;P 500 schließt Donnerstag wieder über der Linie → Freitag Top 10 zurückkaufen.</td></tr>
+<tr><td>Rückkehr</td><td>S&amp;P 500 schließt 2 Wochen (10 Handelstage) durchgehend über der Linie → am nächsten Donnerstag bestätigt, Freitag Top 10 zurückkaufen. <i>(2-Wochen-Bestätigung: eigene Ergänzung, nicht im 20-Jahres-Test)</i></td></tr>
 <tr><td>Bremse</td><td>Schwankung 21 Tage: unter 25 % → 100 %, 25–35 % → 70 %, über 35 % → 50 % investiert, Rest Geldmarkt.</td></tr>
 <tr><td>Sonstiges</td><td>Dividenden wieder anlegen · kein Hebel · keine Einzel-Stopps.</td></tr></table></div>
 <h2>Hinweise vom Bot</h2><div class="card small">⚠️ Vorwarnungen und 🟡 Infos folgen direkt aus dem Plan. 🧪 <b>Zusatz-Hinweise</b> (z. B. Gewicht zurückführen, schwache Aktie ersetzen) sind <b>nicht</b> im 20-Jahres-Test geprüft – nur optional.</div>
