@@ -20,6 +20,7 @@ const pc = (v, d = 1, sign = true) => v == null || !isFinite(v) ? "–" : (v = +
 const num = (v, d = 2) => v == null ? "–" : (+v).toLocaleString("de-DE", {minimumFractionDigits: d, maximumFractionDigits: d});
 const datum = d => d ? new Date(d + "T12:00:00").toLocaleDateString("de-DE", {weekday: "short", day: "numeric", month: "short", year: "numeric"}) : "–";
 const nm = s => (PLAN && PLAN.namen && PLAN.namen[s] ? PLAN.namen[s].n : s);
+const kennung = s => { const x = (PLAN && PLAN.namen && PLAN.namen[s]) || {}; return x.isin ? `<span class="isin" data-copy="${esc(x.isin)}">${esc(x.art || "Aktie")} · ISIN ${esc(x.isin)} ⧉</span>` : esc(s) };
 const preis = s => PLAN && PLAN.preise && PLAN.preise[s] ? PLAN.preise[s].eur : null;
 
 /* ---------- Verschlüsselung (identisch zum Wachmann) ---------- */
@@ -92,7 +93,7 @@ function anwenden(liste) {
 /* ---------- Ansichten ---------- */
 const R = {};
 function orderHTML(l) {
-  return l.map(o => `<div class="order"><span class="tag ${o.act === "kauf" ? "k" : "v"}">${o.act === "kauf" ? "KAUF" : "VERKAUF"}</span><div class="l" style="flex:1"><div class="t">${o.n} × ${esc(nm(o.s))}</div><div class="s">${esc(o.s)} · je ≈ ${eur(o.preis)}</div></div><div class="r">${eur(o.eur, 0)}</div></div>`).join("");
+  return l.map(o => `<div class="order"><span class="tag ${o.act === "kauf" ? "k" : "v"}">${o.act === "kauf" ? "KAUF" : "VERKAUF"}</span><div class="l" style="flex:1"><div class="t">${o.n} × ${esc(nm(o.s))}</div><div class="s">${kennung(o.s)}<br>je ≈ ${eur(o.preis)}</div></div><div class="r">${eur(o.eur, 0)}</div></div>`).join("");
 }
 R.status = () => {
   if (!PLAN) return `<div class="card">Der Wachmann hat noch keine Daten erstellt. Er läuft automatisch – schau in ein paar Minuten wieder rein.</div>`;
@@ -125,11 +126,8 @@ R.status = () => {
 };
 function jetzt() {
   const w = PLAN.ziel || {}, m = PLAN.modus, r = PLAN.renditen || {}, {gesamt} = depotWerte();
-  const aktien = Object.keys(w).filter(s => ![GOLD, GELD].includes(s)), rest = Object.keys(w).filter(s => [GOLD, GELD].includes(s));
-  const betrag = s => gesamt > 0 ? ` · ≈ ${eur(w[s] * gesamt, 0)}` : "";
-  const isin = s => (PLAN.namen[s] || {}).isin ? `ISIN ${PLAN.namen[s].isin}` : s;
-  let zeilen = rest.sort((a, b) => w[b] - w[a]).map(s => `<div class="row"><div class="l"><div class="t">${esc(nm(s))}</div><div class="s">${esc(isin(s))}</div></div><div class="r"><b>${pc(w[s] * 100, 0, false)}</b><div class="s">${betrag(s).replace(" · ", "")}</div></div></div>`).join("");
-  if (aktien.length) zeilen = `<div class="row"><div class="l"><div class="t">${aktien.length} Aktien${m === "E" ? " (EU)" : ""}, je ${pc(w[aktien[0]] * 100, 1, false)}</div><div class="s">${aktien.map(s => esc(nm(s))).join(", ")}</div></div><div class="r"><b>${pc(aktien.reduce((x, s) => x + w[s], 0) * 100, 0, false)}</b>${gesamt > 0 ? `<div class="s">≈ ${eur(w[aktien[0]] * gesamt, 0)} je Aktie</div>` : ""}</div></div>` + zeilen;
+    const sortiert = Object.keys(w).sort((a, b) => w[b] - w[a] || nm(a).localeCompare(nm(b)));
+  const zeilen = sortiert.map(s => `<div class="row"><div class="l"><div class="t">${esc(nm(s))}</div><div class="s">${kennung(s)}</div></div><div class="r"><b>${pc(w[s] * 100, w[s] < 0.2 ? 1 : 0, false)}</b>${gesamt > 0 ? `<div class="s">≈ ${eur(w[s] * gesamt, 0)}</div>` : ""}</div></div>`).join("");
   const emp = {
     M: `Alles in den Geldmarkt-ETF (XEON). Der US-Markt ist im Abwärtstrend, Europa und Gold auch – dort ist dein Geld sicher und bekommt Zinsen.`,
     G: `Alles in Gold (Xetra-Gold). Der US-Markt ist im Abwärtstrend, Gold ist gerade der stärkste sichere Ort.`,
@@ -141,7 +139,7 @@ function jetzt() {
     E: `Ø der EU-Auswahl, letzte 12 Monate: ${pc(r.euMom * 100, 0)}. Vergangenheit, keine Garantie.`,
     U: `Ø der Top 10, letzte 12 Monate: ${pc(r.top10Mom * 100, 0)}. Im 20-Jahres-Test brachte der Plan Ø +16,9 % pro Jahr (einzelne Jahre zwischen −11 % und +54 %).`}[m];
   const weiter = m === "U" ? `Behalten bis zum Jahreswechsel – jeden Donnerstag prüft der Bot den Crash-Schutz.` : `Sobald der S&P 500 an einem Donnerstag wieder über seiner 200-Tage-Linie schließt, wechselst du in die Top 10 (der Bot sagt Bescheid).`;
-  return `<div class="card jetzt"><div class="k">👉 Jetzt anlegen in</div>${zeilen}<p><b>Empfehlung laut Plan:</b> ${emp}</p><p class="small">${erw}</p><p class="small">${weiter}${PLAN.picksVorlaeufig ? ` Am ${datum(PLAN.termine.jahreswechsel)} wird die Jahresauswahl neu berechnet.` : ""}</p>${gesamt > 0 ? "" : `<button class="btn kl" data-go="depot" style="margin-top:8px">Betrag eintragen → Stückzahlen</button>`}</div>`;
+  return `<div class="card jetzt"><div class="k">👉 Jetzt anlegen in</div><p style="margin:2px 0 6px"><b>Empfehlung laut Plan:</b> ${emp}</p>${zeilen}<div class="small mut" style="margin-top:4px">Tipp: ISIN antippen = kopieren → in Trade Republic auf die Lupe und einfügen.</div><p class="small">${erw}</p><p class="small">${weiter}${PLAN.picksVorlaeufig ? ` Am ${datum(PLAN.termine.jahreswechsel)} wird die Jahresauswahl neu berechnet.` : ""}</p>${gesamt > 0 ? "" : `<button class="btn kl" data-go="depot" style="margin-top:8px">Betrag eintragen → Stückzahlen</button>`}</div>`;
 }
 function sig(t, s, v, cls, extra, fill, mark, mark2) {
   return `<div class="row"><div class="l"><div class="t">${t}</div><div class="s">${s}</div>${fill != null ? `<div class="bar"><i style="width:${fill}%;background:var(--${cls === "ok" ? "gut" : cls === "w" ? "warn" : "schlecht"})"></i>${mark != null ? `<b style="left:${mark}%"></b>` : ""}${mark2 != null ? `<b style="left:${mark2}%"></b>` : ""}</div>` : ""}</div><div class="r"><span class="badge ${cls}">${v}</span>${extra ? `<div class="s">${extra}</div>` : ""}</div></div>`;
@@ -183,7 +181,7 @@ function optionen() {
 R.liste = () => {
   if (!PLAN) return "";
   const rk = PLAN.rangliste || [], m = PLAN.modus;
-  const zeile = (r, i) => `<div class="row"><div class="l"><div class="t">${i + 1}. ${esc(r.n)}</div><div class="s">${esc(r.sec)} · ${r.reg}${(PLAN.preise[r.s] || {}).chg != null ? ` · heute <span class="${PLAN.preise[r.s].chg >= 0 ? "pos" : "neg"}">${pc(PLAN.preise[r.s].chg)}</span>` : ""}</div></div><div class="r">${pc(r.mom * 100, 0)}<div>${r.pick ? '<span class="badge ok">Top 10</span>' : r.fb ? '<span class="badge ok">EU-Ausweich</span>' : ""}</div></div></div>`;
+  const zeile = (r, i) => `<div class="row"><div class="l"><div class="t">${i + 1}. ${esc(r.n)}</div><div class="s">${kennung(r.s)}</div><div class="s">${esc(r.sec)} · ${r.reg}${(PLAN.preise[r.s] || {}).chg != null ? ` · heute <span class="${PLAN.preise[r.s].chg >= 0 ? "pos" : "neg"}">${pc(PLAN.preise[r.s].chg)}</span>` : ""}</div></div><div class="r">${pc(r.mom * 100, 0)}<div>${r.pick ? '<span class="badge ok">Top 10</span>' : r.fb ? '<span class="badge ok">EU-Ausweich</span>' : ""}</div></div></div>`;
   const r = PLAN.renditen || {};
   let h = `<div class="hero m-${m}"><div class="k">${m === "U" ? "Jetzt gekauft" : "Gerade NICHT kaufen – Crash-Modus"}</div><div class="v">Top 10 ${PLAN.picksYear || ""}${PLAN.picksVorlaeufig ? " (vorläufig)" : ""}</div>
    <p>${m === "U" ? "Diese 10 Aktien sind laut Plan im Depot, je gleicher Betrag." : "Diese 10 kaufst du erst, wenn der S&amp;P 500 wieder über seiner 200-Tage-Linie ist. Bis dahin: siehe Status."}</p></div>
@@ -227,6 +225,7 @@ function zeigen() {
   V.innerHTML = f(); document.querySelectorAll(".tabs button").forEach(b => b.classList.toggle("on", b.dataset.go === r));
 }
 document.addEventListener("click", async e => {
+  const cp = e.target.closest("[data-copy]"); if (cp) { try { await navigator.clipboard.writeText(cp.dataset.copy); toast("ISIN kopiert – in Trade Republic suchen") } catch (_) { toast(cp.dataset.copy) } return }
   const g = e.target.closest("[data-go]"); if (g) { location.hash = g.dataset.go; return }
   const d = e.target.closest("[data-del]"); if (d) { if (confirm(`${nm(d.dataset.del)} aus dem Depot löschen?`)) { delete DEP.pos[d.dataset.del]; await depotSenden(); zeigen() } return }
   const a = e.target.closest("[data-act]"); if (!a) return; const act = a.dataset.act;

@@ -5,7 +5,7 @@
 import fs from "node:fs";
 import {execSync} from "node:child_process";
 import {verschluesseln, entschluesseln} from "./krypto.mjs";
-import {UNIVERSUM, EXTRA, SPY, STOXX, GOLD, GELD, EURUSD, EURCHF, waehrung} from "./universum.mjs";
+import {UNIVERSUM, EXTRA, ISIN, ART, SPY, STOXX, GOLD, GELD, EURUSD, EURCHF, waehrung} from "./universum.mjs";
 import * as ST from "./strategie.mjs";
 
 const E = process.env, TG = E.TELEGRAM_TOKEN || "", CHAT = String(E.TELEGRAM_CHAT || ""), PASS = E.SYNC_PASSWORD || "";
@@ -17,7 +17,7 @@ const log = (...a) => console.log(new Date().toISOString(), ...a);
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 const esc = s => String(s ?? "").replace(/[&<>]/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;"}[c]));
 const eur = v => (+v).toLocaleString("de-DE", {minimumFractionDigits: 2, maximumFractionDigits: 2}) + " €";
-const NAME = Object.fromEntries([...UNIVERSUM.map(u => [u[0], {n: u[1], sec: u[2], reg: u[3]}]), ...Object.entries(EXTRA).map(([s, x]) => [s, {n: x[0], sec: x[1], reg: x[2], isin: x[3]}])]);
+const NAME = Object.fromEntries([...UNIVERSUM.map(u => [u[0], {n: u[1], sec: u[2], reg: u[3], isin: ISIN[u[0]], art: "Aktie"}]), ...Object.entries(EXTRA).map(([s, x]) => [s, {n: x[0], sec: x[1], reg: x[2], isin: x[3], art: ART[s]}])]);
 const nm = s => (NAME[s] || {n: s}).n;
 const ZUSATZ = "🧪 <i>Zusatz-Hinweis – nicht im 20-Jahres-Test geprüft</i>";
 
@@ -89,8 +89,8 @@ function signalText(s = PLAN.signale) {
 }
 function auftragText(o) {
   if (!o || !o.liste || !o.liste.length) return "Keine Aufträge offen.";
-  return o.liste.map(x => `${x.act === "kauf" ? "🟢 KAUF" : "🔴 VERKAUF"} ${x.n} × ${esc(nm(x.s))} (${x.s}) ≈ ${eur(x.eur)}`).join("\n") +
-    `\n\nAusführen am nächsten Handelstag zur Eröffnung.`;
+  return o.liste.map(x => `${x.act === "kauf" ? "🟢 KAUF" : "🔴 VERKAUF"} ${x.n} × ${esc(nm(x.s))} ≈ ${eur(x.eur)}\n    ${(NAME[x.s] || {}).art || "Aktie"} · ISIN <code>${(NAME[x.s] || {}).isin || x.s}</code>`).join("\n") +
+    `\n\nIn Trade Republic: Lupe → ISIN einfügen. Am nächsten Handelstag zur Eröffnung ausführen.`;
 }
 function statusText() {
   const w = PLAN.ziel || {};
