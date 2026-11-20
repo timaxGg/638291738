@@ -7,10 +7,12 @@ Die App setzt das Regelwerk um (siehe `regelwerk.pdf`): Momentum-Top-10, flexibl
 | Teil | Aufgabe |
 |---|---|
 | **App** (GitHub Pages) | Status, Aufträge mit Stückzahlen, Depot (Soll/Ist), Auswahl/Rangliste, Verlauf, Regeln |
-| **Wachmann** (`.github/workflows/wachmann.yml` → `bot/plan.mjs`) | alle 5 Min.: Telegram-Befehle · zu Börsenzeiten alle 30 Min.: Kurse + Hinweise · nach US-Schluss (ab 22:20 Uhr): Regeln prüfen, Aufträge berechnen, Nachricht schicken |
+| **Wachmann** (`.github/workflows/wachmann.yml` → `bot/wachmann.mjs`, Anlageplan in `bot/plan.mjs`) | alle 5 Min.: Telegram-Befehle · zu Börsenzeiten alle 30 Min.: Kurse + Hinweise · nach US-Schluss (ab 22:20 Uhr): Regeln prüfen, Aufträge berechnen, Nachricht schicken |
 | **Daten** | `data/plan.json` (öffentlich, für die App) · `data/plan-state.json` (Zustand des Plans) · `data/depot.enc` (dein Depot, verschlüsselt) |
 
 Kurse kommen von Yahoo Finance (kein Schlüssel nötig).
+
+Die **Top-Aktien-App** (Repository Top-Picks) läuft unverändert weiter: Sie nutzt denselben Wachmann (`bot/signale.mjs`, Zweig `kurse`, `data/beste*.json`, `trading/KI-AUFGABE.md`). Die alten Aktien-Helfer-Funktionen (KI-Vorlage, alte App) sind abgeschaltet.
 
 ## Einrichtung (einmalig)
 

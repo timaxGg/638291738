@@ -115,10 +115,25 @@ const HILFE = `🤖 <b>Befehle</b>
 /bargeld 5000 – Bargeld setzen
 /kauf AAPL 3 210.5 – Kauf eintragen (Preis in €)
 /verkauf AAPL 3 220 – Verkauf eintragen
-/hilfe – diese Hilfe`;
-async function befehl(text) {
+/hilfe – diese Hilfe
+
+Top-Aktien: /beste · /warum · /signale`;
+const MEINE = ["/start", "/hilfe", "/help", "/status", "/plan", "/auftrag", "/depot", "/liste", "/erledigt", "/bargeld", "/kauf", "/verkauf"];
+export async function befehl(text) {
+  const c = String(text || "").trim().split(/\s+/)[0].toLowerCase().replace(/@.*/, "");
+  if (!MEINE.includes(c)) return false;
+  if (!geladen) await laden();
+  await befehlIntern(text); return true;
+}
+export async function knopf(cb) {
+  if (!String(cb.data || "").startsWith("erl:")) return false;
+  if (!geladen) await laden();
+  await tg("answerCallbackQuery", {callback_query_id: cb.id}); await erledigt(); return true;
+}
+async function befehlIntern(text) {
   const [c0, ...a] = text.trim().split(/\s+/), c = c0.toLowerCase().replace(/@.*/, "");
   if (c === "/start" || c === "/hilfe" || c === "/help") return send(HILFE);
+  if (c === "/plan") return send(statusText());
   if (c === "/status") return send(statusText());
   if (c === "/auftrag") return send(`📝 <b>Offene Aufträge</b>\n\n${auftragText(Z.orders && !Z.orders.done ? Z.orders : null)}`, Z.orders && !Z.orders.done ? [[{text: "✅ Erledigt – ins Depot übernehmen", callback_data: "erl:" + Z.orders.id}]] : null);
   if (c === "/depot") return send(depotText() + link("depot"));
@@ -149,7 +164,7 @@ async function telegram() {
   for (const u of r.result) {
     B.offset = u.update_id + 1;
     try {
-      if (u.message && String(u.message.chat.id) === CHAT && u.message.text) await befehl(u.message.text);
+      if (u.message && String(u.message.chat.id) === CHAT && u.message.text && !(await befehl(u.message.text))) await send("Unbekannter Befehl. /hilfe");
       if (u.callback_query && String(u.callback_query.message.chat.id) === CHAT) {
         await tg("answerCallbackQuery", {callback_query_id: u.callback_query.id});
         if (String(u.callback_query.data).startsWith("erl:")) await erledigt();
@@ -275,20 +290,25 @@ async function tagsueber() {
 }
 
 /* ---------- Ablauf ---------- */
-(async () => {
-  await depotLaden();
-  if (DEPOT && Z.orders && !Z.orders.done && DEPOT.erledigt === Z.orders.id) { Z.orders.done = true; stateGeaendert = true; if (PLAN.orders) { PLAN.orders.done = true; planGeaendert = true } }
-  await telegram();
+let geladen = false;
+async function laden() { await depotLaden(); geladen = true;
+  if (DEPOT && Z.orders && !Z.orders.done && DEPOT.erledigt === Z.orders.id) { Z.orders.done = true; stateGeaendert = true; if (PLAN.orders) { PLAN.orders.done = true; planGeaendert = true } } }
+// eigeneTelegram: true, wenn dieser Wachmann allein läuft (sonst nimmt der Haupt-Wachmann die Befehle an)
+export async function lauf({eigeneTelegram = false} = {}) {
+  if (!geladen) await laden();
+  if (eigeneTelegram) await telegram();
   const z = zeit(), min = z.h * 60 + z.m;
   // US-Schluss ist 22:00 (bzw. 21:00) Uhr deutscher Zeit. Auswertung ab 22:20 bis 6 Uhr morgens.
   if (FORCE || min >= 22 * 60 + 20 || min < 6 * 60 || !Z.lastEval) {
-    // Welcher US-Handelstag sollte schon ausgewertet sein?
     const ref = new Date(z.date + "T12:00:00Z"); if (min < 6 * 60) ref.setUTCDate(ref.getUTCDate() - 1);
     const wd = ref.getUTCDay(), soll = ref.toISOString().slice(0, 10);
     const faellig = FORCE || !Z.lastEval || (wd >= 1 && wd <= 5 && Z.lastEval < soll);
     if (faellig && (FORCE || !B.versuch || Date.now() - B.versuch > 25 * 60e3)) { B.versuch = Date.now(); try { await tagesAuswertung() } catch (e) { log("Auswertung-Fehler:", e.stack) } }
   } else { try { await tagsueber() } catch (e) { log("Tagsüber-Fehler:", e.stack) } }
-  await telegram();
+  if (eigeneTelegram) await telegram();
+  await sichern();
+}
+export async function sichern() {
   if (stateGeaendert && !DRY) writeJSON(SF, Z);
   if (planGeaendert && !DRY) writeJSON(PF, PLAN);
   if (DRY) { writeJSON(P(".state/dry-plan.json"), PLAN); writeJSON(P(".state/dry-state.json"), Z) }
@@ -297,9 +317,11 @@ async function tagsueber() {
   if (files.length && !DRY && E.GITHUB_ACTIONS) {
     const g = `git -C ${ROOT}`, wer = `-c user.name="Wachmann" -c user.email="wachmann@users.noreply.github.com"`;
     for (let i = 0; i < 3; i++) {
-      try { execSync(`${g} add ${files.join(" ")} && (${g} diff --cached --quiet || ${g} ${wer} commit -q -m "Wachmann: ${files.map(f => f.replace(/.*\//, "")).join(", ")}") && ${g} ${wer} pull -q --rebase -X theirs && ${g} push -q`, {stdio: "inherit"}); break }
+      try { execSync(`${g} add ${files.join(" ")} && (${g} diff --cached --quiet || ${g} ${wer} commit -q -m "Anlageplan: ${files.map(f => f.replace(/.*\//, "")).join(", ")}") && ${g} ${wer} pull -q --rebase -X theirs --autostash && ${g} push -q`, {stdio: "inherit"}); break }
       catch (e) { log("git", e.message); await sleep(3000) }
     }
   }
-  log("fertig", {plan: planGeaendert, state: stateGeaendert, depot: depotGeaendert});
-})();
+  stateGeaendert = planGeaendert = depotGeaendert = false;
+  log("Anlageplan fertig", {modus: Z.mode, lastEval: Z.lastEval});
+}
+if (import.meta.url === `file://${process.argv[1]}`) lauf({eigeneTelegram: true}).catch(e => { console.error(e); process.exit(1) });
