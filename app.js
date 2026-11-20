@@ -44,21 +44,26 @@ async function depotHolen() {
     else { const r = await fetch("data/depot.enc?t=" + Date.now(), {cache: "no-store"}); if (r.ok) text = await r.text() }
     if (!text) return;
     const d = await decJ(text, S.settings.syncPass);
-    if ((d.updatedAt || 0) > (DEP.updatedAt || 0)) { DEP = d; speichern(); S.syncInfo = "Depot geladen"; }
+    if ((d.updatedAt || 0) > (DEP.updatedAt || 0)) { DEP = d; speichern(); S.syncInfo = "Depot geladen" } else if ((d.updatedAt || 0) < (DEP.updatedAt || 0) && S.syncInfo && !/abgeglichen|geladen/.test(S.syncInfo)) depotSenden();
   } catch (e) { S.syncInfo = "Depot: " + e.message }
 }
-async function depotSenden() {
+async function depotSenden() { const ok = await depotSendenI(); toast("Gespeichert · " + S.syncInfo); return ok }
+async function depotSendenI() {
   DEP.updatedAt = Date.now(); DEP.von = "app"; speichern();
-  if (!S.settings.ghToken || !S.settings.syncPass) { toast("Lokal gespeichert (für den Bot: Schlüssel + Passwort in den Einstellungen)"); return }
-  try {
-    const alt = await gh("data/depot.enc"), body = {message: "Depot aktualisiert (App)", content: b64(te.encode(await encJ(DEP, S.settings.syncPass)))};
-    if (alt) body.sha = alt.sha;
-    const r = await fetch(`https://api.github.com/repos/${S.settings.ghRepo}/contents/data/depot.enc`, {method: "PUT", headers: {Authorization: `Bearer ${S.settings.ghToken}`, Accept: "application/vnd.github+json"}, body: JSON.stringify(body)});
-    if (!r.ok) throw new Error("GitHub " + r.status);
-    toast("Depot gespeichert und mit dem Bot abgeglichen");
-  } catch (e) { toast("Abgleich fehlgeschlagen: " + e.message) }
+  if (!S.settings.ghToken || !S.settings.syncPass) { S.syncInfo = "nur auf diesem Handy gespeichert"; return true }
+  const inhalt = b64(te.encode(await encJ(DEP, S.settings.syncPass)));
+  for (let i = 0; i < 3; i++) {
+    try {
+      const alt = await gh("data/depot.enc"), body = {message: "Depot aktualisiert (App)", content: inhalt};
+      if (alt) body.sha = alt.sha;
+      const r = await fetch(`https://api.github.com/repos/${S.settings.ghRepo}/contents/data/depot.enc`, {method: "PUT", headers: {Authorization: `Bearer ${S.settings.ghToken}`, Accept: "application/vnd.github+json"}, body: JSON.stringify(body)});
+      if (r.ok) { S.syncInfo = "mit dem Bot abgeglichen"; return true }
+      if (r.status !== 409 && r.status !== 422) throw new Error("GitHub " + r.status);
+    } catch (e) { S.syncInfo = "Abgleich fehlgeschlagen (" + e.message + "), lokal gespeichert"; return false }
+    await new Promise(r => setTimeout(r, 1500));
+  }
+  S.syncInfo = "Abgleich später erneut – lokal gespeichert"; return false;
 }
-
 /* ---------- Daten ---------- */
 async function stummHolen() { try { const r = await fetch("data/stumm.json?t=" + Date.now(), {cache: "no-store"}); if (r.ok) { S.stumm = await r.json(); speichern() } } catch (e) {} }
 async function planHolen() {
@@ -277,7 +282,7 @@ document.addEventListener("click", async e => {
     if (act === "verkauf" && !(DEP.pos[s] && DEP.pos[s].n >= n - 1e-6)) return toast("So viele Stück sind nicht im Depot");
     if (act === "verkauf" && DEP.pos[s].n - n < 1e-4) n = DEP.pos[s].n; // Rest komplett
     anwenden([{s, act, n, preis: p, betrag: isFinite(b) && b > 0 ? b : n * p}], false); await depotSenden(); zeigen();
-    toast(`${act === "kauf" ? "Kauf" : "Verkauf"} eingetragen: ${eur(isFinite(b) && b > 0 ? b : n * p)} · Bargeld jetzt ${eur(DEP.cash)}`);
+    toast(`${act === "kauf" ? "Kauf" : "Verkauf"} eingetragen: ${eur(isFinite(b) && b > 0 ? b : n * p)} · Bargeld ${eur(DEP.cash)} · ${S.syncInfo || ""}`);
   }
   if (act === "settings") { for (const k of ["ghRepo", "ghToken", "syncPass"]) S.settings[k] = $("#" + k).value.trim(); speichern(); await depotHolen(); toast(S.syncInfo || "Gespeichert"); zeigen() }
   if (act === "reset") { if (confirm("Alle lokalen Daten löschen?")) { localStorage.removeItem(KEY); S = laden(); DEP = {cash: 0, pos: {}, updatedAt: 0}; zeigen() } }
@@ -290,7 +295,11 @@ $("#reload").onclick = async () => { await planHolen(); await depotHolen(); zeig
   if (PLAN && PLAN.orders && S.erledigt === PLAN.orders.id) PLAN.orders.done = true;
   await depotHolen(); zeigen();
   // immer aktuell halten: alle 2 Minuten und beim Zurückkehren in die App neu laden
-  const neu = async () => { if (document.hidden) return; await planHolen(); await depotHolen(); if (!document.querySelector("input:focus,select:focus")) zeigen() };
+  const neu = async () => {
+    if (document.hidden) return; await planHolen();
+    const r = (location.hash.slice(1) || "status").split("-")[0];
+    if (["depot", "einstellungen"].includes(r)) return; // Eingaben nicht überschreiben
+    await depotHolen(); zeigen() };
   setInterval(neu, 120000); document.addEventListener("visibilitychange", neu);
   if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(() => {});
 })();
