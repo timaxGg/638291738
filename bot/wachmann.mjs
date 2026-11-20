@@ -513,7 +513,7 @@ async function sichern(){if(changed.has("inbox")&&PASS){const keep=B.inbox.filte
   try{const files=[...changed].join(" ");execSync(`git -C ${ROOT} add ${files} && git -C ${ROOT} -c user.name="Wachmann" -c user.email="wachmann@users.noreply.github.com" commit -m "Wachmann: ${[...changed].map(f=>f.replace(/.*\//,"")).join(", ")}" && git -C ${ROOT} pull --rebase -X theirs && git -C ${ROOT} push`,{stdio:"inherit"})}catch(e){log("git",e.message)}}
 
 /* ---------- Top-Aktien, zweite App (Code in bot/signale.mjs) ---------- */
-const sigCtx=()=>({B,U,P,send,esc,leise,log,APP,finde,merk:f=>changed.add(f),tg,name:s=>(MARKT.find(m=>m[0]===s)||[])[1]||catOf(s).n||s,eigene:()=>[...depot().map(x=>x.s),...(U.watch||[]).map(w=>LEGACY[w]||w)]});
+const sigCtx=()=>({B,U,P,send:(t,o)=>PL.stumm("top")&&!(o&&o.direkt)?(log("stumm (Top-Aktien)"),null):send(t,o),esc,leise,log,APP,finde,merk:f=>changed.add(f),tg,name:s=>(MARKT.find(m=>m[0]===s)||[])[1]||catOf(s).n||s,eigene:()=>[...depot().map(x=>x.s),...(U.watch||[]).map(w=>LEGACY[w]||w)]});
 
 /* ---------- Ablauf ---------- */
 export async function main(){

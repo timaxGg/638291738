@@ -60,7 +60,9 @@ async function depotSenden() {
 }
 
 /* ---------- Daten ---------- */
+async function stummHolen() { try { const r = await fetch("data/stumm.json?t=" + Date.now(), {cache: "no-store"}); if (r.ok) { S.stumm = await r.json(); speichern() } } catch (e) {} }
 async function planHolen() {
+  stummHolen();
   try { const r = await fetch("data/plan.json?t=" + Date.now(), {cache: "no-store"}); if (r.ok) { PLAN = await r.json(); S.plan = PLAN; speichern() } }
   catch (e) { PLAN = S.plan || null }
   if (!PLAN) PLAN = S.plan || null;
@@ -83,15 +85,17 @@ function auftraegeAktuell() {
   }
   return l.sort((a, b) => (a.act === "verkauf" ? 0 : 1) - (b.act === "verkauf" ? 0 : 1));
 }
-function anwenden(liste) {
+// gebuehr: nur für geschätzte Plan-Aufträge. Eigene Einträge werden genau so gebucht, wie du sie eingibst.
+function anwenden(liste, gebuehr = true) {
+  const f = gebuehr ? 0.0015 : 0;
   for (const o of liste) {
-    const x = DEP.pos[o.s] || {n: 0, p: o.preis};
-    if (o.act === "kauf") { x.p = (x.n * x.p + o.n * o.preis) / (x.n + o.n); x.n += o.n; DEP.cash -= o.n * o.preis * 1.0015; DEP.pos[o.s] = x }
-    else { x.n -= o.n; DEP.cash += o.n * o.preis * 0.9985; if (x.n <= 0) delete DEP.pos[o.s]; else DEP.pos[o.s] = x }
+    const x = DEP.pos[o.s] || {n: 0, p: o.preis}, betrag = o.betrag != null ? o.betrag : o.n * o.preis;
+    if (o.act === "kauf") { x.p = (x.n * x.p + betrag) / (x.n + o.n); x.n += o.n; DEP.cash -= betrag * (1 + f); DEP.pos[o.s] = x }
+    else { x.n -= o.n; DEP.cash += betrag * (1 - f); if (x.n <= 1e-6) delete DEP.pos[o.s]; else DEP.pos[o.s] = x }
+    if (DEP.pos[o.s]) DEP.pos[o.s].n = Math.round(DEP.pos[o.s].n * 1e6) / 1e6;
   }
   DEP.cash = Math.round(DEP.cash * 100) / 100;
 }
-
 /* ---------- Ansichten ---------- */
 const R = {};
 function orderHTML(l) {
@@ -161,7 +165,7 @@ R.depot = () => {
   if (!syms.length) h += `<div class="small">Noch nichts im Depot.</div>`;
   for (const s of syms.sort((a, b) => (w[b] || 0) - (w[a] || 0))) {
     const x = z.find(q => q.s === s), ist = x && gesamt ? x.v / gesamt * 100 : 0, soll = (w[s] || 0) * 100;
-    h += `<div class="row"><div class="l"><div class="t">${esc(nm(s))}</div><div class="s">${x ? `${num(x.n, x.n % 1 ? 4 : 0)} St. · Kauf ${eur(x.p)} · jetzt ${eur(x.akt)} <span class="${x.akt >= x.p ? "pos" : "neg"}">${pc((x.akt / x.p - 1) * 100)}</span>` : "nicht im Depot"}</div>
+    h += `<div class="row"><div class="l"><div class="t">${esc(nm(s))}</div><div class="s">${x ? `${num(x.n, x.n % 1 ? 4 : 0)} St. (${eur(x.v)}) · Kauf ${eur(x.p)} · jetzt ${eur(x.akt)} <span class="${x.akt >= x.p ? "pos" : "neg"}">${pc((x.akt / x.p - 1) * 100)}</span>` : "nicht im Depot"}</div>
       <div class="bar"><i style="width:${Math.min(100, ist * 4)}%"></i>${soll ? `<b style="left:${Math.min(99, soll * 4)}%"></b>` : ""}</div></div>
       <div class="r">${pc(ist, 1, false)}<div class="s">Soll ${pc(soll, 0, false)}</div></div>${x ? `<button class="del ed" data-edit="${esc(s)}" aria-label="Korrigieren">✎</button><button class="del" data-del="${esc(s)}" aria-label="Löschen">×</button>` : ""}</div>`;
   }
@@ -215,7 +219,11 @@ R.regeln = () => `<div class="hero m-U"><div class="k">20 Jahre getestet (2006�
 <h2>Hinweise vom Bot</h2><div class="card small">⚠️ Vorwarnungen und 🟡 Infos folgen direkt aus dem Plan. 🧪 <b>Zusatz-Hinweise</b> (z. B. Gewicht zurückführen, schwache Aktie ersetzen) sind <b>nicht</b> im 20-Jahres-Test geprüft – nur optional.</div>
 <a class="btn" style="display:block;text-align:center;text-decoration:none" href="regelwerk.pdf" target="_blank">📘 Regelwerk als PDF öffnen</a>
 <div class="small mut" style="margin-top:10px">Keine Anlageberatung. Vergangene Ergebnisse sind keine Garantie.</div>`;
-R.einstellungen = () => `<h2>Abgleich mit dem Bot</h2><div class="card">
+R.einstellungen = () => `<h2>Benachrichtigungen (Telegram)</h2><div class="card">
+<div class="row"><div class="l"><div class="t">Anlageplan</div><div class="s">Signale, Aufträge, Vorwarnungen, Hinweise</div></div><button class="btn kl ${S.stumm && S.stumm.plan ? "sek" : ""}" data-stumm="plan">${S.stumm && S.stumm.plan ? "🔕 stumm" : "🔔 an"}</button></div>
+<div class="row"><div class="l"><div class="t">Top-Aktien</div><div class="s">Meldungen der Top-Aktien-App</div></div><button class="btn kl ${S.stumm && S.stumm.top ? "sek" : ""}" data-stumm="top">${S.stumm && S.stumm.top ? "🔕 stumm" : "🔔 an"}</button></div>
+<div class="small mut" style="margin-top:6px">Antworten auf deine Befehle kommen immer. Geht auch im Bot mit /stumm.</div></div>
+<h2>Abgleich mit dem Bot</h2><div class="card">
 <div class="small">Damit der Telegram-Bot dein Depot kennt (Stückzahlen in Nachrichten), wird es verschlüsselt im Repository gespeichert. Gleiche Werte wie beim alten Aktien Helfer.</div>
 <label>GitHub-Repository<input id="ghRepo" value="${esc(S.settings.ghRepo)}"></label>
 <label>GitHub-Schlüssel (Token)<input id="ghToken" type="password" value="${esc(S.settings.ghToken)}"></label>
@@ -230,6 +238,19 @@ function zeigen() {
 }
 document.addEventListener("click", async e => {
   const cp = e.target.closest("[data-copy]"); if (cp) { try { await navigator.clipboard.writeText(cp.dataset.copy); toast("ISIN kopiert – in Trade Republic suchen") } catch (_) { toast(cp.dataset.copy) } return }
+  const st = e.target.closest("[data-stumm]");
+  if (st) {
+    if (!S.settings.ghToken) return toast("Dafür den GitHub-Schlüssel unten eintragen (oder im Bot /stumm)");
+    const app = st.dataset.stumm; S.stumm = Object.assign({top: false, plan: false}, S.stumm); S.stumm[app] = !S.stumm[app]; speichern(); zeigen();
+    try {
+      const alt = await gh("data/stumm.json"), body = {message: "Benachrichtigungen geändert (App)", content: b64(te.encode(JSON.stringify(Object.assign({}, S.stumm, {geaendert: new Date().toISOString()}))))};
+      if (alt) body.sha = alt.sha;
+      const r = await fetch(`https://api.github.com/repos/${S.settings.ghRepo}/contents/data/stumm.json`, {method: "PUT", headers: {Authorization: `Bearer ${S.settings.ghToken}`, Accept: "application/vnd.github+json"}, body: JSON.stringify(body)});
+      if (!r.ok) throw new Error("GitHub " + r.status);
+      toast((app === "top" ? "Top-Aktien " : "Anlageplan ") + (S.stumm[app] ? "stumm" : "wieder an"));
+    } catch (err) { toast("Nicht gespeichert: " + err.message) }
+    return;
+  }
   const g = e.target.closest("[data-go]"); if (g) { location.hash = g.dataset.go; return }
   const ed = e.target.closest("[data-edit]");
   if (ed) {
@@ -238,7 +259,7 @@ document.addEventListener("click", async e => {
     if (!isFinite(inv) || inv <= 0) return;
     const wert = zahl(prompt(`Und wie viel ist es laut Trade Republic jetzt wert (€)?`, (x.n * akt).toFixed(2).replace(".", ",")));
     if (!isFinite(wert) || wert <= 0) return;
-    const n = Math.round(wert / akt * 10000) / 10000; DEP.pos[s] = {n, p: inv / n};
+    const n = Math.round(wert / akt * 1e6) / 1e6; DEP.pos[s] = {n, p: inv / n};
     await depotSenden(); zeigen(); return;
   }
   const d = e.target.closest("[data-del]"); if (d) { if (confirm(`${nm(d.dataset.del)} aus dem Depot löschen?`)) { delete DEP.pos[d.dataset.del]; await depotSenden(); zeigen() } return }
@@ -250,11 +271,13 @@ document.addEventListener("click", async e => {
     const s = $("#sym").value, zahl = id => zahlVon($("#" + id).value);
     let p = zahl("p"), n = zahl("n"); const b = zahl("betrag"), akt = preis(s);
     if (!isFinite(p)) p = akt; if (!p) return toast("Kurs eingeben");
-    if (!isFinite(n)) { if (!isFinite(b) || b <= 0) return toast("Betrag in € oder Stück eingeben"); n = Math.round(b / p * 10000) / 10000 }
+    if (!isFinite(n)) { if (!isFinite(b) || b <= 0) return toast("Betrag in € oder Stück eingeben"); n = b / p }
     if (n <= 0) return toast("Stück prüfen");
     if (akt && Math.abs(p / akt - 1) > 0.25 && !confirm(`Der Kurs ${eur(p)} weicht stark vom aktuellen Kurs ${eur(akt)} ab. Trotzdem speichern?`)) return;
     if (act === "verkauf" && !(DEP.pos[s] && DEP.pos[s].n >= n - 1e-6)) return toast("So viele Stück sind nicht im Depot");
-    anwenden([{s, act, n, preis: p}]); await depotSenden(); zeigen();
+    if (act === "verkauf" && DEP.pos[s].n - n < 1e-4) n = DEP.pos[s].n; // Rest komplett
+    anwenden([{s, act, n, preis: p, betrag: isFinite(b) && b > 0 ? b : n * p}], false); await depotSenden(); zeigen();
+    toast(`${act === "kauf" ? "Kauf" : "Verkauf"} eingetragen: ${eur(isFinite(b) && b > 0 ? b : n * p)} · Bargeld jetzt ${eur(DEP.cash)}`);
   }
   if (act === "settings") { for (const k of ["ghRepo", "ghToken", "syncPass"]) S.settings[k] = $("#" + k).value.trim(); speichern(); await depotHolen(); toast(S.syncInfo || "Gespeichert"); zeigen() }
   if (act === "reset") { if (confirm("Alle lokalen Daten löschen?")) { localStorage.removeItem(KEY); S = laden(); DEP = {cash: 0, pos: {}, updatedAt: 0}; zeigen() } }

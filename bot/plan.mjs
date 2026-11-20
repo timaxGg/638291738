@@ -32,6 +32,8 @@ const SF = P("data/plan-state.json"), PF = P("data/plan.json"), DF = P("data/dep
 const Z = readJSON(SF, {v: 1, log: [], hints: {}});
 const B = readJSON(BF, {offset: 0, q: {}});
 const PLAN = readJSON(PF, {});
+const MF = P("data/stumm.json"); let STUMM = readJSON(MF, {top: false, plan: false}), stummGeaendert = false, imBefehl = false;
+export const stumm = app => !!STUMM[app];
 let DEPOT = null, depotGeaendert = false, planGeaendert = false, stateGeaendert = false;
 
 async function depotLaden() {
@@ -75,6 +77,7 @@ async function tg(method, body) {
 }
 async function send(text, knoepfe) {
   if (!CHAT && !DRY) return;
+  if (STUMM.plan && !imBefehl) { log("stumm (Anlageplan):", text.slice(0, 60)); return }
   const body = {chat_id: CHAT, text: text.slice(0, 4000), parse_mode: "HTML", disable_web_page_preview: true};
   if (knoepfe) body.reply_markup = {inline_keyboard: knoepfe};
   const r = await tg("sendMessage", body); if (r && !r.ok) log("Telegram-Fehler:", r.description);
@@ -116,24 +119,41 @@ const HILFE = `🤖 <b>Befehle</b>
 /bargeld 5000 – Bargeld setzen
 /kauf AAPL 3 210.5 – Kauf eintragen (Preis in €)
 /verkauf AAPL 3 220 – Verkauf eintragen
+/stumm – Benachrichtigungen je App an/aus (z. B. /stumm top, /an top)
 /hilfe – diese Hilfe
 
 Top-Aktien: /beste · /warum · /signale`;
-const MEINE = ["/start", "/hilfe", "/help", "/status", "/plan", "/auftrag", "/depot", "/liste", "/erledigt", "/bargeld", "/kauf", "/verkauf"];
+const MEINE = ["/stumm", "/an", "/start", "/hilfe", "/help", "/status", "/plan", "/auftrag", "/depot", "/liste", "/erledigt", "/bargeld", "/kauf", "/verkauf"];
 export async function befehl(text) {
   const c = String(text || "").trim().split(/\s+/)[0].toLowerCase().replace(/@.*/, "");
   if (!MEINE.includes(c)) return false;
   if (!geladen) await laden();
-  await befehlIntern(text); return true;
+  imBefehl = true; try { await befehlIntern(text) } finally { imBefehl = false } return true;
 }
+function stummKnoepfe() { return [[{text: (STUMM.plan ? "🔕" : "🔔") + " Anlageplan", callback_data: "stumm:plan"}, {text: (STUMM.top ? "🔕" : "🔔") + " Top-Aktien", callback_data: "stumm:top"}]] }
+const stummText = () => `🔔 <b>Benachrichtigungen</b>\nAnlageplan: ${STUMM.plan ? "🔕 stumm" : "🔔 an"}\nTop-Aktien: ${STUMM.top ? "🔕 stumm" : "🔔 an"}\n\nAntippen zum Umschalten. Antworten auf Befehle kommen immer.`;
+function stummSetzen(app, wert) { STUMM[app] = wert; STUMM.geaendert = new Date().toISOString(); if (!DRY) writeJSON(MF, STUMM); stummGeaendert = true }
 export async function knopf(cb) {
-  if (!String(cb.data || "").startsWith("erl:")) return false;
+  const d = String(cb.data || "");
+  if (d.startsWith("stumm:")) {
+    const app = d.slice(6); if (!["top", "plan"].includes(app)) return false;
+    stummSetzen(app, !STUMM[app]);
+    await tg("answerCallbackQuery", {callback_query_id: cb.id, text: (app === "top" ? "Top-Aktien " : "Anlageplan ") + (STUMM[app] ? "stumm" : "an")});
+    await tg("editMessageText", {chat_id: cb.message.chat.id, message_id: cb.message.message_id, parse_mode: "HTML", text: stummText(), reply_markup: {inline_keyboard: stummKnoepfe()}});
+    await sichern(); return true;
+  }
+  if (!d.startsWith("erl:")) return false;
   if (!geladen) await laden();
-  await tg("answerCallbackQuery", {callback_query_id: cb.id}); await erledigt(); return true;
+  imBefehl = true; try { await tg("answerCallbackQuery", {callback_query_id: cb.id}); await erledigt() } finally { imBefehl = false } return true;
 }
 async function befehlIntern(text) {
   const [c0, ...a] = text.trim().split(/\s+/), c = c0.toLowerCase().replace(/@.*/, "");
   if (c === "/start" || c === "/hilfe" || c === "/help") return send(HILFE);
+  if (c === "/stumm" || c === "/an") {
+    const w = (a[0] || "").toLowerCase(), app = /top/.test(w) ? "top" : /plan|anlage/.test(w) ? "plan" : null;
+    if (app) { stummSetzen(app, c === "/stumm"); await sichern() }
+    return send(stummText(), stummKnoepfe());
+  }
   if (c === "/plan") return send(statusText());
   if (c === "/status") return send(statusText());
   if (c === "/auftrag") return send(`📝 <b>Offene Aufträge</b>\n\n${auftragText(Z.orders && !Z.orders.done ? Z.orders : null)}`, Z.orders && !Z.orders.done ? [[{text: "✅ Erledigt – ins Depot übernehmen", callback_data: "erl:" + Z.orders.id}]] : null);
@@ -297,7 +317,7 @@ async function tagsueber() {
 
 /* ---------- Ablauf ---------- */
 let geladen = false;
-async function laden() { await depotLaden(); geladen = true;
+async function laden() { await depotLaden(); geladen = true; STUMM = readJSON(MF, STUMM);
   if (DEPOT && Z.orders && !Z.orders.done && DEPOT.erledigt === Z.orders.id) { Z.orders.done = true; stateGeaendert = true; if (PLAN.orders) { PLAN.orders.done = true; planGeaendert = true } } }
 // eigeneTelegram: true, wenn dieser Wachmann allein läuft (sonst nimmt der Haupt-Wachmann die Befehle an)
 export async function lauf({eigeneTelegram = false} = {}) {
@@ -319,7 +339,7 @@ export async function sichern() {
   if (planGeaendert && !DRY) writeJSON(PF, PLAN);
   if (DRY) { writeJSON(P(".state/dry-plan.json"), PLAN); writeJSON(P(".state/dry-state.json"), Z) }
   writeJSON(BF, B);
-  const files = [stateGeaendert && "data/plan-state.json", planGeaendert && "data/plan.json", depotGeaendert && "data/depot.enc"].filter(Boolean);
+  const files = [stummGeaendert && "data/stumm.json", stateGeaendert && "data/plan-state.json", planGeaendert && "data/plan.json", depotGeaendert && "data/depot.enc"].filter(Boolean);
   if (files.length && !DRY && E.GITHUB_ACTIONS) {
     const g = `git -C ${ROOT}`, wer = `-c user.name="Wachmann" -c user.email="wachmann@users.noreply.github.com"`;
     for (let i = 0; i < 3; i++) {
@@ -327,7 +347,7 @@ export async function sichern() {
       catch (e) { log("git", e.message); await sleep(3000) }
     }
   }
-  stateGeaendert = planGeaendert = depotGeaendert = false;
+  stateGeaendert = planGeaendert = depotGeaendert = stummGeaendert = false;
   log("Anlageplan fertig", {modus: Z.mode, lastEval: Z.lastEval});
 }
 if (import.meta.url === `file://${process.argv[1]}`) lauf({eigeneTelegram: true}).catch(e => { console.error(e); process.exit(1) });
