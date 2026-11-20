@@ -19,6 +19,7 @@ const esc = s => String(s ?? "").replace(/[&<>]/g, c => ({"&": "&amp;", "<": "&l
 const eur = v => (+v).toLocaleString("de-DE", {minimumFractionDigits: 2, maximumFractionDigits: 2}) + " €";
 const NAME = Object.fromEntries([...UNIVERSUM.map(u => [u[0], {n: u[1], sec: u[2], reg: u[3], isin: ISIN[u[0]], art: "Aktie"}]), ...Object.entries(EXTRA).map(([s, x]) => [s, {n: x[0], sec: x[1], reg: x[2], isin: x[3], art: ART[s]}])]);
 const nm = s => (NAME[s] || {n: s}).n;
+const VERSION = 3; // erhöhen, wenn plan.json neue Felder bekommt → sofort neu berechnen
 const ZUSATZ = "🧪 <i>Zusatz-Hinweis – nicht im 20-Jahres-Test geprüft</i>";
 
 function zeit(d = new Date(), tz = "Europe/Berlin") {
@@ -194,7 +195,7 @@ async function tagesAuswertung() {
   for (const s of syms) if (R[s]) H[s] = [SPY, EURUSD, EURCHF].includes(s) ? R[s] : ST.inEuro(s, R[s], fx);
   const fehlend = syms.filter(s => !R[s]); if (fehlend.length) log("Fehlend:", fehlend.join(","));
   const S = ST.signale(H);
-  if (Z.lastEval === S.datum && !FORCE && PLAN.renditen) { log("Schon ausgewertet:", S.datum); return false }
+  if (Z.lastEval === S.datum && !FORCE && PLAN.version === VERSION) { log("Schon ausgewertet:", S.datum); return false }
   const vorherZiel = ST.ziel(Z.picks ? Z : {mode: "M", gold: 0, fallback: [], picks: []});
   const {ev, geaendert, rank, euRank} = ST.auswerten(Z, H, S);
   stateGeaendert = true;
@@ -218,7 +219,7 @@ async function tagesAuswertung() {
   const ri = r => ({s: r.s, n: r.n, sec: r.sec, reg: r.reg, mom: Math.round(r.mom * 10000) / 10000, pick: pickSet.has(r.s), fb: fbSet.has(r.s)});
   const n = Math.min(260, H[SPY].c.length), spyC = H[SPY].c, smaS = spyC.map((_, i) => i >= 199 ? spyC.slice(i - 199, i + 1).reduce((a, b) => a + b, 0) / 200 : null);
   Object.assign(PLAN, {
-    asOf: S.datum, erstellt: new Date().toISOString(), modus: Z.mode, modusText: ST.MODUS[Z.mode], expo: Z.expo, gold: Z.gold,
+    version: VERSION, asOf: S.datum, erstellt: new Date().toISOString(), modus: Z.mode, modusText: ST.MODUS[Z.mode], expo: Z.expo, gold: Z.gold,
     picks: Z.picks, picksYear: Z.picksYear, picksVorlaeufig: !!Z.picksInit && (new Date(termine(S.datum, Z).jahreswechsel) - new Date(S.datum)) / 864e5 < 35,
     fallback: Z.fallback || [], ziel: w, signale: {...S, aktien6: ga.aktien, gold6: ga.gold},
     rangliste: rank.slice(0, 30).map(ri), euRangliste: euRank.slice(0, 15).map(ri),
@@ -304,10 +305,10 @@ export async function lauf({eigeneTelegram = false} = {}) {
   if (eigeneTelegram) await telegram();
   const z = zeit(), min = z.h * 60 + z.m;
   // US-Schluss ist 22:00 (bzw. 21:00) Uhr deutscher Zeit. Auswertung ab 22:20 bis 6 Uhr morgens.
-  if (FORCE || min >= 22 * 60 + 20 || min < 6 * 60 || !Z.lastEval) {
+  if (FORCE || min >= 22 * 60 + 20 || min < 6 * 60 || !Z.lastEval || PLAN.version !== VERSION) {
     const ref = new Date(z.date + "T12:00:00Z"); if (min < 6 * 60) ref.setUTCDate(ref.getUTCDate() - 1);
     const wd = ref.getUTCDay(), soll = ref.toISOString().slice(0, 10);
-    const faellig = FORCE || !Z.lastEval || !PLAN.renditen || (wd >= 1 && wd <= 5 && Z.lastEval < soll);
+    const faellig = FORCE || !Z.lastEval || PLAN.version !== VERSION || (wd >= 1 && wd <= 5 && Z.lastEval < soll);
     if (faellig && (FORCE || !B.versuch || Date.now() - B.versuch > 25 * 60e3)) { B.versuch = Date.now(); try { await tagesAuswertung() } catch (e) { log("Auswertung-Fehler:", e.stack) } }
   } else { try { await tagsueber() } catch (e) { log("Tagsüber-Fehler:", e.stack) } }
   if (eigeneTelegram) await telegram();
