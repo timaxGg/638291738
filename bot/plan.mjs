@@ -278,18 +278,18 @@ function abendHinweise(S, H, w, rank, preise) {
 /* ---------- Tagsüber ---------- */
 async function tagsueber() {
   const z = zeit(); if (["Sat", "Sun"].includes(z.wd)) return;
-  const min = z.h * 60 + z.m; if (min < 9 * 60 + 15 || min > 22 * 60) return;
-  if (B.intraday && Date.now() - B.intraday < 29 * 60e3 && !FORCE) return;
+  const min = z.h * 60 + z.m; if (min < 7 * 60 + 30 || min > 23 * 60) return; // Handelszeit Trade Republic
+  if (B.intraday && Date.now() - B.intraday < 9 * 60e3 && !FORCE) return;
   B.intraday = Date.now();
   await depotLaden();
-  const syms = [...new Set([SPY, EURUSD, EURCHF, ...Object.keys((DEPOT && DEPOT.pos) || {})])];
+  const syms = [...new Set([SPY, EURUSD, EURCHF, GELD, GOLD, STOXX, ...Object.keys((DEPOT && DEPOT.pos) || {}), ...Object.keys(PLAN.ziel || {}), ...(Z.picks || []), ...(Z.fallback || [])])];
   const R = await alleKurse(syms, "5d"); if (!R[EURUSD]) return;
   const fx = {USD: R[EURUSD].live || R[EURUSD].c.at(-1), CHF: R[EURCHF] ? (R[EURCHF].live || R[EURCHF].c.at(-1)) : 1};
   PLAN.preise = PLAN.preise || {};
   for (const s of syms) {
     const r = R[s]; if (!r || [EURUSD, EURCHF].includes(s)) continue;
     const p = r.live || r.c.at(-1), prev = r.prev || r.c.at(-2), chg = prev ? (p / prev - 1) * 100 : 0;
-    PLAN.preise[s] = {eur: euroPreis(s, p, fx), cur: p, w: waehrung(s), chg, live: new Date().toISOString()}; planGeaendert = true;
+    PLAN.preise[s] = {eur: euroPreis(s, p, fx), cur: p, w: waehrung(s), chg, live: new Date().toISOString()}; planGeaendert = true; PLAN.kurseVon = new Date().toISOString();
     if (s === SPY && chg <= -3) hinweis("spy-tag", 1, `📉 S&amp;P 500 heute ${ST.f1(chg)} %. Laut Plan: nichts tun – entschieden wird Donnerstagabend an der 200-Tage-Linie.`, "info");
     if (s !== SPY && DEPOT && DEPOT.pos[s] && (chg <= -8 || chg >= 10)) hinweis("tag-" + s, 1, `${chg < 0 ? "📉" : "📈"} <b>${esc(nm(s))}</b> heute ${chg > 0 ? "+" : ""}${ST.f1(chg)} %. Laut Plan: halten, keine Einzel-Stopps.${chg >= 10 ? " Optional: bei starkem Übergewicht einen Teil sichern." : " Optional: News prüfen, ob sich am Unternehmen etwas Grundlegendes geändert hat."}`, "zusatz", true);
   }

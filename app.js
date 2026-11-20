@@ -64,7 +64,8 @@ async function planHolen() {
   try { const r = await fetch("data/plan.json?t=" + Date.now(), {cache: "no-store"}); if (r.ok) { PLAN = await r.json(); S.plan = PLAN; speichern() } }
   catch (e) { PLAN = S.plan || null }
   if (!PLAN) PLAN = S.plan || null;
-  $("#stand").textContent = PLAN ? `Stand ${datum(PLAN.asOf)} · ${MODUS[PLAN.modus]}` : "Noch keine Daten vom Wachmann";
+  const kz = PLAN && (PLAN.kurseVon || PLAN.erstellt) ? new Date(PLAN.kurseVon || PLAN.erstellt).toLocaleString("de-DE", {weekday: "short", hour: "2-digit", minute: "2-digit"}) : "";
+  $("#stand").textContent = PLAN ? `${MODUS[PLAN.modus]} · Kurse ${kz}` : "Noch keine Daten vom Wachmann";
 }
 function depotWerte() {
   let g = +DEP.cash || 0; const z = [];
@@ -265,5 +266,8 @@ $("#reload").onclick = async () => { await planHolen(); await depotHolen(); zeig
   await planHolen();
   if (PLAN && PLAN.orders && S.erledigt === PLAN.orders.id) PLAN.orders.done = true;
   await depotHolen(); zeigen();
+  // immer aktuell halten: alle 2 Minuten und beim Zurückkehren in die App neu laden
+  const neu = async () => { if (document.hidden) return; await planHolen(); await depotHolen(); if (!document.querySelector("input:focus,select:focus")) zeigen() };
+  setInterval(neu, 120000); document.addEventListener("visibilitychange", neu);
   if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(() => {});
 })();
