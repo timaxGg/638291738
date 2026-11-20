@@ -21,6 +21,7 @@ const num = (v, d = 2) => v == null ? "–" : (+v).toLocaleString("de-DE", {mini
 const datum = d => d ? new Date(d + "T12:00:00").toLocaleDateString("de-DE", {weekday: "short", day: "numeric", month: "short", year: "numeric"}) : "–";
 const nm = s => (PLAN && PLAN.namen && PLAN.namen[s] ? PLAN.namen[s].n : s);
 const kennung = s => { const x = (PLAN && PLAN.namen && PLAN.namen[s]) || {}; return x.isin ? `<span class="isin" data-copy="${esc(x.isin)}">${esc(x.art || "Aktie")} · ISIN ${esc(x.isin)} ⧉</span>` : esc(s) };
+const zahlVon = t => { t = String(t || "").trim().replace(/[€\s]/g, ""); if (t.includes(",")) t = t.replace(/\./g, "").replace(",", "."); return parseFloat(t) };
 const preis = s => PLAN && PLAN.preise && PLAN.preise[s] ? PLAN.preise[s].eur : null;
 
 /* ---------- Verschlüsselung (identisch zum Wachmann) ---------- */
@@ -159,15 +160,17 @@ R.depot = () => {
   if (!syms.length) h += `<div class="small">Noch nichts im Depot.</div>`;
   for (const s of syms.sort((a, b) => (w[b] || 0) - (w[a] || 0))) {
     const x = z.find(q => q.s === s), ist = x && gesamt ? x.v / gesamt * 100 : 0, soll = (w[s] || 0) * 100;
-    h += `<div class="row"><div class="l"><div class="t">${esc(nm(s))}</div><div class="s">${x ? `${num(x.n, 0)} St. · Kauf ${eur(x.p)} · jetzt ${eur(x.akt)} <span class="${x.akt >= x.p ? "pos" : "neg"}">${pc((x.akt / x.p - 1) * 100)}</span>` : "nicht im Depot"}</div>
+    h += `<div class="row"><div class="l"><div class="t">${esc(nm(s))}</div><div class="s">${x ? `${num(x.n, x.n % 1 ? 4 : 0)} St. · Kauf ${eur(x.p)} · jetzt ${eur(x.akt)} <span class="${x.akt >= x.p ? "pos" : "neg"}">${pc((x.akt / x.p - 1) * 100)}</span>` : "nicht im Depot"}</div>
       <div class="bar"><i style="width:${Math.min(100, ist * 4)}%"></i>${soll ? `<b style="left:${Math.min(99, soll * 4)}%"></b>` : ""}</div></div>
-      <div class="r">${pc(ist, 1, false)}<div class="s">Soll ${pc(soll, 0, false)}</div></div>${x ? `<button class="del" data-del="${esc(s)}" aria-label="Löschen">×</button>` : ""}</div>`;
+      <div class="r">${pc(ist, 1, false)}<div class="s">Soll ${pc(soll, 0, false)}</div></div>${x ? `<button class="del ed" data-edit="${esc(s)}" aria-label="Korrigieren">✎</button><button class="del" data-del="${esc(s)}" aria-label="Löschen">×</button>` : ""}</div>`;
   }
   h += `<div class="small mut" style="margin-top:6px">Balken = Ist-Anteil, Strich = Soll laut Plan</div></div>`;
   h += `<h2>Eintragen</h2><div class="card">
    <label>Bargeld (€)<input id="cash" inputmode="decimal" value="${DEP.cash || 0}"></label><button class="btn sek" data-act="cash">Bargeld speichern</button>
    <label>Wertpapier<select id="sym">${optionen()}</select></label>
-   <div class="grid2"><label>Stück<input id="n" inputmode="decimal" placeholder="z. B. 3"></label><label>Preis je Stück (€)<input id="p" inputmode="decimal" placeholder="aktuell"></label></div>
+   <div class="grid2"><label>Betrag in € <input id="betrag" inputmode="decimal" placeholder="z. B. 1000"></label><label>oder Stück<input id="n" inputmode="decimal" placeholder="optional"></label></div>
+   <label>Kurs je Stück (€) – leer = aktueller Kurs<input id="p" inputmode="decimal" placeholder="${"aktuell"}"></label>
+   <div class="small">Am einfachsten: nur den <b>Betrag in €</b> eintragen, den du in Trade Republic investiert hast. Die App rechnet die Stücke selbst aus (auch Bruchstücke).</div>
    <div class="grid2"><button class="btn" data-act="kauf">Kauf eintragen</button><button class="btn sek" data-act="verkauf">Verkauf eintragen</button></div>
    <div class="small" style="margin-top:8px">Tipp: Wenn du die Aufträge vom Status-Tab ausführst, tippe dort einfach auf „Erledigt“.</div></div>`;
   return h;
@@ -227,15 +230,29 @@ function zeigen() {
 document.addEventListener("click", async e => {
   const cp = e.target.closest("[data-copy]"); if (cp) { try { await navigator.clipboard.writeText(cp.dataset.copy); toast("ISIN kopiert – in Trade Republic suchen") } catch (_) { toast(cp.dataset.copy) } return }
   const g = e.target.closest("[data-go]"); if (g) { location.hash = g.dataset.go; return }
+  const ed = e.target.closest("[data-edit]");
+  if (ed) {
+    const s = ed.dataset.edit, x = DEP.pos[s], akt = preis(s) || x.p, zahl = zahlVon;
+    const inv = zahl(prompt(`${nm(s)}: Wie viel € hast du insgesamt investiert?`, (x.n * x.p).toFixed(2).replace(".", ",")));
+    if (!isFinite(inv) || inv <= 0) return;
+    const wert = zahl(prompt(`Und wie viel ist es laut Trade Republic jetzt wert (€)?`, (x.n * akt).toFixed(2).replace(".", ",")));
+    if (!isFinite(wert) || wert <= 0) return;
+    const n = Math.round(wert / akt * 10000) / 10000; DEP.pos[s] = {n, p: inv / n};
+    await depotSenden(); zeigen(); return;
+  }
   const d = e.target.closest("[data-del]"); if (d) { if (confirm(`${nm(d.dataset.del)} aus dem Depot löschen?`)) { delete DEP.pos[d.dataset.del]; await depotSenden(); zeigen() } return }
   const a = e.target.closest("[data-act]"); if (!a) return; const act = a.dataset.act;
   if (act === "erledigt") { anwenden(PLAN.orders.liste); PLAN.orders.done = true; S.erledigt = PLAN.orders.id; DEP.erledigt = PLAN.orders.id; await depotSenden(); zeigen() }
   if (act === "angleichen") { anwenden(auftraegeAktuell()); await depotSenden(); zeigen() }
   if (act === "cash") { const v = parseFloat($("#cash").value.replace(",", ".")); if (!isFinite(v)) return toast("Betrag prüfen"); DEP.cash = v; await depotSenden(); zeigen() }
   if (act === "kauf" || act === "verkauf") {
-    const s = $("#sym").value, n = parseFloat($("#n").value.replace(",", ".")); let p = parseFloat($("#p").value.replace(",", "."));
-    if (!isFinite(n) || n <= 0) return toast("Stückzahl eingeben"); if (!isFinite(p)) p = preis(s); if (!p) return toast("Preis eingeben");
-    if (act === "verkauf" && !(DEP.pos[s] && DEP.pos[s].n >= n)) return toast("So viele Stück sind nicht im Depot");
+    const s = $("#sym").value, zahl = id => zahlVon($("#" + id).value);
+    let p = zahl("p"), n = zahl("n"); const b = zahl("betrag"), akt = preis(s);
+    if (!isFinite(p)) p = akt; if (!p) return toast("Kurs eingeben");
+    if (!isFinite(n)) { if (!isFinite(b) || b <= 0) return toast("Betrag in € oder Stück eingeben"); n = Math.round(b / p * 10000) / 10000 }
+    if (n <= 0) return toast("Stück prüfen");
+    if (akt && Math.abs(p / akt - 1) > 0.25 && !confirm(`Der Kurs ${eur(p)} weicht stark vom aktuellen Kurs ${eur(akt)} ab. Trotzdem speichern?`)) return;
+    if (act === "verkauf" && !(DEP.pos[s] && DEP.pos[s].n >= n - 1e-6)) return toast("So viele Stück sind nicht im Depot");
     anwenden([{s, act, n, preis: p}]); await depotSenden(); zeigen();
   }
   if (act === "settings") { for (const k of ["ghRepo", "ghToken", "syncPass"]) S.settings[k] = $("#" + k).value.trim(); speichern(); await depotHolen(); toast(S.syncInfo || "Gespeichert"); zeigen() }
