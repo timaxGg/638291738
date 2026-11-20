@@ -17,7 +17,7 @@ const log = (...a) => console.log(new Date().toISOString(), ...a);
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 const esc = s => String(s ?? "").replace(/[&<>]/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;"}[c]));
 const eur = v => (+v).toLocaleString("de-DE", {minimumFractionDigits: 2, maximumFractionDigits: 2}) + " €";
-const NAME = Object.fromEntries([...UNIVERSUM.map(u => [u[0], {n: u[1], sec: u[2], reg: u[3]}]), ...Object.entries(EXTRA).map(([s, x]) => [s, {n: x[0], sec: x[1], reg: x[2]}])]);
+const NAME = Object.fromEntries([...UNIVERSUM.map(u => [u[0], {n: u[1], sec: u[2], reg: u[3]}]), ...Object.entries(EXTRA).map(([s, x]) => [s, {n: x[0], sec: x[1], reg: x[2], isin: x[3]}])]);
 const nm = s => (NAME[s] || {n: s}).n;
 const ZUSATZ = "🧪 <i>Zusatz-Hinweis – nicht im 20-Jahres-Test geprüft</i>";
 
@@ -194,7 +194,7 @@ async function tagesAuswertung() {
   for (const s of syms) if (R[s]) H[s] = [SPY, EURUSD, EURCHF].includes(s) ? R[s] : ST.inEuro(s, R[s], fx);
   const fehlend = syms.filter(s => !R[s]); if (fehlend.length) log("Fehlend:", fehlend.join(","));
   const S = ST.signale(H);
-  if (Z.lastEval === S.datum && !FORCE) { log("Schon ausgewertet:", S.datum); return false }
+  if (Z.lastEval === S.datum && !FORCE && PLAN.renditen) { log("Schon ausgewertet:", S.datum); return false }
   const vorherZiel = ST.ziel(Z.picks ? Z : {mode: "M", gold: 0, fallback: [], picks: []});
   const {ev, geaendert, rank, euRank} = ST.auswerten(Z, H, S);
   stateGeaendert = true;
@@ -225,6 +225,10 @@ async function tagesAuswertung() {
     preise, namen: NAME, orders: Z.orders, log: Z.log.slice(0, 60),
     termine: termine(S.datum, Z), chart: {d: H[SPY].d.slice(-n), c: spyC.slice(-n).map(v => +v.toFixed(2)), s: smaS.slice(-n).map(v => v && +v.toFixed(2))},
     fehlend,
+    renditen: {
+      geldmarkt1J: R[GELD] ? ST.rendite1J(H[GELD].c) : null, gold1J: R[GOLD] ? ST.rendite1J(H[GOLD].a) : null, stoxx1J: R[STOXX] ? ST.rendite1J(H[STOXX].a) : null,
+      top10Mom: avg(Z.picks.map(s => H[s] && ST.momentum(H[s].a))), euMom: avg((Z.fallback || []).map(s => H[s] && ST.momentum(H[s].a))),
+    },
   });
   planGeaendert = true;
   // Nachrichten
@@ -237,6 +241,7 @@ async function tagesAuswertung() {
   abendHinweise(S, H, w, rank, preise);
   return true;
 }
+const avg = a => { a = a.filter(x => x != null && isFinite(x)); return a.length ? a.reduce((x, y) => x + y, 0) / a.length : null };
 function termine(d, Z) {
   const t = new Date(d + "T12:00:00Z"), iso = x => x.toISOString().slice(0, 10);
   const werktag = (s, extra = []) => { const x = new Date(s + "T12:00:00Z"); while ([0, 6].includes(x.getUTCDay()) || extra.includes(iso(x).slice(5))) x.setUTCDate(x.getUTCDate() + 1); return iso(x) };
@@ -302,7 +307,7 @@ export async function lauf({eigeneTelegram = false} = {}) {
   if (FORCE || min >= 22 * 60 + 20 || min < 6 * 60 || !Z.lastEval) {
     const ref = new Date(z.date + "T12:00:00Z"); if (min < 6 * 60) ref.setUTCDate(ref.getUTCDate() - 1);
     const wd = ref.getUTCDay(), soll = ref.toISOString().slice(0, 10);
-    const faellig = FORCE || !Z.lastEval || (wd >= 1 && wd <= 5 && Z.lastEval < soll);
+    const faellig = FORCE || !Z.lastEval || !PLAN.renditen || (wd >= 1 && wd <= 5 && Z.lastEval < soll);
     if (faellig && (FORCE || !B.versuch || Date.now() - B.versuch > 25 * 60e3)) { B.versuch = Date.now(); try { await tagesAuswertung() } catch (e) { log("Auswertung-Fehler:", e.stack) } }
   } else { try { await tagsueber() } catch (e) { log("Tagsüber-Fehler:", e.stack) } }
   if (eigeneTelegram) await telegram();

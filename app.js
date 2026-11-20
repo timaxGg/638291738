@@ -100,7 +100,7 @@ R.status = () => {
   const leer = !DEP.cash && !Object.keys(DEP.pos || {}).length, live = !leer ? auftraegeAktuell() : [];
   const satz = {U: `${PLAN.expo} % investiert in die Top 10${PLAN.gold ? `, davon 20 % Gold` : ""}${PLAN.expo < 100 ? `, ${100 - PLAN.expo} % Geldmarkt (Schwankungs-Bremse)` : ""}.`,
     E: "S&P 500 unter seiner 200-Tage-Linie. Das Geld liegt in den 10 stärksten EU-Aktien.", G: "S&P 500 unter seiner 200-Tage-Linie. Das Geld liegt in Gold.", M: "S&P 500 unter seiner 200-Tage-Linie. Das Geld liegt sicher im Geldmarkt-ETF."}[PLAN.modus];
-  let h = `<div class="hero m-${PLAN.modus}"><div class="k">Modus jetzt</div><div class="v">${MODUS[PLAN.modus]}</div><p>${satz}</p></div>`;
+  let h = jetzt() + `<div class="hero m-${PLAN.modus}"><div class="k">Modus jetzt</div><div class="v">${MODUS[PLAN.modus]}</div><p>${satz}</p></div>`;
   h += `<h2>Was ist zu tun?</h2><div class="card">`;
   if (offen) h += `<div class="small">Grund: ${esc(o.grund)}</div>${orderHTML(o.liste)}<div class="small" style="margin-top:6px">Am nächsten Handelstag zur Eröffnung ausführen.</div><button class="btn" data-act="erledigt">✅ Erledigt – ins Depot übernehmen</button>`;
   else if (leer) h += `<b>Trag dein Depot ein</b><div class="small">Dann rechnet die App genaue Stückzahlen für dich aus.</div><button class="btn" data-go="depot">Zum Depot</button>`;
@@ -123,6 +123,26 @@ R.status = () => {
    <div class="row"><div class="l"><div class="t">Jahreswechsel (neue Top 10)</div><div class="s">erster Handelstag ab 21. Nov.</div></div><div class="r">${datum(PLAN.termine.jahreswechsel)}</div></div></div>`;
   return h;
 };
+function jetzt() {
+  const w = PLAN.ziel || {}, m = PLAN.modus, r = PLAN.renditen || {}, {gesamt} = depotWerte();
+  const aktien = Object.keys(w).filter(s => ![GOLD, GELD].includes(s)), rest = Object.keys(w).filter(s => [GOLD, GELD].includes(s));
+  const betrag = s => gesamt > 0 ? ` · ≈ ${eur(w[s] * gesamt, 0)}` : "";
+  const isin = s => (PLAN.namen[s] || {}).isin ? `ISIN ${PLAN.namen[s].isin}` : s;
+  let zeilen = rest.sort((a, b) => w[b] - w[a]).map(s => `<div class="row"><div class="l"><div class="t">${esc(nm(s))}</div><div class="s">${esc(isin(s))}</div></div><div class="r"><b>${pc(w[s] * 100, 0, false)}</b><div class="s">${betrag(s).replace(" · ", "")}</div></div></div>`).join("");
+  if (aktien.length) zeilen = `<div class="row"><div class="l"><div class="t">${aktien.length} Aktien${m === "E" ? " (EU)" : ""}, je ${pc(w[aktien[0]] * 100, 1, false)}</div><div class="s">${aktien.map(s => esc(nm(s))).join(", ")}</div></div><div class="r"><b>${pc(aktien.reduce((x, s) => x + w[s], 0) * 100, 0, false)}</b>${gesamt > 0 ? `<div class="s">≈ ${eur(w[aktien[0]] * gesamt, 0)} je Aktie</div>` : ""}</div></div>` + zeilen;
+  const emp = {
+    M: `Alles in den Geldmarkt-ETF (XEON). Der US-Markt ist im Abwärtstrend, Europa und Gold auch – dort ist dein Geld sicher und bekommt Zinsen.`,
+    G: `Alles in Gold (Xetra-Gold). Der US-Markt ist im Abwärtstrend, Gold ist gerade der stärkste sichere Ort.`,
+    E: `In die 10 stärksten EU-Aktien. Der US-Markt ist im Abwärtstrend, Europa aber nicht.`,
+    U: `In die Top-10-Aktien (je gleicher Betrag)${PLAN.gold ? " plus 20 % Gold" : ""}${PLAN.expo < 100 ? `, ${100 - PLAN.expo} % Geldmarkt wegen hoher Schwankung` : ""}.`}[m];
+  const erw = {
+    M: `Erwartung: ca. ${pc(r.geldmarkt1J * 100)} pro Jahr (letzte 12 Monate), praktisch kein Verlustrisiko.`,
+    G: `Gold letzte 12 Monate: ${pc(r.gold1J * 100)}. Schwankt stark, keine Garantie.`,
+    E: `Ø der EU-Auswahl, letzte 12 Monate: ${pc(r.euMom * 100, 0)}. Vergangenheit, keine Garantie.`,
+    U: `Ø der Top 10, letzte 12 Monate: ${pc(r.top10Mom * 100, 0)}. Im 20-Jahres-Test brachte der Plan Ø +16,9 % pro Jahr (einzelne Jahre zwischen −11 % und +54 %).`}[m];
+  const weiter = m === "U" ? `Behalten bis zum Jahreswechsel – jeden Donnerstag prüft der Bot den Crash-Schutz.` : `Sobald der S&P 500 an einem Donnerstag wieder über seiner 200-Tage-Linie schließt, wechselst du in die Top 10 (der Bot sagt Bescheid).`;
+  return `<div class="card jetzt"><div class="k">👉 Jetzt anlegen in</div>${zeilen}<p><b>Empfehlung laut Plan:</b> ${emp}</p><p class="small">${erw}</p><p class="small">${weiter}${PLAN.picksVorlaeufig ? ` Am ${datum(PLAN.termine.jahreswechsel)} wird die Jahresauswahl neu berechnet.` : ""}</p>${gesamt > 0 ? "" : `<button class="btn kl" data-go="depot" style="margin-top:8px">Betrag eintragen → Stückzahlen</button>`}</div>`;
+}
 function sig(t, s, v, cls, extra, fill, mark, mark2) {
   return `<div class="row"><div class="l"><div class="t">${t}</div><div class="s">${s}</div>${fill != null ? `<div class="bar"><i style="width:${fill}%;background:var(--${cls === "ok" ? "gut" : cls === "w" ? "warn" : "schlecht"})"></i>${mark != null ? `<b style="left:${mark}%"></b>` : ""}${mark2 != null ? `<b style="left:${mark2}%"></b>` : ""}</div>` : ""}</div><div class="r"><span class="badge ${cls}">${v}</span>${extra ? `<div class="s">${extra}</div>` : ""}</div></div>`;
 }
@@ -164,7 +184,12 @@ R.liste = () => {
   if (!PLAN) return "";
   const rk = PLAN.rangliste || [], m = PLAN.modus;
   const zeile = (r, i) => `<div class="row"><div class="l"><div class="t">${i + 1}. ${esc(r.n)}</div><div class="s">${esc(r.sec)} · ${r.reg}${(PLAN.preise[r.s] || {}).chg != null ? ` · heute <span class="${PLAN.preise[r.s].chg >= 0 ? "pos" : "neg"}">${pc(PLAN.preise[r.s].chg)}</span>` : ""}</div></div><div class="r">${pc(r.mom * 100, 0)}<div>${r.pick ? '<span class="badge ok">Top 10</span>' : r.fb ? '<span class="badge ok">EU-Ausweich</span>' : ""}</div></div></div>`;
-  let h = `<div class="hero m-${m}"><div class="k">Aktuelle Auswahl ${PLAN.picksYear || ""}${PLAN.picksVorlaeufig ? " (vorläufig)" : ""}</div><div class="v">${(PLAN.picks || []).length} Aktien</div><p>Stärkster Anstieg von vor 12 Monaten bis vor 1 Monat (in €), max. 2 pro Branche.${m !== "U" ? " Gerade nicht investiert (Crash-Modus)." : ""}</p></div>`;
+  const r = PLAN.renditen || {};
+  let h = `<div class="hero m-${m}"><div class="k">${m === "U" ? "Jetzt gekauft" : "Gerade NICHT kaufen – Crash-Modus"}</div><div class="v">Top 10 ${PLAN.picksYear || ""}${PLAN.picksVorlaeufig ? " (vorläufig)" : ""}</div>
+   <p>${m === "U" ? "Diese 10 Aktien sind laut Plan im Depot, je gleicher Betrag." : "Diese 10 kaufst du erst, wenn der S&amp;P 500 wieder über seiner 200-Tage-Linie ist. Bis dahin: siehe Status."}</p></div>
+   <div class="card"><div class="row"><div class="l"><div class="t">Ø Rendite der Top 10</div><div class="s">letzte 12 Monate ohne letzten Monat, in €</div></div><div class="r"><b>${pc(r.top10Mom * 100, 0)}</b></div></div>
+   <div class="row"><div class="l"><div class="t">Was du erwarten kannst</div><div class="s">Ø im 20-Jahres-Test, einzelne Jahre −11 % bis +54 %</div></div><div class="r"><b>+16,9 %/Jahr</b></div></div>
+   <div class="small mut" style="margin-top:6px">Die Prozentzahl bei jeder Aktie ist ihr Anstieg der letzten 12 Monate (ohne letzten Monat) – danach wird ausgewählt. Keine Garantie für die Zukunft.</div></div>`;
   h += `<h2>Die Top 10</h2><div class="card">` + (PLAN.picks || []).map((s, i) => { const r = rk.find(x => x.s === s) || {s, n: nm(s), sec: "", reg: "", mom: 0}; return zeile(Object.assign({}, r, {pick: true}), i) }).join("") + `</div>`;
   if (m === "E") h += `<h2>EU-Ausweich (aktiv)</h2><div class="card">` + (PLAN.fallback || []).map((s, i) => zeile(Object.assign({}, (PLAN.euRangliste || []).find(x => x.s === s) || {s, n: nm(s), sec: "", reg: "EU", mom: 0}, {fb: true, pick: false}), i)).join("") + `</div>`;
   const z = {}; h += `<h2>Rangliste (alle)</h2><div class="card">` + rk.map((r, i) => { const voll = !r.pick && (z[r.sec] || 0) >= 2 && i < 14; if (r.pick) z[r.sec] = (z[r.sec] || 0) + 1; return zeile(r, i) + (voll ? `<div class="small mut" style="margin:-4px 0 6px">↳ übersprungen: Branche ${esc(r.sec)} schon 2× dabei</div>` : "") }).join("") + `</div>`;

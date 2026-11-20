@@ -47,9 +47,9 @@ export const UNIVERSUM = [
 // Weitere Bausteine
 export const SPY = "SPY", STOXX = "EXSA.DE", GOLD = "4GLD.DE", GELD = "XEON.DE", EURUSD = "EURUSD=X", EURCHF = "EURCHF=X";
 export const EXTRA = {
- [GOLD]: ["Gold (Xetra-Gold, €)","Gold","EU"],
- [GELD]: ["Geldmarkt (XEON, €)","Geldmarkt","EU"],
- [STOXX]: ["STOXX Europe 600 (EXSA)","Index","EU"],
+ [GOLD]: ["Gold (Xetra-Gold, €)","Gold","EU","DE000A0S9GB0"],
+ [GELD]: ["Geldmarkt (XEON, €)","Geldmarkt","EU","LU0290358497"],
+ [STOXX]: ["STOXX Europe 600 (EXSA)","Index","EU","DE0002635307"],
  [SPY]: ["S&P 500 (SPY)","Index","US"],
 };
 export const waehrung = s => s.endsWith(".SW") ? "CHF" : /\.(DE|PA|AS|MC|MI|BR|HE)$/.test(s) ? "EUR" : "USD";

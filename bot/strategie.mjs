@@ -25,6 +25,7 @@ export function inEuro(s, h, fx) {
 
 // Momentum 12-1: Anstieg von vor 12 Monaten (252 Tage) bis vor 1 Monat (21 Tage)
 export function momentum(a) { if (a.length < 253) return null; const i = a.length - 1; return a[i - 21] / a[i - 252] - 1; }
+export const rendite1J = a => a.length < 253 ? null : a[a.length - 1] / a[a.length - 253] - 1;
 export const rendite6 = a => a.length < 127 ? null : last(a) / a[a.length - 127] - 1;
 
 export function rangliste(H, region) {

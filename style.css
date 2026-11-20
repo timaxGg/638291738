@@ -44,3 +44,4 @@ table.rg{width:100%;border-collapse:collapse;font-size:13.5px}table.rg td{paddin
 .toast.on{opacity:1}
 .del{border:0;background:none;color:var(--schlecht);font-size:20px;padding:0 4px}
 .small{font-size:12.5px;color:var(--ink2)}
+.jetzt{border:2px solid var(--acc);margin-top:4px}.jetzt .k{font-size:13px;font-weight:800;color:var(--acc);text-transform:uppercase;letter-spacing:.05em;margin-bottom:2px}.jetzt p{margin-top:8px;font-size:14px}.jetzt .row .t{white-space:normal}
