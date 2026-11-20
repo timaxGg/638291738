@@ -112,7 +112,7 @@ R.status = () => {
   const leer = !DEP.cash && !Object.keys(DEP.pos || {}).length, live = !leer ? auftraegeAktuell() : [];
   const satz = {U: `${PLAN.expo} % investiert in die Top 10${PLAN.gold ? `, davon 20 % Gold` : ""}${PLAN.expo < 100 ? `, ${100 - PLAN.expo} % Geldmarkt (Schwankungs-Bremse)` : ""}.`,
     E: "S&P 500 unter seiner 200-Tage-Linie. Das Geld liegt in den 10 stärksten EU-Aktien.", G: "S&P 500 unter seiner 200-Tage-Linie. Das Geld liegt in Gold.", M: "S&P 500 unter seiner 200-Tage-Linie. Das Geld liegt sicher im Geldmarkt-ETF."}[PLAN.modus];
-  let h = jetzt() + `<div class="hero m-${PLAN.modus}"><div class="k">Modus jetzt</div><div class="v">${MODUS[PLAN.modus]}</div><p>${satz}</p></div>`;
+  let h = jetzt() + radar() + `<div class="hero m-${PLAN.modus}"><div class="k">Modus jetzt</div><div class="v">${MODUS[PLAN.modus]}</div><p>${satz}</p></div>`;
   h += `<h2>Was ist zu tun?</h2><div class="card">`;
   if (offen) h += `<div class="small">Grund: ${esc(o.grund)}</div>${orderHTML(o.liste)}<div class="small" style="margin-top:6px">Am nächsten Handelstag zur Eröffnung ausführen.</div><button class="btn" data-act="erledigt">✅ Erledigt – ins Depot übernehmen</button>`;
   else if (leer) h += `<b>Trag dein Depot ein</b><div class="small">Dann rechnet die App genaue Stückzahlen für dich aus.</div><button class="btn" data-go="depot">Zum Depot</button>`;
@@ -135,6 +135,18 @@ R.status = () => {
    <div class="row"><div class="l"><div class="t">Jahreswechsel (neue Top 10)</div><div class="s">erster Handelstag ab 21. Nov.</div></div><div class="r">${datum(PLAN.termine.jahreswechsel)}</div></div></div>`;
   return h;
 };
+function radar() {
+  if (!PLAN || PLAN.modus === "U") return "";
+  const s = PLAN.signale, live = (PLAN.preise || {}).SPY, spy = live && live.cur ? live.cur : s.spy, ab = (spy / s.spySma - 1) * 100, noetig = (s.spySma / spy - 1) * 100;
+  const r = (PLAN.radar || []).filter(v => v != null), vor = r.length > 5 ? r[r.length - 6] : null, trend = vor == null ? "" : ab > vor ? "🟢 kommt näher" : "🔴 entfernt sich";
+  const W = 300, H = 60, mn = Math.min(-8, ...r), mx = Math.max(3, ...r), y = v => H - 4 - (v - mn) / (mx - mn) * (H - 8);
+  const pfad = r.map((v, i) => `${i ? "L" : "M"}${(i / Math.max(1, r.length - 1) * W).toFixed(1)},${y(v).toFixed(1)}`).join("");
+  return `<div class="card"><div class="k" style="font-size:13px;font-weight:800;color:var(--warn);text-transform:uppercase;letter-spacing:.05em">📡 Markt-Radar: Wann wieder in Aktien?</div>
+   <div class="row"><div class="l"><div class="t">S&amp;P 500 zur 200-Tage-Linie</div><div class="s">${ab >= 0 ? "schon darüber – Donnerstagabend entscheidet" : `muss noch ca. ${pc(noetig)} steigen`} ${trend ? "· " + trend : ""}</div></div><div class="r"><span class="badge ${ab >= 0 ? "ok" : "x"}">${pc(ab)}</span></div></div>
+   <svg viewBox="0 0 ${W} ${H}" style="width:100%;height:auto;margin-top:6px" aria-label="Abstand zur Linie, 30 Tage"><line x1="0" x2="${W}" y1="${y(0)}" y2="${y(0)}" stroke="#e34948" stroke-dasharray="4 3"/><path d="${pfad}" fill="none" stroke="#0b0b0b" stroke-width="2"/></svg>
+   <div class="small mut">Abstand der letzten 30 Tage · rote Linie = Einstiegsschwelle</div>
+   <div class="small" style="margin-top:6px">Nächste Entscheidung: <b>${datum(PLAN.termine.donnerstag)}</b> nach US-Börsenschluss. Der Bot meldet sich vorher, sobald es knapp wird – die Kaufliste mit ISIN steht unter „Auswahl“.</div></div>`;
+}
 function jetzt() {
   const w = PLAN.ziel || {}, m = PLAN.modus, r = PLAN.renditen || {}, {gesamt} = depotWerte();
     const sortiert = Object.keys(w).sort((a, b) => w[b] - w[a] || nm(a).localeCompare(nm(b)));
