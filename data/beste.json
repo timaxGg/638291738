@@ -1,20 +1,14 @@
 {
- "id": "b-2026-11-21-morgens",
+ "id": "b-2026-11-21-mittags",
  "datum": "2026-11-21",
- "slot": "morgens",
- "erstellt": "2026-11-21T06:18:46Z",
- "markt": "Die Wall Street beendete am Freitag eine schwierige Woche für Tech-Werte mit deutlichen Verlusten; der Nasdaq fiel laut Berichten kräftig, und die frisch gelistete Anthropic-Aktie gab zweistellig nach. Anleger zweifeln, ob sich die hohen KI-Investitionen auszahlen, und schichten in Anleihen und defensive Werte wie Handel, Konsumgüter und Gesundheit um. Die kommende Woche ist wegen Thanksgiving am 26. November verkürzt; in diesem nervösen Umfeld sind kurzfristige Prognosen besonders unsicher.",
+ "slot": "mittags",
+ "erstellt": "2026-11-21T12:16:19Z",
+ "markt": "Die Wall Street beendete am Freitag eine schwierige Woche für Tech-Werte mit deutlichen Verlusten; der Nasdaq fiel laut Berichten kräftig, und die frisch gelistete Anthropic-Aktie gab zweistellig nach. Anleger zweifeln, ob sich die hohen KI-Investitionen auszahlen, und schichten in Anleihen und defensive Werte wie Handel, Konsumgüter und Gesundheit um. Am Wochenende kamen bis Samstagmittag keine marktbewegenden neuen Meldungen hinzu, die Börsen sind geschlossen. Die kommende Woche ist wegen Thanksgiving am 26. November verkürzt; in diesem nervösen Umfeld sind kurzfristige Prognosen besonders unsicher.",
  "marktQuellen": [
   {
    "t": "Anthropic stock falls 10% in first full day of trading amid AI sell-off",
    "u": "https://www.cnbc.com/2026/11/20/anthropic-stock-ai-amd-nvidia.html",
    "q": "CNBC",
-   "d": "2026-11-20"
-  },
-  {
-   "t": "Nasdaq Dives 1,261 Points as Anthropic, AI Stocks Sink: Stock Market Today",
-   "u": "https://finnhub.io/api/news?id=32dd21db0653d334385683569940ef63b6f3e0a555cfb0e72eb37bc7e5f948ba",
-   "q": "Yahoo",
    "d": "2026-11-20"
   },
   {
@@ -65,12 +59,6 @@
       "u": "https://www.tikr.com/blog/chipotle-soars-16-in-a-week-as-traffic-grows-again-lower-income-cohort-outperformed",
       "q": "TIKR",
       "d": "2026-11-07"
-     },
-     {
-      "t": "Chipotle Stock Looks Cheaper On 2027 Profit, If Sales Deliver",
-      "u": "https://finnhub.io/api/news?id=39a0b35f5baee07ce9648104ab9f6a9d79e9422012db8ef1e44495530b2b83b8",
-      "q": "Yahoo",
-      "d": "2026-11-20"
      },
      {
       "t": "Chipotle Stock Looks Cheaper On 2027 Profit, If Sales Deliver",
@@ -240,12 +228,6 @@
       "u": "https://finnhub.io/api/news?id=98a67e089af58c1da4513bae08286644fc8e18db22a2782cfcfd51154ef141ec",
       "q": "Yahoo/Barron's",
       "d": "2026-11-20"
-     },
-     {
-      "t": "The Hot ‘Toothpaste Trade’ Is Another Sign AI Stock Fears Are Getting Worse",
-      "u": "https://finnhub.io/api/news?id=98a67e089af58c1da4513bae08286644fc8e18db22a2782cfcfd51154ef141ec",
-      "q": "Yahoo",
-      "d": "2026-11-20"
      }
     ]
    }
@@ -333,12 +315,6 @@
       "t": "GameStop Is ‘Not A Meme Stock,’ Says Analyst, Sees Over 22% Upside From Collectibles Push and GTA VI-Led Growth",
       "u": "https://finnhub.io/api/news?id=998709f32d9ca8e071dd7cb69cdf73b5d4cedeac235f9a643c1c4e5669c88f76",
       "q": "Yahoo/Benzinga",
-      "d": "2026-11-20"
-     },
-     {
-      "t": "GameStop Is ‘Not A Meme Stock,’ Says Analyst, Sees Over 22% Upside From Collectibles Push and GTA VI-Led Growth",
-      "u": "https://finnhub.io/api/news?id=998709f32d9ca8e071dd7cb69cdf73b5d4cedeac235f9a643c1c4e5669c88f76",
-      "q": "Yahoo",
       "d": "2026-11-20"
      }
     ]
@@ -428,12 +404,6 @@
       "u": "https://finnhub.io/api/news?id=d4ae3c52ef1a61eb12153e38674498cba0d689ed98e38144672d04148899b886",
       "q": "Yahoo/Trefis",
       "d": "2026-11-20"
-     },
-     {
-      "t": "Is Buying Edwards Stock At Its High A Bad Idea?",
-      "u": "https://finnhub.io/api/news?id=d4ae3c52ef1a61eb12153e38674498cba0d689ed98e38144672d04148899b886",
-      "q": "Yahoo",
-      "d": "2026-11-20"
      }
     ]
    },
@@ -476,12 +446,6 @@
      {
       "t": "WMT Q3 Earnings Call Takeaways as Sales and Profit Outlooks Rise",
       "u": "https://finnhub.io/api/news?id=20a36ebdd588bd07ec5d6096d3d3024401726d5bf7ae27944f897c997ebfcb5a",
-      "q": "Yahoo",
-      "d": "2026-11-20"
-     },
-     {
-      "t": "Walmart (WMT) Q3 Results Meet Sales Growth But Profitability Cools",
-      "u": "https://finnhub.io/api/news?id=9d1734ab39200d9e81f45d2823ada6b8b6c2838a031c142861933ae4d63b6b95",
       "q": "Yahoo",
       "d": "2026-11-20"
      },
@@ -542,12 +506,6 @@
       "u": "https://finnhub.io/api/news?id=d79dc8d8ae62c7f5396f36f2f7c4899fa85504c0918978810c3502a5544793f5",
       "q": "Yahoo/Simply Wall St",
       "d": "2026-11-21"
-     },
-     {
-      "t": "Earnings Beat Might Change The Case For Investing In McKesson Stock (MCK)",
-      "u": "https://finnhub.io/api/news?id=d79dc8d8ae62c7f5396f36f2f7c4899fa85504c0918978810c3502a5544793f5",
-      "q": "Yahoo",
-      "d": "2026-11-21"
      }
     ]
    },
@@ -590,12 +548,6 @@
       "t": "Veralto's Q3 Margin Expands 170 Bps: Can VLTO Maintain Gains?",
       "u": "https://finnhub.io/api/news?id=d643b6ba9fc3cc975f45e80a8f1f29b02818a20eb754d2cf4598acfc3fa90338",
       "q": "Yahoo/Zacks",
-      "d": "2026-11-20"
-     },
-     {
-      "t": "Veralto's Q3 Margin Expands 170 Bps: Can VLTO Maintain Gains?",
-      "u": "https://finnhub.io/api/news?id=d643b6ba9fc3cc975f45e80a8f1f29b02818a20eb754d2cf4598acfc3fa90338",
-      "q": "Yahoo",
       "d": "2026-11-20"
      }
     ]
@@ -723,12 +675,6 @@
       "u": "https://finnhub.io/api/news?id=0b16aafe024057536be90802c5ab7b99b34e2162924e2c5a35bfd15780d38dba",
       "q": "Yahoo",
       "d": "2026-11-20"
-     },
-     {
-      "t": "From tech glitches to bulk buying: How outages are spurring a wave of Costco sales",
-      "u": "https://finnhub.io/api/news?id=0b16aafe024057536be90802c5ab7b99b34e2162924e2c5a35bfd15780d38dba",
-      "q": "Yahoo",
-      "d": "2026-11-20"
      }
     ]
    }
@@ -744,16 +690,6 @@
    "s": "EW",
    "h": 3,
    "grund": "Übliche Drei-Tage-Bewegung von 2,8 % nur knapp über der Hürde, Fünf-Tage-Bilanz mit −4,9 % negativ."
-  },
-  {
-   "s": "FRE.DE",
-   "h": 3,
-   "grund": "Fünf-Tage-Bilanz negativ und übliche Bewegung von 2,8 % nur knapp über der Hürde."
-  },
-  {
-   "s": "PHIA.AS",
-   "h": 3,
-   "grund": "Zu träge: übliche Drei-Tage-Bewegung von 2,5 % kaum über der Hürde, ohne frischen Auslöser."
   },
   {
    "s": "VLTO",
@@ -774,16 +710,6 @@
    "s": "VLTO",
    "h": 7,
    "grund": "Übliche Sieben-Tage-Bewegung von 3,7 % unter der Hürde von 4,12 %."
-  },
-  {
-   "s": "AI.PA",
-   "h": 7,
-   "grund": "Übliche Sieben-Tage-Bewegung von 2,8 % weit unter der Hürde, keine frischen Nachrichten."
-  },
-  {
-   "s": "PHIA.AS",
-   "h": 7,
-   "grund": "Übliche Bewegung von 3,8 % unter der Hürde, Fünf-Tage-Bilanz negativ."
   },
   {
    "s": "TECH",
@@ -809,6 +735,26 @@
    "s": "PG",
    "h": 30,
    "grund": "Ruhiger Wert, die übliche Bewegung von 7,3 % macht die Hürde praktisch unerreichbar."
+  },
+  {
+   "s": "SAN.PA",
+   "h": 3,
+   "grund": "Fünf-Tage-Bilanz mit −3,1 % negativ und übliche Drei-Tage-Bewegung von 2,6 % nur knapp über der Hürde."
+  },
+  {
+   "s": "AIZ",
+   "h": 3,
+   "grund": "Zu träge: übliche Drei-Tage-Bewegung von 2,3 % kaum über der Hürde, kein frischer Auslöser."
+  },
+  {
+   "s": "SAN.PA",
+   "h": 7,
+   "grund": "Übliche Sieben-Tage-Bewegung von 3,9 % unter der Hürde von 4,12 %, Fünf-Tage-Bilanz negativ."
+  },
+  {
+   "s": "AIZ",
+   "h": 7,
+   "grund": "Übliche Sieben-Tage-Bewegung von 3,5 % unter der Hürde von 4,12 %."
   }
  ]
 }
