@@ -1,8 +1,8 @@
 {
- "id": "b-2026-11-22-mittags",
+ "id": "b-2026-11-22-abends",
  "datum": "2026-11-22",
- "slot": "mittags",
- "erstellt": "2026-11-22T11:40:43.962Z",
+ "slot": "abends",
+ "erstellt": "2026-11-22T17:40:44.285Z",
  "_anleitung": "Siehe trading/KI-AUFGABE.md. Kurz: Für jeden Zeitraum (3, 7, 30 Handelstage) aus den kandidaten genau 5 Werte auswählen und begründen, mit echter Websuche und Quellen-Links. Nur Werte aus der jeweiligen Kandidatenliste. Keine Zahlen erfinden. Ergebnis als data/beste.json.",
  "kostenUndZiel": {
   "kostenHinUndZurueck": 0.3,
@@ -17271,6 +17271,13 @@
      "z": "Chipotle has outearned CAVA in every quarter since late 2024, but CAVA's revenue swings are sharper."
     },
     {
+     "t": "Four S&P 500 Stocks Rising in a Falling Market: Pentair, AppLovin, Chipotle, and Gen Digital",
+     "u": "https://finnhub.io/api/news?id=b2d8856c10924f9b3ce0222ec94c8f246b505cbe98591a423e650d7ffa58bdb6",
+     "q": "Benzinga",
+     "d": "2026-11-21",
+     "z": "Here are the top S&amp;P 500 stocks that are rising as the index remains in a bear market, including Pentair and Applovin"
+    },
+    {
      "t": "Will Record Sales Day Change Chipotle Stock Narrative",
      "u": "https://finnhub.io/api/news?id=7f3c96c7213b42713ff9daeb1f31a26b0483af0f73628f90cb00e26e7646a27d",
      "q": "Yahoo",
@@ -17290,19 +17297,19 @@
      "q": "Yahoo",
      "d": "2026-11-21",
      "z": "Hershey trades at a lower forward P/E than Chipotle, but the gap raises a bigger question about which stock is the better buy."
-    },
-    {
-     "t": "Chipotle Stock Looks Cheaper On 2027 Profit, If Sales Deliver",
-     "u": "https://finnhub.io/api/news?id=39a0b35f5baee07ce9648104ab9f6a9d79e9422012db8ef1e44495530b2b83b8",
-     "q": "Yahoo",
-     "d": "2026-11-20",
-     "z": "Today’s big story: Will 2027 Be A 2022 Repeat For Stocks."
     }
    ],
    "quartalszahlen": null
   },
   "BAYN.DE": {
    "meldungen": [
+    {
+     "t": "ROUNDUP: Bayers Glyphosat-Sammelvergleich von Richter genehmigt",
+     "u": "https://de.finance.yahoo.com/nachrichten/roundup-bayers-glyphosat-sammelvergleich-richter-161154854.html?.tsrc=rss",
+     "q": "Yahoo Finanzen",
+     "d": "2026-11-22",
+     "z": "Der 7,25 Milliarden Dollar schwere Glyphosat-Sammelvergleich von Bayer  mit Zehntausenden Klägern in den USA ist von einem Richter abschließend gebilligt worden. Der Vergleich sei \"fair, vernünftig und angemessen\", schrieb Richter Timothy B"
+    },
     {
      "t": "Glyphosat-Klagen: US-Gericht billigt milliardenschwerden Bayer-Sammelvergleich",
      "u": "https://de.finance.yahoo.com/nachrichten/glyphosat-klagen-us-gericht-billigt-224225205.html?.tsrc=rss",
@@ -17323,19 +17330,19 @@
      "q": "Yahoo Finanzen",
      "d": "2026-11-18",
      "z": "Die Privatbank Berenberg hat das Kursziel für Bayer  von 53,50 auf 62,00 Euro angehoben, die Einstufung aber auf \"Hold\" belassen. Die Aktie des Pharma- und Agrarchemiekonzerns habe bislang ein großartiges Jahr hinter sich, schrieb Sebastian"
-    },
-    {
-     "t": "ROUNDUP: Bayer darf Gerinnungshemmer Sunharbo auch in den USA verkaufen",
-     "u": "https://de.finance.yahoo.com/nachrichten/roundup-bayer-darf-gerinnungshemmer-sunharbo-101933330.html?.tsrc=rss",
-     "q": "Yahoo Finanzen",
-     "d": "2026-11-10",
-     "z": "Bayer  darf auf dem wichtigen US-Markt den Nachfolger des Blockbusters Xarelto zur Schlaganfallvorbeugung verkaufen. Die US-Arzneimittelbehörde FDA ließ laut einer Mitteilung vom späten Montag das Medikament Sunharbo (Wirkstoff Asundexian) "
     }
    ],
    "quartalszahlen": null
   },
   "PNR": {
    "meldungen": [
+    {
+     "t": "Four S&P 500 Stocks Rising in a Falling Market: Pentair, AppLovin, Chipotle, and Gen Digital",
+     "u": "https://finnhub.io/api/news?id=b2d8856c10924f9b3ce0222ec94c8f246b505cbe98591a423e650d7ffa58bdb6",
+     "q": "Benzinga",
+     "d": "2026-11-21",
+     "z": "Here are the top S&amp;P 500 stocks that are rising as the index remains in a bear market, including Pentair and Applovin"
+    },
     {
      "t": "What Does Hayward's Falling Multiple Really Say?",
      "u": "https://finnhub.io/api/news?id=224e833f45fcbf6df9b6d51605ff9bc0e9873822cd0e8223740a85b6f198b5f2",
@@ -17410,18 +17417,18 @@
      "z": "Consumer staples stock are on fire right now as AI fears dominate the stock market."
     },
     {
+     "t": "Clorox or Kinder Morgan: I Can Only Pick One Dividend Stock for the Next 20 Years. Here’s Mine",
+     "u": "https://finnhub.io/api/news?id=fbdb12bead507a8ec3e9893c4a93433250c8bfd426f6c784435da96770404031",
+     "q": "Yahoo",
+     "d": "2026-11-20",
+     "z": "Key TakeawaysClorox yields 4. 6% and Kinder Morgan yields 3."
+    },
+    {
      "t": "Better High-Yield Dividend Stock: Truist vs. Clorox",
      "u": "https://finnhub.io/api/news?id=6e9b9222bb5a49474b9f410af82c33ba840d78399633bcc18c01e613759a7bdc",
      "q": "Yahoo",
      "d": "2026-11-20",
      "z": "Key TakeawaysClorox yields 4. 6% and Truist Financial yields 4."
-    },
-    {
-     "t": "An $850,000 Portfolio in Molson Coors, Clorox and Prudential Pays $40,301 a Year in Dividends. Here’s What Happens if One Cuts",
-     "u": "https://finnhub.io/api/news?id=363aa1eb3f8c0790e04f1c57974e8f9d8b1d9518985da188b781764f9b942f8c",
-     "q": "Yahoo",
-     "d": "2026-11-20",
-     "z": "Key TakeawaysA hypothetical $850,000 portfolio split evenly across Molson Coors, Clorox and Prudential Financial pays $40,301 a year in dividends, about $3,360 a month. Clorox’s dividend is the least covered, at 133% of free cash flow over "
     }
    ],
    "quartalszahlen": null
@@ -17582,6 +17589,27 @@
   "COST": {
    "meldungen": [
     {
+     "t": "Sam's Club made a change Costco can't copy",
+     "u": "https://finnhub.io/api/news?id=4198e8b8cd6a2d6f2962df4a6ea6f1e1bfea29a080a07eed726c1006ea05df45",
+     "q": "Yahoo",
+     "d": "2026-11-22",
+     "z": "The Walmart-owned warehouse club’s move could work without hurting Costco."
+    },
+    {
+     "t": "Stanley Druckenmiller and 16 Other Big Funds Bought Palantir Last Quarter, While 6 Sold. Who’s Right?",
+     "u": "https://finnhub.io/api/news?id=030a608bf2f5365375b31a518d507ae21b90069c2df6910e782a0d87a784e66b",
+     "q": "Yahoo",
+     "d": "2026-11-22",
+     "z": "Key TakeawaysOf the 460 big funds that have filed 13Fs for the quarter ended Sept. 30, 17 bought Palantir, Stanley Druckenmiller’s family office among them, and 6 sold."
+    },
+    {
+     "t": "TD Cowen Raises Its Walmart Target to $147. Is It Still Too Low?",
+     "u": "https://finnhub.io/api/news?id=2157da268174634943435d4f4a37448cba936ebfabe29894e4cabd35e1cb9e06",
+     "q": "Yahoo",
+     "d": "2026-11-22",
+     "z": "Key TakeawaysTD Cowen raised its Walmart price target to $147 from $125 and kept its Buy rating after a beat-and-raise quarter. The firm expects fast e-commerce growth to lift margins, and at least eight other firms raised targets the same "
+    },
+    {
      "t": "3 Stocks I'm Ready to Buy if the Market Crashes",
      "u": "https://finnhub.io/api/news?id=6454a79c265c187b23a39957434a46d29aad9026678b3aecd079fe8bc5484a04",
      "q": "Yahoo",
@@ -17594,27 +17622,6 @@
      "q": "Yahoo",
      "d": "2026-11-21",
      "z": "Recent tech outages prompted a surge in panic buying at Costco. How much emergency preparation is necessary?"
-    },
-    {
-     "t": "Costco makes a tough store closure decision",
-     "u": "https://finnhub.io/api/news?id=fd2db125ba35b7d8cd090864c8340646b33e6ab25fd7b9184dd1495e157f89e5",
-     "q": "Yahoo",
-     "d": "2026-11-21",
-     "z": "The company faces a balancing act every year."
-    },
-    {
-     "t": "Costco’s U.S. Comparable Sales Jumped 12.6% in October. Here’s the Number That Shows Its Moat Is Widening.",
-     "u": "https://finnhub.io/api/news?id=de099bc07f282c68d33aedae2a068db2ae4c151401e71fb205b7b94b3719467f",
-     "q": "Yahoo",
-     "d": "2026-11-21",
-     "z": "Encouraging results have helped lift this retail stock 29% in 2026."
-    },
-    {
-     "t": "Walmart CFO Expects “the Next 5 Years to Look Better Than the Last 5 Years.” At Its Premium Multiple, It Has To",
-     "u": "https://finnhub.io/api/news?id=a4fe2d279e3b45d9081dd214f06c968763274cc39512837762fa6d5428c3fe4c",
-     "q": "Yahoo",
-     "d": "2026-11-21",
-     "z": "Key TakeawaysWalmart beat and raised its outlook again on Nov. 19, but the stock fell anyway at 42x forward earnings."
     }
    ],
    "quartalszahlen": "2026-12-10"
@@ -17622,39 +17629,39 @@
   "WMT": {
    "meldungen": [
     {
-     "t": "Walmart's CEO shares big news for time-strapped grocery shoppers",
-     "u": "https://finnhub.io/api/news?id=ee271b00cdfd40d569644c53ba8320f5fa8e460af849312c1ffe2778f553696a",
+     "t": "Sam's Club made a change Costco can't copy",
+     "u": "https://finnhub.io/api/news?id=4198e8b8cd6a2d6f2962df4a6ea6f1e1bfea29a080a07eed726c1006ea05df45",
      "q": "Yahoo",
      "d": "2026-11-22",
-     "z": "Sparky, Walmart’s conversational shopping assistant, launched in June 2025 and works in English, Spanish, and French."
+     "z": "The Walmart-owned warehouse club’s move could work without hurting Costco."
     },
     {
-     "t": "Walmart (WMT) Stock May Be Fully Valued After Earnings News",
-     "u": "https://finnhub.io/api/news?id=8eae7f6b87e0e78664a889410a52e9b78e7f0c06a5d00339cf80f265e750e839",
+     "t": "Walmart makes tough decision that may upset shoppers",
+     "u": "https://finnhub.io/api/news?id=934e1a0cbd9d87d178cb235b3bf42554712c728117453ed6a3fc6695012810f4",
      "q": "Yahoo",
      "d": "2026-11-22",
-     "z": "Walmart has delivered a powerful long run for shareholders, and the latest burst of earnings news keeps attention squarely on whether the current share price is still backed by its profits. With the stock recently closing at US$127.95, the "
+     "z": "Sometimes, even the most powerful retailers have to made hard choices."
     },
     {
-     "t": "Walmart: A Boringly Solid Business At A Not-So-Boring Price",
-     "u": "https://finnhub.io/api/news?id=96510964efdb89d038ce5ce962bb790647a102d9005844c34a0d4031c1ad11ae",
-     "q": "SeekingAlpha",
+     "t": "PepsiCo vs. Starbucks: Which Consumer Goods Stock Is a Better Buy for 2027?",
+     "u": "https://finnhub.io/api/news?id=6b87a2c34a19b51fb191360f537a241175c5921c497911fc47f35a3bbeed2418",
+     "q": "Yahoo",
      "d": "2026-11-22",
-     "z": "Analyst rates Walmart a Hold: its scale and improving margins support a premium, while 44x forward earnings remains hard to justify."
+     "z": "Starbucks trades at nearly twice PepsiCo's forward earnings multiple, but its free cash flow and loyalty-driven model raise a sharper question about which premium is justified."
     },
     {
-     "t": "DoorDash breaks silence on pricing practices amid FTC inquiry",
-     "u": "https://finnhub.io/api/news?id=c1c7b09df484e09c545f6693b95b2aeefd17308d8e1ed1c65da0fdb434137a69",
+     "t": "‘Inflation affects all of us’: Kevin O'Leary went shopping for Walmart paper towel bargains. How are you fighting back?",
+     "u": "https://finnhub.io/api/news?id=6ba835166a46e1442561ee316599083bdae83fcacd27a03767041467ae900f2a",
      "q": "Yahoo",
-     "d": "2026-11-21",
-     "z": "The delivery giant addresses concerns as federal regulators examine how companies use customer data."
+     "d": "2026-11-22",
+     "z": "Mr. Wonderful hunts for Bounty deals and wears $29 Walmart jeans — and the inflation data shows exactly why even the wealthy are watching what they spend on everyday essentials."
     },
     {
-     "t": "Walmart shares delivery update consumers need to know about",
-     "u": "https://finnhub.io/api/news?id=4ed8fda744540e74c11c86aac04dc465be24585a55fe9c313c666aa4cf263b0f",
+     "t": "TD Cowen Raises Its Walmart Target to $147. Is It Still Too Low?",
+     "u": "https://finnhub.io/api/news?id=2157da268174634943435d4f4a37448cba936ebfabe29894e4cabd35e1cb9e06",
      "q": "Yahoo",
-     "d": "2026-11-21",
-     "z": "The company is taking big steps to make shopping more convenient, and its efforts are paying off."
+     "d": "2026-11-22",
+     "z": "Key TakeawaysTD Cowen raised its Walmart price target to $147 from $125 and kept its Buy rating after a beat-and-raise quarter. The firm expects fast e-commerce growth to lift margins, and at least eight other firms raised targets the same "
     }
    ],
    "quartalszahlen": null
@@ -17784,6 +17791,13 @@
   "PG": {
    "meldungen": [
     {
+     "t": "Invest $225,000 in These 4 Dividend Stocks and Collect Quarterly Income in Retirement",
+     "u": "https://finnhub.io/api/news?id=5201d2c79a3dd0e1b0c44ee5ddbf037c19836a574426c91e96a6a8a522107d9e",
+     "q": "Yahoo",
+     "d": "2026-11-22",
+     "z": "Retirement turns portfolio math into a question about electric bills and property taxes. Four dividend payers from banking, biotech, staples and utilities promise a paycheck every three months, but one of them carries a thinner safety cushi"
+    },
+    {
      "t": "Procter & Gamble (PG) Stock Sees Modest Fair Value Lift After Investor Day Updates",
      "u": "https://finnhub.io/api/news?id=e7200c6a55c0869e2e2b3abfd98902b31969177b034d0d82fc951bf644915acf",
      "q": "Yahoo",
@@ -17810,13 +17824,6 @@
      "q": "Yahoo",
      "d": "2026-11-21",
      "z": "A fat yield means nothing if the cash behind it dries up. Five companies with 50-plus years of dividend raises put safety ahead of income, yet one of them leaves almost no room for error."
-    },
-    {
-     "t": "What Are Estee Lauder Investors Betting On?",
-     "u": "https://finnhub.io/api/news?id=e61b04ee2afefcd634327e6f8db7407672908987425b1cbff0c168784e1fe6be",
-     "q": "Yahoo",
-     "d": "2026-11-21",
-     "z": "Today's big story: Will 2027 Be A 2022 Repeat For Stocks."
     }
    ],
    "quartalszahlen": null
