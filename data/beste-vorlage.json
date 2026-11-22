@@ -1,8 +1,8 @@
 {
- "id": "b-2026-11-22-morgens",
+ "id": "b-2026-11-22-mittags",
  "datum": "2026-11-22",
- "slot": "morgens",
- "erstellt": "2026-11-22T05:40:41.622Z",
+ "slot": "mittags",
+ "erstellt": "2026-11-22T11:40:43.962Z",
  "_anleitung": "Siehe trading/KI-AUFGABE.md. Kurz: Für jeden Zeitraum (3, 7, 30 Handelstage) aus den kandidaten genau 5 Werte auswählen und begründen, mit echter Websuche und Quellen-Links. Nur Werte aus der jeweiligen Kandidatenliste. Keine Zahlen erfinden. Ergebnis als data/beste.json.",
  "kostenUndZiel": {
   "kostenHinUndZurueck": 0.3,
@@ -17636,6 +17636,13 @@
      "z": "Walmart has delivered a powerful long run for shareholders, and the latest burst of earnings news keeps attention squarely on whether the current share price is still backed by its profits. With the stock recently closing at US$127.95, the "
     },
     {
+     "t": "Walmart: A Boringly Solid Business At A Not-So-Boring Price",
+     "u": "https://finnhub.io/api/news?id=96510964efdb89d038ce5ce962bb790647a102d9005844c34a0d4031c1ad11ae",
+     "q": "SeekingAlpha",
+     "d": "2026-11-22",
+     "z": "Analyst rates Walmart a Hold: its scale and improving margins support a premium, while 44x forward earnings remains hard to justify."
+    },
+    {
      "t": "DoorDash breaks silence on pricing practices amid FTC inquiry",
      "u": "https://finnhub.io/api/news?id=c1c7b09df484e09c545f6693b95b2aeefd17308d8e1ed1c65da0fdb434137a69",
      "q": "Yahoo",
@@ -17648,13 +17655,6 @@
      "q": "Yahoo",
      "d": "2026-11-21",
      "z": "The company is taking big steps to make shopping more convenient, and its efforts are paying off."
-    },
-    {
-     "t": "Stock Market Week Ahead: A Matter Of Pressure And Time",
-     "u": "https://finnhub.io/api/news?id=54a425626256774ac022c7e0c5ad357222f6c47c3d3ce49dc06903051ac6cf7a",
-     "q": "Yahoo",
-     "d": "2026-11-21",
-     "z": "The stock market suffered its most brutal week in five years. It's an important time for investors to pay careful attention."
     }
    ],
    "quartalszahlen": null
@@ -17712,7 +17712,36 @@
    "quartalszahlen": null
   },
   "NA9.DE": {
-   "meldungen": [],
+   "meldungen": [
+    {
+     "t": "Nagarro legt ungeprüfte Zahlen für das dritte Quartal 2026 vor und verzeichnet in den ersten neun Monaten 2026 ein Umsatzwachstum von 2,7 % in konstanter Währung",
+     "u": "https://de.finance.yahoo.com/nachrichten/nagarro-legt-ungepr%C3%BCfte-zahlen-f%C3%BCr-094200605.html?.tsrc=rss",
+     "q": "Yahoo Finanzen",
+     "d": "2026-11-13",
+     "z": "Nagarro, ein weltweit führendes Unternehmen für KI-native Entwicklung und Transformation, hat seine ungeprüften Finanzzahlen für die ersten neun Monate sowie das dritte Quartal 2026 vorgelegt und seine Quartalsmitteilung für das dritte Quar"
+    },
+    {
+     "t": "INDEX-MONITOR: Procredit ersetzt Nagarro im SDax",
+     "u": "https://de.finance.yahoo.com/nachrichten/index-monitor-procredit-ersetzt-nagarro-035017612.html?.tsrc=rss",
+     "q": "Yahoo Finanzen",
+     "d": "2026-10-14",
+     "z": "Die Procredit Holding  profitiert von der Übernahme des IT-Dienstleisters Nagarro  durch den indischen Konzern Persistent . Dieser hält inzwischen gut 94 Prozent der Anteile. Die Untergrenze des Anteils nicht in festen Händen befindlicher A"
+    },
+    {
+     "t": "Persistent sichert sich eine starke Mehrheitsbeteiligung",
+     "u": "https://de.finance.yahoo.com/nachrichten/persistent-sichert-starke-mehrheitsbeteiligung-095100742.html?.tsrc=rss",
+     "q": "Yahoo Finanzen",
+     "d": "2026-10-10",
+     "z": "Die Galaxy Germany Holding SE (der „Bieter\"), eine hundertprozentige direkte Tochtergesellschaft der Persistent Systems Limited (zusammen „Persistent\"), gab heute die endgültigen Ergebnisse ihres freiwilligen öffentlichen Übernahmeangebots "
+    },
+    {
+     "t": "INDEX-MONITOR: Procredit ersetzt Nagarro im SDax ab 14. Oktober",
+     "u": "https://de.finance.yahoo.com/nachrichten/index-monitor-procredit-ersetzt-nagarro-182035123.html?.tsrc=rss",
+     "q": "Yahoo Finanzen",
+     "d": "2026-10-09",
+     "z": "Die Procredit Holding  profitiert von der Übernahme des IT-Dienstleisters Nagarro  durch den indischen Konzern Persistent . Dieser hält inzwischen gut 94 Prozent der Anteile. Die Untergrenze des Anteils nicht in festen Händen befindlicher A"
+    }
+   ],
    "quartalszahlen": null
   },
   "QIA.DE": {
@@ -17755,6 +17784,13 @@
   "PG": {
    "meldungen": [
     {
+     "t": "Procter & Gamble (PG) Stock Sees Modest Fair Value Lift After Investor Day Updates",
+     "u": "https://finnhub.io/api/news?id=e7200c6a55c0869e2e2b3abfd98902b31969177b034d0d82fc951bf644915acf",
+     "q": "Yahoo",
+     "d": "2026-11-22",
+     "z": "Procter & Gamble’s updated fair value estimate has shifted from US$171.39 to US$175.83, giving you a fresh reference point for where analysts currently see the stock’s potential worth. This change sits alongside a more constructive tone in "
+    },
+    {
      "t": "Turn Your Roth IRA Into a Tax-Free Dividend Income Machine With These 3 Simple Moves",
      "u": "https://finnhub.io/api/news?id=3ffc10a878f86ab6bec20542c0289642634e67706e133acc4c5cf3c19ca5f624",
      "q": "Yahoo",
@@ -17781,13 +17817,6 @@
      "q": "Yahoo",
      "d": "2026-11-21",
      "z": "Today's big story: Will 2027 Be A 2022 Repeat For Stocks."
-    },
-    {
-     "t": "Procter & Gamble: The Recovery Is Broadening, And I Still See More Upside",
-     "u": "https://finnhub.io/api/news?id=c5702e84f14d6e5a78b20f9b8695d7e313b0050019f465f07e07e820858ae8fa",
-     "q": "SeekingAlpha",
-     "d": "2026-11-21",
-     "z": "Procter & Gamble (PG) stock is a buy, as 4% Q1 organic sales growth supports longer-term gains at 24.05x FY2027 EPS; margin fell 80 bps."
     }
    ],
    "quartalszahlen": null
@@ -17831,6 +17860,536 @@
     }
    ],
    "quartalszahlen": null
+  }
+ },
+ "_bisherHeute": {
+  "CMG": {
+   "einschaetzung": "Erholung intakt, Richtung kurzfristig aber marktabhängig.",
+   "warum": "Chipotle hat in vier Wochen gut 29 % zugelegt, nachdem die Aktie über drei Monate noch im Minus lag; die Fünf-Tage-Bilanz ist mit +0,8 % weiter leicht positiv. Der RSI von 58 zeigt Stärke ohne Überhitzung, der Kurs liegt 3,8 % unter dem 10-Tage-Hoch, am Freitag gab er mit dem schwachen Markt um rund 2 % nach. Laut Branchenpresse brachte eine Gratis-Burrito-Aktion Mitte November erneut einen Tagesrekord beim Umsatz, und Kommentatoren halten die Aktie gemessen am erwarteten Gewinn 2027 für günstiger, sofern die Umsätze liefern. Am Wochenende kamen nur Vergleichsartikel und Marketing-Meldungen hinzu.",
+   "ausblick": "Am wahrscheinlichsten bleibt die Aktie schwankend, weil sie sich vom Tech-Ausverkauf nicht ganz lösen kann. Die übliche Drei-Tage-Bewegung von 4,6 % liegt klar über der Hürde von 1,92 %, die Steigerung ist also realistisch, aber keineswegs sicher. Vor Thanksgiving ist der Handel oft dünn.",
+   "szenarien": {
+    "gut": "Der Markt stabilisiert sich und Anleger setzen weiter auf die Rückkehr der Gästezahlen.",
+    "schlecht": "Ein weiterer Ausverkauf an der Wall Street zieht auch Konsumwerte mit nach unten."
+   },
+   "treiber": [
+    "Hoffnung auf wieder steigende Gästezahlen",
+    "Rekordumsatz bei Werbeaktionen",
+    "Abstand zum Tech-Sektor"
+   ],
+   "risiken": [
+    "Hohe Schwankung (rund 42 % pro Jahr)",
+    "Allgemeine Marktschwäche",
+    "Kosten- und Preisdruck in der Gastronomie"
+   ],
+   "termine": [],
+   "quellen": [
+    {
+     "t": "Chipotle sets another single-day sales record",
+     "u": "https://www.nrn.com/fast-casual/chipotle-sets-another-single-day-sales-record",
+     "q": "Nation's Restaurant News",
+     "d": "2026-11-19"
+    },
+    {
+     "t": "Chipotle brings back record-breaking Tatted Like a Chipotle Bag BOGO on Friday, November 13",
+     "u": "https://newsroom.chipotle.com/2026-11-09-CHIPOTLE-BRINGS-BACK-RECORD-BREAKING-TATTED-LIKE-A-CHIPOTLE-BAG-BOGO-ON-FRIDAY,-NOVEMBER-13",
+     "q": "Chipotle Newsroom",
+     "d": "2026-11-09"
+    },
+    {
+     "t": "Chipotle soars 16% in a week as traffic grows again",
+     "u": "https://www.tikr.com/blog/chipotle-soars-16-in-a-week-as-traffic-grows-again-lower-income-cohort-outperformed",
+     "q": "TIKR",
+     "d": "2026-11-07"
+    },
+    {
+     "t": "Chipotle Stock Looks Cheaper On 2027 Profit, If Sales Deliver",
+     "u": "https://finnhub.io/api/news?id=39a0b35f5baee07ce9648104ab9f6a9d79e9422012db8ef1e44495530b2b83b8",
+     "q": "Yahoo",
+     "d": "2026-11-20"
+    }
+   ]
+  },
+  "PNR": {
+   "einschaetzung": "Trend intakt, ohne neuen Auslöser.",
+   "warum": "Pentair hat in vier Wochen gut 24 % gewonnen und hielt sich am Freitag mit −0,1 % deutlich besser als der Markt. Die Fünf-Tage-Bilanz ist leicht positiv (+0,5 %), der RSI von 63 lässt Luft und der Kurs liegt nur 2,2 % unter dem 10-Tage-Hoch. Grundlage ist ein Quartal über den Erwartungen mit bestätigter Jahresprognose; Analysten bleiben laut Barchart überwiegend positiv. Am Wochenende fanden sich keine neuen Firmenmeldungen.",
+   "ausblick": "Am wahrscheinlichsten pendelt die Aktie nahe dem Hoch mit leichter Aufwärtsneigung, weil sie zuletzt robust war. Mit einer üblichen Drei-Tage-Bewegung von 4,1 % ist die Hürde von 1,92 % erreichbar. Ohne Nachrichten hängt viel an der Gesamtstimmung.",
+   "szenarien": {
+    "gut": "Die relative Stärke hält an und Käufer nutzen den Markt-Rücksetzer.",
+    "schlecht": "Ein breiter Ausverkauf erfasst auch Industriewerte."
+   },
+   "treiber": [
+    "Starke Quartalszahlen",
+    "Relative Stärke gegenüber dem Markt"
+   ],
+   "risiken": [
+    "Kein neuer Auslöser",
+    "Sechs-Monats-Bilanz noch leicht negativ (−3,7 %)"
+   ],
+   "termine": [],
+   "quellen": [
+    {
+     "t": "Pentair reports Q3 earnings above estimates, maintains 2026 EPS outlook",
+     "u": "https://finviz.com/news/408914/pentair-reports-q3-earnings-above-estimates-maintains-2026-eps-outlook-at-470",
+     "q": "Finviz/Zacks",
+     "d": "2026-10-27"
+    },
+    {
+     "t": "Pentair Stock: Analyst Estimates & Ratings",
+     "u": "https://finnhub.io/api/news?id=fcd3f55524a7ef53da5390a7012b0ccac61ad8b5a6fbc88d164545f43205504d",
+     "q": "Yahoo/Barchart",
+     "d": "2026-11-18"
+    }
+   ]
+  },
+  "BAYN.DE": {
+   "einschaetzung": "Rücksetzer mit frischem Lichtblick, Ausgang offen.",
+   "warum": "Bayer ist in sechs Monaten um gut 47 % gestiegen, hat aber in fünf Tagen 5,6 % verloren und liegt 6,5 % unter dem 10-Tage-Hoch, die Trendbruch-Grenze ist also überschritten. Den Grund liefert eher die allgemeine Marktschwäche als eine schlechte Firmennachricht: Nach Börsenschluss am Freitag hat ein US-Richter den 7,25 Milliarden Dollar schweren Glyphosat-Sammelvergleich endgültig gebilligt, und laut Berichten vom Samstag legte die Aktie im außerbörslichen Handel daraufhin zu. Berenberg hob das Kursziel am 18. November auf 62 Euro, bei 'Hold'. Offen ist, ob Kläger den Vergleich noch anfechten.",
+   "ausblick": "Die Billigung des Vergleichs könnte am Montag eine Gegenbewegung auslösen, war aber teilweise erwartet. Die übliche Drei-Tage-Bewegung von 3,5 % liegt über der Hürde; ob sie nach oben ausfällt, hängt auch davon ab, wie der Markt die Nachricht gewichtet. Das erkannte Muster 'Abkühlung nach Übertreibung' war im Rückblick nur leicht positiv und ist kein verlässlicher Grund.",
+   "szenarien": {
+    "gut": "Anleger werten die Billigung als Ende einer langen Belastung und kaufen den Rücksetzer.",
+    "schlecht": "Die Nachricht war eingepreist und der allgemeine Ausverkauf setzt sich fort."
+   },
+   "treiber": [
+    "Billigung des Glyphosat-Vergleichs verringert Rechtsunsicherheit",
+    "Mögliche Gegenbewegung nach dem Rücksetzer"
+   ],
+   "risiken": [
+    "Mögliche Anfechtung des Vergleichs",
+    "Trendbruch-Signal: 6,5 % unter dem 10-Tage-Hoch",
+    "Allgemeine Marktschwäche"
+   ],
+   "termine": [],
+   "quellen": [
+    {
+     "t": "Bayer: Aktie legt nach 7,25-Milliarden-Vergleich zu",
+     "u": "https://ms-aktuell.de/welt/bayer-glyphosat-vergleich-21-11-2026/",
+     "q": "ms-aktuell",
+     "d": "2026-11-21"
+    },
+    {
+     "t": "Bayer Aktie: Roundup-Vergleich anfechtbar?",
+     "u": "https://www.boerse-global.de/bayer-aktie-roundup-vergleich-anfechtbar/844925",
+     "q": "Börse Global",
+     "d": "2026-11-21"
+    },
+    {
+     "t": "Glyphosat-Klagen: US-Gericht billigt milliardenschweren Bayer-Sammelvergleich",
+     "u": "https://de.finance.yahoo.com/nachrichten/glyphosat-klagen-us-gericht-billigt-224225205.html?.tsrc=rss",
+     "q": "Yahoo Finanzen",
+     "d": "2026-11-20"
+    },
+    {
+     "t": "Bayers Glyphosat-Sammelvergleich von Richter genehmigt",
+     "u": "https://de.finance.yahoo.com/nachrichten/bayers-glyphosat-sammelvergleich-richter-genehmigt-220143291.html?.tsrc=rss",
+     "q": "Yahoo Finanzen",
+     "d": "2026-11-20"
+    },
+    {
+     "t": "ANALYSE-FLASH: Berenberg hebt Ziel für Bayer auf 62 Euro - 'Hold'",
+     "u": "https://de.finance.yahoo.com/nachrichten/analyse-flash-berenberg-hebt-ziel-100503293.html?.tsrc=rss",
+     "q": "dpa-AFX/Yahoo Finanzen",
+     "d": "2026-11-18"
+    }
+   ]
+  },
+  "HEI.DE": {
+   "einschaetzung": "Guter Grundtrend, kurzfristig angeschlagen.",
+   "warum": "Heidelberg Materials hat in vier Wochen gut 17 % zugelegt, getragen von Quartalszahlen über den Erwartungen Anfang November und einer bestätigten Jahresprognose. In den letzten fünf Tagen gab die Aktie um 2 % nach und liegt 4,7 % unter dem 10-Tage-Hoch, knapp vor der Trendbruch-Grenze; eine schlechte Firmennachricht fand sich dafür auch am Wochenende nicht. Jefferies senkte am 16. November das Kursziel auf 282 Euro, blieb aber bei 'Buy'. Der RSI von 63 ist erhöht, aber nicht überhitzt.",
+   "ausblick": "Am wahrscheinlichsten ist ein Pendeln mit Erholungschance, wenn sich der europäische Markt fängt. Die übliche Drei-Tage-Bewegung von 3,5 % liegt über der Hürde von 1,92 %, die Richtung ist nach dem jüngsten Rücksetzer aber offen. Fällt der Kurs weiter, wäre der kurzfristige Trend gebrochen.",
+   "szenarien": {
+    "gut": "Käufer nutzen den Rücksetzer und der Aufwärtstrend aus den Zahlen setzt sich fort.",
+    "schlecht": "Konjunktursorgen oder ein schwacher Gesamtmarkt drücken Zyklikerwerte weiter."
+   },
+   "treiber": [
+    "Starke Quartalszahlen und Sparprogramm",
+    "Positive Analystenstimmen",
+    "Hoffnung auf Infrastruktur-Ausgaben"
+   ],
+   "risiken": [
+    "Fünf-Tage-Bilanz negativ",
+    "Zyklischer Wert in unsicherem Markt"
+   ],
+   "termine": [],
+   "quellen": [
+    {
+     "t": "ANALYSE-FLASH: Jefferies senkt Heidelberg-Materials-Ziel auf 282 Euro - 'Buy'",
+     "u": "https://de.finance.yahoo.com/nachrichten/analyse-flash-jefferies-senkt-heidelberg-090500519.html?.tsrc=rss",
+     "q": "dpa-AFX/Yahoo Finanzen",
+     "d": "2026-11-16"
+    },
+    {
+     "t": "AKTIE IM FOKUS 2: Heidelberg Materials nach Quartalsbericht im Rallymodus",
+     "u": "https://de.finance.yahoo.com/nachrichten/aktie-fokus-2-heidelberg-materials-171509431.html?.tsrc=rss",
+     "q": "dpa-AFX/Yahoo Finanzen",
+     "d": "2026-11-04"
+    },
+    {
+     "t": "Heidelberg Materials Aktie: Q3-Ergebnis wächst, Konzern bestätigt Jahresprognose",
+     "u": "https://goldesel.de/aktien/news/heidelberg-materials-aktie-q3-umsatz-schlagt-erwartungen-jahresprognose-bestatigt",
+     "q": "Goldesel",
+     "d": "2026-11-05"
+    }
+   ]
+  },
+  "CLX": {
+   "einschaetzung": "Defensive Erholungschance, aber unsicher.",
+   "warum": "Clorox hat in vier Wochen gut 21 % gewonnen, ist in fünf Tagen aber um 4,3 % zurückgefallen und liegt 4,9 % unter dem 10-Tage-Hoch, also knapp an der Trendbruch-Grenze. Am Freitag hielt sich die Aktie mit −0,2 % stabil, während Anleger laut einem Bericht verstärkt in Konsumgüterwerte wie Zahnpasta-Hersteller umschichteten. Eine Gewinnwarnung fand sich nicht; kritische Berichte verweisen auf gestiegene Schulden. Am Wochenende kamen nur Dividenden-Vergleichsartikel hinzu, keine neue Firmenmeldung.",
+   "ausblick": "Hält die Flucht in defensive Werte an, ist eine Erholung plausibel. Die übliche Drei-Tage-Bewegung von 3,8 % liegt über der Hürde, die Richtung bleibt aber offen. Rutscht der Kurs weiter, wäre der kurzfristige Trend gebrochen.",
+   "szenarien": {
+    "gut": "Die Umschichtung aus Tech in stabile Konsumgüter setzt sich fort.",
+    "schlecht": "Der Rücksetzer der letzten Tage weitet sich aus und der Trend bricht."
+   },
+   "treiber": [
+    "Umschichtung in defensive Werte",
+    "Stabile Dividende"
+   ],
+   "risiken": [
+    "Fünf-Tage-Bilanz negativ, nahe Trendbruch",
+    "Hohe Verschuldung"
+   ],
+   "termine": [],
+   "quellen": [
+    {
+     "t": "Clorox Co (CLX) Stock Down 3.1% -- Now Undervalued?",
+     "u": "https://www.gurufocus.com/news/9206240/clorox-co-clx-stock-down-31-now-undervalued-gf-score-75100",
+     "q": "GuruFocus",
+     "d": "2026-11-17"
+    },
+    {
+     "t": "Clorox Just Declared Another Dividend, but Its $5 Payout Faces a Debt Test",
+     "u": "https://finance.yahoo.com/markets/stocks/articles/clorox-just-declared-another-dividend-124755644.html",
+     "q": "Yahoo Finance",
+     "d": "2026-11-19"
+    },
+    {
+     "t": "Clorox Declares Regular Quarterly Dividend of $1.25 Per Share",
+     "u": "https://finnhub.io/api/news?id=eb74459b6f0553b6f8cf03517fa46b2cde174676f660180db93d94bdded8416e",
+     "q": "Yahoo/Business Wire",
+     "d": "2026-11-18"
+    },
+    {
+     "t": "The Hot ‘Toothpaste Trade’ Is Another Sign AI Stock Fears Are Getting Worse",
+     "u": "https://finnhub.io/api/news?id=98a67e089af58c1da4513bae08286644fc8e18db22a2782cfcfd51154ef141ec",
+     "q": "Yahoo/Barron's",
+     "d": "2026-11-20"
+    }
+   ]
+  },
+  "GME": {
+   "einschaetzung": "Spekulativer Schwung, sehr unsicher.",
+   "warum": "GameStop liegt fast am 10-Tage-Hoch, stieg in fünf Tagen um 3,1 % und in drei Monaten um gut 46 %. Auslöser war die Rückkehr von Keith Gill (Roaring Kitty) auf X; am Freitag gab die Aktie im Ausverkauf nur leicht nach. Ein Analyst sieht laut einem Bericht über 22 % Luft nach oben dank Sammlerartikeln und GTA VI. Die übliche Sieben-Tage-Bewegung von 6,7 % liegt deutlich über der Hürde, Stimmungsschübe sind aber unberechenbar.",
+   "ausblick": "Ein weiterer Schub ist möglich, wenn das Kleinanlegerinteresse anhält; ebenso schnell kann die Begeisterung abebben. Die Quartalszahlen am 7. Dezember liegen kurz nach dem Zeitraum und können Vorfreude wie Vorsicht auslösen. Die nötige Steigerung ist rechnerisch gut möglich, das Risiko nach unten ebenso groß.",
+   "szenarien": {
+    "gut": "Das Interesse der Kleinanleger hält an und die Vorfreude auf die Zahlen trägt den Kurs.",
+    "schlecht": "Der Hype ebbt ab und Gewinnmitnahmen setzen ein."
+   },
+   "treiber": [
+    "Kleinanleger-Stimmung",
+    "Vorfreude auf Zahlen am 7. Dezember",
+    "Analysten-Optimismus"
+   ],
+   "risiken": [
+    "Sehr hohe Schwankung",
+    "Stimmung kann schnell drehen"
+   ],
+   "termine": [
+    "26.11.2026: US-Börsen wegen Thanksgiving geschlossen, 27.11. verkürzter Handel",
+    "07.12.2026: Quartalszahlen (kurz nach dem Zeitraum)"
+   ],
+   "quellen": [
+    {
+     "t": "Former GameStop investor Keith 'Roaring Kitty' Gill tweets for the first time in 666 days",
+     "u": "https://www.shacknews.com/article/151437/gamestop-gme-roaring-kitty-keith-gill-breaks-twitter-silence",
+     "q": "Shacknews",
+     "d": "2026-11-19"
+    },
+    {
+     "t": "The cat came back: Roaring Kitty tweet sends GameStop stock higher amid GTA VI fervor",
+     "u": "https://finnhub.io/api/news?id=9cfbe20c3105f8672c7e567d8eb384372396f2466806d43442f0a4383ed45c5b",
+     "q": "Yahoo Finance",
+     "d": "2026-11-19"
+    },
+    {
+     "t": "What you actually own when you buy GameStop stock",
+     "u": "https://247wallst.com/investing/2026/11/19/what-you-actually-own-when-you-buy-gamestop-stock/",
+     "q": "24/7 Wall St.",
+     "d": "2026-11-19"
+    },
+    {
+     "t": "GameStop Is ‘Not A Meme Stock,’ Says Analyst, Sees Over 22% Upside From Collectibles Push and GTA VI-Led Growth",
+     "u": "https://finnhub.io/api/news?id=998709f32d9ca8e071dd7cb69cdf73b5d4cedeac235f9a643c1c4e5669c88f76",
+     "q": "Yahoo/Benzinga",
+     "d": "2026-11-20"
+    }
+   ]
+  },
+  "EW": {
+   "einschaetzung": "Guter Grundtrend, kurzfristig schwach.",
+   "warum": "Edwards hat in drei Monaten gut 13 % zugelegt; der Trend ist aufwärts, die Fünf-Tage-Bilanz mit −4,9 % aber negativ und der Kurs liegt 4,9 % unter dem 10-Tage-Hoch. Nach einem Quartal mit erneut erhöhter Prognose hoben mehrere Analysten ihre Ziele an, darunter Wells Fargo laut MarketBeat. Kritische Stimmen fragen, ob ein Kauf nahe dem Hoch sinnvoll ist, und verweisen auf die Bewertung. Die übliche Sieben-Tage-Bewegung von 4,2 % liegt nur knapp über der Hürde.",
+   "ausblick": "Ohne neue Nachrichten dürfte die Aktie seitwärts schwanken; eine Erholung ist möglich, wenn der Gesundheitssektor gefragt bleibt. Die nötigen 4,12 % liegen nur knapp innerhalb der üblichen Bewegung, also eher eine Ausnahme als die Regel.",
+   "szenarien": {
+    "gut": "Anleger kaufen den Rücksetzer im wachstumsstarken Herzklappen-Geschäft.",
+    "schlecht": "Bewertungssorgen führen zu weiteren Gewinnmitnahmen."
+   },
+   "treiber": [
+    "Angehobene Prognose",
+    "Positive Analysten"
+   ],
+   "risiken": [
+    "Trendbruch-Hinweis (−4,9 % in fünf Tagen)",
+    "Hohe Bewertung"
+   ],
+   "termine": [
+    "26.11.2026: US-Börsen wegen Thanksgiving geschlossen, 27.11. verkürzter Handel"
+   ],
+   "quellen": [
+    {
+     "t": "Edwards Lifesciences stock price expected to rise, Wells Fargo analyst says",
+     "u": "https://www.marketbeat.com/instant-alerts/analyst-edwards-lifesciences-nyse-ew-stock-price-expected-to-rise-wells-fargo-company-analyst-says-2026-11-16/",
+     "q": "MarketBeat",
+     "d": "2026-11-16"
+    },
+    {
+     "t": "Edwards Lifesciences beats and raises again, but TAVR share gains have plateaued",
+     "u": "https://finviz.com/news/416442/edwards-lifesciences-beats-and-raises-again-but-tavr-share-gains-have-plateaued-as-moderate-as-becomes-the-next-debate",
+     "q": "Earnings Whispers/Finviz",
+     "d": "2026-11-04"
+    },
+    {
+     "t": "Edwards Lifesciences: Momentum Returns, But Valuation Warrants Caution",
+     "u": "https://finnhub.io/api/news?id=5d5efe5f0eaf48a5f1d9586887dd86d9c31d1b043528c5b23e9549beb6d0fc7a",
+     "q": "Seeking Alpha",
+     "d": "2026-11-18"
+    },
+    {
+     "t": "Is Buying Edwards Stock At Its High A Bad Idea?",
+     "u": "https://finnhub.io/api/news?id=d4ae3c52ef1a61eb12153e38674498cba0d689ed98e38144672d04148899b886",
+     "q": "Yahoo/Trefis",
+     "d": "2026-11-20"
+    }
+   ]
+  },
+  "WMT": {
+   "einschaetzung": "Solide nach Zahlen, für die Hürde eher träge.",
+   "warum": "Walmart hat am 19. November Zahlen über den Erwartungen vorgelegt und die Jahresprognose angehoben; am Freitag stieg die Aktie um 1,5 % gegen den schwachen Markt und liegt nur 0,4 % unter dem 10-Tage-Hoch. In drei Monaten steht ein Plus von knapp 25 %, der RSI von 64 ist nicht überhitzt. Manche Analysen merken an, dass die Profitabilität zuletzt etwas abkühlte. Die übliche Sieben-Tage-Bewegung von 3,7 % liegt unter der Hürde von 4,12 %.",
+   "ausblick": "Als defensiver Wert mit angehobener Prognose und Black Friday im Zeitraum hat Walmart Rückenwind; wahrscheinlich ist ein fester, aber gemächlicher Verlauf. Die nötige Steigerung übertrifft die übliche Bewegung, sie ist möglich, aber eher die Ausnahme.",
+   "szenarien": {
+    "gut": "Starke Signale vom Black-Friday-Wochenende und anhaltende Flucht in defensive Werte.",
+    "schlecht": "Gewinnmitnahmen nach dem Zahlen-Anstieg und Sorgen um die Marge."
+   },
+   "treiber": [
+    "Angehobene Jahresprognose",
+    "Black Friday",
+    "Defensiver Charakter"
+   ],
+   "risiken": [
+    "Übliche Bewegung unter der Hürde",
+    "Etwas schwächere Profitabilität"
+   ],
+   "termine": [
+    "27.11.2026: Black Friday, Start ins Weihnachtsgeschäft",
+    "26.11.2026: US-Börsen wegen Thanksgiving geschlossen, 27.11. verkürzter Handel"
+   ],
+   "quellen": [
+    {
+     "t": "Walmart shares slip after a third-quarter beat and a higher full-year outlook",
+     "u": "https://startupfortune.com/walmart-shares-slip-after-a-third-quarter-beat-and-a-higher-full-year-outlook/",
+     "q": "Startup Fortune",
+     "d": "2026-11-19"
+    },
+    {
+     "t": "Walmart Q3 FY27 slides: strong results, raised guidance amid costs",
+     "u": "https://www.investing.com/news/company-news/walmart-q3-fy27-slides-strong-results-raised-guidance-amid-costs-93CH-5039238",
+     "q": "Investing.com",
+     "d": "2026-11-19"
+    },
+    {
+     "t": "WMT Q3 Earnings Call Takeaways as Sales and Profit Outlooks Rise",
+     "u": "https://finnhub.io/api/news?id=20a36ebdd588bd07ec5d6096d3d3024401726d5bf7ae27944f897c997ebfcb5a",
+     "q": "Yahoo",
+     "d": "2026-11-20"
+    },
+    {
+     "t": "Walmart (WMT) Q3 Results Meet Sales Growth But Profitability Cools",
+     "u": "https://finnhub.io/api/news?id=9d1734ab39200d9e81f45d2823ada6b8b6c2838a031c142861933ae4d63b6b95",
+     "q": "Yahoo",
+     "d": "2026-11-20"
+    }
+   ]
+  },
+  "MCK": {
+   "einschaetzung": "Starkes Geschäft, Hürde trotzdem hoch.",
+   "warum": "McKesson hat in sechs Monaten gut 45 % und in drei Monaten rund 20 % gewonnen; in fünf Tagen gab der Kurs um 3 % nach. Im letzten Quartal stieg der Umsatz laut Unternehmensbericht um 7,6 % auf 111 Mrd. Dollar, die Onkologie wuchs um 24 %, und die Gewinnprognose wurde angehoben. Geplant ist die Abspaltung der Medizinbedarf-Sparte unter dem Namen Wellverse. Die übliche 30-Tage-Bewegung von 9,3 % ist unter den Kandidaten eine der größten.",
+   "ausblick": "Als defensiver Gesundheitsdienstleister dürfte McKesson im unruhigen Markt gefragt bleiben; bis zu den nächsten Zahlen fehlt ein großer Termin. Ein Anstieg über 17,44 % in 30 Tagen ist möglich, aber unwahrscheinlich.",
+   "szenarien": {
+    "gut": "Weitere Kurszielerhöhungen und Umschichtung in Gesundheitswerte.",
+    "schlecht": "Politische Debatten um Arzneimittelpreise oder Gewinnmitnahmen."
+   },
+   "treiber": [
+    "Angehobene Prognose",
+    "Wachstum in der Onkologie",
+    "Abspaltung Wellverse"
+   ],
+   "risiken": [
+    "Hürde weit über der üblichen Bewegung",
+    "Gesundheitspolitik in den USA"
+   ],
+   "termine": [
+    "26.11.2026: US-Börsen wegen Thanksgiving geschlossen, 27.11. verkürzter Handel",
+    "08./09.12.2026: Zinssitzung der US-Notenbank"
+   ],
+   "quellen": [
+    {
+     "t": "The Early Signs Before McKesson Stock’s 44% Rise",
+     "u": "https://www.trefis.com/stock/mck/articles/626219/the-early-signs-before-mckesson-stocks-44-rise/2026-11-18",
+     "q": "Trefis",
+     "d": "2026-11-18"
+    },
+    {
+     "t": "McKesson Q2 FY2027 earnings: $111bn quarter, oncology +24% and the Wellverse spin-off",
+     "u": "https://sec-api.io/insights/mckesson-mck-q2-fy2027-earnings-sec-filing-analysis-111bn-quarter-oncology-24-and-the-wellverse-spin-off",
+     "q": "sec-api.io",
+     "d": "2026-11-05"
+    },
+    {
+     "t": "Two Deals and a Higher Target: UBS’s Call on McKesson (MCK)",
+     "u": "https://finnhub.io/api/news?id=595c385fcdf58e62b0c490d2fa1a834160303a1c4fa8c9da1020aff723eb4ff2",
+     "q": "Yahoo",
+     "d": "2026-11-19"
+    },
+    {
+     "t": "Earnings Beat Might Change The Case For Investing In McKesson Stock (MCK)",
+     "u": "https://finnhub.io/api/news?id=d79dc8d8ae62c7f5396f36f2f7c4899fa85504c0918978810c3502a5544793f5",
+     "q": "Yahoo/Simply Wall St",
+     "d": "2026-11-21"
+    }
+   ]
+  },
+  "VLTO": {
+   "einschaetzung": "Ruhiger Aufwärtstrend, Hürde kaum erreichbar.",
+   "warum": "Veralto hat in sechs Monaten gut 41 % gewonnen und nach starken Zahlen die Jahresprognose angehoben; die Marge stieg laut einer Analyse deutlich. Wasseraufbereitung gilt wegen alter Leitungen und des Wasserbedarfs von Rechenzentren als Wachstumsthema. Am Freitag stieg der Kurs um 0,5 % und liegt 3,1 % unter dem 10-Tage-Hoch. Die übliche 30-Tage-Bewegung von 7,7 % liegt deutlich unter der Hürde.",
+   "ausblick": "Wahrscheinlich bleibt die Aktie im ruhigen Aufwärtstrend, mit Rücksetzern an schwachen Markttagen. Die nötigen 17,44 % sind in 30 Tagen kaum realistisch.",
+   "szenarien": {
+    "gut": "Anhaltendes Interesse an Infrastruktur- und Wasserwerten.",
+    "schlecht": "Höhere Bewertung führt bei Marktschwäche zu Gewinnmitnahmen."
+   },
+   "treiber": [
+    "Angehobene Prognose",
+    "Margenausweitung",
+    "Wasser-Infrastruktur als Thema"
+   ],
+   "risiken": [
+    "Geringe Schwankung, Hürde weit entfernt"
+   ],
+   "termine": [
+    "26.11.2026: US-Börsen wegen Thanksgiving geschlossen, 27.11. verkürzter Handel",
+    "08./09.12.2026: Zinssitzung der US-Notenbank"
+   ],
+   "quellen": [
+    {
+     "t": "Veralto rises after strong Q3 results and higher full-year guidance",
+     "u": "https://www.quiverquant.com/news/Veralto+rises+after+strong+Q3+results+and+higher+full-year+guidance",
+     "q": "Quiver Quantitative",
+     "d": "2026-10-30"
+    },
+    {
+     "t": "3 Stocks in an Overlooked Corner of Infrastructure With Hundreds of Billions at Stake",
+     "u": "https://finnhub.io/api/news?id=33893b3de543aa0d6af4ccfe6f39bd9ba9c7bcd8d689724570d8c88d3d013dc5",
+     "q": "Yahoo",
+     "d": "2026-11-17"
+    },
+    {
+     "t": "Veralto's Q3 Margin Expands 170 Bps: Can VLTO Maintain Gains?",
+     "u": "https://finnhub.io/api/news?id=d643b6ba9fc3cc975f45e80a8f1f29b02818a20eb754d2cf4598acfc3fa90338",
+     "q": "Yahoo/Zacks",
+     "d": "2026-11-20"
+    }
+   ]
+  },
+  "BRK-B": {
+   "einschaetzung": "Sicherer Hafen, kein Kurssprung zu erwarten.",
+   "warum": "Berkshire hat laut CNBC Mitte November ein Rekordhoch erreicht, weil Anleger aus KI-Werten in stabile Titel umschichteten. Der Konzern hat Aktienrückkäufe beschleunigt, auch wenn der operative Gewinn zuletzt sank. In fünf Tagen gab der Kurs um 3,9 % nach, der Trend bleibt aufwärts. Die übliche 30-Tage-Bewegung von 5,2 % liegt weit unter der Hürde.",
+   "ausblick": "Hält die Unruhe bei Tech-Werten an, dürfte Berkshire als sicherer Hafen gefragt bleiben. Einen Anstieg über 17 % erwartet die Rechnung aber nicht; realistisch ist eine ruhige Entwicklung.",
+   "szenarien": {
+    "gut": "Weitere Flucht aus KI-Werten in Qualitätstitel.",
+    "schlecht": "Rückkehr der Anleger zu Wachstumswerten lässt Berkshire zurückfallen."
+   },
+   "treiber": [
+    "Aktienrückkäufe",
+    "Defensiver Charakter"
+   ],
+   "risiken": [
+    "Sinkender operativer Gewinn",
+    "Sehr geringe Schwankung"
+   ],
+   "termine": [
+    "26.11.2026: US-Börsen wegen Thanksgiving geschlossen, 27.11. verkürzter Handel",
+    "08./09.12.2026: Zinssitzung der US-Notenbank"
+   ],
+   "quellen": [
+    {
+     "t": "Berkshire breaks out to record high with fourth-quarter rally reaching 19%",
+     "u": "https://www.cnbc.com/2026/11/14/berkshire-breaks-out-to-record-high-with-fourth-quarter-rally-reaching-19percent.html",
+     "q": "CNBC",
+     "d": "2026-11-14"
+    },
+    {
+     "t": "Berkshire shares surge as Wall Street swoons amid AI fears",
+     "u": "https://www.cnbc.com/2026/11/07/berkshire-shares-surge-as-wall-street-swoons-amid-ai-fears.html",
+     "q": "CNBC",
+     "d": "2026-11-07"
+    },
+    {
+     "t": "Berkshire Hathaway accelerates stock buybacks, operating profit falls",
+     "u": "https://gvwire.com/2026/11/07/berkshire-hathaway-accelerates-stock-buybacks-operating-profit-falls/",
+     "q": "GV Wire",
+     "d": "2026-11-07"
+    }
+   ]
+  },
+  "COST": {
+   "einschaetzung": "Qualitätswert mit Dividenden-Effekt und Zahlen im Zeitraum.",
+   "warum": "Costco liegt nur 1 % unter dem 10-Tage-Hoch, hat in drei Monaten knapp 18 % gewonnen und laut Motley Fool nach der Ankündigung einer Sonderdividende ein Rekordhoch erreicht. Die Sonderdividende von 30 Dollar je Aktie wird am 4. Dezember gezahlt, Stichtag ist der 24. November; am Ex-Tag fällt der Kurs rechnerisch um etwa diesen Betrag. Dazu kommt ein neues Rückkaufprogramm. Der RSI von 70 zeigt eine erhitzte Lage, die übliche 30-Tage-Bewegung von 6,4 % liegt weit unter der Hürde.",
+   "ausblick": "Die Quartalszahlen am 10. Dezember fallen in den Zeitraum und dürften die Richtung bestimmen. Wegen des Dividendenabschlags und des hohen RSI ist ein Anstieg über 17 % sehr unwahrscheinlich.",
+   "szenarien": {
+    "gut": "Starke Zahlen am 10. Dezember und gutes Weihnachtsgeschäft.",
+    "schlecht": "Enttäuschende Zahlen oder Gewinnmitnahmen nach dem Rekordhoch."
+   },
+   "treiber": [
+    "Rückkaufprogramm",
+    "Quartalszahlen am 10. Dezember"
+   ],
+   "risiken": [
+    "Rechnerischer Dividendenabschlag",
+    "Erhitzter RSI",
+    "Hohe Bewertung"
+   ],
+   "termine": [
+    "24.11.2026: Stichtag Sonderdividende",
+    "04.12.2026: Auszahlung Sonderdividende",
+    "10.12.2026: Quartalszahlen",
+    "26.11.2026: US-Börsen wegen Thanksgiving geschlossen, 27.11. verkürzter Handel"
+   ],
+   "quellen": [
+    {
+     "t": "Costco declares $30 special dividend worth $13.3 billion, renews $4 billion buyback",
+     "u": "https://investinglive.com/stocks/costco-declares-30-special-dividend-worth-13-3-billion-renews-4-billion-buyback/",
+     "q": "investingLive",
+     "d": "2026-11-11"
+    },
+    {
+     "t": "Costco Just Made a New All-Time High After Announcing a $30-Per-Share Special Dividend",
+     "u": "https://finnhub.io/api/news?id=1855103acd6e4f4ef8c03f7e9e2533c72119a2444a9a2386d99526d5b2cf6d26",
+     "q": "Yahoo/Motley Fool",
+     "d": "2026-11-20"
+    },
+    {
+     "t": "From tech glitches to bulk buying: How outages are spurring a wave of Costco sales",
+     "u": "https://finnhub.io/api/news?id=0b16aafe024057536be90802c5ab7b99b34e2162924e2c5a35bfd15780d38dba",
+     "q": "Yahoo",
+     "d": "2026-11-20"
+    }
+   ]
   }
  },
  "format": {
