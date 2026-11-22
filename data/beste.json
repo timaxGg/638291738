@@ -1,32 +1,38 @@
 {
- "id": "b-2026-11-22-mittags",
+ "id": "b-2026-11-22-abends",
  "datum": "2026-11-22",
- "slot": "mittags",
- "erstellt": "2026-11-22T12:16:31.000Z",
- "markt": "Die Wall Street hat eine der schwächsten Tech-Wochen seit Jahren hinter sich: Zweifel an den hohen KI-Investitionen und der schwache Start der frisch gelisteten Anthropic-Aktie drückten den Nasdaq deutlich, Anleger wichen in defensive Werte wie Konsumgüter, Handel und Gesundheit aus. Bis Sonntagmittag kamen keine neuen marktbewegenden Meldungen hinzu; am Montag läuft die Frist der Pilotengewerkschaft VC an die Lufthansa ab, bei Bayer bleibt der Glyphosat-Vergleich das bestimmende Thema. Die US-Woche ist wegen Thanksgiving am 26. November verkürzt, kurzfristige Prognosen bleiben in diesem nervösen Umfeld besonders unsicher.",
+ "slot": "abends",
+ "erstellt": "2026-11-22T19:16:26+01:00",
+ "markt": "Nach einem heftigen Ausverkauf am Freitag, getrieben von Zweifeln an den KI-Investitionen und dem holprigen Börsenstart von Anthropic, ist die Stimmung an der Wall Street sehr nervös, die Schwankungsbreite (VIX) ist deutlich erhöht. Bis Sonntagabend kamen zu den ausgewählten Werten keine neuen Firmenmeldungen hinzu; außerbörsliche Wochenend-Indikationen deuteten eine leichte Gegenbewegung an, was aber wenig aussagt, bevor der Handel wieder läuft. In der wegen Thanksgiving verkürzten US-Woche stehen Einkaufsmanagerdaten und PCE-Inflationsdaten an, am Montag endet zudem die Frist der Pilotengewerkschaft an die Lufthansa – kurzfristige Prognosen bleiben daher besonders unsicher.",
  "marktQuellen": [
   {
-   "t": "Wall Street Review: AI Fears Trigger Worst Weekly Tech Sell-Off in More Than 6 Years",
-   "u": "https://www.ntd.com/wall-street-review-ai-fears-trigger-worst-weekly-tech-sell-off-in-more-than-6-years_1186748.html",
-   "q": "NTD",
-   "d": "2026-11-21"
+   "t": "Tech sell-off hits Nvidia, Anthropic and Nasdaq",
+   "u": "https://www.foxnews.com/live-news/ai-news-markets-correction-11-22-26",
+   "q": "Fox News",
+   "d": "2026-11-22"
   },
   {
-   "t": "The week the AI trade cracked: Anthropic's debut, Nvidia's slide and a global sell-off",
-   "u": "https://mlq.ai/news/the-week-the-ai-trade-cracked-anthropics-debut-nvidias-slide-and-a-global-sell-off/",
-   "q": "MLQ.ai",
-   "d": "2026-11-21"
+   "t": "The Week That Was, The Week Ahead: Macro and Markets, November 22",
+   "u": "https://www.tipranks.com/news/the-week-that-was-the-week-ahead-macro-and-markets-november-22",
+   "q": "TipRanks",
+   "d": "2026-11-22"
+  },
+  {
+   "t": "Stocks to Watch This Week: Nvidia, Workday, Deere and Thanksgiving PCE Data",
+   "u": "https://journalarta.com/en/2026/11/22/stocks-to-watch-this-week-nvidia-workday-deere-and-thanksgiving-pce-data/",
+   "q": "JournalArta",
+   "d": "2026-11-22"
+  },
+  {
+   "t": "Morning Snapshot — Sunday, November 22, 2026",
+   "u": "https://x.com/CoreyCicero/status/2124523961035682106",
+   "q": "X (Corey Cicero)",
+   "d": "2026-11-22"
   },
   {
    "t": "Anthropic stock falls 10% in first full day of trading amid AI sell-off",
    "u": "https://www.cnbc.com/2026/11/20/anthropic-stock-ai-amd-nvidia.html",
    "q": "CNBC",
-   "d": "2026-11-20"
-  },
-  {
-   "t": "Nasdaq Dives 1,261 Points as Anthropic, AI Stocks Sink: Stock Market Today",
-   "u": "https://finnhub.io/api/news?id=32dd21db0653d334385683569940ef63b6f3e0a555cfb0e72eb37bc7e5f948ba",
-   "q": "Yahoo",
    "d": "2026-11-20"
   },
   {
