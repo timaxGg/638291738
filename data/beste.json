@@ -1,10 +1,22 @@
 {
- "id": "b-2026-11-21-abends",
- "datum": "2026-11-21",
- "slot": "abends",
- "erstellt": "2026-11-21T19:16:00+01:00",
- "markt": "Die Wall Street beendete am Freitag eine schwierige Woche für Tech-Werte mit deutlichen Verlusten; der Nasdaq fiel laut Berichten kräftig, und die frisch gelistete Anthropic-Aktie gab zweistellig nach. Anleger zweifeln, ob sich die hohen KI-Investitionen auszahlen, und schichten in Anleihen und defensive Werte wie Handel, Konsumgüter und Gesundheit um. Am Wochenende kamen bis Samstagabend keine marktbewegenden neuen Meldungen hinzu, die Börsen sind geschlossen. Die kommende Woche ist wegen Thanksgiving am 26. November verkürzt; in diesem nervösen Umfeld sind kurzfristige Prognosen besonders unsicher.",
+ "id": "b-2026-11-22-morgens",
+ "datum": "2026-11-22",
+ "slot": "morgens",
+ "erstellt": "2026-11-22T06:17:18.988Z",
+ "markt": "Die Wall Street hat eine der schwächsten Tech-Wochen seit Jahren hinter sich: Zweifel an den hohen KI-Investitionen und der schwache Start der frisch gelisteten Anthropic-Aktie drückten den Nasdaq deutlich, Anleger wichen in defensive Werte wie Konsumgüter, Handel und Gesundheit aus. Am Wochenende sind die Börsen geschlossen; neue marktbewegende Meldungen gab es bis Sonntagmorgen kaum, in Deutschland richtet sich der Blick auf Bayers Glyphosat-Vergleich und die Lufthansa-Tariffrist am Montag. Die kommende US-Woche ist wegen Thanksgiving am 26. November verkürzt, kurzfristige Prognosen bleiben in diesem nervösen Umfeld besonders unsicher.",
  "marktQuellen": [
+  {
+   "t": "Wall Street Review: AI Fears Trigger Worst Weekly Tech Sell-Off in More Than 6 Years",
+   "u": "https://www.ntd.com/wall-street-review-ai-fears-trigger-worst-weekly-tech-sell-off-in-more-than-6-years_1186748.html",
+   "q": "NTD",
+   "d": "2026-11-21"
+  },
+  {
+   "t": "The week the AI trade cracked: Anthropic's debut, Nvidia's slide and a global sell-off",
+   "u": "https://mlq.ai/news/the-week-the-ai-trade-cracked-anthropics-debut-nvidias-slide-and-a-global-sell-off/",
+   "q": "MLQ.ai",
+   "d": "2026-11-21"
+  },
   {
    "t": "Anthropic stock falls 10% in first full day of trading amid AI sell-off",
    "u": "https://www.cnbc.com/2026/11/20/anthropic-stock-ai-amd-nvidia.html",
@@ -22,7 +34,7 @@
   "3": [
    {
     "einschaetzung": "Erholung intakt, Richtung kurzfristig aber marktabhängig.",
-    "warum": "Chipotle hat in vier Wochen gut 29 % zugelegt, nachdem die Aktie über drei Monate noch im Minus lag; die Fünf-Tage-Bilanz ist mit +0,8 % weiter leicht positiv. Der RSI von 58 zeigt Stärke ohne Überhitzung, der Kurs liegt 3,8 % unter dem 10-Tage-Hoch, am Freitag gab er mit dem schwachen Markt um rund 2 % nach. Laut Branchenpresse brachte eine Gratis-Burrito-Aktion Mitte November erneut einen Tagesrekord beim Umsatz, und Kommentatoren halten die Aktie gemessen am erwarteten Gewinn 2027 für günstiger, sofern die Umsätze liefern. Neue Firmenmeldungen seit gestern Abend gab es nur zu Marketing-Aktionen.",
+    "warum": "Chipotle hat in vier Wochen gut 29 % zugelegt, nachdem die Aktie über drei Monate noch im Minus lag; die Fünf-Tage-Bilanz ist mit +0,8 % weiter leicht positiv. Der RSI von 58 zeigt Stärke ohne Überhitzung, der Kurs liegt 3,8 % unter dem 10-Tage-Hoch, am Freitag gab er mit dem schwachen Markt um rund 2 % nach. Laut Branchenpresse brachte eine Gratis-Burrito-Aktion Mitte November erneut einen Tagesrekord beim Umsatz, und Kommentatoren halten die Aktie gemessen am erwarteten Gewinn 2027 für günstiger, sofern die Umsätze liefern. Am Wochenende kamen nur Vergleichsartikel und Marketing-Meldungen hinzu.",
     "ausblick": "Am wahrscheinlichsten bleibt die Aktie schwankend, weil sie sich vom Tech-Ausverkauf nicht ganz lösen kann. Die übliche Drei-Tage-Bewegung von 4,6 % liegt klar über der Hürde von 1,92 %, die Steigerung ist also realistisch, aber keineswegs sicher. Vor Thanksgiving ist der Handel oft dünn.",
     "szenarien": {
      "gut": "Der Markt stabilisiert sich und Anleger setzen weiter auf die Rückkehr der Gästezahlen.",
@@ -70,7 +82,7 @@
    },
    {
     "einschaetzung": "Trend intakt, ohne neuen Auslöser.",
-    "warum": "Pentair hat in vier Wochen gut 24 % gewonnen und hielt sich am Freitag mit −0,1 % deutlich besser als der Markt. Die Fünf-Tage-Bilanz ist leicht positiv (+0,5 %), der RSI von 63 lässt Luft und der Kurs liegt nur 2,2 % unter dem 10-Tage-Hoch. Grundlage ist ein Quartal über den Erwartungen mit bestätigter Jahresprognose; Analysten bleiben laut Barchart überwiegend positiv. Neue Meldungen seit gestern fanden sich nicht.",
+    "warum": "Pentair hat in vier Wochen gut 24 % gewonnen und hielt sich am Freitag mit −0,1 % deutlich besser als der Markt. Die Fünf-Tage-Bilanz ist leicht positiv (+0,5 %), der RSI von 63 lässt Luft und der Kurs liegt nur 2,2 % unter dem 10-Tage-Hoch. Grundlage ist ein Quartal über den Erwartungen mit bestätigter Jahresprognose; Analysten bleiben laut Barchart überwiegend positiv. Am Wochenende fanden sich keine neuen Firmenmeldungen.",
     "ausblick": "Am wahrscheinlichsten pendelt die Aktie nahe dem Hoch mit leichter Aufwärtsneigung, weil sie zuletzt robust war. Mit einer üblichen Drei-Tage-Bewegung von 4,1 % ist die Hürde von 1,92 % erreichbar. Ohne Nachrichten hängt viel an der Gesamtstimmung.",
     "szenarien": {
      "gut": "Die relative Stärke hält an und Käufer nutzen den Markt-Rücksetzer.",
@@ -104,24 +116,35 @@
    },
    {
     "einschaetzung": "Rücksetzer mit frischem Lichtblick, Ausgang offen.",
-    "warum": "Bayer ist in sechs Monaten um gut 50 % gestiegen, hat aber in fünf Tagen 5,7 % verloren und liegt 4,2 % unter dem 10-Tage-Hoch; am Freitag fiel die Aktie nochmals um 2,4 %. Nach Börsenschluss kam eine wichtige Nachricht: Ein US-Richter hat den 7,25 Milliarden Dollar schweren Glyphosat-Sammelvergleich endgültig gebilligt, was eine große Rechtsunsicherheit verringert. Berenberg hob das Kursziel am 18. November auf 62 Euro, bei 'Hold'. Der Rückgang davor passte eher zur allgemeinen Marktschwäche als zu schlechten Firmennachrichten.",
+    "warum": "Bayer ist in sechs Monaten um gut 47 % gestiegen, hat aber in fünf Tagen 5,6 % verloren und liegt 6,5 % unter dem 10-Tage-Hoch, die Trendbruch-Grenze ist also überschritten. Den Grund liefert eher die allgemeine Marktschwäche als eine schlechte Firmennachricht: Nach Börsenschluss am Freitag hat ein US-Richter den 7,25 Milliarden Dollar schweren Glyphosat-Sammelvergleich endgültig gebilligt, und laut Berichten vom Samstag legte die Aktie im außerbörslichen Handel daraufhin zu. Berenberg hob das Kursziel am 18. November auf 62 Euro, bei 'Hold'. Offen ist, ob Kläger den Vergleich noch anfechten.",
     "ausblick": "Die Billigung des Vergleichs könnte am Montag eine Gegenbewegung auslösen, war aber teilweise erwartet. Die übliche Drei-Tage-Bewegung von 3,5 % liegt über der Hürde; ob sie nach oben ausfällt, hängt auch davon ab, wie der Markt die Nachricht gewichtet. Das erkannte Muster 'Abkühlung nach Übertreibung' war im Rückblick nur leicht positiv und ist kein verlässlicher Grund.",
     "szenarien": {
      "gut": "Anleger werten die Billigung als Ende einer langen Belastung und kaufen den Rücksetzer.",
      "schlecht": "Die Nachricht war eingepreist und der allgemeine Ausverkauf setzt sich fort."
     },
     "treiber": [
-     "Endgültige Billigung des Glyphosat-Vergleichs",
-     "US-Zulassung des Gerinnungshemmers Sunharbo",
-     "Kursziel-Erhöhung durch Berenberg"
+     "Billigung des Glyphosat-Vergleichs verringert Rechtsunsicherheit",
+     "Mögliche Gegenbewegung nach dem Rücksetzer"
     ],
     "risiken": [
-     "Kurzfristiger Trend zuletzt gebrochen",
-     "Weitere Einzelklagen außerhalb des Vergleichs",
-     "Marktschwäche in Europa"
+     "Mögliche Anfechtung des Vergleichs",
+     "Trendbruch-Signal: 6,5 % unter dem 10-Tage-Hoch",
+     "Allgemeine Marktschwäche"
     ],
     "termine": [],
     "quellen": [
+     {
+      "t": "Bayer: Aktie legt nach 7,25-Milliarden-Vergleich zu",
+      "u": "https://ms-aktuell.de/welt/bayer-glyphosat-vergleich-21-11-2026/",
+      "q": "ms-aktuell",
+      "d": "2026-11-21"
+     },
+     {
+      "t": "Bayer Aktie: Roundup-Vergleich anfechtbar?",
+      "u": "https://www.boerse-global.de/bayer-aktie-roundup-vergleich-anfechtbar/844925",
+      "q": "Börse Global",
+      "d": "2026-11-21"
+     },
      {
       "t": "Glyphosat-Klagen: US-Gericht billigt milliardenschweren Bayer-Sammelvergleich",
       "u": "https://de.finance.yahoo.com/nachrichten/glyphosat-klagen-us-gericht-billigt-224225205.html?.tsrc=rss",
@@ -146,7 +169,7 @@
    },
    {
     "einschaetzung": "Guter Grundtrend, kurzfristig angeschlagen.",
-    "warum": "Heidelberg Materials hat in vier Wochen gut 19 % zugelegt, getragen von Quartalszahlen über den Erwartungen Anfang November und einer bestätigten Jahresprognose. In den letzten fünf Tagen gab die Aktie um 3,3 % nach und liegt 4 % unter dem 10-Tage-Hoch; eine schlechte Firmennachricht fand sich dafür nicht. Jefferies senkte am 16. November das Kursziel auf 282 Euro, blieb aber bei 'Buy'. Der RSI von 66 ist erhöht, aber nicht überhitzt.",
+    "warum": "Heidelberg Materials hat in vier Wochen gut 17 % zugelegt, getragen von Quartalszahlen über den Erwartungen Anfang November und einer bestätigten Jahresprognose. In den letzten fünf Tagen gab die Aktie um 2 % nach und liegt 4,7 % unter dem 10-Tage-Hoch, knapp vor der Trendbruch-Grenze; eine schlechte Firmennachricht fand sich dafür auch am Wochenende nicht. Jefferies senkte am 16. November das Kursziel auf 282 Euro, blieb aber bei 'Buy'. Der RSI von 63 ist erhöht, aber nicht überhitzt.",
     "ausblick": "Am wahrscheinlichsten ist ein Pendeln mit Erholungschance, wenn sich der europäische Markt fängt. Die übliche Drei-Tage-Bewegung von 3,5 % liegt über der Hürde von 1,92 %, die Richtung ist nach dem jüngsten Rücksetzer aber offen. Fällt der Kurs weiter, wäre der kurzfristige Trend gebrochen.",
     "szenarien": {
      "gut": "Käufer nutzen den Rücksetzer und der Aufwärtstrend aus den Zahlen setzt sich fort.",
@@ -187,7 +210,7 @@
    },
    {
     "einschaetzung": "Defensive Erholungschance, aber unsicher.",
-    "warum": "Clorox hat in vier Wochen gut 21 % gewonnen, ist in fünf Tagen aber um 4,3 % zurückgefallen und liegt 4,9 % unter dem 10-Tage-Hoch, also knapp an der Trendbruch-Grenze. Am Freitag hielt sich die Aktie mit −0,2 % stabil, während Anleger laut einem Bericht verstärkt in Konsumgüterwerte wie Zahnpasta-Hersteller umschichteten. Eine Gewinnwarnung fand sich nicht; kritische Berichte verweisen auf gestiegene Schulden. Die Hauptversammlung am 18. November brachte keine Überraschung.",
+    "warum": "Clorox hat in vier Wochen gut 21 % gewonnen, ist in fünf Tagen aber um 4,3 % zurückgefallen und liegt 4,9 % unter dem 10-Tage-Hoch, also knapp an der Trendbruch-Grenze. Am Freitag hielt sich die Aktie mit −0,2 % stabil, während Anleger laut einem Bericht verstärkt in Konsumgüterwerte wie Zahnpasta-Hersteller umschichteten. Eine Gewinnwarnung fand sich nicht; kritische Berichte verweisen auf gestiegene Schulden. Am Wochenende kamen nur Dividenden-Vergleichsartikel hinzu, keine neue Firmenmeldung.",
     "ausblick": "Hält die Flucht in defensive Werte an, ist eine Erholung plausibel. Die übliche Drei-Tage-Bewegung von 3,8 % liegt über der Hürde, die Richtung bleibt aber offen. Rutscht der Kurs weiter, wäre der kurzfristige Trend gebrochen.",
     "szenarien": {
      "gut": "Die Umschichtung aus Tech in stabile Konsumgüter setzt sich fort.",
@@ -235,8 +258,8 @@
   "7": [
    {
     "einschaetzung": "Trend intakt, ohne neuen Auslöser.",
-    "warum": "Pentair hat in vier Wochen gut 24 % gewonnen und hielt sich am Freitag mit −0,1 % deutlich besser als der Markt. Die Fünf-Tage-Bilanz ist leicht positiv (+0,5 %), der RSI von 63 lässt Luft und der Kurs liegt nur 2,2 % unter dem 10-Tage-Hoch. Grundlage ist ein Quartal über den Erwartungen mit bestätigter Jahresprognose; Analysten bleiben laut Barchart überwiegend positiv. Neue Meldungen seit gestern fanden sich nicht.",
-    "ausblick": "Am wahrscheinlichsten pendelt die Aktie nahe dem Hoch mit leichter Aufwärtsneigung, weil sie zuletzt robust war. Mit einer üblichen Drei-Tage-Bewegung von 4,1 % ist die Hürde von 1,92 % erreichbar. Ohne Nachrichten hängt viel an der Gesamtstimmung.",
+    "warum": "Pentair hat in vier Wochen gut 24 % gewonnen und hielt sich am Freitag mit −0,1 % deutlich besser als der Markt. Die Fünf-Tage-Bilanz ist leicht positiv (+0,5 %), der RSI von 63 lässt Luft und der Kurs liegt nur 2,2 % unter dem 10-Tage-Hoch. Grundlage ist ein Quartal über den Erwartungen mit bestätigter Jahresprognose; Analysten bleiben laut Barchart überwiegend positiv. Am Wochenende fanden sich keine neuen Firmenmeldungen.",
+    "ausblick": "Am wahrscheinlichsten pendelt die Aktie nahe dem Hoch mit leichter Aufwärtsneigung, weil sie sich im Ausverkauf robust zeigte. Die übliche Sieben-Tage-Bewegung von 6,2 % liegt über der Hürde von 4,12 %, die nötige Steigerung ist also realistisch, aber nicht sicher. Ohne neue Nachrichten hängt viel an der Gesamtstimmung in der verkürzten Thanksgiving-Woche.",
     "szenarien": {
      "gut": "Die relative Stärke hält an und Käufer nutzen den Markt-Rücksetzer.",
      "schlecht": "Ein breiter Ausverkauf erfasst auch Industriewerte."
@@ -269,7 +292,7 @@
    },
    {
     "einschaetzung": "Spekulativer Schwung, sehr unsicher.",
-    "warum": "GameStop liegt fast am 10-Tage-Hoch, stieg in fünf Tagen um 3,3 % und in drei Monaten um gut 46 %. Auslöser war die Rückkehr von Keith Gill (Roaring Kitty) auf X; am Freitag gab die Aktie im Ausverkauf nur leicht nach. Ein Analyst sieht laut einem Bericht über 22 % Luft nach oben dank Sammlerartikeln und GTA VI. Die übliche Sieben-Tage-Bewegung von 6,7 % liegt deutlich über der Hürde, Stimmungsschübe sind aber unberechenbar.",
+    "warum": "GameStop liegt fast am 10-Tage-Hoch, stieg in fünf Tagen um 3,1 % und in drei Monaten um gut 46 %. Auslöser war die Rückkehr von Keith Gill (Roaring Kitty) auf X; am Freitag gab die Aktie im Ausverkauf nur leicht nach. Ein Analyst sieht laut einem Bericht über 22 % Luft nach oben dank Sammlerartikeln und GTA VI. Die übliche Sieben-Tage-Bewegung von 6,7 % liegt deutlich über der Hürde, Stimmungsschübe sind aber unberechenbar.",
     "ausblick": "Ein weiterer Schub ist möglich, wenn das Kleinanlegerinteresse anhält; ebenso schnell kann die Begeisterung abebben. Die Quartalszahlen am 7. Dezember liegen kurz nach dem Zeitraum und können Vorfreude wie Vorsicht auslösen. Die nötige Steigerung ist rechnerisch gut möglich, das Risiko nach unten ebenso groß.",
     "szenarien": {
      "gut": "Das Interesse der Kleinanleger hält an und die Vorfreude auf die Zahlen trägt den Kurs.",
@@ -319,24 +342,35 @@
    },
    {
     "einschaetzung": "Rücksetzer mit frischem Lichtblick, Ausgang offen.",
-    "warum": "Bayer ist in sechs Monaten um gut 50 % gestiegen, hat aber in fünf Tagen 5,7 % verloren und liegt 4,2 % unter dem 10-Tage-Hoch; am Freitag fiel die Aktie nochmals um 2,4 %. Nach Börsenschluss kam eine wichtige Nachricht: Ein US-Richter hat den 7,25 Milliarden Dollar schweren Glyphosat-Sammelvergleich endgültig gebilligt, was eine große Rechtsunsicherheit verringert. Berenberg hob das Kursziel am 18. November auf 62 Euro, bei 'Hold'. Der Rückgang davor passte eher zur allgemeinen Marktschwäche als zu schlechten Firmennachrichten.",
-    "ausblick": "Die Billigung des Vergleichs könnte am Montag eine Gegenbewegung auslösen, war aber teilweise erwartet. Die übliche Drei-Tage-Bewegung von 3,5 % liegt über der Hürde; ob sie nach oben ausfällt, hängt auch davon ab, wie der Markt die Nachricht gewichtet. Das erkannte Muster 'Abkühlung nach Übertreibung' war im Rückblick nur leicht positiv und ist kein verlässlicher Grund.",
+    "warum": "Bayer ist in sechs Monaten um gut 47 % gestiegen, hat aber in fünf Tagen 5,6 % verloren und liegt 6,5 % unter dem 10-Tage-Hoch, die Trendbruch-Grenze ist also überschritten. Den Grund liefert eher die allgemeine Marktschwäche als eine schlechte Firmennachricht: Nach Börsenschluss am Freitag hat ein US-Richter den 7,25 Milliarden Dollar schweren Glyphosat-Sammelvergleich endgültig gebilligt, und laut Berichten vom Samstag legte die Aktie im außerbörslichen Handel daraufhin zu. Berenberg hob das Kursziel am 18. November auf 62 Euro, bei 'Hold'. Offen ist, ob Kläger den Vergleich noch anfechten.",
+    "ausblick": "Die Billigung des Vergleichs könnte ab Montag eine Gegenbewegung auslösen, war aber teilweise erwartet. Die übliche Sieben-Tage-Bewegung von 5,4 % liegt über der Hürde von 4,12 %; ob sie nach oben ausfällt, hängt auch an der Marktstimmung. Das erkannte Muster 'Abkühlung nach Übertreibung' war im Rückblick nur leicht positiv und ist kein verlässlicher Grund.",
     "szenarien": {
      "gut": "Anleger werten die Billigung als Ende einer langen Belastung und kaufen den Rücksetzer.",
      "schlecht": "Die Nachricht war eingepreist und der allgemeine Ausverkauf setzt sich fort."
     },
     "treiber": [
-     "Endgültige Billigung des Glyphosat-Vergleichs",
-     "US-Zulassung des Gerinnungshemmers Sunharbo",
-     "Kursziel-Erhöhung durch Berenberg"
+     "Billigung des Glyphosat-Vergleichs verringert Rechtsunsicherheit",
+     "Mögliche Gegenbewegung nach dem Rücksetzer"
     ],
     "risiken": [
-     "Kurzfristiger Trend zuletzt gebrochen",
-     "Weitere Einzelklagen außerhalb des Vergleichs",
-     "Marktschwäche in Europa"
+     "Mögliche Anfechtung des Vergleichs",
+     "Trendbruch-Signal: 6,5 % unter dem 10-Tage-Hoch",
+     "Allgemeine Marktschwäche"
     ],
     "termine": [],
     "quellen": [
+     {
+      "t": "Bayer: Aktie legt nach 7,25-Milliarden-Vergleich zu",
+      "u": "https://ms-aktuell.de/welt/bayer-glyphosat-vergleich-21-11-2026/",
+      "q": "ms-aktuell",
+      "d": "2026-11-21"
+     },
+     {
+      "t": "Bayer Aktie: Roundup-Vergleich anfechtbar?",
+      "u": "https://www.boerse-global.de/bayer-aktie-roundup-vergleich-anfechtbar/844925",
+      "q": "Börse Global",
+      "d": "2026-11-21"
+     },
      {
       "t": "Glyphosat-Klagen: US-Gericht billigt milliardenschweren Bayer-Sammelvergleich",
       "u": "https://de.finance.yahoo.com/nachrichten/glyphosat-klagen-us-gericht-billigt-224225205.html?.tsrc=rss",
@@ -554,8 +588,8 @@
    },
    {
     "einschaetzung": "Solide nach Zahlen, für die Hürde eher träge.",
-    "warum": "Walmart hat am 19. November Zahlen über den Erwartungen vorgelegt und die Jahresprognose angehoben; am Freitag stieg die Aktie um 1,5 % gegen den schwachen Markt und liegt nur 0,4 % unter dem 10-Tage-Hoch. In drei Monaten steht ein Plus von knapp 25 %, der RSI von 64 ist nicht überhitzt. Manche Analysen merken an, dass die Profitabilität zuletzt etwas abkühlte. Die übliche Sieben-Tage-Bewegung von 3,7 % liegt unter der Hürde von 4,12 %.",
-    "ausblick": "Als defensiver Wert mit angehobener Prognose und Black Friday im Zeitraum hat Walmart Rückenwind; wahrscheinlich ist ein fester, aber gemächlicher Verlauf. Die nötige Steigerung übertrifft die übliche Bewegung, sie ist möglich, aber eher die Ausnahme.",
+    "warum": "Walmart hat am 19. November Zahlen über den Erwartungen vorgelegt und die Jahresprognose angehoben; am Freitag stieg die Aktie um 1,5 % gegen den schwachen Markt und liegt nur 0,4 % unter dem 10-Tage-Hoch. In drei Monaten steht ein Plus von knapp 25 %, der RSI von 64 ist nicht überhitzt. Manche Analysen merken an, dass die Profitabilität zuletzt etwas abkühlte. Die übliche 30-Tage-Bewegung von 7,7 % liegt weit unter der Hürde von 17,44 %.",
+    "ausblick": "Als defensiver Wert mit angehobener Prognose und Black Friday im Zeitraum hat Walmart Rückenwind; wahrscheinlich ist ein fester, aber gemächlicher Verlauf. Ein Anstieg über 17,44 % in 30 Tagen wäre weit mehr als die übliche Bewegung und ist sehr unwahrscheinlich.",
     "szenarien": {
      "gut": "Starke Signale vom Black-Friday-Wochenende und anhaltende Flucht in defensive Werte.",
      "schlecht": "Gewinnmitnahmen nach dem Zahlen-Anstieg und Sorgen um die Marge."
@@ -697,7 +731,7 @@
   {
    "s": "LHA.DE",
    "h": 3,
-   "grund": "Die Frist der Piloten-Gewerkschaft läuft am 23. November ab und ein Abbau von 1000 Stellen belastet das Klima; Streiks im Zeitraum sind möglich, dazu ist der RSI von 74 erhitzt."
+   "grund": "Die Frist der Piloten-Gewerkschaft läuft am 23. November ab und ein Abbau von 1000 Stellen belastet das Klima; Streiks im Zeitraum sind möglich, dazu gilt der Kurs als überdehnt."
   },
   {
    "s": "EW",
