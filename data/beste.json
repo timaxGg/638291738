@@ -1,9 +1,9 @@
 {
- "id": "b-2026-11-22-morgens",
+ "id": "b-2026-11-22-mittags",
  "datum": "2026-11-22",
- "slot": "morgens",
- "erstellt": "2026-11-22T06:17:18.988Z",
- "markt": "Die Wall Street hat eine der schwächsten Tech-Wochen seit Jahren hinter sich: Zweifel an den hohen KI-Investitionen und der schwache Start der frisch gelisteten Anthropic-Aktie drückten den Nasdaq deutlich, Anleger wichen in defensive Werte wie Konsumgüter, Handel und Gesundheit aus. Am Wochenende sind die Börsen geschlossen; neue marktbewegende Meldungen gab es bis Sonntagmorgen kaum, in Deutschland richtet sich der Blick auf Bayers Glyphosat-Vergleich und die Lufthansa-Tariffrist am Montag. Die kommende US-Woche ist wegen Thanksgiving am 26. November verkürzt, kurzfristige Prognosen bleiben in diesem nervösen Umfeld besonders unsicher.",
+ "slot": "mittags",
+ "erstellt": "2026-11-22T12:16:31.000Z",
+ "markt": "Die Wall Street hat eine der schwächsten Tech-Wochen seit Jahren hinter sich: Zweifel an den hohen KI-Investitionen und der schwache Start der frisch gelisteten Anthropic-Aktie drückten den Nasdaq deutlich, Anleger wichen in defensive Werte wie Konsumgüter, Handel und Gesundheit aus. Bis Sonntagmittag kamen keine neuen marktbewegenden Meldungen hinzu; am Montag läuft die Frist der Pilotengewerkschaft VC an die Lufthansa ab, bei Bayer bleibt der Glyphosat-Vergleich das bestimmende Thema. Die US-Woche ist wegen Thanksgiving am 26. November verkürzt, kurzfristige Prognosen bleiben in diesem nervösen Umfeld besonders unsicher.",
  "marktQuellen": [
   {
    "t": "Wall Street Review: AI Fears Trigger Worst Weekly Tech Sell-Off in More Than 6 Years",
@@ -27,6 +27,12 @@
    "t": "Nasdaq Dives 1,261 Points as Anthropic, AI Stocks Sink: Stock Market Today",
    "u": "https://finnhub.io/api/news?id=32dd21db0653d334385683569940ef63b6f3e0a555cfb0e72eb37bc7e5f948ba",
    "q": "Yahoo",
+   "d": "2026-11-20"
+  },
+  {
+   "t": "Vereinigung Cockpit setzt Lufthansa eine Frist bis zum 23. November",
+   "u": "https://www.aerotelegraph.com/ticker/vereinigung-cockpit-setzt-lufthansa-eine-frist-bis-zum-23-november/1czmf6l",
+   "q": "aeroTELEGRAPH",
    "d": "2026-11-20"
   }
  ],
