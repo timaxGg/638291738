@@ -1,44 +1,32 @@
 {
- "id": "b-2026-11-22-abends",
- "datum": "2026-11-22",
- "slot": "abends",
- "erstellt": "2026-11-22T19:16:26+01:00",
- "markt": "Nach einem heftigen Ausverkauf am Freitag, getrieben von Zweifeln an den KI-Investitionen und dem holprigen Börsenstart von Anthropic, ist die Stimmung an der Wall Street sehr nervös, die Schwankungsbreite (VIX) ist deutlich erhöht. Bis Sonntagabend kamen zu den ausgewählten Werten keine neuen Firmenmeldungen hinzu; außerbörsliche Wochenend-Indikationen deuteten eine leichte Gegenbewegung an, was aber wenig aussagt, bevor der Handel wieder läuft. In der wegen Thanksgiving verkürzten US-Woche stehen Einkaufsmanagerdaten und PCE-Inflationsdaten an, am Montag endet zudem die Frist der Pilotengewerkschaft an die Lufthansa – kurzfristige Prognosen bleiben daher besonders unsicher.",
+ "id": "b-2026-11-23-morgens",
+ "datum": "2026-11-23",
+ "slot": "morgens",
+ "erstellt": "2026-11-23T06:17:07Z",
+ "markt": "Nach der schwächsten Woche seit Jahren – der Nasdaq Composite verlor laut Stocktwits rund 10 %, der S&P 500 über 8 %, ausgelöst von Zweifeln an den KI-Investitionen, der Führungskrise bei Nvidia und Sorgen vor einer Zinserhöhung im Dezember – zeigen die US-Terminkontrakte am Montagmorgen eine kräftige Gegenbewegung von rund 2 %. Bloomberg-Strategen warnen allerdings, dass es sich auch um eine kurze Zwischenerholung handeln könnte; die Schwankungsbreite bleibt hoch, Anleiherenditen sind gestiegen. In der verkürzten Thanksgiving-Woche stehen PCE-Inflationsdaten an, für die Lufthansa läuft heute die Frist der Pilotengewerkschaft ab – kurzfristige Prognosen bleiben daher besonders unsicher.",
  "marktQuellen": [
   {
-   "t": "Tech sell-off hits Nvidia, Anthropic and Nasdaq",
-   "u": "https://www.foxnews.com/live-news/ai-news-markets-correction-11-22-26",
-   "q": "Fox News",
+   "t": "Nasdaq, Dow, S&P 500 Futures Jump Nearly 2% After Brutal Tech Selloff Last Week: GME, JNJ, ALNY, GAP In Focus",
+   "u": "https://stocktwits.com/news-articles/markets/equity/stock-market-today-nasdaq-dow-futures-rise-ai-selloff-gme-jnj-stocks/cNbYVFiR9ST",
+   "q": "Stocktwits",
    "d": "2026-11-22"
   },
   {
-   "t": "The Week That Was, The Week Ahead: Macro and Markets, November 22",
-   "u": "https://www.tipranks.com/news/the-week-that-was-the-week-ahead-macro-and-markets-november-22",
-   "q": "TipRanks",
-   "d": "2026-11-22"
+   "t": "US Stock Futures Bounce After Rout, Havens Decline: Markets Wrap",
+   "u": "https://www.swissinfo.ch/eng/us-stock-futures-bounce-after-rout,-havens-decline:-markets-wrap/92421262",
+   "q": "Bloomberg/swissinfo.ch",
+   "d": "2026-11-23"
   },
   {
-   "t": "Stocks to Watch This Week: Nvidia, Workday, Deere and Thanksgiving PCE Data",
-   "u": "https://journalarta.com/en/2026/11/22/stocks-to-watch-this-week-nvidia-workday-deere-and-thanksgiving-pce-data/",
-   "q": "JournalArta",
-   "d": "2026-11-22"
-  },
-  {
-   "t": "Morning Snapshot — Sunday, November 22, 2026",
-   "u": "https://x.com/CoreyCicero/status/2124523961035682106",
-   "q": "X (Corey Cicero)",
-   "d": "2026-11-22"
+   "t": "Lufthansa Aktie: Mediation mit Piloten ist gescheitert",
+   "u": "https://www.boerse-express.com/news/articles/lufthansa-aktie-mediation-mit-piloten-ist-gescheitert-965429",
+   "q": "Börse Express",
+   "d": "2026-11-21"
   },
   {
    "t": "Anthropic stock falls 10% in first full day of trading amid AI sell-off",
    "u": "https://www.cnbc.com/2026/11/20/anthropic-stock-ai-amd-nvidia.html",
    "q": "CNBC",
-   "d": "2026-11-20"
-  },
-  {
-   "t": "Vereinigung Cockpit setzt Lufthansa eine Frist bis zum 23. November",
-   "u": "https://www.aerotelegraph.com/ticker/vereinigung-cockpit-setzt-lufthansa-eine-frist-bis-zum-23-november/1czmf6l",
-   "q": "aeroTELEGRAPH",
    "d": "2026-11-20"
   }
  ],
@@ -46,8 +34,8 @@
   "3": [
    {
     "einschaetzung": "Erholung intakt, Richtung kurzfristig aber marktabhängig.",
-    "warum": "Chipotle hat in vier Wochen gut 29 % zugelegt, nachdem die Aktie über drei Monate noch im Minus lag; die Fünf-Tage-Bilanz ist mit +0,8 % weiter leicht positiv. Der RSI von 58 zeigt Stärke ohne Überhitzung, der Kurs liegt 3,8 % unter dem 10-Tage-Hoch, am Freitag gab er mit dem schwachen Markt um rund 2 % nach. Laut Branchenpresse brachte eine Gratis-Burrito-Aktion Mitte November erneut einen Tagesrekord beim Umsatz, und Kommentatoren halten die Aktie gemessen am erwarteten Gewinn 2027 für günstiger, sofern die Umsätze liefern. Am Wochenende kamen nur Vergleichsartikel und Marketing-Meldungen hinzu.",
-    "ausblick": "Am wahrscheinlichsten bleibt die Aktie schwankend, weil sie sich vom Tech-Ausverkauf nicht ganz lösen kann. Die übliche Drei-Tage-Bewegung von 4,6 % liegt klar über der Hürde von 1,92 %, die Steigerung ist also realistisch, aber keineswegs sicher. Vor Thanksgiving ist der Handel oft dünn.",
+    "warum": "Chipotle hat in vier Wochen gut 29 % zugelegt, nachdem die Aktie über drei Monate noch im Minus lag; die Fünf-Tage-Bilanz ist mit +0,8 % weiter leicht positiv. Der RSI von 58 zeigt Stärke ohne Überhitzung, der Kurs liegt 3,8 % unter dem 10-Tage-Hoch, am Freitag gab er mit dem schwachen Markt um rund 2 % nach. Laut Branchenpresse brachte eine Gratis-Burrito-Aktion Mitte November erneut einen Tagesrekord beim Umsatz, und Kommentatoren halten die Aktie gemessen am erwarteten Gewinn 2027 für günstiger, sofern die Umsätze liefern. Bis Montagfrüh kamen nur Vergleichsartikel und Marketing-Meldungen hinzu.",
+    "ausblick": "Am wahrscheinlichsten bleibt die Aktie schwankend, weil sie sich vom Tech-Ausverkauf nicht ganz lösen kann. Die übliche Drei-Tage-Bewegung von 4,6 % liegt klar über der Hürde von 1,92 %, die Steigerung ist also realistisch, aber keineswegs sicher. Vor Thanksgiving ist der Handel oft dünn. Die deutlich höheren US-Terminkontrakte am Montagmorgen geben etwas Rückenwind, eine Garantie für die Woche sind sie nicht.",
     "szenarien": {
      "gut": "Der Markt stabilisiert sich und Anleger setzen weiter auf die Rückkehr der Gästezahlen.",
      "schlecht": "Ein weiterer Ausverkauf an der Wall Street zieht auch Konsumwerte mit nach unten."
@@ -94,8 +82,8 @@
    },
    {
     "einschaetzung": "Trend intakt, ohne neuen Auslöser.",
-    "warum": "Pentair hat in vier Wochen gut 24 % gewonnen und hielt sich am Freitag mit −0,1 % deutlich besser als der Markt. Die Fünf-Tage-Bilanz ist leicht positiv (+0,5 %), der RSI von 63 lässt Luft und der Kurs liegt nur 2,2 % unter dem 10-Tage-Hoch. Grundlage ist ein Quartal über den Erwartungen mit bestätigter Jahresprognose; Analysten bleiben laut Barchart überwiegend positiv. Am Wochenende fanden sich keine neuen Firmenmeldungen.",
-    "ausblick": "Am wahrscheinlichsten pendelt die Aktie nahe dem Hoch mit leichter Aufwärtsneigung, weil sie zuletzt robust war. Mit einer üblichen Drei-Tage-Bewegung von 4,1 % ist die Hürde von 1,92 % erreichbar. Ohne Nachrichten hängt viel an der Gesamtstimmung.",
+    "warum": "Pentair hat in vier Wochen gut 24 % gewonnen und hielt sich am Freitag mit −0,1 % deutlich besser als der Markt. Die Fünf-Tage-Bilanz ist leicht positiv (+0,5 %), der RSI von 63 lässt Luft und der Kurs liegt nur 2,2 % unter dem 10-Tage-Hoch. Grundlage ist ein Quartal über den Erwartungen mit bestätigter Jahresprognose; Analysten bleiben laut Barchart überwiegend positiv. Bis Montagfrüh fanden sich keine neuen Firmenmeldungen.",
+    "ausblick": "Am wahrscheinlichsten pendelt die Aktie nahe dem Hoch mit leichter Aufwärtsneigung, weil sie zuletzt robust war. Mit einer üblichen Drei-Tage-Bewegung von 4,1 % ist die Hürde von 1,92 % erreichbar. Ohne Nachrichten hängt viel an der Gesamtstimmung. Die deutlich höheren US-Terminkontrakte am Montagmorgen geben etwas Rückenwind, eine Garantie für die Woche sind sie nicht.",
     "szenarien": {
      "gut": "Die relative Stärke hält an und Käufer nutzen den Markt-Rücksetzer.",
      "schlecht": "Ein breiter Ausverkauf erfasst auch Industriewerte."
@@ -129,7 +117,7 @@
    {
     "einschaetzung": "Rücksetzer mit frischem Lichtblick, Ausgang offen.",
     "warum": "Bayer ist in sechs Monaten um gut 47 % gestiegen, hat aber in fünf Tagen 5,6 % verloren und liegt 6,5 % unter dem 10-Tage-Hoch, die Trendbruch-Grenze ist also überschritten. Den Grund liefert eher die allgemeine Marktschwäche als eine schlechte Firmennachricht: Nach Börsenschluss am Freitag hat ein US-Richter den 7,25 Milliarden Dollar schweren Glyphosat-Sammelvergleich endgültig gebilligt, und laut Berichten vom Samstag legte die Aktie im außerbörslichen Handel daraufhin zu. Berenberg hob das Kursziel am 18. November auf 62 Euro, bei 'Hold'. Offen ist, ob Kläger den Vergleich noch anfechten.",
-    "ausblick": "Die Billigung des Vergleichs könnte am Montag eine Gegenbewegung auslösen, war aber teilweise erwartet. Die übliche Drei-Tage-Bewegung von 3,5 % liegt über der Hürde; ob sie nach oben ausfällt, hängt auch davon ab, wie der Markt die Nachricht gewichtet. Das erkannte Muster 'Abkühlung nach Übertreibung' war im Rückblick nur leicht positiv und ist kein verlässlicher Grund.",
+    "ausblick": "Die Billigung des Vergleichs könnte am Montag eine Gegenbewegung auslösen, war aber teilweise erwartet. Die übliche Drei-Tage-Bewegung von 3,5 % liegt über der Hürde; ob sie nach oben ausfällt, hängt auch davon ab, wie der Markt die Nachricht gewichtet. Das erkannte Muster 'Abkühlung nach Übertreibung' war im Rückblick nur leicht positiv und ist kein verlässlicher Grund. Die deutlich höheren US-Terminkontrakte am Montagmorgen geben etwas Rückenwind, eine Garantie für die Woche sind sie nicht.",
     "szenarien": {
      "gut": "Anleger werten die Billigung als Ende einer langen Belastung und kaufen den Rücksetzer.",
      "schlecht": "Die Nachricht war eingepreist und der allgemeine Ausverkauf setzt sich fort."
@@ -181,8 +169,8 @@
    },
    {
     "einschaetzung": "Guter Grundtrend, kurzfristig angeschlagen.",
-    "warum": "Heidelberg Materials hat in vier Wochen gut 17 % zugelegt, getragen von Quartalszahlen über den Erwartungen Anfang November und einer bestätigten Jahresprognose. In den letzten fünf Tagen gab die Aktie um 2 % nach und liegt 4,7 % unter dem 10-Tage-Hoch, knapp vor der Trendbruch-Grenze; eine schlechte Firmennachricht fand sich dafür auch am Wochenende nicht. Jefferies senkte am 16. November das Kursziel auf 282 Euro, blieb aber bei 'Buy'. Der RSI von 63 ist erhöht, aber nicht überhitzt.",
-    "ausblick": "Am wahrscheinlichsten ist ein Pendeln mit Erholungschance, wenn sich der europäische Markt fängt. Die übliche Drei-Tage-Bewegung von 3,5 % liegt über der Hürde von 1,92 %, die Richtung ist nach dem jüngsten Rücksetzer aber offen. Fällt der Kurs weiter, wäre der kurzfristige Trend gebrochen.",
+    "warum": "Heidelberg Materials hat in vier Wochen gut 17 % zugelegt, getragen von Quartalszahlen über den Erwartungen Anfang November und einer bestätigten Jahresprognose. In den letzten fünf Tagen gab die Aktie um 2 % nach und liegt 4,7 % unter dem 10-Tage-Hoch, knapp vor der Trendbruch-Grenze; eine schlechte Firmennachricht fand sich dafür auch bis Montagfrüh nicht. Jefferies senkte am 16. November das Kursziel auf 282 Euro, blieb aber bei 'Buy'. Der RSI von 63 ist erhöht, aber nicht überhitzt.",
+    "ausblick": "Am wahrscheinlichsten ist ein Pendeln mit Erholungschance, wenn sich der europäische Markt fängt. Die übliche Drei-Tage-Bewegung von 3,5 % liegt über der Hürde von 1,92 %, die Richtung ist nach dem jüngsten Rücksetzer aber offen. Fällt der Kurs weiter, wäre der kurzfristige Trend gebrochen. Die deutlich höheren US-Terminkontrakte am Montagmorgen geben etwas Rückenwind, eine Garantie für die Woche sind sie nicht.",
     "szenarien": {
      "gut": "Käufer nutzen den Rücksetzer und der Aufwärtstrend aus den Zahlen setzt sich fort.",
      "schlecht": "Konjunktursorgen oder ein schwacher Gesamtmarkt drücken Zyklikerwerte weiter."
@@ -222,8 +210,8 @@
    },
    {
     "einschaetzung": "Defensive Erholungschance, aber unsicher.",
-    "warum": "Clorox hat in vier Wochen gut 21 % gewonnen, ist in fünf Tagen aber um 4,3 % zurückgefallen und liegt 4,9 % unter dem 10-Tage-Hoch, also knapp an der Trendbruch-Grenze. Am Freitag hielt sich die Aktie mit −0,2 % stabil, während Anleger laut einem Bericht verstärkt in Konsumgüterwerte wie Zahnpasta-Hersteller umschichteten. Eine Gewinnwarnung fand sich nicht; kritische Berichte verweisen auf gestiegene Schulden. Am Wochenende kamen nur Dividenden-Vergleichsartikel hinzu, keine neue Firmenmeldung.",
-    "ausblick": "Hält die Flucht in defensive Werte an, ist eine Erholung plausibel. Die übliche Drei-Tage-Bewegung von 3,8 % liegt über der Hürde, die Richtung bleibt aber offen. Rutscht der Kurs weiter, wäre der kurzfristige Trend gebrochen.",
+    "warum": "Clorox hat in vier Wochen gut 21 % gewonnen, ist in fünf Tagen aber um 4,3 % zurückgefallen und liegt 4,9 % unter dem 10-Tage-Hoch, also knapp an der Trendbruch-Grenze. Am Freitag hielt sich die Aktie mit −0,2 % stabil, während Anleger laut einem Bericht verstärkt in Konsumgüterwerte wie Zahnpasta-Hersteller umschichteten. Eine Gewinnwarnung fand sich nicht; kritische Berichte verweisen auf gestiegene Schulden. Bis Montagfrüh kamen nur Dividenden-Vergleichsartikel hinzu, keine neue Firmenmeldung.",
+    "ausblick": "Hält die Flucht in defensive Werte an, ist eine Erholung plausibel. Die übliche Drei-Tage-Bewegung von 3,8 % liegt über der Hürde, die Richtung bleibt aber offen. Rutscht der Kurs weiter, wäre der kurzfristige Trend gebrochen. Die deutlich höheren US-Terminkontrakte am Montagmorgen geben etwas Rückenwind, eine Garantie für die Woche sind sie nicht.",
     "szenarien": {
      "gut": "Die Umschichtung aus Tech in stabile Konsumgüter setzt sich fort.",
      "schlecht": "Der Rücksetzer der letzten Tage weitet sich aus und der Trend bricht."
@@ -270,8 +258,8 @@
   "7": [
    {
     "einschaetzung": "Trend intakt, ohne neuen Auslöser.",
-    "warum": "Pentair hat in vier Wochen gut 24 % gewonnen und hielt sich am Freitag mit −0,1 % deutlich besser als der Markt. Die Fünf-Tage-Bilanz ist leicht positiv (+0,5 %), der RSI von 63 lässt Luft und der Kurs liegt nur 2,2 % unter dem 10-Tage-Hoch. Grundlage ist ein Quartal über den Erwartungen mit bestätigter Jahresprognose; Analysten bleiben laut Barchart überwiegend positiv. Am Wochenende fanden sich keine neuen Firmenmeldungen.",
-    "ausblick": "Am wahrscheinlichsten pendelt die Aktie nahe dem Hoch mit leichter Aufwärtsneigung, weil sie sich im Ausverkauf robust zeigte. Die übliche Sieben-Tage-Bewegung von 6,2 % liegt über der Hürde von 4,12 %, die nötige Steigerung ist also realistisch, aber nicht sicher. Ohne neue Nachrichten hängt viel an der Gesamtstimmung in der verkürzten Thanksgiving-Woche.",
+    "warum": "Pentair hat in vier Wochen gut 24 % gewonnen und hielt sich am Freitag mit −0,1 % deutlich besser als der Markt. Die Fünf-Tage-Bilanz ist leicht positiv (+0,5 %), der RSI von 63 lässt Luft und der Kurs liegt nur 2,2 % unter dem 10-Tage-Hoch. Grundlage ist ein Quartal über den Erwartungen mit bestätigter Jahresprognose; Analysten bleiben laut Barchart überwiegend positiv. Bis Montagfrüh fanden sich keine neuen Firmenmeldungen.",
+    "ausblick": "Am wahrscheinlichsten pendelt die Aktie nahe dem Hoch mit leichter Aufwärtsneigung, weil sie sich im Ausverkauf robust zeigte. Die übliche Sieben-Tage-Bewegung von 6,2 % liegt über der Hürde von 4,12 %, die nötige Steigerung ist also realistisch, aber nicht sicher. Ohne neue Nachrichten hängt viel an der Gesamtstimmung in der verkürzten Thanksgiving-Woche. Die deutlich höheren US-Terminkontrakte am Montagmorgen geben etwas Rückenwind, eine Garantie für die Woche sind sie nicht.",
     "szenarien": {
      "gut": "Die relative Stärke hält an und Käufer nutzen den Markt-Rücksetzer.",
      "schlecht": "Ein breiter Ausverkauf erfasst auch Industriewerte."
@@ -304,7 +292,7 @@
    },
    {
     "einschaetzung": "Spekulativer Schwung, sehr unsicher.",
-    "warum": "GameStop liegt fast am 10-Tage-Hoch, stieg in fünf Tagen um 3,1 % und in drei Monaten um gut 46 %. Auslöser war die Rückkehr von Keith Gill (Roaring Kitty) auf X; am Freitag gab die Aktie im Ausverkauf nur leicht nach. Ein Analyst sieht laut einem Bericht über 22 % Luft nach oben dank Sammlerartikeln und GTA VI. Die übliche Sieben-Tage-Bewegung von 6,7 % liegt deutlich über der Hürde, Stimmungsschübe sind aber unberechenbar.",
+    "warum": "GameStop liegt fast am 10-Tage-Hoch, stieg in fünf Tagen um 3,1 % und in drei Monaten um gut 46 %. Auslöser war die Rückkehr von Keith Gill (Roaring Kitty) auf X; am Freitag gab die Aktie im Ausverkauf nur leicht nach. Ein Analyst sieht laut einem Bericht über 22 % Luft nach oben dank Sammlerartikeln und GTA VI. Die übliche Sieben-Tage-Bewegung von 6,7 % liegt deutlich über der Hürde, Stimmungsschübe sind aber unberechenbar. Am Montagmorgen nennt Stocktwits GameStop erneut als Wert im Fokus der Kleinanleger, ohne dass bisher eine konkrete Ankündigung bekannt ist.",
     "ausblick": "Ein weiterer Schub ist möglich, wenn das Kleinanlegerinteresse anhält; ebenso schnell kann die Begeisterung abebben. Die Quartalszahlen am 7. Dezember liegen kurz nach dem Zeitraum und können Vorfreude wie Vorsicht auslösen. Die nötige Steigerung ist rechnerisch gut möglich, das Risiko nach unten ebenso groß.",
     "szenarien": {
      "gut": "Das Interesse der Kleinanleger hält an und die Vorfreude auf die Zahlen trägt den Kurs.",
@@ -324,6 +312,12 @@
      "07.12.2026: Quartalszahlen (kurz nach dem Zeitraum)"
     ],
     "quellen": [
+     {
+      "t": "Nasdaq, Dow, S&P 500 Futures Jump Nearly 2% After Brutal Tech Selloff Last Week: GME, JNJ, ALNY, GAP In Focus",
+      "u": "https://stocktwits.com/news-articles/markets/equity/stock-market-today-nasdaq-dow-futures-rise-ai-selloff-gme-jnj-stocks/cNbYVFiR9ST",
+      "q": "Stocktwits",
+      "d": "2026-11-22"
+     },
      {
       "t": "Former GameStop investor Keith 'Roaring Kitty' Gill tweets for the first time in 666 days",
       "u": "https://www.shacknews.com/article/151437/gamestop-gme-roaring-kitty-keith-gill-breaks-twitter-silence",
@@ -355,7 +349,7 @@
    {
     "einschaetzung": "Rücksetzer mit frischem Lichtblick, Ausgang offen.",
     "warum": "Bayer ist in sechs Monaten um gut 47 % gestiegen, hat aber in fünf Tagen 5,6 % verloren und liegt 6,5 % unter dem 10-Tage-Hoch, die Trendbruch-Grenze ist also überschritten. Den Grund liefert eher die allgemeine Marktschwäche als eine schlechte Firmennachricht: Nach Börsenschluss am Freitag hat ein US-Richter den 7,25 Milliarden Dollar schweren Glyphosat-Sammelvergleich endgültig gebilligt, und laut Berichten vom Samstag legte die Aktie im außerbörslichen Handel daraufhin zu. Berenberg hob das Kursziel am 18. November auf 62 Euro, bei 'Hold'. Offen ist, ob Kläger den Vergleich noch anfechten.",
-    "ausblick": "Die Billigung des Vergleichs könnte ab Montag eine Gegenbewegung auslösen, war aber teilweise erwartet. Die übliche Sieben-Tage-Bewegung von 5,4 % liegt über der Hürde von 4,12 %; ob sie nach oben ausfällt, hängt auch an der Marktstimmung. Das erkannte Muster 'Abkühlung nach Übertreibung' war im Rückblick nur leicht positiv und ist kein verlässlicher Grund.",
+    "ausblick": "Die Billigung des Vergleichs könnte ab Montag eine Gegenbewegung auslösen, war aber teilweise erwartet. Die übliche Sieben-Tage-Bewegung von 5,4 % liegt über der Hürde von 4,12 %; ob sie nach oben ausfällt, hängt auch an der Marktstimmung. Das erkannte Muster 'Abkühlung nach Übertreibung' war im Rückblick nur leicht positiv und ist kein verlässlicher Grund. Die deutlich höheren US-Terminkontrakte am Montagmorgen geben etwas Rückenwind, eine Garantie für die Woche sind sie nicht.",
     "szenarien": {
      "gut": "Anleger werten die Billigung als Ende einer langen Belastung und kaufen den Rücksetzer.",
      "schlecht": "Die Nachricht war eingepreist und der allgemeine Ausverkauf setzt sich fort."
@@ -408,7 +402,7 @@
    {
     "einschaetzung": "Guter Grundtrend, kurzfristig schwach.",
     "warum": "Edwards hat in drei Monaten gut 13 % zugelegt; der Trend ist aufwärts, die Fünf-Tage-Bilanz mit −4,9 % aber negativ und der Kurs liegt 4,9 % unter dem 10-Tage-Hoch. Nach einem Quartal mit erneut erhöhter Prognose hoben mehrere Analysten ihre Ziele an, darunter Wells Fargo laut MarketBeat. Kritische Stimmen fragen, ob ein Kauf nahe dem Hoch sinnvoll ist, und verweisen auf die Bewertung. Die übliche Sieben-Tage-Bewegung von 4,2 % liegt nur knapp über der Hürde.",
-    "ausblick": "Ohne neue Nachrichten dürfte die Aktie seitwärts schwanken; eine Erholung ist möglich, wenn der Gesundheitssektor gefragt bleibt. Die nötigen 4,12 % liegen nur knapp innerhalb der üblichen Bewegung, also eher eine Ausnahme als die Regel.",
+    "ausblick": "Ohne neue Nachrichten dürfte die Aktie seitwärts schwanken; eine Erholung ist möglich, wenn der Gesundheitssektor gefragt bleibt. Die nötigen 4,12 % liegen nur knapp innerhalb der üblichen Bewegung, also eher eine Ausnahme als die Regel. Die deutlich höheren US-Terminkontrakte am Montagmorgen geben etwas Rückenwind, eine Garantie für die Woche sind sie nicht.",
     "szenarien": {
      "gut": "Anleger kaufen den Rücksetzer im wachstumsstarken Herzklappen-Geschäft.",
      "schlecht": "Bewertungssorgen führen zu weiteren Gewinnmitnahmen."
@@ -456,7 +450,7 @@
    {
     "einschaetzung": "Solide nach Zahlen, für die Hürde eher träge.",
     "warum": "Walmart hat am 19. November Zahlen über den Erwartungen vorgelegt und die Jahresprognose angehoben; am Freitag stieg die Aktie um 1,5 % gegen den schwachen Markt und liegt nur 0,4 % unter dem 10-Tage-Hoch. In drei Monaten steht ein Plus von knapp 25 %, der RSI von 64 ist nicht überhitzt. Manche Analysen merken an, dass die Profitabilität zuletzt etwas abkühlte. Die übliche Sieben-Tage-Bewegung von 3,7 % liegt unter der Hürde von 4,12 %.",
-    "ausblick": "Als defensiver Wert mit angehobener Prognose und Black Friday im Zeitraum hat Walmart Rückenwind; wahrscheinlich ist ein fester, aber gemächlicher Verlauf. Die nötige Steigerung übertrifft die übliche Bewegung, sie ist möglich, aber eher die Ausnahme.",
+    "ausblick": "Als defensiver Wert mit angehobener Prognose und Black Friday im Zeitraum hat Walmart Rückenwind; wahrscheinlich ist ein fester, aber gemächlicher Verlauf. Die nötige Steigerung übertrifft die übliche Bewegung, sie ist möglich, aber eher die Ausnahme. Die deutlich höheren US-Terminkontrakte am Montagmorgen geben etwas Rückenwind, eine Garantie für die Woche sind sie nicht.",
     "szenarien": {
      "gut": "Starke Signale vom Black-Friday-Wochenende und anhaltende Flucht in defensive Werte.",
      "schlecht": "Gewinnmitnahmen nach dem Zahlen-Anstieg und Sorgen um die Marge."
@@ -508,7 +502,7 @@
    {
     "einschaetzung": "Starkes Geschäft, Hürde trotzdem hoch.",
     "warum": "McKesson hat in sechs Monaten gut 45 % und in drei Monaten rund 20 % gewonnen; in fünf Tagen gab der Kurs um 3 % nach. Im letzten Quartal stieg der Umsatz laut Unternehmensbericht um 7,6 % auf 111 Mrd. Dollar, die Onkologie wuchs um 24 %, und die Gewinnprognose wurde angehoben. Geplant ist die Abspaltung der Medizinbedarf-Sparte unter dem Namen Wellverse. Die übliche 30-Tage-Bewegung von 9,3 % ist unter den Kandidaten eine der größten.",
-    "ausblick": "Als defensiver Gesundheitsdienstleister dürfte McKesson im unruhigen Markt gefragt bleiben; bis zu den nächsten Zahlen fehlt ein großer Termin. Ein Anstieg über 17,44 % in 30 Tagen ist möglich, aber unwahrscheinlich.",
+    "ausblick": "Als defensiver Gesundheitsdienstleister dürfte McKesson im unruhigen Markt gefragt bleiben; bis zu den nächsten Zahlen fehlt ein großer Termin. Ein Anstieg über 17,44 % in 30 Tagen ist möglich, aber unwahrscheinlich. Die deutlich höheren US-Terminkontrakte am Montagmorgen geben etwas Rückenwind, eine Garantie für die Woche sind sie nicht.",
     "szenarien": {
      "gut": "Weitere Kurszielerhöhungen und Umschichtung in Gesundheitswerte.",
      "schlecht": "Politische Debatten um Arzneimittelpreise oder Gewinnmitnahmen."
@@ -558,7 +552,7 @@
    {
     "einschaetzung": "Ruhiger Aufwärtstrend, Hürde kaum erreichbar.",
     "warum": "Veralto hat in sechs Monaten gut 41 % gewonnen und nach starken Zahlen die Jahresprognose angehoben; die Marge stieg laut einer Analyse deutlich. Wasseraufbereitung gilt wegen alter Leitungen und des Wasserbedarfs von Rechenzentren als Wachstumsthema. Am Freitag stieg der Kurs um 0,5 % und liegt 3,1 % unter dem 10-Tage-Hoch. Die übliche 30-Tage-Bewegung von 7,7 % liegt deutlich unter der Hürde.",
-    "ausblick": "Wahrscheinlich bleibt die Aktie im ruhigen Aufwärtstrend, mit Rücksetzern an schwachen Markttagen. Die nötigen 17,44 % sind in 30 Tagen kaum realistisch.",
+    "ausblick": "Wahrscheinlich bleibt die Aktie im ruhigen Aufwärtstrend, mit Rücksetzern an schwachen Markttagen. Die nötigen 17,44 % sind in 30 Tagen kaum realistisch. Die deutlich höheren US-Terminkontrakte am Montagmorgen geben etwas Rückenwind, eine Garantie für die Woche sind sie nicht.",
     "szenarien": {
      "gut": "Anhaltendes Interesse an Infrastruktur- und Wasserwerten.",
      "schlecht": "Höhere Bewertung führt bei Marktschwäche zu Gewinnmitnahmen."
@@ -601,7 +595,7 @@
    {
     "einschaetzung": "Solide nach Zahlen, für die Hürde eher träge.",
     "warum": "Walmart hat am 19. November Zahlen über den Erwartungen vorgelegt und die Jahresprognose angehoben; am Freitag stieg die Aktie um 1,5 % gegen den schwachen Markt und liegt nur 0,4 % unter dem 10-Tage-Hoch. In drei Monaten steht ein Plus von knapp 25 %, der RSI von 64 ist nicht überhitzt. Manche Analysen merken an, dass die Profitabilität zuletzt etwas abkühlte. Die übliche 30-Tage-Bewegung von 7,7 % liegt weit unter der Hürde von 17,44 %.",
-    "ausblick": "Als defensiver Wert mit angehobener Prognose und Black Friday im Zeitraum hat Walmart Rückenwind; wahrscheinlich ist ein fester, aber gemächlicher Verlauf. Ein Anstieg über 17,44 % in 30 Tagen wäre weit mehr als die übliche Bewegung und ist sehr unwahrscheinlich.",
+    "ausblick": "Als defensiver Wert mit angehobener Prognose und Black Friday im Zeitraum hat Walmart Rückenwind; wahrscheinlich ist ein fester, aber gemächlicher Verlauf. Ein Anstieg über 17,44 % in 30 Tagen wäre weit mehr als die übliche Bewegung und ist sehr unwahrscheinlich. Die deutlich höheren US-Terminkontrakte am Montagmorgen geben etwas Rückenwind, eine Garantie für die Woche sind sie nicht.",
     "szenarien": {
      "gut": "Starke Signale vom Black-Friday-Wochenende und anhaltende Flucht in defensive Werte.",
      "schlecht": "Gewinnmitnahmen nach dem Zahlen-Anstieg und Sorgen um die Marge."
@@ -651,7 +645,7 @@
    {
     "einschaetzung": "Sicherer Hafen, kein Kurssprung zu erwarten.",
     "warum": "Berkshire hat laut CNBC Mitte November ein Rekordhoch erreicht, weil Anleger aus KI-Werten in stabile Titel umschichteten. Der Konzern hat Aktienrückkäufe beschleunigt, auch wenn der operative Gewinn zuletzt sank. In fünf Tagen gab der Kurs um 3,9 % nach, der Trend bleibt aufwärts. Die übliche 30-Tage-Bewegung von 5,2 % liegt weit unter der Hürde.",
-    "ausblick": "Hält die Unruhe bei Tech-Werten an, dürfte Berkshire als sicherer Hafen gefragt bleiben. Einen Anstieg über 17 % erwartet die Rechnung aber nicht; realistisch ist eine ruhige Entwicklung.",
+    "ausblick": "Hält die Unruhe bei Tech-Werten an, dürfte Berkshire als sicherer Hafen gefragt bleiben. Einen Anstieg über 17 % erwartet die Rechnung aber nicht; realistisch ist eine ruhige Entwicklung. Die deutlich höheren US-Terminkontrakte am Montagmorgen geben etwas Rückenwind, eine Garantie für die Woche sind sie nicht.",
     "szenarien": {
      "gut": "Weitere Flucht aus KI-Werten in Qualitätstitel.",
      "schlecht": "Rückkehr der Anleger zu Wachstumswerten lässt Berkshire zurückfallen."
@@ -694,7 +688,7 @@
    {
     "einschaetzung": "Qualitätswert mit Dividenden-Effekt und Zahlen im Zeitraum.",
     "warum": "Costco liegt nur 1 % unter dem 10-Tage-Hoch, hat in drei Monaten knapp 18 % gewonnen und laut Motley Fool nach der Ankündigung einer Sonderdividende ein Rekordhoch erreicht. Die Sonderdividende von 30 Dollar je Aktie wird am 4. Dezember gezahlt, Stichtag ist der 24. November; am Ex-Tag fällt der Kurs rechnerisch um etwa diesen Betrag. Dazu kommt ein neues Rückkaufprogramm. Der RSI von 70 zeigt eine erhitzte Lage, die übliche 30-Tage-Bewegung von 6,4 % liegt weit unter der Hürde.",
-    "ausblick": "Die Quartalszahlen am 10. Dezember fallen in den Zeitraum und dürften die Richtung bestimmen. Wegen des Dividendenabschlags und des hohen RSI ist ein Anstieg über 17 % sehr unwahrscheinlich.",
+    "ausblick": "Die Quartalszahlen am 10. Dezember fallen in den Zeitraum und dürften die Richtung bestimmen. Wegen des Dividendenabschlags und des hohen RSI ist ein Anstieg über 17 % sehr unwahrscheinlich. Die deutlich höheren US-Terminkontrakte am Montagmorgen geben etwas Rückenwind, eine Garantie für die Woche sind sie nicht.",
     "szenarien": {
      "gut": "Starke Zahlen am 10. Dezember und gutes Weihnachtsgeschäft.",
      "schlecht": "Enttäuschende Zahlen oder Gewinnmitnahmen nach dem Rekordhoch."
@@ -743,7 +737,7 @@
   {
    "s": "LHA.DE",
    "h": 3,
-   "grund": "Die Frist der Piloten-Gewerkschaft läuft am 23. November ab und ein Abbau von 1000 Stellen belastet das Klima; Streiks im Zeitraum sind möglich, dazu gilt der Kurs als überdehnt."
+   "grund": "Die Frist der Piloten-Gewerkschaft läuft heute, am 23. November, ab und ein Abbau von 1000 Stellen belastet das Klima; Streiks im Zeitraum sind möglich, dazu gilt der Kurs als überdehnt."
   },
   {
    "s": "EW",
@@ -758,7 +752,7 @@
   {
    "s": "LHA.DE",
    "h": 7,
-   "grund": "Streikgefahr nach Ablauf der Gewerkschaftsfrist am 23. November mitten im Zeitraum."
+   "grund": "Streikgefahr nach Ablauf der Gewerkschaftsfrist heute mitten im Zeitraum."
   },
   {
    "s": "COST",
