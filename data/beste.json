@@ -1,15 +1,21 @@
 {
- "id": "b-2026-11-23-morgens",
+ "id": "b-2026-11-23-mittags",
  "datum": "2026-11-23",
- "slot": "morgens",
- "erstellt": "2026-11-23T06:17:07Z",
- "markt": "Nach der schwächsten Woche seit Jahren – der Nasdaq Composite verlor laut Stocktwits rund 10 %, der S&P 500 über 8 %, ausgelöst von Zweifeln an den KI-Investitionen, der Führungskrise bei Nvidia und Sorgen vor einer Zinserhöhung im Dezember – zeigen die US-Terminkontrakte am Montagmorgen eine kräftige Gegenbewegung von rund 2 %. Bloomberg-Strategen warnen allerdings, dass es sich auch um eine kurze Zwischenerholung handeln könnte; die Schwankungsbreite bleibt hoch, Anleiherenditen sind gestiegen. In der verkürzten Thanksgiving-Woche stehen PCE-Inflationsdaten an, für die Lufthansa läuft heute die Frist der Pilotengewerkschaft ab – kurzfristige Prognosen bleiben daher besonders unsicher.",
+ "slot": "mittags",
+ "erstellt": "2026-11-23T12:23:19.152303Z",
+ "markt": "Nach der schwersten Woche seit Monaten erholen sich die Börsen am Montag: Der STOXX 600 lag am Vormittag laut Reuters rund 0,7 % im Plus, Technologiewerte gewannen etwa 2 %, und die US-Terminkontrakte deuten ebenfalls auf eine Gegenbewegung hin. Am Freitag war der S&P 500 laut Saxo um 3,7 % gefallen und damit in einer Korrektur, der Volatilitätsindex VIX stieg auf fast 36; Händler rechnen weiterhin fast sicher mit einer US-Zinserhöhung am 9. Dezember. Analysten warnen vor einer bloß kurzen Zwischenerholung, heute folgen US-Einkaufsmanagerdaten, und in der verkürzten Thanksgiving-Woche bleiben kurzfristige Prognosen besonders unsicher.",
  "marktQuellen": [
   {
-   "t": "Nasdaq, Dow, S&P 500 Futures Jump Nearly 2% After Brutal Tech Selloff Last Week: GME, JNJ, ALNY, GAP In Focus",
-   "u": "https://stocktwits.com/news-articles/markets/equity/stock-market-today-nasdaq-dow-futures-rise-ai-selloff-gme-jnj-stocks/cNbYVFiR9ST",
-   "q": "Stocktwits",
-   "d": "2026-11-22"
+   "t": "Europe's STOXX 600 rises as tech shares rebound after AI-driven rout",
+   "u": "https://www.marketscreener.com/news/european-stocks-recover-after-steep-technology-led-selloff-ce7851dad98cf522",
+   "q": "MarketScreener/Reuters",
+   "d": "2026-11-23"
+  },
+  {
+   "t": "Market Quick Take - Sentiment bounces after Friday mayhem - 23 November 2026",
+   "u": "https://www.home.saxo/en-mena/content/articles/macro/market-quick-take---sentiment-bounces-after-friday-mayhem---23-november-2026-23112026",
+   "q": "Saxo Bank",
+   "d": "2026-11-23"
   },
   {
    "t": "US Stock Futures Bounce After Rout, Havens Decline: Markets Wrap",
@@ -18,16 +24,10 @@
    "d": "2026-11-23"
   },
   {
-   "t": "Lufthansa Aktie: Mediation mit Piloten ist gescheitert",
-   "u": "https://www.boerse-express.com/news/articles/lufthansa-aktie-mediation-mit-piloten-ist-gescheitert-965429",
-   "q": "Börse Express",
+   "t": "Lufthansa's €9.3 Billion Fuel Bill Meets a Cockpit Deadline",
+   "u": "https://www.ad-hoc-news.de/boerse/news/unternehmensnachrichten/lufthansa-s-9-3-billion-fuel-bill-meets-a-cockpit-deadline/70543140",
+   "q": "ad-hoc-news.de",
    "d": "2026-11-21"
-  },
-  {
-   "t": "Anthropic stock falls 10% in first full day of trading amid AI sell-off",
-   "u": "https://www.cnbc.com/2026/11/20/anthropic-stock-ai-amd-nvidia.html",
-   "q": "CNBC",
-   "d": "2026-11-20"
   }
  ],
  "listen": {
@@ -115,59 +115,6 @@
     "zuversicht": "mittel"
    },
    {
-    "einschaetzung": "Rücksetzer mit frischem Lichtblick, Ausgang offen.",
-    "warum": "Bayer ist in sechs Monaten um gut 47 % gestiegen, hat aber in fünf Tagen 5,6 % verloren und liegt 6,5 % unter dem 10-Tage-Hoch, die Trendbruch-Grenze ist also überschritten. Den Grund liefert eher die allgemeine Marktschwäche als eine schlechte Firmennachricht: Nach Börsenschluss am Freitag hat ein US-Richter den 7,25 Milliarden Dollar schweren Glyphosat-Sammelvergleich endgültig gebilligt, und laut Berichten vom Samstag legte die Aktie im außerbörslichen Handel daraufhin zu. Berenberg hob das Kursziel am 18. November auf 62 Euro, bei 'Hold'. Offen ist, ob Kläger den Vergleich noch anfechten.",
-    "ausblick": "Die Billigung des Vergleichs könnte am Montag eine Gegenbewegung auslösen, war aber teilweise erwartet. Die übliche Drei-Tage-Bewegung von 3,5 % liegt über der Hürde; ob sie nach oben ausfällt, hängt auch davon ab, wie der Markt die Nachricht gewichtet. Das erkannte Muster 'Abkühlung nach Übertreibung' war im Rückblick nur leicht positiv und ist kein verlässlicher Grund. Die deutlich höheren US-Terminkontrakte am Montagmorgen geben etwas Rückenwind, eine Garantie für die Woche sind sie nicht.",
-    "szenarien": {
-     "gut": "Anleger werten die Billigung als Ende einer langen Belastung und kaufen den Rücksetzer.",
-     "schlecht": "Die Nachricht war eingepreist und der allgemeine Ausverkauf setzt sich fort."
-    },
-    "treiber": [
-     "Billigung des Glyphosat-Vergleichs verringert Rechtsunsicherheit",
-     "Mögliche Gegenbewegung nach dem Rücksetzer"
-    ],
-    "risiken": [
-     "Mögliche Anfechtung des Vergleichs",
-     "Trendbruch-Signal: 6,5 % unter dem 10-Tage-Hoch",
-     "Allgemeine Marktschwäche"
-    ],
-    "termine": [],
-    "quellen": [
-     {
-      "t": "Bayer: Aktie legt nach 7,25-Milliarden-Vergleich zu",
-      "u": "https://ms-aktuell.de/welt/bayer-glyphosat-vergleich-21-11-2026/",
-      "q": "ms-aktuell",
-      "d": "2026-11-21"
-     },
-     {
-      "t": "Bayer Aktie: Roundup-Vergleich anfechtbar?",
-      "u": "https://www.boerse-global.de/bayer-aktie-roundup-vergleich-anfechtbar/844925",
-      "q": "Börse Global",
-      "d": "2026-11-21"
-     },
-     {
-      "t": "Glyphosat-Klagen: US-Gericht billigt milliardenschweren Bayer-Sammelvergleich",
-      "u": "https://de.finance.yahoo.com/nachrichten/glyphosat-klagen-us-gericht-billigt-224225205.html?.tsrc=rss",
-      "q": "Yahoo Finanzen",
-      "d": "2026-11-20"
-     },
-     {
-      "t": "Bayers Glyphosat-Sammelvergleich von Richter genehmigt",
-      "u": "https://de.finance.yahoo.com/nachrichten/bayers-glyphosat-sammelvergleich-richter-genehmigt-220143291.html?.tsrc=rss",
-      "q": "Yahoo Finanzen",
-      "d": "2026-11-20"
-     },
-     {
-      "t": "ANALYSE-FLASH: Berenberg hebt Ziel für Bayer auf 62 Euro - 'Hold'",
-      "u": "https://de.finance.yahoo.com/nachrichten/analyse-flash-berenberg-hebt-ziel-100503293.html?.tsrc=rss",
-      "q": "dpa-AFX/Yahoo Finanzen",
-      "d": "2026-11-18"
-     }
-    ],
-    "s": "BAYN.DE",
-    "zuversicht": "niedrig"
-   },
-   {
     "einschaetzung": "Guter Grundtrend, kurzfristig angeschlagen.",
     "warum": "Heidelberg Materials hat in vier Wochen gut 17 % zugelegt, getragen von Quartalszahlen über den Erwartungen Anfang November und einer bestätigten Jahresprognose. In den letzten fünf Tagen gab die Aktie um 2 % nach und liegt 4,7 % unter dem 10-Tage-Hoch, knapp vor der Trendbruch-Grenze; eine schlechte Firmennachricht fand sich dafür auch bis Montagfrüh nicht. Jefferies senkte am 16. November das Kursziel auf 282 Euro, blieb aber bei 'Buy'. Der RSI von 63 ist erhöht, aber nicht überhitzt.",
     "ausblick": "Am wahrscheinlichsten ist ein Pendeln mit Erholungschance, wenn sich der europäische Markt fängt. Die übliche Drei-Tage-Bewegung von 3,5 % liegt über der Hürde von 1,92 %, die Richtung ist nach dem jüngsten Rücksetzer aber offen. Fällt der Kurs weiter, wäre der kurzfristige Trend gebrochen. Die deutlich höheren US-Terminkontrakte am Montagmorgen geben etwas Rückenwind, eine Garantie für die Woche sind sie nicht.",
@@ -253,6 +200,50 @@
     ],
     "s": "CLX",
     "zuversicht": "niedrig"
+   },
+   {
+    "s": "EW",
+    "einschaetzung": "Rücksetzer im intakten Trend, für drei Tage aber knapp kalkuliert.",
+    "warum": "Edwards liegt nach gut 13 % Plus in drei Monaten im Aufwärtstrend, hat in den letzten fünf Tagen aber 4,5 % abgegeben und notiert 4,9 % unter dem 10-Tage-Hoch, knapp an der Trendbruch-Grenze. Der RSI von 59 zeigt, dass die Überhitzung abgebaut ist. Fundamental stützt das starke Quartal mit erneut angehobener Prognose, mehrere Analysten haben ihre Ziele erhöht, etwa Wells Fargo laut MarketBeat. Seit dem Morgen sind keine neuen Firmenmeldungen aufgetaucht; der Wert rückt nur nach, weil Bayer nicht mehr unter den Drei-Tage-Kandidaten ist.",
+    "ausblick": "Am wahrscheinlichsten pendelt die Aktie mit dem Gesamtmarkt; die Erholung am Montag kann einen Teil des Rücksetzers wettmachen. Die übliche Drei-Tage-Bewegung von 2,8 % liegt nur wenig über der Hürde von 1,92 %, die nötige Steigerung ist also möglich, aber nicht die Regel. Thanksgiving verkürzt die Woche und dünnt den Handel aus.",
+    "szenarien": {
+     "gut": "Anleger sehen den Rückgang als Einstiegsgelegenheit in einen Qualitätswert der Medizintechnik.",
+     "schlecht": "Ein erneuter Ausverkauf oder Bewertungssorgen drücken den Kurs unter die 5-%-Marke vom Hoch."
+    },
+    "treiber": [
+     "Angehobene Jahresprognose",
+     "Positive Analystenstimmen",
+     "Allgemeine Markterholung"
+    ],
+    "risiken": [
+     "Kurzfristig schwache Kursentwicklung nahe Trendbruch",
+     "Hohe Bewertung",
+     "Knappe Marge über der Hürde"
+    ],
+    "termine": [
+     "26.11.2026: US-Börsen wegen Thanksgiving geschlossen, 27.11. verkürzter Handel"
+    ],
+    "zuversicht": "niedrig",
+    "quellen": [
+     {
+      "t": "Edwards Lifesciences stock price expected to rise, Wells Fargo analyst says",
+      "u": "https://www.marketbeat.com/instant-alerts/analyst-edwards-lifesciences-nyse-ew-stock-price-expected-to-rise-wells-fargo-company-analyst-says-2026-11-16/",
+      "q": "MarketBeat",
+      "d": "2026-11-16"
+     },
+     {
+      "t": "Edwards Lifesciences beats and raises again, but TAVR share gains have plateaued",
+      "u": "https://finviz.com/news/416442/edwards-lifesciences-beats-and-raises-again-but-tavr-share-gains-have-plateaued-as-moderate-as-becomes-the-next-debate",
+      "q": "Earnings Whispers/Finviz",
+      "d": "2026-11-04"
+     },
+     {
+      "t": "Edwards Lifesciences: Momentum Returns, But Valuation Warrants Caution",
+      "u": "https://finnhub.io/api/news?id=5d5efe5f0eaf48a5f1d9586887dd86d9c31d1b043528c5b23e9549beb6d0fc7a",
+      "q": "Seeking Alpha",
+      "d": "2026-11-18"
+     }
+    ]
    }
   ],
   "7": [
@@ -344,59 +335,6 @@
      }
     ],
     "s": "GME",
-    "zuversicht": "niedrig"
-   },
-   {
-    "einschaetzung": "Rücksetzer mit frischem Lichtblick, Ausgang offen.",
-    "warum": "Bayer ist in sechs Monaten um gut 47 % gestiegen, hat aber in fünf Tagen 5,6 % verloren und liegt 6,5 % unter dem 10-Tage-Hoch, die Trendbruch-Grenze ist also überschritten. Den Grund liefert eher die allgemeine Marktschwäche als eine schlechte Firmennachricht: Nach Börsenschluss am Freitag hat ein US-Richter den 7,25 Milliarden Dollar schweren Glyphosat-Sammelvergleich endgültig gebilligt, und laut Berichten vom Samstag legte die Aktie im außerbörslichen Handel daraufhin zu. Berenberg hob das Kursziel am 18. November auf 62 Euro, bei 'Hold'. Offen ist, ob Kläger den Vergleich noch anfechten.",
-    "ausblick": "Die Billigung des Vergleichs könnte ab Montag eine Gegenbewegung auslösen, war aber teilweise erwartet. Die übliche Sieben-Tage-Bewegung von 5,4 % liegt über der Hürde von 4,12 %; ob sie nach oben ausfällt, hängt auch an der Marktstimmung. Das erkannte Muster 'Abkühlung nach Übertreibung' war im Rückblick nur leicht positiv und ist kein verlässlicher Grund. Die deutlich höheren US-Terminkontrakte am Montagmorgen geben etwas Rückenwind, eine Garantie für die Woche sind sie nicht.",
-    "szenarien": {
-     "gut": "Anleger werten die Billigung als Ende einer langen Belastung und kaufen den Rücksetzer.",
-     "schlecht": "Die Nachricht war eingepreist und der allgemeine Ausverkauf setzt sich fort."
-    },
-    "treiber": [
-     "Billigung des Glyphosat-Vergleichs verringert Rechtsunsicherheit",
-     "Mögliche Gegenbewegung nach dem Rücksetzer"
-    ],
-    "risiken": [
-     "Mögliche Anfechtung des Vergleichs",
-     "Trendbruch-Signal: 6,5 % unter dem 10-Tage-Hoch",
-     "Allgemeine Marktschwäche"
-    ],
-    "termine": [],
-    "quellen": [
-     {
-      "t": "Bayer: Aktie legt nach 7,25-Milliarden-Vergleich zu",
-      "u": "https://ms-aktuell.de/welt/bayer-glyphosat-vergleich-21-11-2026/",
-      "q": "ms-aktuell",
-      "d": "2026-11-21"
-     },
-     {
-      "t": "Bayer Aktie: Roundup-Vergleich anfechtbar?",
-      "u": "https://www.boerse-global.de/bayer-aktie-roundup-vergleich-anfechtbar/844925",
-      "q": "Börse Global",
-      "d": "2026-11-21"
-     },
-     {
-      "t": "Glyphosat-Klagen: US-Gericht billigt milliardenschweren Bayer-Sammelvergleich",
-      "u": "https://de.finance.yahoo.com/nachrichten/glyphosat-klagen-us-gericht-billigt-224225205.html?.tsrc=rss",
-      "q": "Yahoo Finanzen",
-      "d": "2026-11-20"
-     },
-     {
-      "t": "Bayers Glyphosat-Sammelvergleich von Richter genehmigt",
-      "u": "https://de.finance.yahoo.com/nachrichten/bayers-glyphosat-sammelvergleich-richter-genehmigt-220143291.html?.tsrc=rss",
-      "q": "Yahoo Finanzen",
-      "d": "2026-11-20"
-     },
-     {
-      "t": "ANALYSE-FLASH: Berenberg hebt Ziel für Bayer auf 62 Euro - 'Hold'",
-      "u": "https://de.finance.yahoo.com/nachrichten/analyse-flash-berenberg-hebt-ziel-100503293.html?.tsrc=rss",
-      "q": "dpa-AFX/Yahoo Finanzen",
-      "d": "2026-11-18"
-     }
-    ],
-    "s": "BAYN.DE",
     "zuversicht": "niedrig"
    },
    {
@@ -496,59 +434,51 @@
     ],
     "s": "WMT",
     "zuversicht": "niedrig"
+   },
+   {
+    "s": "PHIA.AS",
+    "einschaetzung": "Fundamental gestützt, für sieben Tage aber eher knapp.",
+    "warum": "Philips hat in drei Monaten knapp 16 % gewonnen, der Trend ist aufwärts; in den letzten fünf Tagen gab der Kurs jedoch 3,8 % nach, bleibt damit aber oberhalb der Trendbruch-Grenze. Rückenwind kam Anfang November von Quartalszahlen mit besserer operativer Marge und einer grundsätzlichen Einigung mit dem US-Justizministerium im Rechtsstreit um die Schlafapnoe-Geräte. Barclays hob danach das Kursziel von 29,50 auf 33,50 Euro an und blieb bei Übergewichten. Belastend wirkte eine weitere Rückstellung für US-Untersuchungen, die den Nettogewinn drückte.",
+    "ausblick": "Ohne frische Firmenmeldungen dürfte die Aktie vor allem der Marktstimmung in Europa folgen, die sich am Montag erholt. Die übliche Sieben-Tage-Bewegung von 3,8 % liegt leicht unter der Hürde von 4,12 %, die nötige Steigerung ist also eher die Ausnahme. Ein Muster-Signal („Abkühlung nach Übertreibung“) zeigt im Rückblick nur einen leichten Vorteil und ist sehr unsicher.",
+    "szenarien": {
+     "gut": "Die Markterholung hält an und Anleger setzen wieder auf die verbesserte Marge und das Ende der Rechtsrisiken.",
+     "schlecht": "Neue Belastungen aus den US-Verfahren oder ein erneuter Marktrückgang setzen den jüngsten Abwärtsschub fort."
+    },
+    "treiber": [
+     "Bessere operative Marge im dritten Quartal",
+     "Einigung mit US-Behörden",
+     "Angehobene Analystenziele"
+    ],
+    "risiken": [
+     "Übliche Bewegung unter der Hürde",
+     "Weitere Rückstellungen für US-Verfahren",
+     "Negative Fünf-Tage-Bilanz"
+    ],
+    "termine": [],
+    "zuversicht": "niedrig",
+    "quellen": [
+     {
+      "t": "PHILIPS Aktie: Barclays hebt Kursziel auf 33,50 Euro an",
+      "u": "https://goldesel.de/aktien/news/philips-aktie-barclays-hebt-kursziel-auf-3350-euro-an",
+      "q": "Goldesel",
+      "d": "2026-11-04"
+     },
+     {
+      "t": "AKTIE IM FOKUS: Philips nach Zahlen und Einigung in den USA gefragt",
+      "u": "https://de.finance.yahoo.com/nachrichten/aktie-fokus-philips-zahlen-einigung-101210092.html",
+      "q": "Yahoo Finanzen (dpa-AFX)",
+      "d": "2026-11-03"
+     },
+     {
+      "t": "Philips: Robustes Neugeschäft und bessere Marge - Weitere Rückstellung",
+      "u": "https://de.finance.yahoo.com/nachrichten/philips-robustes-neugesch%C3%A4ft-bessere-marge-080027462.html",
+      "q": "Yahoo Finanzen (dpa-AFX)",
+      "d": "2026-11-03"
+     }
+    ]
    }
   ],
   "30": [
-   {
-    "einschaetzung": "Starkes Geschäft, Hürde trotzdem hoch.",
-    "warum": "McKesson hat in sechs Monaten gut 45 % und in drei Monaten rund 20 % gewonnen; in fünf Tagen gab der Kurs um 3 % nach. Im letzten Quartal stieg der Umsatz laut Unternehmensbericht um 7,6 % auf 111 Mrd. Dollar, die Onkologie wuchs um 24 %, und die Gewinnprognose wurde angehoben. Geplant ist die Abspaltung der Medizinbedarf-Sparte unter dem Namen Wellverse. Die übliche 30-Tage-Bewegung von 9,3 % ist unter den Kandidaten eine der größten.",
-    "ausblick": "Als defensiver Gesundheitsdienstleister dürfte McKesson im unruhigen Markt gefragt bleiben; bis zu den nächsten Zahlen fehlt ein großer Termin. Ein Anstieg über 17,44 % in 30 Tagen ist möglich, aber unwahrscheinlich. Die deutlich höheren US-Terminkontrakte am Montagmorgen geben etwas Rückenwind, eine Garantie für die Woche sind sie nicht.",
-    "szenarien": {
-     "gut": "Weitere Kurszielerhöhungen und Umschichtung in Gesundheitswerte.",
-     "schlecht": "Politische Debatten um Arzneimittelpreise oder Gewinnmitnahmen."
-    },
-    "treiber": [
-     "Angehobene Prognose",
-     "Wachstum in der Onkologie",
-     "Abspaltung Wellverse"
-    ],
-    "risiken": [
-     "Hürde weit über der üblichen Bewegung",
-     "Gesundheitspolitik in den USA"
-    ],
-    "termine": [
-     "26.11.2026: US-Börsen wegen Thanksgiving geschlossen, 27.11. verkürzter Handel",
-     "08./09.12.2026: Zinssitzung der US-Notenbank"
-    ],
-    "quellen": [
-     {
-      "t": "The Early Signs Before McKesson Stock’s 44% Rise",
-      "u": "https://www.trefis.com/stock/mck/articles/626219/the-early-signs-before-mckesson-stocks-44-rise/2026-11-18",
-      "q": "Trefis",
-      "d": "2026-11-18"
-     },
-     {
-      "t": "McKesson Q2 FY2027 earnings: $111bn quarter, oncology +24% and the Wellverse spin-off",
-      "u": "https://sec-api.io/insights/mckesson-mck-q2-fy2027-earnings-sec-filing-analysis-111bn-quarter-oncology-24-and-the-wellverse-spin-off",
-      "q": "sec-api.io",
-      "d": "2026-11-05"
-     },
-     {
-      "t": "Two Deals and a Higher Target: UBS’s Call on McKesson (MCK)",
-      "u": "https://finnhub.io/api/news?id=595c385fcdf58e62b0c490d2fa1a834160303a1c4fa8c9da1020aff723eb4ff2",
-      "q": "Yahoo",
-      "d": "2026-11-19"
-     },
-     {
-      "t": "Earnings Beat Might Change The Case For Investing In McKesson Stock (MCK)",
-      "u": "https://finnhub.io/api/news?id=d79dc8d8ae62c7f5396f36f2f7c4899fa85504c0918978810c3502a5544793f5",
-      "q": "Yahoo/Simply Wall St",
-      "d": "2026-11-21"
-     }
-    ],
-    "s": "MCK",
-    "zuversicht": "mittel"
-   },
    {
     "einschaetzung": "Ruhiger Aufwärtstrend, Hürde kaum erreichbar.",
     "warum": "Veralto hat in sechs Monaten gut 41 % gewonnen und nach starken Zahlen die Jahresprognose angehoben; die Marge stieg laut einer Analyse deutlich. Wasseraufbereitung gilt wegen alter Leitungen und des Wasserbedarfs von Rechenzentren als Wachstumsthema. Am Freitag stieg der Kurs um 0,5 % und liegt 3,1 % unter dem 10-Tage-Hoch. Die übliche 30-Tage-Bewegung von 7,7 % liegt deutlich unter der Hürde.",
@@ -730,29 +660,58 @@
     ],
     "s": "COST",
     "zuversicht": "niedrig"
+   },
+   {
+    "s": "IBE.MC",
+    "einschaetzung": "Stabiler Aufwärtstrend, Hürde für 30 Tage aber sehr hoch.",
+    "warum": "Iberdrola hat in drei Monaten knapp 13 % zugelegt und erreichte Mitte November laut Demócrata ein Rekordhoch bei 23,70 Euro, nach zehn Wochen mit Gewinnen in Folge. Nach den Neunmonatszahlen hob der Versorger das Ziel für den bereinigten Gewinn 2026 auf mindestens 10 % Wachstum an; seitdem erhöhten zahlreiche Analysten ihre Kursziele, Morgan Stanley nennt laut dem Bericht 26 Euro. Aktuell liegt der Kurs 4,5 % unter dem 10-Tage-Hoch, der RSI von 55 ist neutral. Als defensiver Wert passt er in einen nervösen Markt, bewegt sich aber langsam.",
+    "ausblick": "Für die nächsten 30 Handelstage ist ein ruhiger, eher seitwärts bis leicht steigender Verlauf am wahrscheinlichsten. Die übliche 30-Tage-Bewegung von 5,2 % liegt weit unter der Hürde von 17,44 %; die nötige Steigerung ist damit praktisch nicht realistisch, das gilt aber für alle 30-Tage-Kandidaten. Steigende Anleiherenditen und die mögliche US-Zinserhöhung im Dezember sind für Versorger ein Gegenwind.",
+    "szenarien": {
+     "gut": "Anleger suchen weiter sichere Häfen und honorieren das verlässliche Gewinnwachstum.",
+     "schlecht": "Steigende Zinsen machen Versorger-Aktien mit Dividende im Vergleich zu Anleihen unattraktiver."
+    },
+    "treiber": [
+     "Angehobenes Gewinnziel 2026",
+     "Viele angehobene Kursziele",
+     "Defensive Rolle im unruhigen Markt"
+    ],
+    "risiken": [
+     "Steigende Zinsen",
+     "Bewertung nach Rekordhoch",
+     "Träge Kursbewegung"
+    ],
+    "termine": [
+     "08./09.12.2026: Zinssitzung der US-Notenbank"
+    ],
+    "zuversicht": "niedrig",
+    "quellen": [
+     {
+      "t": "Iberdrola sets historical highs on the Stock Exchange and raises its value above 158,000 million",
+      "u": "https://www.democrata.es/en/economy/iberdrola-sets-historical-highs-on-the-stock-exchange-and-raises-its-value-above-158-000-million/",
+      "q": "Demócrata",
+      "d": "2026-11-13"
+     },
+     {
+      "t": "Energiekonzern Iberdrola erhöht erneut Gewinnziel - Stromgeschäft treibt",
+      "u": "https://de.finance.yahoo.com/nachrichten/energiekonzern-iberdrola-erh%C3%B6ht-erneut-gewinnziel-090513177.html",
+      "q": "Yahoo Finanzen (dpa-AFX)",
+      "d": "2026-10-21"
+     },
+     {
+      "t": "Iberdrola en Noviembre de 2026: Tras Mejorar Previsiones, ¿Romperá sus Máximos?",
+      "u": "https://es.dailyforex.com/stock-market-today/2026/11/iberdrola-entra-en-noviembre-de-2026-con-mejoras-en-previsiones-de-beneficios/251433",
+      "q": "DailyForex",
+      "d": "2026-11-04"
+     }
+    ]
    }
   ]
  },
  "aussortiert": [
   {
-   "s": "LHA.DE",
-   "h": 3,
-   "grund": "Die Frist der Piloten-Gewerkschaft läuft heute, am 23. November, ab und ein Abbau von 1000 Stellen belastet das Klima; Streiks im Zeitraum sind möglich, dazu gilt der Kurs als überdehnt."
-  },
-  {
-   "s": "EW",
-   "h": 3,
-   "grund": "Übliche Drei-Tage-Bewegung von 2,8 % nur knapp über der Hürde, Fünf-Tage-Bilanz mit −4,9 % negativ."
-  },
-  {
    "s": "VLTO",
    "h": 3,
    "grund": "Zu träge: übliche Drei-Tage-Bewegung von 2,4 % kaum über der Hürde."
-  },
-  {
-   "s": "LHA.DE",
-   "h": 7,
-   "grund": "Streikgefahr nach Ablauf der Gewerkschaftsfrist heute mitten im Zeitraum."
   },
   {
    "s": "COST",
@@ -792,7 +751,7 @@
   {
    "s": "SAN.PA",
    "h": 3,
-   "grund": "Fünf-Tage-Bilanz mit −3,1 % negativ und übliche Drei-Tage-Bewegung von 2,6 % nur knapp über der Hürde."
+   "grund": "Fünf-Tage-Bilanz mit −3,8 % negativ und übliche Drei-Tage-Bewegung von 2,6 % nur knapp über der Hürde."
   },
   {
    "s": "AIZ",
@@ -808,6 +767,26 @@
    "s": "AIZ",
    "h": 7,
    "grund": "Übliche Sieben-Tage-Bewegung von 3,5 % unter der Hürde von 4,12 %."
+  },
+  {
+   "s": "LHA.DE",
+   "h": 3,
+   "grund": "Die Frist der Pilotengewerkschaft lief heute ab, für morgen ist eine Belegschaftsversammlung angesetzt; Streiks im Zeitraum bleiben möglich und der Kurs wirkt nach starkem Monat überdehnt."
+  },
+  {
+   "s": "LHA.DE",
+   "h": 7,
+   "grund": "Offener Tarifkonflikt mit den Piloten nach abgelaufener Frist, Streikgefahr mitten im Zeitraum und hohe Treibstoffkosten."
+  },
+  {
+   "s": "COST",
+   "h": 3,
+   "grund": "Stichtag der Sonderdividende am 24. November führt zu einem rechnerischen Kursabschlag, übliche Drei-Tage-Bewegung von 2,0 % kaum über der Hürde."
+  },
+  {
+   "s": "HEN3.DE",
+   "h": 7,
+   "grund": "Abstufung durch Kepler Cheuvreux und übliche Sieben-Tage-Bewegung von 3,2 % deutlich unter der Hürde."
   }
  ]
 }
