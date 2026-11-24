@@ -1,10 +1,16 @@
 {
- "id": "b-2026-11-24-morgens",
+ "id": "b-2026-11-24-mittags",
  "datum": "2026-11-24",
- "slot": "morgens",
- "erstellt": "2026-11-24T07:18:30+01:00",
- "markt": "Die Börsen erholten sich am Montag kräftig: Laut CNBC stieg der Dow um rund 1.400 Punkte und der Nasdaq um etwa 6 % – der beste Tag seit April 2025, ausgelöst durch die Rückkehr von Jensen Huang an die Spitze von Nvidia; der DAX schloss laut AktienCheck 2,15 % höher. Ob die Erholung hält, ist offen: Am Mittwoch kommen die PCE-Inflationsdaten, und die verkürzte Thanksgiving-Woche mit dünnem Handel macht kurzfristige Prognosen besonders unsicher. Defensive Werte profitierten weniger von der Rally als KI- und Chipaktien.",
+ "slot": "mittags",
+ "erstellt": "2026-11-24T13:18:28+01:00",
+ "markt": "Nach dem stärksten Tag seit April 2025 an der Wall Street, ausgelöst durch die Rückkehr von Jensen Huang an die Spitze von Nvidia, kühlt die Stimmung heute ab: Laut TipRanks lagen die US-Futures am Morgen im Minus, vor allem die Nasdaq, weil Chipwerte Gewinne abgaben. In Europa sorgt die 41-Milliarden-Dollar-Übernahme von Insmed durch Sanofi für Gesprächsstoff. Mit den PCE-Inflationsdaten am Mittwoch und dem Thanksgiving-Feiertag am Donnerstag bleibt der Handel dünn und kurzfristige Prognosen besonders unsicher.",
  "marktQuellen": [
+  {
+   "t": "Stock Market Today, Nov. 24: Markets Turn Jittery Even as Huang Returns to Nvidia",
+   "u": "https://www.tipranks.com/news/stock-market-today-nov-24-markets-turn-jittery-even-as-huang-returns-to-nvidia",
+   "q": "TipRanks",
+   "d": "2026-11-24"
+  },
   {
    "t": "Dow soars 1,400 points; Nasdaq surges 6% in its best day since April 2025 as Jensen Huang returns to Nvidia",
    "u": "https://www.cnbc.com/2026/11/22/stock-market-today-live-updates.html",
@@ -12,16 +18,10 @@
    "d": "2026-11-23"
   },
   {
-   "t": "Stock futures rise as traders see whether Nvidia can extend rally from Jensen Huang's return",
-   "u": "https://www.cnbc.com/2026/11/23/stock-market-today-live-updates.html",
-   "q": "CNBC",
+   "t": "ROUNDUP: Sanofi will US-Pharmahersteller Insmed für 41 Milliarden Dollar kaufen",
+   "u": "https://de.finance.yahoo.com/nachrichten/roundup-sanofi-will-us-pharmahersteller-101032789.html?.tsrc=rss",
+   "q": "dpa-AFX/Yahoo Finanzen",
    "d": "2026-11-24"
-  },
-  {
-   "t": "DAX Check am Abend: Huang-Rückkehr hievt den DAX um 2,15 Prozent",
-   "u": "https://aktiencheck.de/artikel/dax-check-am-abend-siemens-energy-infineon-und-hochtief-vorn-deutsche-boerse",
-   "q": "AktienCheck",
-   "d": "2026-11-23"
   }
  ],
  "listen": {
@@ -109,7 +109,7 @@
    {
     "s": "EW",
     "einschaetzung": "Analysten stützen, Kurs aber nahe Hoch",
-    "warum": "Edwards hat in drei Monaten gut 16 % zugelegt; nach einer schwächeren Woche stieg die Aktie am Montag um gut 3 % und liegt nun 2 % unter dem 10-Tage-Hoch. Die Fünf-Tage-Bilanz ist mit −1,9 % noch leicht negativ, der RSI von 66 ist erhöht. Barclays bleibt bei 'Overweight' und hob das Kursziel von 120 auf 125 Dollar, Wells Fargo urteilte zuvor ähnlich. Fundamental stützt das Quartal mit erneut angehobener Prognose.",
+    "warum": "Edwards hat in drei Monaten gut 16 % zugelegt; nach einer schwächeren Woche stieg die Aktie am Montag um gut 3 % und liegt nun 2 % unter dem 10-Tage-Hoch. Die Fünf-Tage-Bilanz ist mit −1,2 % noch leicht negativ, der RSI von 66 ist erhöht. Barclays bleibt bei 'Overweight' und hob das Kursziel von 120 auf 125 Dollar, Wells Fargo urteilte zuvor ähnlich. Fundamental stützt das Quartal mit erneut angehobener Prognose.",
     "ausblick": "Die übliche Drei-Tage-Bewegung von 2,8 % liegt nur mäßig über der Hürde von 1,92 %, die Steigerung ist also möglich, aber nicht sicher. Am wahrscheinlichsten setzt sich die Montagserholung zögerlich fort. Medizintechnik gilt als eher defensiv und profitiert weniger, falls Geld weiter in KI-Werte fließt.",
     "szenarien": {
      "gut": "Die Kurszielanhebungen ziehen weitere Käufer an und das 10-Tage-Hoch wird zurückerobert.",
@@ -151,16 +151,16 @@
    },
    {
     "s": "HEI.DE",
-    "einschaetzung": "Starker Monat, kurzfristig angeschlagen",
-    "warum": "Heidelberg Materials hat in vier Wochen gut 20 % gewonnen, getragen von Quartalszahlen über den Erwartungen und einer bestätigten Jahresprognose. Am Montag stieg der Kurs mit dem starken DAX um 2,4 %, die Fünf-Tage-Bilanz ist mit +0,3 % knapp positiv. Der Abstand zum 10-Tage-Hoch beträgt allerdings 4,7 % und liegt damit nahe an der Warnschwelle. Jefferies senkte das Kursziel Mitte November leicht auf 282 Euro, blieb aber bei 'Buy'; neue Firmenmeldungen kamen nicht hinzu.",
-    "ausblick": "Mit einer üblichen Drei-Tage-Bewegung von 3,5 % ist die Hürde von 1,92 % rechnerisch erreichbar. Weil der Kurs schon fast 5 % vom Hoch zurückgekommen ist, kann eine Fortsetzung der Montagserholung ihn wieder nach oben tragen; ebenso gut kann sich der Rücksetzer fortsetzen. Die Einschätzung bleibt deshalb vorsichtig.",
+    "einschaetzung": "Analysten stützen, Schwung lässt nach",
+    "warum": "Heidelberg Materials hat in vier Wochen gut 20 % gewonnen, getragen von Quartalszahlen über den Erwartungen und einer bestätigten Jahresprognose. Heute gibt die Aktie leicht nach, die Fünf-Tage-Bilanz ist mit −0,7 % knapp negativ und der Abstand zum 10-Tage-Hoch beträgt 2,7 %. Neu ist heute, dass JPMorgan das Kursziel von 225 auf 230 Euro anhob und die Aktie zum bevorzugten Wert unter den Baustoffherstellern erklärte; Jefferies hatte das Ziel Mitte November leicht auf 282 Euro gesenkt, bleibt aber bei 'Buy'.",
+    "ausblick": "Mit einer üblichen Drei-Tage-Bewegung von 3,5 % ist die Hürde von 1,92 % rechnerisch erreichbar. Das neue Analystenlob kann die Aktie stützen, die leichten Abgaben heute zeigen aber, dass der Schwung nach dem starken Monat nachgelassen hat. Die Einschätzung bleibt deshalb vorsichtig.",
     "szenarien": {
      "gut": "Der DAX hält seine Erholung und Zykliker wie Baustoffe bleiben gefragt.",
      "schlecht": "Fällt der Kurs unter die Spanne der letzten Tage, wäre der kurzfristige Aufwärtstrend gebrochen."
     },
     "treiber": [
-     "Starke Quartalszahlen und Kostensenkungen",
-     "Erholung im DAX"
+     "JPMorgan-Kurszielerhöhung als frischer Impuls",
+     "Quartal über den Erwartungen"
     ],
     "risiken": [
      "Fast 5 % unter dem 10-Tage-Hoch",
@@ -171,6 +171,12 @@
     ],
     "zuversicht": "niedrig",
     "quellen": [
+     {
+      "t": "ANALYSE-FLASH: JPMorgan hebt Ziel für Heidelberg Materials - 'Top Pick'",
+      "u": "https://de.finance.yahoo.com/nachrichten/analyse-flash-jpmorgan-hebt-ziel-063503139.html?.tsrc=rss",
+      "q": "dpa-AFX/Yahoo Finanzen",
+      "d": "2026-11-24"
+     },
      {
       "t": "ANALYSE-FLASH: Jefferies senkt Heidelberg-Materials-Ziel auf 282 Euro - 'Buy'",
       "u": "https://de.finance.yahoo.com/nachrichten/analyse-flash-jefferies-senkt-heidelberg-090500519.html?.tsrc=rss",
@@ -193,9 +199,9 @@
    },
    {
     "s": "LHA.DE",
-    "einschaetzung": "Rechnerisch stark, aber Streikrisiko",
-    "warum": "Lufthansa ist der rechnerisch beste Kandidat: knapp 28 % Plus in vier Wochen und am Montag +2,5 %. Der Kurs liegt 2,6 % unter dem 10-Tage-Hoch, der RSI von 67 zeigt eine heiß gelaufene Lage. Die Frist der Pilotengewerkschaft Vereinigung Cockpit ist abgelaufen; laut Travelling for Business wächst damit das Risiko neuer Streiks, eine konkrete Ankündigung war bis zur Recherche nicht bekannt. Dazu kommen Berichte über geplanten Stellenabbau und monatliche Verluste an den Drehkreuzen.",
-    "ausblick": "Mit einer üblichen Drei-Tage-Bewegung von 2,9 % ist die Hürde von 1,92 % erreichbar, wenn das Kursmomentum hält. Eine Streikankündigung könnte aber jederzeit einen deutlichen Rückschlag auslösen. Das Verhältnis aus Chance und Risiko ist deshalb ausgeglichen bis leicht negativ.",
+    "einschaetzung": "Starker Trend, aber Tarifkonflikt verschärft sich",
+    "warum": "Lufthansa bleibt der rechnerisch beste Kandidat: 25 % Plus in vier Wochen, der Kurs notiert am 10-Tage-Hoch und die Fünf-Tage-Bilanz ist mit +1,4 % positiv. Der RSI von 71 zeigt aber eine heiß gelaufene Lage. Im Tarifstreit mit den Piloten gibt es keine Entspannung: Nach der gescheiterten Mediation und der am Montag abgelaufenen Frist werden die Gespräche laut dpa-AFX vorerst nicht fortgesetzt, die Vereinigung Cockpit berät über neue Forderungen. Ein konkreter Streiktermin war bis zur Recherche nicht bekannt. Dazu kommen Berichte über geplanten Stellenabbau an den Drehkreuzen wegen anhaltender Verluste.",
+    "ausblick": "Mit einer üblichen Drei-Tage-Bewegung von 2,9 % ist die Hürde von 1,92 % erreichbar, wenn das Kursmomentum hält. Eine Streikankündigung kann aber jederzeit einen deutlichen Rückschlag auslösen, und der hohe RSI spricht für eine mögliche Verschnaufpause. Chance und Risiko halten sich bestenfalls die Waage.",
     "szenarien": {
      "gut": "Die Gewerkschaft verzichtet vorerst auf Streiks oder es gibt Signale einer Einigung.",
      "schlecht": "Die Piloten kündigen Streiks an, möglicherweise noch vor dem Weihnachtsverkehr."
@@ -205,29 +211,29 @@
      "Sparprogramm kann Margen stützen"
     ],
     "risiken": [
-     "Streikgefahr nach abgelaufener Frist",
-     "Heiß gelaufener RSI"
+     "Streikgefahr: Gespräche mit den Piloten vorerst gestoppt",
+     "Heiß gelaufener RSI von 71"
     ],
     "termine": [],
     "zuversicht": "niedrig",
     "quellen": [
      {
-      "t": "Lufthansa pilot strike risk grows as union deadline passes",
-      "u": "https://travellingforbusiness.co.uk/news/lufthansa-pilot-strike-risk-deadline/",
-      "q": "Travelling for Business",
+      "t": "Vereinigung Cockpit berät über neue Tarif-Forderungen",
+      "u": "https://de.finance.yahoo.com/nachrichten/vereinigung-cockpit-ber%C3%A4t-%C3%BC-neue-104437306.html?.tsrc=rss",
+      "q": "dpa-AFX/Yahoo Finanzen",
       "d": "2026-11-24"
      },
      {
-      "t": "Lufthansa: Piloten-Frist endet, rund 1.000 Stellen sollen wegfallen",
-      "u": "https://www.netz-trends.de/lufthansa-piloten-frist-stellenabbau-november-2026/",
-      "q": "Netz Trends",
-      "d": "2026-11-23"
+      "t": "Lufthansa-Piloten-Streik rückt nach gescheiterter Mediation näher",
+      "u": "https://www.cash-online.de/a/lufthansa-piloten-streik-rueckt-nach-gescheiterter-mediation-naeher-730791/",
+      "q": "Cash.",
+      "d": "2026-11-18"
      },
      {
-      "t": "Christmas Travel Chaos Looms as Lufthansa Pilots Give Airline Final Deadline",
-      "u": "https://aviationa2z.com/index.php/2026/11/23/christmas-travel-chaos-looms-as-lufthansa-pilots-give-airline-final-deadline/",
-      "q": "Aviation A2Z",
-      "d": "2026-11-23"
+      "t": "Lufthansa will 1000 Stellen streichen - 20 Millionen Euro Verlust pro Monat",
+      "u": "https://de.finance.yahoo.com/nachrichten/lufthansa-will-1000-stellen-streichen-093154549.html?.tsrc=rss",
+      "q": "Yahoo Finanzen",
+      "d": "2026-11-20"
      }
     ]
    }
@@ -273,7 +279,7 @@
    {
     "s": "GME",
     "einschaetzung": "Spekulativ, Schwung vorhanden",
-    "warum": "GameStop schloss am Montag am 10-Tage-Hoch, stieg in fünf Tagen um 6,5 % und in drei Monaten um gut 52 %. Auslöser war zuletzt die Rückkehr von Keith Gill (Roaring Kitty) auf X, dazu kommt anhaltendes Kleinanlegerinteresse; ein Bericht spricht zudem von einer neuen Wachstumsgeschichte jenseits des Meme-Hypes. Ein Zacks-Bericht verweist auf eine positive durchschnittliche Analystenempfehlung, warnt aber selbst, dass solche Empfehlungen oft zu optimistisch sind. Der RSI von 65 ist erhöht.",
+    "warum": "GameStop schloss am Montag am 10-Tage-Hoch, stieg in fünf Tagen um 7,4 % und in drei Monaten um gut 52 %. Auslöser war zuletzt die Rückkehr von Keith Gill (Roaring Kitty) auf X, dazu kommt anhaltendes Kleinanlegerinteresse; ein Bericht spricht zudem von einer neuen Wachstumsgeschichte jenseits des Meme-Hypes. Ein Zacks-Bericht verweist auf eine positive durchschnittliche Analystenempfehlung, warnt aber selbst, dass solche Empfehlungen oft zu optimistisch sind. Der RSI von 65 ist erhöht.",
     "ausblick": "Die übliche Sieben-Tage-Bewegung von 6,7 % liegt über der Hürde von 4,12 %, die Steigerung ist bei dieser Aktie also möglich – in beide Richtungen. Am wahrscheinlichsten bleibt der Kurs sehr schwankungsanfällig, getrieben von Stimmung in sozialen Medien. Die Quartalszahlen am 7. Dezember liegen knapp nach dem Zeitraum und können schon vorher für Spekulation sorgen.",
     "szenarien": {
      "gut": "Neue Kleinanleger-Euphorie oder Signale aus dem Umfeld von Keith Gill treiben den Kurs weiter.",
@@ -322,7 +328,7 @@
    {
     "s": "EW",
     "einschaetzung": "Analysten positiv, Hürde knapp",
-    "warum": "Edwards hat in drei Monaten gut 16 % zugelegt; nach einer negativen Fünf-Tage-Bilanz von −1,9 % stieg die Aktie am Montag um gut 3 % und liegt nun 2 % unter dem 10-Tage-Hoch. Barclays hob das Kursziel von 120 auf 125 Dollar und bleibt bei 'Overweight', Wells Fargo hatte sich zuvor ähnlich positiv geäußert. Grundlage ist ein Quartal mit erneut erhöhter Prognose. Kritische Stimmen verweisen auf die hohe Bewertung und stagnierende Marktanteile.",
+    "warum": "Edwards hat in drei Monaten gut 16 % zugelegt; nach einer negativen Fünf-Tage-Bilanz von −1,2 % stieg die Aktie am Montag um gut 3 % und liegt nun 2 % unter dem 10-Tage-Hoch. Barclays hob das Kursziel von 120 auf 125 Dollar und bleibt bei 'Overweight', Wells Fargo hatte sich zuvor ähnlich positiv geäußert. Grundlage ist ein Quartal mit erneut erhöhter Prognose. Kritische Stimmen verweisen auf die hohe Bewertung und stagnierende Marktanteile.",
     "ausblick": "Die übliche Sieben-Tage-Bewegung von 4,3 % liegt nur knapp über der Hürde von 4,12 %; das Ziel ist daher nur in einem günstigen Verlauf realistisch. Am wahrscheinlichsten ist ein leicht steigender Kurs mit Rückenwind durch die Analysten. Ohne neuen Auslöser kann die Aktie aber auch seitwärts laufen.",
     "szenarien": {
      "gut": "Weitere Analysten folgen mit höheren Kurszielen und die Aktie erreicht neue Hochs.",
@@ -407,20 +413,21 @@
    },
    {
     "s": "SAN.PA",
-    "einschaetzung": "Analysten positiv, Übernahmepläne verunsichern",
-    "warum": "Sanofi hat in vier Wochen 15 % zugelegt, nachdem der Konzern dank Dupixent Ende Oktober die Prognose angehoben hatte. Seit Berichten über eine mögliche Übernahme des US-Biotechunternehmens Insmed ist die Aktie in fünf Tagen um 2,7 % zurückgefallen und liegt 3,8 % unter dem 10-Tage-Hoch. Jefferies blieb danach bei 'Buy' mit einem Kursziel von 100 Euro. Laut Fierce Pharma soll der Zukauf die Abhängigkeit von Dupixent verringern, dessen Patentschutz in einigen Jahren ausläuft.",
-    "ausblick": "Die übliche Sieben-Tage-Bewegung von 3,9 % liegt knapp unter der Hürde von 4,12 %, die nötige Steigerung ist also ehrgeizig. Klarheit über die Insmed-Pläne könnte die Aktie in beide Richtungen bewegen: Ein Verzicht oder ein günstiger Preis könnte entlasten, ein teures Angebot belasten. Ohne neue Meldung ist eher ein seitwärts gerichteter Verlauf wahrscheinlich.",
+    "einschaetzung": "Börse begrüßt Insmed-Kauf, Sprung teils schon eingepreist",
+    "warum": "Sanofi hat die Übernahme des US-Biotechunternehmens Insmed heute offiziell gemacht: Laut dpa-AFX zahlt der Konzern rund 41 Milliarden Dollar in bar und erwartet ab Ende 2028 einen positiven Beitrag zum Gewinn je Aktie. Anleger reagieren erleichtert, die Aktie springt heute um gut 5 % auf ein neues 10-Tage-Hoch, nachdem die Spekulation sie zuvor belastet hatte. Mit den Atemwegsmitteln von Insmed will Sanofi die Abhängigkeit von Dupixent verringern, dessen Patentschutz in einigen Jahren ausläuft. In vier Wochen steht nun ein Plus von knapp 20 %, der RSI von 72 zeigt allerdings eine überkaufte Lage.",
+    "ausblick": "Die übliche Sieben-Tage-Bewegung von 4,3 % liegt knapp über der Hürde von 4,12 %, eine weitere Steigerung in dieser Größe ist aber nach dem heutigen Sprung ehrgeizig. Am wahrscheinlichsten sind Analysten-Neubewertungen zum Deal in den nächsten Tagen, die den Kurs stützen oder Gewinnmitnahmen auslösen können. Ein Teil der guten Nachricht ist mit dem Tagesplus bereits eingepreist.",
     "szenarien": {
-     "gut": "Die Unsicherheit um Insmed löst sich auf und die Aktie knüpft an den Oktober-Trend an.",
-     "schlecht": "Sanofi legt ein teures Übernahmeangebot vor und Anleger reagieren mit Verkäufen."
+     "gut": "Analysten heben nach dem Deal ihre Kursziele an und der Kurs hält das neue Niveau.",
+     "schlecht": "Anleger nehmen nach dem Sprung Gewinne mit oder Zweifel am hohen Kaufpreis setzen sich durch."
     },
     "treiber": [
-     "Angehobene Prognose dank Dupixent",
-     "Positives Analystenurteil"
+     "Erleichterung über den Insmed-Deal",
+     "Mögliche Kurszielerhöhungen von Analysten",
+     "Angehobene Prognose dank Dupixent"
     ],
     "risiken": [
-     "Mögliche Milliardenübernahme belastet",
-     "Fünf-Tage-Bilanz negativ"
+     "Kurssprung teils schon eingepreist, RSI 72",
+     "Hoher Kaufpreis und Integrationsrisiken"
     ],
     "termine": [
      "25.11.2026: US-Inflationsdaten (PCE)"
@@ -428,22 +435,22 @@
     "zuversicht": "niedrig",
     "quellen": [
      {
-      "t": "ANALYSE-FLASH: Jefferies belässt Sanofi auf 'Buy' - Ziel 100 Euro",
-      "u": "https://de.finance.yahoo.com/nachrichten/analyse-flash-jefferies-bel%C3%A4sst-sanofi-203500279.html?.tsrc=rss",
+      "t": "ROUNDUP: Sanofi will US-Pharmahersteller Insmed für 41 Milliarden Dollar kaufen",
+      "u": "https://de.finance.yahoo.com/nachrichten/roundup-sanofi-will-us-pharmahersteller-101032789.html?.tsrc=rss",
       "q": "dpa-AFX/Yahoo Finanzen",
-      "d": "2026-11-19"
+      "d": "2026-11-24"
+     },
+     {
+      "t": "Milliardenübernahme von Insmed beflügelt Sanofi-Aktie",
+      "u": "https://de.investing.com/news/stock-market-news/milliardenubernahme-von-insmed-beflugelt-sanofiaktie-93CH-3783717",
+      "q": "Investing.com",
+      "d": "2026-11-24"
      },
      {
       "t": "Facing down Dupixent cliff, Sanofi mulls buyout of Insmed and its blockbuster-to-be Brinsupri",
       "u": "https://www.fiercepharma.com/pharma/facing-down-dupixent-cliff-sanofi-mulls-buyout-insmed-and-its-blockbuster-be-brinsupri",
       "q": "Fierce Pharma",
       "d": "2026-11-19"
-     },
-     {
-      "t": "ROUNDUP/Dank Dupixent: Sanofi hebt Prognose an - Quartal übertrifft Erwartungen",
-      "u": "https://de.finance.yahoo.com/nachrichten/roundup-dank-dupixent-sanofi-hebt-083555573.html?.tsrc=rss",
-      "q": "dpa-AFX/Yahoo Finanzen",
-      "d": "2026-10-30"
      }
     ]
    }
@@ -583,7 +590,7 @@
    {
     "s": "BRK-B",
     "einschaetzung": "Defensiver Anker, langsam",
-    "warum": "Berkshire erreichte laut CNBC Mitte November ein Rekordhoch, als Anleger aus KI-Werten in stabile Titel umschichteten; zudem beschleunigte der Konzern Aktienrückkäufe, auch wenn der operative Gewinn sank. In fünf Tagen gab der Kurs 3,5 % nach und liegt 3,5 % unter dem 10-Tage-Hoch, der Trend bleibt aufwärts. Die Rechnung sieht eine Wende nach oben nach dem Rücksetzer. Am Montag floss allerdings viel Geld zurück in KI- und Chipwerte.",
+    "warum": "Berkshire erreichte laut CNBC Mitte November ein Rekordhoch, als Anleger aus KI-Werten in stabile Titel umschichteten; zudem beschleunigte der Konzern Aktienrückkäufe, auch wenn der operative Gewinn sank. In fünf Tagen gab der Kurs 2,7 % nach und liegt 3,5 % unter dem 10-Tage-Hoch, der Trend bleibt aufwärts. Die Rechnung sieht eine Wende nach oben nach dem Rücksetzer. Am Montag floss allerdings viel Geld zurück in KI- und Chipwerte.",
     "ausblick": "Die übliche 30-Tage-Bewegung von 5,2 % liegt weit unter der Hürde von 17,44 %, das Ziel ist damit praktisch nicht erreichbar. Wahrscheinlich bewegt sich die Aktie ruhig im Aufwärtstrend. Setzt sich die Erholung der Technologiewerte fort, könnte das Interesse an defensiven Titeln nachlassen.",
     "szenarien": {
      "gut": "Neue Unsicherheit am Markt lenkt Geld erneut in stabile Werte.",
@@ -624,39 +631,46 @@
     ]
    },
    {
-    "s": "PG",
-    "einschaetzung": "Ruhiger Qualitätswert, wenig Tempo",
-    "warum": "Procter & Gamble hat in drei Monaten 18 % gewonnen, der Trend ist aufwärts und der RSI von 61 nicht überhitzt. In fünf Tagen gab der Kurs 2 % nach, der Abstand zum 10-Tage-Hoch beträgt 2 %. Ein Vergleich auf Investing.com sieht P&G und Colgate bei der Bewertung etwa gleichauf und beide über dem geschätzten fairen Wert. Trefis verweist auf die Risiken einer hohen Bewertung bei einem defensiven Konsumwert.",
-    "ausblick": "Die übliche 30-Tage-Bewegung von 7,3 % liegt weit unter der nötigen Steigerung von 17,44 %, das Ziel ist unrealistisch. Am wahrscheinlichsten bleibt die Aktie ein ruhiger Wert mit leichtem Aufwärtstrend. In einem nervösen Markt kann sie stützen, in einer Technologie-Rally eher zurückbleiben.",
+    "s": "IBE.MC",
+    "einschaetzung": "Solider Versorger mit Rückenwind, aber langsam",
+    "warum": "Iberdrola hat in drei Monaten gut 14 % gewonnen, der Trend ist aufwärts und der RSI von 57 neutral. Nach Rekordhochs Mitte November liegt der Kurs nun 4 % unter dem 10-Tage-Hoch, die Fünf-Tage-Bilanz ist leicht negativ. Ende Oktober hob der Konzern zum wiederholten Mal das Gewinnziel an und erwartet für 2026 mindestens 10 % mehr bereinigten Überschuss. Laut Demócrata empfiehlt keines der über 30 beobachtenden Häuser den Verkauf, Morgan Stanley sieht ein Kursziel von 26 Euro. Treiber sind Investitionen in Stromnetze und die Elektrifizierung, auch für Rechenzentren.",
+    "ausblick": "Mit einer üblichen 30-Tage-Bewegung von 5,1 % ist die Hürde von 17,44 % praktisch nicht erreichbar; die Aktie ist eher ein ruhiger Trendwert. Am wahrscheinlichsten fängt sich der Kurs nach dem kleinen Rücksetzer und läuft gemächlich weiter, gestützt von den Analysten. Steigende Anleihezinsen wären für Versorger ein Gegenwind.",
     "szenarien": {
-     "gut": "Defensive Konsumwerte bleiben gefragt und die Aktie setzt ihren Drei-Monats-Trend fort.",
-     "schlecht": "Geld fließt in Wachstumswerte ab und die hohe Bewertung drückt auf den Kurs."
+     "gut": "Sinkende Zinserwartungen vor der Fed-Sitzung im Dezember und neue Netzinvestitionen geben Versorgern Auftrieb.",
+     "schlecht": "Anleger schichten weiter in Technologiewerte um oder die Zinsen steigen, sodass der Rücksetzer anhält."
     },
     "treiber": [
-     "Stabiles Geschäft",
-     "Defensiver Charakter"
+     "Angehobene Gewinnprognose",
+     "Breite Unterstützung durch Analysten",
+     "Netzausbau und Elektrifizierung"
     ],
     "risiken": [
-     "Hohe Bewertung",
-     "Sehr langsame Bewegung"
+     "Kurs 4 % unter dem 10-Tage-Hoch",
+     "Bewertung nach langem Anstieg hoch",
+     "Zinsempfindlichkeit als Versorger"
     ],
     "termine": [
-     "26.11.2026: US-Börsen wegen Thanksgiving geschlossen, 27.11. verkürzter Handel",
      "08./09.12.2026: Zinssitzung der US-Notenbank"
     ],
     "zuversicht": "niedrig",
     "quellen": [
      {
-      "t": "Is Procter & Gamble Stock Riskier Than It Looks?",
-      "u": "https://www.trefis.com/stock/pg/articles/623211/is-procter-gamble-stock-riskier-than-it-looks/2026-11-06",
-      "q": "Trefis",
-      "d": "2026-11-06"
+      "t": "Iberdrola sets historical highs on the Stock Exchange and raises its value above 158,000 million",
+      "u": "https://www.democrata.es/en/economy/iberdrola-sets-historical-highs-on-the-stock-exchange-and-raises-its-value-above-158-000-million/",
+      "q": "Demócrata",
+      "d": "2026-11-13"
      },
      {
-      "t": "PG vs. CL: value, quality, and pair-trade setup compared",
-      "u": "https://finnhub.io/api/news?id=d111be11babb3da8c09ecd07066c1e3765f44281b08421ca4805d7663151e892",
-      "q": "Investing.com/Yahoo",
-      "d": "2026-11-23"
+      "t": "Energiekonzern Iberdrola erhöht erneut Gewinnziel - Stromgeschäft treibt",
+      "u": "https://de.finance.yahoo.com/nachrichten/energiekonzern-iberdrola-erh%C3%B6ht-erneut-gewinnziel-090513177.html?.tsrc=rss",
+      "q": "dpa-AFX/Yahoo Finanzen",
+      "d": "2026-10-21"
+     },
+     {
+      "t": "ANALYSE-FLASH: DZ Bank hebt Iberdrola auf 'Halten' und fairen Wert auf 22 Euro",
+      "u": "https://de.finance.yahoo.com/nachrichten/analyse-flash-dz-bank-hebt-155005643.html?.tsrc=rss",
+      "q": "dpa-AFX/Yahoo Finanzen",
+      "d": "2026-10-21"
      }
     ]
    }
@@ -664,19 +678,9 @@
  },
  "aussortiert": [
   {
-   "s": "BAYN.DE",
-   "h": 3,
-   "grund": "Trendbruch: −6,3 % in fünf Tagen und 6,5 % unter dem 10-Tage-Hoch, Anleger nehmen nach der großen Rally trotz guter Glyphosat-Nachrichten Gewinne mit."
-  },
-  {
-   "s": "CLX",
-   "h": 3,
-   "grund": "Trendbruch: −5,5 % in fünf Tagen und 5,5 % unter dem 10-Tage-Hoch ohne erkennbaren Auslöser für eine Wende."
-  },
-  {
    "s": "SAN.PA",
    "h": 3,
-   "grund": "Fünf-Tage-Bilanz negativ wegen der Unsicherheit um eine mögliche Insmed-Übernahme."
+   "grund": "Nach dem Kurssprung von gut 5 % auf die Insmed-Übernahme ist kurzfristig viel eingepreist, der RSI von 72 spricht für eine Verschnaufpause."
   },
   {
    "s": "VLTO",
@@ -684,14 +688,24 @@
    "grund": "Zu träge: übliche Drei-Tage-Bewegung von 2,4 % kaum über der Hürde, Fünf-Tage-Bilanz negativ."
   },
   {
-   "s": "AIZ",
+   "s": "CLX",
    "h": 3,
-   "grund": "Zu träge: übliche Drei-Tage-Bewegung von 2,3 % kaum über der Hürde; die Dividendenerhöhung ist bereits bekannt."
+   "grund": "Trendbruch: −5,5 % in fünf Tagen und 5,5 % unter dem 10-Tage-Hoch ohne erkennbaren Auslöser für eine Wende."
+  },
+  {
+   "s": "HEN3.DE",
+   "h": 3,
+   "grund": "Zu träge: übliche Drei-Tage-Bewegung von 2,1 % kaum über der Hürde, dazu die Kepler-Abstufung vom 19. November."
+  },
+  {
+   "s": "PHIA.AS",
+   "h": 3,
+   "grund": "Übliche Drei-Tage-Bewegung von 2,5 % nur knapp über der Hürde, Fünf-Tage-Bilanz negativ und 3,1 % unter dem 10-Tage-Hoch."
   },
   {
    "s": "LHA.DE",
    "h": 7,
-   "grund": "Nach Ablauf der Pilotenfrist ist das Risiko kurzfristig angekündigter Streiks über sieben Tage zu hoch."
+   "grund": "Über sieben Tage ist das Risiko eines Pilotenstreiks nach den abgebrochenen Gesprächen zu hoch."
   },
   {
    "s": "VLTO",
@@ -701,17 +715,17 @@
   {
    "s": "COST",
    "h": 7,
-   "grund": "Stichtag der Sonderdividende von 30 Dollar am 24. November führt zu einem rechnerischen Kursabschlag, übliche Bewegung unter der Hürde."
+   "grund": "Kursabschlag durch die Sonderdividende, Fünf-Tage-Bilanz negativ und übliche Bewegung unter der Hürde."
   },
   {
-   "s": "BAYN.DE",
+   "s": "HEN3.DE",
    "h": 7,
-   "grund": "Trendbruch nach Gewinnmitnahmen: −6,3 % in fünf Tagen."
+   "grund": "Übliche Sieben-Tage-Bewegung von 3,2 % unter der Hürde, Abstufung durch Kepler Cheuvreux belastet."
   },
   {
-   "s": "AIZ",
+   "s": "PHIA.AS",
    "h": 7,
-   "grund": "Übliche Sieben-Tage-Bewegung von 3,5 % unter der Hürde, kein frischer Auslöser."
+   "grund": "Übliche Sieben-Tage-Bewegung von 3,8 % unter der Hürde, kein frischer Auslöser."
   },
   {
    "s": "TECH",
@@ -719,24 +733,24 @@
    "grund": "Laufende Übernahme, der Kurs klebt am Angebotspreis und bewegt sich kaum."
   },
   {
-   "s": "GME",
-   "h": 30,
-   "grund": "Stark spekulativ, Quartalszahlen am 7. Dezember mitten im Zeitraum."
-  },
-  {
    "s": "NA9.DE",
    "h": 30,
    "grund": "Nach der Übernahme durch Persistent kaum eigene Kursdynamik, Trend abwärts."
   },
   {
+   "s": "GME",
+   "h": 30,
+   "grund": "Stark spekulativ, Quartalszahlen am 7. Dezember mitten im Zeitraum."
+  },
+  {
    "s": "QIA.DE",
    "h": 30,
-   "grund": "Übernahmeangebot begrenzt den Kursspielraum."
+   "grund": "Übernahmeangebot begrenzt den Kursspielraum, Kurs seit Wochen seitwärts."
   },
   {
    "s": "COST",
    "h": 30,
-   "grund": "Sonderdividende von 30 Dollar sorgt heute für einen Kursabschlag, Quartalszahlen am 10. Dezember mitten im Zeitraum."
+   "grund": "Sonderdividende sorgt für einen Kursabschlag, Quartalszahlen am 10. Dezember mitten im Zeitraum."
   }
  ]
 }
