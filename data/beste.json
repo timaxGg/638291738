@@ -1,72 +1,75 @@
 {
- "id": "b-2026-11-24-mittags",
+ "id": "b-2026-11-24-abends",
  "datum": "2026-11-24",
- "slot": "mittags",
- "erstellt": "2026-11-24T13:18:28+01:00",
- "markt": "Nach dem stärksten Tag seit April 2025 an der Wall Street, ausgelöst durch die Rückkehr von Jensen Huang an die Spitze von Nvidia, kühlt die Stimmung heute ab: Laut TipRanks lagen die US-Futures am Morgen im Minus, vor allem die Nasdaq, weil Chipwerte Gewinne abgaben. In Europa sorgt die 41-Milliarden-Dollar-Übernahme von Insmed durch Sanofi für Gesprächsstoff. Mit den PCE-Inflationsdaten am Mittwoch und dem Thanksgiving-Feiertag am Donnerstag bleibt der Handel dünn und kurzfristige Prognosen besonders unsicher.",
+ "slot": "abends",
+ "erstellt": "2026-11-24T19:18:10+01:00",
+ "markt": "Nach dem stärksten Börsentag seit April 2025 am Montag, ausgelöst durch die Rückkehr von Jensen Huang an die Spitze von Nvidia, gaben Chipwerte heute einen Teil der Gewinne wieder ab: Laut Yahoo Finance legte der Dow zu, während S&P 500 und Nasdaq nachgaben. Defensive Werte wie Einzelhandel, Medizintechnik und Pharma waren gefragt. Mit den PCE-Inflationsdaten am Mittwoch und dem Thanksgiving-Feiertag am Donnerstag bleibt der Handel dünn und kurzfristige Prognosen sind besonders unsicher.",
  "marktQuellen": [
+  {
+   "t": "Stock market today: Dow gains, S&P 500 and Nasdaq decline as chip stocks tumble, investors test AI appetite",
+   "u": "https://ca.finance.yahoo.com/news/live/stock-market-today-tuesday-november-24-dow-sp-500-nasdaq-rebound-090614276.html",
+   "q": "Yahoo Finance",
+   "d": "2026-11-24"
+  },
+  {
+   "t": "Wall St futures dip as chip stocks cool after Nvidia-fueled rally",
+   "u": "https://finance.yahoo.com/markets/stocks/articles/wall-st-futures-dip-chip-105355594.html",
+   "q": "Reuters/Yahoo Finance",
+   "d": "2026-11-24"
+  },
   {
    "t": "Stock Market Today, Nov. 24: Markets Turn Jittery Even as Huang Returns to Nvidia",
    "u": "https://www.tipranks.com/news/stock-market-today-nov-24-markets-turn-jittery-even-as-huang-returns-to-nvidia",
    "q": "TipRanks",
-   "d": "2026-11-24"
-  },
-  {
-   "t": "Dow soars 1,400 points; Nasdaq surges 6% in its best day since April 2025 as Jensen Huang returns to Nvidia",
-   "u": "https://www.cnbc.com/2026/11/22/stock-market-today-live-updates.html",
-   "q": "CNBC",
-   "d": "2026-11-23"
-  },
-  {
-   "t": "ROUNDUP: Sanofi will US-Pharmahersteller Insmed für 41 Milliarden Dollar kaufen",
-   "u": "https://de.finance.yahoo.com/nachrichten/roundup-sanofi-will-us-pharmahersteller-101032789.html?.tsrc=rss",
-   "q": "dpa-AFX/Yahoo Finanzen",
    "d": "2026-11-24"
   }
  ],
  "listen": {
   "3": [
    {
-    "s": "PNR",
-    "einschaetzung": "Trend intakt, Chancen überwiegen leicht",
-    "warum": "Pentair hat in vier Wochen knapp 27 % gewonnen und schloss am Montag mit +1,9 % genau am 10-Tage-Hoch; die Fünf-Tage-Bilanz ist mit +2,2 % positiv. Der RSI von 66 ist erhöht, aber noch nicht überhitzt. Grundlage bleibt ein Quartal über den Erwartungen mit bestätigter Jahresprognose, Analysten sind laut Barchart überwiegend positiv. Über Nacht kam keine neue Firmenmeldung hinzu.",
-    "ausblick": "Die übliche Drei-Tage-Bewegung von 4,1 % liegt deutlich über der nötigen Steigerung von 1,92 %, rechnerisch ist die Hürde also erreichbar. Wahrscheinlich bleibt der Trend intakt, solange der Gesamtmarkt sich nach der Erholung vom Montag hält. Die PCE-Daten am Mittwoch und der Feiertag am Donnerstag dünnen den Handel aus und machen Ausschläge zufälliger.",
+    "s": "LHA.DE",
+    "einschaetzung": "Starker Trend, aber Tarifkonflikt verschärft sich",
+    "warum": "Lufthansa bleibt der rechnerisch beste Kandidat: 25 % Plus in vier Wochen, der Kurs notiert am 10-Tage-Hoch und die Fünf-Tage-Bilanz ist mit +1,4 % positiv. Der RSI von 71 zeigt aber eine heiß gelaufene Lage. Im Tarifstreit mit den Piloten gibt es keine Entspannung: Nach der gescheiterten Mediation und der am Montag abgelaufenen Frist werden die Gespräche laut dpa-AFX vorerst nicht fortgesetzt, die Vereinigung Cockpit berät über neue Forderungen. Ein konkreter Streiktermin war bis zur Recherche nicht bekannt. Dazu kommen Berichte über geplanten Stellenabbau an den Drehkreuzen wegen anhaltender Verluste.",
+    "ausblick": "Mit einer üblichen Drei-Tage-Bewegung von 2,9 % ist die Hürde von 1,92 % erreichbar, wenn das Kursmomentum hält. Eine Streikankündigung kann aber jederzeit einen deutlichen Rückschlag auslösen, und der hohe RSI spricht für eine mögliche Verschnaufpause. Chance und Risiko halten sich bestenfalls die Waage.",
     "szenarien": {
-     "gut": "Die Marktbreite bleibt nach der Erholung hoch und Pentair setzt den Lauf über das 10-Tage-Hoch fort.",
-     "schlecht": "Ein schwacher Inflationswert oder Gewinnmitnahmen nach dem starken Monat drücken den Kurs zurück."
+     "gut": "Die Gewerkschaft verzichtet vorerst auf Streiks oder es gibt Signale einer Einigung.",
+     "schlecht": "Die Piloten kündigen Streiks an, möglicherweise noch vor dem Weihnachtsverkehr."
     },
     "treiber": [
-     "Intakter Aufwärtstrend am 10-Tage-Hoch",
-     "Positive Analystenstimmung nach starkem Quartal"
+     "Starkes Kursmomentum",
+     "Sparprogramm kann Margen stützen"
     ],
     "risiken": [
-     "Nach +27 % in vier Wochen sind Gewinnmitnahmen jederzeit möglich",
-     "Dünner Handel rund um Thanksgiving"
+     "Streikgefahr: Gespräche mit den Piloten vorerst gestoppt",
+     "Heiß gelaufener RSI von 71"
     ],
-    "termine": [
-     "25.11.2026: US-Inflationsdaten (PCE)",
-     "26.11.2026: US-Börsen wegen Thanksgiving geschlossen, 27.11. verkürzter Handel"
-    ],
-    "zuversicht": "mittel",
+    "termine": [],
+    "zuversicht": "niedrig",
     "quellen": [
      {
-      "t": "Pentair reports Q3 earnings above estimates, maintains 2026 EPS outlook",
-      "u": "https://finviz.com/news/408914/pentair-reports-q3-earnings-above-estimates-maintains-2026-eps-outlook-at-470",
-      "q": "Finviz/Zacks",
-      "d": "2026-10-27"
+      "t": "Vereinigung Cockpit berät über neue Tarif-Forderungen",
+      "u": "https://de.finance.yahoo.com/nachrichten/vereinigung-cockpit-ber%C3%A4t-%C3%BC-neue-104437306.html?.tsrc=rss",
+      "q": "dpa-AFX/Yahoo Finanzen",
+      "d": "2026-11-24"
      },
      {
-      "t": "Pentair Stock: Analyst Estimates & Ratings",
-      "u": "https://finnhub.io/api/news?id=fcd3f55524a7ef53da5390a7012b0ccac61ad8b5a6fbc88d164545f43205504d",
-      "q": "Yahoo/Barchart",
+      "t": "Lufthansa-Piloten-Streik rückt nach gescheiterter Mediation näher",
+      "u": "https://www.cash-online.de/a/lufthansa-piloten-streik-rueckt-nach-gescheiterter-mediation-naeher-730791/",
+      "q": "Cash.",
       "d": "2026-11-18"
+     },
+     {
+      "t": "Lufthansa will 1000 Stellen streichen - 20 Millionen Euro Verlust pro Monat",
+      "u": "https://de.finance.yahoo.com/nachrichten/lufthansa-will-1000-stellen-streichen-093154549.html?.tsrc=rss",
+      "q": "Yahoo Finanzen",
+      "d": "2026-11-20"
      }
     ]
    },
    {
     "s": "CMG",
     "einschaetzung": "Erholung läuft, aber noch nicht gefestigt",
-    "warum": "Chipotle hat in vier Wochen knapp 28 % zugelegt, liegt über drei Monate aber noch knapp 5 % im Minus – die Aktie holt also einen früheren Absturz auf. Der Kurs notiert 1,9 % unter dem 10-Tage-Hoch, die Fünf-Tage-Bilanz ist leicht positiv und der RSI von 61 zeigt Stärke ohne Überhitzung. Laut Branchenpresse brachte eine Werbeaktion Mitte November einen weiteren Tagesrekord beim Umsatz, und ein Bericht beschreibt den geplanten KI-Einsatz in den Restaurants ab 2027. Am Montag stieg die Aktie um knapp 2 %, blieb aber hinter dem stark steigenden Gesamtmarkt zurück.",
+    "warum": "Chipotle hat in vier Wochen gut 33 % zugelegt und liegt über drei Monate nur noch knapp im Minus – die Aktie holt einen früheren Einbruch fast vollständig auf. Heute stieg der Kurs um rund 3 % auf ein neues 10-Tage-Hoch, die Fünf-Tage-Bilanz ist positiv und der RSI von 65 zeigt Stärke ohne starke Überhitzung. Laut Branchenpresse brachte eine Werbeaktion Mitte November einen weiteren Tagesrekord beim Umsatz, und die Bank of America sieht schnelle Freizeitgastronomie-Ketten gut aufgestellt, Marktanteile zu gewinnen.",
     "ausblick": "Mit einer üblichen Drei-Tage-Bewegung von 4,6 % ist die Hürde von 1,92 % rechnerisch gut erreichbar. Am wahrscheinlichsten ist ein seitwärts bis leicht steigender Verlauf, da kurzfristig kein Firmentermin ansteht. Der Feiertag und die Konsumstimmung rund um Black Friday können die Stimmung für Restaurantwerte in beide Richtungen bewegen.",
     "szenarien": {
      "gut": "Der Markt honoriert die Erholungsgeschichte weiter und die Aktie überwindet ihr 10-Tage-Hoch.",
@@ -99,10 +102,10 @@
       "d": "2026-11-09"
      },
      {
-      "t": "Can Chipotle's AI Rollout Turn Efficiency Into Earnings Growth?",
-      "u": "https://finnhub.io/api/news?id=cb6c42f1b9f89d4277066fc50e7897d0e68cb759c3751f3e23d5372586ff2128",
-      "q": "Yahoo/Zacks",
-      "d": "2026-11-23"
+      "t": "BofA names its top U.S. restaurant stock picks",
+      "u": "https://finnhub.io/api/news?id=5ccf7dc4aa93ce1d8880635dc1d7304883abf30d24550bc4e270b0c6fb3c17f5",
+      "q": "Investing.com/Yahoo",
+      "d": "2026-11-24"
      }
     ]
    },
@@ -146,6 +149,52 @@
       "u": "https://finviz.com/news/416442/edwards-lifesciences-beats-and-raises-again-but-tavr-share-gains-have-plateaued-as-moderate-as-becomes-the-next-debate",
       "q": "Earnings Whispers/Finviz",
       "d": "2026-11-04"
+     }
+    ]
+   },
+   {
+    "s": "TGT",
+    "einschaetzung": "Starker Lauf nach Zahlen, kurzfristig heiß gelaufen",
+    "warum": "Target hat nach den Quartalszahlen vom 18. November, die über den Erwartungen lagen und mit einer angehobenen Prognose kamen, deutlich zugelegt: in fünf Tagen rund 11 %, heute allein etwa 5 % bis auf ein neues 52-Wochen-Hoch. Mehrere Analysten haben danach ihre Kursziele erhöht, Guggenheim mahnt aber, dass der Umbau sich erst noch beweisen muss. Der Aufwärtstrend ist klar, der RSI von 69 liegt jedoch nahe an der Überhitzung. Mit Black Friday steht in dieser Woche ein Stimmungstest für den Einzelhandel an.",
+    "ausblick": "Die übliche Drei-Tage-Bewegung von 3,5 % liegt über der Hürde von 1,92 %, rechnerisch ist sie also erreichbar. Nach einem so steilen Anstieg ist eine Verschnaufpause aber ebenso wahrscheinlich wie eine Fortsetzung; erste Meldungen zum Black-Friday-Geschäft können den Ausschlag geben. Der verkürzte Handel am Freitag macht Bewegungen zufälliger.",
+    "szenarien": {
+     "gut": "Erste Zahlen zum Black-Friday-Andrang fallen gut aus und die Analysten-Hochstufungen ziehen weitere Käufer an.",
+     "schlecht": "Anleger nehmen nach dem 11-%-Sprung Gewinne mit oder die Konsumstimmung enttäuscht."
+    },
+    "treiber": [
+     "Quartalszahlen über Erwartung, Prognose angehoben",
+     "Kurszielerhöhungen mehrerer Analysten",
+     "Black Friday als kurzfristiger Stimmungstest"
+    ],
+    "risiken": [
+     "Kurs nach starkem Lauf überdehnt (RSI 69)",
+     "Umbau laut Guggenheim noch nicht bewiesen",
+     "Schwache Konsumsignale"
+    ],
+    "termine": [
+     "25.11.2026: US-Inflationsdaten (PCE)",
+     "26.11.2026: US-Börsen wegen Thanksgiving geschlossen, 27.11. verkürzter Handel",
+     "27.11.2026: Black Friday, Start ins Weihnachtsgeschäft"
+    ],
+    "zuversicht": "niedrig",
+    "quellen": [
+     {
+      "t": "Target (TGT) Q3 2026 earnings",
+      "u": "https://www.cnbc.com/2026/11/18/target-tgt-q3-2026-earnings.html",
+      "q": "CNBC",
+      "d": "2026-11-18"
+     },
+     {
+      "t": "TGT Stock Gets Multiple Price-Target Hikes — But Guggenheim Says Turnaround Still Has To Prove Itself",
+      "u": "https://stocktwits.com/news-articles/markets/equity/tgt-stock-gets-multiple-price-target-hikes-but-guggenheim-says-turnaround-still-has-to-prove-itself/cNbiBa2R902",
+      "q": "Stocktwits",
+      "d": "2026-11-19"
+     },
+     {
+      "t": "The Zacks Analyst Blog Highlights Target, TJX, Teradyne, TKO and Repsol",
+      "u": "https://finnhub.io/api/news?id=f18d1652f22facd478e634327eeb246b6198f77167c8637975b18d027e64de48",
+      "q": "Zacks/Yahoo",
+      "d": "2026-11-24"
      }
     ]
    },
@@ -196,86 +245,9 @@
       "d": "2026-11-23"
      }
     ]
-   },
-   {
-    "s": "LHA.DE",
-    "einschaetzung": "Starker Trend, aber Tarifkonflikt verschärft sich",
-    "warum": "Lufthansa bleibt der rechnerisch beste Kandidat: 25 % Plus in vier Wochen, der Kurs notiert am 10-Tage-Hoch und die Fünf-Tage-Bilanz ist mit +1,4 % positiv. Der RSI von 71 zeigt aber eine heiß gelaufene Lage. Im Tarifstreit mit den Piloten gibt es keine Entspannung: Nach der gescheiterten Mediation und der am Montag abgelaufenen Frist werden die Gespräche laut dpa-AFX vorerst nicht fortgesetzt, die Vereinigung Cockpit berät über neue Forderungen. Ein konkreter Streiktermin war bis zur Recherche nicht bekannt. Dazu kommen Berichte über geplanten Stellenabbau an den Drehkreuzen wegen anhaltender Verluste.",
-    "ausblick": "Mit einer üblichen Drei-Tage-Bewegung von 2,9 % ist die Hürde von 1,92 % erreichbar, wenn das Kursmomentum hält. Eine Streikankündigung kann aber jederzeit einen deutlichen Rückschlag auslösen, und der hohe RSI spricht für eine mögliche Verschnaufpause. Chance und Risiko halten sich bestenfalls die Waage.",
-    "szenarien": {
-     "gut": "Die Gewerkschaft verzichtet vorerst auf Streiks oder es gibt Signale einer Einigung.",
-     "schlecht": "Die Piloten kündigen Streiks an, möglicherweise noch vor dem Weihnachtsverkehr."
-    },
-    "treiber": [
-     "Starkes Kursmomentum",
-     "Sparprogramm kann Margen stützen"
-    ],
-    "risiken": [
-     "Streikgefahr: Gespräche mit den Piloten vorerst gestoppt",
-     "Heiß gelaufener RSI von 71"
-    ],
-    "termine": [],
-    "zuversicht": "niedrig",
-    "quellen": [
-     {
-      "t": "Vereinigung Cockpit berät über neue Tarif-Forderungen",
-      "u": "https://de.finance.yahoo.com/nachrichten/vereinigung-cockpit-ber%C3%A4t-%C3%BC-neue-104437306.html?.tsrc=rss",
-      "q": "dpa-AFX/Yahoo Finanzen",
-      "d": "2026-11-24"
-     },
-     {
-      "t": "Lufthansa-Piloten-Streik rückt nach gescheiterter Mediation näher",
-      "u": "https://www.cash-online.de/a/lufthansa-piloten-streik-rueckt-nach-gescheiterter-mediation-naeher-730791/",
-      "q": "Cash.",
-      "d": "2026-11-18"
-     },
-     {
-      "t": "Lufthansa will 1000 Stellen streichen - 20 Millionen Euro Verlust pro Monat",
-      "u": "https://de.finance.yahoo.com/nachrichten/lufthansa-will-1000-stellen-streichen-093154549.html?.tsrc=rss",
-      "q": "Yahoo Finanzen",
-      "d": "2026-11-20"
-     }
-    ]
    }
   ],
   "7": [
-   {
-    "s": "PNR",
-    "einschaetzung": "Trend intakt, Hürde erreichbar",
-    "warum": "Pentair hat in vier Wochen knapp 27 % gewonnen, schloss am Montag am 10-Tage-Hoch und hat eine positive Fünf-Tage-Bilanz von 2,2 %. Der RSI von 66 lässt noch etwas Luft. Grundlage ist ein Quartal über den Erwartungen mit bestätigter Jahresprognose; Analysten bleiben laut Barchart überwiegend positiv. Neue Firmenmeldungen gab es über Nacht nicht.",
-    "ausblick": "Die übliche Sieben-Tage-Bewegung von 6,2 % liegt über der nötigen Steigerung von 4,12 %, das Ziel ist also realistisch, aber nicht sicher. Wahrscheinlich ist ein weiter steigender, von Pausen unterbrochener Verlauf. Die Thanksgiving-Woche mit dünnem Handel und die Zinsdebatte bleiben Unsicherheitsfaktoren.",
-    "szenarien": {
-     "gut": "Der Trend über das 10-Tage-Hoch setzt sich fort und der Markt bleibt freundlich.",
-     "schlecht": "Gewinnmitnahmen nach dem starken Monat oder ein Marktrückschlag beenden den Lauf."
-    },
-    "treiber": [
-     "Intakter Trend am Hoch",
-     "Robuste Quartalszahlen"
-    ],
-    "risiken": [
-     "Starker Anstieg schon gelaufen",
-     "Dünner Feiertagshandel"
-    ],
-    "termine": [
-     "25.11.2026: US-Inflationsdaten (PCE)",
-     "26.11.2026: US-Börsen wegen Thanksgiving geschlossen, 27.11. verkürzter Handel"
-    ],
-    "zuversicht": "mittel",
-    "quellen": [
-     {
-      "t": "Pentair reports Q3 earnings above estimates, maintains 2026 EPS outlook",
-      "u": "https://finviz.com/news/408914/pentair-reports-q3-earnings-above-estimates-maintains-2026-eps-outlook-at-470",
-      "q": "Finviz/Zacks",
-      "d": "2026-10-27"
-     },
-     {
-      "t": "Pentair Stock: Analyst Estimates & Ratings",
-      "u": "https://finnhub.io/api/news?id=fcd3f55524a7ef53da5390a7012b0ccac61ad8b5a6fbc88d164545f43205504d",
-      "q": "Yahoo/Barchart",
-      "d": "2026-11-18"
-     }
-    ]
-   },
    {
     "s": "GME",
     "einschaetzung": "Spekulativ, Schwung vorhanden",
@@ -412,45 +384,89 @@
     ]
    },
    {
-    "s": "SAN.PA",
-    "einschaetzung": "Börse begrüßt Insmed-Kauf, Sprung teils schon eingepreist",
-    "warum": "Sanofi hat die Übernahme des US-Biotechunternehmens Insmed heute offiziell gemacht: Laut dpa-AFX zahlt der Konzern rund 41 Milliarden Dollar in bar und erwartet ab Ende 2028 einen positiven Beitrag zum Gewinn je Aktie. Anleger reagieren erleichtert, die Aktie springt heute um gut 5 % auf ein neues 10-Tage-Hoch, nachdem die Spekulation sie zuvor belastet hatte. Mit den Atemwegsmitteln von Insmed will Sanofi die Abhängigkeit von Dupixent verringern, dessen Patentschutz in einigen Jahren ausläuft. In vier Wochen steht nun ein Plus von knapp 20 %, der RSI von 72 zeigt allerdings eine überkaufte Lage.",
-    "ausblick": "Die übliche Sieben-Tage-Bewegung von 4,3 % liegt knapp über der Hürde von 4,12 %, eine weitere Steigerung in dieser Größe ist aber nach dem heutigen Sprung ehrgeizig. Am wahrscheinlichsten sind Analysten-Neubewertungen zum Deal in den nächsten Tagen, die den Kurs stützen oder Gewinnmitnahmen auslösen können. Ein Teil der guten Nachricht ist mit dem Tagesplus bereits eingepreist.",
+    "s": "BDX",
+    "einschaetzung": "Trend stark, Hürde knapp",
+    "warum": "Becton Dickinson hat heute rund 3 % zugelegt und ein neues 52-Wochen-Hoch erreicht; in vier Wochen steht ein Plus von knapp 14 %, über sechs Monate von rund 48 %. Der Trend ist klar aufwärts, der RSI von 72 zeigt aber eine beginnende Überhitzung. Ein Dividenden-ETF hat die Aktie zuletzt als größten Zukauf aufgestockt, gleichzeitig hat Zacks seine Einstufung auf 'Hold' gesenkt. Eine konkrete Firmennachricht als Auslöser für den heutigen Sprung habe ich nicht gefunden.",
+    "ausblick": "Die übliche Sieben-Tage-Bewegung von 4,0 % liegt knapp unter der Hürde von 4,12 %; das Ziel ist also nur in einem überdurchschnittlich guten Verlauf realistisch. Am wahrscheinlichsten setzt sich der Trend mit Pausen fort, nach dem neuen Hoch ist aber auch ein Rücksetzer gut möglich. Die Feiertagswoche mit dünnem Handel erhöht den Zufallsanteil.",
     "szenarien": {
-     "gut": "Analysten heben nach dem Deal ihre Kursziele an und der Kurs hält das neue Niveau.",
-     "schlecht": "Anleger nehmen nach dem Sprung Gewinne mit oder Zweifel am hohen Kaufpreis setzen sich durch."
+     "gut": "Das Ausbruchsniveau hält und defensive Medizinwerte bleiben gefragt.",
+     "schlecht": "Nach dem Sprung auf das Jahreshoch setzen Gewinnmitnahmen ein, oder Geld fließt zurück in Technologiewerte."
     },
     "treiber": [
-     "Erleichterung über den Insmed-Deal",
-     "Mögliche Kurszielerhöhungen von Analysten",
-     "Angehobene Prognose dank Dupixent"
+     "Neues 52-Wochen-Hoch, intakter Aufwärtstrend",
+     "Zukäufe durch Dividenden-Fonds"
     ],
     "risiken": [
-     "Kurssprung teils schon eingepreist, RSI 72",
-     "Hoher Kaufpreis und Integrationsrisiken"
+     "RSI 72 nahe Überhitzung",
+     "Übliche Bewegung knapp unter der Hürde",
+     "Zacks-Abstufung auf Hold"
     ],
     "termine": [
-     "25.11.2026: US-Inflationsdaten (PCE)"
+     "25.11.2026: US-Inflationsdaten (PCE)",
+     "26.11.2026: US-Börsen wegen Thanksgiving geschlossen, 27.11. verkürzter Handel"
     ],
     "zuversicht": "niedrig",
     "quellen": [
      {
-      "t": "ROUNDUP: Sanofi will US-Pharmahersteller Insmed für 41 Milliarden Dollar kaufen",
-      "u": "https://de.finance.yahoo.com/nachrichten/roundup-sanofi-will-us-pharmahersteller-101032789.html?.tsrc=rss",
-      "q": "dpa-AFX/Yahoo Finanzen",
+      "t": "Becton, Dickinson and Company (NYSE:BDX) Sets New 12-Month High - What's Next?",
+      "u": "https://www.marketbeat.com/instant-alerts/price-becton-dickinson-and-company-nyse-bdx-sets-new-12-month-high-whats-next-2026-11-24/",
+      "q": "MarketBeat",
       "d": "2026-11-24"
      },
      {
-      "t": "Milliardenübernahme von Insmed beflügelt Sanofi-Aktie",
-      "u": "https://de.investing.com/news/stock-market-news/milliardenubernahme-von-insmed-beflugelt-sanofiaktie-93CH-3783717",
-      "q": "Investing.com",
-      "d": "2026-11-24"
+      "t": "Becton, Dickinson and Company (NYSE:BDX) Rating Lowered to \"Hold\" at Zacks Research",
+      "u": "https://www.marketbeat.com/instant-alerts/analyst-becton-dickinson-and-company-nyse-bdx-rating-lowered-to-hold-at-zacks-research-2026-11-21/",
+      "q": "MarketBeat",
+      "d": "2026-11-21"
      },
      {
-      "t": "Facing down Dupixent cliff, Sanofi mulls buyout of Insmed and its blockbuster-to-be Brinsupri",
-      "u": "https://www.fiercepharma.com/pharma/facing-down-dupixent-cliff-sanofi-mulls-buyout-insmed-and-its-blockbuster-be-brinsupri",
-      "q": "Fierce Pharma",
-      "d": "2026-11-19"
+      "t": "FT Vest Dividend Aristocrats Target Income (KNG) Buys $9.3 Million More BDX on Nov. 20",
+      "u": "https://finnhub.io/api/news?id=6aab2cfe14206ee3b9d304aa35918242278e67f49588852ea1edf9e490db6ca7",
+      "q": "Yahoo",
+      "d": "2026-11-24"
+     }
+    ]
+   },
+   {
+    "s": "CAH",
+    "einschaetzung": "Defensiver Trendwert, Ziel ambitioniert",
+    "warum": "Cardinal Health liegt in drei Monaten knapp 19 % und in sechs Monaten rund 38 % vorn, getragen von Quartalszahlen über den Erwartungen und einer angehobenen Prognose. Die Fünf-Tage-Bilanz ist mit −0,2 % praktisch flach, heute ging es aber um rund 2,5 % nach oben, und der Kurs liegt nur knapp 2 % unter dem 10-Tage-Hoch – ein Trendbruch ist das nicht. Der RSI von 66 ist erhöht, aber nicht extrem. Fernsehmoderator Jim Cramer lobte die Aktie zuletzt, ein Bewertungsdienst senkte sein Urteil dagegen von 'Strong Buy' auf 'Buy'.",
+    "ausblick": "Die übliche Sieben-Tage-Bewegung von 4,0 % liegt knapp unter der Hürde von 4,12 %, die nötige Steigerung ist daher ehrgeizig. Am wahrscheinlichsten ist ein ruhiger, leicht steigender Verlauf, da kein Firmentermin ansteht. Als Arzneimittelgroßhändler ist die Aktie wenig konjunkturabhängig, profitiert aber auch kaum von einer Tech-Rally.",
+    "szenarien": {
+     "gut": "Anleger suchen in der unruhigen Feiertagswoche weiter defensive Gewinner, und die Aktie steigt über ihr 10-Tage-Hoch.",
+     "schlecht": "Geld fließt zurück in Chip- und KI-Werte, und der seit Monaten gelaufene Wert wird für Gewinnmitnahmen genutzt."
+    },
+    "treiber": [
+     "Angehobene Prognose nach starkem Quartal",
+     "Defensives Geschäftsmodell in unruhigem Markt"
+    ],
+    "risiken": [
+     "Übliche Bewegung knapp unter der Hürde",
+     "Viel Optimismus nach starkem Jahr eingepreist"
+    ],
+    "termine": [
+     "25.11.2026: US-Inflationsdaten (PCE)",
+     "26.11.2026: US-Börsen wegen Thanksgiving geschlossen, 27.11. verkürzter Handel"
+    ],
+    "zuversicht": "niedrig",
+    "quellen": [
+     {
+      "t": "Jim Cramer Says Cardinal Health Is “the Stock That Is Made for This Moment”",
+      "u": "https://finnhub.io/api/news?id=f96124b150579e660c5c8a1f1576099e20bb265e8526155d6a18c2afc840f223",
+      "q": "Yahoo",
+      "d": "2026-11-20"
+     },
+     {
+      "t": "Cardinal Health (NYSE:CAH) Stock Rating Cut to Buy at Wall Street Zen",
+      "u": "https://www.marketbeat.com/instant-alerts/analyst-cardinal-health-nyse-cah-stock-rating-cut-to-buy-at-wall-street-zen-2026-11-21/",
+      "q": "MarketBeat",
+      "d": "2026-11-21"
+     },
+     {
+      "t": "Is Wall Street Bullish or Bearish on Cardinal Health Stock?",
+      "u": "https://finance.yahoo.com/markets/stocks/articles/wall-street-bullish-bearish-cardinal-052843614.html",
+      "q": "Barchart/Yahoo",
+      "d": "2026-11-20"
      }
     ]
    }
@@ -544,50 +560,6 @@
     ]
    },
    {
-    "s": "MTD",
-    "einschaetzung": "Prognose angehoben, Trend intakt",
-    "warum": "Mettler-Toledo hat in drei Monaten gut 23 % und in sechs Monaten knapp 48 % gewonnen; am Montag stieg die Aktie um 3,5 % und liegt nur 1,5 % unter dem 10-Tage-Hoch, der RSI von 57 ist neutral. Anfang November hob der Laborgerätehersteller die Jahresprognose zum dritten Mal an, getragen vor allem von Asien und China. Eine Analyse von Earnings Whispers merkt kritisch an, dass das Gewinnwachstum teils aus niedrigeren Zinskosten und weniger Aktien kommt. Am 1. Dezember präsentiert das Unternehmen auf einer Gesundheitskonferenz.",
-    "ausblick": "Mit einer üblichen 30-Tage-Bewegung von 9,3 % ist die Hürde von 17,44 % nur in einem sehr guten Verlauf erreichbar. Am wahrscheinlichsten setzt sich der Trend gemächlich fort, wobei der neutrale RSI noch Luft lässt. Die Konferenz am 1. Dezember kann neue Impulse liefern.",
-    "szenarien": {
-     "gut": "Die Konferenz bestätigt die Erholung im Laborgeschäft und den Ausblick.",
-     "schlecht": "Schwächere Signale aus China oder eine Zinserhöhung belasten die Bewertung."
-    },
-    "treiber": [
-     "Dreimal angehobene Prognose",
-     "Erholung im Laborgeschäft"
-    ],
-    "risiken": [
-     "Gewinnwachstum teils durch Finanzeffekte",
-     "Abhängigkeit von China"
-    ],
-    "termine": [
-     "01.12.2026: Präsentation auf der Evercore-Gesundheitskonferenz",
-     "26.11.2026: US-Börsen wegen Thanksgiving geschlossen, 27.11. verkürzter Handel",
-     "08./09.12.2026: Zinssitzung der US-Notenbank"
-    ],
-    "zuversicht": "mittel",
-    "quellen": [
-     {
-      "t": "Mettler-Toledo International Inc. Reports Third Quarter 2026 Results",
-      "u": "https://finviz.com/news/417914/mettler-toledo-international-inc-reports-third-quarter-2026-results",
-      "q": "Business Wire/Finviz",
-      "d": "2026-11-05"
-     },
-     {
-      "t": "Mettler-Toledo raises guidance for a third time as lab and China recovery broadens",
-      "u": "https://finviz.com/news/418548/mettler-toledo-raises-guidance-for-a-third-time-as-lab-and-china-recovery-broadens-but-earnings-growth-is-holding-in-a-low-teens-band",
-      "q": "Earnings Whispers/Finviz",
-      "d": "2026-11-06"
-     },
-     {
-      "t": "Mettler-Toledo International Inc. to Present at Upcoming Investor Conference",
-      "u": "https://finnhub.io/api/news?id=5bba49d83ac828b6ed89701a525246fcfac694608f01fcad2d3c71c9384a075f",
-      "q": "Business Wire/Yahoo",
-      "d": "2026-11-20"
-     }
-    ]
-   },
-   {
     "s": "BRK-B",
     "einschaetzung": "Defensiver Anker, langsam",
     "warum": "Berkshire erreichte laut CNBC Mitte November ein Rekordhoch, als Anleger aus KI-Werten in stabile Titel umschichteten; zudem beschleunigte der Konzern Aktienrückkäufe, auch wenn der operative Gewinn sank. In fünf Tagen gab der Kurs 2,7 % nach und liegt 3,5 % unter dem 10-Tage-Hoch, der Trend bleibt aufwärts. Die Rechnung sieht eine Wende nach oben nach dem Rücksetzer. Am Montag floss allerdings viel Geld zurück in KI- und Chipwerte.",
@@ -627,6 +599,50 @@
       "u": "https://gvwire.com/2026/11/07/berkshire-hathaway-accelerates-stock-buybacks-operating-profit-falls/",
       "q": "GV Wire",
       "d": "2026-11-07"
+     }
+    ]
+   },
+   {
+    "s": "ABBV",
+    "einschaetzung": "Frischer Zulassungserfolg, solider Trend",
+    "warum": "AbbVie stieg heute um knapp 4 %, nachdem die US-Arzneimittelbehörde FDA das Rheuma- und Hautmittel Rinvoq als erste systemische Therapie gegen nichtsegmentale Vitiligo zugelassen hat. Die Aktie liegt in drei Monaten knapp 17 % und in sechs Monaten rund 33 % vorn, der RSI von 64 lässt noch Luft. Für 30 Tage zählt vor allem, dass Rinvoq als einer der Wachstumstreiber neben Skyrizi ein weiteres Anwendungsgebiet bekommt. Wie groß der zusätzliche Umsatz wird, ist offen.",
+    "ausblick": "Die übliche 30-Tage-Bewegung von 7,3 % liegt weit unter der Hürde von 17,44 %, das Ziel ist damit kaum realistisch. Am wahrscheinlichsten verläuft die Aktie im Aufwärtstrend weiter, wobei ein Teil der Zulassungsfreude schon heute eingepreist wurde. Zinserwartungen vor der Notenbanksitzung im Dezember und Debatten über US-Arzneimittelpreise können Pharmawerte bewegen.",
+    "szenarien": {
+     "gut": "Analysten heben nach der Zulassung ihre Umsatzschätzungen für Rinvoq an und der Pharmasektor bleibt gefragt.",
+     "schlecht": "Politischer Druck auf Arzneimittelpreise oder eine Rotation aus defensiven Werten bremst den Kurs."
+    },
+    "treiber": [
+     "FDA-Zulassung von Rinvoq bei Vitiligo",
+     "Intakter Aufwärtstrend im Pharmasektor"
+    ],
+    "risiken": [
+     "Zusatzumsatz durch die neue Indikation unklar",
+     "Preisdruck-Debatte in den USA",
+     "Teil der Nachricht schon eingepreist"
+    ],
+    "termine": [
+     "26.11.2026: US-Börsen wegen Thanksgiving geschlossen, 27.11. verkürzter Handel",
+     "08./09.12.2026: Zinssitzung der US-Notenbank"
+    ],
+    "zuversicht": "mittel",
+    "quellen": [
+     {
+      "t": "FDA approves AbbVie's Rinvoq for nonsegmental vitiligo",
+      "u": "https://pharmaceutical-technology.com/news/fda-abbvies-rinvoq-nonsegmental-vitiligo",
+      "q": "Pharmaceutical Technology",
+      "d": "2026-11-24"
+     },
+     {
+      "t": "AbbVie's RINVOQ (upadacitinib) Approved as the First Systemic Therapy in the U.S. to Treat Adult and Pediatric Patients With Nonsegmental Vitiligo",
+      "u": "https://stockhouse.com/news/press-releases/2026/11/23/abbvie-s-rinvoq-xae-upadacitinib-approved-as-the-first-systemic-therapy-in-the-u",
+      "q": "Stockhouse/PR Newswire",
+      "d": "2026-11-23"
+     },
+     {
+      "t": "AbbVie Gets FDA Approval for Rinvoq in Nonsegmental Vitiligo",
+      "u": "https://finnhub.io/api/news?id=f6c6696ba8928f9f2a51541f2f12bdd1d18b97934042588f57cd364000447e4f",
+      "q": "Zacks/Yahoo",
+      "d": "2026-11-24"
      }
     ]
    },
@@ -678,54 +694,54 @@
  },
  "aussortiert": [
   {
-   "s": "SAN.PA",
-   "h": 3,
-   "grund": "Nach dem Kurssprung von gut 5 % auf die Insmed-Übernahme ist kurzfristig viel eingepreist, der RSI von 72 spricht für eine Verschnaufpause."
-  },
-  {
    "s": "VLTO",
    "h": 3,
-   "grund": "Zu träge: übliche Drei-Tage-Bewegung von 2,4 % kaum über der Hürde, Fünf-Tage-Bilanz negativ."
+   "grund": "Zu träge: übliche Drei-Tage-Bewegung von 2,5 % kaum über der Hürde von 1,92 %."
   },
   {
    "s": "CLX",
    "h": 3,
-   "grund": "Trendbruch: −5,5 % in fünf Tagen und 5,5 % unter dem 10-Tage-Hoch ohne erkennbaren Auslöser für eine Wende."
+   "grund": "Fünf-Tage-Bilanz bei null und 3,1 % unter dem 10-Tage-Hoch, ohne erkennbaren frischen Auslöser."
   },
   {
-   "s": "HEN3.DE",
+   "s": "TSCO",
    "h": 3,
-   "grund": "Zu träge: übliche Drei-Tage-Bewegung von 2,1 % kaum über der Hürde, dazu die Kepler-Abstufung vom 19. November."
+   "grund": "Kurssprung von fast 5 % heute ohne gefundenen Auslöser, der Kurs ist überdehnt und ein Rücksetzer wahrscheinlich."
   },
   {
-   "s": "PHIA.AS",
+   "s": "AIZ",
    "h": 3,
-   "grund": "Übliche Drei-Tage-Bewegung von 2,5 % nur knapp über der Hürde, Fünf-Tage-Bilanz negativ und 3,1 % unter dem 10-Tage-Hoch."
+   "grund": "Zu träge: übliche Drei-Tage-Bewegung von 2,2 % kaum über der Hürde."
   },
   {
-   "s": "LHA.DE",
-   "h": 7,
-   "grund": "Über sieben Tage ist das Risiko eines Pilotenstreiks nach den abgebrochenen Gesprächen zu hoch."
+   "s": "MGM",
+   "h": 3,
+   "grund": "Morgan Stanley bleibt bei 'Underweight' und senkte das Kursziel auf 28 Dollar, über drei Monate klar im Minus."
   },
   {
    "s": "VLTO",
    "h": 7,
-   "grund": "Übliche Sieben-Tage-Bewegung von 3,7 % unter der Hürde von 4,12 %, Fünf-Tage-Bilanz negativ."
+   "grund": "Übliche Sieben-Tage-Bewegung von 3,8 % unter der Hürde von 4,12 %."
+  },
+  {
+   "s": "LHA.DE",
+   "h": 7,
+   "grund": "Über sieben Tage ist das Risiko eines Pilotenstreiks nach den ausgesetzten Tarifgesprächen zu hoch."
   },
   {
    "s": "COST",
    "h": 7,
-   "grund": "Kursabschlag durch die Sonderdividende, Fünf-Tage-Bilanz negativ und übliche Bewegung unter der Hürde."
+   "grund": "Kursabschlag durch die Sonderdividende, Fünf-Tage-Bilanz negativ und übliche Bewegung von 3,1 % unter der Hürde."
   },
   {
    "s": "HEN3.DE",
    "h": 7,
-   "grund": "Übliche Sieben-Tage-Bewegung von 3,2 % unter der Hürde, Abstufung durch Kepler Cheuvreux belastet."
+   "grund": "Übliche Sieben-Tage-Bewegung von 3,3 % unter der Hürde, Fünf-Tage-Bilanz negativ."
   },
   {
-   "s": "PHIA.AS",
+   "s": "AIZ",
    "h": 7,
-   "grund": "Übliche Sieben-Tage-Bewegung von 3,8 % unter der Hürde, kein frischer Auslöser."
+   "grund": "Übliche Sieben-Tage-Bewegung von 3,4 % unter der Hürde, kein frischer Auslöser."
   },
   {
    "s": "TECH",
@@ -738,19 +754,19 @@
    "grund": "Nach der Übernahme durch Persistent kaum eigene Kursdynamik, Trend abwärts."
   },
   {
-   "s": "GME",
-   "h": 30,
-   "grund": "Stark spekulativ, Quartalszahlen am 7. Dezember mitten im Zeitraum."
-  },
-  {
    "s": "QIA.DE",
    "h": 30,
    "grund": "Übernahmeangebot begrenzt den Kursspielraum, Kurs seit Wochen seitwärts."
   },
   {
-   "s": "COST",
+   "s": "GME",
    "h": 30,
-   "grund": "Sonderdividende sorgt für einen Kursabschlag, Quartalszahlen am 10. Dezember mitten im Zeitraum."
+   "grund": "Stark spekulativ, Quartalszahlen am 7. Dezember mitten im Zeitraum."
+  },
+  {
+   "s": "PG",
+   "h": 30,
+   "grund": "Solider Trend, aber ohne frischen Auslöser; AbbVie hat mit der FDA-Zulassung den aktuelleren Impuls."
   }
  ]
 }
