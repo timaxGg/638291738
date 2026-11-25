@@ -1,33 +1,32 @@
 {
- "id": "b-2026-11-25-morgens",
+ "id": "b-2026-11-25-mittags",
  "datum": "2026-11-25",
- "slot": "morgens",
- "erstellt": "2026-11-25T07:19:14+01:00",
- "markt": "Nach der Rally vom Montag drehten Chipwerte am Dienstag ins Minus: Laut Motley Fool fiel der Nasdaq um 1,48 %, der S&P 500 um 0,50 %, während der Dow dank Umschichtung in Gesundheits- und Substanzwerte um 0,85 % auf gut 50.000 Punkte stieg. Heute stehen die PCE-Inflationsdaten an, Donnerstag ist wegen Thanksgiving Börsenpause und Freitag nur verkürzter Handel. Bei so wenigen und dünnen Handelstagen sind kurzfristige Prognosen besonders unsicher.",
+ "slot": "mittags",
+ "erstellt": "2026-11-25T13:17:24+01:00",
+ "markt": "Europas Börsen tendieren am Mittag uneinheitlich: Der Stoxx 600 liegt leicht im Plus, der CAC 40 wird von Sanofi gestützt, der DAX tritt auf der Stelle. In den USA fallen die Nasdaq-Futures nach Berichten über neue Zollpläne der Regierung um mehr als 2 %, um 14:30 Uhr folgen die PCE-Inflationsdaten und das Q3-BIP. Morgen ist wegen Thanksgiving US-Börsenpause, Freitag nur verkürzter Handel, daher sind kurzfristige Prognosen besonders unsicher.",
  "marktQuellen": [
   {
-   "t": "Stock Market Today, Nov. 24: Tech Sell-Off Drags Nasdaq as Dow Gains on Value Rotation",
-   "u": "https://www.fool.com/coverage/stock-market-today/2026/11/24/stock-market-today-nov-24-tech-sell-off-drags-nasdaq-as-dow-gains-on-value-rotation/",
-   "q": "The Motley Fool",
-   "d": "2026-11-24"
-  },
-  {
-   "t": "The Dow closes at 50,019 while Nasdaq drops 1.48% on an AI chip selloff",
-   "u": "https://startupfortune.com/the-dow-closes-at-50019-while-nasdaq-drops-148-on-an-ai-chip-selloff/",
-   "q": "Startup Fortune",
+   "t": "Earnings, Easing Oil Prices Lift European Bourses Midday",
+   "u": "https://app.bigdata.com/documents/198F5E9EF34C064FECE96CBCC288CC65?cnum=1",
+   "q": "MT Newswires",
    "d": "2026-11-25"
   },
   {
-   "t": "Dow Jones Futures Fall: Nvidia, Anthropic Lead AI Retreat But Many Sectors Strong; Fed Inflation Data Due",
-   "u": "https://finnhub.io/api/news?id=d9353a96e3607b36c1925ae7cd8e2e1a3dbe312864c395e673bd805b3450f463",
-   "q": "Investor’s Business Daily/Yahoo",
+   "t": "Nasdaq Futures Slide Over 2% on Fresh US Tariff Concerns; Inflation Data in Focus",
+   "u": "https://app.bigdata.com/documents/E440C625FC2B74F5AAE5C489D84D7B09?cnum=1",
+   "q": "US News & World Report (Reuters)",
+   "d": "2026-11-25"
+  },
+  {
+   "t": "Stock market today: Dow, S&P 500, Nasdaq futures fall ahead of inflation data",
+   "u": "https://app.bigdata.com/documents/60A4A9DF4BC684F547AE1D08B1EBB1CE?cnum=1",
+   "q": "AOL.com (Yahoo Finance)",
    "d": "2026-11-25"
   }
  ],
  "listen": {
   "3": [
    {
-    "s": "CMG",
     "einschaetzung": "Erholung läuft, Branchenrückenwind",
     "warum": "Chipotle hat in vier Wochen rund 32 % zugelegt und liegt am 10-Tage-Hoch, RSI 64 und damit noch nicht überhitzt. Die Bank of America sieht eine Belebung der Restaurantnachfrage und zählt große Fast-Casual-Ketten zu ihren Favoriten. Dazu kommen ein Umsatzrekordtag im November und der Ausbau von KI-Werkzeugen in den Filialen. Mit einer üblichen Drei-Tage-Bewegung von 4,6 % ist die Hürde von 1,92 % rechnerisch gut erreichbar.",
     "ausblick": "Am wahrscheinlichsten setzt sich der Aufwärtstrend fort, solange die Restaurant-Stimmung positiv bleibt. Wegen der starken Schwankung kann es aber genauso schnell 3–4 % abwärts gehen; die Hürde ist realistisch, aber nicht sicher.",
@@ -41,13 +40,13 @@
     ],
     "risiken": [
      "Hohe Schwankung",
-     "Über drei Monate noch leicht im Minus"
+     "Über drei Monate noch leicht im Minus",
+     "Neue US-Zollpläne drücken heute die US-Futures"
     ],
     "termine": [
      "25.11.2026: US-Inflationsdaten (PCE)",
      "26.11.2026: US-Börsen wegen Thanksgiving geschlossen, 27.11. verkürzter Handel"
     ],
-    "zuversicht": "mittel",
     "quellen": [
      {
       "t": "BofA names its top U.S. restaurant stock picks",
@@ -67,10 +66,11 @@
       "q": "Nation's Restaurant News",
       "d": "2026-11-19"
      }
-    ]
+    ],
+    "s": "CMG",
+    "zuversicht": "mittel"
    },
    {
-    "s": "TGT",
     "einschaetzung": "Starker Lauf, kurzfristig heiß",
     "warum": "Target ist nach starken Quartalszahlen mit angehobenem Ausblick um gut 10 % in fünf Tagen gestiegen und markierte ein neues Jahreshoch. Gestern zogen zudem die Discounter nach guten Zahlen von Dollar Tree an, Target legte dabei deutlich zu. Der Handel ist vor Black Friday zuversichtlich. Allerdings gilt der Kurs als überdehnt (RSI 69), was die Chance eines Rücksetzers erhöht.",
     "ausblick": "Der Schwung ist da und Black-Friday-Meldungen können ihn kurzfristig verlängern. Nach über 10 % in einer Woche ist aber auch eine Pause plausibel; die Hürde von 1,92 % ist möglich, aber eher ein Münzwurf.",
@@ -84,14 +84,14 @@
     ],
     "risiken": [
      "Kurs überdehnt nach +10 % in 5 Tagen",
-     "Hohe Erwartungen eingepreist"
+     "Hohe Erwartungen eingepreist",
+     "Neue US-Zollpläne drücken heute die US-Futures"
     ],
     "termine": [
      "25.11.2026: US-Inflationsdaten (PCE)",
      "26.11.2026: US-Börsen wegen Thanksgiving geschlossen, 27.11. verkürzter Handel",
      "27.11.2026: Black Friday, Start ins Weihnachtsgeschäft"
     ],
-    "zuversicht": "niedrig",
     "quellen": [
      {
       "t": "Why Is Target (TGT) Stock Up Today? Dollar Tree's Strong Q3 Lifts Discount Retailers",
@@ -111,10 +111,11 @@
       "q": "CNBC",
       "d": "2026-11-18"
      }
-    ]
+    ],
+    "s": "TGT",
+    "zuversicht": "mittel"
    },
    {
-    "s": "HEI.DE",
     "einschaetzung": "Analysten stützen, Schwung lässt nach",
     "warum": "Heidelberg Materials hat in vier Wochen rund 20 % gewonnen, liegt aber etwa 2,4 % unter dem 10-Tage-Hoch und hat in fünf Tagen leicht nachgegeben. JPMorgan hat das Kursziel am Dienstag auf 230 Euro angehoben und die Aktie zum Top Pick im Sektor gemacht, Jefferies bleibt bei Buy. Die übliche Drei-Tage-Bewegung von rund 3,5 % liegt über der Hürde.",
     "ausblick": "Die Analystenunterstützung spricht eher für eine Stabilisierung auf hohem Niveau als für einen neuen Schub. Ein Anstieg um die Hürde ist möglich, vor allem wenn der DAX insgesamt fest bleibt.",
@@ -133,7 +134,6 @@
     "termine": [
      "25.11.2026: US-Inflationsdaten (PCE)"
     ],
-    "zuversicht": "niedrig",
     "quellen": [
      {
       "t": "ANALYSE-FLASH: JPMorgan hebt Ziel für Heidelberg Materials - 'Top Pick'",
@@ -153,10 +153,11 @@
       "q": "dpa-AFX/Yahoo Finanzen",
       "d": "2026-11-04"
      }
-    ]
+    ],
+    "s": "HEI.DE",
+    "zuversicht": "mittel"
    },
    {
-    "s": "TSCO",
     "einschaetzung": "Schwung vorhanden, Auslöser dünn",
     "warum": "Tractor Supply sprang gestern um 5 % auf ein 10-Tage-Hoch und steht nun gut 22 % über dem Stand vor vier Wochen, RSI 67. Laut Quiver lag es an einer frischen Analysten-Hochstufung; eine eigene Firmenmeldung gab es nicht. Die übliche Drei-Tage-Bewegung von 3,9 % liegt deutlich über der Hürde. Der Kurs gilt nach dem Sprung aber als überdehnt.",
     "ausblick": "Nach Kurssprüngen ohne Firmennachricht folgt oft eine Konsolidierung. Hält die Analystenunterstützung und der Rückenwind für Einzelhändler an, ist ein weiterer Anstieg möglich, sicher ist er nicht.",
@@ -170,13 +171,13 @@
     ],
     "risiken": [
      "Kurs überdehnt nach Tagessprung",
-     "Kein eigener Unternehmens-Auslöser"
+     "Kein eigener Unternehmens-Auslöser",
+     "Neue US-Zollpläne drücken heute die US-Futures"
     ],
     "termine": [
      "25.11.2026: US-Inflationsdaten (PCE)",
      "26.11.2026: US-Börsen wegen Thanksgiving geschlossen, 27.11. verkürzter Handel"
     ],
-    "zuversicht": "niedrig",
     "quellen": [
      {
       "t": "Tractor Supply gains as investors weigh fresh analyst support and recent growth initiatives",
@@ -190,10 +191,11 @@
       "q": "Yahoo",
       "d": "2026-11-24"
      }
-    ]
+    ],
+    "s": "TSCO",
+    "zuversicht": "mittel"
    },
    {
-    "s": "EW",
     "einschaetzung": "Analysten stützen, Kurs aber nahe am Hoch",
     "warum": "Edwards Lifesciences steigt seit Wochen gleichmäßig: rund 17 % in vier Wochen, Trend aufwärts, RSI 67 und nur etwa 1 % unter dem 10-Tage-Hoch. Barclays hat das Kursziel kürzlich auf 125 Dollar angehoben und bleibt bei Overweight. Gestern profitierte die Medizintechnik zudem von der Umschichtung aus Chipwerten in Gesundheitswerte. Die übliche Drei-Tage-Bewegung von rund 2,8 % liegt nur knapp über der Hürde von 1,92 %.",
     "ausblick": "Ohne neue Firmennachrichten dürfte der Kurs vor allem der Branchenstimmung folgen. Hält die Rotation in Gesundheitswerte an, ist ein kleiner Anstieg über die Hürde möglich; wegen Feiertag und kurzem Handelstag ist das aber eher knapp und unsicher.",
@@ -207,13 +209,13 @@
     ],
     "risiken": [
      "Kurs nahe Hoch, Signal „überdehnt“",
-     "Wenige Handelstage durch Thanksgiving"
+     "Wenige Handelstage durch Thanksgiving",
+     "Neue US-Zollpläne drücken heute die US-Futures"
     ],
     "termine": [
      "25.11.2026: US-Inflationsdaten (PCE)",
      "26.11.2026: US-Börsen wegen Thanksgiving geschlossen, 27.11. verkürzter Handel"
     ],
-    "zuversicht": "niedrig",
     "quellen": [
      {
       "t": "Barclays Maintains Overweight on Edwards Lifesciences, Raises Price Target to $125",
@@ -233,12 +235,13 @@
       "q": "Earnings Whispers/Finviz",
       "d": "2026-11-04"
      }
-    ]
+    ],
+    "s": "EW",
+    "zuversicht": "mittel"
    }
   ],
   "7": [
    {
-    "s": "GME",
     "einschaetzung": "Spekulativ, Schwung und Analystenrückhalt",
     "warum": "GameStop ist in fünf Tagen um fast 8 % gestiegen, in drei Monaten um knapp 49 %, RSI 66. Needham hat die Beobachtung mit Buy und einem Kursziel von 33 Dollar aufgenommen und betont den Wandel hin zu Sammlerartikeln und Trading Cards. Die übliche Sieben-Tage-Bewegung von 6,6 % liegt klar über der Hürde von 4,12 %. Die Aktie bleibt aber stark stimmungsgetrieben.",
     "ausblick": "Der Analystenimpuls und das Interesse von Privatanlegern sprechen für anhaltenden Schwung bis vor die Zahlen am 7. Dezember. Die Hürde ist bei dieser Schwankung erreichbar, ein ebenso großer Rückschlag aber genauso.",
@@ -252,13 +255,13 @@
     ],
     "risiken": [
      "Sehr hohe Schwankung",
-     "Meme-Charakter, Stimmung kann schnell kippen"
+     "Meme-Charakter, Stimmung kann schnell kippen",
+     "Neue US-Zollpläne drücken heute die US-Futures"
     ],
     "termine": [
      "26.11.2026: US-Börsen wegen Thanksgiving geschlossen, 27.11. verkürzter Handel",
      "07.12.2026: Quartalszahlen (kurz nach dem Zeitraum)"
     ],
-    "zuversicht": "niedrig",
     "quellen": [
      {
       "t": "Needham Says GameStop Is More Than a Meme Stock Now—and Sees 20% Upside",
@@ -271,14 +274,21 @@
       "u": "https://finnhub.io/api/news?id=8402194dce5a9ba38b22c9ac3552779cbb249dbd59b17fda60d050351e07dfd2",
       "q": "Yahoo",
       "d": "2026-11-25"
+     },
+     {
+      "t": "GameStop's Meme-Stock Stigma Is Masking A Real Business Transformation, Needham Says",
+      "u": "https://app.bigdata.com/documents/B568F256490A2EE731622DF3100A9D28?cnum=1",
+      "q": "ForeignPolicyJournal.com",
+      "d": "2026-11-25"
      }
-    ]
+    ],
+    "s": "GME",
+    "zuversicht": "mittel"
    },
    {
-    "s": "EW",
-    "einschaetzung": "Analysten positiv, Hürde knapp erreichbar",
-    "warum": "Edwards Lifesciences zeigt einen sauberen Aufwärtstrend mit rund 17 % Plus in vier und drei Monaten, RSI 67. Nach Quartalszahlen mit erneut angehobenem Ausblick Anfang November haben mehrere Häuser ihre Kursziele erhöht, zuletzt Barclays auf 125 Dollar. Die übliche Sieben-Tage-Bewegung von rund 4,3 % liegt knapp über der Hürde von 4,12 %. Der Kurs gilt aber als überdehnt, ein Rücksetzer ist jederzeit möglich.",
-    "ausblick": "Am wahrscheinlichsten ist ein Seitwärts- bis leicht steigender Verlauf, getragen von der Branchenrotation. Für die nötigen gut 4 % braucht es eine Fortsetzung des Trends ohne Pause; das ist möglich, aber kein Normalfall.",
+    "einschaetzung": "Analysten stützen, Kurs aber nahe am Hoch",
+    "warum": "Edwards Lifesciences steigt seit Wochen gleichmäßig: rund 17 % in vier Wochen, Trend aufwärts, RSI 67 und nur etwa 1 % unter dem 10-Tage-Hoch. Barclays hat das Kursziel kürzlich auf 125 Dollar angehoben und bleibt bei Overweight. Gestern profitierte die Medizintechnik zudem von der Umschichtung aus Chipwerten in Gesundheitswerte. Die übliche Drei-Tage-Bewegung von rund 2,8 % liegt nur knapp über der Hürde von 1,92 %.",
+    "ausblick": "Ohne neue Firmennachrichten dürfte der Kurs vor allem der Branchenstimmung folgen. Hält die Rotation in Gesundheitswerte an, ist ein kleiner Anstieg über die Hürde möglich; wegen Feiertag und kurzem Handelstag ist das aber eher knapp und unsicher.",
     "szenarien": {
      "gut": "Die Umschichtung in Medizintechnik setzt sich nach den PCE-Daten fort.",
      "schlecht": "Erholung der Chipwerte zieht Geld aus defensiven Gesundheitswerten ab."
@@ -289,13 +299,13 @@
     ],
     "risiken": [
      "Kurs nahe Hoch, Signal „überdehnt“",
-     "Wettbewerb im TAVR-Geschäft"
+     "Wenige Handelstage durch Thanksgiving",
+     "Neue US-Zollpläne drücken heute die US-Futures"
     ],
     "termine": [
      "25.11.2026: US-Inflationsdaten (PCE)",
      "26.11.2026: US-Börsen wegen Thanksgiving geschlossen, 27.11. verkürzter Handel"
     ],
-    "zuversicht": "niedrig",
     "quellen": [
      {
       "t": "Barclays Maintains Overweight on Edwards Lifesciences, Raises Price Target to $125",
@@ -315,10 +325,11 @@
       "q": "Earnings Whispers/Finviz",
       "d": "2026-11-04"
      }
-    ]
+    ],
+    "s": "EW",
+    "zuversicht": "mittel"
    },
    {
-    "s": "CAH",
     "einschaetzung": "Defensiver Trendwert, Ziel ambitioniert",
     "warum": "Cardinal Health steigt seit den starken Quartalszahlen Anfang November, als die Jahresprognose auf 12,80 bis 13,00 Dollar je Aktie angehoben wurde. Der Kurs liegt rund 13,5 % über dem Stand vor vier Wochen, RSI 67, und gestern legte die Aktie mit dem Gesundheitssektor fast 3 % zu. Die übliche Sieben-Tage-Bewegung von 4 % liegt knapp unter der Hürde.",
     "ausblick": "Die Geschäftslage spricht für einen intakten Trend, der Rückenwind aus der Sektorrotation hilft. Für gut 4 % in sieben Tagen bräuchte es aber einen überdurchschnittlichen Lauf.",
@@ -332,13 +343,13 @@
     ],
     "risiken": [
      "Kurs überdehnt",
-     "Übliche Bewegung knapp unter der Hürde"
+     "Übliche Bewegung knapp unter der Hürde",
+     "Neue US-Zollpläne drücken heute die US-Futures"
     ],
     "termine": [
      "25.11.2026: US-Inflationsdaten (PCE)",
      "26.11.2026: US-Börsen wegen Thanksgiving geschlossen, 27.11. verkürzter Handel"
     ],
-    "zuversicht": "niedrig",
     "quellen": [
      {
       "t": "Cardinal Health, Inc. (CAH) Up 6.7% — Buy the Breakout?",
@@ -352,53 +363,141 @@
       "q": "SeekingAlpha",
       "d": "2026-11-24"
      }
-    ]
+    ],
+    "s": "CAH",
+    "zuversicht": "mittel"
    },
    {
-    "s": "BDX",
-    "einschaetzung": "Trend stark, Hürde knapp",
-    "warum": "Becton Dickinson hat ein neues 52-Wochen-Hoch markiert, mit rund 13 % Plus in vier Wochen und 47 % in sechs Monaten, RSI 71. Ein großer Dividenden-ETF hat zuletzt kräftig zugekauft, und gestern profitierte die Medizintechnik von der Umschichtung aus Tech-Werten. Andererseits hat ein Analyst die Einstufung zuletzt gesenkt, was zeigt, dass die Bewertung nach dem Lauf nicht mehr günstig ist. Die übliche Sieben-Tage-Bewegung von etwa 4 % liegt knapp unter der Hürde von 4,12 %.",
-    "ausblick": "Der Trend ist intakt, aber nach dem Ausbruch auf ein Jahreshoch ist eine Verschnaufpause genauso wahrscheinlich wie ein weiterer Anstieg. Die nötige Steigerung ist nur erreichbar, wenn die Rotation in defensive Gesundheitswerte anhält.",
+    "s": "SAN.PA",
+    "einschaetzung": "Frischer Rückenwind, aber schon weit gelaufen",
+    "warum": "Sanofi hat in fünf Tagen rund 14 % zugelegt, getragen von der angekündigten Übernahme des US-Atemwegsspezialisten Insmed für 41 Milliarden Dollar. Heute legt die Aktie erneut deutlich zu, weil RBC auf Outperform hochgestuft und das Kursziel von 80 auf 105 Euro angehoben hat; Jefferies erhöhte auf 120 Euro. Die Analysten sehen damit die Wachstumslücke nach dem Patentablauf von Dupixent besser geschlossen. Mit einem RSI von 81 ist der Kurs allerdings klar überhitzt, die übliche Sieben-Tage-Bewegung von 5,2 % liegt nur knapp über der Hürde.",
+    "ausblick": "Nach zwei starken Tagen ist eine Verschnaufpause wahrscheinlich, weitere Kurszielanhebungen könnten den Kurs aber noch stützen. Die nötigen gut 4 % in sieben Tagen sind möglich, nach diesem Sprung aber deutlich unsicherer als sonst.",
     "szenarien": {
-     "gut": "Weitere Zuflüsse in Gesundheits- und Dividendenwerte nach dem Ausbruch.",
-     "schlecht": "Gewinnmitnahmen nach dem Jahreshoch oder eine Rückkehr der Anleger in Chipwerte."
+     "gut": "Weitere Analysten heben ihre Ziele an und der Markt honoriert die bessere Wachstumsperspektive weiter.",
+     "schlecht": "Gewinnmitnahmen nach dem Kurssprung oder Sorgen um die Schuldenfinanzierung des Kaufs."
     },
     "treiber": [
-     "Neues 52-Wochen-Hoch",
-     "Umschichtung in Gesundheitswerte"
+     "Hochstufungen von RBC und Kurszielanhebung von Jefferies",
+     "Bessere Wachstumsperspektive durch Insmed"
     ],
     "risiken": [
-     "RSI über 70, überdehnt",
-     "Analysten-Abstufung kürzlich"
+     "RSI 81, stark überhitzt",
+     "Übernahme wird teils mit Schulden bezahlt, Abschluss erst im ersten Halbjahr 2027"
     ],
-    "termine": [
-     "25.11.2026: US-Inflationsdaten (PCE)",
-     "26.11.2026: US-Börsen wegen Thanksgiving geschlossen, 27.11. verkürzter Handel"
-    ],
+    "termine": [],
     "zuversicht": "niedrig",
     "quellen": [
      {
-      "t": "Becton, Dickinson and Company (NYSE:BDX) Sets New 12-Month High - What's Next?",
-      "u": "https://www.marketbeat.com/instant-alerts/price-becton-dickinson-and-company-nyse-bdx-sets-new-12-month-high-whats-next-2026-11-24/",
-      "q": "MarketBeat",
-      "d": "2026-11-24"
+      "t": "RBC Upgrades Sanofi Rating, Price Target as Insmed Acquisition Helps De-risk Long-term Outlook",
+      "u": "https://app.bigdata.com/documents/F278D80BBC98DF99B68A0391DDEB2A1A?cnum=1",
+      "q": "MT Newswires",
+      "d": "2026-11-25"
      },
      {
-      "t": "Becton, Dickinson and Company (NYSE:BDX) Rating Lowered to \"Hold\" at Zacks Research",
-      "u": "https://www.marketbeat.com/instant-alerts/analyst-becton-dickinson-and-company-nyse-bdx-rating-lowered-to-hold-at-zacks-research-2026-11-21/",
-      "q": "MarketBeat",
-      "d": "2026-11-21"
+      "t": "Sanofi's rally continues, analysts revise price targets upward",
+      "u": "https://app.bigdata.com/documents/93B1DE3C5FC0F27625880865ADB7ED02?cnum=1",
+      "q": "ABC Bourse",
+      "d": "2026-11-25"
      },
      {
-      "t": "FT Vest Dividend Aristocrats Target Income (KNG) Buys $9.3 Million More BDX on Nov. 20",
-      "u": "https://finnhub.io/api/news?id=6aab2cfe14206ee3b9d304aa35918242278e67f49588852ea1edf9e490db6ca7",
-      "q": "Yahoo",
+      "t": "Sanofi to Acquire US Respiratory Drugmaker Insmed for $41 Billion",
+      "u": "https://app.bigdata.com/documents/7AD2F882122BE8AA8E572A76965EDF04?cnum=1",
+      "q": "MT Newswires",
       "d": "2026-11-24"
      }
     ]
    },
    {
+    "einschaetzung": "Solide, Black Friday im Blick",
+    "warum": "Walmart notiert am 10-Tage-Hoch, mit knapp 4 % Plus in fünf Tagen und 26 % in drei Monaten; der RSI von 72 zeigt aber eine gewisse Überhitzung. Nach starken Quartalszahlen mit erneut angehobenem Ausblick fiel die Aktie zunächst, hat sich seitdem aber erholt. Im Zeitraum liegt Black Friday, für den der Handel zuversichtlich ist. Die übliche Sieben-Tage-Bewegung von 3,8 % liegt knapp unter der Hürde.",
+    "ausblick": "Am wahrscheinlichsten ist ein ruhiger Anstieg oder ein Seitwärtsverlauf; Black-Friday-Meldungen können positiv wirken. Die nötigen gut 4 % sind für Walmart in einer Woche eher ambitioniert.",
+    "szenarien": {
+     "gut": "Gute Black-Friday-Zahlen bestätigen die Marktanteilsgewinne.",
+     "schlecht": "Überhitzung (RSI über 70) führt zu Gewinnmitnahmen."
+    },
+    "treiber": [
+     "Black Friday",
+     "Angehobener Ausblick"
+    ],
+    "risiken": [
+     "RSI über 70",
+     "Träger als nötig",
+     "Neue US-Zollpläne drücken heute die US-Futures"
+    ],
+    "termine": [
+     "25.11.2026: US-Inflationsdaten (PCE)",
+     "26.11.2026: US-Börsen wegen Thanksgiving geschlossen, 27.11. verkürzter Handel",
+     "27.11.2026: Black Friday, Start ins Weihnachtsgeschäft"
+    ],
+    "quellen": [
+     {
+      "t": "Walmart Raised Its Outlook and the Stock Fell Anyway. Here’s the New Price Target",
+      "u": "https://finnhub.io/api/news?id=2c536417f437007c644b6a73ea8d9fc3259147e56803f8f86ee099fde4bdcada",
+      "q": "Yahoo",
+      "d": "2026-11-24"
+     },
+     {
+      "t": "Retailers Sanguine for Black Friday",
+      "u": "https://finnhub.io/api/news?id=2af6d55cbef371c72effab9c616a80af5548ff21881c3d735b32a964de58e38b",
+      "q": "Yahoo",
+      "d": "2026-11-24"
+     },
+     {
+      "t": "Walmart shares slip after a third-quarter beat and a higher full-year outlook",
+      "u": "https://startupfortune.com/walmart-shares-slip-after-a-third-quarter-beat-and-a-higher-full-year-outlook/",
+      "q": "Startup Fortune",
+      "d": "2026-11-19"
+     }
+    ],
     "s": "WMT",
+    "zuversicht": "mittel"
+   }
+  ],
+  "30": [
+   {
+    "einschaetzung": "Gute Geschäftslage, Bewertung hoch",
+    "warum": "Veralto steigt seit Monaten stabil: rund 21 % in drei und 40 % in sechs Monaten, Trend aufwärts, RSI 70. Das dritte Quartal brachte steigende Margen und einen höheren Jahresausblick. Kritische Stimmen weisen aber darauf hin, dass die Bewertung nach dem Lauf wenig Raum für Enttäuschungen lässt. Die nötigen 17,4 % in 30 Tagen liegen weit über der üblichen Bewegung von 7,7 %.",
+    "ausblick": "Ein ruhiger weiterer Anstieg ist am wahrscheinlichsten, die Kosten-und-Steuer-Hürde von über 17 % ist aber kaum realistisch. Der Wert eignet sich eher als stabiler Trendwert denn als schneller Gewinnbringer.",
+    "szenarien": {
+     "gut": "Der stetige Trend hält an, getragen von guter Geschäftslage.",
+     "schlecht": "Bewertungsdebatte führt zu Gewinnmitnahmen."
+    },
+    "treiber": [
+     "Höherer Jahresausblick",
+     "Stabiler Trend"
+    ],
+    "risiken": [
+     "Hohe Bewertung",
+     "RSI an der Überhitzungsgrenze"
+    ],
+    "termine": [
+     "26.11.2026: US-Börsen wegen Thanksgiving geschlossen, 27.11. verkürzter Handel",
+     "08./09.12.2026: Zinssitzung der US-Notenbank"
+    ],
+    "quellen": [
+     {
+      "t": "Veralto: Solid Growth, But The Premium Is Hard To Justify",
+      "u": "https://finnhub.io/api/news?id=285d9f52059601abf6113d020ec43ee1f43b3b14f5f2f63a990bcd80adc1a6a7",
+      "q": "SeekingAlpha",
+      "d": "2026-11-21"
+     },
+     {
+      "t": "Veralto rises after strong Q3 results and higher full-year guidance",
+      "u": "https://www.quiverquant.com/news/Veralto+rises+after+strong+Q3+results+and+higher+full-year+guidance",
+      "q": "Quiver Quantitative",
+      "d": "2026-10-30"
+     },
+     {
+      "t": "3 Stocks in an Overlooked Corner of Infrastructure With Hundreds of Billions at Stake",
+      "u": "https://finnhub.io/api/news?id=33893b3de543aa0d6af4ccfe6f39bd9ba9c7bcd8d689724570d8c88d3d013dc5",
+      "q": "Yahoo",
+      "d": "2026-11-17"
+     }
+    ],
+    "s": "VLTO",
+    "zuversicht": "mittel"
+   },
+   {
     "einschaetzung": "Solide, Black Friday im Blick",
     "warum": "Walmart notiert am 10-Tage-Hoch, mit knapp 4 % Plus in fünf Tagen und 26 % in drei Monaten; der RSI von 72 zeigt aber eine gewisse Überhitzung. Nach starken Quartalszahlen mit erneut angehobenem Ausblick fiel die Aktie zunächst, hat sich seitdem aber erholt. Im Zeitraum liegt Black Friday, für den der Handel zuversichtlich ist. Die übliche Sieben-Tage-Bewegung von 3,8 % liegt knapp unter der Hürde.",
     "ausblick": "Am wahrscheinlichsten ist ein ruhiger Anstieg oder ein Seitwärtsverlauf; Black-Friday-Meldungen können positiv wirken. Die nötigen gut 4 % sind für Walmart in einer Woche eher ambitioniert.",
@@ -419,7 +518,6 @@
      "26.11.2026: US-Börsen wegen Thanksgiving geschlossen, 27.11. verkürzter Handel",
      "27.11.2026: Black Friday, Start ins Weihnachtsgeschäft"
     ],
-    "zuversicht": "niedrig",
     "quellen": [
      {
       "t": "Walmart Raised Its Outlook and the Stock Fell Anyway. Here’s the New Price Target",
@@ -439,99 +537,11 @@
       "q": "Startup Fortune",
       "d": "2026-11-19"
      }
-    ]
-   }
-  ],
-  "30": [
-   {
-    "s": "VLTO",
-    "einschaetzung": "Gute Geschäftslage, Bewertung hoch",
-    "warum": "Veralto steigt seit Monaten stabil: rund 21 % in drei und 40 % in sechs Monaten, Trend aufwärts, RSI 70. Das dritte Quartal brachte steigende Margen und einen höheren Jahresausblick. Kritische Stimmen weisen aber darauf hin, dass die Bewertung nach dem Lauf wenig Raum für Enttäuschungen lässt. Die nötigen 17,4 % in 30 Tagen liegen weit über der üblichen Bewegung von 7,7 %.",
-    "ausblick": "Ein ruhiger weiterer Anstieg ist am wahrscheinlichsten, die Kosten-und-Steuer-Hürde von über 17 % ist aber kaum realistisch. Der Wert eignet sich eher als stabiler Trendwert denn als schneller Gewinnbringer.",
-    "szenarien": {
-     "gut": "Der stetige Trend hält an, getragen von guter Geschäftslage.",
-     "schlecht": "Bewertungsdebatte führt zu Gewinnmitnahmen."
-    },
-    "treiber": [
-     "Höherer Jahresausblick",
-     "Stabiler Trend"
     ],
-    "risiken": [
-     "Hohe Bewertung",
-     "RSI an der Überhitzungsgrenze"
-    ],
-    "termine": [
-     "26.11.2026: US-Börsen wegen Thanksgiving geschlossen, 27.11. verkürzter Handel",
-     "08./09.12.2026: Zinssitzung der US-Notenbank"
-    ],
-    "zuversicht": "niedrig",
-    "quellen": [
-     {
-      "t": "Veralto: Solid Growth, But The Premium Is Hard To Justify",
-      "u": "https://finnhub.io/api/news?id=285d9f52059601abf6113d020ec43ee1f43b3b14f5f2f63a990bcd80adc1a6a7",
-      "q": "SeekingAlpha",
-      "d": "2026-11-21"
-     },
-     {
-      "t": "Veralto rises after strong Q3 results and higher full-year guidance",
-      "u": "https://www.quiverquant.com/news/Veralto+rises+after+strong+Q3+results+and+higher+full-year+guidance",
-      "q": "Quiver Quantitative",
-      "d": "2026-10-30"
-     },
-     {
-      "t": "3 Stocks in an Overlooked Corner of Infrastructure With Hundreds of Billions at Stake",
-      "u": "https://finnhub.io/api/news?id=33893b3de543aa0d6af4ccfe6f39bd9ba9c7bcd8d689724570d8c88d3d013dc5",
-      "q": "Yahoo",
-      "d": "2026-11-17"
-     }
-    ]
-   },
-   {
     "s": "WMT",
-    "einschaetzung": "Stabiler Trend, Weihnachtsgeschäft im Zeitraum",
-    "warum": "Walmart hat in drei Monaten rund 26 % zugelegt und erneut den Ausblick erhöht. In den nächsten 30 Tagen fällt das gesamte Weihnachtsgeschäft, das für Walmart ein wichtiger Gradmesser ist. Analysten verweisen auf Werbung, Marktplatz und Mitgliedschaften als Wachstumstreiber. Die übliche 30-Tage-Bewegung von 7,8 % liegt weit unter der Hürde von 17,4 %.",
-    "ausblick": "Ein weiterer Anstieg ist plausibel, wenn das Weihnachtsgeschäft gut läuft, die volle Hürde ist aber sehr unwahrscheinlich.",
-    "szenarien": {
-     "gut": "Starkes Weihnachtsgeschäft und weitere Analystenzuversicht.",
-     "schlecht": "Schwächere Konsumdaten oder Zollsorgen."
-    },
-    "treiber": [
-     "Weihnachtsgeschäft",
-     "Werbe- und Marktplatzwachstum"
-    ],
-    "risiken": [
-     "Hohe Bewertung",
-     "RSI über 70"
-    ],
-    "termine": [
-     "27.11.2026: Black Friday, Start ins Weihnachtsgeschäft",
-     "26.11.2026: US-Börsen wegen Thanksgiving geschlossen, 27.11. verkürzter Handel",
-     "08./09.12.2026: Zinssitzung der US-Notenbank"
-    ],
-    "zuversicht": "niedrig",
-    "quellen": [
-     {
-      "t": "Walmart Raised Its Outlook and the Stock Fell Anyway. Here’s the New Price Target",
-      "u": "https://finnhub.io/api/news?id=2c536417f437007c644b6a73ea8d9fc3259147e56803f8f86ee099fde4bdcada",
-      "q": "Yahoo",
-      "d": "2026-11-24"
-     },
-     {
-      "t": "Walmart shares slip after a third-quarter beat and a higher full-year outlook",
-      "u": "https://startupfortune.com/walmart-shares-slip-after-a-third-quarter-beat-and-a-higher-full-year-outlook/",
-      "q": "Startup Fortune",
-      "d": "2026-11-19"
-     },
-     {
-      "t": "Walmart Q3 FY27 slides: strong results, raised guidance amid costs",
-      "u": "https://www.investing.com/news/company-news/walmart-q3-fy27-slides-strong-results-raised-guidance-amid-costs-93CH-5039238",
-      "q": "Investing.com",
-      "d": "2026-11-19"
-     }
-    ]
+    "zuversicht": "mittel"
    },
    {
-    "s": "ABBV",
     "einschaetzung": "Frischer Zulassungserfolg, solider Trend",
     "warum": "AbbVie hat von der FDA die Zulassung von Rinvoq bei Vitiligo erhalten und stieg gestern mit dem Gesundheitssektor um über 4 %. Der Trend ist mit gut 17 % in drei Monaten intakt, der RSI von 64 zeigt keine Überhitzung. Die Pharmabranche steht nach dem Sanofi-Insmed-Deal wieder stärker im Fokus. Die übliche 30-Tage-Bewegung von 7,3 % liegt aber weit unter der Hürde.",
     "ausblick": "Die Kombination aus Zulassung und Sektorrotation spricht für einen weiter freundlichen Verlauf, die volle Hürde ist dennoch kaum zu erreichen.",
@@ -551,7 +561,6 @@
      "26.11.2026: US-Börsen wegen Thanksgiving geschlossen, 27.11. verkürzter Handel",
      "08./09.12.2026: Zinssitzung der US-Notenbank"
     ],
-    "zuversicht": "mittel",
     "quellen": [
      {
       "t": "Why Is AbbVie (ABBV) Stock Up Today? Health Care Rally as Tech Slides",
@@ -571,47 +580,51 @@
       "q": "Stockhouse/PR Newswire",
       "d": "2026-11-23"
      }
-    ]
+    ],
+    "s": "ABBV",
+    "zuversicht": "mittel"
    },
    {
-    "s": "PG",
-    "einschaetzung": "Defensiv solide, ohne großen Auslöser",
-    "warum": "Procter & Gamble ist in drei Monaten um knapp 19 % gestiegen, RSI 66, Trend aufwärts. Das Unternehmen will den Personalbestand in der Produktion durch Automatisierung deutlich senken, was die Margen langfristig stützen kann. Als defensiver Dividendenwert profitiert die Aktie, wenn Anleger aus Tech-Werten umschichten. Die übliche 30-Tage-Bewegung von 7,4 % liegt weit unter der Hürde.",
-    "ausblick": "Ein ruhiger Seitwärts- bis Aufwärtsverlauf ist am wahrscheinlichsten. Die Kosten-und-Steuer-Hürde von über 17 % ist für diesen trägen Wert kaum erreichbar.",
+    "s": "HEN3.DE",
+    "einschaetzung": "Stabiler Trend, Analysten gespalten",
+    "warum": "Henkel steigt ruhig und stetig: rund 13 % in vier Wochen, 17 % in drei Monaten, RSI 69 und nahe am 10-Tage-Hoch. Bei den Analysten ist das Bild gemischt: Citi hob das Kursziel auf 90 Euro (neutral), Kepler Cheuvreux stufte dagegen auf Hold ab (Ziel 94 Euro), und JPMorgan bleibt trotz höherem Ziel von 70 Euro bei Underweight. Der Kurs liegt damit bereits um die meisten Kursziele herum. Für 30 Tage ist die Hürde von gut 17 % bei einer üblichen Bewegung von 6,7 % kaum erreichbar.",
+    "ausblick": "Am wahrscheinlichsten ist ein ruhiger Seitwärts- bis leichter Aufwärtsverlauf, da Konsumgüterwerte in Europa aktuell gefragt sind. Einen Anstieg in der Größenordnung der Hürde geben weder Kursdaten noch Analysten her.",
     "szenarien": {
-     "gut": "Anhaltende Umschichtung in defensive Konsumwerte.",
-     "schlecht": "Erneuter Risikoappetit für Tech-Werte lässt Defensive zurückfallen."
+     "gut": "Anhaltende Umschichtung in defensive Konsumwerte und stabile Margen im Klebstoffgeschäft.",
+     "schlecht": "Weitere Abstufungen, weil der Kurs die Kursziele bereits erreicht hat."
     },
     "treiber": [
-     "Effizienzprogramm durch Automatisierung",
-     "Defensive Rotation"
+     "Defensive Konsumwerte gefragt",
+     "Stetiger Aufwärtstrend"
     ],
     "risiken": [
-     "Wenig Dynamik",
-     "Konsumflaute bei Haushaltsprodukten"
+     "Kurs bereits nahe den meisten Kurszielen",
+     "Abstufung durch Kepler, Underweight bei JPMorgan"
     ],
-    "termine": [
-     "26.11.2026: US-Börsen wegen Thanksgiving geschlossen, 27.11. verkürzter Handel",
-     "08./09.12.2026: Zinssitzung der US-Notenbank"
-    ],
+    "termine": [],
     "zuversicht": "niedrig",
     "quellen": [
      {
-      "t": "Procter & Gamble plans supply chain workforce cuts as automation expands",
-      "u": "https://finnhub.io/api/news?id=48c09448e685aa5a65f8e8982b2abff555178746921c862e28d4e8a258f3ae80",
-      "q": "Yahoo",
-      "d": "2026-11-24"
+      "t": "Henkel downgraded to Hold from Buy at Kepler Cheuvreux",
+      "u": "https://app.bigdata.com/documents/69A38110A74F49A253AAA254ACAD527C?cnum=1",
+      "q": "The Fly",
+      "d": "2026-11-19"
      },
      {
-      "t": "How Many Shares of Colgate-Palmolive, Clorox or Procter & Gamble Pay $1,000 a Month in Dividends?",
-      "u": "https://finnhub.io/api/news?id=da8575805dd7ee2243167f702497ee10afd03adc8fe52e12b6189410b59f0eb9",
-      "q": "Yahoo",
-      "d": "2026-11-24"
+      "t": "Henkel price target raised to EUR 90 from EUR 82 at Citi",
+      "u": "https://app.bigdata.com/documents/2F93FA106FF279FB2646973DC6530DFD?cnum=1",
+      "q": "The Fly",
+      "d": "2026-11-18"
+     },
+     {
+      "t": "JPMorgan raises Henkel price target to 70 (65) EUR - 'Underweight'",
+      "u": "https://app.bigdata.com/documents/9EB430D03F4812E7169E70EDA4239C1A?cnum=1",
+      "q": "Alliance News",
+      "d": "2026-11-25"
      }
     ]
    },
    {
-    "s": "BRK-B",
     "einschaetzung": "Defensiver Anker, langsam",
     "warum": "Berkshire Hathaway hat im November ein Rekordhoch erreicht und liegt rund 14,5 % über dem Stand vor drei Monaten. Zuletzt gab der Kurs leicht nach (fünf Tage −1,6 %, 2,7 % unter dem 10-Tage-Hoch). Der Konzern hat seine Aktienrückkäufe beschleunigt, das operative Ergebnis sank im dritten Quartal aber. Die übliche 30-Tage-Bewegung von 5,2 % liegt weit unter der Hürde.",
     "ausblick": "Wahrscheinlich bleibt Berkshire ein ruhiger, eher stabiler Wert. Die nötigen 17 % sind in 30 Tagen nicht realistisch.",
@@ -631,7 +644,6 @@
      "26.11.2026: US-Börsen wegen Thanksgiving geschlossen, 27.11. verkürzter Handel",
      "08./09.12.2026: Zinssitzung der US-Notenbank"
     ],
-    "zuversicht": "niedrig",
     "quellen": [
      {
       "t": "Berkshire breaks out to record high with fourth-quarter rally reaching 19%",
@@ -651,7 +663,9 @@
       "q": "GV Wire",
       "d": "2026-11-07"
      }
-    ]
+    ],
+    "s": "BRK-B",
+    "zuversicht": "mittel"
    }
   ]
  },
@@ -659,7 +673,7 @@
   {
    "s": "LHA.DE",
    "h": 3,
-   "grund": "Tarifgespräche mit den Piloten sind ausgesetzt, ein Streik kann jederzeit angekündigt werden; zudem fünf Tage im Minus."
+   "grund": "Tarifgespräche mit den Piloten liegen auf Eis, ein Streik kann kurzfristig angekündigt werden."
   },
   {
    "s": "VLTO",
@@ -669,17 +683,17 @@
   {
    "s": "CLX",
    "h": 3,
-   "grund": "3 % unter dem 10-Tage-Hoch, Fünf-Tage-Bilanz bei null, kein frischer Auslöser."
+   "grund": "3 % unter dem 10-Tage-Hoch, Fünf-Tage-Bilanz bei null und kein frischer Auslöser."
+  },
+  {
+   "s": "HEN3.DE",
+   "h": 3,
+   "grund": "Übliche Drei-Tage-Bewegung von 2,1 % kaum über der Hürde, Analysten zuletzt eher zurückhaltend."
   },
   {
    "s": "SAN.PA",
    "h": 3,
-   "grund": "Kurssprung von fast 10 % nach der Insmed-Übernahme wirkt kurzfristig ausgereizt, Moody's senkte den Ratingausblick auf negativ."
-  },
-  {
-   "s": "AIZ",
-   "h": 3,
-   "grund": "Zu träge: übliche Drei-Tage-Bewegung von 2,3 % kaum über der Hürde."
+   "grund": "Nach rund 14 % in fünf Tagen und RSI 81 ist kurzfristig ein Rücksetzer ebenso wahrscheinlich wie ein weiterer Anstieg."
   },
   {
    "s": "VLTO",
@@ -692,19 +706,19 @@
    "grund": "Über sieben Tage ist das Risiko eines Pilotenstreiks zu hoch."
   },
   {
+   "s": "HEN3.DE",
+   "h": 7,
+   "grund": "Übliche Sieben-Tage-Bewegung von 3,2 % unter der Hürde."
+  },
+  {
    "s": "COST",
    "h": 7,
-   "grund": "Fünf-Tage-Bilanz negativ, übliche Bewegung von 3,1 % unter der Hürde und Quartalszahlen am 10. Dezember kurz danach."
+   "grund": "Fünf-Tage-Bilanz negativ, übliche Bewegung von 3,1 % unter der Hürde, Quartalszahlen kurz nach dem Zeitraum."
   },
   {
    "s": "AIZ",
    "h": 7,
    "grund": "Übliche Sieben-Tage-Bewegung von 3,4 % unter der Hürde, kein frischer Auslöser."
-  },
-  {
-   "s": "BRK-B",
-   "h": 7,
-   "grund": "Sehr träge (übliche Bewegung 2,5 %) und zuletzt leicht rückläufig."
   },
   {
    "s": "TECH",
@@ -714,12 +728,12 @@
   {
    "s": "NA9.DE",
    "h": 30,
-   "grund": "Nach der Übernahme durch Persistent kaum eigene Kursdynamik, Trend abwärts."
+   "grund": "Nach der Übernahme kaum eigene Kursdynamik, Trend abwärts."
   },
   {
    "s": "QIA.DE",
    "h": 30,
-   "grund": "Das Übernahmeangebot von EQT begrenzt den Kursspielraum, Kurs seit Wochen seitwärts."
+   "grund": "Das Übernahmeangebot begrenzt den Kursspielraum, Kurs seit Wochen seitwärts."
   },
   {
    "s": "GME",
@@ -729,7 +743,7 @@
   {
    "s": "IBE.MC",
    "h": 30,
-   "grund": "Rund 3,7 % unter dem 10-Tage-Hoch und fünf Tage im Minus, ohne frischen Auslöser."
+   "grund": "Gut 3 % unter dem 10-Tage-Hoch ohne frischen Auslöser, für 30 Tage zu wenig Schwung."
   }
  ]
 }
