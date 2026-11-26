@@ -312,50 +312,44 @@
     ]
    },
    {
-    "s": "DIS",
-    "einschaetzung": "Ausbruch mit Rückenwind, Ziele nah",
-    "warum": "Disney liegt rund 15 % über dem Stand vor vier Wochen und 18 % über dem vor drei Monaten, RSI 69, und hat am Mittwoch die Marke von 125 Dollar überwunden. Nach starken Quartalszahlen haben Häuser wie Goldman Sachs, Raymond James und Barclays ihre Ziele angehoben. Ein Gericht hat zudem die vorgezogene Prüfung der ABC-Lizenzen gestoppt. Die übliche Sieben-Tage-Bewegung von 4 % liegt knapp unter der Hürde.",
-    "ausblick": "Rückenwind aus Analysten und Gericht spricht für einen stabilen Verlauf, der Abstand zu den mittleren Kurszielen um 132 Dollar ist aber nicht groß. Ein Anstieg über 4,12 % ist möglich, liegt aber am oberen Rand der üblichen Bewegung.",
+    "s": "PHIA.AS",
+    "einschaetzung": "Solider Aufwärtstrend, für sieben Tage aber knapp an der Hürde",
+    "warum": "Philips hat in vier Wochen knapp 12 % und in drei Monaten gut 21 % zugelegt, der Trend zeigt aufwärts und der RSI von 67 ist noch nicht überhitzt. Auslöser waren die Zahlen zum dritten Quartal mit 8 % mehr vergleichbarem Auftragseingang, besserer Marge und bestätigtem Jahresausblick sowie die grundsätzliche Einigung mit dem US-Justizministerium im Respironics-Fall. Barclays hat das Kursziel danach auf 35 Euro angehoben, Citi bleibt dagegen neutral mit einem Ziel von 26,50 Euro unter dem aktuellen Kurs. Die übliche Sieben-Tage-Bewegung von 3,8 % liegt leicht unter der nötigen Steigerung von 4,12 %, deshalb ist die Aufnahme eher eine Notlösung mangels besserer Kandidaten.",
+    "ausblick": "Ohne eigene Termine im Zeitraum hängt die Aktie vor allem an der allgemeinen Erholung und der Stimmung für Medizintechnik. Ein moderater Anstieg ist plausibel, die nötigen gut 4 % in sieben Tagen wären aber eher überdurchschnittlich und damit unsicher.",
     "szenarien": {
-     "gut": "Der Ausbruch über 125 Dollar zieht weitere Käufer an.",
-     "schlecht": "Die FCC geht erfolgreich gegen das Urteil vor oder der Markt dreht nach unten."
+     "gut": "Die Markterholung hält an und Neuheiten von der Radiologie-Messe RSNA sorgen für zusätzliches Interesse.",
+     "schlecht": "Neue Belastungen im Respironics-Komplex, etwa aus Untersuchungen von US-Bundesstaaten, oder ein schwacher Gesamtmarkt bremsen den Kurs."
     },
     "treiber": [
-     "Angehobene Kursziele",
-     "Gerichtsurteil zugunsten ABC"
+     "Starker Auftragseingang und bestätigter Ausblick",
+     "Kurszielanhebung durch Barclays",
+     "Erholung am Gesamtmarkt"
     ],
     "risiken": [
-     "Übliche Bewegung knapp unter der Hürde",
-     "Politisches Risiko rund um ABC bleibt"
+     "Übliche Bewegung unter der nötigen Steigerung",
+     "Citi-Kursziel unter dem Kurs",
+     "Restrisiken aus Respironics"
     ],
-    "termine": [
-     "27.11.2026: verkürzter US-Handel nach Thanksgiving (bis 19 Uhr MEZ)"
-    ],
-    "zuversicht": "mittel",
+    "termine": [],
+    "zuversicht": "niedrig",
     "quellen": [
      {
-      "t": "Disney Stock Moves Higher: What's Going On?",
-      "u": "https://app.bigdata.com/documents/87C70BFB390AC5CBD594677EEE056ED9?cnum=1",
-      "q": "Benzinga",
-      "d": "2026-11-18"
+      "t": "Philips-Aktie: Barclays hebt Kursziel auf 35 Euro",
+      "u": "https://www.ad-hoc-news.de/boerse/news/corporate-news/philips-aktie-barclays-hebt-kursziel-auf-35-euro/70505451",
+      "q": "ad-hoc-news.de",
+      "d": "2026-11-13"
      },
      {
-      "t": "Judge halts FCC's early review of ABC's station licenses in First Amendment case",
-      "u": "https://app.bigdata.com/documents/1023A5D196FE53ADF0ACE7C28D5A6733?cnum=1",
-      "q": "AOL.com",
-      "d": "2026-11-26"
+      "t": "Philips-Aktie: Citi hebt Kursziel auf 26,50 Euro",
+      "u": "https://www.ad-hoc-news.de/boerse/news/corporate-news/philips-aktie-citi-hebt-kursziel-auf-26-50-euro/70535550",
+      "q": "ad-hoc-news.de",
+      "d": "2026-11-19"
      },
      {
-      "t": "Phillip Securities Downgrades Walt Disney to Accumulate, Price Target is $130",
-      "u": "https://app.bigdata.com/documents/6025A57AE3115C89C40B669DB2289D37?cnum=1",
-      "q": "MT Newswires",
-      "d": "2026-11-23"
-     },
-     {
-      "t": "DIS Stock Breaks Above $125 For First Time Since 2022",
-      "u": "https://finnhub.io/api/news?id=3ac5e3d13a40ae31a35d49db4cf16b119f408fd42a8ec628d4aaeab7f29d10b1",
-      "q": "Yahoo",
-      "d": "2026-11-26"
+      "t": "Philips-Aktie: Aufträge wachsen, Respironics bleibt Risiko",
+      "u": "https://www.ad-hoc-news.de/boerse/news/corporate-news/philips-aktie-auftraege-wachsen-respironics-bleibt-risiko/70497095",
+      "q": "ad-hoc-news.de",
+      "d": "2026-11-12"
      }
     ]
    },
@@ -610,38 +604,44 @@
     ]
    },
    {
-    "s": "SAN.PA",
-    "einschaetzung": "Gute Nachrichtenlage, aber der Sprung ist schon groß",
-    "warum": "Sanofi ist in fünf Tagen um rund 19 % gestiegen, vor allem nach der angekündigten Übernahme von Insmed für rund 41 Milliarden Dollar, die Anleger als Antwort auf die starke Abhängigkeit von Dupixent werten. RBC hat die Aktie danach auf Outperform hochgestuft und das Kursziel von 80 auf 105 Euro erhöht, Bernstein bleibt bei Outperform mit 110 Euro. Über drei und sechs Monate liegt das Plus bei rund 31 %, der Trend ist aufwärts. Allerdings ist der RSI mit 82 deutlich überhitzt, und der Kurs liegt schon nahe an diesen Kurszielen. Für 30 Tage zählt daher eher, ob der Markt die Übernahme auch nach der ersten Euphorie positiv bewertet.",
-    "ausblick": "Nach so einem Sprung ist eine Seitwärts- oder Konsolidierungsphase in den kommenden Wochen am wahrscheinlichsten, bevor neue Impulse kommen. Die nötigen 17,44 % in 30 Handelstagen sind bei einer üblichen Bewegung von 10,8 % sehr unwahrscheinlich. Der Wert bleibt hier eher wegen guter Nachrichtenlage und Analystenrückenwind als wegen großem Restpotenzial in der Liste.",
+    "s": "PHIA.AS",
+    "einschaetzung": "Trend intakt, aber 17 % in einem Monat sind sehr ambitioniert",
+    "warum": "Philips steigt seit drei Monaten stetig, gut 21 % im Plus, liegt rund 12 % über dem 50-Tage-Schnitt und hat kürzlich ein Golden Cross gebildet, ein Muster, das im Rückblick keinen klaren Vorteil zeigt. Fundamental stützen das dritte Quartal mit 8 % mehr vergleichbarem Auftragseingang, höherer bereinigter Marge und bestätigtem Ausblick für 2026 sowie die Grundsatzeinigung mit dem US-Justizministerium. Barclays sieht die Patientenüberwachung schneller wachsen als den Markt und hob das Ziel auf 35 Euro, Citi bleibt neutral bei 26,50 Euro. Die übliche Monatsbewegung von 7,8 % liegt deutlich unter der Hürde von 17,44 %.",
+    "ausblick": "Über 30 Tage spricht die Geschäftslage für einen intakten Trend, doch die Analysten sind uneinig und große Kurstreiber bis zum Jahreswechsel sind nicht terminiert. Ein weiterer Anstieg ist möglich, die nötigen gut 17 % sind aber sehr unwahrscheinlich.",
     "szenarien": {
-     "gut": "Weitere Analysten heben ihre Ziele an und der Markt sieht die Übernahme als Wachstumsschub über Dupixent hinaus.",
-     "schlecht": "Gewinnmitnahmen nach der Überhitzung oder Zweifel an Preis und Finanzierung der Übernahme drücken den Kurs zurück."
+     "gut": "Die Markterholung hält an und Neuheiten von der Radiologie-Messe RSNA sorgen für zusätzliches Interesse.",
+     "schlecht": "Neue Belastungen im Respironics-Komplex, etwa aus Untersuchungen von US-Bundesstaaten, oder ein schwacher Gesamtmarkt bremsen den Kurs."
     },
     "treiber": [
-     "Insmed-Übernahme als Wachstumsstory",
-     "Hochstufung durch RBC",
-     "Defensive Pharmawerte gefragt"
+     "Wachstum im Auftragseingang und bessere Marge",
+     "Respironics-Einigung senkt Unsicherheit",
+     "Optimistische Analysten wie Barclays"
     ],
     "risiken": [
-     "RSI 82, stark überkauft",
-     "Kurs schon nahe an Analystenzielen",
-     "Integrations- und Finanzierungsrisiko der Übernahme"
+     "Hürde von 17,44 % weit über üblicher Bewegung",
+     "Uneinige Analysten, Citi-Ziel unter Kurs",
+     "Offene Untersuchungen von US-Bundesstaaten"
     ],
     "termine": [],
     "zuversicht": "niedrig",
     "quellen": [
      {
-      "t": "Sanofi setzt 41 Milliarden auf Insmed",
-      "u": "https://www.wallstreet-online.de/nachricht/21750046-sanofi-41-milliarden-insmed-antwort-dupixent",
-      "q": "wallstreet-online.de",
-      "d": "2026-11-26"
+      "t": "Philips-Aktie: Barclays hebt Kursziel auf 35 Euro",
+      "u": "https://www.ad-hoc-news.de/boerse/news/corporate-news/philips-aktie-barclays-hebt-kursziel-auf-35-euro/70505451",
+      "q": "ad-hoc-news.de",
+      "d": "2026-11-13"
      },
      {
-      "t": "Sanofi Aktie: Milliardenübernahme beflügelt Anleger",
-      "u": "https://aktiencheck.de/artikel/sanofi-aktie-milliardenuebernahme-befluegelt-anleger",
-      "q": "aktiencheck.de",
-      "d": "2026-11-25"
+      "t": "Philips-Aktie: Citi hebt Kursziel auf 26,50 Euro",
+      "u": "https://www.ad-hoc-news.de/boerse/news/corporate-news/philips-aktie-citi-hebt-kursziel-auf-26-50-euro/70535550",
+      "q": "ad-hoc-news.de",
+      "d": "2026-11-19"
+     },
+     {
+      "t": "Philips-Aktie: Aufträge wachsen, Respironics bleibt Risiko",
+      "u": "https://www.ad-hoc-news.de/boerse/news/corporate-news/philips-aktie-auftraege-wachsen-respironics-bleibt-risiko/70497095",
+      "q": "ad-hoc-news.de",
+      "d": "2026-11-12"
      }
     ]
    }
@@ -705,11 +705,6 @@
   },
   {
    "s": "SAN.PA",
-   "h": 3,
-   "grund": "Nach rund 19 % Plus in fünf Tagen und RSI 82 ist der Übernahme-Sprung kurzfristig weitgehend ausgereizt."
-  },
-  {
-   "s": "SAN.PA",
    "h": 7,
    "grund": "Stark überhitzt (RSI 82) nach dem Übernahme-Sprung, eine Verschnaufpause ist wahrscheinlicher als ein weiterer Schub von über 4 %."
   },
@@ -724,14 +719,9 @@
    "grund": "Kurs auf Fünf-Jahres-Hoch und über dem durchschnittlichen Analystenziel, JPMorgan erwartet 2027 nachlassende Dynamik."
   },
   {
-   "s": "PHIA.AS",
-   "h": 7,
-   "grund": "Übliche Sieben-Tage-Bewegung von 3,8 % liegt unter der Hürde von 4,12 %, frische Auslöser seit den Zahlen Anfang November fehlen."
-  },
-  {
-   "s": "PHIA.AS",
-   "h": 30,
-   "grund": "Seit den Quartalszahlen Anfang November kaum neue Impulse, andere Kandidaten haben klarere Treiber."
+   "s": "DIS",
+   "h": 3,
+   "grund": "Übliche Drei-Tage-Bewegung von 2,6 % nur knapp über der Hürde und wegen des US-Feiertags kaum frische Impulse; andere Kandidaten haben mehr Schwung."
   }
  ]
 }
