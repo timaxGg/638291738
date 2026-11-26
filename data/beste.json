@@ -1,26 +1,26 @@
 {
- "id": "b-2026-11-26-morgens",
+ "id": "b-2026-11-26-mittags",
  "datum": "2026-11-26",
- "slot": "morgens",
- "erstellt": "2026-11-26T07:19:04+01:00",
- "markt": "Am Mittwoch schloss der DAX 1,26 % tiefer bei rund 24.700 Punkten, während sich die US-Börsen nach einem scharfen Rückgang bei KI- und Chipwerten im Tagesverlauf weitgehend erholten (Dow +0,33 %, Nasdaq −0,62 %). Die Futures für DAX und Euro Stoxx deuteten in der Nacht auf eine Erholung hin, der Volatilitätsindex VIX lag aber mit gut 28 Punkten erhöht. Heute bleiben die US-Börsen wegen Thanksgiving geschlossen und am Freitag wird nur verkürzt gehandelt, daher sind kurzfristige Einschätzungen besonders unsicher; gefragt waren zuletzt vor allem defensive Konsum- und Gesundheitswerte.",
+ "slot": "mittags",
+ "erstellt": "2026-11-26T12:18:42Z",
+ "markt": "Der DAX erholt sich heute kräftig und lag am Mittag rund 2 % im Plus über 25.000 Punkten, nachdem US-Technologiewerte am Vortag ihre Verluste weitgehend aufgeholt hatten. Die US-Börsen bleiben wegen Thanksgiving geschlossen, am Freitag wird dort nur verkürzt gehandelt, und eine US-Zinserhöhung im Dezember gilt als weitgehend eingepreist. Die Schwankung bleibt erhöht, daher sind kurzfristige Einschätzungen besonders unsicher.",
  "marktQuellen": [
   {
-   "t": "Market overview - DAX index fell 1.3 percent on Wednesday",
-   "u": "https://app.bigdata.com/documents/595A2055B85DAC27F932CF591710048B?cnum=1",
-   "q": "Finwire",
+   "t": "Aktien Frankfurt: Deutlich erholt - Deutsche Bank sieht Dax 2027 optimistisch",
+   "u": "https://www.ariva.de/news/aktien-frankfurt-deutlich-erholt-deutsche-bank-sieht-dax-12221341",
+   "q": "ARIVA.DE / dpa-AFX",
+   "d": "2026-11-26"
+  },
+  {
+   "t": "Dax steigt auf 25.175 Punkte - Siemens Energy führt",
+   "u": "https://www.ad-hoc-news.de/boerse/news/marktberichte/dax-steigt-auf-25-175-punkte-siemens-energy-fuehrt/70557812",
+   "q": "ad-hoc-news.de / dts",
    "d": "2026-11-26"
   },
   {
    "t": "Fed Rate-Rise Bets Hit 93.5% as Fear Gauge Jumps",
    "u": "https://app.bigdata.com/documents/A8FBD33E97172523D47B85BAEDC5688C?cnum=3",
    "q": "The Rio Times",
-   "d": "2026-11-26"
-  },
-  {
-   "t": "Euro Stoxx 50 index futures rose 2.1%, Germany DAX index futures rose 1.8%",
-   "u": "https://app.bigdata.com/documents/A0CBFBB53902684AEF42F3D85B382324?cnum=1",
-   "q": "Eastmoney",
    "d": "2026-11-26"
   }
  ],
@@ -105,54 +105,6 @@
     ]
    },
    {
-    "s": "DIS",
-    "einschaetzung": "Frischer Ausbruch mit Analysten-Rückenwind",
-    "warum": "Disney hat am Mittwoch gut 2,5 % zugelegt und schloss über 125 Dollar, nach Medienberichten erstmals seit 2022, bei rund 15 % Plus in vier Wochen und RSI 69. Nach starken Quartalszahlen haben mehrere Häuser ihre Kursziele angehoben, der Durchschnitt liegt laut MT Newswires bei gut 132 Dollar; Phillip Securities hat dagegen auf Accumulate abgestuft. Neu ist ein Gerichtsbeschluss, der die vorgezogene Prüfung der ABC-Sendelizenzen durch die FCC vorerst stoppt. Die übliche Drei-Tage-Bewegung von 2,6 % liegt über der Hürde.",
-    "ausblick": "Der Ausbruch über eine lange Widerstandszone kann Anschlusskäufe auslösen, und das Gerichtsurteil nimmt ein politisches Risiko vorerst weg. Gleichzeitig nähert sich der Kurs den durchschnittlichen Analystenzielen, was den Spielraum begrenzt. Ein Anstieg über 1,92 % ist möglich, aber kein Selbstläufer.",
-    "szenarien": {
-     "gut": "Der Ausbruch hält und Anleger kaufen nach dem Gerichtsurteil nach.",
-     "schlecht": "Der Kurs fällt unter 125 Dollar zurück und der Ausbruch erweist sich als Fehlsignal."
-    },
-    "treiber": [
-     "Gerichtsurteil zugunsten ABC",
-     "Angehobene Kursziele nach Quartalszahlen"
-    ],
-    "risiken": [
-     "Kurs nahe den Analystenzielen",
-     "FCC will gegen das Urteil vorgehen"
-    ],
-    "termine": [
-     "27.11.2026: verkürzter US-Handel nach Thanksgiving (bis 19 Uhr MEZ)"
-    ],
-    "zuversicht": "mittel",
-    "quellen": [
-     {
-      "t": "Disney Stock Moves Higher: What's Going On?",
-      "u": "https://app.bigdata.com/documents/87C70BFB390AC5CBD594677EEE056ED9?cnum=1",
-      "q": "Benzinga",
-      "d": "2026-11-18"
-     },
-     {
-      "t": "Judge halts FCC's early review of ABC's station licenses in First Amendment case",
-      "u": "https://app.bigdata.com/documents/1023A5D196FE53ADF0ACE7C28D5A6733?cnum=1",
-      "q": "AOL.com",
-      "d": "2026-11-26"
-     },
-     {
-      "t": "Phillip Securities Downgrades Walt Disney to Accumulate, Price Target is $130",
-      "u": "https://app.bigdata.com/documents/6025A57AE3115C89C40B669DB2289D37?cnum=1",
-      "q": "MT Newswires",
-      "d": "2026-11-23"
-     },
-     {
-      "t": "DIS Stock Breaks Above $125 For First Time Since 2022",
-      "u": "https://finnhub.io/api/news?id=3ac5e3d13a40ae31a35d49db4cf16b119f408fd42a8ec628d4aaeab7f29d10b1",
-      "q": "Yahoo",
-      "d": "2026-11-26"
-     }
-    ]
-   },
-   {
     "s": "CMG",
     "einschaetzung": "Erholung läuft, Branchenrückenwind",
     "warum": "Chipotle hat in vier Wochen rund 30 % zugelegt und schloss am Mittwoch am 10-Tage-Hoch, mit RSI 65 noch nicht überhitzt. Über drei Monate steht die Aktie aber erst wieder etwa auf altem Niveau, es ist also eher eine Erholung als ein neuer Höhenflug. Die Bank of America zählt große Fast-Casual-Ketten zu ihren Favoriten, dazu kamen ein Umsatzrekordtag und ein KI-Ausbau in den Filialen. Der Chef will das Treueprogramm nicht kürzen, was Kunden halten soll, aber Margen kostet. Die übliche Drei-Tage-Bewegung von 4,6 % ist die höchste der Auswahl.",
@@ -197,6 +149,48 @@
       "u": "https://finnhub.io/api/news?id=b98f594e8ea69582c83befcb5141e0f6e9e3ac15effe26e8613e8d63f3e388d2",
       "q": "Yahoo",
       "d": "2026-11-25"
+     }
+    ]
+   },
+   {
+    "s": "HEI.DE",
+    "einschaetzung": "Trend intakt, aber kurzfristig schon weit gelaufen",
+    "warum": "Heidelberg Materials hat in vier Wochen rund 22 % zugelegt, fünf Tage in Folge steigt der Kurs mit rund 5,7 % und notiert am 10-Tage-Hoch; der RSI von 73 zeigt aber eine fast überhitzte Lage. Rückenwind gibt JPMorgan, das die Aktie als Top-Pick der Branche führt und das Kursziel am 24.11. von 225 auf 230 Euro angehoben hat. Das dritte Quartal brachte mehr Umsatz und Ergebnis, der Jahresausblick wurde bestätigt. Gleichzeitig hat AlphaValue am 25.11. die Einstufung von Buy auf Add gesenkt und verweist auf steigende Kosten und höhere Energiepreise. Die übliche Drei-Tage-Bewegung von 3,5 % liegt über der Hürde von 1,92 %.",
+    "ausblick": "Die starke Erholung im DAX heute hilft zyklischen Werten wie Baustoffen, sodass ein weiterer kleiner Anstieg in den nächsten drei Tagen plausibel ist. Nach fünf Plustagen und RSI 73 ist aber auch ein Rücksetzer jederzeit möglich. Die nötigen 1,92 % sind bei der üblichen Bewegung erreichbar, aber keineswegs sicher.",
+    "szenarien": {
+     "gut": "Die Markterholung hält an und weitere positive Analystenstimmen stützen den Aufwärtstrend.",
+     "schlecht": "Ein erneuter Abverkauf am Gesamtmarkt oder Gewinnmitnahmen nach der Serie drücken den Kurs unter das Wochenniveau."
+    },
+    "treiber": [
+     "JPMorgan-Top-Pick mit höherem Kursziel",
+     "Bestätigter Jahresausblick und Aktienrückkauf",
+     "Erholung im DAX"
+    ],
+    "risiken": [
+     "RSI 73 nach fünf Plustagen",
+     "AlphaValue-Abstufung wegen Kosten und Energiepreisen",
+     "Hohe Marktschwankung (VIX erhöht)"
+    ],
+    "termine": [],
+    "zuversicht": "mittel",
+    "quellen": [
+     {
+      "t": "Heidelberg Materials Aktie Prognose: JPMorgan hebt das Kursziel auf 230 Euro",
+      "u": "https://aktiencheck.de/artikel/heidelberg-materials-aktie-prognose-jpmorgan-hebt-das-kursziel-auf-230-euro-und",
+      "q": "aktiencheck.de",
+      "d": "2026-11-24"
+     },
+     {
+      "t": "Heidelberg Materials-Aktie: AlphaValue senkt Urteil auf Add",
+      "u": "https://www.ad-hoc-news.de/boerse/news/corporate-news/heidelberg-materials-aktie-alphavalue-senkt-urteil-auf-add/70554018",
+      "q": "ad-hoc-news.de",
+      "d": "2026-11-25"
+     },
+     {
+      "t": "Heidelberg Materials-Aktie: Q3-Ergebnis steigt, Ausblick bestätigt",
+      "u": "https://www.ad-hoc-news.de/boerse/news/corporate-news/heidelberg-materials-aktie-q3-ergebnis-steigt-ausblick-bestaetigt/70464739",
+      "q": "ad-hoc-news.de",
+      "d": "2026-11-05"
      }
     ]
    },
@@ -447,48 +441,6 @@
   ],
   "30": [
    {
-    "s": "BDX",
-    "einschaetzung": "Starker Lauf mit Analysten-Rückenwind, kurzfristig heiß",
-    "warum": "Becton Dickinson markiert laufend neue 52-Wochen-Hochs, liegt rund 14 % über dem Stand vor vier Wochen und 18 % über dem vor drei Monaten, RSI 73. Auslöser waren Quartalszahlen über den Erwartungen (bereinigter Gewinn je Aktie 4,15 Dollar, Umsatz 5,3 Milliarden Dollar) und danach Analysten-Hochstufungen: Wells Fargo stufte auf Overweight hoch, Wells Fargo und Jefferies nennen jeweils 242 Dollar als Ziel. Der Ausblick für das Geschäftsjahr 2027 gilt als vorsichtig, was Raum für positive Überraschungen lässt. Die übliche 30-Tage-Bewegung von 8,2 % ist die höchste der Liste, liegt aber weit unter der Hürde von 17,4 %.",
-    "ausblick": "Der Aufwärtstrend wird von Zahlen und Analysten getragen, nach einem Jahresplus, das Yahoo mit rund 49 % beziffert, wird die Bewertung aber zunehmend hinterfragt. Wahrscheinlich ist ein weiter steigender, aber von Rücksetzern unterbrochener Verlauf. Die nötigen 17,4 % sind sehr unwahrscheinlich.",
-    "szenarien": {
-     "gut": "Weitere Hochstufungen und eine ruhige Zinssitzung stützen den Trend.",
-     "schlecht": "Bewertungssorgen führen zu Gewinnmitnahmen."
-    },
-    "treiber": [
-     "Analysten-Hochstufungen",
-     "Zahlen über Erwartungen"
-    ],
-    "risiken": [
-     "RSI über 70",
-     "Bewertung nach starkem Jahr"
-    ],
-    "termine": [
-     "08./09.12.2026: Zinssitzung der US-Notenbank"
-    ],
-    "zuversicht": "mittel",
-    "quellen": [
-     {
-      "t": "Becton Dickinson stock hits 52-week high at 220.38 USD",
-      "u": "https://www.investing.com/news/company-news/becton-dickinson-stock-hits-52week-high-at-22038-usd-93CH-5048579",
-      "q": "Investing.com",
-      "d": "2026-11-24"
-     },
-     {
-      "t": "What FT Vest Dividend Aristocrats Target Income (KNG) Sold: BDX Leads on Nov. 23",
-      "u": "https://finnhub.io/api/news?id=ad2af59481c6827887d9c15830f530fa281596fdc76ebf5c6d3735fd380cc1f1",
-      "q": "Yahoo",
-      "d": "2026-11-25"
-     },
-     {
-      "t": "Is Becton Dickinson (BDX) Overvalued After A 49% 1 Year Run?",
-      "u": "https://finnhub.io/api/news?id=afbb592cae5a7c1f9c082f364cb38d4164952f534a9f9ff18b837b04e34273b9",
-      "q": "Yahoo",
-      "d": "2026-11-26"
-     }
-    ]
-   },
-   {
     "s": "VLTO",
     "einschaetzung": "Gute Geschäftslage, Bewertung hoch",
     "warum": "Veralto steigt seit Monaten stabil: rund 24 % in drei Monaten, Trend aufwärts, neues 52-Wochen-Hoch, RSI 72. Das dritte Quartal brachte steigende Margen und einen höheren Jahresausblick. Kritische Stimmen weisen aber darauf hin, dass die Bewertung nach dem Lauf wenig Raum für Enttäuschungen lässt. Die nötigen 17,4 % in 30 Tagen liegen weit über der üblichen Bewegung von 7,6 %.",
@@ -656,6 +608,42 @@
       "d": "2026-11-24"
      }
     ]
+   },
+   {
+    "s": "SAN.PA",
+    "einschaetzung": "Gute Nachrichtenlage, aber der Sprung ist schon groß",
+    "warum": "Sanofi ist in fünf Tagen um rund 19 % gestiegen, vor allem nach der angekündigten Übernahme von Insmed für rund 41 Milliarden Dollar, die Anleger als Antwort auf die starke Abhängigkeit von Dupixent werten. RBC hat die Aktie danach auf Outperform hochgestuft und das Kursziel von 80 auf 105 Euro erhöht, Bernstein bleibt bei Outperform mit 110 Euro. Über drei und sechs Monate liegt das Plus bei rund 31 %, der Trend ist aufwärts. Allerdings ist der RSI mit 82 deutlich überhitzt, und der Kurs liegt schon nahe an diesen Kurszielen. Für 30 Tage zählt daher eher, ob der Markt die Übernahme auch nach der ersten Euphorie positiv bewertet.",
+    "ausblick": "Nach so einem Sprung ist eine Seitwärts- oder Konsolidierungsphase in den kommenden Wochen am wahrscheinlichsten, bevor neue Impulse kommen. Die nötigen 17,44 % in 30 Handelstagen sind bei einer üblichen Bewegung von 10,8 % sehr unwahrscheinlich. Der Wert bleibt hier eher wegen guter Nachrichtenlage und Analystenrückenwind als wegen großem Restpotenzial in der Liste.",
+    "szenarien": {
+     "gut": "Weitere Analysten heben ihre Ziele an und der Markt sieht die Übernahme als Wachstumsschub über Dupixent hinaus.",
+     "schlecht": "Gewinnmitnahmen nach der Überhitzung oder Zweifel an Preis und Finanzierung der Übernahme drücken den Kurs zurück."
+    },
+    "treiber": [
+     "Insmed-Übernahme als Wachstumsstory",
+     "Hochstufung durch RBC",
+     "Defensive Pharmawerte gefragt"
+    ],
+    "risiken": [
+     "RSI 82, stark überkauft",
+     "Kurs schon nahe an Analystenzielen",
+     "Integrations- und Finanzierungsrisiko der Übernahme"
+    ],
+    "termine": [],
+    "zuversicht": "niedrig",
+    "quellen": [
+     {
+      "t": "Sanofi setzt 41 Milliarden auf Insmed",
+      "u": "https://www.wallstreet-online.de/nachricht/21750046-sanofi-41-milliarden-insmed-antwort-dupixent",
+      "q": "wallstreet-online.de",
+      "d": "2026-11-26"
+     },
+     {
+      "t": "Sanofi Aktie: Milliardenübernahme beflügelt Anleger",
+      "u": "https://aktiencheck.de/artikel/sanofi-aktie-milliardenuebernahme-befluegelt-anleger",
+      "q": "aktiencheck.de",
+      "d": "2026-11-25"
+     }
+    ]
    }
   ]
  },
@@ -681,11 +669,6 @@
    "grund": "Über drei Monate rund 15 % im Minus, der Monatsanstieg wirkt wie eine Erholung ohne klaren Auslöser."
   },
   {
-   "s": "EW",
-   "h": 3,
-   "grund": "Barclays hat das Ziel zwar angehoben, doch ohne frische Meldung und mit üblicher Bewegung knapp über der Hürde wirken andere Werte stärker."
-  },
-  {
    "s": "VLTO",
    "h": 7,
    "grund": "Übliche Sieben-Tage-Bewegung von 3,7 % liegt unter der Hürde von 4,12 %, RSI 72; für 30 Tage gewählt."
@@ -699,16 +682,6 @@
    "s": "AIZ",
    "h": 7,
    "grund": "Übliche Sieben-Tage-Bewegung von 3,4 % unter der Hürde, RSI 73."
-  },
-  {
-   "s": "COST",
-   "h": 7,
-   "grund": "Fünf Tage im Minus, übliche Bewegung 3,1 % unter der Hürde, Quartalszahlen erst nach dem Zeitraum."
-  },
-  {
-   "s": "WRB",
-   "h": 7,
-   "grund": "Ruhiger Versicherungswert ohne Auslöser, übliche Bewegung unter der Hürde."
   },
   {
    "s": "TECH",
@@ -731,9 +704,24 @@
    "grund": "Fünf Tage rund 2,4 % im Minus und ohne frischen positiven Auslöser."
   },
   {
-   "s": "GME",
+   "s": "SAN.PA",
+   "h": 3,
+   "grund": "Nach rund 19 % Plus in fünf Tagen und RSI 82 ist der Übernahme-Sprung kurzfristig weitgehend ausgereizt."
+  },
+  {
+   "s": "SAN.PA",
+   "h": 7,
+   "grund": "Stark überhitzt (RSI 82) nach dem Übernahme-Sprung, eine Verschnaufpause ist wahrscheinlicher als ein weiterer Schub von über 4 %."
+  },
+  {
+   "s": "HEN3.DE",
+   "h": 7,
+   "grund": "Übliche Sieben-Tage-Bewegung von 3,2 % unter der Hürde, JPMorgan bleibt bei Underweight und der Kurs liegt über dem mittleren Analystenziel."
+  },
+  {
+   "s": "HEN3.DE",
    "h": 30,
-   "grund": "Needham ist zwar neu mit Kaufempfehlung eingestiegen, doch die Quartalszahlen am 07.12. mitten im Zeitraum und die hohe Schwankung machen den Wert zum Glücksspiel."
+   "grund": "Kurs auf Fünf-Jahres-Hoch und über dem durchschnittlichen Analystenziel, JPMorgan erwartet 2027 nachlassende Dynamik."
   }
  ]
 }
