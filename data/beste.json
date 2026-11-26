@@ -1,20 +1,20 @@
 {
- "id": "b-2026-11-26-mittags",
+ "id": "b-2026-11-26-abends",
  "datum": "2026-11-26",
- "slot": "mittags",
- "erstellt": "2026-11-26T12:18:42Z",
- "markt": "Der DAX erholt sich heute kräftig und lag am Mittag rund 2 % im Plus über 25.000 Punkten, nachdem US-Technologiewerte am Vortag ihre Verluste weitgehend aufgeholt hatten. Die US-Börsen bleiben wegen Thanksgiving geschlossen, am Freitag wird dort nur verkürzt gehandelt, und eine US-Zinserhöhung im Dezember gilt als weitgehend eingepreist. Die Schwankung bleibt erhöht, daher sind kurzfristige Einschätzungen besonders unsicher.",
+ "slot": "abends",
+ "erstellt": "2026-11-26T18:16:33Z",
+ "markt": "Der DAX hat den Handel am Donnerstag mit gut 2 % Plus bei rund 25.216 Punkten beendet und sich damit vom tiefsten Stand seit Juli weiter gelöst; Treiber waren die Erholung der Technologiewerte sowie Rohstoff- und Autoaktien. Die US-Börsen waren wegen Thanksgiving geschlossen, am Freitag wird dort nur verkürzt gehandelt, sodass die Umsätze dünn bleiben dürften. Die Deutsche Bank traut dem DAX bis Ende 2027 neue Rekorde zu, kurzfristig bleibt die Schwankung aber erhöht und Einschätzungen über wenige Tage sind entsprechend unsicher.",
  "marktQuellen": [
   {
-   "t": "Aktien Frankfurt: Deutlich erholt - Deutsche Bank sieht Dax 2027 optimistisch",
-   "u": "https://www.ariva.de/news/aktien-frankfurt-deutlich-erholt-deutsche-bank-sieht-dax-12221341",
-   "q": "ARIVA.DE / dpa-AFX",
+   "t": "ROUNDUP/Aktien Frankfurt Schluss: Erholung - Deutsche Bank: 2027 Rekord möglich",
+   "u": "https://www.finanzen.at/nachrichten/aktien/roundup-aktien-frankfurt-schluss-erholung-deutsche-bank-2027-rekord-moeglich-1036803655",
+   "q": "finanzen.at / dpa-AFX",
    "d": "2026-11-26"
   },
   {
-   "t": "Dax steigt auf 25.175 Punkte - Siemens Energy führt",
-   "u": "https://www.ad-hoc-news.de/boerse/news/marktberichte/dax-steigt-auf-25-175-punkte-siemens-energy-fuehrt/70557812",
-   "q": "ad-hoc-news.de / dts",
+   "t": "Aktien Frankfurt Schluss: Dax erholt - 'Zeit zum Durchatmen' dank Thanksgiving",
+   "u": "https://www.ariva.de/news/aktien-frankfurt-schluss-dax-erholt-zeit-zum-durchatmen-12221888",
+   "q": "ARIVA.DE / dpa-AFX",
    "d": "2026-11-26"
   },
   {
@@ -155,8 +155,8 @@
    {
     "s": "HEI.DE",
     "einschaetzung": "Trend intakt, aber kurzfristig schon weit gelaufen",
-    "warum": "Heidelberg Materials hat in vier Wochen rund 22 % zugelegt, fünf Tage in Folge steigt der Kurs mit rund 5,7 % und notiert am 10-Tage-Hoch; der RSI von 73 zeigt aber eine fast überhitzte Lage. Rückenwind gibt JPMorgan, das die Aktie als Top-Pick der Branche führt und das Kursziel am 24.11. von 225 auf 230 Euro angehoben hat. Das dritte Quartal brachte mehr Umsatz und Ergebnis, der Jahresausblick wurde bestätigt. Gleichzeitig hat AlphaValue am 25.11. die Einstufung von Buy auf Add gesenkt und verweist auf steigende Kosten und höhere Energiepreise. Die übliche Drei-Tage-Bewegung von 3,5 % liegt über der Hürde von 1,92 %.",
-    "ausblick": "Die starke Erholung im DAX heute hilft zyklischen Werten wie Baustoffen, sodass ein weiterer kleiner Anstieg in den nächsten drei Tagen plausibel ist. Nach fünf Plustagen und RSI 73 ist aber auch ein Rücksetzer jederzeit möglich. Die nötigen 1,92 % sind bei der üblichen Bewegung erreichbar, aber keineswegs sicher.",
+    "warum": "Heidelberg Materials hat in vier Wochen rund 23 % zugelegt, in fünf Tagen gut 6 %, und schloss heute mit der DAX-Erholung erneut am 10-Tage-Hoch; der RSI von 74 zeigt aber eine fast überhitzte Lage. Rückenwind gibt JPMorgan, das die Aktie als Top-Pick der Branche führt und das Kursziel am 24.11. von 225 auf 230 Euro angehoben hat. Das dritte Quartal brachte mehr Umsatz und Ergebnis, der Jahresausblick wurde bestätigt. Gleichzeitig hat AlphaValue am 25.11. die Einstufung von Buy auf Add gesenkt und verweist auf steigende Kosten und höhere Energiepreise. Die übliche Drei-Tage-Bewegung von 3,6 % liegt über der Hürde von 1,92 %.",
+    "ausblick": "Die kräftige Erholung im DAX hat heute auch zyklische Werte wie Baustoffe gestützt, sodass ein weiterer kleiner Anstieg in den nächsten drei Tagen plausibel ist. Nach der langen Plusserie und RSI 74 ist aber ein Rücksetzer jederzeit möglich. Die nötigen 1,92 % sind bei der üblichen Bewegung erreichbar, aber keineswegs sicher.",
     "szenarien": {
      "gut": "Die Markterholung hält an und weitere positive Analystenstimmen stützen den Aufwärtstrend.",
      "schlecht": "Ein erneuter Abverkauf am Gesamtmarkt oder Gewinnmitnahmen nach der Serie drücken den Kurs unter das Wochenniveau."
@@ -167,7 +167,7 @@
      "Erholung im DAX"
     ],
     "risiken": [
-     "RSI 73 nach fünf Plustagen",
+     "RSI 74 nach langer Plusserie",
      "AlphaValue-Abstufung wegen Kosten und Energiepreisen",
      "Hohe Marktschwankung (VIX erhöht)"
     ],
@@ -722,6 +722,16 @@
    "s": "HEN3.DE",
    "h": 30,
    "grund": "Kurs auf Fünf-Jahres-Hoch und über dem durchschnittlichen Analystenziel, JPMorgan erwartet 2027 nachlassende Dynamik."
+  },
+  {
+   "s": "PHIA.AS",
+   "h": 7,
+   "grund": "Übliche Sieben-Tage-Bewegung von 3,8 % liegt unter der Hürde von 4,12 %, frische Auslöser seit den Zahlen Anfang November fehlen."
+  },
+  {
+   "s": "PHIA.AS",
+   "h": 30,
+   "grund": "Seit den Quartalszahlen Anfang November kaum neue Impulse, andere Kandidaten haben klarere Treiber."
   }
  ]
 }
