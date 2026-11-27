@@ -1,26 +1,32 @@
 {
- "id": "b-2026-11-27-morgens",
+ "id": "b-2026-11-27-mittags",
  "datum": "2026-11-27",
- "slot": "morgens",
- "erstellt": "2026-11-27T06:19:51Z",
- "markt": "Der DAX hat sich am Donnerstag um gut 2 % auf rund 25.216 Punkte erholt, weil die Sorge vor deutlich höheren US-Zöllen auf europäische Waren nachließ und Technologie- sowie Bankwerte zurückkamen; für heute wird ein weiter freundlicher Start erwartet. Die US-Börsen handeln nach Thanksgiving nur verkürzt bis 19 Uhr MEZ, die Umsätze dürften dünn sein. Gleichzeitig steigen die Renditen zehnjähriger US-Anleihen auf über 4,9 % und Brent-Öl nähert sich 97 Dollar, dazu kommt am Sonntag die Wahl in Spanien, sodass kurzfristige Einschätzungen besonders unsicher bleiben.",
+ "slot": "mittags",
+ "erstellt": "2026-11-27T12:17:29Z",
+ "markt": "Europas Börsen bauen am Mittag ihre Erholung aus: Der DAX liegt knapp 1 % im Plus, getragen von Technologie-, Bank- und Rohstoffwerten, während Nahrungsmittel- und andere defensive Werte zurückbleiben. Die US-Terminkontrakte deuten vor dem verkürzten Black-Friday-Handel (Schluss 19 Uhr MEZ) auf deutliche Gewinne hin, vor allem bei zuletzt stark gefallenen KI-Werten; Beobachter warnen aber, dass es bei dünnen Umsätzen auch nur eine kurze Gegenbewegung sein kann. Steigende Anleiherenditen, höhere Ölpreise vor dem OPEC-Treffen am Wochenende und die Wahl in Spanien am Sonntag halten die Unsicherheit hoch.",
  "marktQuellen": [
   {
-   "t": "European Shares Poised To Open Higher",
-   "u": "https://app.bigdata.com/documents/D2B9A98BA5AB1ED4653A9FA757A61269?cnum=2",
-   "q": "Nasdaq / RTTNews",
+   "t": "Tech, Bank Sectors Buoy European Bourses Midday",
+   "u": "https://app.bigdata.com/documents/1A8212F0667BB79AA7E4433A1D0E7641?cnum=1",
+   "q": "MT Newswires",
    "d": "2026-11-27"
   },
   {
-   "t": "GLOBAL BRIEFING: Trump says he is open to work with Democrats",
-   "u": "https://app.bigdata.com/documents/586F138BC68886F2E9D6F4BC48DD4E91?cnum=1",
+   "t": "LONDON MARKET MIDDAY: Europe moves higher as Wall Street set to surge",
+   "u": "https://app.bigdata.com/documents/8D2DAF07DB033AB4A6BA1E3EEA791CAC?cnum=1",
    "q": "Alliance News",
    "d": "2026-11-27"
   },
   {
-   "t": "International Morning Briefing: European stocks rebound across the board",
-   "u": "https://app.bigdata.com/documents/93467C73A7BF4F568A81F95694DB6357?cnum=7",
-   "q": "MoneyDJ",
+   "t": "US pre-open: Markets to rally as investors pick up battered tech stocks",
+   "u": "https://app.bigdata.com/documents/465455FFC79D7EF0AFCA02E812546DA5?cnum=1",
+   "q": "ShareCast",
+   "d": "2026-11-27"
+  },
+  {
+   "t": "European Midday Briefing: Sentiment Calms, Stocks Rally as Volatile Week Winds Down",
+   "u": "https://app.bigdata.com/documents/AE54671DF90CA5209FD5E68D8D3A32CC?cnum=1",
+   "q": "Morningstar / Dow Jones",
    "d": "2026-11-27"
   }
  ],
@@ -41,7 +47,8 @@
     ],
     "risiken": [
      "RSI 71, Kurs weit über dem 20-Tage-Schnitt",
-     "Steigende Rohstoff- und Logistikkosten in der Branche"
+     "Steigende Rohstoff- und Logistikkosten in der Branche",
+     "Mittags fließt Geld zurück in Technologiewerte, defensive Konsumwerte hinken hinterher"
     ],
     "termine": [
      "27.11.2026: verkürzter US-Handel nach Thanksgiving (Schluss 19 Uhr MEZ)"
@@ -65,6 +72,12 @@
       "u": "https://app.bigdata.com/documents/5B562D50647494F9C1E7C5A6176AF6A0?cnum=1&cnum=3",
       "q": "Simply Wall St",
       "d": "2026-11-23"
+     },
+     {
+      "t": "WINNERS & LOSERS: Miners rally on metal prices; Rheinmetall inks deal",
+      "u": "https://app.bigdata.com/documents/B298EED6EB5ADDC380998E7E08D0DE15?cnum=1",
+      "q": "Alliance News",
+      "d": "2026-11-27"
      }
     ]
    },
@@ -195,21 +208,21 @@
     ]
    },
    {
-    "s": "DIS",
-    "einschaetzung": "Ausbruch auf Vier-Jahres-Hoch, Bewertung ausgereizt",
-    "warum": "Disney schloss am Mittwoch bei 125,60 Dollar und damit so hoch wie seit April 2022 nicht mehr; der RSI liegt bei 69. Getragen wird der Lauf von den starken Quartalszahlen mit wachsenden Gewinnen bei Freizeitparks, Kreuzfahrten und Sport sowie einem profitabler werdenden Streaming. Neu ist eine einstweilige Verfügung eines Bundesrichters, die die vorgezogene Lizenzprüfung der FCC für acht ABC-Sender stoppt. Dagegen steht, dass das durchschnittliche Analystenziel laut einem Bericht nur noch etwa 5 % über dem Kurs liegt.",
-    "ausblick": "Nach dem Ausbruch über eine mehrjährige Spanne kann Anschlusskauf folgen, zumal der Rechtsstreit mit der FCC vorerst entschärft ist. Die übliche Drei-Tage-Bewegung von 2,6 % liegt aber nur knapp über der Hürde von 1,92 %, das Ziel ist daher nur bei weiter freundlicher Stimmung realistisch.",
+    "s": "CAH",
+    "einschaetzung": "Ruhiger Trendwert, Hürde nur knapp über üblicher Bewegung",
+    "warum": "Cardinal Health steigt seit den starken Zahlen Anfang November mit angehobener Jahresprognose, rund 16 % in vier Wochen und 18 % in drei Monaten, RSI 69. Laut Kalkine wurde zudem die Verlängerung des Vertriebsvertrags mit CVS Health per Absichtserklärung vereinbart. Disney ist mittags nicht mehr in der Drei-Tage-Kandidatenliste, deshalb rückt Cardinal Health nach. Die übliche Drei-Tage-Bewegung von 2,6 % liegt nur knapp über der Hürde von 1,92 %.",
+    "ausblick": "Am wahrscheinlichsten ist ein ruhiger Verlauf nahe dem jüngsten Hoch, die nötigen 1,92 % sind von der Schwankung her möglich, aber nicht der Normalfall. Mittags schichten Anleger eher in Technologiewerte um, das kann defensiven Gesundheitswerten kurzfristig Schwung nehmen. Der verkürzte US-Handel heute bringt dünne Umsätze und damit viel Zufall.",
     "szenarien": {
-     "gut": "Der Ausbruch über das alte Hoch bestätigt sich und Privatanleger setzen auf eine Jahresendrally.",
-     "schlecht": "Gewinnmitnahmen nach dem besten Monat seit Mai 2025 oder neue Unsicherheit bei der FCC."
+     "gut": "Der Aufwärtstrend nach den Zahlen setzt sich ohne Gewinnmitnahmen fort und der Kurs markiert ein neues Hoch.",
+     "schlecht": "Hält die Rückkehr in Technologiewerte an, könnten defensive Gewinner wie Cardinal Health Gewinnmitnahmen sehen."
     },
     "treiber": [
-     "Ausbruch auf Vier-Jahres-Hoch",
-     "Entlastung im FCC-Streit"
+     "Angehobene Prognose",
+     "Verlängerung mit CVS Health"
     ],
     "risiken": [
-     "Wenig Abstand zum mittleren Analystenziel",
-     "Spielraum zur Hürde knapp"
+     "Übliche Drei-Tage-Bewegung nur knapp über der Hürde",
+     "Mittags fließt Geld zurück in Technologiewerte, defensive Konsumwerte hinken hinterher"
     ],
     "termine": [
      "27.11.2026: verkürzter US-Handel nach Thanksgiving (Schluss 19 Uhr MEZ)"
@@ -217,28 +230,22 @@
     "zuversicht": "niedrig",
     "quellen": [
      {
-      "t": "Disney Stock Just Closed at Its Highest Level Since April 2022",
-      "u": "https://app.bigdata.com/documents/A1BBCB56F78682A19AA266AC338AAB45?cnum=1",
-      "q": "AOL.com",
+      "t": "Can Cardinal Health (NYSE:CAH) Turn Strong Results Into Lasting Momentum?",
+      "u": "https://app.bigdata.com/documents/B9710C6787F07CD1D766DD6F20C64571?cnum=1&cnum=2&cnum=4&cnum=3",
+      "q": "Kalkine Media",
       "d": "2026-11-26"
      },
      {
-      "t": "DIS Stock Breaks Above $125 For First Time Since 2022",
-      "u": "https://app.bigdata.com/documents/03BB8B127DB3DBDDB2000E2BDEEE4898?cnum=1",
-      "q": "Yahoo Finance / Stocktwits",
-      "d": "2026-11-26"
+      "t": "Cardinal Health, Inc. (CAH) Up 6.7% — Buy the Breakout?",
+      "u": "https://weissratings.com/en/instant-news-alerts/cardinal-health-inc-cah-up-6-7-buy-the-breakout",
+      "q": "Weiss Ratings",
+      "d": "2026-11-05"
      },
      {
-      "t": "Walt Disney (DIS) Could Be 4% Undervalued On Its FCC Court Win",
-      "u": "https://app.bigdata.com/documents/CFF455E352876373E368D96249687DAF?cnum=1",
-      "q": "Simply Wall St",
+      "t": "WINNERS & LOSERS: Miners rally on metal prices; Rheinmetall inks deal",
+      "u": "https://app.bigdata.com/documents/B298EED6EB5ADDC380998E7E08D0DE15?cnum=1",
+      "q": "Alliance News",
       "d": "2026-11-27"
-     },
-     {
-      "t": "Why Should Walt Disney Stock Holders Watch One Rising Number?",
-      "u": "https://app.bigdata.com/documents/4CCCE43202E276516AFBBD1C6088F6C1?cnum=3",
-      "q": "Yahoo Finance",
-      "d": "2026-11-25"
      }
     ]
    }
@@ -259,7 +266,8 @@
     ],
     "risiken": [
      "Überhitzt nach 28 % in vier Wochen",
-     "Kostendruck bei Rohstoffen"
+     "Kostendruck bei Rohstoffen",
+     "Mittags fließt Geld zurück in Technologiewerte, defensive Konsumwerte hinken hinterher"
     ],
     "termine": [
      "27.11.2026: verkürzter US-Handel nach Thanksgiving (Schluss 19 Uhr MEZ)"
@@ -283,6 +291,12 @@
       "u": "https://app.bigdata.com/documents/5B562D50647494F9C1E7C5A6176AF6A0?cnum=1&cnum=3",
       "q": "Simply Wall St",
       "d": "2026-11-23"
+     },
+     {
+      "t": "WINNERS & LOSERS: Miners rally on metal prices; Rheinmetall inks deal",
+      "u": "https://app.bigdata.com/documents/B298EED6EB5ADDC380998E7E08D0DE15?cnum=1",
+      "q": "Alliance News",
+      "d": "2026-11-27"
      }
     ]
    },
@@ -344,7 +358,8 @@
     ],
     "risiken": [
      "Übliche Bewegung knapp unter der Hürde",
-     "Kurs weit über dem 20-Tage-Schnitt"
+     "Kurs weit über dem 20-Tage-Schnitt",
+     "Mittags fließt Geld zurück in Technologiewerte, defensive Konsumwerte hinken hinterher"
     ],
     "termine": [
      "27.11.2026: verkürzter US-Handel nach Thanksgiving (Schluss 19 Uhr MEZ)"
@@ -362,6 +377,12 @@
       "u": "https://weissratings.com/en/instant-news-alerts/cardinal-health-inc-cah-up-6-7-buy-the-breakout",
       "q": "Weiss Ratings",
       "d": "2026-11-05"
+     },
+     {
+      "t": "WINNERS & LOSERS: Miners rally on metal prices; Rheinmetall inks deal",
+      "u": "https://app.bigdata.com/documents/B298EED6EB5ADDC380998E7E08D0DE15?cnum=1",
+      "q": "Alliance News",
+      "d": "2026-11-27"
      }
     ]
    },
@@ -380,7 +401,8 @@
     ],
     "risiken": [
      "Hohe Bewertung",
-     "Übliche Bewegung unter der Hürde"
+     "Übliche Bewegung unter der Hürde",
+     "Mittags fließt Geld zurück in Technologiewerte, defensive Konsumwerte hinken hinterher"
     ],
     "termine": [
      "27.11.2026: verkürzter US-Handel nach Thanksgiving (Schluss 19 Uhr MEZ)",
@@ -405,6 +427,12 @@
       "u": "https://startupfortune.com/walmart-shares-slip-after-a-third-quarter-beat-and-a-higher-full-year-outlook/",
       "q": "Startup Fortune",
       "d": "2026-11-19"
+     },
+     {
+      "t": "WINNERS & LOSERS: Miners rally on metal prices; Rheinmetall inks deal",
+      "u": "https://app.bigdata.com/documents/B298EED6EB5ADDC380998E7E08D0DE15?cnum=1",
+      "q": "Alliance News",
+      "d": "2026-11-27"
      }
     ]
    },
@@ -689,24 +717,9 @@
    "grund": "Über drei Monate rund 15 % im Minus, der Monatsanstieg wirkt wie eine Erholung ohne klaren Auslöser."
   },
   {
-   "s": "CAH",
-   "h": 3,
-   "grund": "Übliche Drei-Tage-Bewegung von 2,6 % nur knapp über der Hürde; Disney hat mit dem Ausbruch den frischeren Auslöser."
-  },
-  {
    "s": "VLTO",
    "h": 7,
    "grund": "Übliche Sieben-Tage-Bewegung von 3,7 % unter der Hürde von 4,12 %, RSI 72; für 30 Tage gewählt."
-  },
-  {
-   "s": "LHA.DE",
-   "h": 7,
-   "grund": "Trendbruchsignal (fünf Tage im Minus) und ungelöster Pilotenstreit."
-  },
-  {
-   "s": "HEN3.DE",
-   "h": 7,
-   "grund": "Übliche Sieben-Tage-Bewegung von 3,2 % unter der Hürde, nach Abstufungen kein klarer Auslöser."
   },
   {
    "s": "AIZ",
@@ -734,14 +747,29 @@
    "grund": "Übernahmeangebot deckelt das Potenzial bis zum Abschluss."
   },
   {
-   "s": "HEN3.DE",
-   "h": 30,
-   "grund": "Kurs über dem durchschnittlichen Analystenziel, nach Abstufungen durch Kepler fehlt Rückenwind."
+   "s": "SAN.PA",
+   "h": 3,
+   "grund": "Mittags rund 2,4 % im Minus nach einer Abstufung, Anleger nehmen nach dem Übernahme-Sprung Gewinne mit."
   },
   {
-   "s": "GME",
+   "s": "PHIA.AS",
+   "h": 7,
+   "grund": "Übliche Sieben-Tage-Bewegung von 3,8 % unter der Hürde von 4,12 %, kein frischer Auslöser in den Meldungen."
+  },
+  {
+   "s": "COST",
+   "h": 7,
+   "grund": "Fünf Tage im Minus und über 2 % unter dem 10-Tage-Hoch, übliche Bewegung von 3,1 % deutlich unter der Hürde."
+  },
+  {
+   "s": "PHIA.AS",
    "h": 30,
-   "grund": "Quartalszahlen am 07.12.2026 mitten im Zeitraum und stark stimmungsgetriebener Kurs, Risiko zu hoch."
+   "grund": "Kein klarer neuer Auslöser gefunden, die nötigen 17,44 % liegen weit über der üblichen Monatsbewegung von 7,8 %."
+  },
+  {
+   "s": "FRE.DE",
+   "h": 30,
+   "grund": "Solider Trend, aber ohne frischen Auslöser; die nötigen 17,44 % liegen weit über der üblichen Monatsbewegung von 8,7 %."
   }
  ]
 }
