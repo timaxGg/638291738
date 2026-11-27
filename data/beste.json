@@ -1,134 +1,42 @@
 {
- "id": "b-2026-11-27-mittags",
+ "id": "b-2026-11-27-abends",
  "datum": "2026-11-27",
- "slot": "mittags",
- "erstellt": "2026-11-27T12:17:29Z",
- "markt": "Europas Börsen bauen am Mittag ihre Erholung aus: Der DAX liegt knapp 1 % im Plus, getragen von Technologie-, Bank- und Rohstoffwerten, während Nahrungsmittel- und andere defensive Werte zurückbleiben. Die US-Terminkontrakte deuten vor dem verkürzten Black-Friday-Handel (Schluss 19 Uhr MEZ) auf deutliche Gewinne hin, vor allem bei zuletzt stark gefallenen KI-Werten; Beobachter warnen aber, dass es bei dünnen Umsätzen auch nur eine kurze Gegenbewegung sein kann. Steigende Anleiherenditen, höhere Ölpreise vor dem OPEC-Treffen am Wochenende und die Wahl in Spanien am Sonntag halten die Unsicherheit hoch.",
+ "slot": "abends",
+ "erstellt": "2026-11-27T18:17:54Z",
+ "markt": "Europas Börsen haben eine schwankungsreiche Woche fest beendet: Der DAX schloss knapp 1 % höher und gewann auf Wochensicht gut 2,5 %, liegt aber weiter rund 5 % unter seinem Rekord vom 12. November. In den USA lief der verkürzte Black-Friday-Handel bei dünnen Umsätzen im Plus, getragen von einer Erholung der zuvor stark gefallenen Technologiewerte, die Anfangsgewinne bröckelten aber teilweise ab. Nächste Woche stehen das OPEC+-Treffen am Sonntag, die Wahl in Spanien, Cyber Monday und am 4. Dezember der US-Arbeitsmarktbericht vor dem Zinsentscheid der US-Notenbank an.",
  "marktQuellen": [
   {
-   "t": "Tech, Bank Sectors Buoy European Bourses Midday",
-   "u": "https://app.bigdata.com/documents/1A8212F0667BB79AA7E4433A1D0E7641?cnum=1",
-   "q": "MT Newswires",
-   "d": "2026-11-27"
-  },
-  {
-   "t": "LONDON MARKET MIDDAY: Europe moves higher as Wall Street set to surge",
-   "u": "https://app.bigdata.com/documents/8D2DAF07DB033AB4A6BA1E3EEA791CAC?cnum=1",
-   "q": "Alliance News",
-   "d": "2026-11-27"
-  },
-  {
-   "t": "US pre-open: Markets to rally as investors pick up battered tech stocks",
-   "u": "https://app.bigdata.com/documents/465455FFC79D7EF0AFCA02E812546DA5?cnum=1",
-   "q": "ShareCast",
-   "d": "2026-11-27"
-  },
-  {
-   "t": "European Midday Briefing: Sentiment Calms, Stocks Rally as Volatile Week Winds Down",
-   "u": "https://app.bigdata.com/documents/AE54671DF90CA5209FD5E68D8D3A32CC?cnum=1",
+   "t": "DAX Ends the Week 2.57% Higher at 25441.24",
+   "u": "https://app.bigdata.com/documents/35981F8790B717E481B00E34595252E0?cnum=1",
    "q": "Morningstar / Dow Jones",
+   "d": "2026-11-27"
+  },
+  {
+   "t": "U.S. Stock Market Today, November 27, 2026: Tech Rebounds in Shortened Black Friday Session",
+   "u": "https://app.bigdata.com/documents/6D1848990CD7D86F0604CEB59E0E7FFC?cnum=1",
+   "q": "Eurasia Business News",
+   "d": "2026-11-27"
+  },
+  {
+   "t": "Dow's 1,100 Point Drop And Comeback; S&P Puts Nvidia's Credit Ratings On Negative Watch",
+   "u": "https://app.bigdata.com/documents/654308E0E1D4F79FC3C358978DE67136?cnum=5",
+   "q": "Benzinga",
+   "d": "2026-11-27"
+  },
+  {
+   "t": "European stocks close the week with strong gains ahead of the elections in Spain",
+   "u": "https://app.bigdata.com/documents/01C6C51D192811C095CCFFEF71C9E6AC?cnum=1",
+   "q": "La Nación (Reuters)",
    "d": "2026-11-27"
   }
  ],
  "listen": {
   "3": [
    {
-    "s": "CLX",
-    "einschaetzung": "Schwung stark, aber kurzfristig heiß gelaufen",
-    "warum": "Clorox hat in vier Wochen rund 28 % zugelegt, steht am 10-Tage-Hoch und hat mit RSI 71 die Überhitzungsgrenze erreicht. Getragen wird der Lauf von der Umschichtung in defensive Konsumwerte, die auch Procter & Gamble auf ein 52-Wochen-Hoch gebracht hat. Laut Zacks ist Clorox mit einem Kurs-Gewinn-Verhältnis von 18,8 auf Sicht von zwölf Monaten günstiger bewertet als P&G. Seit gestern gibt es keine neue Firmenmeldung; die übliche Drei-Tage-Bewegung von 3,7 % liegt klar über der Hürde von 1,92 %.",
-    "ausblick": "Am wahrscheinlichsten ist eine Seitwärtsphase mit Schwankung in beide Richtungen, weil der Kurs weit über seinem 20-Tage-Schnitt liegt und das Einstiegssignal einen Rücksetzer nahelegt. Die nötigen 1,92 % sind von der Schwankung her erreichbar, aber eher dann, wenn die Flucht in defensive Werte anhält. Der verkürzte US-Handel heute bringt wenig Umsatz und damit Zufallsbewegungen.",
-    "szenarien": {
-     "gut": "Die Anleger bleiben bei defensiven Konsumwerten und der Kurs bricht über das jüngste Hoch aus.",
-     "schlecht": "Erholen sich Technologiewerte weiter, könnte Geld aus den defensiven Gewinnern abfließen und Gewinnmitnahmen auslösen."
-    },
-    "treiber": [
-     "Umschichtung in defensive Konsumgüter",
-     "Bewertung unter dem großen Konkurrenten P&G"
-    ],
-    "risiken": [
-     "RSI 71, Kurs weit über dem 20-Tage-Schnitt",
-     "Steigende Rohstoff- und Logistikkosten in der Branche",
-     "Mittags fließt Geld zurück in Technologiewerte, defensive Konsumwerte hinken hinterher"
-    ],
-    "termine": [
-     "27.11.2026: verkürzter US-Handel nach Thanksgiving (Schluss 19 Uhr MEZ)"
-    ],
-    "zuversicht": "mittel",
-    "quellen": [
-     {
-      "t": "3 More Stocks to Buy After Earnings",
-      "u": "https://app.bigdata.com/documents/5A8B57C00381FF9F97C16C4E9DCE1F7F?cnum=2",
-      "q": "Bigdata.com",
-      "d": "2026-11-24"
-     },
-     {
-      "t": "Procter & Gamble Hits 52-Week High: Should You Buy Now or Wait?",
-      "u": "https://app.bigdata.com/documents/7B43BE765A07FF2035A691C27FFA1B63?cnum=1&cnum=6",
-      "q": "Nasdaq / Zacks",
-      "d": "2026-11-26"
-     },
-     {
-      "t": "Clorox (CLX) Stock Looks Fairly Valued After A 28% Slide",
-      "u": "https://app.bigdata.com/documents/5B562D50647494F9C1E7C5A6176AF6A0?cnum=1&cnum=3",
-      "q": "Simply Wall St",
-      "d": "2026-11-23"
-     },
-     {
-      "t": "WINNERS & LOSERS: Miners rally on metal prices; Rheinmetall inks deal",
-      "u": "https://app.bigdata.com/documents/B298EED6EB5ADDC380998E7E08D0DE15?cnum=1",
-      "q": "Alliance News",
-      "d": "2026-11-27"
-     }
-    ]
-   },
-   {
-    "s": "TSCO",
-    "einschaetzung": "Trend intakt, aber Auslöser dünn",
-    "warum": "Tractor Supply liegt rund 28 % über dem Stand vor vier Wochen, schloss am 10-Tage-Hoch und hat einen RSI von 70. Laut Quiver stützt frische Analystenunterstützung den Kurs, eine gewichtige Firmenmeldung gab es seither nicht. Mit Black Friday beginnt das Weihnachtsgeschäft, das für Händler allgemein im Fokus steht. Die übliche Drei-Tage-Bewegung von 3,9 % liegt deutlich über der Hürde.",
-    "ausblick": "Der Aufwärtstrend kann sich fortsetzen, ein eigener Auslöser im Zeitraum fehlt aber. Die Bewegung dürfte eher vom allgemeinen Umfeld für US-Händler am Black-Friday-Wochenende abhängen. Die Hürde von 1,92 % ist bei der üblichen Schwankung realistisch, ein Rücksetzer nach dem Lauf aber ebenso.",
-    "szenarien": {
-     "gut": "Gute Signale vom Black-Friday-Wochenende stützen Händler und der Trend läuft weiter.",
-     "schlecht": "Schwache Kaufzahlen zum Start des Weihnachtsgeschäfts oder Gewinnmitnahmen nach 28 % Plus."
-    },
-    "treiber": [
-     "Analystenunterstützung",
-     "Start des Weihnachtsgeschäfts"
-    ],
-    "risiken": [
-     "Kein eigener Termin im Zeitraum",
-     "Kurs kurzfristig überdehnt"
-    ],
-    "termine": [
-     "27.11.2026: verkürzter US-Handel nach Thanksgiving (Schluss 19 Uhr MEZ)",
-     "27.–30.11.2026: Black-Friday- und Cyber-Monday-Wochenende"
-    ],
-    "zuversicht": "mittel",
-    "quellen": [
-     {
-      "t": "Tractor Supply gains as investors weigh fresh analyst support and recent growth initiatives",
-      "u": "https://www.quiverquant.com/news/Tractor+Supply+gains+as+investors+weigh+fresh+analyst+support+and+recent+growth+initiatives",
-      "q": "Quiver Quantitative",
-      "d": "2026-11-24"
-     },
-     {
-      "t": "Tractor Supply Kicks Off Holiday Giving With 4-H Paper Clover",
-      "u": "https://app.bigdata.com/documents/A9839BA8BDDCA387D3CDCB7F51B054F3?cnum=1&cnum=5",
-      "q": "Bigdata.com",
-      "d": "2026-11-24"
-     },
-     {
-      "t": "Retail Stocks to Watch as the Battle for $1 Trillion in Holiday Sales Intensifies",
-      "u": "https://app.bigdata.com/documents/ADDE52F18786D4CE327A82057AC655B4?cnum=2",
-      "q": "Business Insider",
-      "d": "2026-11-27"
-     }
-    ]
-   },
-   {
     "s": "HEI.DE",
     "einschaetzung": "Trend intakt, Analysten uneinig",
     "warum": "Heidelberg Materials hat in vier Wochen rund 26 % und in fünf Tagen gut 5 % zugelegt und steht am 10-Tage-Hoch, RSI 70. JPMorgan führt die Aktie als Top-Pick der Branche und hat das Kursziel auf 230 Euro angehoben. AlphaValue/Baader hat dagegen die Gewinnschätzungen wegen höherer Abschreibungen und Finanzierungskosten gesenkt und die Einstufung auf Add mit Ziel 211 Euro zurückgenommen. Der DAX hat sich gestern um gut 2 % erholt und soll heute höher starten, was zyklischen Werten hilft.",
-    "ausblick": "Mit dem freundlichen Marktstart ist ein weiterer Anstieg möglich, die Aktie ist nach dem Lauf aber anfällig für Gewinnmitnahmen. Die übliche Drei-Tage-Bewegung von 3,5 % liegt über der Hürde von 1,92 %, das Ziel ist also nicht unrealistisch, aber keineswegs sicher.",
+    "ausblick": "Der DAX hat die Woche mit gut 2,5 % Plus beendet, das stützt zyklische Werte wie Heidelberg Materials. Mit RSI 74 und fünf Tagen Plus von 7,8 % ist die Aktie aber heiß gelaufen; die übliche Drei-Tage-Bewegung von 3,5 % liegt über der Hürde von 1,92 %, ein Rücksetzer ist jedoch ebenso gut möglich.",
     "szenarien": {
      "gut": "Die DAX-Erholung hält an und Bau- sowie Rohstoffwerte bleiben gefragt.",
      "schlecht": "Ein Rückfall des Gesamtmarkts oder weitere Abstufungen nach dem starken Lauf."
@@ -141,7 +49,9 @@
      "Gesenkte Gewinnschätzungen bei AlphaValue",
      "Kurz vor Überhitzung"
     ],
-    "termine": [],
+    "termine": [
+     "30.11.2026: Monatswechsel, Start in den Dezember"
+    ],
     "zuversicht": "mittel",
     "quellen": [
      {
@@ -165,112 +75,24 @@
     ]
    },
    {
-    "s": "CMG",
-    "einschaetzung": "Erholung läuft, Branchenrückenwind",
-    "warum": "Chipotle hat in vier Wochen rund 30 % zugelegt und steht am 10-Tage-Hoch, mit RSI 65 aber noch nicht überhitzt. Über drei Monate liegt die Aktie erst wieder etwa auf altem Niveau, es ist also eher eine Erholung. Die Bank of America zählt große Fast-Casual-Ketten zu ihren Favoriten, und die Kette plant für 2027 so viele Neueröffnungen wie nie zuvor in einem Jahr. Nach der Schließung an Thanksgiving öffnen die Filialen heute mit einer Lieferaktion über das Cyber-Wochenende.",
-    "ausblick": "Der Schwung kann weiterlaufen, weil die Aktie noch nicht überhitzt ist und die übliche Drei-Tage-Bewegung von 4,6 % die höchste der Auswahl ist. Genau diese hohe Schwankung bedeutet aber, dass auch ein deutlicher Rücksetzer jederzeit möglich ist.",
-    "szenarien": {
-     "gut": "Die Erholung setzt sich fort und die Branche bleibt bei Analysten beliebt.",
-     "schlecht": "Zweifel am Verbraucher oder an den Margen bremsen die Erholung, die hohe Schwankung wirkt dann nach unten."
-    },
-    "treiber": [
-     "Analysten-Favorit in der Branche",
-     "Expansionspläne für 2027"
-    ],
-    "risiken": [
-     "Hohe Schwankung",
-     "Erholung ohne neuen fundamentalen Auslöser"
-    ],
-    "termine": [
-     "27.11.2026: verkürzter US-Handel nach Thanksgiving (Schluss 19 Uhr MEZ)",
-     "27.–30.11.2026: Lieferaktion zum Cyber-Wochenende"
-    ],
-    "zuversicht": "mittel",
-    "quellen": [
-     {
-      "t": "BofA names its top U.S. restaurant stock picks",
-      "u": "https://finnhub.io/api/news?id=5ccf7dc4aa93ce1d8880635dc1d7304883abf30d24550bc4e270b0c6fb3c17f5",
-      "q": "Yahoo",
-      "d": "2026-11-24"
-     },
-     {
-      "t": "Is Chipotle Open On Thanksgiving? Restaurants open and closed on Thanksgiving Day 2026",
-      "u": "https://app.bigdata.com/documents/9154C0A311BD43B0B853F44849082DFB?cnum=1",
-      "q": "The Sunday Guardian",
-      "d": "2026-11-26"
-     },
-     {
-      "t": "Chain Restaurants You're Going To See Everywhere In 2027",
-      "u": "https://app.bigdata.com/documents/B176E6CDEC5D89C9ED79A1B852D3E12E?cnum=2&cnum=4",
-      "q": "AOL.com",
-      "d": "2026-11-26"
-     }
-    ]
-   },
-   {
-    "s": "CAH",
-    "einschaetzung": "Ruhiger Trendwert, Hürde nur knapp über üblicher Bewegung",
-    "warum": "Cardinal Health steigt seit den starken Zahlen Anfang November mit angehobener Jahresprognose, rund 16 % in vier Wochen und 18 % in drei Monaten, RSI 69. Laut Kalkine wurde zudem die Verlängerung des Vertriebsvertrags mit CVS Health per Absichtserklärung vereinbart. Disney ist mittags nicht mehr in der Drei-Tage-Kandidatenliste, deshalb rückt Cardinal Health nach. Die übliche Drei-Tage-Bewegung von 2,6 % liegt nur knapp über der Hürde von 1,92 %.",
-    "ausblick": "Am wahrscheinlichsten ist ein ruhiger Verlauf nahe dem jüngsten Hoch, die nötigen 1,92 % sind von der Schwankung her möglich, aber nicht der Normalfall. Mittags schichten Anleger eher in Technologiewerte um, das kann defensiven Gesundheitswerten kurzfristig Schwung nehmen. Der verkürzte US-Handel heute bringt dünne Umsätze und damit viel Zufall.",
-    "szenarien": {
-     "gut": "Der Aufwärtstrend nach den Zahlen setzt sich ohne Gewinnmitnahmen fort und der Kurs markiert ein neues Hoch.",
-     "schlecht": "Hält die Rückkehr in Technologiewerte an, könnten defensive Gewinner wie Cardinal Health Gewinnmitnahmen sehen."
-    },
-    "treiber": [
-     "Angehobene Prognose",
-     "Verlängerung mit CVS Health"
-    ],
-    "risiken": [
-     "Übliche Drei-Tage-Bewegung nur knapp über der Hürde",
-     "Mittags fließt Geld zurück in Technologiewerte, defensive Konsumwerte hinken hinterher"
-    ],
-    "termine": [
-     "27.11.2026: verkürzter US-Handel nach Thanksgiving (Schluss 19 Uhr MEZ)"
-    ],
-    "zuversicht": "niedrig",
-    "quellen": [
-     {
-      "t": "Can Cardinal Health (NYSE:CAH) Turn Strong Results Into Lasting Momentum?",
-      "u": "https://app.bigdata.com/documents/B9710C6787F07CD1D766DD6F20C64571?cnum=1&cnum=2&cnum=4&cnum=3",
-      "q": "Kalkine Media",
-      "d": "2026-11-26"
-     },
-     {
-      "t": "Cardinal Health, Inc. (CAH) Up 6.7% — Buy the Breakout?",
-      "u": "https://weissratings.com/en/instant-news-alerts/cardinal-health-inc-cah-up-6-7-buy-the-breakout",
-      "q": "Weiss Ratings",
-      "d": "2026-11-05"
-     },
-     {
-      "t": "WINNERS & LOSERS: Miners rally on metal prices; Rheinmetall inks deal",
-      "u": "https://app.bigdata.com/documents/B298EED6EB5ADDC380998E7E08D0DE15?cnum=1",
-      "q": "Alliance News",
-      "d": "2026-11-27"
-     }
-    ]
-   }
-  ],
-  "7": [
-   {
     "s": "CLX",
-    "einschaetzung": "Defensiver Gewinner, Pause möglich",
-    "warum": "Clorox hat in vier Wochen rund 28 % zugelegt und ist mit RSI 71 an der Überhitzungsgrenze. Treiber sind die Flucht in defensive Konsumwerte und Stimmen wie Morningstar, die die Aktie trotz des Laufs für unterbewertet halten; laut Zacks ist sie günstiger bewertet als P&G. Dagegen stehen hohe Kosten für Rohstoffe und Logistik in der Branche. Die übliche Sieben-Tage-Bewegung von 5,7 % liegt klar über der Hürde von 4,12 %.",
-    "ausblick": "Über sieben Tage ist ein weiterer Anstieg möglich, die Hürde von 4,12 % verlangt aber, dass der Trend ohne größere Verschnaufpause weiterläuft. Wahrscheinlicher ist ein Wechsel aus Rücksetzer und erneutem Anlauf, sodass das Ziel eher knapp erreicht oder verfehlt wird.",
+    "einschaetzung": "Schwung stark, aber kurzfristig heiß gelaufen",
+    "warum": "Clorox hat in vier Wochen rund 28 % zugelegt, steht am 10-Tage-Hoch und hat mit RSI 71 die Überhitzungsgrenze erreicht. Getragen wird der Lauf von der Umschichtung in defensive Konsumwerte, die auch Procter & Gamble auf ein 52-Wochen-Hoch gebracht hat. Laut Zacks ist Clorox mit einem Kurs-Gewinn-Verhältnis von 18,8 auf Sicht von zwölf Monaten günstiger bewertet als P&G. Seit gestern gibt es keine neue Firmenmeldung; die übliche Drei-Tage-Bewegung von 3,7 % liegt klar über der Hürde von 1,92 %.",
+    "ausblick": "Am wahrscheinlichsten ist eine Seitwärtsphase mit Ausschlägen in beide Richtungen, weil der Kurs weit über seinem 20-Tage-Schnitt liegt. Heute floss Geld eher in Technologie- und Rohstoffwerte, defensive Konsumwerte hinkten in Europa hinterher. Die nötigen 1,92 % sind bei einer üblichen Bewegung von 3,7 % erreichbar, aber nicht wahrscheinlicher als ein Rücksetzer.",
     "szenarien": {
-     "gut": "Defensive Konsumwerte bleiben gefragt und die Aktie setzt ihre Erholung vom Jahrestief fort.",
-     "schlecht": "Eine Rückkehr der Anleger zu Technologiewerten löst Gewinnmitnahmen bei defensiven Gewinnern aus."
+     "gut": "Die Anleger bleiben bei defensiven Konsumwerten und der Kurs bricht über das jüngste Hoch aus.",
+     "schlecht": "Erholen sich Technologiewerte weiter, könnte Geld aus den defensiven Gewinnern abfließen und Gewinnmitnahmen auslösen."
     },
     "treiber": [
-     "Umschichtung in defensive Werte",
-     "Bewertung im Branchenvergleich moderat"
+     "Umschichtung in defensive Konsumgüter",
+     "Bewertung unter dem großen Konkurrenten P&G"
     ],
     "risiken": [
-     "Überhitzt nach 28 % in vier Wochen",
-     "Kostendruck bei Rohstoffen",
-     "Mittags fließt Geld zurück in Technologiewerte, defensive Konsumwerte hinken hinterher"
+     "RSI 71, Kurs weit über dem 20-Tage-Schnitt",
+     "Steigende Rohstoff- und Logistikkosten in der Branche"
     ],
     "termine": [
-     "27.11.2026: verkürzter US-Handel nach Thanksgiving (Schluss 19 Uhr MEZ)"
+     "30.11.2026: Cyber Monday in den USA"
     ],
     "zuversicht": "mittel",
     "quellen": [
@@ -301,88 +123,274 @@
     ]
    },
    {
-    "s": "TSCO",
-    "einschaetzung": "Schwung vorhanden, Hürde erreichbar",
-    "warum": "Tractor Supply liegt rund 28 % über dem Stand vor vier Wochen und 16 % über dem vor drei Monaten, Trend aufwärts, RSI 70. Getragen wird der Anstieg laut Quiver von frischer Analystenunterstützung. Im Zeitraum laufen Black Friday und Cyber Monday, die Branchenbeobachter als wichtigen Gradmesser für den Handel sehen. Die übliche Sieben-Tage-Bewegung von 5,9 % liegt klar über der Hürde von 4,12 %.",
-    "ausblick": "Die Schwankungsbreite macht die Hürde erreichbar, wenn der Trend hält. Ein eigener Termin fehlt, daher hängt viel an der allgemeinen Stimmung für Händler nach dem Black-Friday-Wochenende.",
+    "s": "DIS",
+    "einschaetzung": "Ausbruch mit Rückenwind, aber teuer",
+    "warum": "Disney hat ein Vier-Jahres-Hoch erreicht, liegt rund 15 % über dem Stand vor vier Wochen und 18 % über dem vor drei Monaten, RSI 69. Treiber sind die starken Quartalszahlen, eine um 33 % erhöhte Dividende, mehr Aktienrückkäufe und die gerichtliche Entlastung im Streit mit der FCC. Im Dezember soll Hulu vollständig in Disney+ aufgehen. Die übliche Sieben-Tage-Bewegung von 4 % liegt knapp unter der Hürde von 4,12 %.",
+    "ausblick": "Der Ausbruch auf ein Mehrjahreshoch kann kurzfristig weitere Käufer anziehen, die Aktie steht am 10-Tage-Hoch mit RSI 71. Die übliche Drei-Tage-Bewegung von 2,6 % liegt nur knapp über der Hürde von 1,92 %, daher ist das Ziel eher knapp erreichbar.",
     "szenarien": {
-     "gut": "Gute Branchendaten aus dem Weihnachtsgeschäft und anhaltende Analystenunterstützung.",
-     "schlecht": "Enttäuschende Kaufzahlen oder eine Konsolidierung nach dem starken Monat."
+     "gut": "Der Ausbruch hält und neue Analystenziele ziehen nach.",
+     "schlecht": "Gewinnmitnahmen nach dem besten Monat seit Mai 2025."
     },
     "treiber": [
-     "Trendstärke",
-     "Weihnachtsgeschäft"
+     "Vier-Jahres-Hoch",
+     "FCC-Entlastung, höhere Dividende"
     ],
     "risiken": [
-     "Kein eigener Auslöser",
-     "RSI 70"
+     "Wenig Abstand zum Analystenziel",
+     "Hürde knapp über der üblichen Bewegung"
     ],
     "termine": [
-     "27.11.2026: verkürzter US-Handel nach Thanksgiving (Schluss 19 Uhr MEZ)",
-     "27.–30.11.2026: Black-Friday- und Cyber-Monday-Wochenende"
-    ],
-    "zuversicht": "mittel",
-    "quellen": [
-     {
-      "t": "Tractor Supply gains as investors weigh fresh analyst support and recent growth initiatives",
-      "u": "https://www.quiverquant.com/news/Tractor+Supply+gains+as+investors+weigh+fresh+analyst+support+and+recent+growth+initiatives",
-      "q": "Quiver Quantitative",
-      "d": "2026-11-24"
-     },
-     {
-      "t": "Tractor Supply Kicks Off Holiday Giving With 4-H Paper Clover",
-      "u": "https://app.bigdata.com/documents/A9839BA8BDDCA387D3CDCB7F51B054F3?cnum=1&cnum=5",
-      "q": "Bigdata.com",
-      "d": "2026-11-24"
-     },
-     {
-      "t": "Retail Stocks to Watch as the Battle for $1 Trillion in Holiday Sales Intensifies",
-      "u": "https://app.bigdata.com/documents/ADDE52F18786D4CE327A82057AC655B4?cnum=2",
-      "q": "Business Insider",
-      "d": "2026-11-27"
-     }
-    ]
-   },
-   {
-    "s": "CAH",
-    "einschaetzung": "Defensiver Trendwert, Ziel ambitioniert",
-    "warum": "Cardinal Health steigt seit den starken Zahlen Anfang November mit angehobener Jahresprognose, rund 16 % in vier Wochen und 18 % in drei Monaten, RSI 69. Laut Kalkine wurde zudem die Verlängerung des Vertriebsvertrags mit CVS Health bis Mitte des nächsten Jahrzehnts per Absichtserklärung vereinbart. Gesundheitswerte gelten im aktuellen Umfeld als sicherer Hafen. Die übliche Sieben-Tage-Bewegung von 4 % liegt knapp unter der Hürde von 4,12 %.",
-    "ausblick": "Der Trend ist intakt, aber die nötigen 4,12 % entsprechen etwa der üblichen Bewegung, das Ziel ist also nur mit etwas Glück zu schaffen. Wahrscheinlich ist ein ruhiger, leicht steigender Verlauf ohne große Sprünge.",
-    "szenarien": {
-     "gut": "Die Umschichtung in Gesundheitswerte hält an und der Kurs steigt stetig weiter.",
-     "schlecht": "Eine Rotation zurück in Wachstumswerte nimmt defensiven Werten den Schwung."
-    },
-    "treiber": [
-     "Angehobene Prognose",
-     "Verlängerung mit CVS Health"
-    ],
-    "risiken": [
-     "Übliche Bewegung knapp unter der Hürde",
-     "Kurs weit über dem 20-Tage-Schnitt",
-     "Mittags fließt Geld zurück in Technologiewerte, defensive Konsumwerte hinken hinterher"
-    ],
-    "termine": [
-     "27.11.2026: verkürzter US-Handel nach Thanksgiving (Schluss 19 Uhr MEZ)"
+     "Dezember 2026: geplante Integration von Hulu in Disney+"
     ],
     "zuversicht": "niedrig",
     "quellen": [
      {
-      "t": "Can Cardinal Health (NYSE:CAH) Turn Strong Results Into Lasting Momentum?",
-      "u": "https://app.bigdata.com/documents/B9710C6787F07CD1D766DD6F20C64571?cnum=1&cnum=2&cnum=4&cnum=3",
-      "q": "Kalkine Media",
+      "t": "Disney Stock Just Closed at Its Highest Level Since April 2022",
+      "u": "https://app.bigdata.com/documents/A1BBCB56F78682A19AA266AC338AAB45?cnum=1",
+      "q": "AOL.com",
       "d": "2026-11-26"
      },
      {
-      "t": "Cardinal Health, Inc. (CAH) Up 6.7% — Buy the Breakout?",
-      "u": "https://weissratings.com/en/instant-news-alerts/cardinal-health-inc-cah-up-6-7-buy-the-breakout",
-      "q": "Weiss Ratings",
-      "d": "2026-11-05"
+      "t": "DIS Stock Breaks Above $125 For First Time Since 2022",
+      "u": "https://app.bigdata.com/documents/03BB8B127DB3DBDDB2000E2BDEEE4898?cnum=1",
+      "q": "Yahoo Finance / Stocktwits",
+      "d": "2026-11-26"
+     },
+     {
+      "t": "Walt Disney (DIS) Could Be 4% Undervalued On Its FCC Court Win",
+      "u": "https://app.bigdata.com/documents/CFF455E352876373E368D96249687DAF?cnum=1",
+      "q": "Simply Wall St",
+      "d": "2026-11-27"
+     },
+     {
+      "t": "Why Should Walt Disney Stock Holders Watch One Rising Number?",
+      "u": "https://app.bigdata.com/documents/4CCCE43202E276516AFBBD1C6088F6C1?cnum=3",
+      "q": "Yahoo Finance",
+      "d": "2026-11-25"
+     }
+    ]
+   },
+   {
+    "s": "CHTR",
+    "einschaetzung": "Starke Erholung, aber sehr schwankungsanfällig",
+    "warum": "Charter hat in vier Wochen rund 41 % und in fünf Tagen gut 15 % zugelegt, liegt über drei Monate aber noch leicht im Minus (RSI 71, Trend aufwärts). Auslöser ist der Plan, nach der Übernahme von Cox rund 2 Mrd. US-Dollar jährliche Kosten einzusparen und mehr als 1 Mrd. US-Dollar Synergien zu heben; laut Berichten sprang die Aktie an einem Tag um über 8 %. Die Grundprobleme bleiben: Im dritten Quartal sanken Kundenzahlen und der vergleichbare Umsatz, und die Analysten stehen mehrheitlich auf Halten. Für drei Tage spricht vor allem der Schwung, mit einer üblichen Bewegung von 6,5 % deutlich über der Hürde.",
+    "ausblick": "Nach einem so steilen Lauf sind sowohl weitere Anschlusskäufe als auch heftige Gewinnmitnahmen möglich. Die nötigen 1,92 % sind von der Schwankung her leicht erreichbar, das gilt aber genauso für einen Rückschlag in dieser Größenordnung.",
+    "szenarien": {
+     "gut": "Die Stimmung bleibt positiv und Anleger setzen weiter auf das Sparprogramm und die Cox-Integration.",
+     "schlecht": "Anleger nehmen nach dem Sprung Gewinne mit oder neue Zweifel an den Breitband-Kundenzahlen kommen auf."
+    },
+    "treiber": [
+     "Sparprogramm von rund 2 Mrd. US-Dollar",
+     "Cox-Synergien",
+     "Stark gedrehte Stimmung bei Privatanlegern"
+    ],
+    "risiken": [
+     "Kundenverluste im Breitbandgeschäft",
+     "Analysten mehrheitlich auf Halten, JPMorgan Neutral mit Ziel 150 US-Dollar",
+     "Sehr steiler Anstieg, hohe Rückschlaggefahr"
+    ],
+    "termine": [],
+    "zuversicht": "niedrig",
+    "quellen": [
+     {
+      "t": "Charter Communications (CHTR) Jumps After Cox Deal, Is It Still Cheap?",
+      "u": "https://app.bigdata.com/documents/6C42B1E6D9260607F1B815729596B378?cnum=2&cnum=1",
+      "q": "Yahoo Finance",
+      "d": "2026-11-26"
+     },
+     {
+      "t": "Charter Communications Stock: Analyst Estimates & Ratings",
+      "u": "https://app.bigdata.com/documents/932B44E5A9690281C20EC72A86E2707D?cnum=2",
+      "q": "Barchart via Schramm Feedlot",
+      "d": "2026-11-24"
+     },
+     {
+      "t": "Charter Communications Rises as Investors Weigh Cost Cuts, Cox Integration, and Recent Analyst Support",
+      "u": "https://app.bigdata.com/documents/0C54672B12BABDEFAC576DAF10C50C47?cnum=1",
+      "q": "Quiver Quantitative",
+      "d": "2026-11-25"
+     }
+    ]
+   },
+   {
+    "s": "APP",
+    "einschaetzung": "Hohe Chance, hohes Risiko, Übernahmegerüchte offen",
+    "warum": "AppLovin hat in vier Wochen rund 55 % zugelegt, liegt aber knapp 5 % unter dem 10-Tage-Hoch (RSI 62, Trend aufwärts). Nach starken Quartalszahlen stieg die Aktie Anfang November kräftig, verlor dann aber in dieser Woche zeitweise deutlich, nachdem Reuters Gespräche über eine mögliche Übernahme des Werbetechnik-Anbieters Criteo meldete. Mit der heutigen Erholung von Technologiewerten kann der Wert wieder Rückenwind bekommen. Die übliche Drei-Tage-Bewegung von 9,1 % liegt weit über der Hürde, die Richtung ist aber offen.",
+    "ausblick": "Erholen sich Technologiewerte weiter, ist ein Anstieg über die Hürde gut möglich. Jede neue Meldung zu Criteo kann den Kurs aber stark in beide Richtungen bewegen, daher ist die Unsicherheit sehr hoch.",
+    "szenarien": {
+     "gut": "Die Tech-Erholung hält an und Anleger sehen eine mögliche Criteo-Übernahme als Wachstumschance.",
+     "schlecht": "Ein teurer Zukauf wird bestätigt oder Technologiewerte geraten erneut unter Druck."
+    },
+    "treiber": [
+     "Erholung der Technologiewerte",
+     "Starkes Wachstum im letzten Quartal"
+    ],
+    "risiken": [
+     "Ungewisse Criteo-Übernahme",
+     "Sehr hohe Schwankung",
+     "Rücksetzer vom 10-Tage-Hoch"
+    ],
+    "termine": [],
+    "zuversicht": "niedrig",
+    "quellen": [
+     {
+      "t": "AppLovin Jumped 32% in a Brutal Month-Then Dropped 15% This Week",
+      "u": "https://app.bigdata.com/documents/941DE9AC43E360B8D0D72765D2C6400B?cnum=1",
+      "q": "Yahoo Finance (Investing.com)",
+      "d": "2026-11-25"
+     },
+     {
+      "t": "AppLovin Falls as AI-Sector Weakness and Deal Speculation Pressure Shares",
+      "u": "https://app.bigdata.com/documents/9DB7DF68CCAE840C335EB381D79BA18C?cnum=1",
+      "q": "Quiver Quantitative",
+      "d": "2026-11-25"
+     },
+     {
+      "t": "AppLovin (APP) Could Be 25% Undervalued As Criteo Deal Talks Stir Debate",
+      "u": "https://app.bigdata.com/documents/2BC147996049E3E6F826550DB36474AC?cnum=1&cnum=2",
+      "q": "Yahoo Finance",
+      "d": "2026-11-25"
+     }
+    ]
+   }
+  ],
+  "7": [
+   {
+    "s": "CLX",
+    "einschaetzung": "Schwung stark, aber kurzfristig heiß gelaufen",
+    "warum": "Clorox hat in vier Wochen rund 28 % zugelegt, steht am 10-Tage-Hoch und hat mit RSI 71 die Überhitzungsgrenze erreicht. Getragen wird der Lauf von der Umschichtung in defensive Konsumwerte, die auch Procter & Gamble auf ein 52-Wochen-Hoch gebracht hat. Laut Zacks ist Clorox mit einem Kurs-Gewinn-Verhältnis von 18,8 auf Sicht von zwölf Monaten günstiger bewertet als P&G. Seit gestern gibt es keine neue Firmenmeldung; die übliche Drei-Tage-Bewegung von 3,7 % liegt klar über der Hürde von 1,92 %.",
+    "ausblick": "Über sieben Tage ist eine Verschnaufpause nach dem Lauf wahrscheinlicher als ein gerader Anstieg. Die übliche Bewegung von 5,7 % liegt über der Hürde von 4,12 %, dafür müsste aber die Nachfrage nach defensiven Konsumwerten anhalten, obwohl Technologiewerte sich gerade erholen.",
+    "szenarien": {
+     "gut": "Die Anleger bleiben bei defensiven Konsumwerten und der Kurs bricht über das jüngste Hoch aus.",
+     "schlecht": "Erholen sich Technologiewerte weiter, könnte Geld aus den defensiven Gewinnern abfließen und Gewinnmitnahmen auslösen."
+    },
+    "treiber": [
+     "Umschichtung in defensive Konsumgüter",
+     "Bewertung unter dem großen Konkurrenten P&G"
+    ],
+    "risiken": [
+     "RSI 71, Kurs weit über dem 20-Tage-Schnitt",
+     "Steigende Rohstoff- und Logistikkosten in der Branche"
+    ],
+    "termine": [
+     "30.11.2026: Cyber Monday in den USA",
+     "04.12.2026: US-Arbeitsmarktbericht"
+    ],
+    "zuversicht": "niedrig",
+    "quellen": [
+     {
+      "t": "3 More Stocks to Buy After Earnings",
+      "u": "https://app.bigdata.com/documents/5A8B57C00381FF9F97C16C4E9DCE1F7F?cnum=2",
+      "q": "Bigdata.com",
+      "d": "2026-11-24"
+     },
+     {
+      "t": "Procter & Gamble Hits 52-Week High: Should You Buy Now or Wait?",
+      "u": "https://app.bigdata.com/documents/7B43BE765A07FF2035A691C27FFA1B63?cnum=1&cnum=6",
+      "q": "Nasdaq / Zacks",
+      "d": "2026-11-26"
+     },
+     {
+      "t": "Clorox (CLX) Stock Looks Fairly Valued After A 28% Slide",
+      "u": "https://app.bigdata.com/documents/5B562D50647494F9C1E7C5A6176AF6A0?cnum=1&cnum=3",
+      "q": "Simply Wall St",
+      "d": "2026-11-23"
      },
      {
       "t": "WINNERS & LOSERS: Miners rally on metal prices; Rheinmetall inks deal",
       "u": "https://app.bigdata.com/documents/B298EED6EB5ADDC380998E7E08D0DE15?cnum=1",
       "q": "Alliance News",
       "d": "2026-11-27"
+     }
+    ]
+   },
+   {
+    "s": "HEI.DE",
+    "einschaetzung": "Trend intakt, Analysten uneinig",
+    "warum": "Heidelberg Materials hat in vier Wochen rund 26 % und in fünf Tagen gut 5 % zugelegt und steht am 10-Tage-Hoch, RSI 70. JPMorgan führt die Aktie als Top-Pick der Branche und hat das Kursziel auf 230 Euro angehoben. AlphaValue/Baader hat dagegen die Gewinnschätzungen wegen höherer Abschreibungen und Finanzierungskosten gesenkt und die Einstufung auf Add mit Ziel 211 Euro zurückgenommen. Der DAX hat sich gestern um gut 2 % erholt und soll heute höher starten, was zyklischen Werten hilft.",
+    "ausblick": "Die DAX-Erholung und das Lob von JPMorgan sprechen für einen intakten Trend. Die übliche Sieben-Tage-Bewegung von 5,4 % liegt über der Hürde von 4,12 %; nach dem starken Lauf ist aber auch eine Pause wahrscheinlich, das Ziel ist daher möglich, aber unsicher.",
+    "szenarien": {
+     "gut": "Die DAX-Erholung hält an und Bau- sowie Rohstoffwerte bleiben gefragt.",
+     "schlecht": "Ein Rückfall des Gesamtmarkts oder weitere Abstufungen nach dem starken Lauf."
+    },
+    "treiber": [
+     "Top-Pick bei JPMorgan",
+     "Erholung des DAX und zyklischer Werte"
+    ],
+    "risiken": [
+     "Gesenkte Gewinnschätzungen bei AlphaValue",
+     "Kurz vor Überhitzung"
+    ],
+    "termine": [
+     "04.12.2026: US-Arbeitsmarktbericht"
+    ],
+    "zuversicht": "mittel",
+    "quellen": [
+     {
+      "t": "Heidelberg Materials Aktie Prognose: JPMorgan hebt das Kursziel auf 230 Euro",
+      "u": "https://aktiencheck.de/artikel/heidelberg-materials-aktie-prognose-jpmorgan-hebt-das-kursziel-auf-230-euro-und",
+      "q": "aktiencheck.de",
+      "d": "2026-11-24"
+     },
+     {
+      "t": "AlphaValue/Baader Europe Cuts EPS Forecasts for Heidelberg Materials on Cost, Financing Pressures",
+      "u": "https://app.bigdata.com/documents/BA63D0CDAA4BD24874F3D56ECEE4BEC1?cnum=1",
+      "q": "MT Newswires",
+      "d": "2026-11-26"
+     },
+     {
+      "t": "Heidelberg Materials-Aktie: Q3-Ergebnis steigt, Ausblick bestätigt",
+      "u": "https://www.ad-hoc-news.de/boerse/news/corporate-news/heidelberg-materials-aktie-q3-ergebnis-steigt-ausblick-bestaetigt/70464739",
+      "q": "ad-hoc-news.de",
+      "d": "2026-11-05"
+     }
+    ]
+   },
+   {
+    "s": "DIS",
+    "einschaetzung": "Ausbruch mit Rückenwind, aber teuer",
+    "warum": "Disney hat ein Vier-Jahres-Hoch erreicht, liegt rund 15 % über dem Stand vor vier Wochen und 18 % über dem vor drei Monaten, RSI 69. Treiber sind die starken Quartalszahlen, eine um 33 % erhöhte Dividende, mehr Aktienrückkäufe und die gerichtliche Entlastung im Streit mit der FCC. Im Dezember soll Hulu vollständig in Disney+ aufgehen. Die übliche Sieben-Tage-Bewegung von 4 % liegt knapp unter der Hürde von 4,12 %.",
+    "ausblick": "Der Ausbruch über eine mehrjährige Spanne kann Anschlusskäufe auslösen. Weil die Bewertung laut Berichten am oberen Ende liegt, ist ein Seitwärtslauf ebenso plausibel; die übliche Bewegung von 4 % liegt knapp unter der Hürde von 4,12 %, das Ziel ist daher eher knapp.",
+    "szenarien": {
+     "gut": "Der Ausbruch hält und neue Analystenziele ziehen nach.",
+     "schlecht": "Gewinnmitnahmen nach dem besten Monat seit Mai 2025."
+    },
+    "treiber": [
+     "Vier-Jahres-Hoch",
+     "FCC-Entlastung, höhere Dividende"
+    ],
+    "risiken": [
+     "Wenig Abstand zum Analystenziel",
+     "Hürde knapp über der üblichen Bewegung"
+    ],
+    "termine": [
+     "Dezember 2026: geplante Integration von Hulu in Disney+"
+    ],
+    "zuversicht": "niedrig",
+    "quellen": [
+     {
+      "t": "Disney Stock Just Closed at Its Highest Level Since April 2022",
+      "u": "https://app.bigdata.com/documents/A1BBCB56F78682A19AA266AC338AAB45?cnum=1",
+      "q": "AOL.com",
+      "d": "2026-11-26"
+     },
+     {
+      "t": "DIS Stock Breaks Above $125 For First Time Since 2022",
+      "u": "https://app.bigdata.com/documents/03BB8B127DB3DBDDB2000E2BDEEE4898?cnum=1",
+      "q": "Yahoo Finance / Stocktwits",
+      "d": "2026-11-26"
+     },
+     {
+      "t": "Walt Disney (DIS) Could Be 4% Undervalued On Its FCC Court Win",
+      "u": "https://app.bigdata.com/documents/CFF455E352876373E368D96249687DAF?cnum=1",
+      "q": "Simply Wall St",
+      "d": "2026-11-27"
+     },
+     {
+      "t": "Why Should Walt Disney Stock Holders Watch One Rising Number?",
+      "u": "https://app.bigdata.com/documents/4CCCE43202E276516AFBBD1C6088F6C1?cnum=3",
+      "q": "Yahoo Finance",
+      "d": "2026-11-25"
      }
     ]
    },
@@ -401,12 +409,11 @@
     ],
     "risiken": [
      "Hohe Bewertung",
-     "Übliche Bewegung unter der Hürde",
-     "Mittags fließt Geld zurück in Technologiewerte, defensive Konsumwerte hinken hinterher"
+     "Übliche Bewegung unter der Hürde"
     ],
     "termine": [
-     "27.11.2026: verkürzter US-Handel nach Thanksgiving (Schluss 19 Uhr MEZ)",
-     "27.–30.11.2026: Black-Friday- und Cyber-Monday-Wochenende"
+     "27.–30.11.2026: Black-Friday- und Cyber-Monday-Wochenende",
+     "04.12.2026: US-Arbeitsmarktbericht"
     ],
     "zuversicht": "niedrig",
     "quellen": [
@@ -437,51 +444,43 @@
     ]
    },
    {
-    "s": "DIS",
-    "einschaetzung": "Ausbruch mit Rückenwind, aber teuer",
-    "warum": "Disney hat ein Vier-Jahres-Hoch erreicht, liegt rund 15 % über dem Stand vor vier Wochen und 18 % über dem vor drei Monaten, RSI 69. Treiber sind die starken Quartalszahlen, eine um 33 % erhöhte Dividende, mehr Aktienrückkäufe und die gerichtliche Entlastung im Streit mit der FCC. Im Dezember soll Hulu vollständig in Disney+ aufgehen. Die übliche Sieben-Tage-Bewegung von 4 % liegt knapp unter der Hürde von 4,12 %.",
-    "ausblick": "Der Ausbruch über eine mehrjährige Spanne kann Anschlusskäufe auslösen. Weil die Bewertung laut Berichten am oberen Ende der eigenen Spanne liegt, ist ein Seitwärtslauf ebenso plausibel, die Hürde ist daher eher knapp.",
+    "s": "PHIA.AS",
+    "einschaetzung": "Trend intakt, kurzfristiger Auslöser fehlt",
+    "warum": "Philips hat in vier Wochen rund 13 % und in drei Monaten rund 23 % zugelegt und steht fast am 10-Tage-Hoch (RSI 70, Trend aufwärts). Getragen wird das von den Zahlen zum dritten Quartal mit besserer Marge im Tagesgeschäft und der grundsätzlichen Einigung mit dem US-Justizministerium im langen Streit um zurückgerufene Atemgeräte. Seitdem gab es aber kaum neue Firmenmeldungen. Gewählt wurde Philips, weil die anderen Kandidaten noch schwächere Gründe haben; die übliche Sieben-Tage-Bewegung von 3,8 % liegt unter der Hürde von 4,12 %.",
+    "ausblick": "Am wahrscheinlichsten ist ein ruhiges Weiterlaufen des Trends mit kleinen Schritten. Die nötigen 4,12 % in sieben Tagen sind ohne neuen Auslöser eher unwahrscheinlich, ehrlich betrachtet ist das ein Grenzfall.",
     "szenarien": {
-     "gut": "Der Ausbruch hält und neue Analystenziele ziehen nach.",
-     "schlecht": "Gewinnmitnahmen nach dem besten Monat seit Mai 2025."
+     "gut": "Die Erholung europäischer Aktien hält an und Anleger setzen weiter auf das Ende der Rechtsrisiken.",
+     "schlecht": "Neue Rückstellungen oder Rechtsnachrichten zum Atemgeräte-Rückruf belasten den Kurs."
     },
     "treiber": [
-     "Vier-Jahres-Hoch",
-     "FCC-Entlastung, höhere Dividende"
+     "Bessere Marge im dritten Quartal",
+     "Einigung mit dem US-Justizministerium"
     ],
     "risiken": [
-     "Wenig Abstand zum Analystenziel",
-     "Hürde knapp über der üblichen Bewegung"
+     "Übliche Bewegung unter der Hürde",
+     "Weitere Rückstellungen möglich",
+     "RSI 70"
     ],
-    "termine": [
-     "27.11.2026: verkürzter US-Handel nach Thanksgiving (Schluss 19 Uhr MEZ)",
-     "Dezember 2026: geplante Integration von Hulu in Disney+"
-    ],
+    "termine": [],
     "zuversicht": "niedrig",
     "quellen": [
      {
-      "t": "Disney Stock Just Closed at Its Highest Level Since April 2022",
-      "u": "https://app.bigdata.com/documents/A1BBCB56F78682A19AA266AC338AAB45?cnum=1",
-      "q": "AOL.com",
-      "d": "2026-11-26"
+      "t": "AKTIE IM FOKUS: Philips nach Zahlen und Einigung in den USA gefragt",
+      "u": "https://de.finance.yahoo.com/nachrichten/aktie-fokus-philips-zahlen-einigung-101210092.html?.tsrc=rss",
+      "q": "Yahoo Finanzen (dpa-AFX)",
+      "d": "2026-11-03"
      },
      {
-      "t": "DIS Stock Breaks Above $125 For First Time Since 2022",
-      "u": "https://app.bigdata.com/documents/03BB8B127DB3DBDDB2000E2BDEEE4898?cnum=1",
-      "q": "Yahoo Finance / Stocktwits",
-      "d": "2026-11-26"
+      "t": "Philips: Robustes Neugeschäft und bessere Marge - Weitere Rückstellung",
+      "u": "https://de.finance.yahoo.com/nachrichten/philips-robustes-neugesch%C3%A4ft-bessere-marge-080027462.html?.tsrc=rss",
+      "q": "Yahoo Finanzen",
+      "d": "2026-11-03"
      },
      {
-      "t": "Walt Disney (DIS) Could Be 4% Undervalued On Its FCC Court Win",
-      "u": "https://app.bigdata.com/documents/CFF455E352876373E368D96249687DAF?cnum=1",
-      "q": "Simply Wall St",
+      "t": "European stocks close the week with strong gains ahead of the elections in Spain",
+      "u": "https://app.bigdata.com/documents/01C6C51D192811C095CCFFEF71C9E6AC?cnum=1",
+      "q": "La Nación (Reuters)",
       "d": "2026-11-27"
-     },
-     {
-      "t": "Why Should Walt Disney Stock Holders Watch One Rising Number?",
-      "u": "https://app.bigdata.com/documents/4CCCE43202E276516AFBBD1C6088F6C1?cnum=3",
-      "q": "Yahoo Finance",
-      "d": "2026-11-25"
      }
     ]
    }
@@ -531,24 +530,24 @@
    },
    {
     "s": "WMT",
-    "einschaetzung": "Solider Trendwert, Hürde zu hoch",
-    "warum": "Walmart notiert nahe dem 10-Tage-Hoch, mit knapp 4 % Plus in fünf Tagen und 25 % in drei Monaten; der RSI von 70 zeigt eine gewisse Überhitzung. Das Management hat nach dem dritten Quartal die Gewinnprognose angehoben, Onlinehandel und Werbung wachsen deutlich. Im Zeitraum liegt das gesamte Weihnachtsgeschäft, für das Walmart selbst stark plant. Die hohe Bewertung ist der wichtigste Gegenpunkt.",
-    "ausblick": "Über 30 Tage ist ein weiterer Anstieg plausibel, wenn das Weihnachtsgeschäft gut läuft. Die nötigen 17,4 % sind bei einer üblichen Bewegung von 7,8 % aber sehr unwahrscheinlich.",
+    "einschaetzung": "Solide, Weihnachtsgeschäft im Blick",
+    "warum": "Walmart liegt rund 11 % über dem Stand vor vier Wochen und 25 % über dem vor drei Monaten, RSI 70, mit knapp 4 % Plus in fünf Tagen. Nach den Quartalszahlen hat das Management die Gewinnprognose angehoben und ein starkes Weihnachtsgeschäft erwartet, Telsey sieht Walmart als einen der Gewinner der Saison. Die Bewertung ist mit dem 39-Fachen des erwarteten Gewinns allerdings hoch. Die übliche Sieben-Tage-Bewegung von 3,8 % liegt knapp unter der Hürde.",
+    "ausblick": "Das Weihnachtsgeschäft und die angehobene Prognose können den Trend über den Monat tragen. Die nötigen 17,44 % liegen aber weit über der üblichen Monatsbewegung von 7,8 %, eine solide Entwicklung ohne Erreichen dieser Hürde ist das wahrscheinlichste Ergebnis.",
     "szenarien": {
-     "gut": "Ein starkes Weihnachtsgeschäft und eine ruhige Fed-Sitzung.",
-     "schlecht": "Bewertungsdruck oder neue Zollsorgen."
+     "gut": "Starke Signale aus dem Black-Friday-Wochenende bestätigen die Erwartung eines guten Weihnachtsgeschäfts.",
+     "schlecht": "Die hohe Bewertung führt bei neutralen Nachrichten zu Gewinnmitnahmen."
     },
     "treiber": [
      "Weihnachtsgeschäft",
-     "Wachstum bei Online und Werbung"
+     "Angehobene Gewinnprognose"
     ],
     "risiken": [
      "Hohe Bewertung",
-     "Neue US-Zollpläne"
+     "Übliche Bewegung unter der Hürde"
     ],
     "termine": [
      "27.–30.11.2026: Black-Friday- und Cyber-Monday-Wochenende",
-     "08./09.12.2026: Zinssitzung der US-Notenbank"
+     "09.12.2026: Zinsentscheid der US-Notenbank"
     ],
     "zuversicht": "mittel",
     "quellen": [
@@ -569,6 +568,12 @@
       "u": "https://startupfortune.com/walmart-shares-slip-after-a-third-quarter-beat-and-a-higher-full-year-outlook/",
       "q": "Startup Fortune",
       "d": "2026-11-19"
+     },
+     {
+      "t": "WINNERS & LOSERS: Miners rally on metal prices; Rheinmetall inks deal",
+      "u": "https://app.bigdata.com/documents/B298EED6EB5ADDC380998E7E08D0DE15?cnum=1",
+      "q": "Alliance News",
+      "d": "2026-11-27"
      }
     ]
    },
@@ -671,7 +676,7 @@
     "termine": [
      "08./09.12.2026: Zinssitzung der US-Notenbank"
     ],
-    "zuversicht": "niedrig",
+    "zuversicht": "mittel",
     "quellen": [
      {
       "t": "Morgan Stanley Maintains Overweight on Marriott International, Raises Price Target to $431",
@@ -699,7 +704,12 @@
   {
    "s": "LHA.DE",
    "h": 3,
-   "grund": "Fünf Tage im Minus und der Tarifstreit mit den Piloten ist ungelöst, die Gewerkschaft hat den Vergütungsvertrag gekündigt."
+   "grund": "Die Friedenspflicht ist vorbei und die Piloten haben den Vergütungstarifvertrag gekündigt, ein Streik vor Weihnachten ist möglich."
+  },
+  {
+   "s": "LHA.DE",
+   "h": 7,
+   "grund": "Streikrisiko im Pilotentarifkonflikt und Stellenabbau, Analysten überwiegend auf Halten."
   },
   {
    "s": "VLTO",
@@ -707,34 +717,44 @@
    "grund": "Übliche Drei-Tage-Bewegung von 2,4 % liegt kaum über der Hürde; für 30 Tage gewählt."
   },
   {
-   "s": "AIZ",
+   "s": "CPAY",
    "h": 3,
-   "grund": "Ruhiger Wert mit üblicher Bewegung von 2,3 % und RSI 73, kaum Spielraum."
+   "grund": "Der Chef hat außerhalb eines festen Plans erneut Aktien für rund 85 Mio. US-Dollar nahe dem Hoch verkauft, das trübt das Signal."
   },
   {
-   "s": "MGM",
+   "s": "PHIA.AS",
    "h": 3,
-   "grund": "Über drei Monate rund 15 % im Minus, der Monatsanstieg wirkt wie eine Erholung ohne klaren Auslöser."
+   "grund": "Übliche Drei-Tage-Bewegung von 2,5 % nur knapp über der Hürde, kein frischer Auslöser."
+  },
+  {
+   "s": "FISV",
+   "h": 3,
+   "grund": "Nach 8 % Plus in fünf Tagen bereits 4 % unter dem 10-Tage-Hoch, ETFs waren zuletzt Nettoverkäufer und es fehlt eine neue Firmenmeldung."
   },
   {
    "s": "VLTO",
    "h": 7,
-   "grund": "Übliche Sieben-Tage-Bewegung von 3,7 % unter der Hürde von 4,12 %, RSI 72; für 30 Tage gewählt."
+   "grund": "Übliche Sieben-Tage-Bewegung von 3,7 % unter der Hürde von 4,12 %, RSI 73; für 30 Tage gewählt."
+  },
+  {
+   "s": "COST",
+   "h": 7,
+   "grund": "Kaum Bewegung in fünf Tagen und übliche Bewegung von 3,1 % deutlich unter der Hürde."
+  },
+  {
+   "s": "BRK-B",
+   "h": 7,
+   "grund": "Sehr träger Wert mit üblicher Sieben-Tage-Bewegung von 2,5 %, die Hürde ist kaum erreichbar."
   },
   {
    "s": "AIZ",
    "h": 7,
-   "grund": "Übliche Sieben-Tage-Bewegung von 3,4 % unter der Hürde, RSI 73."
-  },
-  {
-   "s": "SAN.PA",
-   "h": 7,
-   "grund": "Stark überhitzt (RSI 81) nach dem Übernahme-Sprung, die DZ Bank sieht den fairen Wert fast erreicht."
+   "grund": "Übliche Sieben-Tage-Bewegung von 3,4 % unter der Hürde, RSI 74."
   },
   {
    "s": "TECH",
    "h": 30,
-   "grund": "Der Kurs bewegt sich kaum noch (übliche Bewegung 0,7 %), Meldungen sprechen von einer Übernahme, damit fehlt Kurspotenzial."
+   "grund": "Der Kurs bewegt sich nach dem Übernahmeangebot kaum noch, damit fehlt Kurspotenzial."
   },
   {
    "s": "NA9.DE",
@@ -747,29 +767,14 @@
    "grund": "Übernahmeangebot deckelt das Potenzial bis zum Abschluss."
   },
   {
-   "s": "SAN.PA",
-   "h": 3,
-   "grund": "Mittags rund 2,4 % im Minus nach einer Abstufung, Anleger nehmen nach dem Übernahme-Sprung Gewinne mit."
-  },
-  {
    "s": "PHIA.AS",
-   "h": 7,
-   "grund": "Übliche Sieben-Tage-Bewegung von 3,8 % unter der Hürde von 4,12 %, kein frischer Auslöser in den Meldungen."
+   "h": 30,
+   "grund": "Kein klarer neuer Auslöser, die nötigen 17,44 % liegen weit über der üblichen Monatsbewegung von 7,8 %."
   },
   {
    "s": "COST",
-   "h": 7,
-   "grund": "Fünf Tage im Minus und über 2 % unter dem 10-Tage-Hoch, übliche Bewegung von 3,1 % deutlich unter der Hürde."
-  },
-  {
-   "s": "PHIA.AS",
    "h": 30,
-   "grund": "Kein klarer neuer Auslöser gefunden, die nötigen 17,44 % liegen weit über der üblichen Monatsbewegung von 7,8 %."
-  },
-  {
-   "s": "FRE.DE",
-   "h": 30,
-   "grund": "Solider Trend, aber ohne frischen Auslöser; die nötigen 17,44 % liegen weit über der üblichen Monatsbewegung von 8,7 %."
+   "grund": "Quartalszahlen am 10.12.2026 mitten im Zeitraum, dazu schwacher Kurs in den letzten fünf Tagen."
   }
  ]
 }
