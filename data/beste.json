@@ -1,9 +1,9 @@
 {
- "id": "b-2026-11-28-morgens",
+ "id": "b-2026-11-28-mittags",
  "datum": "2026-11-28",
- "slot": "morgens",
- "erstellt": "2026-11-28T06:18:14Z",
- "markt": "Die Wall Street hat eine verkürzte Woche mit dem stärksten Wochengewinn seit mehr als einem Jahr beendet: Der S&P 500 stieg um 5,6 %, der Nasdaq um 6,7 %, getragen von einer Erholung der zuvor stark gefallenen KI- und Chipwerte; der DAX gewann gut 2,5 %. Die Erholung gilt aber noch nicht als Entwarnung, der Nasdaq liegt weiter deutlich unter seinem Oktober-Hoch und an den Terminmärkten werden inzwischen Zinserhöhungen der US-Notenbank erwartet. Nächste Woche stehen die Wahl in Spanien am Sonntag, Cyber Monday und am 4. Dezember der US-Arbeitsmarktbericht an.",
+ "slot": "mittags",
+ "erstellt": "2026-11-28T12:17:08Z",
+ "markt": "Am Wochenende ruhen die Börsen; seit dem Morgen gibt es keine neuen marktbewegenden Meldungen. Die Wall Street hat eine verkürzte Woche mit dem stärksten Wochengewinn seit mehr als einem Jahr beendet, getragen von einer Erholung der KI- und Chipwerte, und der DAX gewann gut 2,5 %. Als Entwarnung gilt das noch nicht: Der Nasdaq liegt weiter unter seinem Oktober-Hoch, und nächste Woche folgen die Wahl in Spanien, Cyber Monday und am 4. Dezember der US-Arbeitsmarktbericht.",
  "marktQuellen": [
   {
    "t": "Wall Street stages major comeback during Thanksgiving-shortened trading week",
@@ -291,45 +291,37 @@
     ]
    },
    {
-    "s": "SAN.PA",
-    "einschaetzung": "Starker Auslöser, aber stark überhitzt",
-    "warum": "Sanofi hat in fünf Tagen rund 16 % und in vier Wochen 28 % gewonnen, nachdem der Konzern am 24. November die Übernahme von Insmed für 41 Mrd. US-Dollar in bar angekündigt hat. Insmed bringt das bereits zugelassene Atemwegsmittel Brinsupri mit; Barclays sieht dadurch deutlich bessere Wachstumsaussichten, Jefferies eine gute Absicherung gegen das spätere Patentende von Dupixent. Der Ausblick für 2026 bleibt unberührt, ein Gewinnbeitrag wird erst bis Ende 2028 erwartet. Mit RSI 82 ist die Aktie stark überhitzt und gab am Freitag gut 1 % nach.",
-    "ausblick": "Nach einem Sprung dieser Größe folgt oft eine Phase der Verdauung; der RSI von 82 spricht kurzfristig eher für Gewinnmitnahmen. Für weitere Zugewinne spricht, dass Analysten den Deal überwiegend positiv sehen. Die übliche Sieben-Tage-Bewegung von 5,2 % liegt über der Hürde von 4,12 %, das Ziel ist möglich, die Richtung aber offen.",
+    "s": "AIZ",
+    "einschaetzung": "Ruhiger Aufwärtstrend, für eine Woche aber eher knapp",
+    "warum": "Assurant ist neu in der Sieben-Tage-Auswahl und ersetzt Sanofi, das nicht mehr unter den Kandidaten ist. Die Aktie liegt rund 12 % über dem Stand vor vier Wochen und etwa 15 % über dem vor drei Monaten, notiert am 10-Tage-Hoch und hat in fünf Tagen knapp 4 % gewonnen; der RSI von 74 liegt aber knapp unter der Überhitzungsschwelle. Der Versicherer hat zuletzt die Dividende erhöht und wird in aktuellen Analystenübersichten überwiegend positiv gesehen. Der Wert gilt als eher defensiv und schwankt wenig.",
+    "ausblick": "Der Trend ist intakt, doch die übliche Sieben-Tage-Bewegung von 3,4 % liegt unter der nötigen Steigerung von 4,12 %. Ein Erreichen der Hürde ist damit nur bei einem überdurchschnittlich guten Verlauf realistisch, wahrscheinlicher ist eine langsamere Fortsetzung oder eine Verschnaufpause nach dem Anstieg.",
     "szenarien": {
-     "gut": "Weitere Analysten heben nach dem Deal ihre Ziele an und Anleger bewerten Sanofi wegen der besseren Wachstumsaussichten neu.",
-     "schlecht": "Gewinnmitnahmen nach dem Sprung oder Sorgen über die Schulden zur Finanzierung des Kaufs."
+     "gut": "Die freundliche Marktstimmung hält an und defensive Qualitätswerte mit steigender Dividende bleiben gefragt.",
+     "schlecht": "Gewinnmitnahmen nach dem Lauf nahe RSI 75 oder eine Umschichtung zurück in Technologiewerte."
     },
     "treiber": [
-     "Insmed-Übernahme mit zugelassenen Medikamenten",
-     "Positive Analystenstimmen (Barclays, Berenberg, Jefferies)"
+     "Erhöhte Dividende",
+     "Positive Analystenstimmung",
+     "Stabiler Aufwärtstrend"
     ],
     "risiken": [
-     "RSI 82, stark überhitzt",
-     "Hoher Kaufpreis und Fremdfinanzierung",
-     "Gewinnbeitrag erst ab Ende 2028"
+     "Übliche Bewegung unter der Hürde",
+     "Kurz vor Überhitzung (RSI 74)"
     ],
-    "termine": [
-     "04.12.2026: US-Arbeitsmarktbericht"
-    ],
+    "termine": [],
     "zuversicht": "niedrig",
     "quellen": [
      {
-      "t": "Sanofi to Acquire US Respiratory Drugmaker Insmed for $41 Billion",
-      "u": "https://app.bigdata.com/documents/7AD2F882122BE8AA8E572A76965EDF04?cnum=1",
-      "q": "MT Newswires",
-      "d": "2026-11-24"
+      "t": "3 Stocks to Watch That Announced Dividend Hikes Amid Market Turmoil",
+      "u": "https://finnhub.io/api/news?id=fdc1f9d7239ae9b47160e21597bc315538edd0d13e84cde2802c2c4c8ad5e164",
+      "q": "Yahoo Finance",
+      "d": "2026-11-26"
      },
      {
-      "t": "Drugmaker Insmed shares rally 14% after Sanofi agrees to buy it in pharma's biggest deal in three years",
-      "u": "https://app.bigdata.com/documents/75DD0C6F5CD3FD68F267F9394206662F?cnum=2",
-      "q": "CNBC",
-      "d": "2026-11-24"
-     },
-     {
-      "t": "Berenberg Reaffirms Sanofi's Buy Rating Amid Rumored Insmed Acquisition",
-      "u": "https://app.bigdata.com/documents/861D96E30FBCC9E4EB62C65F86372D70?cnum=1",
-      "q": "MT Newswires",
-      "d": "2026-11-23"
+      "t": "Assurant Stock: Analyst Estimates & Ratings",
+      "u": "https://finnhub.io/api/news?id=f03291e744b54dffedcdc2eb4f12a5c3a125c5575f095e19262ac89718dc17e3",
+      "q": "Yahoo Finance",
+      "d": "2026-11-27"
      }
     ]
    },
@@ -698,11 +690,6 @@
    "grund": "Fünf Tage im Minus und offener Tarifkonflikt mit den Piloten, ein Streik vor Weihnachten ist möglich."
   },
   {
-   "s": "SAN.PA",
-   "h": 3,
-   "grund": "Nach rund 16 % in fünf Tagen und RSI 82 wirkt der Übernahmesprung kurzfristig ausgereizt; für 7 Tage mit niedriger Zuversicht gewählt."
-  },
-  {
    "s": "VLTO",
    "h": 3,
    "grund": "Übliche Drei-Tage-Bewegung von 2,4 % kaum über der Hürde; für 7 und 30 Tage gewählt."
@@ -730,7 +717,7 @@
   {
    "s": "PHIA.AS",
    "h": 7,
-   "grund": "Kein frischer Auslöser seit den Quartalszahlen, übliche Bewegung unter der Hürde."
+   "grund": "Kein frischer Firmenauslöser seit den Quartalszahlen Anfang November, übliche Bewegung von 3,8 % unter der Hürde."
   },
   {
    "s": "LHA.DE",
@@ -766,6 +753,21 @@
    "s": "COST",
    "h": 30,
    "grund": "Quartalszahlen am 10.12.2026 mitten im Zeitraum, dazu schwacher Kurs in den letzten fünf Tagen."
+  },
+  {
+   "s": "PHIA.AS",
+   "h": 3,
+   "grund": "Übliche Drei-Tage-Bewegung von 2,5 % nur knapp über der Hürde und kein frischer Auslöser."
+  },
+  {
+   "s": "FISV",
+   "h": 3,
+   "grund": "Rund 4 % unter dem 10-Tage-Hoch nach starkem Lauf, ohne klaren neuen Auslöser bleibt die Fortsetzung unsicher."
+  },
+  {
+   "s": "PHIA.AS",
+   "h": 30,
+   "grund": "Nötige Steigerung von gut 17 % in 30 Tagen nach dem Lauf seit den Zahlen kaum plausibel."
   }
  ]
 }
